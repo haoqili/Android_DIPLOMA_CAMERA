@@ -1,0 +1,28 @@
+TODO: figure out why mux is null
+
+TOASK:
+
+    1. Currently I'm not able to start the sparse matrix benchmark because of my mux is null
+
+        so the benchmark was stopped from this from StatusActivity: 
+            if (mux == null || mux.vncDaemon == null
+                    || mux.vncDaemon.csm == null 
+                    || mux.vncDaemon.csm.userApp == null)
+                return;
+
+    I'm wondering if you could explain why there are different options of mux in the "if" check above.
+
+    Those are just to protect against null pointer exceptions in case someone presses a button while the VCoreDaemon or any of the layers aren't actually running (as is the case when the app is first started. You have to put it into a valid region (try 0) first before it'll start running the VCoreDaemon).
+
+    Mux may be null if the network stuff isn't working. Adhoc needs to be running and working before the app is started.
+ 
+    2. I guess you only put all of JGF's stuff in UserApp? Yes
+
+    3. What are VCoreDaemon, SparseRunner, Atom. The matrix is started in UserApp, which is in turn called by DSMLayer, but I am not sure how all the java classes fit together for the big picture.
+
+    StatusActivity starts Mux and NetworkThread
+    Mux starts VCoreDaemon
+    VCoreDaemon starts DSMLayer.
+    DSMLayer starts UserApp.
+
+

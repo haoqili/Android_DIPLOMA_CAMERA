@@ -1,0 +1,75 @@
+./android update project -p ~/Desktop/MEng/                             sparse_matrix_mult_java_grande_forum_benchmark/ -t 1
+./adb install /Users/haoqili/Desktop/MEng/                              sparse_matrix_mult_java_grande_forum_benchmark/bin/StatusActivity-debug-unaligned.apk
+
+TODO: use the adhoc phone and try it with "eth0" changed to name of adhoc0
+TODO: return to old working code and figure out why forced close
+
+StatusActivity.java
+
+StatusActivity.
+    Handler myHandler cases Mux.*
+    
+    1. onCreate()
+        starts mux = new Mux
+
+        ||
+        \/
+        Mux.
+            onStart()
+                new NetworkThread
+        ||
+        \/
+        NetworkThread.
+            constructor: 
+                myBcastIPAddress = getBroadcastAddress
+                myIPAddress = null; // local IP address
+
+                I wanted to hard-code the IP address,
+                    but there is no constructor for InetAddress
+                        DHCP Gateway: 192.168.5.1
+                        Netmask: 255.255.255.0
+
+                Calls restartSocket()
+
+            restartSocket()
+                "Initial socket buffer sizes: 110592 receive, 110592 send"
+                "Set socket buffer sizes to: 221184 receive, 221184 send"
+
+            back to 
+            Construtor: "started, local IP address:/192.168.5.1"
+
+    back to
+    StatusActivity:onCreate():
+        "1324954594143: *** Application started ***"e
+
+    2. onResume():, called after onStart
+        "1324954594145: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000"
+
+    1. onCreate()'s 
+        Mux: onStart()
+            vncDaemon = new VCoreDaemon  ???? verify that it's here that calls VCoreDaemon's constructor
+        ||
+        \/
+        VCoreDaemon.
+            constructor
+                "1324954594163: Started VCoreDaemon with parameters maxRx = 10 , maxRY= 0, minLongitude = 10384948 , minLatitude = 128898, regionWidth =180"
+            
+            onStart()
+                "1324954594173: started, mId = 5001"
+                calls stateTransition() 
+
+           stateTransition()
+                "1324954594173: region (-1, -1) out of bounds, dormant"
+
+E/AndroidRuntime(  801): FATAL EXCEPTION: main
+E/AndroidRuntime(  801): java.lang.NumberFormatException: unable to parse '' as integer
+E/AndroidRuntime(  801):        at java.lang.Integer.parseInt(Integer.java:362)
+E/AndroidRuntime(  801):        at java.lang.Integer.parseInt(Integer.java:332)
+E/AndroidRuntime(  801):        at edu.mit.csail.diplomamatrix.StatusActivity$5.onClick(StatusActivity.java:288)
+
+EUREKA! I have to enter in something before hitting "set region"!
+
+UserApp.java
+    matrix stuff
+
+
