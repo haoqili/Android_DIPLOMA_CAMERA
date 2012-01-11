@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/StatusHeadingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/TextView04"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:text="State" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/TextView03"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:text="Region" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:text="My ID" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/TextView05"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:text="Leader" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/StatusInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/state_tv"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:text="State" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/region_tv"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:text="Region" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/id_tv"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:text="ID" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/leader_tv"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:text="Leader" >
+        </TextView>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/msgList"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll" >
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/CountInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/opcount_tv"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:text="ops: 0" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/successcount_tv"
+            android:layout_width="110dip"
+            android:layout_height="wrap_content"
+            android:text="successes: 0" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/failurecount_tv"
+            android:layout_width="90dip"
+            android:layout_height="wrap_content"
+            android:text="failures: 0" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TestButtonsLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cache_button"
+            android:layout_width="130dip"
+            android:layout_height="match_parent"
+            android:text="Cache is OFF" >
+        </Button>
+
+        <Button
+            android:id="@+id/bench_button"
+            android:layout_width="100dip"
+            android:layout_height="match_parent"
+            android:text="Start Bench" >
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/RegionButtonsLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/region_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/region_button"
+            android:layout_width="90dip"
+            android:layout_height="match_parent"
+            android:text="Set Region" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ThreadsButtonsLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/threads_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/threads_button"
+            android:layout_width="90dip"
+            android:layout_height="match_parent"
+            android:text="Set Workers" />
+    </LinearLayout>
+
+</LinearLayout>
