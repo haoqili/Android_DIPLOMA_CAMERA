@@ -200,12 +200,14 @@ public class StatusActivity extends Activity implements LocationListener {
 			// we're running from within the simulator, so use given id and
 			// start benchmark after a delay
 			id = Long.valueOf(extras.getString("id"));
+			Log.i("Status Activity, getting id = ", String.valueOf(id));
 		}
 		Log.i(TAG, "about to start mux hqqqqqqqqqqqqqqqqqqq");
+		Log.i("                id = ", String.valueOf(id));
 		mux = new Mux(id, myHandler);
-		Log.i(TAG, "end to start mux hqqqqqqqqqqqqqqqqqqq");
+		Log.i(TAG, "end to start mux hqqqqqqqqqqqqqq11qqqqq");
 		mux.start();
-
+		
 		// Watch out for low battery conditions
 		BroadcastReceiver receiver = new BroadcastReceiver() {
 			@Override
@@ -261,6 +263,23 @@ public class StatusActivity extends Activity implements LocationListener {
 	private OnClickListener bench_button_listener = new OnClickListener() {
 		public void onClick(View v) {
 		    Log.i(TAG, "about to start benchmark hqqqqqqqqqqqqqqqqqqq");
+		    if (mux == null){
+		    	Log.i("bench button null 1:", "mux == null. :(:(:(:(:(:(:(");
+		    } else {
+		    	if (mux.vncDaemon == null){
+		    		Log.i("bench button null 2:", "mux.vncDaemon == null. :(:(:(");
+		    	} else {
+		    		if (mux.vncDaemon.csm == null){
+		    			Log.i("bench button null 3:", "mux.vncDaemon.csm == null :(:(:(:(");
+		    		} else {
+		    			if (mux.vncDaemon.csm.userApp == null) {
+		    				Log.i("bench button null 4:", "mux.vncDaemon.csm.userApp == null :(:(:(:(");
+		    			} else {
+		    				Log.i("bench button null 5:", ":):):):)");
+		    			}
+		    		}
+		    	}
+		    }
 			if (mux == null || mux.vncDaemon == null
 					|| mux.vncDaemon.csm == null
 					|| mux.vncDaemon.csm.userApp == null) {

@@ -106,6 +106,7 @@ public class VCoreDaemon extends Thread {
 
 	/** Send a packet through the network thread */
 	public void sendPacket(Packet p) {
+		Log.i(TAG, "inside sendPacket(Packet p)");
 		mux.myHandler.obtainMessage(Mux.PACKET_SEND, p).sendToTarget();
 	}
 
@@ -352,6 +353,7 @@ public class VCoreDaemon extends Thread {
 
 	private void stateTransition(int targetState, RegionKey targetRegion,
 			Packet vnp) {
+		Log.i("VCoreDaemon.java", "inside stateTransition ......................................................................................");
 		// Cancel outstanding leader requests, retries, etc.
 		myHandler.removeCallbacks(leaderRequestRetryR);
 		myHandler.removeCallbacks(leaderRequestTimeoutR);
@@ -360,6 +362,7 @@ public class VCoreDaemon extends Thread {
 		// If out of bounds, don't do anything and just wait
 		if (myRegion.x > maxRx || myRegion.y > maxRy || myRegion.x < 0
 				|| myRegion.y < 0) {
+			Log.i("..... VCoreDaemon.java", "out of bounds");
 			logMsg(String.format("region (%d, %d) out of bounds, dormant",
 					myRegion.x, myRegion.y));
 
@@ -370,6 +373,7 @@ public class VCoreDaemon extends Thread {
 			this.lastHeartbeatTime = -1;
 
 		} else if (targetState == JOINING) {
+			Log.i("..... VCoreDaemon.java", "targetState = JOINING");
 			this.mState = targetState;
 			this.myRegion = new RegionKey(targetRegion);
 			this.leaderId = -1;
@@ -383,6 +387,7 @@ public class VCoreDaemon extends Thread {
 			myHandler.postDelayed(stateRequestedTimeoutR,
 					VCoreDaemon.stateRequestedTimeoutPeriod); // in case
 		} else if (targetState == LEADER) {
+			Log.i("..... VCoreDaemon.java", "targetState = LEADER");
 			// Ask cloud if we can become the leader
 
 			Cloud.CloudResponse csmR = null;
@@ -412,10 +417,13 @@ public class VCoreDaemon extends Thread {
 
 			// Reset the CSM layer
 			if (csm != null)
+				Log.i("..... VCoreDaemon.java", "targetState = LEADER and csm is not null");
 				csm.stop();
 			if (false) { // TODO if (vnp.csm_hash != csm.getHash()) { // use own
+				Log.i("..... VCoreDaemon.java", "targetState = LEADER and (false)");
 				logMsg("continuing with csm data from local replica");
 			} else {
+				Log.i("..... VCoreDaemon.java", "targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D");
 				csm = new DSMLayer(this, targetRegion, this.cacheEnabled);
 				// if triggered by a packet (e.g. leader handoff), try that data
 				if (vnp != null && vnp.csm_data != null) {
@@ -463,6 +471,7 @@ public class VCoreDaemon extends Thread {
 			logMsg(String.format("now fully up as LEADER (id=%d) of %s", mId,
 					myRegion));
 		} else if (targetState == NONLEADER) {
+			Log.i("..... VCoreDaemon.java", "targetState = NONLEADER");
 			// Update self attributes
 			mState = NONLEADER;
 			leaderId = vnp.src;
@@ -490,6 +499,7 @@ public class VCoreDaemon extends Thread {
 		}
 
 		mux.myHandler.obtainMessage(Mux.VNC_STATUS_CHANGE).sendToTarget();
+		Log.i("..... VCoreDaemon.java", "ends xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		return;
 	}
 
@@ -591,6 +601,7 @@ public class VCoreDaemon extends Thread {
 	}
 
 	private void onStart() {
+		Log.i("VCoreDaemon.java", "onStart() about to stateTransition.........................................................................");
 		logMsg("started, mId = " + mId);
 		myCloud = new Cloud();
 		stateTransition(JOINING, myRegion, null);

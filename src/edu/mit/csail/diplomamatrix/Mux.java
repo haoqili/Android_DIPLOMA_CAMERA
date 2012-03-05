@@ -124,6 +124,7 @@ public class Mux extends Thread {
 		if (nodeId < 0) {
 			nodeId = 1000 * netThread.getLocalAddress().getAddress()[2]
 					+ netThread.getLocalAddress().getAddress()[3];
+			Log.i("Mux.java's nodeId is", String.valueOf(nodeId));
 			// nodeId = netThread.getLocalAddress().getAddress()[3]; // lastoct
 		}
 
@@ -181,6 +182,7 @@ public class Mux extends Thread {
 	@Override
 	public void run() {
 		// Prepare looper and handler on current thread
+		Log.i("Mux.java", "run() beginning -------------");
 		Looper.prepare();
 		myHandler = new Handler() {
 			@Override

@@ -8,6 +8,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import android.util.Log;
+
 public class DSMLayer implements Serializable {
 	private static final long serialVersionUID = 5L;
 
@@ -407,6 +409,7 @@ public class DSMLayer implements Serializable {
 		this.vncDaemon = v;
 
 		logMsg("DSMLayer starting");
+		Log.i("DSMLayer.java", "starting new UserApp ...............................");
 		this.userApp = new UserApp(m, this);
 		this.userApp.start();
 

@@ -171,6 +171,7 @@ public class UserApp implements DSMUser {
 
 		switch (request.procedure) {
 		case WORK_AND_BARRIER: // multiply worker / my portion of the matrix
+			Log.i("UserApp.java", "multiply worker / my portion of the matrix %%%%%%%%%%%%%%");
 			logMsg("Received work request!");
 			// Deserialize SparseRunner
 			long startTime = System.currentTimeMillis();
@@ -179,6 +180,8 @@ public class UserApp implements DSMUser {
 				sr = srFromBytes(request.data);
 				Thread th = new Thread(sr);
 				th.start();
+				// th.join makes sure th is finished
+				// see http://cnapagoda.blogspot.com/2010/01/thread-join-method.html
 				th.join();
 				reply.data = srToBytes(sr);
 				reply.requestSuccess = true;

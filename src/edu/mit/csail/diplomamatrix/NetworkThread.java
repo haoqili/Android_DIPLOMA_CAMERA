@@ -51,10 +51,8 @@ public class NetworkThread extends Thread {
 
 		// Determine local IP address
 		myIPAddress = null;
-        /*
 		try {
-			//NetworkInterface intf = NetworkInterface.getByName("eth0");
-			NetworkInterface intf = NetworkInterface.getByName("barnacle");
+			NetworkInterface intf = NetworkInterface.getByName("eth0");
 			for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr
 					.hasMoreElements();) {
 				InetAddress inetAddress = enumIpAddr.nextElement();
@@ -64,21 +62,21 @@ public class NetworkThread extends Thread {
 			}
 			if (myIPAddress == null) {
 			    Log.e(TAG, "no addresses bound to barnacle hqqqqqqqqqqqqqqqqqq ");
-				//throw new Exception("no addresses bound to eth0");
-				throw new Exception("no addresses bound to barnacle");
-            }
+				throw new Exception("no addresses bound to eth0");
+			}
 		} catch (Exception e) {
 			Log.e(TAG, "can't determine local IP address: " + e.toString());
 			closeSocket();
 			return;
 		}
-        */
+        
 
-        // HaoQi download from: http://www.droidnova.com/get-the-ip-address-of-your-device,304.html
+        /* HaoQi download from: http://www.droidnova.com/get-the-ip-address-of-your-device,304.html
         try {
             for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
                 NetworkInterface intf = en.nextElement();
-                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses();
+                		enumIpAddr.hasMoreElements();) {
                     InetAddress inetAddress = enumIpAddr.nextElement();
                     if (!inetAddress.isLoopbackAddress()) {
                         myIPAddress =  inetAddress;
@@ -89,7 +87,7 @@ public class NetworkThread extends Thread {
             Log.e(TAG, "can't determine local IP address: " + e.toString());
             closeSocket();
             return;
-        }
+        }*/
 
 
 		restartSocket();

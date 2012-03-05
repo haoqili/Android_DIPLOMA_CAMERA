@@ -19,6 +19,7 @@ class SparseRunner implements Serializable, Runnable {
 
 	public SparseRunner(double yt[], int id, double val[], int row[], int col[], double x[],
 			int NUM_ITERATIONS, int nz, int lowsum[], int highsum[]) {
+		Log.i("SparseRunner", "SparseRunner initializing ................");
 		this.yt = yt;
 		this.id = id;
 		this.x = x;
