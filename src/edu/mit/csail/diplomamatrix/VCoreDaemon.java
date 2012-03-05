@@ -416,10 +416,10 @@ public class VCoreDaemon extends Thread {
 			this.leaderId = mId;
 
 			// Reset the CSM layer
-			if (csm != null)
+			if (csm != null) {
 				Log.i("..... VCoreDaemon.java", "targetState = LEADER and csm is not null");
 				csm.stop();
-			if (false) { // TODO if (vnp.csm_hash != csm.getHash()) { // use own
+			}if (false) { // TODO if (vnp.csm_hash != csm.getHash()) { // use own
 				Log.i("..... VCoreDaemon.java", "targetState = LEADER and (false)");
 				logMsg("continuing with csm data from local replica");
 			} else {

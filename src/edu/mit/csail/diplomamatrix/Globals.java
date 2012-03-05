@@ -13,7 +13,7 @@ public class Globals {
         final static public int SAMPLING_DURATION=1000;
         final static public int SAMPLING_DISTANCE=1;
         final static public int REGION_WIDTH=180;
-        final static public String BROADCAST_ADDRESS="192.168.255.255";
+        final static public String BROADCAST_ADDRESS="192.168.5.255"; //.255.255 also works
         
         final static public int SPARSE_NUM_ITER=100000;
 		public static final boolean DEBUG_SKIP_CLOUD = true;
