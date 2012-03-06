@@ -62,7 +62,8 @@ public class Cloud {
 		long time = System.currentTimeMillis();
 		InputStream data = makeRequest(String.format("http://" + hostname
 				+ "/release/%d/%d/%d/%d/", region.x, region.y, id, time));
-
+		Log.i(TAG, "in Cloud releaseLeadership");
+		Log.i(TAG, data.toString());
 		Reader r = new InputStreamReader(data);
 		Gson gson = new Gson();
 		CloudResponse cloudR = null;

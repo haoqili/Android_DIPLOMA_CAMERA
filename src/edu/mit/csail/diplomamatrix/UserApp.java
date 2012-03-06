@@ -26,7 +26,7 @@ public class UserApp implements DSMUser {
 	int barrier_count = 0;
 
 	// App-specific stuff
-	public int nthreads = 1; // number of threads to execute in the program
+	public int nthreads = Globals.NTHREADS; // number of threads to execute in the program
 	public double ytotal = 0.0;
 	public double global_yt[]; // this is very randomly coupled, this is the
 								// shared output variable t split across threads
