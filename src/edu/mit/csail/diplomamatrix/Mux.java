@@ -26,6 +26,7 @@ public class Mux extends Thread {
 	protected final static int VNC_STATUS_CHANGE = 6;
 	protected final static int REGION_CHANGE = 7;
 	protected final static int CLIENT_STATUS_CHANGE = 8;
+	protected final static int CLIENT_REQUEST = 50;
 
 	// Components TODO make private
 	private NetworkThread netThread;
@@ -66,6 +67,11 @@ public class Mux extends Thread {
 				break;
 			} // end switch(vnp.type)
 
+			break;
+		case Mux.CLIENT_REQUEST:
+			Log.i(TAG, "insite Mux processMessage Client_Request");
+			Packet packet = (Packet) msg.obj;
+			vncDaemon.csm.userApp.handleClientRequest(packet);
 			break;
 		case Mux.PACKET_SEND:
 			//logMsg("VNC -> Network"); // Only VCoreDaemon uses PACKET_SEND

@@ -299,51 +299,6 @@ public class StatusActivity extends Activity implements LocationListener {
 	}
 
 	/*** UI Callbacks for Buttons, etc. ***/
-	/*private OnClickListener bench_button_listener = new OnClickListener() {
-		public void onClick(View v) {
-		    Log.i(TAG, "about to start benchmark hqqqqqqqqqqqqqqqqqqq");
-		    if (mux == null){
-		    	Log.i("bench button null 1:", "mux == null. :(:(:(:(:(:(:(");
-		    } else {
-		    	if (mux.vncDaemon == null){
-		    		Log.i("bench button null 2:", "mux.vncDaemon == null. :(:(:(");
-		    	} else {
-		    		if (mux.vncDaemon.csm == null){
-		    			Log.i("bench button null 3:", "mux.vncDaemon.csm == null :(:(:(:(");
-		    		} else {
-		    			if (mux.vncDaemon.csm.userApp == null) {
-		    				Log.i("bench button null 4:", "mux.vncDaemon.csm.userApp == null :(:(:(:(");
-		    			} else {
-		    				Log.i("bench button null 5:", ":):):):)");
-		    			}
-		    		}
-		    	}
-		    }
-			if (mux == null || mux.vncDaemon == null
-					|| mux.vncDaemon.csm == null
-					|| mux.vncDaemon.csm.userApp == null) {
-		        Log.i(TAG, ":( mux not right, can't start benchmark hqqqqqqqqqqqqqqqqqqq");
-				return;
-            }
-			logMsg("*** benchmark starting ***");
-			mux.vncDaemon.csm.userApp.startBenchmark();
-			update();
-		}
-	};*/
-
-	/*private OnClickListener cache_button_listener = new OnClickListener() {
-		// toggle caching in vncDaemon (which will toggle in DSMLayer)
-		public void onClick(View v) {
-			if (mux.vncDaemon.cacheEnabled) {
-				cache_button.setText("Cache is OFF");
-				mux.vncDaemon.disableCaching();
-			} else {
-				cache_button.setText("Cache is ON");
-				mux.vncDaemon.enableCaching();
-			}
-		}
-	};*/
-
 	private OnClickListener region_button_listener = new OnClickListener() {
 		public void onClick(View v) {
 			int rX = Integer.parseInt(regionText.getText().toString());
@@ -351,15 +306,6 @@ public class StatusActivity extends Activity implements LocationListener {
 			mux.vncDaemon.changeRegion(new RegionKey(rX, rY));
 		}
 	};
-
-	/*private OnClickListener threads_button_listener = new OnClickListener() {
-		public void onClick(View v) {
-			int nthreads = Integer.parseInt(threadsText.getText().toString());
-			if (mux.vncDaemon.csm != null
-					&& mux.vncDaemon.csm.userApp != null)
-				mux.vncDaemon.csm.userApp.nthreads = nthreads;
-		}
-	};*/
 
 	/***
 	 * Location / GPS Stuff adapted from
@@ -422,12 +368,30 @@ public class StatusActivity extends Activity implements LocationListener {
             Bitmap resized = _scaleToTargetSize(thumbnail);
             ImageView image2 = (ImageView) findViewById(R.id.photoResized);
             image2.setImageBitmap(resized);
-            try {
-				mux.vncDaemon.csm.userApp.uploadPhoto(resized);
-			} catch (IOException e) {
-				Log.i(TAG, "Something went wrong in uploadPhoto");
-				e.printStackTrace();
-			}
+            
+            Log.i(TAG, "111111111");
+            // Create a Packet to send through Mux to Leader's UserApp
+            /*
+            Packet packet = new Packet(mux.vncDaemon.myRegion.x, 
+            		// starts to run mux :(, addr already in use
+            					  mux.vncDaemon.myRegion.x,
+            					  Packet.CLIENT_UPLOAD_PHOTO,
+            					  -1,
+            					  mux.vncDaemon.myRegion,
+            					  mux.vncDaemon.myRegion);*/
+            // TODO: un-hard-code regions
+            Packet packet = new Packet(1,
+					  1,
+					  Packet.CLIENT_UPLOAD_PHOTO,
+					  -1,
+					  new RegionKey(1,0),
+					  new RegionKey(1,0));
+            Log.i(TAG, "222222222");
+            packet.photo = resized;
+            Log.i(TAG, "3333333333");
+            //mux.vncDaemon.csm.userApp.uploadPhoto(resized);
+			mux.myHandler.obtainMessage(mux.CLIENT_REQUEST, packet).sendToTarget();
+			Log.i(TAG, "44444444444");
         }
     }
     

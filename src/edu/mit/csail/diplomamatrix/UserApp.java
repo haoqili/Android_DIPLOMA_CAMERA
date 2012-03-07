@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.text.format.Time;
 import android.util.Log;
 
+// only "leader" have this, i.e. the "leader" parts of leaders have UserApp
 public class UserApp implements DSMUser {
 	final static String TAG = "UserApp";
 
@@ -17,7 +18,7 @@ public class UserApp implements DSMUser {
 	private Mux mux;
 
 	// DSM Atoms that can be called
-	final static int UPLOAD_PHOTO = 1;
+	final static int SERVER_UPLOAD_PHOTO = 1;
 	final static int REQUESTED_A_PHOTO = 0;
 
 	long kernelStartTime, kernelStopTime;
@@ -59,10 +60,10 @@ public class UserApp implements DSMUser {
 	
 	/** upload a new picture 
 	 * @throws IOException **/
-	public synchronized void uploadPhoto(Bitmap the_photo) throws IOException {
+	/*public synchronized void uploadPhoto(Bitmap the_photo) throws IOException {
         Log.i(TAG, "in UserApp's uploadPicture() hqqqqqqqqqqqqqqqqqqq");
 		dsm.atomRequest(UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0, true, bitmapToBytes(the_photo));
-	}
+	}*/
 
 	/**
 	 * Handle a DSM Atom reply from a remote region. Executed by the source /
@@ -97,12 +98,12 @@ public class UserApp implements DSMUser {
 				Atom.PROC_REPLY, request.dstRegion, request.srcRegion);
 
 		switch (request.procedure) {
-		case UPLOAD_PHOTO:
+		case SERVER_UPLOAD_PHOTO:
 			logMsg("Inside UPLOAD_PHOTO!!");
 			// run on the leader of the region of phone that took photo
 			// should just save the photo data inside the block
 			Time now = new Time();
-			// todo: better naming?
+			// TODO: better naming?
 			String photoName = mux.vncDaemon.myRegion.x + now.toString();
 			try {
 				block.lines.put(photoName, request.data); // request.data is the bitmap bytes
@@ -122,7 +123,25 @@ public class UserApp implements DSMUser {
 
 		return reply;
 	}
-
+	
+	/**
+	 * Handle some request from a client (i.e. a non-leader, i.e. the part that doesn't 
+	 * know about UserApp or the DIPLOMA layer at all)
+	 */
+	public synchronized void handleClientRequest(Packet packet){
+		switch (packet.type) {
+		case Packet.CLIENT_UPLOAD_PHOTO:
+			logMsg("Inside CLIENT_NEW_PHOTO!!");
+			// send request to CSM to upload photo
+			try {
+				dsm.atomRequest(SERVER_UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0, true, bitmapToBytes(packet.photo));
+			} catch (IOException e) {
+				logMsg("bitmapToBytes didn't work");
+				e.printStackTrace();
+			}
+			break;
+		}
+	}
 
 	/**
 	 * Serialize a Photo to a byte array

@@ -1,6 +1,8 @@
 package edu.mit.csail.diplomamatrix;
 import java.io.Serializable;
 
+import android.graphics.Bitmap;
+
 public class Packet implements Serializable {
 	private static final long serialVersionUID = 6L;
 
@@ -8,6 +10,9 @@ public class Packet implements Serializable {
 	final static int VNC_MSG = 1;
 	final static int CSM_MSG = 2;
 	final static int APP_MSG = 3;
+	// for camera client
+	final static int CLIENT_UPLOAD_PHOTO = 10;
+	final static int DOWNLOAD_PHOTOS = 11;
 
 	// VNC_MSG subtypes
 	final static int LEADER_REQUEST = 0; // Who's the leader?
@@ -37,6 +42,7 @@ public class Packet implements Serializable {
 	
 	// APP stuff
 	// public UserOp user_op = null;
+	public Bitmap photo = null;
 	
 	/** Construct Packet with values */
 	public Packet(long src_, long dst_, int type_, int subtype_,

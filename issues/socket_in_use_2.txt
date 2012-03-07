@@ -1,0 +1,117 @@
+Nonleader:
+
+
+
+D/AudioHardware(   75): AudioHardware pcm playback is going to standby.
+D/AudioHardware(   75): closePcmOut_l() mPcmOpenCnt: 1
+I/CameraHardwareSec(   75): virtual void android::CameraHardwareSec::stopPreview() : preview not running, doing nothing
+I/CameraHardwareSec(   75): virtual void android::CameraHardwareSec::stopPreview() : preview not running, doing nothing
+I/CameraHardwareSec(   75): int android::CameraHardwareSec::previewThreadWrapper(): return from wait
+I/CameraHardwareSec(   75): int android::CameraHardwareSec::previewThreadWrapper(): exiting
+W/SecCamera(   75): int android::SecCamera::stopPreview(): doing nothing because m_flag_camera_start is zero
+I/CameraHardwareSec(   75): virtual void android::CameraHardwareSec::release(): calling mPreviewHeap.dispose()
+W/SecCamera(   75): int android::SecCamera::stopRecord(): doing nothing because m_flag_record_start is zero
+I/SecCamera(   75): DeinitCamera: m_cam_fd(15)
+D/SEC_Overlay(  112): overlay_destroyOverlay:IN dev (0x28ec58) and overlay (0x379818)
+I/SEC_Overlay(  112): Destroying overlay/fd=243/obj=00379818
+D/SEC_Overlay(  112): overlay_destroyOverlay:OUT
+I/SecCamera(   75): DeinitCamera: m_cam_fd2(21)
+I/Mux     (  587): Stop request encountered.
+D/Mux     (  587): Waiting for VCoreDaemon to stop...
+I/VCoreDaemon(  587): Stop request encountered.
+I/VCoreDaemon(  587): Loop ended, vncDaemon thread exiting
+D/dalvikvm(  587): GC_EXTERNAL_ALLOC freed 402K, 52% free 2814K/5831K, external 2032K/2137K, paused 30ms
+I/StatusActivity(  587): 1331099834047: *** Opened log file for writing ***
+I/StatusActivity(  587): about to start mux hqqqqqqqqqqqqqqqqqqq
+I/                id = (  587): -1
+I/StatusActivity(  587): end to start mux hqqqqqqqqqqqqqq11qqqqq
+I/StatusActivity(  587): about to start benchmark hqqqqqqqqqqqqqqqqqqq
+I/bench button null 2:(  587): mux.vncDaemon == null. :(:(:(
+I/StatusActivity(  587): :( mux not right, can't start benchmark hqqqqqqqqqqqqqqqqqqq
+I/StatusActivity(  587): Camera Handling results!
+I/StatusActivity(  587): orig total bytes: 76800
+I/StatusActivity(  587): orig width: 160
+I/StatusActivity(  587): orig height: 120
+I/StatusActivity(  587): new width: 147
+I/StatusActivity(  587): new height: 110
+I/StatusActivity(  587): new total bytes: 64680
+I/StatusActivity(  587): 111111111
+I/Mux.java(  587): run() beginning -------------
+D/Mux     (  587): Mux started
+I/StatusActivity(  587): 222222222
+I/StatusActivity(  587): 3333333333
+I/StatusActivity(  587): 44444444444
+I/StatusActivity(  587): 1331099834058: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+E/NetworkThread(  587): Cannot open socketAddress already in use
+I/NetworkThread(  587): started, local IP address:/192.168.5.105
+E/Mux     (  587): Cannot start server: socket not ok.
+I/Mux     (  587): insite Mux processMessage Client_Request
+W/dalvikvm(  587): threadid=11: thread exiting with uncaught exception (group=0x40015560)
+E/AndroidRuntime(  587): FATAL EXCEPTION: Thread-13
+E/AndroidRuntime(  587): java.lang.NullPointerException
+E/AndroidRuntime(  587):        at edu.mit.csail.diplomamatrix.Mux.processMessage(Mux.java:74)
+E/AndroidRuntime(  587):        at edu.mit.csail.diplomamatrix.Mux.access$1(Mux.java:49)
+E/AndroidRuntime(  587):        at edu.mit.csail.diplomamatrix.Mux$2.handleMessage(Mux.java:196)
+E/AndroidRuntime(  587):        at android.os.Handler.dispatchMessage(Handler.java:99)
+E/AndroidRuntime(  587):        at android.os.Looper.loop(Looper.java:123)
+E/AndroidRuntime(  587):        at edu.mit.csail.diplomamatrix.Mux.run(Mux.java:200)
+W/ActivityManager(  112):   Force finishing activity edu.mit.csail.diplomamatrix/.StatusActivity
+E/ActivityThread(  587): Activity edu.mit.csail.diplomamatrix.StatusActivity has leaked IntentReceiver edu.mit.csail.diplomamatrix.StatusActivity$4@4052d488 that was originally registered here. Are you missing a call to unregisterReceiver()?
+E/ActivityThread(  587): android.app.IntentReceiverLeaked: Activity edu.mit.csail.diplomamatrix.StatusActivity has leaked IntentReceiver edu.mit.csail.diplomamatrix.StatusActivity$4@4052d488 that was originally registered here. Are you missing a call to unregisterReceiver()?
+E/ActivityThread(  587):        at android.app.LoadedApk$ReceiverDispatcher.<init>(LoadedApk.java:756)
+E/ActivityThread(  587):        at android.app.LoadedApk.getReceiverDispatcher(LoadedApk.java:551)
+E/ActivityThread(  587):        at android.app.ContextImpl.registerReceiverInternal(ContextImpl.java:795)
+E/ActivityThread(  587):        at android.app.ContextImpl.registerReceiver(ContextImpl.java:782)
+E/ActivityThread(  587):        at android.app.ContextImpl.registerReceiver(ContextImpl.java:776)
+E/ActivityThread(  587):        at android.content.ContextWrapper.registerReceiver(ContextWrapper.java:318)
+E/ActivityThread(  587):        at edu.mit.csail.diplomamatrix.StatusActivity.onCreate(StatusActivity.java:229)
+E/ActivityThread(  587):        at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1047)
+E/ActivityThread(  587):        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:1611)
+E/ActivityThread(  587):        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:1663)
+E/ActivityThread(  587):        at android.app.ActivityThread.access$1500(ActivityThread.java:117)
+E/ActivityThread(  587):        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:931)
+E/ActivityThread(  587):        at android.os.Handler.dispatchMessage(Handler.java:99)
+E/ActivityThread(  587):        at android.os.Looper.loop(Looper.java:123)
+E/ActivityThread(  587):        at android.app.ActivityThread.main(ActivityThread.java:3683)
+E/ActivityThread(  587):        at java.lang.reflect.Method.invokeNative(Native Method)
+E/ActivityThread(  587):        at java.lang.reflect.Method.invoke(Method.java:507)
+E/ActivityThread(  587):        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:839)
+E/ActivityThread(  587):        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:597)
+E/ActivityThread(  587):        at dalvik.system.NativeStart.main(Native Method)
+I/WindowManager(  112): Setting rotation to 0, animFlags=1
+I/ActivityManager(  112): Config changed: { scale=1.0 imsi=0/0 loc=en_US touch=3 keys=1/1/2 nav=1/1 orien=1 layout=34 uiMode=17 seq=5}
+I/dalvikvm(  112): Jit: resizing JitTable from 4096 to 8192
+V/RenderScript_jni(  205): surfaceCreated
+V/RenderScript_jni(  205): surfaceChanged
+I/ActivityManager(  112): No longer want com.android.bluetooth (pid 408): hidden #16
+V/RenderScript_jni(  205): surfaceChanged
+V/RenderScript_jni(  205): surfaceChanged
+V/RenderScript_jni(  205): surfaceChanged
+E/ActivityThread(  587): Activity edu.mit.csail.diplomamatrix.StatusActivity has leaked IntentReceiver edu.mit.csail.diplomamatrix.StatusActivity$4@40557020 that was originally registered here. Are you missing a call to unregisterReceiver()?
+E/ActivityThread(  587): android.app.IntentReceiverLeaked: Activity edu.mit.csail.diplomamatrix.StatusActivity has leaked IntentReceiver edu.mit.csail.diplomamatrix.StatusActivity$4@40557020 that was originally registered here. Are you missing a call to unregisterReceiver()?
+E/ActivityThread(  587):        at android.app.LoadedApk$ReceiverDispatcher.<init>(LoadedApk.java:756)
+E/ActivityThread(  587):        at android.app.LoadedApk.getReceiverDispatcher(LoadedApk.java:551)
+E/ActivityThread(  587):        at android.app.ContextImpl.registerReceiverInternal(ContextImpl.java:795)
+E/ActivityThread(  587):        at android.app.ContextImpl.registerReceiver(ContextImpl.java:782)
+E/ActivityThread(  587):        at android.app.ContextImpl.registerReceiver(ContextImpl.java:776)
+E/ActivityThread(  587):        at android.content.ContextWrapper.registerReceiver(ContextWrapper.java:318)
+E/ActivityThread(  587):        at edu.mit.csail.diplomamatrix.StatusActivity.onCreate(StatusActivity.java:229)
+E/ActivityThread(  587):        at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1047)
+E/ActivityThread(  587):        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:1611)
+E/ActivityThread(  587):        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:1663)
+E/ActivityThread(  587):        at android.app.ActivityThread.handleRelaunchActivity(ActivityThread.java:2832)
+E/ActivityThread(  587):        at android.app.ActivityThread.access$1600(ActivityThread.java:117)
+E/ActivityThread(  587):        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:935)
+E/ActivityThread(  587):        at android.os.Handler.dispatchMessage(Handler.java:99)
+E/ActivityThread(  587):        at android.os.Looper.loop(Looper.java:123)
+E/ActivityThread(  587):        at android.app.ActivityThread.main(ActivityThread.java:3683)
+E/ActivityThread(  587):        at java.lang.reflect.Method.invokeNative(Native Method)
+E/ActivityThread(  587):        at java.lang.reflect.Method.invoke(Method.java:507)
+E/ActivityThread(  587):        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:839)
+E/ActivityThread(  587):        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:597)
+E/ActivityThread(  587):        at dalvik.system.NativeStart.main(Native Method)
+D/Mux     (  587): Waiting for NetworkThread to stop...
+E/NetworkThread(  587): Exception on mySocket.receive: Socket closed
+I/Mux     (  587): Thread exiting
+D/dalvikvm(  112): GC_EXPLICIT freed 141K, 43% free 5007K/8647K, external 2020K/2137K, paused 71ms
+^C
