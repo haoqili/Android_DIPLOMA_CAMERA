@@ -176,11 +176,13 @@ public class VCoreDaemon extends Thread {
 				csm.stop();
 				long t1 = System.currentTimeMillis();
 				String json = csmGetJson(csm);
-				myCloud.uploadState(leaderRegion, mId, json);
-				CloudResponse cr = myCloud.releaseLeadership(leaderRegion, mId);
-				if (cr == null || cr.status != Cloud.CR_OKAY) {
-					logMsg("Error releasing leadership. Retrying...");
-					cr = myCloud.releaseLeadership(leaderRegion, mId);
+				if (!Globals.DEBUG_SKIP_CLOUD){
+					myCloud.uploadState(leaderRegion, mId, json);
+					CloudResponse cr = myCloud.releaseLeadership(leaderRegion, mId);
+					if (cr == null || cr.status != Cloud.CR_OKAY) {
+						logMsg("Error releasing leadership. Retrying...");
+						cr = myCloud.releaseLeadership(leaderRegion, mId);
+					}
 				}
 				long t2 = System.currentTimeMillis();
 				logMsg(String
@@ -228,11 +230,13 @@ public class VCoreDaemon extends Thread {
 			// upload CSM state to cloud and release leadership
 			String json = csmGetJson(csm);
 			long t1 = System.currentTimeMillis();
-			myCloud.uploadState(leaderRegion, mId, json);
-			CloudResponse cr = myCloud.releaseLeadership(leaderRegion, mId);
-			if (cr == null || cr.status != Cloud.CR_OKAY) {
-				logMsg("Error releasing leadership. Retrying...");
-				cr = myCloud.releaseLeadership(leaderRegion, mId);
+			if (!Globals.DEBUG_SKIP_CLOUD){
+				myCloud.uploadState(leaderRegion, mId, json);
+				CloudResponse cr = myCloud.releaseLeadership(leaderRegion, mId);
+				if (cr == null || cr.status != Cloud.CR_OKAY) {
+					logMsg("Error releasing leadership. Retrying...");
+					cr = myCloud.releaseLeadership(leaderRegion, mId);
+				}
 			}
 			long t2 = System.currentTimeMillis();
 			logMsg(String
@@ -332,11 +336,13 @@ public class VCoreDaemon extends Thread {
 					myHandler.removeCallbacks(newLeaderAckTimeoutR);
 					// cloudUploadState(leaderRegionX, leaderRegionY); // backup
 					long t1 = System.currentTimeMillis();
-					CloudResponse cr = myCloud.releaseLeadership(leaderRegion,
-							mId);
-					if (cr == null || cr.status != Cloud.CR_OKAY) {
-						logMsg("Error releasing leadership. Retrying...");
-						cr = myCloud.releaseLeadership(leaderRegion, mId);
+					if (!Globals.DEBUG_SKIP_CLOUD){
+						CloudResponse cr = myCloud.releaseLeadership(leaderRegion,
+								mId);
+						if (cr == null || cr.status != Cloud.CR_OKAY) {
+							logMsg("Error releasing leadership. Retrying...");
+							cr = myCloud.releaseLeadership(leaderRegion, mId);
+						}
 					}
 					long t2 = System.currentTimeMillis();
 					logMsg(String

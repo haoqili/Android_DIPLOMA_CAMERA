@@ -1,6 +1,7 @@
 package edu.mit.csail.diplomamatrix;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -24,14 +26,17 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class StatusActivity extends Activity implements LocationListener {
 	final static private String TAG = "StatusActivity";
+	private static final int CAMERA_PIC_REQUEST = 111;
 
 	// UI elements
-	Button bench_button, cache_button, region_button, threads_button;
+	//Button bench_button, cache_button, threads_button; 
+	Button camera_button, region_button;
 	TextView opCountTv, successCountTv, failureCountTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
 	EditText regionText, threadsText;
@@ -128,14 +133,16 @@ public class StatusActivity extends Activity implements LocationListener {
 		setContentView(R.layout.main);
 
 		// Buttons
-		bench_button = (Button) findViewById(R.id.bench_button);
-		bench_button.setOnClickListener(bench_button_listener);
-		cache_button = (Button) findViewById(R.id.cache_button);
-		cache_button.setOnClickListener(cache_button_listener);
+		//bench_button = (Button) findViewById(R.id.bench_button);
+		//bench_button.setOnClickListener(bench_button_listener);
+		//cache_button = (Button) findViewById(R.id.cache_button);
+		//cache_button.setOnClickListener(cache_button_listener);
 		region_button = (Button) findViewById(R.id.region_button);
 		region_button.setOnClickListener(region_button_listener);
-		threads_button = (Button) findViewById(R.id.threads_button);
-		threads_button.setOnClickListener(threads_button_listener);
+		//threads_button = (Button) findViewById(R.id.threads_button);
+		//threads_button.setOnClickListener(threads_button_listener);
+		camera_button = (Button) findViewById(R.id.camera_button);
+		camera_button.setOnClickListener(camera_button_listener);
 
 		// Text views
 		opCountTv = (TextView) findViewById(R.id.opcount_tv);
@@ -143,7 +150,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		failureCountTv = (TextView) findViewById(R.id.failurecount_tv);
 
 		regionText = (EditText) findViewById(R.id.region_text);
-		threadsText = (EditText) findViewById(R.id.threads_text);
+		//threadsText = (EditText) findViewById(R.id.threads_text);
 
 		// Text views
 		idTv = (TextView) findViewById(R.id.id_tv);
@@ -221,7 +228,39 @@ public class StatusActivity extends Activity implements LocationListener {
 		inf.addAction("android.intent.action.BATTERY_LOW");
 		this.registerReceiver(receiver, inf);
 
+		
+		// Camera Launch starting benchmark ... 
+		// copied from the "start benchmark" button onclick listener
+	    Log.i(TAG, "about to start benchmark hqqqqqqqqqqqqqqqqqqq");
+	    if (mux == null){
+	    	Log.i("bench button null 1:", "mux == null. :(:(:(:(:(:(:(");
+	    } else {
+	    	if (mux.vncDaemon == null){
+	    		Log.i("bench button null 2:", "mux.vncDaemon == null. :(:(:(");
+	    	} else {
+	    		if (mux.vncDaemon.csm == null){
+	    			Log.i("bench button null 3:", "mux.vncDaemon.csm == null :(:(:(:(");
+	    		} else {
+	    			if (mux.vncDaemon.csm.userApp == null) {
+	    				Log.i("bench button null 4:", "mux.vncDaemon.csm.userApp == null :(:(:(:(");
+	    			} else {
+	    				Log.i("bench button null 5:", ":):):):)");
+	    			}
+	    		}
+	    	}
+	    }
+		if (mux == null || mux.vncDaemon == null
+				|| mux.vncDaemon.csm == null
+				|| mux.vncDaemon.csm.userApp == null) {
+	        Log.i(TAG, ":( mux not right, can't start benchmark hqqqqqqqqqqqqqqqqqqq");
+			return;
+        }
+		logMsg("*** benchmark starting ***");
+		// TODO: Is the below necessary?  Also check if the above can be placed here in onCreate()
+		mux.vncDaemon.csm.userApp.startBenchmark();
+		update();
 		logMsg("*** Application started ***");
+		
 	} // end OnCreate()
 
 	/**
@@ -260,7 +299,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	}
 
 	/*** UI Callbacks for Buttons, etc. ***/
-	private OnClickListener bench_button_listener = new OnClickListener() {
+	/*private OnClickListener bench_button_listener = new OnClickListener() {
 		public void onClick(View v) {
 		    Log.i(TAG, "about to start benchmark hqqqqqqqqqqqqqqqqqqq");
 		    if (mux == null){
@@ -290,9 +329,9 @@ public class StatusActivity extends Activity implements LocationListener {
 			mux.vncDaemon.csm.userApp.startBenchmark();
 			update();
 		}
-	};
+	};*/
 
-	private OnClickListener cache_button_listener = new OnClickListener() {
+	/*private OnClickListener cache_button_listener = new OnClickListener() {
 		// toggle caching in vncDaemon (which will toggle in DSMLayer)
 		public void onClick(View v) {
 			if (mux.vncDaemon.cacheEnabled) {
@@ -303,7 +342,7 @@ public class StatusActivity extends Activity implements LocationListener {
 				mux.vncDaemon.enableCaching();
 			}
 		}
-	};
+	};*/
 
 	private OnClickListener region_button_listener = new OnClickListener() {
 		public void onClick(View v) {
@@ -313,14 +352,14 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 	};
 
-	private OnClickListener threads_button_listener = new OnClickListener() {
+	/*private OnClickListener threads_button_listener = new OnClickListener() {
 		public void onClick(View v) {
 			int nthreads = Integer.parseInt(threadsText.getText().toString());
 			if (mux.vncDaemon.csm != null
 					&& mux.vncDaemon.csm.userApp != null)
 				mux.vncDaemon.csm.userApp.nthreads = nthreads;
 		}
-	};
+	};*/
 
 	/***
 	 * Location / GPS Stuff adapted from
@@ -361,4 +400,59 @@ public class StatusActivity extends Activity implements LocationListener {
 			break;
 		}
 	}
+	
+	/** Camera Launch stuff **/
+    private OnClickListener camera_button_listener = new OnClickListener(){
+    	public void onClick(View v){
+    		Log.i(TAG, "#################");
+    		Log.i(TAG, "clicked Camera button");
+    		Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+    		// start the Intent:
+    		startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
+    	}
+    };
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAMERA_PIC_REQUEST) {
+            Log.i(TAG, "Camera Handling results!");
+            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+            ImageView image = (ImageView) findViewById(R.id.photoResultView);
+            image.setImageBitmap(thumbnail);
+            
+            // To scale image to a target byte size
+            Bitmap resized = _scaleToTargetSize(thumbnail);
+            ImageView image2 = (ImageView) findViewById(R.id.photoResized);
+            image2.setImageBitmap(resized);
+            try {
+				mux.vncDaemon.csm.userApp.uploadPhoto(resized);
+			} catch (IOException e) {
+				Log.i(TAG, "Something went wrong in uploadPhoto");
+				e.printStackTrace();
+			}
+        }
+    }
+    
+    
+    protected Bitmap _scaleToTargetSize(Bitmap thumbnail){
+    	// print debugging information:
+    	Log.i(TAG, "orig total bytes: " + thumbnail.getRowBytes()*thumbnail.getHeight()); // 76800 or 38400 it varies
+        // concerned about small size? 
+        // see: http://stackoverflow.com/questions/1910608/android-action-image-capture-intent
+        Log.i(TAG, "orig width: " + thumbnail.getWidth()); //160
+        Log.i(TAG, "orig height: " + thumbnail.getHeight()); //120 
+        
+        //resizing:
+    	int givenBytes = thumbnail.getRowBytes()*thumbnail.getHeight();
+    	int givenPixels = thumbnail.getHeight()*thumbnail.getWidth();
+    	int bytes_p_pixel = givenBytes/givenPixels;
+    	
+    	int targetPixels = (int) (Globals.TARGETBYTES/(1.0*bytes_p_pixel));
+    	double factor = Math.sqrt(targetPixels/(1.0*givenPixels));
+    	
+    	int newWidth = (int)(thumbnail.getWidth()*factor);
+    	int newHeight = (int)(thumbnail.getHeight()*factor);
+    	Log.i(TAG, "new width: " + newWidth);
+    	Log.i(TAG, "new height: " + newHeight);
+    	Log.i(TAG, "new total bytes: " + newWidth*newHeight*bytes_p_pixel);
+    	return Bitmap.createScaledBitmap(thumbnail, newWidth, newHeight, true);
+    }
 }

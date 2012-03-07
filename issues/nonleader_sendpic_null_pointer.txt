@@ -1,0 +1,35 @@
+Non leader:
+
+I/StatusActivity(  561): Camera Handling results!
+I/StatusActivity(  561): orig total bytes: 76800
+I/StatusActivity(  561): orig width: 160
+I/StatusActivity(  561): orig height: 120
+I/StatusActivity(  561): new width: 147
+I/StatusActivity(  561): new height: 110
+I/StatusActivity(  561): new total bytes: 64680
+D/AndroidRuntime(  561): Shutting down VM
+W/dalvikvm(  561): threadid=1: thread exiting with uncaught exception (group=0x40015560)
+I/PowerWidget(  257): Setting up widget
+I/PowerWidget(  257): Default buttons being loaded
+I/PowerWidget(  257): Button list: toggleWifi|toggleBluetooth|toggleGPS|toggleSound
+I/PowerWidget(  257): Setting up button: toggleWifi
+I/PowerWidget(  257): Setting up button: toggleBluetooth
+E/AndroidRuntime(  561): FATAL EXCEPTION: main
+E/AndroidRuntime(  561): java.lang.RuntimeException: Failure delivering result ResultInfo{who=null, request=111, result=-1, data=Intent { act=inline-data (has extras) }} to activity {edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity}: java.lang.NullPointerException
+E/AndroidRuntime(  561):        at android.app.ActivityThread.deliverResults(ActivityThread.java:2653)
+E/AndroidRuntime(  561):        at android.app.ActivityThread.handleSendResult(ActivityThread.java:2695)
+E/AndroidRuntime(  561):        at android.app.ActivityThread.access$2000(ActivityThread.java:123)
+E/AndroidRuntime(  561):        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:969)
+E/AndroidRuntime(  561):        at android.os.Handler.dispatchMessage(Handler.java:99)
+E/AndroidRuntime(  561):        at android.os.Looper.loop(Looper.java:130)
+E/AndroidRuntime(  561):        at android.app.ActivityThread.main(ActivityThread.java:3835)
+E/AndroidRuntime(  561):        at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(  561):        at java.lang.reflect.Method.invoke(Method.java:507)
+E/AndroidRuntime(  561):        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:847)
+E/AndroidRuntime(  561):        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:605)
+E/AndroidRuntime(  561):        at dalvik.system.NativeStart.main(Native Method)
+E/AndroidRuntime(  561): Caused by: java.lang.NullPointerException
+E/AndroidRuntime(  561):        at edu.mit.csail.diplomamatrix.StatusActivity.onActivityResult(StatusActivity.java:426)
+E/AndroidRuntime(  561):        at android.app.Activity.dispatchActivityResult(Activity.java:3908)
+E/AndroidRuntime(  561):        at android.app.ActivityThread.deliverResults(ActivityThread.java:2649)
+E/AndroidRuntime(  561):        ... 11 more
