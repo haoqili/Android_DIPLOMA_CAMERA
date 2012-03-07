@@ -14,6 +14,9 @@ public class Packet implements Serializable {
 	final static int CLIENT_REQUEST = 10;
 	final static int CLIENT_UPLOAD_PHOTO = 11;
 	final static int CLIENT_DOWNLOAD_PHOTO = 12;
+	// for camera server
+	final static int SERVER_UI = 1000;
+	final static int SERVER_SHOW_NEWPHOTO = 1001;
 
 	// VNC_MSG subtypes
 	final static int LEADER_REQUEST = 0; // Who's the leader?

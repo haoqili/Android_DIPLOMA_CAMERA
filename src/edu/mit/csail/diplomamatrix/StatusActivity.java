@@ -3,6 +3,7 @@ package edu.mit.csail.diplomamatrix;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.OptionalDataException;
 import java.io.PrintWriter;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -85,6 +87,26 @@ public class StatusActivity extends Activity implements LocationListener {
 						+ String.valueOf(data.get("failure")));
 
 				boolean requestOutstanding = data.get("request_oustanding") == 1L;
+				break;
+			case Packet.SERVER_SHOW_NEWPHOTO:
+				Log.i(TAG, "inside Packet.SERVER_SHOW_NEWPHOTO");
+				Packet packet = (Packet) msg.obj;
+				Bitmap new_photo;
+				try {
+					new_photo = _bytesToBitmap(packet.photo_bytes);
+					ImageView image2 = (ImageView) findViewById(R.id.photoResized);
+		            image2.setImageBitmap(new_photo);
+				} catch (OptionalDataException e) {
+					Log.i(TAG, "_bytesToBitmap failed");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					Log.i(TAG, "_bytesToBitmap failed");
+					e.printStackTrace();
+				} catch (IOException e) {
+					Log.i(TAG, "_bytesToBitmap failed");
+					e.printStackTrace();
+				}
+				break;
 			}
 		}
 	};
@@ -428,4 +450,8 @@ public class StatusActivity extends Activity implements LocationListener {
 		byte[] bytes = bos.toByteArray();
 		return bytes;
 	}
+	public Bitmap _bytesToBitmap(byte[] photo_bytes) throws OptionalDataException,
+	ClassNotFoundException, IOException {
+		return BitmapFactory.decodeByteArray(photo_bytes, 0, photo_bytes.length);
+	} 
 }

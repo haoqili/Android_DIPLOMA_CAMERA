@@ -58,13 +58,6 @@ public class UserApp implements DSMUser {
 		logMsg("UserApp created successfully");
 	}
 	
-	/** upload a new picture 
-	 * @throws IOException **/
-	/*public synchronized void uploadPhoto(Bitmap the_photo) throws IOException {
-        Log.i(TAG, "in UserApp's uploadPicture() hqqqqqqqqqqqqqqqqqqq");
-		dsm.atomRequest(UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0, true, bitmapToBytes(the_photo));
-	}*/
-
 	/**
 	 * Handle a DSM Atom reply from a remote region. Executed by the source /
 	 * originating region.
@@ -109,6 +102,17 @@ public class UserApp implements DSMUser {
 				block.lines.put(photoName, request.data); // request.data is the bitmap bytes
 				reply.requestSuccess = true;
 				logMsg("Upload Photo succeeded");
+				
+				logMsg("Update in UI through StatusActivity:");
+				
+	            Packet packet = new Packet(-1, 
+  					  -1,
+  					  Packet.SERVER_SHOW_NEWPHOTO, // unnecssary actually
+  					  -1,
+  					  mux.vncDaemon.myRegion,
+  					  mux.vncDaemon.myRegion);
+				packet.photo_bytes = request.data;
+				mux.activityHandler.obtainMessage(Packet.SERVER_SHOW_NEWPHOTO, packet).sendToTarget();
 			} catch (Exception e){
 				reply.requestSuccess = false;
 				logMsg("Upload Photo failed");
