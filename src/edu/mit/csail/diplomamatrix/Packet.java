@@ -11,8 +11,9 @@ public class Packet implements Serializable {
 	final static int CSM_MSG = 2;
 	final static int APP_MSG = 3;
 	// for camera client
-	final static int CLIENT_UPLOAD_PHOTO = 10;
-	final static int DOWNLOAD_PHOTOS = 11;
+	final static int CLIENT_REQUEST = 10;
+	final static int CLIENT_UPLOAD_PHOTO = 11;
+	final static int CLIENT_DOWNLOAD_PHOTO = 12;
 
 	// VNC_MSG subtypes
 	final static int LEADER_REQUEST = 0; // Who's the leader?
@@ -42,7 +43,7 @@ public class Packet implements Serializable {
 	
 	// APP stuff
 	// public UserOp user_op = null;
-	public Bitmap photo = null;
+	public byte[] photo_bytes = null;
 	
 	/** Construct Packet with values */
 	public Packet(long src_, long dst_, int type_, int subtype_,

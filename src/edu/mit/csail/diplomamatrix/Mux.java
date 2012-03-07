@@ -1,4 +1,6 @@
 package edu.mit.csail.diplomamatrix;
+import java.io.IOException;
+
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -26,7 +28,6 @@ public class Mux extends Thread {
 	protected final static int VNC_STATUS_CHANGE = 6;
 	protected final static int REGION_CHANGE = 7;
 	protected final static int CLIENT_STATUS_CHANGE = 8;
-	protected final static int CLIENT_REQUEST = 50;
 
 	// Components TODO make private
 	private NetworkThread netThread;
@@ -65,14 +66,24 @@ public class Mux extends Thread {
 						&& vncDaemon.csm != null)
 					vncDaemon.csm.handleCSMOp(vnp.csm_op);
 				break;
+				
+			case Packet.CLIENT_REQUEST:
+				logMsg("Inside CLIENT_REQUEST");
+				// send request to UserApp to upload photo
+				if (vncDaemon.mState == VCoreDaemon.LEADER) {
+
+					Log.i(TAG, "I'm a leader, about to process Packet.CLIENT_REQUEST in userApp");
+					vncDaemon.csm.userApp.handleClientRequest(vnp);
+				} else if (vncDaemon.mState == VCoreDaemon.NONLEADER) {
+					// non-leader should not even receive this packet
+					// since sendPackets filter out packets to itself
+					Log.i(TAG, "Nonleader does nothing for Packet.CLIENT_REQUEST");
+				}
+				break;
 			} // end switch(vnp.type)
 
 			break;
-		case Mux.CLIENT_REQUEST:
-			Log.i(TAG, "insite Mux processMessage Client_Request");
-			Packet packet = (Packet) msg.obj;
-			vncDaemon.csm.userApp.handleClientRequest(packet);
-			break;
+
 		case Mux.PACKET_SEND:
 			//logMsg("VNC -> Network"); // Only VCoreDaemon uses PACKET_SEND
 			this.netThread.sendPacket((Packet) msg.obj);

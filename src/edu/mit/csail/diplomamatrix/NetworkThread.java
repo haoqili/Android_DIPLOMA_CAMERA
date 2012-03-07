@@ -208,6 +208,7 @@ public class NetworkThread extends Thread {
 			sendData(data);
 		} catch (IOException e) {
 			Log.e(TAG, "error sending packet:" + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 

@@ -1,0 +1,32 @@
+D/dalvikvm(  423): GC_EXPLICIT freed 89K, 52% free 2583K/5379K, external 1625K/2137K, paused 18ms
+I/NetworkThread(  511): 1331147852402: Received UDP payload: 18793
+I/Mux     (  511): 1331147852456: Inside CLIENT_REQUEST
+I/Mux     (  511): I'm a leader, about to process Packet.CLIENT_REQUEST in userApp
+I/UserApp (  511): 1331147852456: Inside CLIENT_NEW_PHOTO!!
+I/VCoreDaemon(  511): 1331147852457: Sending PROC_REQUEST 1:0 (1,0)->(1,0)
+I/VCoreDaemon(  511): 1331147852457: Dispatching Atom PROC_REQUEST 1:0 (1,0)->(1,0)
+I/NetworkThread(  511): 1331147852469: Sending UDP payload: 19157
+I/VCoreDaemon(  511): 1331147852475: removed replies before id 0 from sentReplies of size 0
+I/UserApp (  511): 1331147852476: Inside UPLOAD_PHOTO!!
+I/UserApp (  511): 1331147852480: Upload Photo succeeded
+I/VCoreDaemon(  511): 1331147852483: Received PROC_REQUEST 1:0 (1,0)->(1,0), replying PROC_REPLY 1:0 (1,0)->(1,0)
+I/VCoreDaemon(  511): 1331147852484: Dispatching Atom PROC_REPLY 1:0 (1,0)->(1,0)
+I/NetworkThread(  511): 1331147852497: Sending UDP payload: 763
+I/VCoreDaemon(  511): 1331147852505: Received PROC_REPLY 1:0 (1,0)->(1,0), handing to UserApp
+I/UserApp (  511): 1331147852506: Procedure 1:0 on (1,0) successful
+I/UserApp (  511): 1331147852506: Exception deserializing completed SparseRunner!
+W/System.err(  511): java.lang.NullPointerException
+W/System.err(  511):    at java.io.ByteArrayInputStream.<init>(ByteArrayInputStream.java:58)
+W/System.err(  511):    at edu.mit.csail.diplomamatrix.UserApp.srFromBytes(UserApp.java:163)
+W/System.err(  511):    at edu.mit.csail.diplomamatrix.UserApp.handleDSMReply(UserApp.java:81)
+W/System.err(  511):    at edu.mit.csail.diplomamatrix.DSMLayer.handleCSMOp(DSMLayer.java:197)
+W/System.err(  511):    at edu.mit.csail.diplomamatrix.Mux.processMessage(Mux.java:100)
+W/System.err(  511):    at edu.mit.csail.diplomamatrix.Mux.access$1(Mux.java:50)
+W/System.err(  511):    at edu.mit.csail.diplomamatrix.Mux$2.handleMessage(Mux.java:207)
+W/System.err(  511):    at android.os.Handler.dispatchMessage(Handler.java:99)
+W/System.err(  511):    at android.os.Looper.loop(Looper.java:123)
+W/System.err(  511):    at edu.mit.csail.diplomamatrix.Mux.run(Mux.java:211)
+I/VCoreDaemon(  511): inside sendPacket(Packet p)
+I/NetworkThread(  511): 1331147853868: Sending UDP payload: 399
+I/VCoreDaemon(  511): inside sendPacket(Packet p)
+I/NetworkThread(  511): 1331147883880: Sending UDP payload: 399

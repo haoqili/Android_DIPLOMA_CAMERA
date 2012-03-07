@@ -1,5 +1,6 @@
 package edu.mit.csail.diplomamatrix;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -371,27 +372,28 @@ public class StatusActivity extends Activity implements LocationListener {
             
             Log.i(TAG, "111111111");
             // Create a Packet to send through Mux to Leader's UserApp
-            /*
-            Packet packet = new Packet(mux.vncDaemon.myRegion.x, 
-            		// starts to run mux :(, addr already in use
-            					  mux.vncDaemon.myRegion.x,
-            					  Packet.CLIENT_UPLOAD_PHOTO,
+            Packet packet = new Packet(-1, 
             					  -1,
+            					  Packet.CLIENT_REQUEST,
+            					  Packet.CLIENT_UPLOAD_PHOTO,
             					  mux.vncDaemon.myRegion,
-            					  mux.vncDaemon.myRegion);*/
-            // TODO: un-hard-code regions
-            Packet packet = new Packet(1,
-					  1,
-					  Packet.CLIENT_UPLOAD_PHOTO,
-					  -1,
-					  new RegionKey(1,0),
-					  new RegionKey(1,0));
+            					  mux.vncDaemon.myRegion);
             Log.i(TAG, "222222222");
-            packet.photo = resized;
+            try {
+				packet.photo_bytes = _bitmapToBytes(resized);
+			} catch (IOException e) {
+				Log.i(TAG, "_bitmapToBytes() failed");
+				e.printStackTrace();
+			}
             Log.i(TAG, "3333333333");
-            //mux.vncDaemon.csm.userApp.uploadPhoto(resized);
-			mux.myHandler.obtainMessage(mux.CLIENT_REQUEST, packet).sendToTarget();
-			Log.i(TAG, "44444444444");
+            if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+            	Log.i(TAG, "I'm a leader, photo packet going to mux directly");
+            	mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+				Log.i(TAG, "I'm not a leader, photo packet send out");
+	            mux.vncDaemon.sendPacket(packet);
+			}
+            Log.i(TAG, "44444444444");
         }
     }
     
@@ -419,4 +421,11 @@ public class StatusActivity extends Activity implements LocationListener {
     	Log.i(TAG, "new total bytes: " + newWidth*newHeight*bytes_p_pixel);
     	return Bitmap.createScaledBitmap(thumbnail, newWidth, newHeight, true);
     }
+	public byte[] _bitmapToBytes(Bitmap bmp) throws IOException {
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		bmp.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG */, bos);
+		// TODO: I hope this is still under 65000 bytes
+		byte[] bytes = bos.toByteArray();
+		return bytes;
+	}
 }

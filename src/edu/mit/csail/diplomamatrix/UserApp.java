@@ -129,16 +129,10 @@ public class UserApp implements DSMUser {
 	 * know about UserApp or the DIPLOMA layer at all)
 	 */
 	public synchronized void handleClientRequest(Packet packet){
-		switch (packet.type) {
+		switch (packet.subtype) {
 		case Packet.CLIENT_UPLOAD_PHOTO:
 			logMsg("Inside CLIENT_NEW_PHOTO!!");
-			// send request to CSM to upload photo
-			try {
-				dsm.atomRequest(SERVER_UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0, true, bitmapToBytes(packet.photo));
-			} catch (IOException e) {
-				logMsg("bitmapToBytes didn't work");
-				e.printStackTrace();
-			}
+			dsm.atomRequest(SERVER_UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0, true, packet.photo_bytes);
 			break;
 		}
 	}
@@ -149,7 +143,7 @@ public class UserApp implements DSMUser {
 	 * @throws IOException
 	 */
 	
-	public byte[] bitmapToBytes(Bitmap bmp) throws IOException {
+	public byte[] _bitmapToBytes(Bitmap bmp) throws IOException {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		bmp.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG */, bos);
 		// TODO: I hope this is still under 65000 bytes
