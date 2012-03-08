@@ -46,7 +46,10 @@ public class Packet implements Serializable {
 	
 	// APP stuff
 	// public UserOp user_op = null;
+	
+	// Camera stuff
 	public byte[] photo_bytes = null;
+	public byte[] getphotos_dest_region = null;
 	
 	/** Construct Packet with values */
 	public Packet(long src_, long dst_, int type_, int subtype_,

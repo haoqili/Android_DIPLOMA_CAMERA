@@ -3,6 +3,8 @@ package edu.mit.csail.diplomamatrix;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.io.OptionalDataException;
 import java.io.PrintWriter;
 import java.util.Map;
@@ -18,11 +20,13 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -37,9 +41,10 @@ public class StatusActivity extends Activity implements LocationListener {
 	final static private String TAG = "StatusActivity";
 	private static final int CAMERA_PIC_REQUEST = 111;
 
+
 	// UI elements
 	//Button bench_button, cache_button, threads_button; 
-	Button camera_button, region_button;
+	Button camera_button, getphotos_button, region_button;
 	TextView opCountTv, successCountTv, failureCountTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
 	EditText regionText, threadsText;
@@ -94,8 +99,8 @@ public class StatusActivity extends Activity implements LocationListener {
 				Bitmap new_photo;
 				try {
 					new_photo = _bytesToBitmap(packet.photo_bytes);
-					ImageView image2 = (ImageView) findViewById(R.id.photoResized);
-		            image2.setImageBitmap(new_photo);
+					ImageView image = (ImageView) findViewById(R.id.photoResultView);
+		            image.setImageBitmap(new_photo);
 				} catch (OptionalDataException e) {
 					Log.i(TAG, "_bytesToBitmap failed");
 					e.printStackTrace();
@@ -156,17 +161,13 @@ public class StatusActivity extends Activity implements LocationListener {
 		setContentView(R.layout.main);
 
 		// Buttons
-		//bench_button = (Button) findViewById(R.id.bench_button);
-		//bench_button.setOnClickListener(bench_button_listener);
-		//cache_button = (Button) findViewById(R.id.cache_button);
-		//cache_button.setOnClickListener(cache_button_listener);
 		region_button = (Button) findViewById(R.id.region_button);
 		region_button.setOnClickListener(region_button_listener);
-		//threads_button = (Button) findViewById(R.id.threads_button);
-		//threads_button.setOnClickListener(threads_button_listener);
 		camera_button = (Button) findViewById(R.id.camera_button);
 		camera_button.setOnClickListener(camera_button_listener);
-
+		getphotos_button = (Button) findViewById(R.id.getphotos_button);
+		getphotos_button.setOnClickListener(getphotos_button_listener);
+		
 		// Text views
 		opCountTv = (TextView) findViewById(R.id.opcount_tv);
 		successCountTv = (TextView) findViewById(R.id.successcount_tv);
@@ -338,7 +339,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	/** Called when a location update is received */
 	@Override
 	public void onLocationChanged(Location loc) {
-
+		logMsg(".......... GPS onLocationChanged ...... ");
 		if (loc != null) {
 			mux.vncDaemon.checkLocation(loc);
 		} else {
@@ -347,16 +348,19 @@ public class StatusActivity extends Activity implements LocationListener {
 	}
 
 	@Override
-	public void onProviderDisabled(String arg0) {
+	public void onProviderDisabled(String arg0) { // GPS off
+		logMsg("************ GPS turned OFF *************");
 	}
 
 	@Override
 	public void onProviderEnabled(String arg0) {
+		logMsg("************ GPS turned ON *************");
 	}
 
 	/** Called upon change in GPS status */
 	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {
+		logMsg("....... GPS status changed ....... ");
 		switch (status) {
 		case LocationProvider.OUT_OF_SERVICE:
 			logMsg("GPS out of service");
@@ -376,22 +380,41 @@ public class StatusActivity extends Activity implements LocationListener {
     		Log.i(TAG, "#################");
     		Log.i(TAG, "clicked Camera button");
     		Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+    		
+    		// credit: http://stackoverflow.com/questions/1910608/android-action-image-capture-intent
+            File _photoFile = new File(Globals.PHOTO_PATH);
+            try {
+                if(_photoFile.exists() == false) {
+                    _photoFile.getParentFile().mkdirs();
+                    _photoFile.createNewFile();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "Could not create file.", e);
+            }
+            Log.i(TAG + " photo path: ", Globals.PHOTO_PATH);
+
+            Uri _fileUri = Uri.fromFile(_photoFile);
+            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, _fileUri);
     		// start the Intent:
     		startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
     	}
     };
+    //TODO: higher resolution pictures
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_PIC_REQUEST) {
             Log.i(TAG, "Camera Handling results!");
-            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+            
+            if (resultCode != Activity.RESULT_OK) {
+            	logMsg("Taking picture failed. Try again!");
+            	return;
+            }
+            logMsg("Display on screen:");
             ImageView image = (ImageView) findViewById(R.id.photoResultView);
-            image.setImageBitmap(thumbnail);
-            
-            // To scale image to a target byte size
-            Bitmap resized = _scaleToTargetSize(thumbnail);
-            ImageView image2 = (ImageView) findViewById(R.id.photoResized);
-            image2.setImageBitmap(resized);
-            
+
+            Bitmap bitmap = _getAndResizeBitmap();
+            image.setImageBitmap(bitmap);
+            logMsg("GETANDRESIZE BITMAP SIZE: " + _bitmapBytes(bitmap));
+
             Log.i(TAG, "111111111");
             // Create a Packet to send through Mux to Leader's UserApp
             Packet packet = new Packet(-1, 
@@ -402,7 +425,8 @@ public class StatusActivity extends Activity implements LocationListener {
             					  mux.vncDaemon.myRegion);
             Log.i(TAG, "222222222");
             try {
-				packet.photo_bytes = _bitmapToBytes(resized);
+				//packet.photo_bytes = _bitmapToBytes(resized);
+				packet.photo_bytes = _bitmapToBytes(bitmap);
 			} catch (IOException e) {
 				Log.i(TAG, "_bitmapToBytes() failed");
 				e.printStackTrace();
@@ -419,39 +443,84 @@ public class StatusActivity extends Activity implements LocationListener {
         }
     }
     
-    
-    protected Bitmap _scaleToTargetSize(Bitmap thumbnail){
-    	// print debugging information:
-    	Log.i(TAG, "orig total bytes: " + thumbnail.getRowBytes()*thumbnail.getHeight()); // 76800 or 38400 it varies
-        // concerned about small size? 
-        // see: http://stackoverflow.com/questions/1910608/android-action-image-capture-intent
-        Log.i(TAG, "orig width: " + thumbnail.getWidth()); //160
-        Log.i(TAG, "orig height: " + thumbnail.getHeight()); //120 
-        
-        //resizing:
-    	int givenBytes = thumbnail.getRowBytes()*thumbnail.getHeight();
-    	int givenPixels = thumbnail.getHeight()*thumbnail.getWidth();
-    	int bytes_p_pixel = givenBytes/givenPixels;
-    	
-    	int targetPixels = (int) (Globals.TARGETBYTES/(1.0*bytes_p_pixel));
-    	double factor = Math.sqrt(targetPixels/(1.0*givenPixels));
-    	
-    	int newWidth = (int)(thumbnail.getWidth()*factor);
-    	int newHeight = (int)(thumbnail.getHeight()*factor);
-    	Log.i(TAG, "new width: " + newWidth);
-    	Log.i(TAG, "new height: " + newHeight);
-    	Log.i(TAG, "new total bytes: " + newWidth*newHeight*bytes_p_pixel);
-    	return Bitmap.createScaledBitmap(thumbnail, newWidth, newHeight, true);
+    private OnClickListener getphotos_button_listener = new OnClickListener(){
+    	public void onClick(View v){
+    		Log.i(TAG, "#################");
+    		Log.i(TAG, "clicked getphotos Button from region 2");
+    		int targetRegion = 2;
+            Log.i(TAG, "6666666666");
+            // Create a Packet to send through Mux to Leader's UserApp
+            Packet packet = new Packet(-1, 
+            					  -1,
+            					  Packet.CLIENT_REQUEST,
+            					  Packet.CLIENT_DOWNLOAD_PHOTO,
+            					  mux.vncDaemon.myRegion,
+            					  mux.vncDaemon.myRegion); 
+            Log.i(TAG, "7777777777");
+            try {
+				packet.getphotos_dest_region = _intToBytes(targetRegion);
+			} catch (IOException e) {
+				Log.i(TAG, "_intToBytes() failed");
+				e.printStackTrace();
+			}
+            Log.i(TAG, "8888888888");
+            if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+            	Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
+            	mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+				Log.i(TAG, "I'm not a leader, requesting photos packet send out");
+	            mux.vncDaemon.sendPacket(packet);
+			}
+            Log.i(TAG, "9999999999");
+    	}
+    };
+    protected Bitmap _getAndResizeBitmap(){
+        BitmapFactory.Options options =new BitmapFactory.Options();
+        // first we don't produce an actual bitmap, but just probe its dimensions
+        options.inJustDecodeBounds = true;
+        Bitmap bitmap = BitmapFactory.decodeFile(Globals.PHOTO_PATH, options);
+        int h, w;
+        if (options.outHeight > options.outWidth){
+        	h = (int) Math.ceil(options.outHeight/(float) Globals.TARGET_SHORT_SIDE);
+        	w = (int) Math.ceil(options.outWidth/(float) Globals.TARGET_LONG_SIDE);
+        } else {
+        	w = (int) Math.ceil(options.outHeight/(float) Globals.TARGET_SHORT_SIDE);
+        	h = (int) Math.ceil(options.outWidth/(float) Globals.TARGET_LONG_SIDE);
+        }
+        if(h>1 || w>1){
+        	options.inSampleSize = (h > w) ? h : w;
+        }
+        // now we actually produce the bitmap, resized
+        options.inJustDecodeBounds=false;
+        bitmap =BitmapFactory.decodeFile(Globals.PHOTO_PATH, options);
+        logMsg("Options height x width: " + options.outHeight + " x " + options.outWidth);
+        return bitmap;
     }
+
+    protected int _bitmapBytes(Bitmap bitmap){
+    	return bitmap.getRowBytes()*bitmap.getHeight();
+    }
+   
 	public byte[] _bitmapToBytes(Bitmap bmp) throws IOException {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
-		bmp.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG */, bos);
+		bmp.compress(Bitmap.CompressFormat.JPEG, Globals.COMP_QUALITY, bos);
 		// TODO: I hope this is still under 65000 bytes
 		byte[] bytes = bos.toByteArray();
+		logMsg("BYTE SIZE AFTER COMPRESSION: " + bytes.length);
 		return bytes;
 	}
 	public Bitmap _bytesToBitmap(byte[] photo_bytes) throws OptionalDataException,
 	ClassNotFoundException, IOException {
 		return BitmapFactory.decodeByteArray(photo_bytes, 0, photo_bytes.length);
 	} 
+
+	public byte[] _intToBytes(int my_int) throws IOException {
+	    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+	    ObjectOutput out = new ObjectOutputStream(bos);
+	    out.writeInt(my_int);
+	    out.close();
+	    byte[] int_bytes = bos.toByteArray();
+	    bos.close();
+	    return int_bytes;
+	}
 }

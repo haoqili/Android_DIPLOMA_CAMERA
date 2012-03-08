@@ -4,6 +4,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.io.OptionalDataException;
 
 import android.graphics.Bitmap;
@@ -18,8 +20,8 @@ public class UserApp implements DSMUser {
 	private Mux mux;
 
 	// DSM Atoms that can be called
-	final static int SERVER_UPLOAD_PHOTO = 1;
-	final static int REQUESTED_A_PHOTO = 0;
+	final static int SERVER_UPLOAD_PHOTO = 10;
+	final static int SERVER_REQUEST_PHOTO = 11;
 
 	long kernelStartTime, kernelStopTime;
 	long runStartTime, runStopTime;
@@ -70,14 +72,8 @@ public class UserApp implements DSMUser {
 			// deal with finished sr
 			// deserialize completed SparseRunner
 			SparseRunner sr = null;
-			try {
-				sr = srFromBytes(reply.data);
+				//sr = srFromBytes(reply.data);
 				// handle completed SparseRunner
-			} catch (Exception e) {
-				logMsg("Exception deserializing completed SparseRunner!");
-				e.printStackTrace();
-				return;
-			}
 		}
 	}
 
@@ -119,8 +115,40 @@ public class UserApp implements DSMUser {
 				e.printStackTrace();
 			}
 			break;
-		case REQUESTED_A_PHOTO:
-			// reply.data should contain the bytes of the photo
+		case SERVER_REQUEST_PHOTO:
+			// relay the client's download photo request to the getphotos_dest_region
+			logMsg("INSIDE SERVER_REQUEST_PHOTO!!!");
+			/*try {
+				int dest_region = _bytesToInt(request.data);
+				logMsg("SEND TO REGION: " + dest_region);
+				
+				if (dest_region == mux.vncDaemon.myRegion.x){
+					// Send reply packet, with data of photo
+					Packet packet = new Packet(-1, 
+							-1,
+							// TODO: 
+							Packet._REQUEST,
+							Packet.CLIENT_DOWNLOAD_PHOTO,
+							mux.vncDaemon.myRegion,
+							new RegionKey(dest_region, 0)); 
+					packet.getphotos_dest_region = _intToBytes(dest_region);
+					mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+					
+				} else {
+					// Send forward packet, to forward to dest_region
+					Packet packet = new Packet(-1, 
+							-1,
+							Packet.CLIENT_REQUEST,
+							Packet.CLIENT_DOWNLOAD_PHOTO,
+							mux.vncDaemon.myRegion,
+							new RegionKey(dest_region, 0)); 
+					packet.getphotos_dest_region = _intToBytes(dest_region);
+					mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+				}
+			} catch (IOException e) {
+				logMsg("_bytesToInt failed");
+				e.printStackTrace();
+			}*/
 			break;
 			
 		}
@@ -131,6 +159,11 @@ public class UserApp implements DSMUser {
 	/**
 	 * Handle some request from a client (i.e. a non-leader, i.e. the part that doesn't 
 	 * know about UserApp or the DIPLOMA layer at all)
+	 * 
+	 * This handleClientRequest on a "server" comes between the "client" and "DIPLOMA"
+	 * The client doesn't know anything about DIPLOMA or UserApp, so this method passes along
+	 * the client's request as to end up in handleDSMRequest() where CSM's 
+	 * memory "blocks" are provided to be edited or read from.  
 	 */
 	public synchronized void handleClientRequest(Packet packet){
 		switch (packet.subtype) {
@@ -138,14 +171,13 @@ public class UserApp implements DSMUser {
 			logMsg("Inside CLIENT_NEW_PHOTO!!");
 			dsm.atomRequest(SERVER_UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0, true, packet.photo_bytes);
 			break;
+		case Packet.CLIENT_DOWNLOAD_PHOTO:
+			logMsg("Inside CLIENT_DOWNLOAD_PHOTO");
+			dsm.atomRequest(SERVER_REQUEST_PHOTO, mux.vncDaemon.myRegion.x, 0, false, packet.getphotos_dest_region);
+			break;
 		}
 	}
-
-	/**
-	 * Serialize a Photo to a byte array
-	 * 
-	 * @throws IOException
-	 */
+	
 	
 	public byte[] _bitmapToBytes(Bitmap bmp) throws IOException {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -154,20 +186,21 @@ public class UserApp implements DSMUser {
 		byte[] bytes = bos.toByteArray();
 		return bytes;
 	}
-
-	/**
-	 * Deserialize a Photo from a byte array
-	 * 
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 * @throws OptionalDataException
-	 */
-	public SparseRunner srFromBytes(byte[] d) throws OptionalDataException,
-			ClassNotFoundException, IOException {
-		ByteArrayInputStream bis = new ByteArrayInputStream(d);
-		ObjectInputStream ois = new ObjectInputStream(bis);
-		SparseRunner a = (SparseRunner) ois.readObject();
-		ois.close();
-		return a;
+	
+	public byte[] _intToBytes(int my_int) throws IOException {
+	    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+	    ObjectOutput out = new ObjectOutputStream(bos);
+	    out.writeInt(my_int);
+	    out.close();
+	    byte[] int_bytes = bos.toByteArray();
+	    bos.close();
+	    return int_bytes;
+	}
+	public int _bytesToInt(byte[] int_bytes) throws IOException {
+	    ByteArrayInputStream bis = new ByteArrayInputStream(int_bytes);
+	    ObjectInputStream ois = new ObjectInputStream(bis);
+	    int my_int = ois.readInt();
+	    ois.close();
+	    return my_int;
 	}
 }

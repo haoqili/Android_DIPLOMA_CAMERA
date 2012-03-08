@@ -72,6 +72,7 @@
         </TextView>
     </LinearLayout>
     
+    <!--  Camera stuff! -->
     <LinearLayout
         android:id="@+id/CameraLaunch"
         android:layout_width="fill_parent"
@@ -85,14 +86,23 @@
             android:padding="2dp"
             android:text="Take a Photo!" />
 
-        <ImageView
-            android:id="@+id/photoResultView"
+        <Button
+            android:id="@+id/getphotos_button"
             android:layout_width="80dip"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Get photos from region 2!" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/PhotoDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
         <ImageView
-            android:id="@+id/photoResized"
-            android:layout_width="80dip"
+            android:id="@+id/photoResultView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -151,25 +161,5 @@
             android:layout_height="match_parent"
             android:text="Set Region" />
     </LinearLayout>
-
-    <!-- <LinearLayout
-        android:id="@+id/ThreadsButtonsLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="40dip"
-        android:orientation="horizontal" >
-
-        <EditText
-            android:id="@+id/threads_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="number" />
-
-        <Button
-            android:id="@+id/threads_button"
-            android:layout_width="90dip"
-            android:layout_height="match_parent"
-            android:text="Set_Workers" />
-    </LinearLayout>-->
 
 </LinearLayout>
