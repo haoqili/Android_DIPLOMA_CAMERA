@@ -46,8 +46,10 @@ public class Mux extends Thread {
 		Log.i(TAG, line);
 	}
 
-	/** Take action on message sent to my handler. */
-	private void processMessage(Message msg) {
+	/** Take action on message sent to my handler. 
+	 * @throws ClassNotFoundException 
+	 * @throws IOException */
+	private void processMessage(Message msg) throws IOException, ClassNotFoundException {
 		switch (msg.what) {
 		case Mux.PACKET_RECV:
 			Packet vnp = (Packet) msg.obj;
@@ -79,6 +81,9 @@ public class Mux extends Thread {
 					// since sendPackets filter out packets to itself
 					Log.i(TAG, "Nonleader does nothing for Packet.CLIENT_REQUEST");
 				}
+				break;
+			case Packet.SERVER_REPLY:
+				activityHandler.obtainMessage(vnp.subtype, vnp).sendToTarget();
 				break;
 			} // end switch(vnp.type)
 
@@ -204,7 +209,15 @@ public class Mux extends Thread {
 		myHandler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
-				processMessage(msg);
+				try {
+					processMessage(msg);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		};
 		onStart(); // Start up

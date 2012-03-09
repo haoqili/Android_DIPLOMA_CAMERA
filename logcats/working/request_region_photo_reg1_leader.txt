@@ -1,0 +1,28 @@
+In this 3-txt senario, I first take a picture on region 2, 
+then request region 2 (hard coded) from a nonleader in region 1
+
+leader in region 1:
+
+I/VCoreDaemon(  513): inside sendPacket(Packet p)
+I/NetworkThread(  513): 1331278499701: Sending UDP payload: 426
+I/NetworkThread(  513): 1331278500989: Received UDP payload: 426
+I/NetworkThread(  513): 1331278513161: Received UDP payload: 592
+I/Mux     (  513): 1331278513203: Inside CLIENT_REQUEST
+I/Mux     (  513): I'm a leader, about to process Packet.CLIENT_REQUEST in userApp
+I/UserApp (  513): 1331278513205: Inside CLIENT_DOWNLOAD_PHOTO, figure out where to forward packet
+I/UserApp (  513): 1331278513219: RELAYED TO WRONG SERVER!1 instead of dest_region: 2
+I/NetworkThread(  513): 1331278513249: Received UDP payload: 956
+I/NetworkThread(  513): 1331278513636: Received UDP payload: 37281
+I/VCoreDaemon(  513): 1331278513676: removed replies before id 0 from sentReplies of size 0
+I/UserApp (  513): 1331278513679: inside PHOTO_TO_CLIENT
+I/NetworkThread(  513): 1331278513705: Received UDP payload: 790
+I/UserApp (  513): 1331278513715: send packet to update in CLIENT through StatusActivity:
+I/UserApp (  513): 1331278513715: Client is in region: 1 nodID = 5105
+I/VCoreDaemon(  513): inside sendPacket(Packet p)
+I/VCoreDaemon(  513): 1331278513719: Received PROC_REQUEST 12:0 (2,0)->(1,0), replying PROC_REPLY 12:0 (1,0)->(2,0)
+I/VCoreDaemon(  513): 1331278513736: Dispatching Atom PROC_REPLY 12:0 (1,0)->(2,0)
+I/NetworkThread(  513): 1331278513744: Sending UDP payload: 36768
+D/dalvikvm(  513): GC_CONCURRENT freed 829K, 56% free 2960K/6727K, external 2002K/2137K, paused 2ms+2ms
+I/NetworkThread(  513): 1331278513778: Sending UDP payload: 790
+I/VCoreDaemon(  513): inside sendPacket(Packet p)
+I/NetworkThread(  513): 1331278529701: Sending UDP payload: 426

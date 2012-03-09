@@ -1,4 +1,5 @@
 package edu.mit.csail.diplomamatrix;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -79,9 +80,11 @@ public class DSMLayer implements Serializable {
 		this.cacheEnabled = false;
 	}
 
-	/** CSM-UserApp Interface - make a procedure call request */
+	/** CSM-UserApp Interface - make a procedure call request 
+	 * @throws ClassNotFoundException 
+	 * @throws IOException */
 	public synchronized long atomRequest(int p, long rx, long ry,
-			boolean write, byte[] d) {
+			boolean write, byte[] d) throws IOException, ClassNotFoundException {
 		if (!active)
 			return -1L;
 
@@ -125,8 +128,10 @@ public class DSMLayer implements Serializable {
 	 * This function receives CSMOps destined for remote and local regions. It
 	 * ensures at-most-once execution by filtering out repeated CSMOps and
 	 * orders operations for INSO.
+	 * @throws ClassNotFoundException 
+	 * @throws IOException 
 	 */
-	public synchronized void handleCSMOp(final Atom op) {
+	public synchronized void handleCSMOp(final Atom op) throws IOException, ClassNotFoundException {
 		if (!active || userApp == null) {
 			return; // don't do anything until fully started
 		}

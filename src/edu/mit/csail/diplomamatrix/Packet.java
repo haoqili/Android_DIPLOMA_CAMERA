@@ -14,8 +14,9 @@ public class Packet implements Serializable {
 	final static int CLIENT_REQUEST = 10;
 	final static int CLIENT_UPLOAD_PHOTO = 11;
 	final static int CLIENT_DOWNLOAD_PHOTO = 12;
+	final static int CLIENT_SHOW_NEWPHOTOS = 15;
 	// for camera server
-	final static int SERVER_UI = 1000;
+	final static int SERVER_REPLY = 1000;
 	final static int SERVER_SHOW_NEWPHOTO = 1001;
 
 	// VNC_MSG subtypes
@@ -49,8 +50,8 @@ public class Packet implements Serializable {
 	
 	// Camera stuff
 	public byte[] photo_bytes = null;
-	public byte[] getphotos_dest_region = null;
-	
+	public byte[] getphotoinfo_bytes = null; 
+
 	/** Construct Packet with values */
 	public Packet(long src_, long dst_, int type_, int subtype_,
 			RegionKey srcRegion_, RegionKey dstRegion_) {

@@ -1,0 +1,37 @@
+In this 3-txt senario, I first take a picture on region 2, 
+then request region 2 (hard coded) from a nonleader in region 1
+
+region2 leader, after I have taken a picture on it,
+processing nonleader in region 1's sent  request
+
+I/NetworkThread(  563): 1331278338633: Received UDP payload: 426
+I/VCoreDaemon(  563): inside sendPacket(Packet p)
+I/NetworkThread(  563): 1331278339890: Sending UDP payload: 426
+I/NetworkThread(  563): 1331278352080: Received UDP payload: 592
+I/Mux     (  563): 1331278352117: Inside CLIENT_REQUEST
+I/Mux     (  563): I'm a leader, about to process Packet.CLIENT_REQUEST in userApp
+I/UserApp (  563): 1331278352119: Inside CLIENT_DOWNLOAD_PHOTO, figure out where to forward packet
+I/UserApp (  563): 1331278352146: Sending to region: 2
+I/VCoreDaemon(  563): 1331278352146: Sending PROC_REQUEST 11:1 (2,0)->(2,0)
+I/VCoreDaemon(  563): 1331278352148: Dispatching Atom PROC_REQUEST 11:1 (2,0)->(2,0)
+I/NetworkThread(  563): 1331278352156: Sending UDP payload: 956
+I/VCoreDaemon(  563): 1331278352157: removed replies before id 1 from sentReplies of size 0
+I/UserApp (  563): 1331278352157: INSIDE SERVER_GET_PHOTO!!!
+D/dalvikvm(  563): GC_FOR_MALLOC freed 485K, 54% free 2962K/6343K, external 3802K/3999K, paused 15ms
+I/VCoreDaemon(  563): 1331278352177: Sending PROC_REQUEST 12:0 (2,0)->(1,0)
+I/VCoreDaemon(  563): 1331278352177: Dispatching Atom PROC_REQUEST 12:0 (2,0)->(1,0)
+I/VCoreDaemon(  563): 1331278352179: Received PROC_REQUEST 11:1 (2,0)->(2,0), replying PROC_REPLY 11:1 (2,0)->(2,0)
+I/VCoreDaemon(  563): 1331278352180: Dispatching Atom PROC_REPLY 11:1 (2,0)->(2,0)
+I/NetworkThread(  563): 1331278352188: Sending UDP payload: 37281
+I/NetworkThread(  563): 1331278352198: Sending UDP payload: 790
+I/VCoreDaemon(  563): 1331278352199: Received PROC_REPLY 11:1 (2,0)->(2,0), handing to UserApp
+I/UserApp (  563): 1331278352200: Procedure 11:1 on (2,0) successful
+I/NetworkThread(  563): 1331278353019: Received UDP payload: 36768
+I/StatusActivity(  563): inside Packet.CLIENT_SHOW_NEWPHOTOS
+I/NetworkThread(  563): 1331278353066: Received UDP payload: 790
+I/VCoreDaemon(  563): 1331278353097: Received PROC_REPLY 12:0 (1,0)->(2,0), handing to UserApp
+I/UserApp (  563): 1331278353097: Procedure 12:0 on (1,0) successful
+D/dalvikvm(  449): GC_EXPLICIT freed 100K, 52% free 2598K/5379K, external 1625K/2137K, paused 56ms
+I/NetworkThread(  563): 1331278368631: Received UDP payload: 426
+I/VCoreDaemon(  563): inside sendPacket(Packet p)
+I/NetworkThread(  563): 1331278369887: Sending UDP payload: 426

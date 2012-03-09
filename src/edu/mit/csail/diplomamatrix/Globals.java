@@ -31,4 +31,5 @@ public class Globals {
 		final static String PHOTO_PATH = Environment.getExternalStorageDirectory().getName() + File.separatorChar + "temp_photo.jpg";
 		final static int TARGET_SHORT_SIDE = 400;
 		final static int TARGET_LONG_SIDE = 480;
+		final static String PHOTO_KEY = "diplomaPhotos";
 } 

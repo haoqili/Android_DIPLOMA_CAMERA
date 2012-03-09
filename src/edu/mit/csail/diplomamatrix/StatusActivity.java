@@ -41,9 +41,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	final static private String TAG = "StatusActivity";
 	private static final int CAMERA_PIC_REQUEST = 111;
 
-
 	// UI elements
-	//Button bench_button, cache_button, threads_button; 
 	Button camera_button, getphotos_button, region_button;
 	TextView opCountTv, successCountTv, failureCountTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
@@ -100,7 +98,26 @@ public class StatusActivity extends Activity implements LocationListener {
 				try {
 					new_photo = _bytesToBitmap(packet.photo_bytes);
 					ImageView image = (ImageView) findViewById(R.id.photoResultView);
-		            image.setImageBitmap(new_photo);
+					image.setImageBitmap(new_photo);
+				} catch (OptionalDataException e) {
+					Log.i(TAG, "_bytesToBitmap failed");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					Log.i(TAG, "_bytesToBitmap failed");
+					e.printStackTrace();
+				} catch (IOException e) {
+					Log.i(TAG, "_bytesToBitmap failed");
+					e.printStackTrace();
+				}
+				break;
+			case Packet.CLIENT_SHOW_NEWPHOTOS:
+				Log.i(TAG, "inside Packet.CLIENT_SHOW_NEWPHOTOS");
+				Packet pack = (Packet) msg.obj;
+				Bitmap photo_one;
+				try {
+					photo_one = _bytesToBitmap(pack.photo_bytes);
+					ImageView image = (ImageView) findViewById(R.id.photoResultView);
+					image.setImageBitmap(photo_one);
 				} catch (OptionalDataException e) {
 					Log.i(TAG, "_bytesToBitmap failed");
 					e.printStackTrace();
@@ -167,7 +184,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		camera_button.setOnClickListener(camera_button_listener);
 		getphotos_button = (Button) findViewById(R.id.getphotos_button);
 		getphotos_button.setOnClickListener(getphotos_button_listener);
-		
+
 		// Text views
 		opCountTv = (TextView) findViewById(R.id.opcount_tv);
 		successCountTv = (TextView) findViewById(R.id.successcount_tv);
@@ -238,7 +255,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		mux = new Mux(id, myHandler);
 		Log.i(TAG, "end to start mux hqqqqqqqqqqqqqq11qqqqq");
 		mux.start();
-		
+
 		// Watch out for low battery conditions
 		BroadcastReceiver receiver = new BroadcastReceiver() {
 			@Override
@@ -252,39 +269,39 @@ public class StatusActivity extends Activity implements LocationListener {
 		inf.addAction("android.intent.action.BATTERY_LOW");
 		this.registerReceiver(receiver, inf);
 
-		
+
 		// Camera Launch starting benchmark ... 
 		// copied from the "start benchmark" button onclick listener
-	    Log.i(TAG, "about to start benchmark hqqqqqqqqqqqqqqqqqqq");
-	    if (mux == null){
-	    	Log.i("bench button null 1:", "mux == null. :(:(:(:(:(:(:(");
-	    } else {
-	    	if (mux.vncDaemon == null){
-	    		Log.i("bench button null 2:", "mux.vncDaemon == null. :(:(:(");
-	    	} else {
-	    		if (mux.vncDaemon.csm == null){
-	    			Log.i("bench button null 3:", "mux.vncDaemon.csm == null :(:(:(:(");
-	    		} else {
-	    			if (mux.vncDaemon.csm.userApp == null) {
-	    				Log.i("bench button null 4:", "mux.vncDaemon.csm.userApp == null :(:(:(:(");
-	    			} else {
-	    				Log.i("bench button null 5:", ":):):):)");
-	    			}
-	    		}
-	    	}
-	    }
+		Log.i(TAG, "about to start benchmark hqqqqqqqqqqqqqqqqqqq");
+		if (mux == null){
+			Log.i("bench button null 1:", "mux == null. :(:(:(:(:(:(:(");
+		} else {
+			if (mux.vncDaemon == null){
+				Log.i("bench button null 2:", "mux.vncDaemon == null. :(:(:(");
+			} else {
+				if (mux.vncDaemon.csm == null){
+					Log.i("bench button null 3:", "mux.vncDaemon.csm == null :(:(:(:(");
+				} else {
+					if (mux.vncDaemon.csm.userApp == null) {
+						Log.i("bench button null 4:", "mux.vncDaemon.csm.userApp == null :(:(:(:(");
+					} else {
+						Log.i("bench button null 5:", ":):):):)");
+					}
+				}
+			}
+		}
 		if (mux == null || mux.vncDaemon == null
 				|| mux.vncDaemon.csm == null
 				|| mux.vncDaemon.csm.userApp == null) {
-	        Log.i(TAG, ":( mux not right, can't start benchmark hqqqqqqqqqqqqqqqqqqq");
+			Log.i(TAG, ":( mux not right, can't start benchmark hqqqqqqqqqqqqqqqqqqq");
 			return;
-        }
+		}
 		logMsg("*** benchmark starting ***");
 		// TODO: Is the below necessary?  Also check if the above can be placed here in onCreate()
 		mux.vncDaemon.csm.userApp.startBenchmark();
 		update();
 		logMsg("*** Application started ***");
-		
+
 	} // end OnCreate()
 
 	/**
@@ -373,134 +390,140 @@ public class StatusActivity extends Activity implements LocationListener {
 			break;
 		}
 	}
-	
+
 	/** Camera Launch stuff **/
-    private OnClickListener camera_button_listener = new OnClickListener(){
-    	public void onClick(View v){
-    		Log.i(TAG, "#################");
-    		Log.i(TAG, "clicked Camera button");
-    		Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-    		
-    		// credit: http://stackoverflow.com/questions/1910608/android-action-image-capture-intent
-            File _photoFile = new File(Globals.PHOTO_PATH);
-            try {
-                if(_photoFile.exists() == false) {
-                    _photoFile.getParentFile().mkdirs();
-                    _photoFile.createNewFile();
-                }
-            } catch (IOException e) {
-                Log.e(TAG, "Could not create file.", e);
-            }
-            Log.i(TAG + " photo path: ", Globals.PHOTO_PATH);
+	private OnClickListener camera_button_listener = new OnClickListener(){
+		public void onClick(View v){
+			Log.i(TAG, "#################");
+			Log.i(TAG, "clicked Camera button");
+			Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
 
-            Uri _fileUri = Uri.fromFile(_photoFile);
-            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, _fileUri);
-    		// start the Intent:
-    		startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
-    	}
-    };
-    //TODO: higher resolution pictures
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAMERA_PIC_REQUEST) {
-            Log.i(TAG, "Camera Handling results!");
-            
-            if (resultCode != Activity.RESULT_OK) {
-            	logMsg("Taking picture failed. Try again!");
-            	return;
-            }
-            logMsg("Display on screen:");
-            ImageView image = (ImageView) findViewById(R.id.photoResultView);
+			// credit: http://stackoverflow.com/questions/1910608/android-action-image-capture-intent
+			File _photoFile = new File(Globals.PHOTO_PATH);
+			try {
+				if(_photoFile.exists() == false) {
+					_photoFile.getParentFile().mkdirs();
+					_photoFile.createNewFile();
+				}
+			} catch (IOException e) {
+				Log.e(TAG, "Could not create file.", e);
+			}
+			Log.i(TAG + " photo path: ", Globals.PHOTO_PATH);
 
-            Bitmap bitmap = _getAndResizeBitmap();
-            image.setImageBitmap(bitmap);
-            logMsg("GETANDRESIZE BITMAP SIZE: " + _bitmapBytes(bitmap));
+			Uri _fileUri = Uri.fromFile(_photoFile);
+			cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, _fileUri);
+			// start the Intent:
+			startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
+		}
+	};
+	//TODO: higher resolution pictures
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == CAMERA_PIC_REQUEST) {
+			Log.i(TAG, "Camera Handling results!");
 
-            Log.i(TAG, "111111111");
-            // Create a Packet to send through Mux to Leader's UserApp
-            Packet packet = new Packet(-1, 
-            					  -1,
-            					  Packet.CLIENT_REQUEST,
-            					  Packet.CLIENT_UPLOAD_PHOTO,
-            					  mux.vncDaemon.myRegion,
-            					  mux.vncDaemon.myRegion);
-            Log.i(TAG, "222222222");
-            try {
+			if (resultCode != Activity.RESULT_OK) {
+				logMsg("Taking picture failed. Try again!");
+				return;
+			}
+			logMsg("Display on screen:");
+			ImageView image = (ImageView) findViewById(R.id.photoResultView);
+
+			Bitmap bitmap = _getAndResizeBitmap();
+			image.setImageBitmap(bitmap);
+			logMsg("GETANDRESIZE BITMAP SIZE: " + _bitmapBytes(bitmap));
+
+			Log.i(TAG, "111111111");
+			// Create a Packet to send through Mux to Leader's UserApp
+			Packet packet = new Packet(-1, 
+					-1,
+					Packet.CLIENT_REQUEST,
+					Packet.CLIENT_UPLOAD_PHOTO,
+					mux.vncDaemon.myRegion,
+					mux.vncDaemon.myRegion);
+			Log.i(TAG, "222222222");
+			try {
 				//packet.photo_bytes = _bitmapToBytes(resized);
 				packet.photo_bytes = _bitmapToBytes(bitmap);
 			} catch (IOException e) {
 				Log.i(TAG, "_bitmapToBytes() failed");
 				e.printStackTrace();
 			}
-            Log.i(TAG, "3333333333");
-            if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-            	Log.i(TAG, "I'm a leader, photo packet going to mux directly");
-            	mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+			Log.i(TAG, "3333333333");
+			if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+				Log.i(TAG, "I'm a leader, photo packet going to mux directly");
+				mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
 				Log.i(TAG, "I'm not a leader, photo packet send out");
-	            mux.vncDaemon.sendPacket(packet);
+				mux.vncDaemon.sendPacket(packet);
 			}
-            Log.i(TAG, "44444444444");
-        }
-    }
-    
-    private OnClickListener getphotos_button_listener = new OnClickListener(){
-    	public void onClick(View v){
-    		Log.i(TAG, "#################");
-    		Log.i(TAG, "clicked getphotos Button from region 2");
-    		int targetRegion = 2;
-            Log.i(TAG, "6666666666");
-            // Create a Packet to send through Mux to Leader's UserApp
-            Packet packet = new Packet(-1, 
-            					  -1,
-            					  Packet.CLIENT_REQUEST,
-            					  Packet.CLIENT_DOWNLOAD_PHOTO,
-            					  mux.vncDaemon.myRegion,
-            					  mux.vncDaemon.myRegion); 
-            Log.i(TAG, "7777777777");
-            try {
-				packet.getphotos_dest_region = _intToBytes(targetRegion);
+			Log.i(TAG, "44444444444");
+		}
+	}
+
+	private OnClickListener getphotos_button_listener = new OnClickListener(){
+		public void onClick(View v){
+			Log.i(TAG, "#################");
+			Log.i(TAG, "clicked getphotos Button from region 2");
+			long targetRegion = 2;
+			Log.i(TAG, "6666666666");
+			// Create a Packet to send through Mux to Leader's UserApp
+			Packet packet = new Packet(-1, 
+					-1,
+					Packet.CLIENT_REQUEST,
+					Packet.CLIENT_DOWNLOAD_PHOTO,
+					mux.vncDaemon.myRegion,
+					mux.vncDaemon.myRegion); 
+			Log.i(TAG, "7777777777");
+			GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
+					mux.vncDaemon.myRegion.x, 
+					targetRegion);
+			logMsg("I'm the Client, and I'm in region: " + 
+					my_getphotoinfo.srcRegion + 
+					" nodID = " + my_getphotoinfo.originNodeId);
+			try {
+				packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
 			} catch (IOException e) {
 				Log.i(TAG, "_intToBytes() failed");
 				e.printStackTrace();
 			}
-            Log.i(TAG, "8888888888");
-            if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-            	Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
-            	mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+			Log.i(TAG, "8888888888");
+			if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+				Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
+				mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
 				Log.i(TAG, "I'm not a leader, requesting photos packet send out");
-	            mux.vncDaemon.sendPacket(packet);
+				mux.vncDaemon.sendPacket(packet);
 			}
-            Log.i(TAG, "9999999999");
-    	}
-    };
-    protected Bitmap _getAndResizeBitmap(){
-        BitmapFactory.Options options =new BitmapFactory.Options();
-        // first we don't produce an actual bitmap, but just probe its dimensions
-        options.inJustDecodeBounds = true;
-        Bitmap bitmap = BitmapFactory.decodeFile(Globals.PHOTO_PATH, options);
-        int h, w;
-        if (options.outHeight > options.outWidth){
-        	h = (int) Math.ceil(options.outHeight/(float) Globals.TARGET_SHORT_SIDE);
-        	w = (int) Math.ceil(options.outWidth/(float) Globals.TARGET_LONG_SIDE);
-        } else {
-        	w = (int) Math.ceil(options.outHeight/(float) Globals.TARGET_SHORT_SIDE);
-        	h = (int) Math.ceil(options.outWidth/(float) Globals.TARGET_LONG_SIDE);
-        }
-        if(h>1 || w>1){
-        	options.inSampleSize = (h > w) ? h : w;
-        }
-        // now we actually produce the bitmap, resized
-        options.inJustDecodeBounds=false;
-        bitmap =BitmapFactory.decodeFile(Globals.PHOTO_PATH, options);
-        logMsg("Options height x width: " + options.outHeight + " x " + options.outWidth);
-        return bitmap;
-    }
+			Log.i(TAG, "9999999999");
+		}
+	};
+	protected Bitmap _getAndResizeBitmap(){
+		BitmapFactory.Options options =new BitmapFactory.Options();
+		// first we don't produce an actual bitmap, but just probe its dimensions
+		options.inJustDecodeBounds = true;
+		Bitmap bitmap = BitmapFactory.decodeFile(Globals.PHOTO_PATH, options);
+		int h, w;
+		if (options.outHeight > options.outWidth){
+			h = (int) Math.ceil(options.outHeight/(float) Globals.TARGET_SHORT_SIDE);
+			w = (int) Math.ceil(options.outWidth/(float) Globals.TARGET_LONG_SIDE);
+		} else {
+			w = (int) Math.ceil(options.outHeight/(float) Globals.TARGET_SHORT_SIDE);
+			h = (int) Math.ceil(options.outWidth/(float) Globals.TARGET_LONG_SIDE);
+		}
+		if(h>1 || w>1){
+			options.inSampleSize = (h > w) ? h : w;
+		}
+		// now we actually produce the bitmap, resized
+		options.inJustDecodeBounds=false;
+		bitmap =BitmapFactory.decodeFile(Globals.PHOTO_PATH, options);
+		logMsg("Options height x width: " + options.outHeight + " x " + options.outWidth);
+		return bitmap;
+	}
 
-    protected int _bitmapBytes(Bitmap bitmap){
-    	return bitmap.getRowBytes()*bitmap.getHeight();
-    }
-   
+	protected int _bitmapBytes(Bitmap bitmap){
+		return bitmap.getRowBytes()*bitmap.getHeight();
+	}
+
 	public byte[] _bitmapToBytes(Bitmap bmp) throws IOException {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		bmp.compress(Bitmap.CompressFormat.JPEG, Globals.COMP_QUALITY, bos);
@@ -514,13 +537,13 @@ public class StatusActivity extends Activity implements LocationListener {
 		return BitmapFactory.decodeByteArray(photo_bytes, 0, photo_bytes.length);
 	} 
 
-	public byte[] _intToBytes(int my_int) throws IOException {
-	    ByteArrayOutputStream bos = new ByteArrayOutputStream();
-	    ObjectOutput out = new ObjectOutputStream(bos);
-	    out.writeInt(my_int);
-	    out.close();
-	    byte[] int_bytes = bos.toByteArray();
-	    bos.close();
-	    return int_bytes;
+	public byte[] _getphotoinfoToBytes(GetPhotoInfo my_gpinfo) throws IOException {
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		ObjectOutput out = new ObjectOutputStream(bos);
+		out.writeObject(my_gpinfo);
+		out.close();
+		byte[] int_bytes = bos.toByteArray();
+		bos.close();
+		return int_bytes;
 	}
 }

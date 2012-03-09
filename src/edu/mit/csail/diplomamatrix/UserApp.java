@@ -6,10 +6,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
-import java.io.OptionalDataException;
+import java.util.ArrayList;
 
 import android.graphics.Bitmap;
-import android.text.format.Time;
 import android.util.Log;
 
 // only "leader" have this, i.e. the "leader" parts of leaders have UserApp
@@ -21,7 +20,8 @@ public class UserApp implements DSMUser {
 
 	// DSM Atoms that can be called
 	final static int SERVER_UPLOAD_PHOTO = 10;
-	final static int SERVER_REQUEST_PHOTO = 11;
+	final static int SERVER_GET_PHOTO = 11;
+	final static int PHOTO_TO_CLIENT = 12;
 
 	long kernelStartTime, kernelStopTime;
 	long runStartTime, runStopTime;
@@ -80,9 +80,11 @@ public class UserApp implements DSMUser {
 	/**
 	 * Handle and reply to a DSM Atom request on the local region. Executed by
 	 * the destination region.
+	 * @throws ClassNotFoundException 
+	 * @throws IOException 
 	 */
 	public synchronized Atom handleDSMRequest(DSMLayer.Block block,
-			final Atom request) {
+			final Atom request) throws IOException, ClassNotFoundException {
 		Atom reply = new Atom(request.requestId, request.procedure,
 				Atom.PROC_REPLY, request.dstRegion, request.srcRegion);
 
@@ -91,64 +93,96 @@ public class UserApp implements DSMUser {
 			logMsg("Inside UPLOAD_PHOTO!!");
 			// run on the leader of the region of phone that took photo
 			// should just save the photo data inside the block
-			Time now = new Time();
-			// TODO: better naming?
-			String photoName = mux.vncDaemon.myRegion.x + now.toString();
+			/** The structure we have to save is a HashMap<String --> byte[]>
+			 * We're going to have Globals.PHOTO_KEY --> byte[] of ArrayList<byte []> 
+			 *  of photo bytes. This way, we can query the latest x photos
+			 *  as well as getting the ith photo
+			 */
+			// TODO: check the max byte[] of HashMap
 			try {
-				block.lines.put(photoName, request.data); // request.data is the bitmap bytes
-				reply.requestSuccess = true;
+				byte[] new_photo_bytes = request.data;
+				ArrayList<byte []> photolist = null;
+				if (!block.lines.containsKey(Globals.PHOTO_KEY)){
+					photolist = new ArrayList<byte []>();
+				} else {
+					byte [] orig_photolist_bytes = block.lines.get(Globals.PHOTO_KEY);
+					photolist = _bytesToArraylist(orig_photolist_bytes);
+				}
+				// add this newest photo bytes
+				photolist.add(new_photo_bytes);
+				// make photolist back to byte[]
+				byte [] new_photolist_bytes = _arraylistToBytes(photolist);
+				// set it into block.lines
+				block.lines.put(Globals.PHOTO_KEY, new_photolist_bytes);
+				
 				logMsg("Upload Photo succeeded");
-				
-				logMsg("Update in UI through StatusActivity:");
-				
-	            Packet packet = new Packet(-1, 
-  					  -1,
-  					  Packet.SERVER_SHOW_NEWPHOTO, // unnecssary actually
-  					  -1,
+
+				// display this newly added photo on this leader phone
+				logMsg("Update in leader UI through StatusActivity:");
+	            Packet packet = new Packet(-1, -1, -1, -1,
   					  mux.vncDaemon.myRegion,
   					  mux.vncDaemon.myRegion);
-				packet.photo_bytes = request.data;
+				packet.photo_bytes = new_photo_bytes;
 				mux.activityHandler.obtainMessage(Packet.SERVER_SHOW_NEWPHOTO, packet).sendToTarget();
+
+				// TODO: actually send an acknowledgment back to sender
+				reply.requestSuccess = true;
 			} catch (Exception e){
 				reply.requestSuccess = false;
 				logMsg("Upload Photo failed");
 				e.printStackTrace();
 			}
 			break;
-		case SERVER_REQUEST_PHOTO:
+			
+		case SERVER_GET_PHOTO:
 			// relay the client's download photo request to the getphotos_dest_region
-			logMsg("INSIDE SERVER_REQUEST_PHOTO!!!");
-			/*try {
-				int dest_region = _bytesToInt(request.data);
-				logMsg("SEND TO REGION: " + dest_region);
-				
-				if (dest_region == mux.vncDaemon.myRegion.x){
-					// Send reply packet, with data of photo
-					Packet packet = new Packet(-1, 
-							-1,
-							// TODO: 
-							Packet._REQUEST,
-							Packet.CLIENT_DOWNLOAD_PHOTO,
-							mux.vncDaemon.myRegion,
-							new RegionKey(dest_region, 0)); 
-					packet.getphotos_dest_region = _intToBytes(dest_region);
-					mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
-					
-				} else {
-					// Send forward packet, to forward to dest_region
-					Packet packet = new Packet(-1, 
-							-1,
-							Packet.CLIENT_REQUEST,
-							Packet.CLIENT_DOWNLOAD_PHOTO,
-							mux.vncDaemon.myRegion,
-							new RegionKey(dest_region, 0)); 
-					packet.getphotos_dest_region = _intToBytes(dest_region);
-					mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
-				}
-			} catch (IOException e) {
-				logMsg("_bytesToInt failed");
-				e.printStackTrace();
-			}*/
+			logMsg("INSIDE SERVER_GET_PHOTO!!!");
+			GetPhotoInfo my_gpinfo = _bytesToGetphotoinfo(request.data);
+			long dest_region = my_gpinfo.destRegion;
+			long src_region = my_gpinfo.srcRegion;
+			if (dest_region != mux.vncDaemon.myRegion.x){
+				logMsg("RELAYED TO WRONG SERVER!" + mux.vncDaemon.myRegion.x + 
+						" instead of dest_region: " + dest_region);
+				break;
+			}
+			// TODO: MAKE IT GET ith Photo, currently just sending newest photo
+			byte[] photolist_bytes = block.lines.get(Globals.PHOTO_KEY);
+			ArrayList<byte []> photolist = _bytesToArraylist(photolist_bytes);
+			
+			byte[] latest_photo_bytes = photolist.get(photolist.size()-1);
+
+			my_gpinfo.setPhotoBytes(latest_photo_bytes);
+			
+			// Unnecessary self loop, but we don't care about this little overhead
+			if (dest_region == src_region) { 
+				logMsg("dst_region == src_region = " + src_region);
+				logMsg(" 1 self to self atomRequest");
+			}
+			
+			// relay the photo data to the src_region leader, with data of photo
+			dsm.atomRequest(PHOTO_TO_CLIENT, src_region, 0, false,
+							_getphotoinfoToBytes(my_gpinfo));
+			break;
+		
+		case PHOTO_TO_CLIENT:
+			// we now need to send the photo to the client
+			logMsg("inside PHOTO_TO_CLIENT");
+			// first, figure out the mID of client to send to
+			GetPhotoInfo my_gpinfo2 = _bytesToGetphotoinfo(request.data);
+			long nodeId = my_gpinfo2.originNodeId;
+			long request_region = my_gpinfo2.srcRegion;
+			
+			logMsg("send packet to update in CLIENT through StatusActivity:");
+			logMsg("Client is in region: " + request_region + " nodID = " + nodeId);
+            Packet packet = new Packet(-1, nodeId,
+            		  Packet.SERVER_REPLY,
+            		  Packet.CLIENT_SHOW_NEWPHOTOS,
+					  mux.vncDaemon.myRegion,
+					  new RegionKey(request_region, 0));
+			packet.photo_bytes = my_gpinfo2.photoBytes;
+			// client is in range of this leader
+			mux.vncDaemon.sendPacket(packet); 
+			
 			break;
 			
 		}
@@ -164,16 +198,27 @@ public class UserApp implements DSMUser {
 	 * The client doesn't know anything about DIPLOMA or UserApp, so this method passes along
 	 * the client's request as to end up in handleDSMRequest() where CSM's 
 	 * memory "blocks" are provided to be edited or read from.  
+	 * @throws ClassNotFoundException 
+	 * @throws IOException 
 	 */
-	public synchronized void handleClientRequest(Packet packet){
+	public synchronized void handleClientRequest(Packet packet) throws IOException, ClassNotFoundException{
 		switch (packet.subtype) {
 		case Packet.CLIENT_UPLOAD_PHOTO:
 			logMsg("Inside CLIENT_NEW_PHOTO!!");
 			dsm.atomRequest(SERVER_UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0, true, packet.photo_bytes);
 			break;
 		case Packet.CLIENT_DOWNLOAD_PHOTO:
-			logMsg("Inside CLIENT_DOWNLOAD_PHOTO");
-			dsm.atomRequest(SERVER_REQUEST_PHOTO, mux.vncDaemon.myRegion.x, 0, false, packet.getphotos_dest_region);
+			logMsg("Inside CLIENT_DOWNLOAD_PHOTO, figure out where to forward packet");
+			GetPhotoInfo my_gpinfo = _bytesToGetphotoinfo(packet.getphotoinfo_bytes);
+			long dest_region = my_gpinfo.destRegion;
+			if (dest_region != mux.vncDaemon.myRegion.x){
+				logMsg("RELAYED TO WRONG SERVER!" + mux.vncDaemon.myRegion.x + 
+						" instead of dest_region: " + dest_region);
+				break;
+			}
+			logMsg("Sending to region: " + dest_region);
+			
+			dsm.atomRequest(SERVER_GET_PHOTO, dest_region, 0, false, packet.getphotoinfo_bytes);
 			break;
 		}
 	}
@@ -187,20 +232,40 @@ public class UserApp implements DSMUser {
 		return bytes;
 	}
 	
-	public byte[] _intToBytes(int my_int) throws IOException {
+	// can't do Java generics because we are serializing 
+	public GetPhotoInfo _bytesToGetphotoinfo(byte[] int_bytes) throws IOException, ClassNotFoundException {
+	    ByteArrayInputStream bis = new ByteArrayInputStream(int_bytes);
+	    ObjectInputStream ois = new ObjectInputStream(bis);
+	    GetPhotoInfo my_gpinfo = (GetPhotoInfo) ois.readObject();
+	    ois.close();
+	    return my_gpinfo;
+	}
+	public byte[] _getphotoinfoToBytes(GetPhotoInfo my_gpinfo) throws IOException {
 	    ByteArrayOutputStream bos = new ByteArrayOutputStream();
 	    ObjectOutput out = new ObjectOutputStream(bos);
-	    out.writeInt(my_int);
+	    out.writeObject(my_gpinfo);
 	    out.close();
 	    byte[] int_bytes = bos.toByteArray();
 	    bos.close();
 	    return int_bytes;
 	}
-	public int _bytesToInt(byte[] int_bytes) throws IOException {
+	
+	public ArrayList<byte []> _bytesToArraylist(byte[] int_bytes) throws IOException, ClassNotFoundException {
 	    ByteArrayInputStream bis = new ByteArrayInputStream(int_bytes);
 	    ObjectInputStream ois = new ObjectInputStream(bis);
-	    int my_int = ois.readInt();
+	    @SuppressWarnings("unchecked")
+		ArrayList<byte []> my_arrlist = (ArrayList<byte []>) ois.readObject();
 	    ois.close();
-	    return my_int;
+	    return my_arrlist;
 	}
+	public byte[] _arraylistToBytes(ArrayList<byte []> my_arrlist) throws IOException {
+	    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+	    ObjectOutput out = new ObjectOutputStream(bos);
+	    out.writeObject(my_arrlist);
+	    out.close();
+	    byte[] int_bytes = bos.toByteArray();
+	    bos.close();
+	    return int_bytes;
+	}
+	
 }
