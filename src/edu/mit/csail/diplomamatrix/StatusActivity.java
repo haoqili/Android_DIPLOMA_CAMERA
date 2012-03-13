@@ -42,9 +42,11 @@ public class StatusActivity extends Activity implements LocationListener {
 	private static final int CAMERA_PIC_REQUEST = 111;
 
 	// UI elements
-	Button camera_button, getphotos_button, region_button;
+	Button camera_button, region_button;
+	Button get1_button, get2_button, get3_button, get4_button, get5_button, get6_button;
 	TextView opCountTv, successCountTv, failureCountTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
+	TextView photoResultNull;
 	EditText regionText, threadsText;
 	ListView msgList;
 	ArrayAdapter<String> receivedMessages;
@@ -115,9 +117,14 @@ public class StatusActivity extends Activity implements LocationListener {
 				Packet pack = (Packet) msg.obj;
 				Bitmap photo_one;
 				try {
-					photo_one = _bytesToBitmap(pack.photo_bytes);
-					ImageView image = (ImageView) findViewById(R.id.photoResultView);
-					image.setImageBitmap(photo_one);
+					if (pack.photo_bytes == null) {
+						photoResultNull.setVisibility(View.VISIBLE);
+					} else {
+						photoResultNull.setVisibility(View.GONE);
+						photo_one = _bytesToBitmap(pack.photo_bytes);
+						ImageView image = (ImageView) findViewById(R.id.photoResultView);
+						image.setImageBitmap(photo_one);
+					}
 				} catch (OptionalDataException e) {
 					Log.i(TAG, "_bytesToBitmap failed");
 					e.printStackTrace();
@@ -182,8 +189,18 @@ public class StatusActivity extends Activity implements LocationListener {
 		region_button.setOnClickListener(region_button_listener);
 		camera_button = (Button) findViewById(R.id.camera_button);
 		camera_button.setOnClickListener(camera_button_listener);
-		getphotos_button = (Button) findViewById(R.id.getphotos_button);
-		getphotos_button.setOnClickListener(getphotos_button_listener);
+		get1_button = (Button) findViewById(R.id.get1_button);
+		get1_button.setOnClickListener(get1_button_listener);
+		get2_button = (Button) findViewById(R.id.get2_button);
+		get2_button.setOnClickListener(get2_button_listener);
+		get3_button = (Button) findViewById(R.id.get3_button);
+		get3_button.setOnClickListener(get3_button_listener);
+		get4_button = (Button) findViewById(R.id.get4_button);
+		get4_button.setOnClickListener(get4_button_listener);
+		get5_button = (Button) findViewById(R.id.get5_button);
+		get5_button.setOnClickListener(get5_button_listener);
+		get6_button = (Button) findViewById(R.id.get6_button);
+		get6_button.setOnClickListener(get6_button_listener);
 
 		// Text views
 		opCountTv = (TextView) findViewById(R.id.opcount_tv);
@@ -202,6 +219,8 @@ public class StatusActivity extends Activity implements LocationListener {
 		msgList = (ListView) findViewById(R.id.msgList);
 		receivedMessages = new ArrayAdapter<String>(this, R.layout.message);
 		msgList.setAdapter(receivedMessages);
+		
+		photoResultNull = (TextView) findViewById(R.id.photoResultNull);
 
 		// Get a wakelock to keep everything running
 		PowerManager pm = (PowerManager) getApplicationContext()
@@ -460,43 +479,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 	}
 
-	private OnClickListener getphotos_button_listener = new OnClickListener(){
-		public void onClick(View v){
-			Log.i(TAG, "#################");
-			Log.i(TAG, "clicked getphotos Button from region 2");
-			long targetRegion = 2;
-			Log.i(TAG, "6666666666");
-			// Create a Packet to send through Mux to Leader's UserApp
-			Packet packet = new Packet(-1, 
-					-1,
-					Packet.CLIENT_REQUEST,
-					Packet.CLIENT_DOWNLOAD_PHOTO,
-					mux.vncDaemon.myRegion,
-					mux.vncDaemon.myRegion); 
-			Log.i(TAG, "7777777777");
-			GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
-					mux.vncDaemon.myRegion.x, 
-					targetRegion);
-			logMsg("I'm the Client, and I'm in region: " + 
-					my_getphotoinfo.srcRegion + 
-					" nodID = " + my_getphotoinfo.originNodeId);
-			try {
-				packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
-			} catch (IOException e) {
-				Log.i(TAG, "_intToBytes() failed");
-				e.printStackTrace();
-			}
-			Log.i(TAG, "8888888888");
-			if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-				Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
-				mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
-			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
-				Log.i(TAG, "I'm not a leader, requesting photos packet send out");
-				mux.vncDaemon.sendPacket(packet);
-			}
-			Log.i(TAG, "9999999999");
-		}
-	};
 	protected Bitmap _getAndResizeBitmap(){
 		BitmapFactory.Options options =new BitmapFactory.Options();
 		// first we don't produce an actual bitmap, but just probe its dimensions
@@ -546,4 +528,213 @@ public class StatusActivity extends Activity implements LocationListener {
 		bos.close();
 		return int_bytes;
 	}
+	
+	/* ############################################### */
+	/* ############################################### */
+	/* ############################################### */
+	/* dumb button listeners */
+	private OnClickListener get1_button_listener = new OnClickListener(){
+		public void onClick(View v){
+			Log.i(TAG, "#################");
+			Log.i(TAG, "clicked getphotos Button from region 1");
+			long targetRegion = 1;
+			// Create a Packet to send through Mux to Leader's UserApp
+			Packet packet = new Packet(-1, 
+					-1,
+					Packet.CLIENT_REQUEST,
+					Packet.CLIENT_DOWNLOAD_PHOTO,
+					mux.vncDaemon.myRegion,
+					mux.vncDaemon.myRegion); 
+			GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
+					mux.vncDaemon.myRegion.x, 
+					targetRegion);
+			logMsg("I'm the Client, and I'm in region: " + 
+					my_getphotoinfo.srcRegion + 
+					" nodID = " + my_getphotoinfo.originNodeId);
+			try {
+				packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
+			} catch (IOException e) {
+				Log.i(TAG, "_intToBytes() failed");
+				e.printStackTrace();
+			}
+			if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+				Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
+				mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+				Log.i(TAG, "I'm not a leader, requesting photos packet send out");
+				mux.vncDaemon.sendPacket(packet);
+			}
+			Log.i(TAG, "Done with Get photos button");
+		}
+	};
+	private OnClickListener get2_button_listener = new OnClickListener(){
+		public void onClick(View v){
+			Log.i(TAG, "#################");
+			Log.i(TAG, "clicked getphotos Button from region 2");
+			long targetRegion = 2;
+			// Create a Packet to send through Mux to Leader's UserApp
+			Packet packet = new Packet(-1, 
+					-1,
+					Packet.CLIENT_REQUEST,
+					Packet.CLIENT_DOWNLOAD_PHOTO,
+					mux.vncDaemon.myRegion,
+					mux.vncDaemon.myRegion); 
+			GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
+					mux.vncDaemon.myRegion.x, 
+					targetRegion);
+			logMsg("I'm the Client, and I'm in region: " + 
+					my_getphotoinfo.srcRegion + 
+					" nodID = " + my_getphotoinfo.originNodeId);
+			try {
+				packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
+			} catch (IOException e) {
+				Log.i(TAG, "_intToBytes() failed");
+				e.printStackTrace();
+			}
+			if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+				Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
+				mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+				Log.i(TAG, "I'm not a leader, requesting photos packet send out");
+				mux.vncDaemon.sendPacket(packet);
+			}
+			Log.i(TAG, "Done with Get photos button");
+		}
+	};
+	private OnClickListener get3_button_listener = new OnClickListener(){
+		public void onClick(View v){
+			Log.i(TAG, "#################");
+			Log.i(TAG, "clicked getphotos Button from region 3");
+			long targetRegion = 3;
+			// Create a Packet to send through Mux to Leader's UserApp
+			Packet packet = new Packet(-1, 
+					-1,
+					Packet.CLIENT_REQUEST,
+					Packet.CLIENT_DOWNLOAD_PHOTO,
+					mux.vncDaemon.myRegion,
+					mux.vncDaemon.myRegion); 
+			GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
+					mux.vncDaemon.myRegion.x, 
+					targetRegion);
+			logMsg("I'm the Client, and I'm in region: " + 
+					my_getphotoinfo.srcRegion + 
+					" nodID = " + my_getphotoinfo.originNodeId);
+			try {
+				packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
+			} catch (IOException e) {
+				Log.i(TAG, "_intToBytes() failed");
+				e.printStackTrace();
+			}
+			if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+				Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
+				mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+				Log.i(TAG, "I'm not a leader, requesting photos packet send out");
+				mux.vncDaemon.sendPacket(packet);
+			}
+			Log.i(TAG, "Done with Get photos button");
+		}
+	};
+	private OnClickListener get4_button_listener = new OnClickListener(){
+		public void onClick(View v){
+			Log.i(TAG, "#################");
+			Log.i(TAG, "clicked getphotos Button from region 4");
+			long targetRegion = 4;
+			// Create a Packet to send through Mux to Leader's UserApp
+			Packet packet = new Packet(-1, 
+					-1,
+					Packet.CLIENT_REQUEST,
+					Packet.CLIENT_DOWNLOAD_PHOTO,
+					mux.vncDaemon.myRegion,
+					mux.vncDaemon.myRegion); 
+			GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
+					mux.vncDaemon.myRegion.x, 
+					targetRegion);
+			logMsg("I'm the Client, and I'm in region: " + 
+					my_getphotoinfo.srcRegion + 
+					" nodID = " + my_getphotoinfo.originNodeId);
+			try {
+				packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
+			} catch (IOException e) {
+				Log.i(TAG, "_intToBytes() failed");
+				e.printStackTrace();
+			}
+			if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+				Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
+				mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+				Log.i(TAG, "I'm not a leader, requesting photos packet send out");
+				mux.vncDaemon.sendPacket(packet);
+			}
+			Log.i(TAG, "Done with Get photos button");
+		}
+	};
+	private OnClickListener get5_button_listener = new OnClickListener(){
+		public void onClick(View v){
+			Log.i(TAG, "#################");
+			Log.i(TAG, "clicked getphotos Button from region 5");
+			long targetRegion = 5;
+			// Create a Packet to send through Mux to Leader's UserApp
+			Packet packet = new Packet(-1, 
+					-1,
+					Packet.CLIENT_REQUEST,
+					Packet.CLIENT_DOWNLOAD_PHOTO,
+					mux.vncDaemon.myRegion,
+					mux.vncDaemon.myRegion); 
+			GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
+					mux.vncDaemon.myRegion.x, 
+					targetRegion);
+			logMsg("I'm the Client, and I'm in region: " + 
+					my_getphotoinfo.srcRegion + 
+					" nodID = " + my_getphotoinfo.originNodeId);
+			try {
+				packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
+			} catch (IOException e) {
+				Log.i(TAG, "_intToBytes() failed");
+				e.printStackTrace();
+			}
+			if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+				Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
+				mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+				Log.i(TAG, "I'm not a leader, requesting photos packet send out");
+				mux.vncDaemon.sendPacket(packet);
+			}
+			Log.i(TAG, "Done with Get photos button");
+		}
+	};
+	private OnClickListener get6_button_listener = new OnClickListener(){
+		public void onClick(View v){
+			Log.i(TAG, "#################");
+			Log.i(TAG, "clicked getphotos Button from region 6");
+			long targetRegion = 6;
+			// Create a Packet to send through Mux to Leader's UserApp
+			Packet packet = new Packet(-1, 
+					-1,
+					Packet.CLIENT_REQUEST,
+					Packet.CLIENT_DOWNLOAD_PHOTO,
+					mux.vncDaemon.myRegion,
+					mux.vncDaemon.myRegion); 
+			GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
+					mux.vncDaemon.myRegion.x, 
+					targetRegion);
+			logMsg("I'm the Client, and I'm in region: " + 
+					my_getphotoinfo.srcRegion + 
+					" nodID = " + my_getphotoinfo.originNodeId);
+			try {
+				packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
+			} catch (IOException e) {
+				Log.i(TAG, "_intToBytes() failed");
+				e.printStackTrace();
+			}
+			if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+				Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
+				mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+				Log.i(TAG, "I'm not a leader, requesting photos packet send out");
+				mux.vncDaemon.sendPacket(packet);
+			}
+			Log.i(TAG, "Done with Get photos button");
+		}
+	};
 }

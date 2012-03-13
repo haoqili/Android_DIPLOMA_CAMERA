@@ -15,8 +15,8 @@ public class GetPhotoInfo implements Serializable  {
 		srcRegion = srcRegion_;
 		destRegion = destRegion_;
 	}
-	
+	/*
 	public void setPhotoBytes(byte[] photoBytes_){
 		photoBytes = photoBytes_;
-	}
+	}*/
 }

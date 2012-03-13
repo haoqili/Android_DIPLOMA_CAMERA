@@ -523,9 +523,14 @@ public class VCoreDaemon extends Thread {
 
 		// Determine what region we're in now
 		// and if we've entered a new region since last check, take action
-		long rx = mX / regionWidth;
+		/*long rx = mX / regionWidth;
 		long ry = mY / regionWidth;
 		RegionKey newRegion = new RegionKey(rx, ry);
+		if (!newRegion.equals(myRegion))
+			changeRegion(newRegion);*/
+		long rx = Math.round(mX / regionWidth);
+		//long ry = mY / regionWidth;
+		RegionKey newRegion = new RegionKey(rx, 0);
 		if (!newRegion.equals(myRegion))
 			changeRegion(newRegion);
 	}

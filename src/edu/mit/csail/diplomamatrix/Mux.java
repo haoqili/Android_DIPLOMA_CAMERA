@@ -70,15 +70,15 @@ public class Mux extends Thread {
 				break;
 				
 			case Packet.CLIENT_REQUEST:
-				logMsg("Inside CLIENT_REQUEST");
+				logMsg("Inside mux Packet.CLIENT_REQUEST");
 				// send request to UserApp to upload photo
 				if (vncDaemon.mState == VCoreDaemon.LEADER) {
 
 					Log.i(TAG, "I'm a leader, about to process Packet.CLIENT_REQUEST in userApp");
 					vncDaemon.csm.userApp.handleClientRequest(vnp);
 				} else if (vncDaemon.mState == VCoreDaemon.NONLEADER) {
-					// non-leader should not even receive this packet
-					// since sendPackets filter out packets to itself
+					// non leaders can be from both my region and 
+					// neighboring regions
 					Log.i(TAG, "Nonleader does nothing for Packet.CLIENT_REQUEST");
 				}
 				break;

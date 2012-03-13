@@ -87,11 +87,60 @@
             android:text="Take a Photo!" />
 
         <Button
-            android:id="@+id/getphotos_button"
+            android:id="@+id/get1_button"
             android:layout_width="80dip"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:text="Get photos from region 2!" />
+            android:text="Reg 1 Get" />
+        
+        <Button
+            android:id="@+id/get2_button"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Reg 2 Get" />
+        
+        <Button
+            android:id="@+id/get3_button"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Reg 3 Get!" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/CameraLaunch2"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/null_button"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="" />
+
+        <Button
+            android:id="@+id/get4_button"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Reg 4 Get" />
+        
+        <Button
+            android:id="@+id/get5_button"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Reg 5 Get" />
+        
+        <Button
+            android:id="@+id/get6_button"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Reg 6 Get" />
 
     </LinearLayout>
     
@@ -104,6 +153,14 @@
             android:id="@+id/photoResultView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        
+        <TextView
+            android:id="@+id/photoResultNull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="That region doesn't have a photo" 
+            android:visibility="gone">
+        </TextView>
     </LinearLayout>
 
     <ListView

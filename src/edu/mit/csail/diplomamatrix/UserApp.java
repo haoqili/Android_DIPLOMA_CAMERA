@@ -146,13 +146,18 @@ public class UserApp implements DSMUser {
 				break;
 			}
 			// TODO: MAKE IT GET ith Photo, currently just sending newest photo
-			byte[] photolist_bytes = block.lines.get(Globals.PHOTO_KEY);
-			ArrayList<byte []> photolist = _bytesToArraylist(photolist_bytes);
-			
-			byte[] latest_photo_bytes = photolist.get(photolist.size()-1);
+			if (block.lines.get(Globals.PHOTO_KEY) == null){
+				// this leader doesn't have any photos yet
+				my_gpinfo.photoBytes = null;
+			} else {
+				// this leader has a photo
+				byte[] photolist_bytes = block.lines.get(Globals.PHOTO_KEY);
+				ArrayList<byte []> photolist = _bytesToArraylist(photolist_bytes);
 
-			my_gpinfo.setPhotoBytes(latest_photo_bytes);
-			
+				byte[] latest_photo_bytes = photolist.get(photolist.size()-1);
+
+				my_gpinfo.photoBytes = latest_photo_bytes;
+			}
 			// Unnecessary self loop, but we don't care about this little overhead
 			if (dest_region == src_region) { 
 				logMsg("dst_region == src_region = " + src_region);
@@ -202,6 +207,12 @@ public class UserApp implements DSMUser {
 	 * @throws IOException 
 	 */
 	public synchronized void handleClientRequest(Packet packet) throws IOException, ClassNotFoundException{
+		if ((packet.dstRegion.x != mux.vncDaemon.myRegion.x) && (packet.dstRegion.y != mux.vncDaemon.myRegion.y)) {
+			// discard requests from non-leaders that are not from the same region
+			logMsg("pack.dstRegion: " + packet.dstRegion + " muxmyRegion: " + mux.vncDaemon.myRegion);
+			logMsg("handleClientRequest discarding packet to reg: " + packet.dstRegion);
+			return;
+		}
 		switch (packet.subtype) {
 		case Packet.CLIENT_UPLOAD_PHOTO:
 			logMsg("Inside CLIENT_NEW_PHOTO!!");
@@ -211,13 +222,9 @@ public class UserApp implements DSMUser {
 			logMsg("Inside CLIENT_DOWNLOAD_PHOTO, figure out where to forward packet");
 			GetPhotoInfo my_gpinfo = _bytesToGetphotoinfo(packet.getphotoinfo_bytes);
 			long dest_region = my_gpinfo.destRegion;
-			if (dest_region != mux.vncDaemon.myRegion.x){
-				logMsg("RELAYED TO WRONG SERVER!" + mux.vncDaemon.myRegion.x + 
-						" instead of dest_region: " + dest_region);
-				break;
-			}
 			logMsg("Sending to region: " + dest_region);
 			
+			// this atom Request is going to forward this to the destination region
 			dsm.atomRequest(SERVER_GET_PHOTO, dest_region, 0, false, packet.getphotoinfo_bytes);
 			break;
 		}
