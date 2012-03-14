@@ -1,4 +1,5 @@
 package edu.mit.csail.diplomamatrix;
+
 import java.io.IOException;
 
 import android.os.Handler;
@@ -24,7 +25,7 @@ public class Mux extends Thread {
 	protected final static int PACKET_SEND = 5;
 	protected final static int CSM_SEND = 19;
 	protected final static int VNC_SEND = 18;
-	//protected final static int APP_SEND = 17;
+	// protected final static int APP_SEND = 17;
 	protected final static int VNC_STATUS_CHANGE = 6;
 	protected final static int REGION_CHANGE = 7;
 	protected final static int CLIENT_STATUS_CHANGE = 8;
@@ -46,10 +47,14 @@ public class Mux extends Thread {
 		Log.i(TAG, line);
 	}
 
-	/** Take action on message sent to my handler. 
-	 * @throws ClassNotFoundException 
-	 * @throws IOException */
-	private void processMessage(Message msg) throws IOException, ClassNotFoundException {
+	/**
+	 * Take action on message sent to my handler.
+	 * 
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
+	private void processMessage(Message msg) throws IOException,
+			ClassNotFoundException {
 		switch (msg.what) {
 		case Mux.PACKET_RECV:
 			Packet vnp = (Packet) msg.obj;
@@ -59,38 +64,50 @@ public class Mux extends Thread {
 			}
 			switch (vnp.type) {
 			case Packet.VNC_MSG:
-				//logMsg("Network -> VNC");
+				// logMsg("Network -> VNC");
 				vncDaemon.myHandler.sendMessage(Message.obtain(msg));
 				break;
 			case Packet.CSM_MSG:
-				//logMsg("Network -> CSM");
+				// logMsg("Network -> CSM");
 				if (vncDaemon.mState == VCoreDaemon.LEADER
 						&& vncDaemon.csm != null)
 					vncDaemon.csm.handleCSMOp(vnp.csm_op);
 				break;
-				
+
 			case Packet.CLIENT_REQUEST:
 				logMsg("Inside mux Packet.CLIENT_REQUEST");
 				// send request to UserApp to upload photo
 				if (vncDaemon.mState == VCoreDaemon.LEADER) {
 
-					Log.i(TAG, "I'm a leader, about to process Packet.CLIENT_REQUEST in userApp");
+					Log.i(TAG,
+							"I'm a leader, about to process Packet.CLIENT_REQUEST in userApp");
 					vncDaemon.csm.userApp.handleClientRequest(vnp);
 				} else if (vncDaemon.mState == VCoreDaemon.NONLEADER) {
-					// non leaders can be from both my region and 
+					// non leaders can be from both my region and
 					// neighboring regions
-					Log.i(TAG, "Nonleader does nothing for Packet.CLIENT_REQUEST");
+					Log.i(TAG,
+							"Nonleader does nothing for Packet.CLIENT_REQUEST");
 				}
 				break;
 			case Packet.SERVER_REPLY:
-				activityHandler.obtainMessage(vnp.subtype, vnp).sendToTarget();
+				logMsg("Inside mux Packet.SERVER_REPLY");
+				// check that it's the original photo requester
+				if (UserApp._bytesToGetphotoinfo((vnp.photo_bytes)).originNodeId == nodeId) {
+					logMsg("I have the photo requester id = " + nodeId
+							+ " about to display photo");
+					activityHandler.obtainMessage(vnp.subtype, vnp)
+							.sendToTarget();
+				} else {
+					logMsg("don't display photo I am not the photo rrequester id = " + nodeId
+							+ " about to display photo");
+				}
 				break;
 			} // end switch(vnp.type)
 
 			break;
 
 		case Mux.PACKET_SEND:
-			//logMsg("VNC -> Network"); // Only VCoreDaemon uses PACKET_SEND
+			// logMsg("VNC -> Network"); // Only VCoreDaemon uses PACKET_SEND
 			this.netThread.sendPacket((Packet) msg.obj);
 			break;
 		case CSM_SEND:
@@ -100,11 +117,11 @@ public class Mux extends Thread {
 					op.dstRegion);
 			p.csm_op = op;
 			if (vncDaemon.mState == VCoreDaemon.LEADER) {
-				//logMsg("CSM -> Network");
+				// logMsg("CSM -> Network");
 				this.netThread.sendPacket(p);
 				vncDaemon.csm.handleCSMOp(op);
 			} else if (vncDaemon.mState == VCoreDaemon.NONLEADER) {
-				//logMsg("CSM -> Network (muted, buffered)");
+				// logMsg("CSM -> Network (muted, buffered)");
 				// TODO csmOpBuffer.add(op)
 			}
 
@@ -154,8 +171,10 @@ public class Mux extends Thread {
 		long initRx = -1;
 		long initRy = -1;
 
+		Log.i(TAG, "starting vncDaemon ........");
 		vncDaemon = new VCoreDaemon(this, nodeId, initRx, initRy, maxRx, maxRy);
 		vncDaemon.start();
+		Log.i(TAG, "vncDaemon started");
 	}
 
 	/** Stuff to do right BEFORE exiting the run loop. */

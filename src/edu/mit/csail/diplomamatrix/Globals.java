@@ -31,9 +31,9 @@ public class Globals {
 		public static final boolean DEBUG_SKIP_CLOUD = true;
 
 		// photo properties
-		final static public int COMP_QUALITY = 50; // 0 - 100, 100 is max quality
+		final static public int COMP_QUALITY = 10; // 0 - 100, 100 is max quality
 		final static String PHOTO_PATH = Environment.getExternalStorageDirectory().getName() + File.separatorChar + "temp_photo.jpg";
-		final static int TARGET_SHORT_SIDE = 400;
-		final static int TARGET_LONG_SIDE = 480;
+		final static int TARGET_SHORT_SIDE = 200;
+		final static int TARGET_LONG_SIDE = 240;
 		final static String PHOTO_KEY = "diplomaPhotos";
 } 

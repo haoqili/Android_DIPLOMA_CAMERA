@@ -4,6 +4,13 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <FrameLayout
+        android:id="@+id/CameraPreview"
+        android:layout_width="match_parent"
+        android:layout_height="100dip"
+        android:text="blah"/>
+        
+    
     <LinearLayout
         android:id="@+id/StatusHeadingLayout"
         android:layout_width="match_parent"
@@ -115,11 +122,11 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/null_button"
+            android:id="@+id/cameraPrev_button"
             android:layout_width="80dip"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:text="" />
+            android:text="My Camera Take" />
 
         <Button
             android:id="@+id/get4_button"
@@ -152,7 +159,7 @@
         <ImageView
             android:id="@+id/photoResultView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="70dip" />
         
         <TextView
             android:id="@+id/photoResultNull"

@@ -16,6 +16,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.hardware.Camera;
+import android.hardware.Camera.PictureCallback;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -33,6 +35,7 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,7 +45,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	private static final int CAMERA_PIC_REQUEST = 111;
 
 	// UI elements
-	Button camera_button, region_button;
+	Button camera_button, region_button, my_camera_button;
 	Button get1_button, get2_button, get3_button, get4_button, get5_button, get6_button;
 	TextView opCountTv, successCountTv, failureCountTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
@@ -50,6 +53,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	EditText regionText, threadsText;
 	ListView msgList;
 	ArrayAdapter<String> receivedMessages;
+	CameraSurfaceView cameraSurfaceView;
 
 	PowerManager.WakeLock wl = null;
 	LocationManager lm;
@@ -201,6 +205,21 @@ public class StatusActivity extends Activity implements LocationListener {
 		get5_button.setOnClickListener(get5_button_listener);
 		get6_button = (Button) findViewById(R.id.get6_button);
 		get6_button.setOnClickListener(get6_button_listener);
+		
+        //Setup the FrameLayout with the Camera Preview Screen
+		cameraSurfaceView = new CameraSurfaceView(this);
+        FrameLayout camerapreview = (FrameLayout) findViewById(R.id.CameraPreview); 
+        camerapreview.addView(cameraSurfaceView);
+      //Setup the 'Take Picture' button to take a picture
+        my_camera_button = (Button)findViewById(R.id.cameraPrev_button);
+        my_camera_button.setOnClickListener(new OnClickListener() 
+        {
+                public void onClick(View v) 
+                {
+                        Camera camera = cameraSurfaceView.getCamera();
+                        camera.takePicture(null, null, new HandlePictureStorage());
+                }
+        });
 
 		// Text views
 		opCountTv = (TextView) findViewById(R.id.opcount_tv);
@@ -272,8 +291,8 @@ public class StatusActivity extends Activity implements LocationListener {
 		Log.i(TAG, "about to start mux hqqqqqqqqqqqqqqqqqqq");
 		Log.i("                id = ", String.valueOf(id));
 		mux = new Mux(id, myHandler);
-		Log.i(TAG, "end to start mux hqqqqqqqqqqqqqq11qqqqq");
 		mux.start();
+		Log.i(TAG, "end to start mux hqqqqqqqqqqqqqq11qqqqq");
 
 		// Watch out for low battery conditions
 		BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -288,37 +307,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		inf.addAction("android.intent.action.BATTERY_LOW");
 		this.registerReceiver(receiver, inf);
 
-
-		// Camera Launch starting benchmark ... 
-		// copied from the "start benchmark" button onclick listener
-		Log.i(TAG, "about to start benchmark hqqqqqqqqqqqqqqqqqqq");
-		if (mux == null){
-			Log.i("bench button null 1:", "mux == null. :(:(:(:(:(:(:(");
-		} else {
-			if (mux.vncDaemon == null){
-				Log.i("bench button null 2:", "mux.vncDaemon == null. :(:(:(");
-			} else {
-				if (mux.vncDaemon.csm == null){
-					Log.i("bench button null 3:", "mux.vncDaemon.csm == null :(:(:(:(");
-				} else {
-					if (mux.vncDaemon.csm.userApp == null) {
-						Log.i("bench button null 4:", "mux.vncDaemon.csm.userApp == null :(:(:(:(");
-					} else {
-						Log.i("bench button null 5:", ":):):):)");
-					}
-				}
-			}
-		}
-		if (mux == null || mux.vncDaemon == null
-				|| mux.vncDaemon.csm == null
-				|| mux.vncDaemon.csm.userApp == null) {
-			Log.i(TAG, ":( mux not right, can't start benchmark hqqqqqqqqqqqqqqqqqqq");
-			return;
-		}
-		logMsg("*** benchmark starting ***");
-		// TODO: Is the below necessary?  Also check if the above can be placed here in onCreate()
-		mux.vncDaemon.csm.userApp.startBenchmark();
-		update();
 		logMsg("*** Application started ***");
 
 	} // end OnCreate()
@@ -329,6 +317,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	 */
 	@Override
 	protected void onResume() {
+		logMsg("HI I'm in ONRESUME()");
 		super.onResume();
 		// update if phone moves 5m ( once GPS fix is acquired )
 		// or if 5s has passed since last update
@@ -342,6 +331,7 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	@Override
 	protected void onPause() {
+		logMsg("HI I'm in ONPAUSE()");
 		super.onPause();
 	}
 
@@ -410,7 +400,22 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 	}
 
-	/** Camera Launch stuff **/
+	/** 
+	 * Camera from Intent stuff 
+	 * It launches camera by pausing StatusActivity and 
+	 * returns to onActivityResult
+	 * 
+	 * We save the photo at Globals.PHOTO_PATH (in the sdcard) and
+	 * retrieve the photo from there inside onActivityResult
+	 * 
+	 * ----
+	 * 
+	 * This works fine on Nexus S phones, but
+	 * on Galaxy Note phones, Mux is killed and have to be restarted
+	 * before and after the camera intent, causing a
+	 * "Cannot open socketAddress already in use" error
+	 * 
+	 * **/
 	private OnClickListener camera_button_listener = new OnClickListener(){
 		public void onClick(View v){
 			Log.i(TAG, "#################");
@@ -435,50 +440,87 @@ public class StatusActivity extends Activity implements LocationListener {
 			startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
 		}
 	};
-	//TODO: higher resolution pictures
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode != Activity.RESULT_OK) {
+			logMsg("Taking picture failed. Try again!");
+			return;
+		}
 		if (requestCode == CAMERA_PIC_REQUEST) {
 			Log.i(TAG, "Camera Handling results!");
 
-			if (resultCode != Activity.RESULT_OK) {
-				logMsg("Taking picture failed. Try again!");
-				return;
-			}
+			
 			logMsg("Display on screen:");
 			ImageView image = (ImageView) findViewById(R.id.photoResultView);
 
-			Bitmap bitmap = _getAndResizeBitmap();
-			image.setImageBitmap(bitmap);
-			logMsg("GETANDRESIZE BITMAP SIZE: " + _bitmapBytes(bitmap));
-
-			Log.i(TAG, "111111111");
-			// Create a Packet to send through Mux to Leader's UserApp
-			Packet packet = new Packet(-1, 
-					-1,
-					Packet.CLIENT_REQUEST,
-					Packet.CLIENT_UPLOAD_PHOTO,
-					mux.vncDaemon.myRegion,
-					mux.vncDaemon.myRegion);
-			Log.i(TAG, "222222222");
+			Bitmap new_bitmap = _getAndResizeBitmap();
+			image.setImageBitmap(new_bitmap);
+			logMsg("GETANDRESIZE BITMAP Original SIZE: " + _bitmapBytes(new_bitmap));
+			sendClientNewpic(new_bitmap);
+		}
+	}
+	
+	/**
+	 * Camera from CameraSurface Works on both Nexus S and Galaxy Note phones,
+	 * because StatusActivity is never paused
+	 * 
+	 * The photo is not saved on the sdcard.
+	 * */
+	private class HandlePictureStorage implements PictureCallback {
+		@Override
+		public void onPictureTaken(byte[] picture, Camera camera) {
+			// let the preview work again
+			cameraSurfaceView.camera.startPreview();
+			
+			logMsg("Picture successfully taken, ORIG BYTE LENGTH = " + picture.length);
 			try {
-				//packet.photo_bytes = _bitmapToBytes(resized);
-				packet.photo_bytes = _bitmapToBytes(bitmap);
+				Bitmap orig_bitmap = _bytesToBitmap(picture);
+				Bitmap new_bitmap = _bytesResizeBitmap(picture, orig_bitmap);
+				ImageView image = (ImageView) findViewById(R.id.photoResultView);
+				image.setImageBitmap(new_bitmap);
+				sendClientNewpic(new_bitmap);
+			} catch (OptionalDataException e) {
+				Log.i(TAG, "_bytesToBitmap failed");
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				Log.i(TAG, "_bytesToBitmap failed");
+				e.printStackTrace();
 			} catch (IOException e) {
-				Log.i(TAG, "_bitmapToBytes() failed");
+				Log.i(TAG, "_bytesToBitmap failed");
 				e.printStackTrace();
 			}
-			Log.i(TAG, "3333333333");
-			if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-				Log.i(TAG, "I'm a leader, photo packet going to mux directly");
-				mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
-			} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
-				Log.i(TAG, "I'm not a leader, photo packet send out");
-				mux.vncDaemon.sendPacket(packet);
-			}
-			Log.i(TAG, "44444444444");
 		}
 	}
 
+	protected void sendClientNewpic(Bitmap bitmap){
+		logMsg("client making photo packet to send to leader");
+		Log.i(TAG, "111111111");
+		// Create a Packet to send through Mux to Leader's UserApp
+		Packet packet = new Packet(-1, 
+				-1,
+				Packet.CLIENT_REQUEST,
+				Packet.CLIENT_UPLOAD_PHOTO,
+				mux.vncDaemon.myRegion,
+				mux.vncDaemon.myRegion);
+		Log.i(TAG, "222222222");
+		try {
+			// jpeg compression in bitmapToBytes
+			packet.photo_bytes = _bitmapToBytes(bitmap);
+			logMsg("BYTE SIZE AFTER COMPRESSION: " + packet.photo_bytes.length);
+		} catch (IOException e) {
+			Log.i(TAG, "_bitmapToBytes() failed");
+			e.printStackTrace();
+		}
+		Log.i(TAG, "3333333333");
+		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+			Log.i(TAG, "I'm a leader, photo packet going to mux directly");
+			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+			Log.i(TAG, "I'm not a leader, photo packet send out");
+			mux.vncDaemon.sendPacket(packet);
+		}
+		Log.i(TAG, "44444444444");
+	}
+	
 	protected Bitmap _getAndResizeBitmap(){
 		BitmapFactory.Options options =new BitmapFactory.Options();
 		// first we don't produce an actual bitmap, but just probe its dimensions
@@ -498,8 +540,30 @@ public class StatusActivity extends Activity implements LocationListener {
 		// now we actually produce the bitmap, resized
 		options.inJustDecodeBounds=false;
 		bitmap =BitmapFactory.decodeFile(Globals.PHOTO_PATH, options);
-		logMsg("Options height x width: " + options.outHeight + " x " + options.outWidth);
+		logMsg("Our new height x width: " + bitmap.getHeight() + " x " + bitmap.getWidth());
+		
 		return bitmap;
+	}
+	
+	protected Bitmap _bytesResizeBitmap(byte [] orig_bytes, Bitmap orig_bitmap){
+		BitmapFactory.Options options =new BitmapFactory.Options();
+		int h, w;
+		if (orig_bitmap.getHeight() > orig_bitmap.getWidth()){
+			h = (int) Math.ceil(orig_bitmap.getHeight()/(float) Globals.TARGET_SHORT_SIDE);
+			w = (int) Math.ceil(orig_bitmap.getWidth()/(float) Globals.TARGET_LONG_SIDE);
+		} else {
+			w = (int) Math.ceil(orig_bitmap.getHeight()/(float) Globals.TARGET_SHORT_SIDE);
+			h = (int) Math.ceil(orig_bitmap.getWidth()/(float) Globals.TARGET_LONG_SIDE);
+		}
+		if(h>1 || w>1){
+			options.inSampleSize = (h > w) ? h : w;
+		}
+		// now we actually produce the bitmap, resized
+		options.inJustDecodeBounds=false;
+		Bitmap new_bitmap =BitmapFactory.decodeByteArray(orig_bytes, 0, orig_bytes.length, options);
+		logMsg("Our new height x width: " + new_bitmap.getHeight() + " x " + new_bitmap.getWidth());
+		
+		return new_bitmap;
 	}
 
 	protected int _bitmapBytes(Bitmap bitmap){
@@ -509,9 +573,8 @@ public class StatusActivity extends Activity implements LocationListener {
 	public byte[] _bitmapToBytes(Bitmap bmp) throws IOException {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		bmp.compress(Bitmap.CompressFormat.JPEG, Globals.COMP_QUALITY, bos);
-		// TODO: I hope this is still under 65000 bytes
+		// should still be under 65000 bytes
 		byte[] bytes = bos.toByteArray();
-		logMsg("BYTE SIZE AFTER COMPRESSION: " + bytes.length);
 		return bytes;
 	}
 	public Bitmap _bytesToBitmap(byte[] photo_bytes) throws OptionalDataException,

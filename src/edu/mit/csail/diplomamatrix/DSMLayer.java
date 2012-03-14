@@ -1,4 +1,5 @@
 package edu.mit.csail.diplomamatrix;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -49,8 +50,9 @@ public class DSMLayer implements Serializable {
 
 	transient private Runnable pendingRequestsRetryCheckR;
 
-	private static final long pendingRequestsRetryCheckPeriod = 12000;
-	private static final long pendingRequestsRetryTimeoutPeriod = 13000;
+	private static final long pendingRequestsRetries = 3;
+	private static final long pendingRequestsRetryCheckPeriod = 600;
+	private static final long pendingRequestsRetryTimeoutPeriod = 700;
 
 	// CSM procedure retry and at-most-once queues
 	// Requester side
@@ -80,9 +82,12 @@ public class DSMLayer implements Serializable {
 		this.cacheEnabled = false;
 	}
 
-	/** CSM-UserApp Interface - make a procedure call request 
-	 * @throws ClassNotFoundException 
-	 * @throws IOException */
+	/**
+	 * CSM-UserApp Interface - make a procedure call request
+	 * 
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public synchronized long atomRequest(int p, long rx, long ry,
 			boolean write, byte[] d) throws IOException, ClassNotFoundException {
 		if (!active)
@@ -128,10 +133,12 @@ public class DSMLayer implements Serializable {
 	 * This function receives CSMOps destined for remote and local regions. It
 	 * ensures at-most-once execution by filtering out repeated CSMOps and
 	 * orders operations for INSO.
-	 * @throws ClassNotFoundException 
-	 * @throws IOException 
+	 * 
+	 * @throws ClassNotFoundException
+	 * @throws IOException
 	 */
-	public synchronized void handleCSMOp(final Atom op) throws IOException, ClassNotFoundException {
+	public synchronized void handleCSMOp(final Atom op) throws IOException,
+			ClassNotFoundException {
 		if (!active || userApp == null) {
 			return; // don't do anything until fully started
 		}
@@ -143,8 +150,8 @@ public class DSMLayer implements Serializable {
 				this.cullSentReplies(op.srcRegion, op.lowestPendingRequestId);
 
 				if (sentReplies.get(op.srcRegion).containsKey(op.requestId)) { // at-most-once
-					Atom reply = sentReplies.get(op.srcRegion).get(
-							op.requestId);
+					Atom reply = sentReplies.get(op.srcRegion)
+							.get(op.requestId);
 
 					logMsg(String.format("Received DUPLICATE %s, replying %s",
 							op, reply));
@@ -196,8 +203,7 @@ public class DSMLayer implements Serializable {
 			case Atom.PROC_REPLY: // pass to userserver
 				// ignore if not in pending request queue, duplicate reply
 				if (pendingRequests.get(op.srcRegion).containsKey(op.requestId)) {
-					logMsg(String.format("Received %s, handing to UserApp",
-							op));
+					logMsg(String.format("Received %s, handing to UserApp", op));
 					pendingRequests.get(op.srcRegion).remove(op.requestId);
 					userApp.handleDSMReply(op);
 				} else {
@@ -264,28 +270,31 @@ public class DSMLayer implements Serializable {
 				break;
 			}
 		} else if (forwardingEnabled) {
+			// Initialize HashSet for nonces heard from this source region
 			if (!this.forwardedPackets.containsKey(op.srcRegion)) {
 				this.forwardedPackets.put(new RegionKey(op.srcRegion),
 						new HashSet<Long>());
 			}
 
 			// Don't forward an op more than once
+			logMsg("nonce " + op.nonce + " heard from src region "
+					+ op.srcRegion);
 			if (!this.forwardedPackets.get(op.srcRegion).contains(op.nonce)) {
 				// Forward on towards destination, x-y routing
-				if (op.dstRegion.x == region.x && op.srcRegion.y < region.y
-						&& region.y < op.dstRegion.y) {
-					logMsg("Forwarding Atom to remote region.");
+				long distToDst = Math.abs(op.dstRegion.y - region.y)
+						+ Math.abs(op.dstRegion.x - region.x);
+				long srcToDstDist = Math.abs(op.dstRegion.y - op.srcRegion.y)
+						+ Math.abs(op.dstRegion.x - op.srcRegion.x);
+				if (distToDst < srcToDstDist) {
+					logMsg("Forwarding Atom because it's closer.");
 					this.forwardedPackets.get(op.srcRegion).add(op.nonce);
-					this.dispatchCSMOp(op);
-				} else if (op.srcRegion.x < region.x
-						&& region.x < op.dstRegion.x) {
-					logMsg("Forwarding Atom to remote region.");
-					this.forwardedPackets.get(op.srcRegion).add(op.nonce);
-					this.dispatchCSMOp(op);
+					mux.myHandler.obtainMessage(Mux.CSM_SEND, op)
+							.sendToTarget();
 				} else if (op.broadcast) {
 					logMsg("Forwarding Atom because it's broadcast.");
 					this.forwardedPackets.get(op.srcRegion).add(op.nonce);
-					this.dispatchCSMOp(op);
+					mux.myHandler.obtainMessage(Mux.CSM_SEND, op)
+							.sendToTarget();
 				}
 			} else {
 				logMsg("Received Atom already forwarded, ignoring...");
@@ -353,7 +362,8 @@ public class DSMLayer implements Serializable {
 	public DSMLayer(VCoreDaemon vnc, RegionKey r, boolean cachen) {
 		this.vncDaemon = vnc;
 		this.cacheEnabled = cachen;
-		this.forwardingEnabled = false; // for matrix mult bench, all in range
+		this.forwardingEnabled = true; // for matrix mult bench, all in range //
+										// hop forward
 		this.synced = false;
 
 		logMsg("*** Starting CSM Layer ***");
@@ -414,7 +424,8 @@ public class DSMLayer implements Serializable {
 		this.vncDaemon = v;
 
 		logMsg("DSMLayer starting");
-		Log.i("DSMLayer.java", "starting new UserApp ...............................");
+		Log.i("DSMLayer.java",
+				"starting new UserApp ...............................");
 		this.userApp = new UserApp(m, this);
 		this.userApp.start();
 
@@ -444,7 +455,7 @@ public class DSMLayer implements Serializable {
 						long timeSinceRequest = System.currentTimeMillis()
 								- request.timestamp;
 
-						if (timeSinceRequest > 3 * pendingRequestsRetryTimeoutPeriod) {
+						if (timeSinceRequest > pendingRequestsRetries * pendingRequestsRetryTimeoutPeriod) {
 							// it.remove(); // remove in reply handling instead
 							Atom reply = new Atom(request.requestId,
 									request.procedure, Atom.PROC_REPLY,
