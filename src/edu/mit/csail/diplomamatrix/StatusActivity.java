@@ -49,7 +49,6 @@ public class StatusActivity extends Activity implements LocationListener {
 	Button get1_button, get2_button, get3_button, get4_button, get5_button, get6_button;
 	TextView opCountTv, successCountTv, failureCountTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
-	TextView photoResultNull;
 	EditText regionText, threadsText;
 	ListView msgList;
 	ArrayAdapter<String> receivedMessages;
@@ -104,6 +103,7 @@ public class StatusActivity extends Activity implements LocationListener {
 				try {
 					new_photo = _bytesToBitmap(packet.photo_bytes);
 					ImageView image = (ImageView) findViewById(R.id.photoResultView);
+					logMsg("Show photo from server_show_newphoto");
 					image.setImageBitmap(new_photo);
 				} catch (OptionalDataException e) {
 					Log.i(TAG, "_bytesToBitmap failed");
@@ -122,11 +122,11 @@ public class StatusActivity extends Activity implements LocationListener {
 				Bitmap photo_one;
 				try {
 					if (pack.photo_bytes == null) {
-						photoResultNull.setVisibility(View.VISIBLE);
+						logMsg("PHOTO DATA is NULL, perhaps region doesn't have a photo yet");
 					} else {
-						photoResultNull.setVisibility(View.GONE);
 						photo_one = _bytesToBitmap(pack.photo_bytes);
 						ImageView image = (ImageView) findViewById(R.id.photoResultView);
+						logMsg("Show photo from client_show_newphotos");
 						image.setImageBitmap(photo_one);
 					}
 				} catch (OptionalDataException e) {
@@ -239,8 +239,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		receivedMessages = new ArrayAdapter<String>(this, R.layout.message);
 		msgList.setAdapter(receivedMessages);
 		
-		photoResultNull = (TextView) findViewById(R.id.photoResultNull);
-
 		// Get a wakelock to keep everything running
 		PowerManager pm = (PowerManager) getApplicationContext()
 				.getSystemService(Context.POWER_SERVICE);
@@ -453,6 +451,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			ImageView image = (ImageView) findViewById(R.id.photoResultView);
 
 			Bitmap new_bitmap = _getAndResizeBitmap();
+			logMsg("Show photo from camera intent result");
 			image.setImageBitmap(new_bitmap);
 			logMsg("GETANDRESIZE BITMAP Original SIZE: " + _bitmapBytes(new_bitmap));
 			sendClientNewpic(new_bitmap);
@@ -476,6 +475,8 @@ public class StatusActivity extends Activity implements LocationListener {
 				Bitmap orig_bitmap = _bytesToBitmap(picture);
 				Bitmap new_bitmap = _bytesResizeBitmap(picture, orig_bitmap);
 				ImageView image = (ImageView) findViewById(R.id.photoResultView);
+				
+				logMsg("Show photo from handle my camera take");
 				image.setImageBitmap(new_bitmap);
 				sendClientNewpic(new_bitmap);
 			} catch (OptionalDataException e) {

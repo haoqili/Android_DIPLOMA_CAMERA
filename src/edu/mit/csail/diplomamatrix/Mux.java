@@ -68,7 +68,7 @@ public class Mux extends Thread {
 				vncDaemon.myHandler.sendMessage(Message.obtain(msg));
 				break;
 			case Packet.CSM_MSG:
-				// logMsg("Network -> CSM");
+			    logMsg("GOT CSM_Msg");
 				if (vncDaemon.mState == VCoreDaemon.LEADER
 						&& vncDaemon.csm != null)
 					vncDaemon.csm.handleCSMOp(vnp.csm_op);
@@ -77,10 +77,12 @@ public class Mux extends Thread {
 			case Packet.CLIENT_REQUEST:
 				logMsg("Inside mux Packet.CLIENT_REQUEST");
 				// send request to UserApp to upload photo
-				if (vncDaemon.mState == VCoreDaemon.LEADER) {
+				if ((vncDaemon.mState == VCoreDaemon.LEADER) &&
+					(vncDaemon.myRegion.x == vnp.srcRegion.x) &&
+					(vncDaemon.myRegion.y == vnp.srcRegion.y)	) {
 
 					Log.i(TAG,
-							"I'm a leader, about to process Packet.CLIENT_REQUEST in userApp");
+							"I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp");
 					vncDaemon.csm.userApp.handleClientRequest(vnp);
 				} else if (vncDaemon.mState == VCoreDaemon.NONLEADER) {
 					// non leaders can be from both my region and
@@ -92,14 +94,13 @@ public class Mux extends Thread {
 			case Packet.SERVER_REPLY:
 				logMsg("Inside mux Packet.SERVER_REPLY");
 				// check that it's the original photo requester
-				if (UserApp._bytesToGetphotoinfo((vnp.photo_bytes)).originNodeId == nodeId) {
+				if (vnp.dst == nodeId) {
 					logMsg("I have the photo requester id = " + nodeId
 							+ " about to display photo");
 					activityHandler.obtainMessage(vnp.subtype, vnp)
 							.sendToTarget();
 				} else {
-					logMsg("don't display photo I am not the photo rrequester id = " + nodeId
-							+ " about to display photo");
+					logMsg("Ignoring SERVER_REPLY since it's not for me  " + nodeId);
 				}
 				break;
 			} // end switch(vnp.type)
@@ -118,6 +119,7 @@ public class Mux extends Thread {
 			p.csm_op = op;
 			if (vncDaemon.mState == VCoreDaemon.LEADER) {
 				// logMsg("CSM -> Network");
+				logMsg("I got a CSM packet at a leader \n");
 				this.netThread.sendPacket(p);
 				vncDaemon.csm.handleCSMOp(op);
 			} else if (vncDaemon.mState == VCoreDaemon.NONLEADER) {

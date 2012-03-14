@@ -80,7 +80,7 @@ public class UserApp implements DSMUser {
 					long request_region = my_gpinfo2.srcRegion;
 					int subtype = Packet.CLIENT_SHOW_NEWPHOTOS;
 					
-					logMsg("send photo packet to original CLIENT through StatusActivity:");
+					logMsg("send photo packet to original CLIENT:");
 					logMsg("Client is in region: " + request_region
 							+ " nodID = " + request_nodeId);
 					Packet packet = new Packet(-1, request_nodeId,
@@ -96,6 +96,8 @@ public class UserApp implements DSMUser {
 						mux.activityHandler.obtainMessage(subtype, packet)
 								.sendToTarget();
 					} else {
+						logMsg("I'm a leader, but I was not the photo requester, " +
+								"sending photo back to original requester id = " + request_nodeId);
 						// forward the packet to its non-client, the photo requester
 						mux.vncDaemon.sendPacket(packet);
 					}
