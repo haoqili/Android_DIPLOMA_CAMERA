@@ -365,7 +365,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	public void onLocationChanged(Location loc) {
 		logMsg(".......... GPS onLocationChanged ...... ");
 		if (loc != null) {
-			mux.vncDaemon.checkLocation(loc);
+			//mux.vncDaemon.checkLocation(loc);
+			// TODO: better location:
+			mux.vncDaemon.determineLocation(loc, mux.vncDaemon.myRegion);
 		} else {
 			logMsg("Null Location");
 		}
