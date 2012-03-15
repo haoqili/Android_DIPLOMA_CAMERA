@@ -19,7 +19,7 @@ public class Globals {
         final static public boolean CACHE_ENABLED_ON_START = false;
         final static public double BENCHMARK_READ_DISTRIBUTION_ON_START = 0.9f;
         final static public long BENCHMARK_START_DELAY = 1000L; // milliseconds
-        final static public String CSM_SERVER_NAME="128.30.87.130:5212"; //128.30.66.123:5212
+        final static public String CSM_SERVER_NAME="128.30.87.130:8212"; //128.30.66.123:5212
         
         final static public int SAMPLING_DURATION=1000;
         final static public int SAMPLING_DISTANCE=1;
@@ -38,7 +38,7 @@ public class Globals {
         
         
         final static public int SPARSE_NUM_ITER=100000;
-		public static final boolean DEBUG_SKIP_CLOUD = true;
+		public static final boolean DEBUG_SKIP_CLOUD = false;
 
 		// photo properties
 		final static public int COMP_QUALITY = 10; // 0 - 100, 100 is max quality

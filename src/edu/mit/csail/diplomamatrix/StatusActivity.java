@@ -671,7 +671,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
 			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
-			Log.i(TAG, "I'm not a leader, requesting photos packet send out");
+			logMsg("I'm not a leader, requesting photos packet send out to leader");
 			mux.vncDaemon.sendPacket(packet);
 		}
 		Log.i(TAG, "Done with Get photos button for region " + targetRegion);

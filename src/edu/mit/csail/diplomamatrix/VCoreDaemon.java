@@ -565,10 +565,15 @@ public class VCoreDaemon extends Thread {
 		//logMsg("one_long_to_meters = " + one_long_to_meters);
 		
 		// Endpoints on (straight) Mass Ave to calculate theta
-		final double north_west_loc_long = -71.104888;
+		/*final double north_west_loc_long = -71.104888;
 		final double north_west_loc_lat = 42.365944;
 		final double south_east_loc_long = -71.100005;
 		final double south_east_loc_lat = 42.363492;
+		*/
+		final double north_west_loc_long = -71.093881;
+		final double north_west_loc_lat = 42.359644;
+		final double south_east_loc_long = -71.092894;
+		final double south_east_loc_lat = 42.357741;
 		double x_diff = Math.abs(south_east_loc_long - north_west_loc_long) * one_long_to_meters * power; // 401.6m
 		//logMsg("x_diff = " + x_diff);
 		double y_diff = Math.abs(north_west_loc_lat - south_east_loc_lat) * one_lat_to_meters * power; // 272.9m
