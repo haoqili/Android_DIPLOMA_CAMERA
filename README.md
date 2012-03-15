@@ -12,6 +12,8 @@ Note: When setting regions on multiple phones, do it one at a time or else they 
 
 4. If successful, should observe: `I/UserApp (  ..): ....: Upload Photo succeeded`
 
+4. Get photos from one of the 6 regions
+
 TO ASK JASON
 =========
 * Why is there a cloud communication when a leader switches regions?
