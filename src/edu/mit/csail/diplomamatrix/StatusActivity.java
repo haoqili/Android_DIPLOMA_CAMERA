@@ -515,10 +515,10 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 		Log.i(TAG, "3333333333");
 		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-			Log.i(TAG, "I'm a leader, photo packet going to mux directly");
+			logMsg("I'm a leader, photo packet going to mux directly");
 			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
-			Log.i(TAG, "I'm not a leader, photo packet send out");
+			logMsg("I'm not a leader, photo packet send out");
 			mux.vncDaemon.sendPacket(packet);
 		}
 		Log.i(TAG, "44444444444");
@@ -668,7 +668,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			e.printStackTrace();
 		}
 		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-			Log.i(TAG, "I'm a leader, requesting photos packet going to mux directly");
+			logMsg("I'm a leader, requesting photos packet going to mux directly");
 			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
 			logMsg("I'm not a leader, requesting photos packet send out to leader");

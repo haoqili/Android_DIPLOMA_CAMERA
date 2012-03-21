@@ -106,7 +106,7 @@ public class VCoreDaemon extends Thread {
 
 	/** Send a packet through the network thread */
 	public void sendPacket(Packet p) {
-		Log.i(TAG, "inside sendPacket(Packet p)");
+		logMsg("inside sendPacket(Packet p)");
 		mux.myHandler.obtainMessage(Mux.PACKET_SEND, p).sendToTarget();
 	}
 

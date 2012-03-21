@@ -81,14 +81,12 @@ public class Mux extends Thread {
 					(vncDaemon.myRegion.x == vnp.srcRegion.x) &&
 					(vncDaemon.myRegion.y == vnp.srcRegion.y)	) {
 
-					Log.i(TAG,
-							"I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp");
+					logMsg("I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp");
 					vncDaemon.csm.userApp.handleClientRequest(vnp);
 				} else if (vncDaemon.mState == VCoreDaemon.NONLEADER) {
 					// non leaders can be from both my region and
 					// neighboring regions
-					Log.i(TAG,
-							"Nonleader does nothing for Packet.CLIENT_REQUEST");
+					logMsg("Nonleader does nothing for Packet.CLIENT_REQUEST");
 				}
 				break;
 			case Packet.SERVER_REPLY:

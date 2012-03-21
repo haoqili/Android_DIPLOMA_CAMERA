@@ -43,7 +43,7 @@ public class UserApp implements DSMUser {
 
 	/** Called only upon empty DSMLayer invocation in region. */
 	public void init() {
-		logMsg("UserApp - MatMult initialized and waiting for requests.");
+		logMsg("UserApp for Camera Diploma initialized and waiting for requests.");
 	}
 
 	/** Called every time upon starting / resuming userApp in a region */
