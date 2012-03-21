@@ -32,6 +32,7 @@ public class VCoreDaemon extends Thread {
 	private static final int minLongitude = Globals.MINIMUM_LONGITUDE;
 
 	// Time periods
+	private final static long cloudHearbeatPeriod = 20 * 60 * 1000;
 	private final static long heartbeatPeriod = 30000;
 	private final static long stateRequestedTimeoutPeriod = 10000;
 
@@ -109,6 +110,20 @@ public class VCoreDaemon extends Thread {
 		logMsg("inside sendPacket(Packet p)");
 		mux.myHandler.obtainMessage(Mux.PACKET_SEND, p).sendToTarget();
 	}
+	
+	/** Periodic: check-in with cloud by taking leadership again every  20 min */
+	private Runnable cloudHeartbeatR = new Runnable() {
+		public void run() {
+			if (mState == LEADER) {
+				logMsg("leader to cloud hearbeat...");
+				if (!Globals.DEBUG_SKIP_CLOUD) {
+					CloudResponse csmR = myCloud.takeLeadership(myRegion, mId);
+				}
+			} 
+			myHandler.postDelayed(this, cloudHearbeatPeriod);
+		}       
+	};      
+
 
 	/** Periodic: check for LEADER again if still in JOINING state */
 	private Runnable stateRequestedTimeoutR = new Runnable() {
