@@ -14,9 +14,12 @@ You can request picture from any region, even if you are not in a valid region.
 TO ASK
 ======
 
-* If cloud rejects leadership, what happens to sending or requesting pictures?
+* If a phone does not get leader replies, it sends a request to the cloud to become the leader. But what if the request to the leader is not successful?  Does that mean that this phone is cut-off from the rest of the DIPLOMA phones?  I.e. it can't take pictures (since there is no leader to save the picture) or request pictures (since there is no leader to relay its request). 
+If so, should we just disable the phone from taking and requesting pictures?
 
-* Is it normal to have a lot more:
+* Is it normal to have way more "LEADER_REQUEST timed out"s than "heard LEADER_REPLY"?  Because this is what I observe.  If it's not normal, then I guess we should decrease the region width because perhaps leader and new phones that arrived in the region can't hear each other?
+
+more 
 
     1331844666510: sending LEADER_REQUEST
     1331844666512: Sending UDP payload: 426
@@ -27,9 +30,7 @@ than
 
     heard LEADER_REPLY from 5007
 
-If not, would decreasing the phone range help?
-
-* What if a leader is going out of the region and hands the leadership to the cloud, but cannot reach the cloud even after retries? "cloud rejected leadership request or request failed, wait to retry" (see 7's logs)
+* What if a leader is going out of the region and hands the leadership to the cloud, but cannot reach the cloud even after retries? "cloud rejected leadership request or request failed, wait to retry"  I guess the other nodes would detect that there is no heartbeat from the old leader and elect a leader among themselves?  If so, what if the cloud is unreachable again?  (see 7's logs)
 
 
 TO CHANGE
