@@ -52,7 +52,7 @@ public class NetworkThread extends Thread {
 		// Determine local IP address
 		myIPAddress = null;
 		try {
-			NetworkInterface intf = NetworkInterface.getByName("wlan0"); // eth0 //wlan0
+			NetworkInterface intf = NetworkInterface.getByName(Globals.NET_NAME);
 			for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr
 					.hasMoreElements();) {
 				InetAddress inetAddress = enumIpAddr.nextElement();

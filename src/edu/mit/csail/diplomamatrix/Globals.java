@@ -7,6 +7,13 @@ import android.os.Environment;
 
 
 public class Globals {
+		// frequently changed constants
+		// Nexus S phones use "wlan0", Galaxy Notes use "eth0"
+		final static public String NET_NAME = "eth0";
+		// cloud server to keep leaders consistent
+		//final static public String CSM_SERVER_NAME="128.30.87.130:8212"; //128.30.66.123:5212
+        final static public String CSM_SERVER_NAME="hermes5.csail.mit.edu:8212"; //128.30.66.123:5212
+        
 		// new region calculations
 		// road parameters, used to calculate region width
 		final static public double PHONE_RANGE_METERS = 60; // diagonal of region
@@ -19,7 +26,6 @@ public class Globals {
         final static public boolean CACHE_ENABLED_ON_START = false;
         final static public double BENCHMARK_READ_DISTRIBUTION_ON_START = 0.9f;
         final static public long BENCHMARK_START_DELAY = 1000L; // milliseconds
-        final static public String CSM_SERVER_NAME="128.30.87.130:8212"; //128.30.66.123:5212
         
         final static public int SAMPLING_DURATION=1000;
         final static public int SAMPLING_DISTANCE=1;

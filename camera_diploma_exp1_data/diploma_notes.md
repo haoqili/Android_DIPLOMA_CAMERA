@@ -392,4 +392,27 @@ Ends with not a leader or nonleader, took picture
     1331844672641: Inside mux Packet.CLIENT_REQUEST
     1331844672716: HI I'm in ONPAUSE()
 
+March 22 testing
+-------------
 
+Testing in Stata with just 2 phones and all except 1 of the 10 leader responses came before the timeout of 1 second (1000ms > 3*300ms of time between each retry). This is the log of that one time that it came too late, with the telltale message `cloud rejected leadership request`
+
+    1332455545994: sending LEADER_REQUEST
+    1332455545994: inside sendPacket(Packet p)
+    1332455546023: Sending UDP payload: 426
+    1332455546296: sending LEADER_REQUEST
+    1332455546296: inside sendPacket(Packet p)
+    1332455546299: Sending UDP payload: 426
+    1332455546597: sending LEADER_REQUEST
+    1332455546597: inside sendPacket(Packet p)
+    1332455546600: Sending UDP payload: 426
+    1332455546898: sending LEADER_REQUEST
+    1332455546899: inside sendPacket(Packet p)
+    1332455546902: Sending UDP payload: 426
+    1332455547004: LEADER_REQUEST timed out
+    1332455547396: cloud rejected leadership request or request failed, wait to retry
+    1332455547404: Received UDP payload: 37185
+    1332455547411: heard LEADER_REPLY from 5012
+    1332455547413: now NONLEADER (id=5001) following LEADER (id=5012) in (1,0)
+
+Time for leader to respond `547411 - 545994 = 1417 ms` > Time for timeout `547004 - 545994 = 1010`

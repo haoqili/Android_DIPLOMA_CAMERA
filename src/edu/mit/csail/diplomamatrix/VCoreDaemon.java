@@ -32,7 +32,7 @@ public class VCoreDaemon extends Thread {
 	private static final int minLongitude = Globals.MINIMUM_LONGITUDE;
 
 	// Time periods
-	private final static long cloudHearbeatPeriod = 20 * 60 * 1000;
+	private final static long cloudHearbeatPeriod = 40 * 1000;
 	private final static long heartbeatPeriod = 30000;
 	private final static long stateRequestedTimeoutPeriod = 10000;
 
@@ -405,6 +405,7 @@ public class VCoreDaemon extends Thread {
 			myHandler.post(leaderRequestRetryR);
 			myHandler.postDelayed(leaderRequestTimeoutR,
 					VCoreDaemon.leaderRequestTimeoutPeriod);
+			// In case of leader unreachable AND unable to take leadership from cloud
 			myHandler.postDelayed(stateRequestedTimeoutR,
 					VCoreDaemon.stateRequestedTimeoutPeriod); // in case
 		} else if (targetState == LEADER) {
@@ -624,12 +625,9 @@ public class VCoreDaemon extends Thread {
 		} else { 
 			// outside boundary
 			
-			// check that prev region and new region are next to each other
+			// check that prev region and new region are different
 			RegionKey new_region = new RegionKey((int) current_region, 0);
-			if (Math.abs(new_region.x - prevRegion.x) > 1) {
-				logMsg("Location CHANGED, but changed > 1 regions, so location is changed, trying to jump from region " +
-						prevRegion.x + " to region " + new_region.x);
-			} else if  (Math.abs(new_region.x - prevRegion.x) == 0) {
+			if  (Math.abs(new_region.x - prevRegion.x) == 0) {
 				logMsg("stay at region " + prevRegion.x);
 			}
 			else {
