@@ -131,9 +131,16 @@ public class StatusActivity extends Activity implements LocationListener {
 				break;
 			case Packet.CLIENT_SHOW_REMOTEPHOTO:
 				long client_download_end = System.currentTimeMillis();
-	            long download_latency = client_download_end - client_download_start;
-				logMsg("inside Packet.CLIENT_SHOW_NEWPHOTOS with latency of download = " + download_latency);
-				logMsg("= download start " + client_download_start + " ~ stop " + client_download_end);
+				logMsg("inside Packet.CLIENT_SHOW_REMOTEPHOTOS");
+				long download_latency = client_download_end - client_download_start;
+				if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+					logMsg("leader download remote photo latency = " + download_latency);
+					logMsg("= leader download start " + client_download_start + " ~ stop " + client_download_end);
+				} else {
+					logMsg("nonleader download remote photo latency = " + download_latency);
+					logMsg("= nonleader download start " + client_download_start + " ~ stop " + client_download_end);
+				}
+
 				Packet packet_csn = (Packet) msg.obj;
 				Bitmap photo_remote;
 				try {
@@ -168,10 +175,15 @@ public class StatusActivity extends Activity implements LocationListener {
 				break;
 			case Packet.CLIENT_UPLOAD_PHOTO_ACK:
 				long client_upload_end = System.currentTimeMillis();
-	            long upload_latency = client_upload_end - client_upload_start;
-				logMsg("inside Packet.CLIENT_UPLOAD_PHOTO_ACK with latency of upload = " + upload_latency);
-				logMsg("= upload start " + client_upload_start + " ~ stop " + client_upload_end);
-
+				logMsg("inside Packet.CLIENT_UPLOAD_PHOTO_ACK");
+				long upload_latency = client_upload_end - client_upload_start;
+				if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+					logMsg("leader upload new photo latency = " + upload_latency);
+					logMsg("= leader upload start " + client_upload_start + " ~ stop " + client_upload_end);
+				} else {
+					logMsg("nonleader upload new photo latency = " + upload_latency);
+					logMsg("= nonleader upload start " + client_upload_start + " ~ stop " + client_upload_end);
+				}
 				Packet packet_cupa = (Packet) msg.obj;
 				try{
 					// get the Getphotoinfo from packet
