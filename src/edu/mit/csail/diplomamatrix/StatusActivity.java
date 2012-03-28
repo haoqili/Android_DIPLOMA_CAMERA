@@ -65,6 +65,10 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	// Mux
 	Mux mux;
+	
+	// latency stuff
+	long client_upload_start = 0;
+	long client_download_start = 0;
 
 	/** Handle messages from various components */
 	private final Handler myHandler = new Handler() {
@@ -126,7 +130,10 @@ public class StatusActivity extends Activity implements LocationListener {
 				}
 				break;
 			case Packet.CLIENT_SHOW_REMOTEPHOTO:
-				logMsg("inside Packet.CLIENT_SHOW_NEWPHOTOS");
+				long client_download_end = System.currentTimeMillis();
+	            long download_latency = client_download_end - client_download_start;
+				logMsg("inside Packet.CLIENT_SHOW_NEWPHOTOS with latency of download = " + download_latency);
+				logMsg("= download start " + client_download_start + " ~ stop " + client_download_end);
 				Packet packet_csn = (Packet) msg.obj;
 				Bitmap photo_remote;
 				try {
@@ -160,7 +167,11 @@ public class StatusActivity extends Activity implements LocationListener {
 				}
 				break;
 			case Packet.CLIENT_UPLOAD_PHOTO_ACK:
-				logMsg("inside Packet.CLIENT_UPLOAD_PHOTO_ACK");
+				long client_upload_end = System.currentTimeMillis();
+	            long upload_latency = client_upload_end - client_upload_start;
+				logMsg("inside Packet.CLIENT_UPLOAD_PHOTO_ACK with latency of upload = " + upload_latency);
+				logMsg("= upload start " + client_upload_start + " ~ stop " + client_upload_end);
+
 				Packet packet_cupa = (Packet) msg.obj;
 				try{
 					// get the Getphotoinfo from packet
@@ -563,12 +574,17 @@ public class StatusActivity extends Activity implements LocationListener {
 			logMsg("sendClientNewpic _bitmapToBytes() or _intToBytes() failed");
 			e.printStackTrace();
 		}
-
+		// once the nonleader mysteriously stopped executing after the above lines
+		// investigate more if this happens again
+		logMsg("about to send my pic");
+		
 		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
 			logMsg("I'm a leader, my new photo packet going to mux directly");
+			client_upload_start = System.currentTimeMillis();
 			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
 			logMsg("I'm a nonleader sending my new photo packet to my leader");
+			client_upload_start = System.currentTimeMillis();
 			mux.vncDaemon.sendPacket(packet);
 		}
 	}
@@ -723,9 +739,11 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
 			logMsg("I'm a leader, my requesting photos packet going to mux directly");
+			client_download_start = System.currentTimeMillis();
 			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
 			logMsg("I'm a nonleader sending my requesting photos packet to my leader");
+			client_download_start = System.currentTimeMillis();
 			mux.vncDaemon.sendPacket(packet);
 		}
 		logMsg("StatusActivity sent request to get photos for region " + targetRegion);

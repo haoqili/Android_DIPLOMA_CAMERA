@@ -1,0 +1,154 @@
+1332962087883: *** Opened log file for writing ***
+1332962087884: starting Mux with id = -1
+1332962087899: *** Application started ***
+1332962087899: HI I'm in ONRESUME()
+1332962087904: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1332962087907: Started VCoreDaemon with parameters maxRx = 10 , maxRY= 1, minLongitude = -7110170 , minLatitude = 4236349, regionWidth =17
+1332962087923: started, mId = 5001
+1332962087924: region (-1, -1) out of bounds, dormant
+1332962111703: Received UDP payload: 406
+1332962111986: Received UDP payload: 406
+1332962112265: Received UDP payload: 406
+1332962112567: Received UDP payload: 406
+1332962123387: Received UDP payload: 406
+1332962123688: Received UDP payload: 406
+1332962123999: Received UDP payload: 406
+1332962124292: Received UDP payload: 406
+1332962134605: Received UDP payload: 406
+1332962134907: Received UDP payload: 406
+1332962135211: Received UDP payload: 406
+1332962135511: Received UDP payload: 406
+1332962145893: Received UDP payload: 406
+1332962146203: Received UDP payload: 406
+1332962146496: Received UDP payload: 406
+1332962146794: Received UDP payload: 406
+1332962157193: Received UDP payload: 406
+1332962157481: Received UDP payload: 406
+1332962157784: Received UDP payload: 406
+1332962158104: Received UDP payload: 406
+1332962168496: Received UDP payload: 406
+1332962168798: Received UDP payload: 406
+1332962169099: Received UDP payload: 406
+1332962169413: Received UDP payload: 406
+1332962179735: Received UDP payload: 406
+1332962180036: Received UDP payload: 406
+1332962180342: Received UDP payload: 406
+1332962180638: Received UDP payload: 406
+1332962191015: Received UDP payload: 406
+1332962191336: Received UDP payload: 406
+1332962191620: Received UDP payload: 406
+1332962191926: Received UDP payload: 406
+1332962193185: Received UDP payload: 37148
+1332962202099: moving from region (-1,-1), to (2,0)
+1332962202099: sending LEADER_REQUEST
+1332962202100: inside sendPacket(Packet p)
+1332962202106: Sending UDP payload: 406
+1332962202400: sending LEADER_REQUEST
+1332962202401: inside sendPacket(Packet p)
+1332962202405: Sending UDP payload: 406
+1332962202702: sending LEADER_REQUEST
+1332962202702: inside sendPacket(Packet p)
+1332962202712: Sending UDP payload: 406
+1332962203004: sending LEADER_REQUEST
+1332962203005: inside sendPacket(Packet p)
+1332962203023: Sending UDP payload: 406
+1332962203108: LEADER_REQUEST timed out
+1332962203763: cloud accepted leadership request, no csm data included.
+1332962203764: *** Starting CSM Layer ***
+1332962203764: *** CSM Layer starting with cache disabled ***
+1332962203765: *** CSM Layer starting with forwarding enabled ***
+1332962203814: DSMLayer starting
+1332962203827: UserApp started.
+1332962203829: UserApp for Camera Diploma initialized and waiting for requests.
+1332962204084: inside sendPacket(Packet p)
+1332962204085: now fully up as LEADER (id=5001) of (2,0)
+1332962204122: Sending UDP payload: 37148
+1332962207940: inside sendPacket(Packet p)
+1332962207944: Sending UDP payload: 406
+1332962214221: Received UDP payload: 5382
+1332962214270: GOT CSM_Msg
+1332962214271: nonce 0 heard from src region (1,0)
+1332962220815: Received UDP payload: 406
+1332962235697: clicked getphotos Button from region 1
+1332962235698: I'm the Client, and I'm in region: 2 nodID = 5001
+1332962235707: I'm a leader, my requesting photos packet going to mux directly
+1332962235721: StatusActivity sent request to get photos for region 1
+1332962235708: Inside mux Packet.CLIENT_REQUEST
+1332962235709: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1332962235709: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1332962235710: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1332962235716: Sending to region: 1
+1332962235718: Sending PROC_REQUEST 11:0 (2,0)->(1,0)
+1332962235720: Dispatching Atom PROC_REQUEST 11:0 (2,0)->(1,0)
+1332962235735: I got a CSM packet at a leader 
+
+1332962235754: Sending UDP payload: 949
+1332962235756: nonce 0 heard from src region (2,0)
+1332962235889: Received UDP payload: 5382
+1332962235897: GOT CSM_Msg
+1332962235910: inside Packet.CLIENT_SHOW_NEWPHOTOS with latency of download = 202
+1332962235911: = download start 1332962235708 ~ stop 1332962235910
+1332962235938: Success! Client getting photo from remote region, showing photo...
+1332962235898: Received PROC_REPLY 11:0 (1,0)->(2,0), handing to UserApp
+1332962235898: Now back in orginitator region's leader, precssing handleDSMReply
+1332962235898: Going to and from remote region took latency = 181
+1332962235899: = orig leader sent packet at 1332962235717 ~ received reply at 1332962235898
+1332962235900: Originator Region=2 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1332962235907: reply packet contains the newest photo from the remote region
+1332962235908: I (the leader) was also the originator client (id = 5001) so I hand the packet to my mux directly, without UDP
+1332962237941: inside sendPacket(Packet p)
+1332962237944: Sending UDP payload: 406
+1332962250817: Received UDP payload: 406
+1332962253418: moving from region (2,0), to (1,0)
+1332962253418: broadcasting LEADER_ELECT to old (2,0)
+1332962253418: inside sendPacket(Packet p)
+1332962253420: Sending UDP payload: 423
+1332962253822: UserApp stopped.
+1332962253823: DSMLayer stopped
+1332962253823: serializing DSMLayer to JSON
+1332962254997: old region empty, uploaded state to cloud in 1173ms as json 2192 bytes
+1332962255010: sending LEADER_REQUEST
+1332962255012: inside sendPacket(Packet p)
+1332962255014: Sending UDP payload: 406
+1332962255316: sending LEADER_REQUEST
+1332962255316: inside sendPacket(Packet p)
+1332962255320: Sending UDP payload: 406
+1332962255618: sending LEADER_REQUEST
+1332962255618: inside sendPacket(Packet p)
+1332962255622: Sending UDP payload: 406
+1332962255877: Received UDP payload: 52114
+1332962255886: heard LEADER_REPLY from 5010
+1332962255887: DSMLayer stopped
+1332962255889: now NONLEADER (id=5001) following LEADER (id=5010) in (1,0)
+1332962256373: Received UDP payload: 51499
+1332962256880: Received UDP payload: 51499
+1332962267237: Picture successfully taken, ORIG BYTE LENGTH = 2500887
+1332962268222: Our new height x width: 306 x 408
+1332962268223: Show photo from handle my camera take
+1332962268223: client making photo packet to send to leader for it to save
+1332962268242: BYTE SIZE AFTER COMPRESSION: 5267
+1332962267950: sending LEADER_REQUEST
+1332962267951: inside sendPacket(Packet p)
+1332962267952: Sending UDP payload: 406
+1332962268251: sending LEADER_REQUEST
+1332962268251: inside sendPacket(Packet p)
+1332962268253: Sending UDP payload: 406
+1332962268552: sending LEADER_REQUEST
+1332962268552: inside sendPacket(Packet p)
+1332962268556: Sending UDP payload: 406
+1332962268725: Received UDP payload: 51499
+1332962268733: heard LEADER_REPLY from 5010
+1332962268734: now NONLEADER (id=5001) following LEADER (id=5010) in (1,0)
+1332962269742: Received UDP payload: 51499
+1332962280834: Received UDP payload: 406
+1332962310820: Received UDP payload: 406
+1332962340840: Received UDP payload: 406
+1332962370823: Received UDP payload: 406
+1332962400824: Received UDP payload: 406
+1332962430824: Received UDP payload: 406
+1332962460824: Received UDP payload: 406
+1332962490838: Received UDP payload: 406
+1332962520836: Received UDP payload: 406
+1332962550858: Received UDP payload: 406
+1332962580831: Received UDP payload: 406
+1332962600577: HI I'm in ONPAUSE()

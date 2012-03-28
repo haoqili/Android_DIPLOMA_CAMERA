@@ -23,8 +23,7 @@ public class UserApp implements DSMUser {
 	final static int SERVER_GET_PHOTO = 11;
 	final static int PHOTO_TO_CLIENT = 12;
 
-	long kernelStartTime, kernelStopTime;
-	long runStartTime, runStopTime;
+	long origLeaderSendTime, origLeaderReceiveTime;
 
 	// App-specific stuff
 
@@ -65,9 +64,12 @@ public class UserApp implements DSMUser {
 	 * originating region. from leader to non-leader
 	 */
 	public synchronized void handleDSMReply(Atom reply) {
+		origLeaderReceiveTime = System.currentTimeMillis();
 		if (!reply.timedOut) {
-			
 			logMsg("Now back in orginitator region's leader, precssing handleDSMReply");
+			long latency = origLeaderReceiveTime - origLeaderSendTime;
+			logMsg("Going to and from remote region took latency = " + latency);
+			logMsg("= orig leader sent packet at " + origLeaderSendTime + " ~ received reply at " + origLeaderReceiveTime);
 			
 			GetPhotoInfo my_gpinfo2 = null;
 			long request_nodeId = 666;
@@ -286,6 +288,7 @@ public class UserApp implements DSMUser {
 		switch (packet.subtype) {
 		case Packet.CLIENT_UPLOAD_PHOTO:
 			logMsg("request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)");
+			origLeaderSendTime = System.currentTimeMillis();
 			dsm.atomRequest(SERVER_UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0,
 					true, packet.getphotoinfo_bytes);
 			break;
@@ -296,8 +299,8 @@ public class UserApp implements DSMUser {
 			long dest_region = my_gpinfo.destRegion;
 			logMsg("Sending to region: " + dest_region);
 
-			// this atom Request is going to forward this to the destination
-			// region
+			// this atom Request is going to forward this to the destination region
+			origLeaderSendTime = System.currentTimeMillis();
 			dsm.atomRequest(SERVER_GET_PHOTO, dest_region, 0, false,
 					packet.getphotoinfo_bytes);
 			break;
