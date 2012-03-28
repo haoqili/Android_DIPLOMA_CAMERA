@@ -14,7 +14,8 @@ public class Packet implements Serializable {
 	final static int CLIENT_REQUEST = 10;
 	final static int CLIENT_UPLOAD_PHOTO = 11;
 	final static int CLIENT_DOWNLOAD_PHOTO = 12;
-	final static int CLIENT_SHOW_NEWPHOTOS = 15;
+	final static int CLIENT_SHOW_REMOTEPHOTO = 15;
+	final static int CLIENT_UPLOAD_PHOTO_ACK = 16;
 	// for camera server
 	final static int SERVER_REPLY = 1000;
 	final static int SERVER_SHOW_NEWPHOTO = 1001;
@@ -49,7 +50,6 @@ public class Packet implements Serializable {
 	// public UserOp user_op = null;
 	
 	// Camera stuff
-	public byte[] photo_bytes = null;
 	public byte[] getphotoinfo_bytes = null; 
 
 	/** Construct Packet with values */

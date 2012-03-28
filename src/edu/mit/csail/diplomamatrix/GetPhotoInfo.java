@@ -9,14 +9,11 @@ import java.io.Serializable;
 public class GetPhotoInfo implements Serializable  {
 	public long originNodeId, srcRegion, destRegion;
 	public byte[] photoBytes;
+	public boolean isSuccess;
 	
 	public GetPhotoInfo(long originNodeId_, long srcRegion_, long destRegion_){
 		originNodeId = originNodeId_;
 		srcRegion = srcRegion_;
 		destRegion = destRegion_;
 	}
-	/*
-	public void setPhotoBytes(byte[] photoBytes_){
-		photoBytes = photoBytes_;
-	}*/
 }

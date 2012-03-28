@@ -1,8 +1,10 @@
 package edu.mit.csail.diplomamatrix;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.OptionalDataException;
@@ -97,46 +99,88 @@ public class StatusActivity extends Activity implements LocationListener {
 				boolean requestOutstanding = data.get("request_oustanding") == 1L;
 				break;
 			case Packet.SERVER_SHOW_NEWPHOTO:
-				Log.i(TAG, "inside Packet.SERVER_SHOW_NEWPHOTO");
-				Packet packet = (Packet) msg.obj;
-				Bitmap new_photo;
+				logMsg("inside Packet.SERVER_SHOW_NEWPHOTO showing client's new photo");
+				Packet packet_ssn = (Packet) msg.obj;
 				try {
-					new_photo = _bytesToBitmap(packet.photo_bytes);
+					GetPhotoInfo gpinfo_ssn = _bytesToGetphotoinfo(packet_ssn.getphotoinfo_bytes);
+
+					if (!gpinfo_ssn.isSuccess){
+						// TODO: Add toast
+						logMsg("I'm a leader and I FAILED to save my client's new photo");
+						break;
+					}
+					logMsg("I'm a leader and I SUCCEEDED in saving my client's new photo");
+					Bitmap photo_clientnew = _bytesToBitmap(gpinfo_ssn.photoBytes);
 					ImageView image = (ImageView) findViewById(R.id.photoResultView);
-					logMsg("Show photo from server_show_newphoto");
-					image.setImageBitmap(new_photo);
+					logMsg("now showing in UI the new photo I just saved ... ");
+					image.setImageBitmap(photo_clientnew);
 				} catch (OptionalDataException e) {
-					Log.i(TAG, "_bytesToBitmap failed");
+					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed");
 					e.printStackTrace();
 				} catch (ClassNotFoundException e) {
-					Log.i(TAG, "_bytesToBitmap failed");
+					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed");
 					e.printStackTrace();
 				} catch (IOException e) {
-					Log.i(TAG, "_bytesToBitmap failed");
+					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed");
 					e.printStackTrace();
 				}
 				break;
-			case Packet.CLIENT_SHOW_NEWPHOTOS:
-				Log.i(TAG, "inside Packet.CLIENT_SHOW_NEWPHOTOS");
-				Packet pack = (Packet) msg.obj;
-				Bitmap photo_one;
+			case Packet.CLIENT_SHOW_REMOTEPHOTO:
+				logMsg("inside Packet.CLIENT_SHOW_NEWPHOTOS");
+				Packet packet_csn = (Packet) msg.obj;
+				Bitmap photo_remote;
 				try {
-					if (pack.photo_bytes == null) {
+					// get the Getphotoinfo from packet
+					GetPhotoInfo my_gpinfo3 = _bytesToGetphotoinfo(packet_csn.getphotoinfo_bytes);
+					
+					// see if it was unsuccessful:
+					if (!my_gpinfo3.isSuccess){
+						// TODO: change to a toast
+						logMsg("FAIL! Client failed to get photo from remote region");
+						break;
+					}
+					if (my_gpinfo3.photoBytes == null) {
+						// TODO: change to a toast
 						logMsg("PHOTO DATA is NULL, perhaps region doesn't have a photo yet");
 					} else {
-						photo_one = _bytesToBitmap(pack.photo_bytes);
+						photo_remote = _bytesToBitmap(my_gpinfo3.photoBytes);
 						ImageView image = (ImageView) findViewById(R.id.photoResultView);
-						logMsg("Show photo from client_show_newphotos");
-						image.setImageBitmap(photo_one);
+						logMsg("Success! Client getting photo from remote region, showing photo...");
+						image.setImageBitmap(photo_remote);
 					}
 				} catch (OptionalDataException e) {
-					Log.i(TAG, "_bytesToBitmap failed");
+					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed");
 					e.printStackTrace();
 				} catch (ClassNotFoundException e) {
-					Log.i(TAG, "_bytesToBitmap failed");
+					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed");
 					e.printStackTrace();
 				} catch (IOException e) {
-					Log.i(TAG, "_bytesToBitmap failed");
+					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed");
+					e.printStackTrace();
+				}
+				break;
+			case Packet.CLIENT_UPLOAD_PHOTO_ACK:
+				logMsg("inside Packet.CLIENT_UPLOAD_PHOTO_ACK");
+				Packet packet_cupa = (Packet) msg.obj;
+				try{
+					// get the Getphotoinfo from packet
+					GetPhotoInfo my_gpinfo3 = _bytesToGetphotoinfo(packet_cupa.getphotoinfo_bytes);
+
+					// see if it was unsuccessful:
+					if (!my_gpinfo3.isSuccess){
+						// TODO: change to a toast
+						logMsg("FAIL! Client now knows saving photo on its leader failed");
+					} else {
+						logMsg("SUCCESS! Client now knows saving photo on its leader succeeded");
+					}
+				} catch (OptionalDataException e) {
+					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed");
+					e.printStackTrace();
+				} catch (IOException e) {
+					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed");
 					e.printStackTrace();
 				}
 				break;
@@ -274,6 +318,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			} catch (Exception e) {
 				myLogWriter = null;
 				logMsg("*** Couldn't open log file for writing ***");
+				e.printStackTrace();
 			}
 		}
 
@@ -284,13 +329,11 @@ public class StatusActivity extends Activity implements LocationListener {
 			// we're running from within the simulator, so use given id and
 			// start benchmark after a delay
 			id = Long.valueOf(extras.getString("id"));
-			Log.i("Status Activity, getting id = ", String.valueOf(id));
+			logMsg("Status Activity, getting id = " + String.valueOf(id));
 		}
-		Log.i(TAG, "about to start mux hqqqqqqqqqqqqqqqqqqq");
-		Log.i("                id = ", String.valueOf(id));
+		logMsg("starting Mux with id = " + String.valueOf(id));
 		mux = new Mux(id, myHandler);
 		mux.start();
-		Log.i(TAG, "end to start mux hqqqqqqqqqqqqqq11qqqqq");
 
 		// Watch out for low battery conditions
 		BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -418,8 +461,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	 * **/
 	private OnClickListener camera_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			Log.i(TAG, "#################");
-			Log.i(TAG, "clicked Camera button");
+			logMsg("Clicked Camera button");
 			Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
 
 			// credit: http://stackoverflow.com/questions/1910608/android-action-image-capture-intent
@@ -430,9 +472,10 @@ public class StatusActivity extends Activity implements LocationListener {
 					_photoFile.createNewFile();
 				}
 			} catch (IOException e) {
-				Log.e(TAG, "Could not create file.", e);
+				logMsg("Could not create file.");
+				e.printStackTrace();
 			}
-			Log.i(TAG + " photo path: ", Globals.PHOTO_PATH);
+			logMsg("photo path: " + Globals.PHOTO_PATH);
 
 			Uri _fileUri = Uri.fromFile(_photoFile);
 			cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, _fileUri);
@@ -446,7 +489,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			return;
 		}
 		if (requestCode == CAMERA_PIC_REQUEST) {
-			Log.i(TAG, "Camera Handling results!");
+			logMsg("Camera Handling results!");
 
 			
 			logMsg("Display on screen:");
@@ -482,21 +525,20 @@ public class StatusActivity extends Activity implements LocationListener {
 				image.setImageBitmap(new_bitmap);
 				sendClientNewpic(new_bitmap);
 			} catch (OptionalDataException e) {
-				Log.i(TAG, "_bytesToBitmap failed");
+				logMsg("HandlePictureStorage _bytesToBitmap failed");
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
-				Log.i(TAG, "_bytesToBitmap failed");
+				logMsg("HandlePictureStorage _bytesToBitmap failed");
 				e.printStackTrace();
 			} catch (IOException e) {
-				Log.i(TAG, "_bytesToBitmap failed");
+				logMsg("HandlePictureStorage _bytesToBitmap failed");
 				e.printStackTrace();
 			}
 		}
 	}
 
 	protected void sendClientNewpic(Bitmap bitmap){
-		logMsg("client making photo packet to send to leader");
-		Log.i(TAG, "111111111");
+		logMsg("client making photo packet to send to leader for it to save");
 		// Create a Packet to send through Mux to Leader's UserApp
 		Packet packet = new Packet(-1, 
 				-1,
@@ -504,24 +546,31 @@ public class StatusActivity extends Activity implements LocationListener {
 				Packet.CLIENT_UPLOAD_PHOTO,
 				mux.vncDaemon.myRegion,
 				mux.vncDaemon.myRegion);
-		Log.i(TAG, "222222222");
+		// Create a GetPhotoInfo to contain origin ID, photo bytes
+		GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
+				mux.vncDaemon.myRegion.x, 
+				mux.vncDaemon.myRegion.x);
+	
 		try {
 			// jpeg compression in bitmapToBytes
-			packet.photo_bytes = _bitmapToBytes(bitmap);
-			logMsg("BYTE SIZE AFTER COMPRESSION: " + packet.photo_bytes.length);
+			// and save inside GetPhotoInfo
+			my_getphotoinfo.photoBytes = _bitmapToBytes(bitmap);
+			logMsg("BYTE SIZE AFTER COMPRESSION: " + my_getphotoinfo.photoBytes.length);
+			
+			// save GetPhotoInfo inside Packet
+			packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
 		} catch (IOException e) {
-			Log.i(TAG, "_bitmapToBytes() failed");
+			logMsg("sendClientNewpic _bitmapToBytes() or _intToBytes() failed");
 			e.printStackTrace();
 		}
-		Log.i(TAG, "3333333333");
+
 		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-			logMsg("I'm a leader, photo packet going to mux directly");
+			logMsg("I'm a leader, my new photo packet going to mux directly");
 			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
-			logMsg("I'm not a leader, photo packet send out");
+			logMsg("I'm a nonleader sending my new photo packet to my leader");
 			mux.vncDaemon.sendPacket(packet);
 		}
-		Log.i(TAG, "44444444444");
 	}
 	
 	protected Bitmap _getAndResizeBitmap(){
@@ -585,6 +634,16 @@ public class StatusActivity extends Activity implements LocationListener {
 		return BitmapFactory.decodeByteArray(photo_bytes, 0, photo_bytes.length);
 	} 
 
+	// can't do Java generics because we are serializing
+	public static GetPhotoInfo _bytesToGetphotoinfo(byte[] int_bytes)
+			throws IOException, ClassNotFoundException {
+		ByteArrayInputStream bis = new ByteArrayInputStream(int_bytes);
+		ObjectInputStream ois = new ObjectInputStream(bis);
+		GetPhotoInfo my_gpinfo = (GetPhotoInfo) ois.readObject();
+		ois.close();
+		return my_gpinfo;
+	}
+	
 	public byte[] _getphotoinfoToBytes(GetPhotoInfo my_gpinfo) throws IOException {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		ObjectOutput out = new ObjectOutputStream(bos);
@@ -601,48 +660,42 @@ public class StatusActivity extends Activity implements LocationListener {
 	/* dumb button listeners */
 	private OnClickListener get1_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			Log.i(TAG, "#################");
-			Log.i(TAG, "clicked getphotos Button from region 1");
+			logMsg("clicked getphotos Button from region 1");
 			long targetRegion = 1;
 			_button_listener_helper(targetRegion);
 		}
 	};
 	private OnClickListener get2_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			Log.i(TAG, "#################");
-			Log.i(TAG, "clicked getphotos Button from region 2");
+			logMsg("clicked getphotos Button from region 2");
 			long targetRegion = 2;
 			_button_listener_helper(targetRegion);
 		}
 	};
 	private OnClickListener get3_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			Log.i(TAG, "#################");
-			Log.i(TAG, "clicked getphotos Button from region 3");
+			logMsg("clicked getphotos Button from region 3");
 			long targetRegion = 3;
 			_button_listener_helper(targetRegion);
 		}
 	};
 	private OnClickListener get4_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			Log.i(TAG, "#################");
-			Log.i(TAG, "clicked getphotos Button from region 4");
+			logMsg("clicked getphotos Button from region 4");
 			long targetRegion = 4;
 			_button_listener_helper(targetRegion);
 		}
 	};
 	private OnClickListener get5_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			Log.i(TAG, "#################");
-			Log.i(TAG, "clicked getphotos Button from region 5");
+			logMsg("clicked getphotos Button from region 5");
 			long targetRegion = 5;
 			_button_listener_helper(targetRegion);
 		}
 	};
 	private OnClickListener get6_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			Log.i(TAG, "#################");
-			Log.i(TAG, "clicked getphotos Button from region 6");
+			logMsg("clicked getphotos Button from region 6");
 			long targetRegion = 6;
 			_button_listener_helper(targetRegion);
 		}
@@ -662,18 +715,19 @@ public class StatusActivity extends Activity implements LocationListener {
 				my_getphotoinfo.srcRegion + 
 				" nodID = " + my_getphotoinfo.originNodeId);
 		try {
+			// save GetPhotoInfo inside Packet
 			packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
 		} catch (IOException e) {
-			Log.i(TAG, "_intToBytes() failed");
+			logMsg("_button_listener_helper _intToBytes() failed");
 			e.printStackTrace();
 		}
 		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-			logMsg("I'm a leader, requesting photos packet going to mux directly");
+			logMsg("I'm a leader, my requesting photos packet going to mux directly");
 			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
-			logMsg("I'm not a leader, requesting photos packet send out to leader of my region");
+			logMsg("I'm a nonleader sending my requesting photos packet to my leader");
 			mux.vncDaemon.sendPacket(packet);
 		}
-		Log.i(TAG, "Done with Get photos button for region " + targetRegion);
+		logMsg("StatusActivity sent request to get photos for region " + targetRegion);
 	}
 }

@@ -66,50 +66,76 @@ public class UserApp implements DSMUser {
 	 */
 	public synchronized void handleDSMReply(Atom reply) {
 		if (!reply.timedOut) {
-
+			
+			logMsg("Now back in orginitator region's leader, precssing handleDSMReply");
+			
+			GetPhotoInfo my_gpinfo2 = null;
+			long request_nodeId = 666;
+			long request_region = 666;
+			
+			try {
+				// First, figure out the mID of client to send to 
+				// from remote leader's reply.data's GetPhotoInfo
+				my_gpinfo2 = _bytesToGetphotoinfo(reply.data);
+				request_nodeId = my_gpinfo2.originNodeId;
+				request_region = my_gpinfo2.srcRegion;
+				
+			} catch (IOException e1) {
+				logMsg("FAIL remote region's dsm atom reply data to Originator Region "
+						+ " could not be converted into GetPhotoInfo");
+				e1.printStackTrace();
+			} catch (ClassNotFoundException e1) {
+				logMsg("FAIL remote region's dsm atom reply data to Originator Region "
+						+ " could not be converted into GetPhotoInfo");
+				e1.printStackTrace();
+			}
+			
+			logMsg("Originator Region=" + request_region 
+					+ " Leader (for Client=" + request_nodeId + 
+					") processes remote region's dsm atom reply and will send Packet reply to Originator Client");
+			
+			// Create a reply packet, note the subtype is temporarily 666
+			Packet reply_packet = new Packet(-1, request_nodeId,
+					Packet.SERVER_REPLY, 666,
+					mux.vncDaemon.myRegion, new RegionKey(
+							request_region, 0));
+			
+			// Customize the reply packet
 			switch (reply.procedure) {
-			// handle a reply to our SERVER_GET_PHOTO request
+			case SERVER_UPLOAD_PHOTO:
+				logMsg("reply packet contains the ACK for UPLOAD_PHOTO");
+
+				reply_packet.subtype = Packet.CLIENT_UPLOAD_PHOTO_ACK;
+				break;
+				
 			case SERVER_GET_PHOTO:
-				// we now need to send the photo back to the client
-				logMsg("got photo from remote region, returning to requesting client");
-				// first, figure out the mID of client to send to
-				GetPhotoInfo my_gpinfo2;
-				try {
-					my_gpinfo2 = _bytesToGetphotoinfo(reply.data);
-					long request_nodeId = my_gpinfo2.originNodeId;
-					long request_region = my_gpinfo2.srcRegion;
-					int subtype = Packet.CLIENT_SHOW_NEWPHOTOS;
-					
-					logMsg("send photo packet to original CLIENT:");
-					logMsg("Client is in region: " + request_region
-							+ " nodID = " + request_nodeId);
-					Packet packet = new Packet(-1, request_nodeId,
-							Packet.SERVER_REPLY, subtype,
-							mux.vncDaemon.myRegion, new RegionKey(
-									request_region, 0));
-					packet.photo_bytes = my_gpinfo2.photoBytes;
-					if (request_nodeId == mux.vncDaemon.mId) {
-						// if this node is leader, go directly to its StatusActivity
-						// because phones filter out packets to itself
-						logMsg("I'm a leader and I was the photo requester (id = "
-								+ request_nodeId + ") about to display photo");
-						mux.activityHandler.obtainMessage(subtype, packet)
-								.sendToTarget();
-					} else {
-						logMsg("I'm a leader, but I was not the photo requester, " +
-								"sending photo back to original requester id = " + request_nodeId);
-						// forward the packet to its non-client, the photo requester
-						mux.vncDaemon.sendPacket(packet);
-					}
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				// handle a reply to our SERVER_GET_PHOTO request
+				logMsg("reply packet contains the newest photo from the remote region");
+
+				reply_packet.subtype = Packet.CLIENT_SHOW_REMOTEPHOTO;
 				break;
 			}
+			
+			// fill the packet's GetPhotoInfo with remote leader's reply.data's GetPhotoInfo
+			// reply.data is GetPhotoInfo bytes containing
+			// For SERVER_GET_PHOTO: photoBytes of the newest remote photo 
+			// For SERVER_UPLOAD_PHOTO: success of the upload
+			reply_packet.getphotoinfo_bytes = reply.data;
+			
+			// Send reply packet to originator client
+			if (request_nodeId == mux.vncDaemon.mId) {
+				// if this node is leader, go directly to mux
+				// because phones filter out packets to itself
+				logMsg("I (the leader) was also the originator client (id = "
+						+ request_nodeId + ") so I hand the packet to my mux directly, without UDP");
+				mux.activityHandler.obtainMessage(reply_packet.subtype, reply_packet)
+				.sendToTarget();
+			} else {
+				logMsg("I (the leader) was not the originator client (which id = "
+						+ request_nodeId + ") so I use UDP to send packet back to my nonleader");
+				mux.vncDaemon.sendPacket(reply_packet);
+			}
+
 		}
 	}
 
@@ -122,8 +148,14 @@ public class UserApp implements DSMUser {
 	 */
 	public synchronized Atom handleDSMRequest(DSMLayer.Block block,
 			final Atom request) throws IOException, ClassNotFoundException {
+		// reply goes to the *originator* client (leader or nonleader), in the original region
 		Atom reply = new Atom(request.requestId, request.procedure,
 				Atom.PROC_REPLY, request.dstRegion, request.srcRegion);
+		
+		GetPhotoInfo my_gpinfo = _bytesToGetphotoinfo(request.data);
+		
+		// reply is not successful by default
+		my_gpinfo.isSuccess = false;
 
 		switch (request.procedure) {
 		case SERVER_UPLOAD_PHOTO:
@@ -138,37 +170,45 @@ public class UserApp implements DSMUser {
 			 */
 			// TODO: check the max byte[] of HashMap
 			try {
-				byte[] new_photo_bytes = request.data;
+				byte[] new_photo_bytes = my_gpinfo.photoBytes;
+				
+				// get photolist ArrayList from saved byte [] block data
 				ArrayList<byte[]> photolist = null;
 				if (!block.lines.containsKey(Globals.PHOTO_KEY)) {
 					photolist = new ArrayList<byte[]>();
+					photolist.add(new_photo_bytes);
 				} else {
 					byte[] orig_photolist_bytes = block.lines
 							.get(Globals.PHOTO_KEY);
 					photolist = _bytesToArraylist(orig_photolist_bytes);
+				
+					// TODO: revert to photolist.add(new_photo_bytes) for saving many photos
+					// set this newest photo to the first element of photolist
+					photolist.set(0, new_photo_bytes);
 				}
-				// add this newest photo bytes
-				photolist.add(new_photo_bytes);
 				// make photolist back to byte[]
 				byte[] new_photolist_bytes = _arraylistToBytes(photolist);
 				// set it into block.lines
 				block.lines.put(Globals.PHOTO_KEY, new_photolist_bytes);
 
-				logMsg("Upload Photo succeeded");
-
+				// Edit GetPhotoInfo by setting setting the upload to be successful
+				my_gpinfo.isSuccess = true;
+				logMsg("my_gpinfo.isSuccess is now (should be true): " + my_gpinfo.isSuccess);
+				
+				logMsg("Region leader successfully uploaded a new photo taken by a client in region. " +
+						"Region leader now display the new photo on its screen (through StatusActivity)");
 				// display this newly added photo on this leader phone
-				logMsg("Update in leader UI through StatusActivity:");
 				Packet packet = new Packet(-1, -1, -1, -1,
 						mux.vncDaemon.myRegion, mux.vncDaemon.myRegion);
-				packet.photo_bytes = new_photo_bytes;
+				// set photo bytes to be displayed on Region Leader (me) of new photo taken by a client
+				packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_gpinfo);
+				// display new photo on leader
 				mux.activityHandler.obtainMessage(Packet.SERVER_SHOW_NEWPHOTO,
 						packet).sendToTarget();
 
-				// TODO: actually send an acknowledgment back to sender
-				reply.requestSuccess = true;
 			} catch (Exception e) {
-				reply.requestSuccess = false;
-				logMsg("Upload Photo failed");
+				logMsg("Remote region FAILED to Upload Photo");
+				logMsg("my_gpinfo.isSuccess is (should be false): " + my_gpinfo.isSuccess);
 				e.printStackTrace();
 			}
 			break;
@@ -177,7 +217,6 @@ public class UserApp implements DSMUser {
 			// relay the client's download photo request to the
 			// getphotos_dest_region
 			logMsg("INSIDE SERVER_GET_PHOTO!!!");
-			GetPhotoInfo my_gpinfo = _bytesToGetphotoinfo(request.data);
 			long dest_region = my_gpinfo.destRegion;
 			long src_region = my_gpinfo.srcRegion;
 			if (dest_region != mux.vncDaemon.myRegion.x) {
@@ -185,6 +224,8 @@ public class UserApp implements DSMUser {
 						+ " instead of dest_region: " + dest_region);
 				break;
 			}
+			
+			// Edit GetPhotoInfo by adding in remote photo into its photoBytes
 			// TODO: MAKE IT GET ith Photo, currently just sending newest photo
 			if (block.lines.get(Globals.PHOTO_KEY) == null) {
 				// this leader doesn't have any photos yet
@@ -197,6 +238,8 @@ public class UserApp implements DSMUser {
 				byte[] latest_photo_bytes = photolist.get(photolist.size() - 1);
 
 				my_gpinfo.photoBytes = latest_photo_bytes;
+				// Edit GetPhotoInfo by setting setting the photo retrieval to be successful
+				my_gpinfo.isSuccess = true;
 			}
 			// Unnecessary self loop, but we don't care about this little
 			// overhead
@@ -205,16 +248,12 @@ public class UserApp implements DSMUser {
 				logMsg(" 1 self to self atomRequest");
 			}
 
-			// relay the photo data to the src_region leader, with data of photo
-			/*
-			 * dsm.atomRequest(PHOTO_TO_CLIENT, src_region, 0, false,
-			 * _getphotoinfoToBytes(my_gpinfo));
-			 */
-			reply.data = _getphotoinfoToBytes(my_gpinfo);
 			break;
 
 		}
 
+		// the modified GetPhotoInfo is added to the reply, which will be passed to originator client
+		reply.data = _getphotoinfoToBytes(my_gpinfo);
 		return reply;
 	}
 
@@ -243,14 +282,16 @@ public class UserApp implements DSMUser {
 					+ packet.dstRegion);
 			return;
 		}
+		logMsg("UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest");
 		switch (packet.subtype) {
 		case Packet.CLIENT_UPLOAD_PHOTO:
-			logMsg("Inside CLIENT_NEW_PHOTO!!");
+			logMsg("request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)");
 			dsm.atomRequest(SERVER_UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0,
-					true, packet.photo_bytes);
+					true, packet.getphotoinfo_bytes);
 			break;
 		case Packet.CLIENT_DOWNLOAD_PHOTO:
-			logMsg("Inside CLIENT_DOWNLOAD_PHOTO, figure out where to forward packet");
+			logMsg("request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet");
+			// Packet.getphotoinfo_bytes unchanged, just retrieving info of destination region
 			GetPhotoInfo my_gpinfo = _bytesToGetphotoinfo(packet.getphotoinfo_bytes);
 			long dest_region = my_gpinfo.destRegion;
 			logMsg("Sending to region: " + dest_region);
@@ -266,7 +307,7 @@ public class UserApp implements DSMUser {
 	public byte[] _bitmapToBytes(Bitmap bmp) throws IOException {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		bmp.compress(Bitmap.CompressFormat.PNG, 0 /* ignored for PNG */, bos);
-		// TODO: I hope this is still under 65000 bytes
+		// I hope this is still under 65000 bytes
 		byte[] bytes = bos.toByteArray();
 		return bytes;
 	}

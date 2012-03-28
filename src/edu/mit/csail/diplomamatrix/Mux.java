@@ -94,7 +94,7 @@ public class Mux extends Thread {
 				// check that it's the original photo requester
 				if (vnp.dst == nodeId) {
 					logMsg("I have the photo requester id = " + nodeId
-							+ " about to display photo");
+							+ " about to display photo or receive upload ack");
 					activityHandler.obtainMessage(vnp.subtype, vnp)
 							.sendToTarget();
 				} else {
