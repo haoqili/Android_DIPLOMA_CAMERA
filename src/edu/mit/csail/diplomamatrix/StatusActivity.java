@@ -1,3 +1,4 @@
+// TODO: FAIL IF CLOUD FAILS
 package edu.mit.csail.diplomamatrix;
 
 import java.io.ByteArrayInputStream;
@@ -9,9 +10,11 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.OptionalDataException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Map;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -24,13 +27,11 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -44,10 +45,9 @@ import android.widget.TextView;
 
 public class StatusActivity extends Activity implements LocationListener {
 	final static private String TAG = "StatusActivity";
-	private static final int CAMERA_PIC_REQUEST = 111;
 
 	// UI elements
-	Button camera_button, region_button, my_camera_button;
+	Button region_button, my_camera_button;
 	Button get1_button, get2_button, get3_button, get4_button, get5_button, get6_button;
 	TextView opCountTv, successCountTv, failureCountTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
@@ -66,6 +66,18 @@ public class StatusActivity extends Activity implements LocationListener {
 	// Mux
 	Mux mux;
 	
+	// time stuff
+	final static private long uploadTimeoutPeriod = 5000L;
+	final static private long downloadTimoutPeriod = 5000L;
+	// areButtonsEnabled is the first line of defense against multi-clicking
+	// set to false as soon as a take/get picture button is pressed
+	// none of the other buttons can be pressed until it's set true again
+	// set to true when progressDialog is dismissed
+	private boolean areButtonsEnabled = false;
+	// progressDialog is the second line of defense against multi-clicking
+	// when shown, disables the rest of the ui, including buttons
+	private ProgressDialog progressDialog;
+	
 	// latency stuff
 	long client_upload_start = 0;
 	long client_download_start = 0;
@@ -75,6 +87,9 @@ public class StatusActivity extends Activity implements LocationListener {
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
+			case Mux.ACTIVITY_DESTROY:
+				logMsg("inside ACTIVITY_DESTROY ...");
+				StatusActivity.this.onDestroy();
 			case Mux.LOG:
 				receivedMessages.add((String) msg.obj);
 				// Write to file
@@ -99,8 +114,6 @@ public class StatusActivity extends Activity implements LocationListener {
 						+ String.valueOf(data.get("success")));
 				failureCountTv.setText("failures: "
 						+ String.valueOf(data.get("failure")));
-
-				boolean requestOutstanding = data.get("request_oustanding") == 1L;
 				break;
 			case Packet.SERVER_SHOW_NEWPHOTO:
 				logMsg("inside Packet.SERVER_SHOW_NEWPHOTO showing client's new photo");
@@ -131,6 +144,10 @@ public class StatusActivity extends Activity implements LocationListener {
 				break;
 			case Packet.CLIENT_SHOW_REMOTEPHOTO:
 				long client_download_end = System.currentTimeMillis();
+				// enable buttons right now, not untill progressdialog timeout
+				mux.myHandler.removeCallbacks(buttonsEnableProgressTimeoutR);
+				_enableButtons();
+				
 				logMsg("inside Packet.CLIENT_SHOW_REMOTEPHOTOS");
 				long download_latency = client_download_end - client_download_start;
 				if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
@@ -175,6 +192,10 @@ public class StatusActivity extends Activity implements LocationListener {
 				break;
 			case Packet.CLIENT_UPLOAD_PHOTO_ACK:
 				long client_upload_end = System.currentTimeMillis();
+				// enable buttons right now, not until progressdialog timeout
+				mux.myHandler.removeCallbacks(buttonsEnableProgressTimeoutR);
+				_enableButtons();
+				
 				logMsg("inside Packet.CLIENT_UPLOAD_PHOTO_ACK");
 				long upload_latency = client_upload_end - client_upload_start;
 				if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
@@ -243,6 +264,44 @@ public class StatusActivity extends Activity implements LocationListener {
 			break;
 		}
 	}
+	
+	// Runnables
+	/** Disable buttons at press of any button (take new pic for upload / region x get for download) */
+	private Runnable disableButtonsProgressStartR = new Runnable() {
+		public void run() {
+			Log.i(TAG, "Inside disableButtonsR");
+			areButtonsEnabled = false;
+			progressDialog = ProgressDialog.show(StatusActivity.this, "", "Processing ...");
+		}       
+	};  
+	
+	private void _enableButtons(){
+		Log.i(TAG, "Inside _enableButtons");
+		progressDialog.dismiss();
+		areButtonsEnabled = true;
+	}
+	/** Enable buttons again, either when getting reply or timed out */
+	private Runnable buttonsEnableProgressTimeoutR = new Runnable() {
+		public void run() {
+			Log.i(TAG, "inside buttonsEnableProgressTimeoutR");
+			_enableButtons();
+		}       
+	};     
+	
+	// check that we can press buttons by
+	// 1. areButtonsEnabled is true AND region is inside valid range
+	private boolean canPressButton(){
+		// TODO: make toasts for false cases
+		if (areButtonsEnabled == false){
+			logMsg("canPressButton = FALSE because areButtonsEnabled = false");
+			return false;
+		}
+		if (mux.vncDaemon.myRegion.x < Globals.MIN_REGION || mux.vncDaemon.myRegion.x > Globals.MAX_REGION){
+			logMsg("canPressButton = false. PLEASE MOVE TO A VALID REGION!");
+			return false;
+		}
+		return true;
+	}
 
 	/**
 	 * Android application lifecycle management
@@ -254,12 +313,10 @@ public class StatusActivity extends Activity implements LocationListener {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
+		
 		// Buttons
 		region_button = (Button) findViewById(R.id.region_button);
 		region_button.setOnClickListener(region_button_listener);
-		camera_button = (Button) findViewById(R.id.camera_button);
-		//camera_button.setOnClickListener(camera_button_listener);
 		get1_button = (Button) findViewById(R.id.get1_button);
 		get1_button.setOnClickListener(get1_button_listener);
 		get2_button = (Button) findViewById(R.id.get2_button);
@@ -283,11 +340,16 @@ public class StatusActivity extends Activity implements LocationListener {
         {
                 public void onClick(View v) 
                 {
+                	if (canPressButton()) {
+                		logMsg("** Clicked take picture button **");
                         Camera camera = cameraSurfaceView.getCamera();
                         camera.takePicture(null, null, new HandlePictureStorage());
+                	} else {
+                		logMsg("can't press camera button yet");
+                	}
                 }
         });
-
+		
 		// Text views
 		opCountTv = (TextView) findViewById(R.id.opcount_tv);
 		successCountTv = (TextView) findViewById(R.id.successcount_tv);
@@ -358,6 +420,9 @@ public class StatusActivity extends Activity implements LocationListener {
 		mux = new Mux(id, myHandler);
 		mux.start();
 
+		// enable button pressing
+		areButtonsEnabled = true;
+		
 		// Watch out for low battery conditions
 		BroadcastReceiver receiver = new BroadcastReceiver() {
 			@Override
@@ -432,7 +497,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		logMsg(".......... GPS onLocationChanged ...... ");
 		if (loc != null) {
 			//mux.vncDaemon.checkLocation(loc);
-			// TODO: better location:
 			mux.vncDaemon.determineLocation(loc, mux.vncDaemon.myRegion);
 		} else {
 			logMsg("Null Location");
@@ -466,66 +530,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 	}
 
-	/** 
-	 * Camera from Intent stuff 
-	 * It launches camera by pausing StatusActivity and 
-	 * returns to onActivityResult
-	 * 
-	 * We save the photo at Globals.PHOTO_PATH (in the sdcard) and
-	 * retrieve the photo from there inside onActivityResult
-	 * 
-	 * ----
-	 * 
-	 * This works fine on Nexus S phones, but
-	 * on Galaxy Note phones, Mux is killed and have to be restarted
-	 * before and after the camera intent, causing a
-	 * "Cannot open socketAddress already in use" error
-	 * 
-	 * **/
-	private OnClickListener camera_button_listener = new OnClickListener(){
-		public void onClick(View v){
-			logMsg("Clicked Camera button");
-			Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-
-			// credit: http://stackoverflow.com/questions/1910608/android-action-image-capture-intent
-			File _photoFile = new File(Globals.PHOTO_PATH);
-			try {
-				if(_photoFile.exists() == false) {
-					_photoFile.getParentFile().mkdirs();
-					_photoFile.createNewFile();
-				}
-			} catch (IOException e) {
-				logMsg("Could not create file.");
-				e.printStackTrace();
-			}
-			logMsg("photo path: " + Globals.PHOTO_PATH);
-
-			Uri _fileUri = Uri.fromFile(_photoFile);
-			cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, _fileUri);
-			// start the Intent:
-			startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
-		}
-	};
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (resultCode != Activity.RESULT_OK) {
-			logMsg("Taking picture failed. Try again!");
-			return;
-		}
-		if (requestCode == CAMERA_PIC_REQUEST) {
-			logMsg("Camera Handling results!");
-
-			
-			logMsg("Display on screen:");
-			ImageView image = (ImageView) findViewById(R.id.photoResultView);
-
-			Bitmap new_bitmap = _getAndResizeBitmap();
-			logMsg("Show photo from camera intent result");
-			image.setImageBitmap(new_bitmap);
-			logMsg("GETANDRESIZE BITMAP Original SIZE: " + _bitmapBytes(new_bitmap));
-			sendClientNewpic(new_bitmap);
-		}
-	}
-	
 	/**
 	 * Camera from CameraSurface Works on both Nexus S and Galaxy Note phones,
 	 * because StatusActivity is never paused
@@ -536,8 +540,13 @@ public class StatusActivity extends Activity implements LocationListener {
 		@Override
 		public void onPictureTaken(byte[] picture, Camera camera) {
 			// let the preview work again
-			cameraSurfaceView.camera.startPreview();
+			logMsg("inside HandlePictureStorage onPictureTaken()");
+			logMsg("disabling buttons ...");
+			// Disable buttons until timeout is over or received reply
+			mux.myHandler.post(disableButtonsProgressStartR);
+			mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, uploadTimeoutPeriod);
 			
+			cameraSurfaceView.camera.startPreview();
 			logMsg("Picture successfully taken, ORIG BYTE LENGTH = " + picture.length);
 			try {
 				Bitmap orig_bitmap = _bytesToBitmap(picture);
@@ -688,47 +697,75 @@ public class StatusActivity extends Activity implements LocationListener {
 	/* dumb button listeners */
 	private OnClickListener get1_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			logMsg("clicked getphotos Button from region 1");
-			long targetRegion = 1;
-			_button_listener_helper(targetRegion);
+			if (canPressButton()) {
+				logMsg("** Clicked getphotos Button from region 1 **");
+				long targetRegion = 1;
+				_button_listener_helper(targetRegion);
+			} else {
+				logMsg("can't press region 1 yet");
+			}
 		}
 	};
 	private OnClickListener get2_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			logMsg("clicked getphotos Button from region 2");
-			long targetRegion = 2;
-			_button_listener_helper(targetRegion);
+			if (canPressButton()) {
+				logMsg("** Clicked getphotos Button from region 2 **");
+				long targetRegion = 2;
+				_button_listener_helper(targetRegion);
+			} else {
+				logMsg("can't press region 2 yet");
+			}
 		}
 	};
 	private OnClickListener get3_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			logMsg("clicked getphotos Button from region 3");
-			long targetRegion = 3;
-			_button_listener_helper(targetRegion);
+			if (canPressButton()) {
+				logMsg("** Clicked getphotos Button from region 3 **");
+				long targetRegion = 3;
+				_button_listener_helper(targetRegion);
+			} else {
+				logMsg("can't press region 3 yet");
+			}
 		}
 	};
 	private OnClickListener get4_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			logMsg("clicked getphotos Button from region 4");
-			long targetRegion = 4;
-			_button_listener_helper(targetRegion);
+			if (canPressButton()) {
+				logMsg("** Clicked getphotos Button from region 4 **");
+				long targetRegion = 4;
+				_button_listener_helper(targetRegion);
+			} else {
+				logMsg("can't press region 4 yet");
+			}
 		}
 	};
 	private OnClickListener get5_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			logMsg("clicked getphotos Button from region 5");
-			long targetRegion = 5;
-			_button_listener_helper(targetRegion);
+			if (canPressButton()) {
+				logMsg("** Clicked getphotos Button from region 5 **");
+				long targetRegion = 5;
+				_button_listener_helper(targetRegion);
+			} else {
+				logMsg("can't press region 5 yet");
+			}
 		}
 	};
 	private OnClickListener get6_button_listener = new OnClickListener(){
 		public void onClick(View v){
-			logMsg("clicked getphotos Button from region 6");
-			long targetRegion = 6;
-			_button_listener_helper(targetRegion);
+			if (canPressButton()) {
+				logMsg("** Clicked getphotos Button from region 6 **");
+				long targetRegion = 6;
+				_button_listener_helper(targetRegion);
+			} else {
+				logMsg("can't press region 6 yet");
+			}
 		}
 	};
 	private void _button_listener_helper(long targetRegion){
+		// Disable buttons until timeout is over, or received reply
+		mux.myHandler.post(disableButtonsProgressStartR);
+		mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, downloadTimoutPeriod);
+		
 		// Create a Packet to send through Mux to Leader's UserApp
 		Packet packet = new Packet(-1, 
 				-1,
@@ -749,6 +786,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			logMsg("_button_listener_helper _intToBytes() failed");
 			e.printStackTrace();
 		}
+		
 		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
 			logMsg("I'm a leader, my requesting photos packet going to mux directly");
 			client_download_start = System.currentTimeMillis();

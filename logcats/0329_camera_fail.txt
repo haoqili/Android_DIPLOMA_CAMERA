@@ -1,0 +1,671 @@
+http://code.google.com/p/android/issues/detail?id=6201
+
+--------- beginning of /dev/log/main
+D/dalvikvm(28214): GC_EXPLICIT freed 73K, 42% free 3231K/5511K, external 0K/0K, paused 57ms
+E/CAM_FD  (  325): ...config thread select timeout...
+I/InputReader(  447): dispatchTouch::touch event's action is 0, pending(waiting finished signal)=1
+D/InputTransport(  447): Input channel destroyed: name='40c03ff0 Sorry! (server)', ashmemFd=200, receivePipeFd=377, sendPipeFd=374
+I/InputDispatcher(  447): Delivering touch to current input target: action: 0, channel '40cd6430 com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher (server)'
+I/InputDispatcher(  447): Delivering touch to current input target: action: 0, channel '408fad40 com.android.internal.service.wallpaper.ImageWallpaper (server)'
+I/InputDispatcher(  447): Delivering touch to current input target: action: 0, channel 'PenGestureView (server)'
+--------- beginning of /dev/log/system
+I/PowerManagerService(  447): Ulight 3->7|0
+D/PowerManagerService(  447): setLightBrightness : mButtonLight : 129
+I/InputReader(  447): dispatchTouch::touch event's action is 1, pending(waiting finished signal)=1
+I/InputDispatcher(  447): Delivering touch to current input target: action: 1, channel '40cd6430 com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher (server)'
+I/InputDispatcher(  447): Delivering touch to current input target: action: 1, channel '408fad40 com.android.internal.service.wallpaper.ImageWallpaper (server)'
+I/InputDispatcher(  447): Delivering touch to current input target: action: 1, channel 'PenGestureView (server)'
+I/ActivityManager(  447): Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=edu.mit.csail.diplomamatrix/.StatusActivity bnds=[480,650][640,850] } from pid 642
+D/InputTransport(  447): Input channel constructed: name='40977620 Starting edu.mit.csail.diplomamatrix (server)', ashmemFd=199, receivePipeFd=372, sendPipeFd=337
+D/InputTransport(  447): Input channel constructed: name='40977620 Starting edu.mit.csail.diplomamatrix (client)', ashmemFd=200, receivePipeFd=265, sendPipeFd=374
+I/SurfaceFlinger(  447): id=127(21) createSurface 0x702494 for pid 447 (1x1),2 flag=0, Starting edu.mit.csail.diplomamatrix
+I/WindowManager(  447):   CREATE SURFACE Surface(name=Starting edu.mit.csail.diplomamatrix, identity=127, mNativeSurface=0) IN SESSION android.view.SurfaceSession@4061fdc8: pid=447 format=-1 flags=0x0 / Window{40977620 Starting edu.mit.csail.diplomamatrix paused=false}
+V/LauncherAppWidgetHostView(  642): dispatchSaveInstanceState: widgetid=1 vid=-1
+V/LauncherAppWidgetHostView(  642): dispatchSaveInstanceState: widgetid=2 vid=-1
+V/LauncherAppWidgetHostView(  642): dispatchSaveInstanceState: widgetid=4 vid=-1
+V/LauncherAppWidgetHostView(  642): dispatchSaveInstanceState: widgetid=3 vid=-1
+V/LauncherAppWidgetHostView(  642): dispatchSaveInstanceState: widgetid=5 vid=-1
+V/LauncherAppWidgetHostView(  642): dispatchSaveInstanceState: widgetid=6 vid=-1
+D/msm8660.gralloc(  447): !@/dev/pmem: allocating pmem size=4096000, offset=38711296(0x24eb000)
+I/Launcher(  642): onPause. Launcher: 40571900
+I/ViewRoot(  447): !@FINISH DRAWING : Starting edu.mit.csail.diplomamatrix
+I/ViewRoot(  447): !@finishDrawing is completed : Starting edu.mit.csail.diplomamatrix
+E/com.samsung.app(27308): [MSC_Accu]>>> WeatherWidgetProvider.java:354 [0:0] onReceive@ sec.android.intent.action.HOME_PAUSE
+E/com.samsung.app(27308): [MSC_Accu]>>> WidgetIdManager.java:53 [0:0] AccuWeatherClockWidgetID_Length
+E/com.samsung.app(27308): [MSC_Accu]>>> WidgetIdManager.java:54 [0:0] getPrefIDs@lngth:1
+E/com.samsung.app(27308): [MSC_Accu]>>> WidgetIdManager.java:60 [0:0] getPrefIDs@Ids1:4
+E/com.samsung.app(27308): [MSC_Accu]>>> WeatherWidgetProvider.java:347 [0:0] refreshhandler is null!!
+E/com.samsung.app(28214): [MSC]>>> StockClock_Integration.java:235 [0:0] onReceive sec.android.intent.action.HOME_PAUSE
+E/com.samsung.app(28214): [MSC]>>> StockClock_Integration.java:241 [0:0] onReceive : no stock widget!!!
+D/GLSurfaceViewGroup(  642): Skipped drawing due to suspendDrawingUntilResume()
+I/ActivityManager(  447): Start proc edu.mit.csail.diplomamatrix for activity edu.mit.csail.diplomamatrix/.StatusActivity: pid=30009 uid=10125 gids={1006, 1015, 3003}
+I/PhotoAppWidgetProvider(28612): onReceive
+I/PhotoAppWidgetProvider(28612): PauseSlideShow
+D/PhotoAppWidgetProvider(28612): onReceive End
+I/OrientationDebug(  447): [pwm] in updateOrientationListenerLp()
+V/OrientationDebug(  447): in updateOrientationListenerLp(), Screen status=true, current orientation=-1, SensorEnabled=false
+I/OrientationDebug(  447): [pwm] needSensorRunningLp(), return false #3
+E/WindowManager(  447): rotation is : 0
+I/Launcher(  642): onWindowFocusChanged(false)
+D/dalvikvm(30009): GC_EXTERNAL_ALLOC freed 50K, 42% free 3127K/5379K, external 0K/0K, paused 108ms
+D/PowerManagerService(  447): acquireWakeLock flags=0x20000006 tag=StatusActivity uid=10125 pid=30009   myUID=1000 myPID=447 myTID=10552
+D/GLSurfaceViewGroup(  642): Skipped drawing due to suspendDrawingUntilResume()
+I/GLThread(  642): noticed surfaceView surface lost tid=16
+W/EglHelper(  642): destroySurface()  tid=16
+I/SurfaceFlinger(  447): id=124 Removed SurfaceView idx=3 Map Size=6
+D/SurfaceFlinger(  447): remove count:1 destroying SurfaceView
+W/WindowManager(  447): Window Window{40cdc9d0 SurfaceView paused=false} destroyed surface Surface(name=SurfaceView, identity=-1, mNativeSurface=0), session Session{40942738 uid 10004}
+I/SurfaceFlinger(  447): id=126 Removed com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher idx=2 Map Size=5
+D/SurfaceFlinger(  447): remove count:1 destroying com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher
+W/WindowManager(  447): Window Window{40cd6430 com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher paused=false} destroyed surface Surface(name=com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher, identity=-1, mNativeSurface=0), session Session{40942738 uid 10004}
+I/GLThread(  642): onPause tid=16
+I/Main thread(  642): onPause waiting for mPaused.
+I/GLThread(  642): mPaused is now true tid=16
+I/Launcher(  642): onStop. Launcher: 40571900
+I/StatusActivity(30009): 1333049649196: *** Opened log file for writing ***
+I/StatusActivity(30009): 1333049649197: starting Mux with id = -1
+I/Mux.java(30009): run() beginning -------------
+D/Mux     (30009): Mux started
+I/StatusActivity(30009): 1333049649202: *** Application started ***
+I/StatusActivity(30009): 1333049649203: HI I'm in ONRESUME()
+I/NetworkThread(30009): Initial socket buffer sizes: 110592 receive, 110592 send
+W/GpsLocationProvider(  447): Duplicate add listener for uid 10125
+I/NetworkThread(30009): Set socket buffer sizes to: 221184 receive, 221184 send
+I/NetworkThread(30009): started, local IP address:/192.168.5.10
+I/Mux.java's nodeId is(30009): 5010
+I/Mux     (30009): starting vncDaemon ........
+D/GpsLocationProvider(  447): setMinTime 1000
+I/VCoreDaemon(30009): 1333049649212: Started VCoreDaemon with parameters maxRx = 10 , maxRY= 1, minLongitude = -7110170 , minLatitude = 4236349, regionWidth =17
+D/GpsLocationProvider(  447): startNavigating
+I/Mux     (30009): vncDaemon started
+I/StatusActivity(30009): 1333049649213: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+D/LocationManagerService(  447): gps location requested by UID(10125) edu.mit.csail.diplomamatrix, 
+I/VCoreDaemon.java(30009): onStart() about to stateTransition.........................................................................
+I/VCoreDaemon(30009): 1333049649215: started, mId = 5010
+I/VCoreDaemon.java(30009): inside stateTransition ......................................................................................
+I/..... VCoreDaemon.java(30009): out of bounds
+I/VCoreDaemon(30009): 1333049649216: region (-1, -1) out of bounds, dormant
+I/..... VCoreDaemon.java(30009): ends xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+D/libloc  (  447): loc_eng_set_position mode, client = 0, interval = 1000, mode = 1
+W/libloc  (  447): loc_read_sec_gps_conf: no /data/data/com.android.angryGps/secgps.conf file, using defaults
+D/RPC     (  447): 3000008c:00050000 sending call (XID 82).
+D/InputTransport(  447): Input channel constructed: name='408caf48 edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity (server)', ashmemFd=379, receivePipeFd=384, sendPipeFd=383
+D/InputTransport(  447): Input channel constructed: name='408caf48 edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity (client)', ashmemFd=381, receivePipeFd=382, sendPipeFd=385
+D/InputTransport(  447): Input channel destroyed: name='408caf48 edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity (client)', ashmemFd=381, receivePipeFd=382, sendPipeFd=385
+D/InputTransport(30009): Input channel constructed: name='408caf48 edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity (client)', ashmemFd=50, receivePipeFd=51, sendPipeFd=52
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+W/libloc  (  447): loc_read_sec_gps_conf: no /data/data/com.android.angryGps/secgps.conf file, using defaults
+E/libloc  (  447): loc_eng_sec_set_param(): Fail to read sec GPS config!. default config will be set
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received REPLY (XID 82), grabbing mutex to wake up client.
+D/RPC     (  447): 3000008c:00050000 waiting for XDR input buffer to be consumed.
+D/RPC     (  447): 3000008c:00050000 call success.
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28298, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28298)
+D/RPC     (  447): 3000008c:00050000 sending call (XID 83).
+D/RPC     (  447): 3000008c:00050000 received REPLY (XID 83), grabbing mutex to wake up client.
+D/RPC     (  447): 3000008c:00050000 call success.
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+I/SurfaceFlinger(  447): id=128(1) createSurface 0x6b210c for pid 30009 (1x1),1 flag=0, edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28299, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28299)
+D/RPC     (  447): 3000008c:00050000 sending call (XID 84).
+D/RPC     (  447): 3000008c:00050000 received REPLY (XID 84), grabbing mutex to wake up client.
+D/RPC     (  447): 3000008c:00050000 call success.
+I/WindowManager(  447):   CREATE SURFACE Surface(name=edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity, identity=128, mNativeSurface=0) IN SESSION android.view.SurfaceSession@40922c98: pid=30009 format=-3 flags=0x0 / Window{408caf48 edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity paused=false}
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28300, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28300)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 sending call (XID 85).
+D/RPC     (  447): 3000008c:00050000 received REPLY (XID 85), grabbing mutex to wake up client.
+D/RPC     (  447): 3000008c:00050000 waiting for XDR input buffer to be consumed.
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 call success.
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28301, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28301)
+D/RPC     (  447): 3000008c:00050000 sending call (XID 86).
+D/RPC     (  447): 3000008c:00050000 received REPLY (XID 86), grabbing mutex to wake up client.
+D/RPC     (  447): 3000008c:00050000 call success.
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28302, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28302)
+D/RPC     (  447): 3000008c:00050000 sending call (XID 87).
+D/RPC     (  447): 3000008c:00050000 received REPLY (XID 87), grabbing mutex to wake up client.
+D/RPC     (  447): 3000008c:00050000 call success.
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28303, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28303)
+D/RPC     (  447): 3000008c:00050000 sending call (XID 88).
+D/RPC     (  447): 3000008c:00050000 received REPLY (XID 88), grabbing mutex to wake up client.
+D/RPC     (  447): 3000008c:00050000 call success.
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/GpsLocationProvider(  447): startNavigating : SensorAiding is com.android.server.location.GpsLocationProvider$SensorAiding@40c8fd80
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+V/GpsLocationProvider(  447): reportStatus status: 1
+D/GpsLocationProvider(  447): send an intent to notify that the GPS has been enabled or disabled
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28304, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28304)
+D/RPC     (  447): 3000008c:00050000 sending call (XID 89).
+D/RPC     (  447): 3000008c:00050000 received REPLY (XID 89), grabbing mutex to wake up client.
+D/RPC     (  447): 3000008c:00050000 waiting for XDR input buffer to be consumed.
+D/RPC     (  447): 3000008c:00050000 call success.
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28305, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28305)
+D/msm8660.gralloc(  447): !@/dev/pmem: allocating pmem size=2457600, offset=2048000(0x1f4000)
+I/SurfaceFlinger(  447): id=129(2) createSurface for pid 30009 (320x100),4 flag=200, SurfaceView
+I/WindowManager(  447):   CREATE SURFACE Surface(name=SurfaceView, identity=129, mNativeSurface=0) IN SESSION android.view.SurfaceSession@40922c98: pid=30009 format=4 flags=0x200 / Window{40bc7148 SurfaceView paused=false}
+E/Surface (30009): Surface::init token -2 identity 129
+I/QualcommCameraHardware(  325): Found a matching camera info for ID 0
+I/QualcommCameraHardware(  325): HAL_getCameraInfo: facing = 0, orientation = 90
+W/CameraService(  325): CameraService::connect X (pid 30009) rejected (existing client).
+D/AndroidRuntime(30009): Shutting down VM
+W/dalvikvm(30009): threadid=1: thread exiting with uncaught exception (group=0x4001e578)
+E/AndroidRuntime(30009): FATAL EXCEPTION: main
+E/AndroidRuntime(30009): java.lang.RuntimeException: Fail to connect to camera service
+E/AndroidRuntime(30009): 	at android.hardware.Camera.native_setup(Native Method)
+E/AndroidRuntime(30009): 	at android.hardware.Camera.<init>(Camera.java:329)
+E/AndroidRuntime(30009): 	at android.hardware.Camera.open(Camera.java:303)
+E/AndroidRuntime(30009): 	at edu.mit.csail.diplomamatrix.CameraSurfaceView.surfaceCreated(CameraSurfaceView.java:35)
+E/AndroidRuntime(30009): 	at android.view.SurfaceView.updateWindow(SurfaceView.java:587)
+E/AndroidRuntime(30009): 	at android.view.SurfaceView.updateWindow(SurfaceView.java:412)
+E/AndroidRuntime(30009): 	at android.view.SurfaceView.dispatchDraw(SurfaceView.java:357)
+E/AndroidRuntime(30009): 	at android.view.ViewGroup.drawChild(ViewGroup.java:1644)
+E/AndroidRuntime(30009): 	at android.view.ViewGroup.dispatchDraw(ViewGroup.java:1373)
+E/AndroidRuntime(30009): 	at android.view.ViewGroup.drawChild(ViewGroup.java:1644)
+E/AndroidRuntime(30009): 	at android.view.ViewGroup.dispatchDraw(ViewGroup.java:1373)
+E/AndroidRuntime(30009): 	at android.view.ViewGroup.drawChild(ViewGroup.java:1644)
+E/AndroidRuntime(30009): 	at android.view.ViewGroup.dispatchDraw(ViewGroup.java:1373)
+E/AndroidRuntime(30009): 	at android.view.View.draw(View.java:7098)
+E/AndroidRuntime(30009): 	at android.widget.FrameLayout.draw(FrameLayout.java:357)
+E/AndroidRuntime(30009): 	at android.view.ViewGroup.drawChild(ViewGroup.java:1646)
+E/AndroidRuntime(30009): 	at android.view.ViewGroup.dispatchDraw(ViewGroup.java:1373)
+E/AndroidRuntime(30009): 	at android.view.ViewGroup.drawChild(ViewGroup.java:1644)
+E/AndroidRuntime(30009): 	at android.view.ViewGroup.dispatchDraw(ViewGroup.java:1373)
+E/AndroidRuntime(30009): 	at android.view.View.draw(View.java:7098)
+E/AndroidRuntime(30009): 	at android.widget.FrameLayout.draw(FrameLayout.java:357)
+E/AndroidRuntime(30009): 	at com.android.internal.policy.impl.PhoneWindow$DecorView.draw(PhoneWindow.java:2103)
+E/AndroidRuntime(30009): 	at android.view.ViewRoot.draw(ViewRoot.java:1686)
+E/AndroidRuntime(30009): 	at android.view.ViewRoot.performTraversals(ViewRoot.java:1419)
+E/AndroidRuntime(30009): 	at android.view.ViewRoot.handleMessage(ViewRoot.java:2024)
+E/AndroidRuntime(30009): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+E/AndroidRuntime(30009): 	at android.os.Looper.loop(Looper.java:130)
+E/AndroidRuntime(30009): 	at android.app.ActivityThread.main(ActivityThread.java:3691)
+E/AndroidRuntime(30009): 	at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(30009): 	at java.lang.reflect.Method.invoke(Method.java:507)
+E/AndroidRuntime(30009): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:912)
+E/AndroidRuntime(30009): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:670)
+E/AndroidRuntime(30009): 	at dalvik.system.NativeStart.main(Native Method)
+W/ActivityManager(  447):   Force finishing activity edu.mit.csail.diplomamatrix/.StatusActivity
+E/        (  447): Dumpstate > /data/log/dumpstate_app_error
+I/dumpstate(30043): begin
+D/dalvikvm(30009): GC_CONCURRENT freed 150K, 40% free 3413K/5639K, external 226K/1281K, paused 4ms+5ms
+D/BatteryService(  447): update start
+D/BatteryService(  447): updateBattery level:99 scale:100 status:2 health:2 present:true voltage: 4141 temperature: 349 technology: Li-ion AC powered:false USB powered:true icon:17302237
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28309, xdr 0x489cd8) for callback client 3100008c:00050001.
+I/Process (  447): Sending signal. PID: 30009 SIG: 3
+I/dalvikvm(30009): threadid=4: reacting to signal 3
+I/dalvikvm(30009): Wrote stack traces to '/data/anr/traces.txt'
+W/ActivityManager(  447): Activity pause timeout for HistoryRecord{40b60018 edu.mit.csail.diplomamatrix/.StatusActivity}
+D/ActivityManager(  447): handleActivityTimeout pid=[30009] cnt=2
+E/CAM_FD  (  325): ...config thread select timeout...
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28309)
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+V/GpsLocationProvider(  447): reportStatus status: 3
+V/GpsLocationProvider(  447): reportStatus status: 1
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28310, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28310)
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28311, xdr 0x489cd8) for callback client 3100008c:00050001.
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28311)
+D/VoldCmdListener(  317): asec list
+D/VoldCmdListener(  317): CommandListener::AsecCmd::runCommand -> -- 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28312, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28312)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28313, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28313)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28314, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28314)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28315, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28315)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28316, xdr 0x489cd8) for callback client 3100008c:00050001.
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28316)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28317, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28317)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28318, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28318)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28319, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28319)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28320, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28320)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28321, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28321)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28322, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28322)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28323, xdr 0x489cd8) for callback client 3100008c:00050001.
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28323)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28324, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28324)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28325, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28325)
+I/dumpstate(30043): done
+D/InputTransport(  447): Input channel constructed: name='40cd5a78 Sorry! (server)', ashmemFd=386, receivePipeFd=391, sendPipeFd=390
+D/InputTransport(  447): Input channel constructed: name='40cd5a78 Sorry! (client)', ashmemFd=387, receivePipeFd=388, sendPipeFd=392
+I/OrientationDebug(  447): [pwm] in updateOrientationListenerLp()
+V/OrientationDebug(  447): in updateOrientationListenerLp(), Screen status=true, current orientation=1, SensorEnabled=false
+I/OrientationDebug(  447): [pwm] needSensorRunningLp(), return false #3
+E/WindowManager(  447): rotation is : 0
+I/GLThread(  642): onResume tid=16
+I/Main thread(  642): onResume waiting for !mPaused.
+I/GLThread(  642): mPaused is now false tid=16
+D/Launcher(  642): It's image wallpaper. suggestDesiredDimensions(800 , 1280 )
+I/Launcher(  642): onRestart. Launcher: 40571900
+I/Launcher(  642): onResume. Launcher: 40571900, mIsNewIntent: false
+E/WallpaperService(  447): setDimensionHints ! w=800
+I/SurfaceFlinger(  447): id=130(34) createSurface 0x757b5c for pid 642 (800x1230),1 flag=0, SurfaceView
+I/GLThread(  642): noticed surfaceView surface acquired tid=16
+W/GLThread(  642): egl createSurface
+W/EglHelper(  642): createSurface()  tid=16
+I/WindowManager(  447):   CREATE SURFACE Surface(name=SurfaceView, identity=130, mNativeSurface=0) IN SESSION android.view.SurfaceSession@40613e70: pid=642 format=1 flags=0x0 / Window{40cdc9d0 SurfaceView paused=false}
+D/msm8660.gralloc(  447): !@/dev/pmem: allocating pmem size=3993600, offset=24580096(0x1771000)
+I/Main thread(  642): onWindowResize waiting for render complete from tid=16
+W/GLThread(  642): onSurfaceChanged(800, 1230)
+I/GLThread(  642): noticing that we want render notification tid=16
+W/GLThread(  642): onSurfaceChanged(800, 1230)
+D/msm8660.gralloc(  447): !@/dev/pmem: allocating pmem size=3993600, offset=28573696(0x1b40000)
+I/Main thread(  642): onWindowResize waiting for render complete from tid=16
+I/GLThread(  642): sending render notification tid=16
+I/SurfaceFlinger(  447): id=131(35) createSurface 0x478624 for pid 642 (800x1280),1 flag=400, com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher
+I/WindowManager(  447):   CREATE SURFACE Surface(name=com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher, identity=131, mNativeSurface=0) IN SESSION android.view.SurfaceSession@40613e70: pid=642 format=-2 flags=0x400 / Window{40cd6430 com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher paused=false}
+D/Surface (  642): Surface is full screen
+D/msm8660.gralloc(  447): !@/dev/pmem: allocating pmem size=4096000, offset=32567296(0x1f0f000)
+I/ViewRoot(  642): !@FINISH DRAWING : com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher
+D/InputTransport(  447): Input channel destroyed: name='40977620 Starting edu.mit.csail.diplomamatrix (server)', ashmemFd=199, receivePipeFd=372, sendPipeFd=337
+D/InputTransport(  447): Input channel destroyed: name='40977620 Starting edu.mit.csail.diplomamatrix (client)', ashmemFd=200, receivePipeFd=265, sendPipeFd=374
+I/WindowManager(  447): mAppToken is null , so we can't use SF_BYPASS
+I/SurfaceFlinger(  447): id=132(22) createSurface 0x6365dc for pid 447 (1x1),1 flag=0, Sorry!
+I/ViewRoot(  642): !@finishDrawing is completed : com.sec.android.app.twlauncher/com.sec.android.app.twlauncher.Launcher
+I/WindowManager(  447):   CREATE SURFACE Surface(name=Sorry!, identity=132, mNativeSurface=0) IN SESSION android.view.SurfaceSession@4061fdc8: pid=447 format=-2 flags=0x0 / Window{40cd5a78 Sorry! paused=false}
+D/UiModeManager(  447): updateConfigurationLocked: mDockState=0; mCarMode=false; mNightMode=0; uiMode=17
+E/com.samsung.app(27308): [MSC_Accu]>>> WeatherWidgetProvider.java:354 [0:0] onReceive@ sec.android.intent.action.HOME_RESUME
+E/com.samsung.app(27308): [MSC_Accu]>>> WidgetIdManager.java:53 [0:0] AccuWeatherClockWidgetID_Length
+E/com.samsung.app(27308): [MSC_Accu]>>> WidgetIdManager.java:54 [0:0] getPrefIDs@lngth:1
+E/com.samsung.app(27308): [MSC_Accu]>>> WidgetIdManager.java:60 [0:0] getPrefIDs@Ids1:4
+E/com.samsung.app(28214): [MSC]>>> StockClock_Integration.java:235 [0:0] onReceive sec.android.intent.action.HOME_RESUME
+E/com.samsung.app(28214): [MSC]>>> StockClock_Integration.java:241 [0:0] onReceive : no stock widget!!!
+I/PhotoAppWidgetProvider(28612): onReceive
+I/PhotoAppWidgetProvider(28612): RestartSlideShow
+D/PhotoDatabaseHelper(28612): getWidgetIdList query count : 0
+D/PhotoAppWidgetProvider(28612): onReceive End
+D/DigitalClock(28026): DigitalClockAppWidget.onReceive : ACTION_HOME_RESUME is called!!
+D/msm8660.gralloc(  447): !@/dev/pmem: allocating pmem size=1536000, offset=4505600(0x44c000)
+I/ViewRoot(  447): !@FINISH DRAWING : Sorry!
+I/ViewRoot(  447): !@finishDrawing is completed : Sorry!
+D/dalvikvm(  642): GC_EXTERNAL_ALLOC freed 234K, 49% free 4494K/8647K, external 23535K/24049K, paused 237ms
+I/SurfaceFlinger(  447): id=127 Removed Starting edu.mit.csail.diplomamatrix idx=6 Map Size=8
+W/WindowManager(  447): Window Window{40977620 Starting edu.mit.csail.diplomamatrix paused=false} destroyed surface Surface(name=Starting edu.mit.csail.diplomamatrix, identity=-1, mNativeSurface=0), session Session{408d4640 uid 1000}
+D/msm8660.gralloc(  447): !@/dev/pmem: allocating pmem size=4096000, offset=10346496(0x9de000)
+D/SurfaceFlinger(  447): remove count:1 destroying Starting edu.mit.csail.diplomamatrix
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28326, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28326)
+D/msm8660.gralloc(  447): !@/dev/pmem: allocating pmem size=4096000, offset=14442496(0xdc6000)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/Buddies--------------------------->(27292): Service:OnReceive ACTION_HOME_RESUME called
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28327, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28327)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28328, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28328)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28329, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28329)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28330, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28330)
+W/PowerManagerService(  447): Timer 0x7->0x3|0x1
+I/PowerManagerService(  447): Ulight 7->3|0
+D/PowerManagerService(  447): setLightBrightness : mButtonLight : 0
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28331, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28331)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28332, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28332)
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28333, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28333)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28334, xdr 0x489cd8) for callback client 3100008c:00050001.
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28334)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28335, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28335)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28336, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28336)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28337, xdr 0x489cd8) for callback client 3100008c:00050001.
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28337)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28338, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28338)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28339, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28339)
+D/msm8660.gralloc(  447): !@/dev/pmem: allocating pmem size=1536000, offset=18538496(0x11ae000)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28340, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28340)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28341, xdr 0x489cd8) for callback client 3100008c:00050001.
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28341)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28342, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28342)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28343, xdr 0x489cd8) for callback client 3100008c:00050001.
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28343)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28344, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28344)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28345, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28345)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28346, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28346)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28347, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28347)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28348, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28348)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28349, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28349)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28350, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28350)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28351, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28351)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28352, xdr 0x489cd8) for callback client 3100008c:00050001.
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28352)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28353, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28353)
+I/InputReader(  447): dispatchTouch::touch event's action is 0, pending(waiting finished signal)=1
+I/InputDispatcher(  447): Delivering touch to current input target: action: 0, channel '40cd5a78 Sorry! (server)'
+I/InputDispatcher(  447): Delivering touch to current input target: action: 0, channel 'PenGestureView (server)'
+I/PowerManagerService(  447): Ulight 3->7|0
+D/PowerManagerService(  447): setLightBrightness : mButtonLight : 129
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28356, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28356)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28357, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28357)
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28358, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28358)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28359, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28359)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28360, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28360)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28361, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28361)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28362, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28362)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28363, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28363)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28364, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28364)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28365, xdr 0x489cd8) for callback client 3100008c:00050001.
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28365)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28366, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28366)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28367, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28367)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28368, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28368)
+I/InputReader(  447): dispatchTouch::touch event's action is 1, pending(waiting finished signal)=1
+I/InputDispatcher(  447): Delivering touch to current input target: action: 1, channel '40cd5a78 Sorry! (server)'
+I/InputDispatcher(  447): Delivering touch to current input target: action: 1, channel 'PenGestureView (server)'
+D/InputTransport(  447): Input channel destroyed: name='40cd5a78 Sorry! (client)', ashmemFd=387, receivePipeFd=388, sendPipeFd=392
+I/Launcher(  642): onWindowFocusChanged(true)
+W/InputManagerService(  447): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@40c4f6e8
+I/Process (30009): Sending signal. PID: 30009 SIG: 9
+D/dalvikvm(  642): GC_EXTERNAL_ALLOC freed 213K, 49% free 4454K/8647K, external 23685K/24608K, paused 57ms
+E/power   (  447): acquire_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+I/SurfaceFlinger(  447): id=128 Removed edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity idx=5 Map Size=7
+D/InputTransport(  447): Input channel destroyed: name='408caf48 edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity (server)', ashmemFd=379, receivePipeFd=384, sendPipeFd=383
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28369, xdr 0x489cd8) for callback client 3100008c:00050001.
+I/ActivityManager(  447): Process edu.mit.csail.diplomamatrix (pid 30009) has died.
+D/LocationManagerService(  447): Location requesting stopped by UID(1000) com.sec.android.app.phoneutil, com.android.providers.subscribedfeeds, com.samsung.InputEventApp, com.sec.dsm.system, com.android.server.vpn.enterprise, com.sec.android.Kies, com.samsung.bt.avrcp, com.sec.android.app.personalization, com.android.Preconfig, com.sec.android.app.lcdtest, com.android.systemui, com.sec.android.app.servicemodeapp, com.android.providers.security, com.samsung.app.playreadyui, com.wssnps, com.sec.app.RilErrorNotifier, com.sec.android.app.wlantest, com.sec.android.app.controlpanel, com.sec.android.app.popupuireceiver, com.google.android.backup, com.android.providers.settings, com.samsung.android.app.divx, com.dashwire.config, com.android.settings, com.sec.android.app.encrypt, com.sec.android.app.kieswifi, com.android.bluetoothtest, com.android.MtpApplication, com.sec.android.app.selftestmode, com.sec.android.app.factorytest, android, com.android.server.vpn, Receiver info:Receiver{40c3af60 Listener android.os.BinderProxy@40c3af28}mUpdateRecords: {gps=UpdateRecord{409efb78 mProvider: gps mUid: 10125}}
+I/WindowManager(  447): WIN DEATH: Window{408caf48 edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity paused=false}
+W/WindowManager(  447): Window Window{408caf48 edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity paused=false} destroyed surface Surface(name=edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity, identity=-1, mNativeSurface=0), session Session{409b39e8 uid 10125}
+D/PowerManagerService(  447): releaseWakeLockLocked flags=0x0 tag=StatusActivity myUID=1000 myPID=447 myTID=10414
+I/WindowManager(  447): WIN DEATH: Window{40bc7148 SurfaceView paused=false}
+I/SurfaceFlinger(  447): id=129 Removed SurfaceView idx=4 Map Size=7
+I/SurfaceFlinger(  447): id=128 Removed edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity idx=-2 Map Size=7
+I/SurfaceFlinger(  447): id=129 Removed SurfaceView idx=-2 Map Size=7
+I/ActivityManager(  447): Displayed edu.mit.csail.diplomamatrix/.StatusActivity: +7s719ms (total +47s409ms)
+W/GpsLocationProvider(  447): Unneeded remove listener for uid 1000
+D/GpsLocationProvider(  447): stopNavigating
+V/GpsLocationProvider(  447): SensorAidingDeactivateAllSensor : No registered sensorManager
+D/GpsLocationProvider(  447): SensorAidingDeregister : Exit
+V/GpsLocationProvider(  447): reportStatus status: 2
+D/GpsLocationProvider(  447): send an intent to notify that the GPS has been enabled or disabled
+W/WindowManager(  447): Window Window{40bc7148 SurfaceView paused=false} destroyed surface Surface(name=SurfaceView, identity=-1, mNativeSurface=0), session Session{409b39e8 uid 10125}
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28369)
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+E/power   (  447): release_wake_lock g_error=2 
+E/power   (  447): acquire_wake_lock g_error=2 
+V/GpsLocationProvider(  447): reportStatus status: 2
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 sending call (XID 90).
+D/RPC     (  447): 3000008c:00050000 received REPLY (XID 90), grabbing mutex to wake up client.
+D/RPC     (  447): 3000008c:00050000 call success.
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28370, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28370)
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28371, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28371)
+I/SurfaceFlinger(  447): id=132 Removed Sorry! idx=7 Map Size=6
+D/SurfaceFlinger(  447): remove count:1 destroying edu.mit.csail.diplomamatrix/edu.mit.csail.diplomamatrix.StatusActivity
+W/WindowManager(  447): Window Window{40cd5a78 Sorry! paused=false} destroyed surface Surface(name=Sorry!, identity=-1, mNativeSurface=0), session Session{408d4640 uid 1000}
+D/SurfaceFlinger(  447): remove count:1 destroying Sorry!
+E/power   (  447): acquire_wake_lock g_error=2 
+V/GpsLocationProvider(  447): reportStatus status: 4
+E/power   (  447): release_wake_lock g_error=2 
+D/RPC     (  447): 3000008c:00050000 received CALL.
+D/RPC     (  447): 3000008c:00050000 dispatching RPC call (XID 28373, xdr 0x489cd8) for callback client 3100008c:00050001.
+D/RPC     (  447): 3100008c:327681 sending RPC reply (XID 28373)
+E/CAM_FD  (  325): ...config thread select timeout...
+D/dalvikvm(27249): GC_EXPLICIT freed 39K, 42% free 3163K/5379K, external 0K/0K, paused 64ms
+W/PowerManagerService(  447): Timer 0x7->0x3|0x0
+I/PowerManagerService(  447): Ulight 7->3|0
+D/PowerManagerService(  447): setLightBrightness : mButtonLight : 0
+E/CAM_FD  (  325): ...config thread select timeout...
+W/ActivityManager(  447): Activity destroy timeout for HistoryRecord{40b60018 edu.mit.csail.diplomamatrix/.StatusActivity}
+D/dalvikvm(29493): GC_EXPLICIT freed 70K, 42% free 3128K/5379K, external 0K/0K, paused 79ms
+E/CAM_FD  (  325): ...config thread select timeout...
+D/dalvikvm(29510): GC_EXPLICIT freed 118K, 41% free 3226K/5379K, external 0K/0K, paused 69ms

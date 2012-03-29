@@ -123,7 +123,7 @@ public class NetworkThread extends Thread {
 					mySocket.getReceiveBufferSize(),
 					mySocket.getSendBufferSize()));
 		} catch (Exception e) {
-			Log.e(TAG, "Cannot open socket" + e.getMessage());
+			Log.e(TAG, "Cannot open socket" + e.getMessage()); //Address already in use
 			socketOK = false;
 			return;
 		}

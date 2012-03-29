@@ -19,6 +19,7 @@ public class Mux extends Thread {
 	Handler activityHandler;
 
 	// Mux message types
+	protected final static int ACTIVITY_DESTROY = 666666;
 	protected final static int LOG_NODISPLAY = 27;
 	protected final static int LOG = 3;
 	protected final static int PACKET_RECV = 4;
@@ -152,11 +153,17 @@ public class Mux extends Thread {
 		netThread = new NetworkThread(myHandler);
 		if (!netThread.socketIsOK()) {
 			Log.e(TAG, "Cannot start server: socket not ok.");
+			logMsg("FATAL!! Cannot start server: socket not ok. shut down/destroy activity");
+			// quit application
+			activityHandler.obtainMessage(ACTIVITY_DESTROY).sendToTarget();
 			return; // quit out
 		}
 		netThread.start();
 		if (netThread.getLocalAddress() == null) {
 			Log.e(TAG, "Couldn't get my IP address.");
+			logMsg("FATAL!! Couldn't get my IP address. shut down/destroy activity");
+			// quit application
+			activityHandler.obtainMessage(ACTIVITY_DESTROY).sendToTarget();
 			return; // quit out
 		}
 

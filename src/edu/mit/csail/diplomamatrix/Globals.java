@@ -31,6 +31,9 @@ public class Globals {
         final static public int SAMPLING_DISTANCE=1;
         final static public String BROADCAST_ADDRESS="192.168.5.255"; //.255.255 also works
 
+        // region constraints, for the UI
+        final static public int MIN_REGION = 1;
+        final static public int MAX_REGION = 6;
         
         // old region calculations
         final static public int REGION_WIDTH=17; // in meters, 35/2
