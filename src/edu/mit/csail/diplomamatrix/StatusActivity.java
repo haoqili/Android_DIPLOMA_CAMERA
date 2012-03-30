@@ -1,4 +1,3 @@
-// TODO: FAIL IF CLOUD FAILS
 package edu.mit.csail.diplomamatrix;
 
 import java.io.ByteArrayInputStream;
@@ -66,7 +65,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	// Mux
 	Mux mux;
 	
-	// time stuff
+	// timeout stuff
 	final static private long uploadTimeoutPeriod = 6000L;
 	final static private long downloadTimoutPeriod = 6000L;
 	// areButtonsEnabled is the first line of defense against multi-clicking
@@ -91,7 +90,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case Mux.ACTIVITY_DESTROY:
-				logMsg("inside ACTIVITY_DESTROY ...");
+				logMsg("inside ACTIVITY_DESTROY from the phone itself because its network settings are wrong.");
 				StatusActivity.this.onDestroy();
 			case Mux.LOG:
 				receivedMessages.add((String) msg.obj);
@@ -101,6 +100,7 @@ public class StatusActivity extends Activity implements LocationListener {
 				}
 				break;
 			case Mux.LOG_NODISPLAY:
+				// Does not display on the list of messages on the phone's screen
 				// receivedMessages.add((String) msg.obj);
 				// Write to file
 				if (myLogWriter != null) {
@@ -108,9 +108,11 @@ public class StatusActivity extends Activity implements LocationListener {
 				}
 				break;
 			case Mux.VNC_STATUS_CHANGE:
+				// update state of phone: dormant, joining, leader, nonleader
 				update();
 				break;
 			case Mux.CLIENT_STATUS_CHANGE:
+				//TODO: count success/failures end to end (client to leader (and to remote and back to leader) and back to client) 
 				Map<String, Long> data = (Map<String, Long>) msg.obj;
 				opCountTv.setText("ops: " + String.valueOf(data.get("op")));
 				successCountTv.setText("successes: "
@@ -119,14 +121,13 @@ public class StatusActivity extends Activity implements LocationListener {
 						+ String.valueOf(data.get("failure")));
 				break;
 			case Packet.SERVER_SHOW_NEWPHOTO:
-				logMsg("inside Packet.SERVER_SHOW_NEWPHOTO showing client's new photo");
+				logMsg("inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo");
 				Packet packet_ssn = (Packet) msg.obj;
 				try {
 					GetPhotoInfo gpinfo_ssn = _bytesToGetphotoinfo(packet_ssn.getphotoinfo_bytes);
 
 					if (!gpinfo_ssn.isSuccess){
 						logMsg("I'm a leader and I FAILED to save my client's new photo");
-						// TODO
 						CharSequence text = "I'm a leader and I FAILED to save my client's new photo";
 						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
 						toast.show();
@@ -139,20 +140,23 @@ public class StatusActivity extends Activity implements LocationListener {
 					logMsg("now showing in UI the new photo I just saved ... ");
 					image.setImageBitmap(photo_clientnew);
 				} catch (OptionalDataException e) {
-					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed");
+					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed OptionalDataException");
 					e.printStackTrace();
 				} catch (ClassNotFoundException e) {
-					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed");
+					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed ClassNotFoundException");
 					e.printStackTrace();
 				} catch (IOException e) {
-					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed");
+					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed IOException");
 					e.printStackTrace();
 				}
 				break;
 			case Packet.CLIENT_SHOW_REMOTEPHOTO:
+				// this is the result of remote region photo request, the reply packet of the leader --> nonleader/leader itself
+				// where the nonleader/leader itself requested the remote region
 				
+				// latency stuff
 				long client_download_end = System.currentTimeMillis();
-				logMsg("inside Packet.CLIENT_SHOW_REMOTEPHOTOS");
+				logMsg("inside Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply");
 				long download_latency = client_download_end - client_download_start;
 				if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
 					logMsg("leader download remote photo latency = " + download_latency);
@@ -170,7 +174,6 @@ public class StatusActivity extends Activity implements LocationListener {
 					
 					// see if it was unsuccessful:
 					if (!my_gpinfo3.isSuccess){
-						// TODO: change to a toast
 						logMsg("FAIL! Client failed to get photo from remote region");
 						CharSequence text = "FAIL! Failed to get photo from remote region";
 						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
@@ -178,7 +181,6 @@ public class StatusActivity extends Activity implements LocationListener {
 						break;
 					}
 					if (my_gpinfo3.photoBytes == null) {
-						// TODO: change to a toast
 						logMsg("PHOTO DATA is NULL, perhaps region doesn't have a photo yet");
 						CharSequence text = "PHOTO DATA is NULL, perhaps region doesn't have a photo yet";
 						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
@@ -195,18 +197,21 @@ public class StatusActivity extends Activity implements LocationListener {
 					_enableButtons();
 					
 				} catch (OptionalDataException e) {
-					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed");
+					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed OptionalDataException");
 					e.printStackTrace();
 				} catch (ClassNotFoundException e) {
-					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed");
+					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed ClassNotFoundException");
 					e.printStackTrace();
 				} catch (IOException e) {
-					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed");
+					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed IOException");
 					e.printStackTrace();
 				}
 				break;
 			case Packet.CLIENT_UPLOAD_PHOTO_ACK:
+				// ack from region leader for a new photo taken by client (nonleader/leader) 
+				// photoBytes is null inside GetPhotoInfo
 				
+				// latency stuff
 				long client_upload_end = System.currentTimeMillis();
 				logMsg("inside Packet.CLIENT_UPLOAD_PHOTO_ACK");
 				long upload_latency = client_upload_end - client_upload_start;
@@ -225,13 +230,11 @@ public class StatusActivity extends Activity implements LocationListener {
 
 					// see if it was unsuccessful:
 					if (!my_gpinfo3.isSuccess){
-						// TODO: change to a toast
 						logMsg("FAIL! Client now knows saving photo on its leader failed");
 						CharSequence text = "FAIL! Saving photo on leader failed";
 						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
 						toast.show();
 					} else {
-						// TODO
 						logMsg("SUCCESS! Client now knows saving photo on its leader succeeded");
 						CharSequence text = "SUCCESS! Saving photo on its leader succeeded";
 						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
@@ -243,13 +246,13 @@ public class StatusActivity extends Activity implements LocationListener {
 					_enableButtons();
 					
 				} catch (OptionalDataException e) {
-					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed");
+					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed OptionalDataException");
 					e.printStackTrace();
 				} catch (ClassNotFoundException e) {
-					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed");
+					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed ClassNotFoundException");
 					e.printStackTrace();
 				} catch (IOException e) {
-					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed");
+					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed IOException");
 					e.printStackTrace();
 				}
 				break;
@@ -270,6 +273,7 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	/** Force an update of the screen views */
 	public void update() {
+		// Refresh node state, region, and ID, and leader of current region on phone screen
 		idTv.setText(String.valueOf(mux.vncDaemon.mId));
 		leaderTv.setText(String.valueOf(mux.vncDaemon.leaderId));
 		regionTv.setText(String.format("(%d,%d)", mux.vncDaemon.myRegion.x,
@@ -288,6 +292,9 @@ public class StatusActivity extends Activity implements LocationListener {
 		case VCoreDaemon.NONLEADER:
 			stateTv.setText("NONLEADER");
 			break;
+		case VCoreDaemon.HANDING_OFF:
+			stateTv.setText("HANDING_OFF");
+			break;
 		}
 	}
 	
@@ -298,7 +305,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			Log.i(TAG, "Inside disableButtonsR");
 			areButtonsEnabled = false;
 			Log.i(TAG, "areButtonsEnabled --> false");
-			progressDialog = ProgressDialog.show(StatusActivity.this, "", "Processing ...");
+			progressDialog = ProgressDialog.show(StatusActivity.this, "", "Processing photo get or save to leader ... :)");
 		}       
 	};  
 	
@@ -314,9 +321,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	/** Enable buttons again, either when getting reply or timed out */
 	private Runnable buttonsEnableProgressTimeoutR = new Runnable() {
 		public void run() {
-			Log.i(TAG, "inside buttonsEnableProgressTimeoutR. OH NO! Your photo (take/get) request TIMED OUT. Try again later!");
+			Log.i(TAG, "inside buttonsEnableProgressTimeoutR. OH NO! Your photo (save/get) request TIMED OUT. Try again later!");
 			CharSequence text = "OH NO! Your photo (take/get) request TIMED OUT. Try again later!";
-			Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+			Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
 			toast.show();
 			_enableButtons();
 
@@ -326,7 +333,6 @@ public class StatusActivity extends Activity implements LocationListener {
 	// check that we can press buttons by
 	// 1. areButtonsEnabled is true AND region is inside valid range
 	private boolean canPressButton(){
-		// TODO: make toasts for false cases
 		if (areButtonsEnabled == false){
 			logMsg("canPressButton = FALSE because areButtonsEnabled = false");
 			CharSequence text = "Can't press button during processing";
@@ -337,7 +343,14 @@ public class StatusActivity extends Activity implements LocationListener {
 		if (mux.vncDaemon.myRegion.x < Globals.MIN_REGION || mux.vncDaemon.myRegion.x > Globals.MAX_REGION){
 			logMsg("canPressButton = false. Can't press button because you're not at a valid region: " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION + ". You're at " + mux.vncDaemon.myRegion.x);
 			CharSequence text = "Can't press button because you're not at a valid region: " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION + ". You're at " + mux.vncDaemon.myRegion.x;
-			Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+			Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
+			toast.show();
+			return false;
+		}
+		if (mux.vncDaemon.mState != VCoreDaemon.LEADER && mux.vncDaemon.mState != VCoreDaemon.NONLEADER) {
+			logMsg("canPressButton = false. state is + " + mux.vncDaemon.mState + " Can't press button because you're in a transient state (JOINING or HANDING_OFF)");
+			CharSequence text = "Can't press button because you're in a transient state (JOINING or HANDING_OFF)";
+			Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
 			toast.show();
 			return false;
 		}
@@ -399,6 +412,7 @@ public class StatusActivity extends Activity implements LocationListener {
         });
 		
 		// Text views
+        // TODO: Implement this!
 		opCountTv = (TextView) findViewById(R.id.opcount_tv);
 		successCountTv = (TextView) findViewById(R.id.successcount_tv);
 		failureCountTv = (TextView) findViewById(R.id.failurecount_tv);
@@ -545,6 +559,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	}
 
 	/*** UI Callbacks for Buttons, etc. ***/
+	// UI callback for "Set Region" button.
 	private OnClickListener region_button_listener = new OnClickListener() {
 		public void onClick(View v) {
 			String strX = regionText.getText().toString();
@@ -625,7 +640,6 @@ public class StatusActivity extends Activity implements LocationListener {
 			logMsg("inside HandlePictureStorage onPictureTaken()");
 			logMsg("disabling buttons ...");
 			// Disable buttons until timeout is over or received reply
-			// areButtonsEnabled = false;
 			mux.myHandler.post(disableButtonsProgressStartR);
 			mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, uploadTimeoutPeriod);
 			
@@ -640,13 +654,13 @@ public class StatusActivity extends Activity implements LocationListener {
 				image.setImageBitmap(new_bitmap);
 				sendClientNewpic(new_bitmap);
 			} catch (OptionalDataException e) {
-				logMsg("HandlePictureStorage _bytesToBitmap failed");
+				logMsg("HandlePictureStorage _bytesToBitmap failed OptionalDataExeption");
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
-				logMsg("HandlePictureStorage _bytesToBitmap failed");
+				logMsg("HandlePictureStorage _bytesToBitmap failed ClassNotFoundException");
 				e.printStackTrace();
 			} catch (IOException e) {
-				logMsg("HandlePictureStorage _bytesToBitmap failed");
+				logMsg("HandlePictureStorage _bytesToBitmap failed IOException");
 				e.printStackTrace();
 			}
 		}
@@ -693,10 +707,12 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 	}
 	
+	// resize photo
 	protected Bitmap _getAndResizeBitmap(){
 		BitmapFactory.Options options =new BitmapFactory.Options();
 		// first we don't produce an actual bitmap, but just probe its dimensions
 		options.inJustDecodeBounds = true;
+		// bitmap could be Null when decodeFile() fails, but we have not encountered this
 		Bitmap bitmap = BitmapFactory.decodeFile(Globals.PHOTO_PATH, options);
 		int h, w;
 		if (options.outHeight > options.outWidth){

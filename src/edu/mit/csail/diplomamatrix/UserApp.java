@@ -207,6 +207,9 @@ public class UserApp implements DSMUser {
 				// display new photo on leader
 				mux.activityHandler.obtainMessage(Packet.SERVER_SHOW_NEWPHOTO,
 						packet).sendToTarget();
+				
+				// now make the reply packet smaller by taking out the photoBytes inside my_gpinfo
+				my_gpinfo.photoBytes = null;
 
 			} catch (Exception e) {
 				logMsg("Remote region FAILED to Upload Photo");

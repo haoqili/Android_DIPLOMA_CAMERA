@@ -48,6 +48,7 @@ public class VCoreDaemon extends Thread {
 	final static int JOINING = 1; // waiting to join region
 	final static int LEADER = 2; // leader of region
 	final static int NONLEADER = 3; // non-leader of region following a leader
+	final static int HANDING_OFF = 4; // leader of region handing off leadership to another guy
 
 	// Attributes
 	int mState;
@@ -183,7 +184,7 @@ public class VCoreDaemon extends Thread {
 	 */
 	private Runnable electCandidateR = new Runnable() {
 		public void run() {
-			if (mState != LEADER)
+			if (mState != HANDING_OFF)
 				return; // only elect a new candidate if we're a leader
 
 			if (candidates.size() == 0) {
@@ -518,6 +519,11 @@ public class VCoreDaemon extends Thread {
 			logMsg(String.format(
 					"now NONLEADER (id=%d) following LEADER (id=%d) in %s",
 					mId, leaderId, myRegion));
+		} else if (targetState == HANDING_OFF){
+			Log.i("..... VCoreDaemon.java", "targetState = HANDING_OFF");
+			// Update self attributes
+			mState = HANDING_OFF;
+			logMsg("Trying to hand off leadership");
 		}
 
 		mux.myHandler.obtainMessage(Mux.VNC_STATUS_CHANGE).sendToTarget();
@@ -665,6 +671,7 @@ public class VCoreDaemon extends Thread {
 
 		// take actions necessary for LEADER leaving a region
 		if (mState == LEADER && oldRegion.equals(leaderRegion)) {
+			stateTransition(HANDING_OFF, myRegion, null);
 			electNewLeader(oldRegion, newRegion);
 		} else if (mState != LEADER) { // if not leader
 			stateTransition(JOINING, myRegion, null);
