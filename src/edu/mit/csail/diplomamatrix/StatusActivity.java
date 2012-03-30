@@ -10,7 +10,6 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.OptionalDataException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Map;
 
 import android.app.Activity;
@@ -42,6 +41,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class StatusActivity extends Activity implements LocationListener {
 	final static private String TAG = "StatusActivity";
@@ -67,7 +67,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	Mux mux;
 	
 	// time stuff
-	final static private long uploadTimeoutPeriod = 5000L;
+	final static private long uploadTimeoutPeriod = 4000L;
 	final static private long downloadTimoutPeriod = 5000L;
 	// areButtonsEnabled is the first line of defense against multi-clicking
 	// set to false as soon as a take/get picture button is pressed
@@ -81,6 +81,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	// latency stuff
 	long client_upload_start = 0;
 	long client_download_start = 0;
+
+	// Toast stuff
+	int toastDuration = Toast.LENGTH_SHORT;
 
 	/** Handle messages from various components */
 	private final Handler myHandler = new Handler() {
@@ -122,8 +125,12 @@ public class StatusActivity extends Activity implements LocationListener {
 					GetPhotoInfo gpinfo_ssn = _bytesToGetphotoinfo(packet_ssn.getphotoinfo_bytes);
 
 					if (!gpinfo_ssn.isSuccess){
-						// TODO: Add toast
 						logMsg("I'm a leader and I FAILED to save my client's new photo");
+						// TODO
+						CharSequence text = "I'm a leader and I FAILED to save my client's new photo";
+						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+						toast.show();
+						
 						break;
 					}
 					logMsg("I'm a leader and I SUCCEEDED in saving my client's new photo");
@@ -168,11 +175,17 @@ public class StatusActivity extends Activity implements LocationListener {
 					if (!my_gpinfo3.isSuccess){
 						// TODO: change to a toast
 						logMsg("FAIL! Client failed to get photo from remote region");
+						CharSequence text = "FAIL! Client failed to get photo from remote region";
+						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+						toast.show();
 						break;
 					}
 					if (my_gpinfo3.photoBytes == null) {
 						// TODO: change to a toast
 						logMsg("PHOTO DATA is NULL, perhaps region doesn't have a photo yet");
+						CharSequence text = "PHOTO DATA is NULL, perhaps region doesn't have a photo yet";
+						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+						toast.show();
 					} else {
 						photo_remote = _bytesToBitmap(my_gpinfo3.photoBytes);
 						ImageView image = (ImageView) findViewById(R.id.photoResultView);
@@ -214,8 +227,15 @@ public class StatusActivity extends Activity implements LocationListener {
 					if (!my_gpinfo3.isSuccess){
 						// TODO: change to a toast
 						logMsg("FAIL! Client now knows saving photo on its leader failed");
+						CharSequence text = "FAIL! Saving photo on leader failed";
+						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+						toast.show();
 					} else {
+						// TODO
 						logMsg("SUCCESS! Client now knows saving photo on its leader succeeded");
+						CharSequence text = "SUCCESS! Saving photo on its leader succeeded";
+						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+						toast.show();
 					}
 				} catch (OptionalDataException e) {
 					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed");
@@ -239,6 +259,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		Log.i(TAG, msg);
 		if (myLogWriter != null) {
 			myLogWriter.println(msg);
+			myLogWriter.flush();
 		}
 	}
 
@@ -271,6 +292,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		public void run() {
 			Log.i(TAG, "Inside disableButtonsR");
 			areButtonsEnabled = false;
+			Log.i(TAG, "areButtonsEnabled --> false");
 			progressDialog = ProgressDialog.show(StatusActivity.this, "", "Processing ...");
 		}       
 	};  
@@ -279,12 +301,19 @@ public class StatusActivity extends Activity implements LocationListener {
 		Log.i(TAG, "Inside _enableButtons");
 		progressDialog.dismiss();
 		areButtonsEnabled = true;
+		Log.i(TAG, "areButtonsEnabled --> true");
+		CharSequence text = "Can press buttons again";
+		Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+		toast.show();
 	}
 	/** Enable buttons again, either when getting reply or timed out */
 	private Runnable buttonsEnableProgressTimeoutR = new Runnable() {
 		public void run() {
 			Log.i(TAG, "inside buttonsEnableProgressTimeoutR");
 			_enableButtons();
+			CharSequence text = "OH NO! Your photo (take/get) request timed out. Try again!";
+			Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+			toast.show();
 		}       
 	};     
 	
@@ -294,10 +323,16 @@ public class StatusActivity extends Activity implements LocationListener {
 		// TODO: make toasts for false cases
 		if (areButtonsEnabled == false){
 			logMsg("canPressButton = FALSE because areButtonsEnabled = false");
+			CharSequence text = "Can't press button during processing";
+			Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+			toast.show();
 			return false;
 		}
 		if (mux.vncDaemon.myRegion.x < Globals.MIN_REGION || mux.vncDaemon.myRegion.x > Globals.MAX_REGION){
-			logMsg("canPressButton = false. PLEASE MOVE TO A VALID REGION!");
+			logMsg("canPressButton = false. PLEASE MOVE TO A VALID REGION (" + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION + "). You're at " + mux.vncDaemon.myRegion.x);
+			CharSequence text = "Can't press button because you're not at a valid region: " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION + ". You're at " + mux.vncDaemon.myRegion.x;
+			Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+			toast.show();
 			return false;
 		}
 		logMsg("canPressButton = TRUE");
@@ -344,6 +379,7 @@ public class StatusActivity extends Activity implements LocationListener {
                 	if (canPressButton()) {
                 		// disable button clicks ASAP
                 		areButtonsEnabled = false;
+                		logMsg("areButtonsEnabled --> false");
                 		
                 		logMsg("** Clicked take picture button **");
                 		
@@ -428,6 +464,7 @@ public class StatusActivity extends Activity implements LocationListener {
 
 		// enable button pressing
 		areButtonsEnabled = true;
+		logMsg("areButtonsEnabled --> true");
 		
 		// Watch out for low battery conditions
 		BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -472,6 +509,7 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	@Override
 	public void onDestroy() {
+		logMsg("inside onDestroy()");
 		mux.requestStop();
 
 		myLogWriter.flush();
@@ -483,11 +521,16 @@ public class StatusActivity extends Activity implements LocationListener {
 		super.onDestroy();
 		
 		// close camera
-		logMsg("closing camera in Status Activity");
-		cameraSurfaceView.camera.stopPreview();
-		cameraSurfaceView.camera.setPreviewCallback(null);
-		cameraSurfaceView.camera.release();
+		if (cameraSurfaceView.camera != null ){
+			logMsg("closing camera in Status Activity");
+			cameraSurfaceView.camera.stopPreview();
+			cameraSurfaceView.camera.setPreviewCallback(null);
+			cameraSurfaceView.camera.release();
+		} else {
+			logMsg("no camera to close");
+		}
 		
+		// from: http://stackoverflow.com/a/5036668
 		logMsg("close everything else");
 		System.runFinalizersOnExit(true);
 		System.exit(0);
@@ -498,9 +541,24 @@ public class StatusActivity extends Activity implements LocationListener {
 	/*** UI Callbacks for Buttons, etc. ***/
 	private OnClickListener region_button_listener = new OnClickListener() {
 		public void onClick(View v) {
-			int rX = Integer.parseInt(regionText.getText().toString());
-			int rY = 0;
-			mux.vncDaemon.changeRegion(new RegionKey(rX, rY));
+			String strX = regionText.getText().toString();
+			if (strX.equals("")){
+				logMsg("please input a region");
+				CharSequence text = "please input a region";
+				Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+				toast.show();
+			} else {
+				int rX = Integer.parseInt(strX);
+				int rY = 0;
+				if (rX < Globals.MIN_REGION || rX > Globals.MAX_REGION){
+					logMsg("please input a region between " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION);
+					CharSequence text = "please input a region between " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION;
+					Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+					toast.show();	
+				} else {
+					mux.vncDaemon.changeRegion(new RegionKey(rX, rY));
+				}
+			}
 		}
 	};
 
@@ -719,6 +777,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			if (canPressButton()) {
 				// disable button clicks ASAP
         		areButtonsEnabled = false;
+        		logMsg("areButtonsEnabled --> false ");
         		
 				logMsg("** Clicked getphotos Button from region 1 **");
 				long targetRegion = 1;
@@ -733,6 +792,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			if (canPressButton()) {
 				// disable button clicks ASAP
         		areButtonsEnabled = false;
+        		logMsg("areButtonsEnabled --> false ");
         		
 				logMsg("** Clicked getphotos Button from region 2 **");
 				long targetRegion = 2;
@@ -747,6 +807,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			if (canPressButton()) {
 				// disable button clicks ASAP
         		areButtonsEnabled = false;
+        		logMsg("areButtonsEnabled --> false ");
         		
 				logMsg("** Clicked getphotos Button from region 3 **");
 				long targetRegion = 3;
@@ -761,6 +822,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			if (canPressButton()) {
 				// disable button clicks ASAP
         		areButtonsEnabled = false;
+        		logMsg("areButtonsEnabled --> false ");
         		
 				logMsg("** Clicked getphotos Button from region 4 **");
 				long targetRegion = 4;
@@ -775,6 +837,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			if (canPressButton()) {
 				// disable button clicks ASAP
         		areButtonsEnabled = false;
+        		logMsg("areButtonsEnabled --> false ");
         		
 				logMsg("** Clicked getphotos Button from region 5 **");
 				long targetRegion = 5;
@@ -789,6 +852,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			if (canPressButton()) {
 				// disable button clicks ASAP
         		areButtonsEnabled = false;
+        		logMsg("areButtonsEnabled --> false ");
         		
 				logMsg("** Clicked getphotos Button from region 6 **");
 				long targetRegion = 6;
@@ -800,7 +864,6 @@ public class StatusActivity extends Activity implements LocationListener {
 	};
 	private void _button_listener_helper(long targetRegion){
 		// Disable buttons until timeout is over, or received reply
-		//areButtonsEnabled = false;
 		mux.myHandler.post(disableButtonsProgressStartR);
 		mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, downloadTimoutPeriod);
 		
