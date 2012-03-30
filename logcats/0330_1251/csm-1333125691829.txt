@@ -1,0 +1,104 @@
+1333125691906: *** Opened log file for writing ***
+1333125691907: starting Mux with id = -1
+1333125691907: areButtonsEnabled --> true
+1333125691909: *** Application started ***
+1333125691909: HI I'm in ONRESUME()
+1333125691913: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333125691929: Started VCoreDaemon with parameters maxRx = 10 , maxRY= 1, minLongitude = -7110170 , minLatitude = 4236349, regionWidth =17
+1333125691930: started, mId = 5001
+1333125691930: region (-1, -1) out of bounds, dormant
+1333125701737: Received UDP payload: 406
+1333125702064: Received UDP payload: 406
+1333125702374: Received UDP payload: 406
+1333125702645: Received UDP payload: 406
+1333125704785: canPressButton = false. PLEASE MOVE TO A VALID REGION (1 ~ 6). You're at -1
+1333125704793: can't press region 1 yet
+1333125710541: moving from region (-1,-1), to (1,0)
+1333125710542: sending LEADER_REQUEST
+1333125710542: inside sendPacket(Packet p)
+1333125710549: Sending UDP payload: 406
+1333125710844: sending LEADER_REQUEST
+1333125710844: inside sendPacket(Packet p)
+1333125710848: Sending UDP payload: 406
+1333125711141: canPressButton = TRUE
+1333125711142: areButtonsEnabled --> false 
+1333125711142: ** Clicked getphotos Button from region 1 **
+1333125711161: I'm the Client, and I'm in region: 1 nodID = 5001
+1333125711166: StatusActivity sent request to get photos for region 1
+1333125711148: sending LEADER_REQUEST
+1333125711148: inside sendPacket(Packet p)
+1333125711227: Sending UDP payload: 406
+1333125711448: sending LEADER_REQUEST
+1333125711449: inside sendPacket(Packet p)
+1333125711455: Sending UDP payload: 406
+1333125711551: LEADER_REQUEST timed out
+1333125712124: cloud accepted leadership request, no csm data included.
+1333125712130: *** Starting CSM Layer ***
+1333125712137: *** CSM Layer starting with cache disabled ***
+1333125712137: *** CSM Layer starting with forwarding enabled ***
+1333125712180: DSMLayer starting
+1333125712187: UserApp started.
+1333125712188: UserApp for Camera Diploma initialized and waiting for requests.
+1333125712540: inside sendPacket(Packet p)
+1333125712572: Sending UDP payload: 37148
+1333125712573: now fully up as LEADER (id=5001) of (1,0)
+1333125714381: Received UDP payload: 585
+1333125714392: Inside mux Packet.CLIENT_REQUEST
+1333125714404: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333125714404: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333125714404: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1333125714408: Sending to region: 1
+1333125714409: Sending PROC_REQUEST 11:0 (1,0)->(1,0)
+1333125714410: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(1,0)
+1333125714411: I got a CSM packet at a leader 
+
+1333125714417: Sending UDP payload: 949
+1333125714420: removed replies before id 0 from sentReplies of size 0
+1333125714422: INSIDE SERVER_GET_PHOTO!!!
+1333125714422: dst_region == src_region = 1
+1333125714424:  1 self to self atomRequest
+1333125714429: Received PROC_REQUEST 11:0 (1,0)->(1,0), replying PROC_REPLY 11:0 (1,0)->(1,0)
+1333125714430: Dispatching Atom PROC_REPLY 11:0 (1,0)->(1,0)
+1333125714434: I got a CSM packet at a leader 
+
+1333125714437: Sending UDP payload: 949
+1333125714440: Received PROC_REPLY 11:0 (1,0)->(1,0), handing to UserApp
+1333125714440: Now back in orginitator region's leader, precssing handleDSMReply
+1333125714441: Going to and from remote region took latency = 32
+1333125714442: = orig leader sent packet at 1333125714408 ~ received reply at 1333125714440
+1333125714445: Originator Region=1 Leader (for Client=5010) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333125714446: reply packet contains the newest photo from the remote region
+1333125714446: I (the leader) was not the originator client (which id = 5010) so I use UDP to send packet back to my nonleader
+1333125714447: inside sendPacket(Packet p)
+1333125714449: Sending UDP payload: 602
+1333125715587: Received UDP payload: 585
+1333125715603: Inside mux Packet.CLIENT_REQUEST
+1333125715615: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333125715615: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333125715616: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1333125715618: Sending to region: 1
+1333125715620: Sending PROC_REQUEST 11:1 (1,0)->(1,0)
+1333125715629: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(1,0)
+1333125715631: I got a CSM packet at a leader 
+
+1333125715636: Sending UDP payload: 949
+1333125715652: removed replies before id 1 from sentReplies of size 0
+1333125715653: INSIDE SERVER_GET_PHOTO!!!
+1333125715654: dst_region == src_region = 1
+1333125715654:  1 self to self atomRequest
+1333125715657: Received PROC_REQUEST 11:1 (1,0)->(1,0), replying PROC_REPLY 11:1 (1,0)->(1,0)
+1333125715665: Dispatching Atom PROC_REPLY 11:1 (1,0)->(1,0)
+1333125715669: I got a CSM packet at a leader 
+
+1333125715683: Sending UDP payload: 949
+1333125715685: Received PROC_REPLY 11:1 (1,0)->(1,0), handing to UserApp
+1333125715685: Now back in orginitator region's leader, precssing handleDSMReply
+1333125715686: Going to and from remote region took latency = 67
+1333125715687: = orig leader sent packet at 1333125715618 ~ received reply at 1333125715685
+1333125715688: Originator Region=1 Leader (for Client=5010) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333125715688: reply packet contains the newest photo from the remote region
+1333125715689: I (the leader) was not the originator client (which id = 5010) so I use UDP to send packet back to my nonleader
+1333125715689: inside sendPacket(Packet p)
+1333125715703: Sending UDP payload: 602
+1333125717513: HI I'm in ONPAUSE()
+1333125718148: inside onDestroy()

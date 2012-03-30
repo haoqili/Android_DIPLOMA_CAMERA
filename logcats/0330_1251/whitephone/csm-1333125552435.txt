@@ -1,0 +1,81 @@
+1333125552443: *** Opened log file for writing ***
+1333125552444: starting Mux with id = -1
+1333125552446: areButtonsEnabled --> true
+1333125552448: *** Application started ***
+1333125552448: HI I'm in ONRESUME()
+1333125552452: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333125552473: Started VCoreDaemon with parameters maxRx = 10 , maxRY= 1, minLongitude = -7110170 , minLatitude = 4236349, regionWidth =17
+1333125552475: started, mId = 5010
+1333125552476: region (-1, -1) out of bounds, dormant
+1333125556771: moving from region (-1,-1), to (1,0)
+1333125556771: sending LEADER_REQUEST
+1333125556772: inside sendPacket(Packet p)
+1333125556823: Sending UDP payload: 406
+1333125556972: canPressButton = TRUE
+1333125556973: areButtonsEnabled --> false 
+1333125556973: ** Clicked getphotos Button from region 5 **
+1333125556977: I'm the Client, and I'm in region: 1 nodID = 5010
+1333125556986: StatusActivity sent request to get photos for region 5
+1333125557072: sending LEADER_REQUEST
+1333125557072: inside sendPacket(Packet p)
+1333125557075: Sending UDP payload: 406
+1333125557373: sending LEADER_REQUEST
+1333125557373: inside sendPacket(Packet p)
+1333125557375: Sending UDP payload: 406
+1333125557674: sending LEADER_REQUEST
+1333125557674: inside sendPacket(Packet p)
+1333125557682: Sending UDP payload: 406
+1333125557805: LEADER_REQUEST timed out
+1333125558229: cloud accepted leadership request, no csm data included.
+1333125558230: *** Starting CSM Layer ***
+1333125558233: *** CSM Layer starting with cache disabled ***
+1333125558233: *** CSM Layer starting with forwarding enabled ***
+1333125558260: DSMLayer starting
+1333125558262: UserApp started.
+1333125558267: UserApp for Camera Diploma initialized and waiting for requests.
+1333125558544: inside sendPacket(Packet p)
+1333125558544: now fully up as LEADER (id=5010) of (1,0)
+1333125558555: Sending UDP payload: 37763
+1333125563991: canPressButton = TRUE
+1333125563991: areButtonsEnabled --> false 
+1333125563992: ** Clicked getphotos Button from region 6 **
+1333125563992: I'm the Client, and I'm in region: 1 nodID = 5010
+1333125564010: I'm a leader, my requesting photos packet going to mux directly
+1333125564011: StatusActivity sent request to get photos for region 6
+1333125564054: Inside mux Packet.CLIENT_REQUEST
+1333125564054: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333125564054: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333125564055: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1333125564059: Sending to region: 6
+1333125564060: Sending PROC_REQUEST 11:0 (1,0)->(6,0)
+1333125564071: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333125564122: I got a CSM packet at a leader 
+
+1333125564126: Sending UDP payload: 949
+1333125564129: nonce 0 heard from src region (1,0)
+1333125564896: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333125564897: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333125564898: I got a CSM packet at a leader 
+
+1333125564901: Sending UDP payload: 949
+1333125564918: nonce 1 heard from src region (1,0)
+1333125565501: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333125565508: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333125565515: I got a CSM packet at a leader 
+
+1333125565523: Sending UDP payload: 949
+1333125565525: nonce 2 heard from src region (1,0)
+1333125566111: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333125566112: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333125566119: I got a CSM packet at a leader 
+
+1333125566136: Sending UDP payload: 949
+1333125566141: nonce 3 heard from src region (1,0)
+1333125566714: Request timed out, send failure PROC_REPLY 11:0 (6,0)->(1,0)
+1333125566715: Dispatching Atom PROC_REPLY 11:0 (6,0)->(1,0)
+1333125566724: I got a CSM packet at a leader 
+
+1333125566726: Sending UDP payload: 770
+1333125566737: Received PROC_REPLY 11:0 (6,0)->(1,0), handing to UserApp
+1333125569147: HI I'm in ONPAUSE()
+1333125569620: inside onDestroy()

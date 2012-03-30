@@ -67,8 +67,8 @@ public class StatusActivity extends Activity implements LocationListener {
 	Mux mux;
 	
 	// time stuff
-	final static private long uploadTimeoutPeriod = 4000L;
-	final static private long downloadTimoutPeriod = 5000L;
+	final static private long uploadTimeoutPeriod = 6000L;
+	final static private long downloadTimoutPeriod = 6000L;
 	// areButtonsEnabled is the first line of defense against multi-clicking
 	// set to false as soon as a take/get picture button is pressed
 	// none of the other buttons can be pressed until it's set true again
@@ -150,11 +150,8 @@ public class StatusActivity extends Activity implements LocationListener {
 				}
 				break;
 			case Packet.CLIENT_SHOW_REMOTEPHOTO:
-				long client_download_end = System.currentTimeMillis();
-				// enable buttons right now, not untill progressdialog timeout
-				mux.myHandler.removeCallbacks(buttonsEnableProgressTimeoutR);
-				_enableButtons();
 				
+				long client_download_end = System.currentTimeMillis();
 				logMsg("inside Packet.CLIENT_SHOW_REMOTEPHOTOS");
 				long download_latency = client_download_end - client_download_start;
 				if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
@@ -175,7 +172,7 @@ public class StatusActivity extends Activity implements LocationListener {
 					if (!my_gpinfo3.isSuccess){
 						// TODO: change to a toast
 						logMsg("FAIL! Client failed to get photo from remote region");
-						CharSequence text = "FAIL! Client failed to get photo from remote region";
+						CharSequence text = "FAIL! Failed to get photo from remote region";
 						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
 						toast.show();
 						break;
@@ -192,6 +189,11 @@ public class StatusActivity extends Activity implements LocationListener {
 						logMsg("Success! Client getting photo from remote region, showing photo...");
 						image.setImageBitmap(photo_remote);
 					}
+					
+					// enable buttons right now, not untill progressdialog timeout
+					mux.myHandler.removeCallbacks(buttonsEnableProgressTimeoutR);
+					_enableButtons();
+					
 				} catch (OptionalDataException e) {
 					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed");
 					e.printStackTrace();
@@ -204,11 +206,8 @@ public class StatusActivity extends Activity implements LocationListener {
 				}
 				break;
 			case Packet.CLIENT_UPLOAD_PHOTO_ACK:
-				long client_upload_end = System.currentTimeMillis();
-				// enable buttons right now, not until progressdialog timeout
-				mux.myHandler.removeCallbacks(buttonsEnableProgressTimeoutR);
-				_enableButtons();
 				
+				long client_upload_end = System.currentTimeMillis();
 				logMsg("inside Packet.CLIENT_UPLOAD_PHOTO_ACK");
 				long upload_latency = client_upload_end - client_upload_start;
 				if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
@@ -218,6 +217,7 @@ public class StatusActivity extends Activity implements LocationListener {
 					logMsg("nonleader upload new photo latency = " + upload_latency);
 					logMsg("= nonleader upload start " + client_upload_start + " ~ stop " + client_upload_end);
 				}
+				
 				Packet packet_cupa = (Packet) msg.obj;
 				try{
 					// get the Getphotoinfo from packet
@@ -237,6 +237,11 @@ public class StatusActivity extends Activity implements LocationListener {
 						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
 						toast.show();
 					}
+					
+					// enable buttons right now, not until progressdialog timeout
+					mux.myHandler.removeCallbacks(buttonsEnableProgressTimeoutR);
+					_enableButtons();
+					
 				} catch (OptionalDataException e) {
 					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed");
 					e.printStackTrace();
@@ -309,11 +314,12 @@ public class StatusActivity extends Activity implements LocationListener {
 	/** Enable buttons again, either when getting reply or timed out */
 	private Runnable buttonsEnableProgressTimeoutR = new Runnable() {
 		public void run() {
-			Log.i(TAG, "inside buttonsEnableProgressTimeoutR");
-			_enableButtons();
-			CharSequence text = "OH NO! Your photo (take/get) request timed out. Try again!";
+			Log.i(TAG, "inside buttonsEnableProgressTimeoutR. OH NO! Your photo (take/get) request TIMED OUT. Try again later!");
+			CharSequence text = "OH NO! Your photo (take/get) request TIMED OUT. Try again later!";
 			Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
 			toast.show();
+			_enableButtons();
+
 		}       
 	};     
 	
@@ -329,7 +335,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			return false;
 		}
 		if (mux.vncDaemon.myRegion.x < Globals.MIN_REGION || mux.vncDaemon.myRegion.x > Globals.MAX_REGION){
-			logMsg("canPressButton = false. PLEASE MOVE TO A VALID REGION (" + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION + "). You're at " + mux.vncDaemon.myRegion.x);
+			logMsg("canPressButton = false. Can't press button because you're not at a valid region: " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION + ". You're at " + mux.vncDaemon.myRegion.x);
 			CharSequence text = "Can't press button because you're not at a valid region: " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION + ". You're at " + mux.vncDaemon.myRegion.x;
 			Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
 			toast.show();

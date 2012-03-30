@@ -1,0 +1,143 @@
+1333125904040: *** Opened log file for writing ***
+1333125904041: starting Mux with id = -1
+1333125904042: areButtonsEnabled --> true
+1333125904043: *** Application started ***
+1333125904044: HI I'm in ONRESUME()
+1333125904051: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333125904073: Started VCoreDaemon with parameters maxRx = 10 , maxRY= 1, minLongitude = -7110170 , minLatitude = 4236349, regionWidth =17
+1333125904097: started, mId = 5001
+1333125904098: region (-1, -1) out of bounds, dormant
+1333125908573: Received UDP payload: 585
+1333125908622: Inside mux Packet.CLIENT_REQUEST
+1333125909022: moving from region (-1,-1), to (5,0)
+1333125909022: sending LEADER_REQUEST
+1333125909023: inside sendPacket(Packet p)
+1333125909034: Sending UDP payload: 406
+1333125909324: sending LEADER_REQUEST
+1333125909325: inside sendPacket(Packet p)
+1333125909337: Sending UDP payload: 406
+1333125909626: sending LEADER_REQUEST
+1333125909626: inside sendPacket(Packet p)
+1333125909630: Sending UDP payload: 406
+1333125909927: sending LEADER_REQUEST
+1333125909928: inside sendPacket(Packet p)
+1333125909932: Sending UDP payload: 406
+1333125910024: LEADER_REQUEST timed out
+1333125910597: cloud accepted leadership request, no csm data included.
+1333125910598: *** Starting CSM Layer ***
+1333125910599: *** CSM Layer starting with cache disabled ***
+1333125910601: *** CSM Layer starting with forwarding enabled ***
+1333125910663: DSMLayer starting
+1333125910673: UserApp started.
+1333125910674: UserApp for Camera Diploma initialized and waiting for requests.
+1333125911024: inside sendPacket(Packet p)
+1333125911036: Sending UDP payload: 37148
+1333125911042: now fully up as LEADER (id=5001) of (5,0)
+1333125912212: canPressButton = TRUE
+1333125912212: areButtonsEnabled --> false 
+1333125912212: ** Clicked getphotos Button from region 2 **
+1333125912221: I'm the Client, and I'm in region: 5 nodID = 5001
+1333125912231: I'm a leader, my requesting photos packet going to mux directly
+1333125912232: StatusActivity sent request to get photos for region 2
+1333125912294: Inside mux Packet.CLIENT_REQUEST
+1333125912310: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333125912310: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333125912310: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1333125912313: Sending to region: 2
+1333125912314: Sending PROC_REQUEST 11:0 (5,0)->(2,0)
+1333125912315: Dispatching Atom PROC_REQUEST 11:0 (5,0)->(2,0)
+1333125912338: I got a CSM packet at a leader 
+
+1333125912346: Sending UDP payload: 949
+1333125912351: nonce 0 heard from src region (5,0)
+1333125913080: Retrying PROC_REQUEST 11:0 (5,0)->(2,0)
+1333125913080: Dispatching Atom PROC_REQUEST 11:0 (5,0)->(2,0)
+1333125913084: I got a CSM packet at a leader 
+
+1333125913098: Sending UDP payload: 949
+1333125913100: nonce 1 heard from src region (5,0)
+1333125913694: Retrying PROC_REQUEST 11:0 (5,0)->(2,0)
+1333125913696: Dispatching Atom PROC_REQUEST 11:0 (5,0)->(2,0)
+1333125913709: I got a CSM packet at a leader 
+
+1333125913724: Sending UDP payload: 949
+1333125913727: nonce 2 heard from src region (5,0)
+1333125914300: Retrying PROC_REQUEST 11:0 (5,0)->(2,0)
+1333125914308: Dispatching Atom PROC_REQUEST 11:0 (5,0)->(2,0)
+1333125914309: I got a CSM packet at a leader 
+
+1333125914314: Sending UDP payload: 949
+1333125914316: nonce 3 heard from src region (5,0)
+1333125914919: Request timed out, send failure PROC_REPLY 11:0 (2,0)->(5,0)
+1333125914963: Dispatching Atom PROC_REPLY 11:0 (2,0)->(5,0)
+1333125914964: I got a CSM packet at a leader 
+
+1333125914972: Sending UDP payload: 770
+1333125914983: Received PROC_REPLY 11:0 (2,0)->(5,0), handing to UserApp
+1333125916228: Received UDP payload: 585
+1333125916248: Inside mux Packet.CLIENT_REQUEST
+1333125918039: canPressButton = TRUE
+1333125918040: areButtonsEnabled --> false
+1333125918041: ** Clicked take picture button **
+1333125918832: canPressButton = FALSE because areButtonsEnabled = false
+1333125918837: can't press camera button yet
+1333125919087: canPressButton = FALSE because areButtonsEnabled = false
+1333125919089: can't press region 2 yet
+1333125919396: inside HandlePictureStorage onPictureTaken()
+1333125919396: disabling buttons ...
+1333125919686: Picture successfully taken, ORIG BYTE LENGTH = 2409244
+1333125920638: Our new height x width: 306 x 408
+1333125920639: Show photo from handle my camera take
+1333125920639: client making photo packet to send to leader for it to save
+1333125920653: BYTE SIZE AFTER COMPRESSION: 4331
+1333125920655: about to send my pic
+1333125920655: I'm a leader, my new photo packet going to mux directly
+1333125920657: canPressButton = FALSE because areButtonsEnabled = false
+1333125920668: can't press region 6 yet
+1333125920656: Inside mux Packet.CLIENT_REQUEST
+1333125920657: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333125920657: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333125920659: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333125920659: Sending PROC_REQUEST 10:0 (5,0)->(5,0)
+1333125920660: Dispatching Atom PROC_REQUEST 10:0 (5,0)->(5,0)
+1333125920660: I got a CSM packet at a leader 
+
+1333125920662: Sending UDP payload: 5302
+1333125920664: removed replies before id 0 from sentReplies of size 1
+1333125920666: Received DUPLICATE PROC_REQUEST 10:0 (5,0)->(5,0), replying PROC_REPLY 11:0 (2,0)->(5,0)
+1333125920667: Dispatching Atom PROC_REPLY 11:0 (2,0)->(5,0)
+1333125920670: I got a CSM packet at a leader 
+
+1333125920672: Sending UDP payload: 770
+1333125920674: Received DUPLICATE PROC_REPLY 11:0 (2,0)->(5,0)
+1333125921583: Retrying PROC_REQUEST 10:0 (5,0)->(5,0)
+1333125921584: Dispatching Atom PROC_REQUEST 10:0 (5,0)->(5,0)
+1333125921593: I got a CSM packet at a leader 
+
+1333125921597: Sending UDP payload: 5302
+1333125921607: removed replies before id 0 from sentReplies of size 1
+1333125921609: Received DUPLICATE PROC_REQUEST 10:0 (5,0)->(5,0), replying PROC_REPLY 11:0 (2,0)->(5,0)
+1333125921610: Dispatching Atom PROC_REPLY 11:0 (2,0)->(5,0)
+1333125921611: I got a CSM packet at a leader 
+
+1333125921627: Sending UDP payload: 770
+1333125921632: Received DUPLICATE PROC_REPLY 11:0 (2,0)->(5,0)
+1333125922188: Retrying PROC_REQUEST 10:0 (5,0)->(5,0)
+1333125922189: Dispatching Atom PROC_REQUEST 10:0 (5,0)->(5,0)
+1333125922198: I got a CSM packet at a leader 
+
+1333125922205: Sending UDP payload: 5302
+1333125922214: removed replies before id 0 from sentReplies of size 1
+1333125922218: Received DUPLICATE PROC_REQUEST 10:0 (5,0)->(5,0), replying PROC_REPLY 11:0 (2,0)->(5,0)
+1333125922222: Dispatching Atom PROC_REPLY 11:0 (2,0)->(5,0)
+1333125922223: I got a CSM packet at a leader 
+
+1333125922236: Sending UDP payload: 770
+1333125922240: Received DUPLICATE PROC_REPLY 11:0 (2,0)->(5,0)
+1333125922801: Request timed out, send failure PROC_REPLY 10:0 (5,0)->(5,0)
+1333125922806: Dispatching Atom PROC_REPLY 10:0 (5,0)->(5,0)
+1333125922816: I got a CSM packet at a leader 
+
+1333125922835: Sending UDP payload: 770
+1333125922844: Received PROC_REPLY 10:0 (5,0)->(5,0), handing to UserApp
+1333125933532: HI I'm in ONPAUSE()
