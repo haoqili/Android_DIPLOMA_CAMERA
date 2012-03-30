@@ -41,5 +41,4 @@ Troubleshooting
 * I set 2 phones to region 1, but they both claim to be leaders of region 1!!  (They can send and receive UDP packets between themselves)
     
     You cannot set phones to the same region concurrently, or else they would be both leaders.
-
-
+//
