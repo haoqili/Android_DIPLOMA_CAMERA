@@ -300,6 +300,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			logMsg("canPressButton = false. PLEASE MOVE TO A VALID REGION!");
 			return false;
 		}
+		logMsg("canPressButton = TRUE");
 		return true;
 	}
 
@@ -341,9 +342,14 @@ public class StatusActivity extends Activity implements LocationListener {
                 public void onClick(View v) 
                 {
                 	if (canPressButton()) {
+                		// disable button clicks ASAP
+                		areButtonsEnabled = false;
+                		
                 		logMsg("** Clicked take picture button **");
+                		
                         Camera camera = cameraSurfaceView.getCamera();
                         camera.takePicture(null, null, new HandlePictureStorage());
+                        
                 	} else {
                 		logMsg("can't press camera button yet");
                 	}
@@ -475,6 +481,18 @@ public class StatusActivity extends Activity implements LocationListener {
 		if (wl != null)
 			wl.release();
 		super.onDestroy();
+		
+		// close camera
+		logMsg("closing camera in Status Activity");
+		cameraSurfaceView.camera.stopPreview();
+		cameraSurfaceView.camera.setPreviewCallback(null);
+		cameraSurfaceView.camera.release();
+		
+		logMsg("close everything else");
+		System.runFinalizersOnExit(true);
+		System.exit(0);
+		
+		android.os.Process.killProcess(android.os.Process.myPid());
 	}
 
 	/*** UI Callbacks for Buttons, etc. ***/
@@ -543,6 +561,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			logMsg("inside HandlePictureStorage onPictureTaken()");
 			logMsg("disabling buttons ...");
 			// Disable buttons until timeout is over or received reply
+			// areButtonsEnabled = false;
 			mux.myHandler.post(disableButtonsProgressStartR);
 			mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, uploadTimeoutPeriod);
 			
@@ -698,6 +717,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	private OnClickListener get1_button_listener = new OnClickListener(){
 		public void onClick(View v){
 			if (canPressButton()) {
+				// disable button clicks ASAP
+        		areButtonsEnabled = false;
+        		
 				logMsg("** Clicked getphotos Button from region 1 **");
 				long targetRegion = 1;
 				_button_listener_helper(targetRegion);
@@ -709,6 +731,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	private OnClickListener get2_button_listener = new OnClickListener(){
 		public void onClick(View v){
 			if (canPressButton()) {
+				// disable button clicks ASAP
+        		areButtonsEnabled = false;
+        		
 				logMsg("** Clicked getphotos Button from region 2 **");
 				long targetRegion = 2;
 				_button_listener_helper(targetRegion);
@@ -720,6 +745,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	private OnClickListener get3_button_listener = new OnClickListener(){
 		public void onClick(View v){
 			if (canPressButton()) {
+				// disable button clicks ASAP
+        		areButtonsEnabled = false;
+        		
 				logMsg("** Clicked getphotos Button from region 3 **");
 				long targetRegion = 3;
 				_button_listener_helper(targetRegion);
@@ -731,6 +759,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	private OnClickListener get4_button_listener = new OnClickListener(){
 		public void onClick(View v){
 			if (canPressButton()) {
+				// disable button clicks ASAP
+        		areButtonsEnabled = false;
+        		
 				logMsg("** Clicked getphotos Button from region 4 **");
 				long targetRegion = 4;
 				_button_listener_helper(targetRegion);
@@ -742,6 +773,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	private OnClickListener get5_button_listener = new OnClickListener(){
 		public void onClick(View v){
 			if (canPressButton()) {
+				// disable button clicks ASAP
+        		areButtonsEnabled = false;
+        		
 				logMsg("** Clicked getphotos Button from region 5 **");
 				long targetRegion = 5;
 				_button_listener_helper(targetRegion);
@@ -753,6 +787,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	private OnClickListener get6_button_listener = new OnClickListener(){
 		public void onClick(View v){
 			if (canPressButton()) {
+				// disable button clicks ASAP
+        		areButtonsEnabled = false;
+        		
 				logMsg("** Clicked getphotos Button from region 6 **");
 				long targetRegion = 6;
 				_button_listener_helper(targetRegion);
@@ -763,6 +800,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	};
 	private void _button_listener_helper(long targetRegion){
 		// Disable buttons until timeout is over, or received reply
+		//areButtonsEnabled = false;
 		mux.myHandler.post(disableButtonsProgressStartR);
 		mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, downloadTimoutPeriod);
 		
