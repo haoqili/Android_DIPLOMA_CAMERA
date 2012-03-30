@@ -697,7 +697,8 @@ public class StatusActivity extends Activity implements LocationListener {
 		logMsg("about to send my pic");
 		
 		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-			logMsg("I'm a leader, my new photo packet going to mux directly");
+			logMsg("I'm a leader, upload/save new photo packet going to mux directly");
+			// TODO: logMsg("Loopback packet: " +packet.get);
 			client_upload_start = System.currentTimeMillis();
 			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {

@@ -19,11 +19,10 @@ public class UserApp implements DSMUser {
 	private Mux mux;
 
 	// DSM Atoms that can be called
-	final static int SERVER_UPLOAD_PHOTO = 10;
-	final static int SERVER_GET_PHOTO = 11;
-	final static int PHOTO_TO_CLIENT = 12;
+	final static int SERVER_UPLOAD_PHOTO = 10; // when a client (nonleader/myself) of my region takes a new photo. The photo is uploaded to me to be saved.
+	final static int SERVER_GET_PHOTO = 11; // for retrieving a photo from another region
 
-	long origLeaderSendTime, origLeaderReceiveTime;
+	long origLeaderSendTime, origLeaderReceiveTime; // for recording the roundtrip time in the original client (nonleader/myself)'s region leader
 
 	// App-specific stuff
 
@@ -61,12 +60,17 @@ public class UserApp implements DSMUser {
 
 	/**
 	 * Handle a DSM Atom reply from a remote region. Executed by the source /
-	 * originating region. from leader to non-leader
+	 * originating region. At the end, it sends the final leg from leader (me!) to non-leader
 	 */
+	// Third part. Original leader (me) gets this emote region's reply 
+	// with photo, in case of photo request
+	// with ack of success, in case of photo save/upload
 	public synchronized void handleDSMReply(Atom reply) {
 		origLeaderReceiveTime = System.currentTimeMillis();
 		if (!reply.timedOut) {
 			logMsg("Now back in orginitator region's leader, precssing handleDSMReply");
+			
+			// latency stuff
 			long latency = origLeaderReceiveTime - origLeaderSendTime;
 			logMsg("Going to and from remote region took latency = " + latency);
 			logMsg("= orig leader sent packet at " + origLeaderSendTime + " ~ received reply at " + origLeaderReceiveTime);
@@ -84,11 +88,11 @@ public class UserApp implements DSMUser {
 				
 			} catch (IOException e1) {
 				logMsg("FAIL remote region's dsm atom reply data to Originator Region "
-						+ " could not be converted into GetPhotoInfo");
+						+ " could not be converted into GetPhotoInfo. IOException");
 				e1.printStackTrace();
 			} catch (ClassNotFoundException e1) {
 				logMsg("FAIL remote region's dsm atom reply data to Originator Region "
-						+ " could not be converted into GetPhotoInfo");
+						+ " could not be converted into GetPhotoInfo. ClassNotFoundException");
 				e1.printStackTrace();
 			}
 			
@@ -96,9 +100,9 @@ public class UserApp implements DSMUser {
 					+ " Leader (for Client=" + request_nodeId + 
 					") processes remote region's dsm atom reply and will send Packet reply to Originator Client");
 			
-			// Create a reply packet, note the subtype is temporarily 666
+			// Create a reply packet, note the subtype is temporarily -1 
 			Packet reply_packet = new Packet(-1, request_nodeId,
-					Packet.SERVER_REPLY, 666,
+					Packet.SERVER_REPLY, -1,
 					mux.vncDaemon.myRegion, new RegionKey(
 							request_region, 0));
 			
@@ -124,7 +128,7 @@ public class UserApp implements DSMUser {
 			// For SERVER_UPLOAD_PHOTO: success of the upload
 			reply_packet.getphotoinfo_bytes = reply.data;
 			
-			// Send reply packet to originator client
+			// Send reply packet to originator client (the final leg)
 			if (request_nodeId == mux.vncDaemon.mId) {
 				// if this node is leader, go directly to mux
 				// because phones filter out packets to itself
@@ -148,6 +152,7 @@ public class UserApp implements DSMUser {
 	 * @throws ClassNotFoundException
 	 * @throws IOException
 	 */
+	// Second Part. Remote leader region, where stuff actually gets done
 	public synchronized Atom handleDSMRequest(DSMLayer.Block block,
 			final Atom request) throws IOException, ClassNotFoundException {
 		// reply goes to the *originator* client (leader or nonleader), in the original region
@@ -197,9 +202,10 @@ public class UserApp implements DSMUser {
 				my_gpinfo.isSuccess = true;
 				logMsg("my_gpinfo.isSuccess is now (should be true): " + my_gpinfo.isSuccess);
 				
+				// display this newly added photo on this leader phone
+				// ------- loopback from here to my StatusActivity for UI display
 				logMsg("Region leader successfully uploaded a new photo taken by a client in region. " +
 						"Region leader now display the new photo on its screen (through StatusActivity)");
-				// display this newly added photo on this leader phone
 				Packet packet = new Packet(-1, -1, -1, -1,
 						mux.vncDaemon.myRegion, mux.vncDaemon.myRegion);
 				// set photo bytes to be displayed on Region Leader (me) of new photo taken by a client
@@ -207,6 +213,7 @@ public class UserApp implements DSMUser {
 				// display new photo on leader
 				mux.activityHandler.obtainMessage(Packet.SERVER_SHOW_NEWPHOTO,
 						packet).sendToTarget();
+				// ------ end loopback
 				
 				// now make the reply packet smaller by taking out the photoBytes inside my_gpinfo
 				my_gpinfo.photoBytes = null;
@@ -224,7 +231,7 @@ public class UserApp implements DSMUser {
 			logMsg("INSIDE SERVER_GET_PHOTO!!!");
 			long dest_region = my_gpinfo.destRegion;
 			long src_region = my_gpinfo.srcRegion;
-			if (dest_region != mux.vncDaemon.myRegion.x) {
+			if (dest_region != mux.vncDaemon.myRegion.x) { // should never get here, mux should filter this
 				logMsg("RELAYED TO WRONG SERVER!" + mux.vncDaemon.myRegion.x
 						+ " instead of dest_region: " + dest_region);
 				break;
@@ -275,6 +282,7 @@ public class UserApp implements DSMUser {
 	 * @throws ClassNotFoundException
 	 * @throws IOException
 	 */
+	// First Part. This from original client (my nonleader/myself) --> me, which is the leader of my region
 	public synchronized void handleClientRequest(Packet packet)
 			throws IOException, ClassNotFoundException {
 		if ((packet.dstRegion.x != mux.vncDaemon.myRegion.x)
