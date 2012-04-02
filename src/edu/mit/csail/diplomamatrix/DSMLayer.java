@@ -51,7 +51,7 @@ public class DSMLayer implements Serializable {
 	transient private Runnable pendingRequestsRetryCheckR;
 
 	private static final long pendingRequestsRetries = 3;
-	private static final long pendingRequestsRetryCheckPeriod = 600;
+	private static final long pendingRequestsRetryCheckPeriod = 100;
 	private static final long pendingRequestsRetryTimeoutPeriod = 700;
 
 	// CSM procedure retry and at-most-once queues

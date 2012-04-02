@@ -32,7 +32,7 @@ public class VCoreDaemon extends Thread {
 	private static final int minLongitude = Globals.MINIMUM_LONGITUDE;
 
 	// Time periods
-	private final static long cloudHearbeatPeriod = 40 * 1000;
+	private final static long cloudHearbeatPeriod = 30 * 1000;
 	private final static long heartbeatPeriod = 30000;
 	private final static long stateRequestedTimeoutPeriod = 10000;
 
@@ -201,6 +201,7 @@ public class VCoreDaemon extends Thread {
 					}
 				}
 				long t2 = System.currentTimeMillis();
+				// for logging the size of 4G request, we'll then add the constant overhead in bytes
 				logMsg(String
 						.format("old region empty, uploaded state to cloud in %dms as json %d bytes",
 								t2 - t1, json.getBytes().length));
@@ -380,6 +381,9 @@ public class VCoreDaemon extends Thread {
 		myHandler.removeCallbacks(leaderRequestRetryR);
 		myHandler.removeCallbacks(leaderRequestTimeoutR);
 		myHandler.removeCallbacks(stateRequestedTimeoutR);
+		
+		// Cancel leader to cloud heartbeat
+		myHandler.removeCallbacks(cloudHeartbeatR);
 
 		// If out of bounds, don't do anything and just wait
 		if (myRegion.x > maxRx || myRegion.y > maxRy || myRegion.x < 0
@@ -490,6 +494,9 @@ public class VCoreDaemon extends Thread {
 				logMsg("error attaching CSM data to reply: " + e.getMessage());
 			}
 			sendPacket(reply);
+			
+			// Start recurring heartbeat to cloud
+			myHandler.postDelayed(cloudHeartbeatR, cloudHearbeatPeriod);
 
 			logMsg(String.format("now fully up as LEADER (id=%d) of %s", mId,
 					myRegion));

@@ -3,6 +3,7 @@ This project is going to be modifying Jason's DIPLOMAMatrix that does sparse mat
 Checklist
 =========
 
+0. Make sure the IP addresses of the phones are all different
 1. SMCloud server running ?
 2. DIPLOMA server running ?
 3. Ensure Items 1 and 2 above do not run on the same port on the same machine.

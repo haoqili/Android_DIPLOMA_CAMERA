@@ -31,20 +31,21 @@ public class Globals {
         final static public int SAMPLING_DISTANCE=1;
         final static public String BROADCAST_ADDRESS="192.168.5.255"; //.255.255 also works
 
-        // region constraints, for the UI
-        final static public int MIN_REGION = 1;
-        final static public int MAX_REGION = 6;
         
         // old region calculations
         final static public int REGION_WIDTH=17; // in meters, 35/2
         final static public int SOUTHEAST_LONG = -7110000;
         final static public int SOUTHEAST_LAT = 4236349;
         // Long is x
-        final static public int MAX_X_REGIONS=10;
+        final static public int MAX_X_REGIONS=6;
         final static public int MAX_Y_REGIONS=1;
         final static public int MINIMUM_LONGITUDE=SOUTHEAST_LONG - REGION_WIDTH*MAX_X_REGIONS;
         final static public int MINIMUM_LATITUDE=SOUTHEAST_LAT;
         
+        // region constraints, for the UI
+        final static public int MIN_REGION = 0;
+        final static public int MAX_REGION = MAX_X_REGIONS-1;
+
         
         final static public int SPARSE_NUM_ITER=100000;
 		public static final boolean DEBUG_SKIP_CLOUD = false;
