@@ -81,9 +81,6 @@ public class StatusActivity extends Activity implements LocationListener {
 	long client_upload_start = 0;
 	long client_download_start = 0;
 
-	// Toast stuff
-	int toastDuration = Toast.LENGTH_SHORT;
-
 	/** Handle messages from various components */
 	private final Handler myHandler = new Handler() {
 		@Override
@@ -129,7 +126,7 @@ public class StatusActivity extends Activity implements LocationListener {
 					if (!gpinfo_ssn.isSuccess){
 						logMsg("I'm a leader and I FAILED to save my client's new photo");
 						CharSequence text = "I'm a leader and I FAILED to save my client's new photo";
-						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+						Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 						toast.show();
 						
 						break;
@@ -175,23 +172,33 @@ public class StatusActivity extends Activity implements LocationListener {
 					// see if it was unsuccessful:
 					if (!my_gpinfo3.isSuccess){
 						logMsg("FAIL! Client failed to get photo from remote region");
-						CharSequence text = "FAIL! Failed to get photo from remote region";
-						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+						CharSequence text = "FAIL! Failed to get photo from remote region, try again";
+						Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
 						toast.show();
-						break;
-					}
-					if (my_gpinfo3.photoBytes == null) {
-						logMsg("PHOTO DATA is NULL, perhaps region doesn't have a photo yet");
-						CharSequence text = "PHOTO DATA is NULL, perhaps region doesn't have a photo yet";
-						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
-						toast.show();
-					} else {
-						photo_remote = _bytesToBitmap(my_gpinfo3.photoBytes);
-						ImageView image = (ImageView) findViewById(R.id.photoResultView);
-						logMsg("Success! Client getting photo from remote region, showing photo...");
-						image.setImageBitmap(photo_remote);
+					} else { // success
+						if (my_gpinfo3.photoBytes == null) {
+							logMsg("PHOTO DATA is NULL, perhaps region doesn't have a photo yet");
+							CharSequence text = "PHOTO DATA is NULL, perhaps region doesn't have a photo yet";
+							Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
+							toast.show();
+						} else { // success and has photo data!
+							
+							// process photo
+							photo_remote = _bytesToBitmap(my_gpinfo3.photoBytes);
+							ImageView image = (ImageView) findViewById(R.id.photoResultView);
+							
+							// print success!
+							logMsg("Success! Client getting photo from remote region, showing photo...");
+							CharSequence text = "SUCCESS! Getting photo from remote region succeeded, showing photo ...";
+							Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
+							toast.show();
+							
+							// show photo
+							image.setImageBitmap(photo_remote);
+						}
 					}
 					
+					// TODO: WHY MUX HANDLER??
 					// enable buttons right now, not untill progressdialog timeout
 					mux.myHandler.removeCallbacks(buttonsEnableProgressTimeoutR);
 					_enableButtons();
@@ -231,16 +238,17 @@ public class StatusActivity extends Activity implements LocationListener {
 					// see if it was unsuccessful:
 					if (!my_gpinfo3.isSuccess){
 						logMsg("FAIL! Client now knows saving photo on its leader failed");
-						CharSequence text = "FAIL! Saving photo on leader failed";
-						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+						CharSequence text = "FAIL! Saving photo on leader failed, try again.";
+						Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 						toast.show();
-					} else {
+					} else { // success
 						logMsg("SUCCESS! Client now knows saving photo on its leader succeeded");
 						CharSequence text = "SUCCESS! Saving photo on its leader succeeded";
-						Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+						Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 						toast.show();
 					}
 					
+					// TODO: MUX.MYHANDLER??
 					// enable buttons right now, not until progressdialog timeout
 					mux.myHandler.removeCallbacks(buttonsEnableProgressTimeoutR);
 					_enableButtons();
@@ -315,7 +323,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		areButtonsEnabled = true;
 		Log.i(TAG, "areButtonsEnabled --> true");
 		CharSequence text = "Can press buttons again";
-		Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+		Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 		toast.show();
 	}
 	/** Enable buttons again, either when getting reply or timed out */
@@ -336,7 +344,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		if (areButtonsEnabled == false){
 			logMsg("canPressButton = FALSE because areButtonsEnabled = false");
 			CharSequence text = "Can't press button during processing";
-			Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+			Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 			toast.show();
 			return false;
 		}
@@ -418,7 +426,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		failureCountTv = (TextView) findViewById(R.id.failurecount_tv);
 
 		regionText = (EditText) findViewById(R.id.region_text);
-		//threadsText = (EditText) findViewById(R.id.threads_text);
 
 		// Text views
 		idTv = (TextView) findViewById(R.id.id_tv);
@@ -551,6 +558,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 		
 		// from: http://stackoverflow.com/a/5036668
+		// kill completely for a fresh start every time
 		logMsg("close everything else");
 		System.runFinalizersOnExit(true);
 		System.exit(0);
@@ -566,7 +574,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			if (strX.equals("")){
 				logMsg("please input a region");
 				CharSequence text = "please input a region";
-				Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+				Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 				toast.show();
 			} else {
 				int rX = Integer.parseInt(strX);
@@ -574,7 +582,7 @@ public class StatusActivity extends Activity implements LocationListener {
 				if (rX < Globals.MIN_REGION || rX > Globals.MAX_REGION){
 					logMsg("please input a region between " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION);
 					CharSequence text = "please input a region between " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION;
-					Toast toast = Toast.makeText(getApplicationContext(), text, toastDuration);
+					Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 					toast.show();	
 				} else {
 					mux.vncDaemon.changeRegion(new RegionKey(rX, rY));
@@ -636,14 +644,16 @@ public class StatusActivity extends Activity implements LocationListener {
 	private class HandlePictureStorage implements PictureCallback {
 		@Override
 		public void onPictureTaken(byte[] picture, Camera camera) {
-			// let the preview work again
 			logMsg("inside HandlePictureStorage onPictureTaken()");
 			logMsg("disabling buttons ...");
 			// Disable buttons until timeout is over or received reply
+			// TODO: ASk why is it mux.myHandler?
 			mux.myHandler.post(disableButtonsProgressStartR);
 			mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, uploadTimeoutPeriod);
-			
+
+			// let the preview work again
 			cameraSurfaceView.camera.startPreview();
+			
 			logMsg("Picture successfully taken, ORIG BYTE LENGTH = " + picture.length);
 			try {
 				Bitmap orig_bitmap = _bytesToBitmap(picture);
@@ -706,6 +716,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			client_upload_start = System.currentTimeMillis();
 			mux.vncDaemon.sendPacket(packet);
 		}
+		logMsg("end of client send picture method");
 	}
 	
 	// resize photo
@@ -887,6 +898,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	};
 	private void _button_listener_helper(long targetRegion){
 		// Disable buttons until timeout is over, or received reply
+		// TODO: WHY IS IT mux.myHandler??
 		mux.myHandler.post(disableButtonsProgressStartR);
 		mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, downloadTimoutPeriod);
 		
