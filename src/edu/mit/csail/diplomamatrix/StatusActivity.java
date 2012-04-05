@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapFactory.Options;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
 import android.location.Location;
@@ -31,6 +32,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -132,10 +134,14 @@ public class StatusActivity extends Activity implements LocationListener {
 						break;
 					}
 					logMsg("I'm a leader and I SUCCEEDED in saving my client's new photo");
-					Bitmap photo_clientnew = _bytesToBitmap(gpinfo_ssn.photoBytes);
+					
+					//Bitmap photo_clientnew = _bytesToBitmap(gpinfo_ssn.photoBytes);
 					ImageView image = (ImageView) findViewById(R.id.photoResultView);
 					logMsg("now showing in UI the new photo I just saved ... ");
-					image.setImageBitmap(photo_clientnew);
+					//image.setImageBitmap(photo_clientnew);
+					//TODO
+					image.setImageBitmap(BitmapFactory.decodeByteArray(gpinfo_ssn.photoBytes, 0, gpinfo_ssn.photoBytes.length));
+
 				} catch (OptionalDataException e) {
 					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed OptionalDataException");
 					e.printStackTrace();
@@ -184,7 +190,7 @@ public class StatusActivity extends Activity implements LocationListener {
 						} else { // success and has photo data!
 							
 							// process photo
-							photo_remote = _bytesToBitmap(my_gpinfo3.photoBytes);
+							//photo_remote = _bytesToBitmap(my_gpinfo3.photoBytes);
 							ImageView image = (ImageView) findViewById(R.id.photoResultView);
 							
 							// print success!
@@ -194,7 +200,10 @@ public class StatusActivity extends Activity implements LocationListener {
 							toast.show();
 							
 							// show photo
-							image.setImageBitmap(photo_remote);
+							//image.setImageBitmap(photo_remote);
+							// TODO
+							image.setImageBitmap(BitmapFactory.decodeByteArray(my_gpinfo3.photoBytes, 0, my_gpinfo3.photoBytes.length));
+
 						}
 					}
 					
@@ -245,6 +254,7 @@ public class StatusActivity extends Activity implements LocationListener {
 						logMsg("SUCCESS! Client now knows saving photo on its leader succeeded");
 						CharSequence text = "SUCCESS! Saving photo on its leader succeeded";
 						Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
+						toast.setGravity(Gravity.CENTER, 0,0);
 						toast.show();
 					}
 					
@@ -357,7 +367,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 		if (mux.vncDaemon.mState != VCoreDaemon.LEADER && mux.vncDaemon.mState != VCoreDaemon.NONLEADER) {
 			logMsg("canPressButton = false. state is + " + mux.vncDaemon.mState + " Can't press button because you're in a transient state (JOINING or HANDING_OFF)");
-			CharSequence text = "Can't press button because you're in a transient state (JOINING or HANDING_OFF)";
+			CharSequence text = "Can't press because you're in a transient state (JOINING or HANDING_OFF), wait a sec ...";
 			Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
 			toast.show();
 			return false;
@@ -670,24 +680,16 @@ public class StatusActivity extends Activity implements LocationListener {
 			cameraSurfaceView.camera.startPreview();
 			
 			logMsg("Picture successfully taken, ORIG BYTE LENGTH = " + picture.length);
-			try {
-				Bitmap orig_bitmap = _bytesToBitmap(picture);
-				Bitmap new_bitmap = _bytesResizeBitmap(picture, orig_bitmap);
-				ImageView image = (ImageView) findViewById(R.id.photoResultView);
-				
-				logMsg("Show photo from handle my camera take");
-				image.setImageBitmap(new_bitmap);
-				sendClientNewpic(new_bitmap);
-			} catch (OptionalDataException e) {
-				logMsg("HandlePictureStorage _bytesToBitmap failed OptionalDataExeption");
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				logMsg("HandlePictureStorage _bytesToBitmap failed ClassNotFoundException");
-				e.printStackTrace();
-			} catch (IOException e) {
-				logMsg("HandlePictureStorage _bytesToBitmap failed IOException");
-				e.printStackTrace();
-			}
+
+			//Bitmap orig_bitmap = _bytesToBitmap(picture);
+			// TODO: FIX:
+			Bitmap new_bitmap = _bytesResizeBitmap(picture, BitmapFactory.decodeByteArray(picture, 0, picture.length));
+			ImageView image = (ImageView) findViewById(R.id.photoResultView);
+
+			logMsg("Show photo from handle my camera take");
+
+			image.setImageBitmap(new_bitmap);
+			sendClientNewpic(new_bitmap);
 		}
 	}
 
@@ -792,10 +794,17 @@ public class StatusActivity extends Activity implements LocationListener {
 		byte[] bytes = bos.toByteArray();
 		return bytes;
 	}
-	public Bitmap _bytesToBitmap(byte[] photo_bytes) throws OptionalDataException,
+	/*public Bitmap _bytesToBitmap(byte[] photo_bytes) throws OptionalDataException,
 	ClassNotFoundException, IOException {
-		return BitmapFactory.decodeByteArray(photo_bytes, 0, photo_bytes.length);
-	} 
+		try {
+			return BitmapFactory.decodeByteArray(photo_bytes, 0, photo_bytes.length);
+		} catch (OutOfMemoryError e){
+			logMsg("#*######################################################");
+			logMsg("Out of memory localized message: " + e.getLocalizedMessage());
+			e.printStackTrace();
+			return BitmapFactory.decodeByteArray(photo_bytes, 0, photo_bytes.length);
+		}
+	} */
 
 	// can't do Java generics because we are serializing
 	public static GetPhotoInfo _bytesToGetphotoinfo(byte[] int_bytes)
