@@ -138,8 +138,10 @@ public class StatusActivity extends Activity implements LocationListener {
 					//Bitmap photo_clientnew = _bytesToBitmap(gpinfo_ssn.photoBytes);
 					ImageView image = (ImageView) findViewById(R.id.photoResultView);
 					logMsg("now showing in UI the new photo I just saved ... ");
-					//image.setImageBitmap(photo_clientnew);
-					//TODO
+					logMsg("the photo length: " + gpinfo_ssn.photoBytes.length);
+					
+					// Garbage collect in case VM Heap runs out of memory with decodeByteArray
+					System.gc();
 					image.setImageBitmap(BitmapFactory.decodeByteArray(gpinfo_ssn.photoBytes, 0, gpinfo_ssn.photoBytes.length));
 
 				} catch (OptionalDataException e) {
@@ -199,9 +201,11 @@ public class StatusActivity extends Activity implements LocationListener {
 							Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 							toast.show();
 							
+							logMsg("Remote photo's length: " + my_gpinfo3.photoBytes.length);
+							
 							// show photo
-							//image.setImageBitmap(photo_remote);
-							// TODO
+							// Garbage collect in case VM Heap runs out of memory with decodeByteArray
+							System.gc();
 							image.setImageBitmap(BitmapFactory.decodeByteArray(my_gpinfo3.photoBytes, 0, my_gpinfo3.photoBytes.length));
 
 						}
@@ -681,9 +685,9 @@ public class StatusActivity extends Activity implements LocationListener {
 			
 			logMsg("Picture successfully taken, ORIG BYTE LENGTH = " + picture.length);
 
-			//Bitmap orig_bitmap = _bytesToBitmap(picture);
-			// TODO: FIX:
-			Bitmap new_bitmap = _bytesResizeBitmap(picture, BitmapFactory.decodeByteArray(picture, 0, picture.length));
+			// must garbage collect here or VM Heap might run out of memory!!
+			System.gc();
+			Bitmap new_bitmap = _bytesResizeBitmap(picture);
 			ImageView image = (ImageView) findViewById(R.id.photoResultView);
 
 			logMsg("Show photo from handle my camera take");
@@ -736,48 +740,20 @@ public class StatusActivity extends Activity implements LocationListener {
 		logMsg("end of client send picture method");
 	}
 	
-	// resize photo
-	protected Bitmap _getAndResizeBitmap(){
+	protected Bitmap _bytesResizeBitmap(byte [] orig_bytes){
 		BitmapFactory.Options options =new BitmapFactory.Options();
-		// first we don't produce an actual bitmap, but just probe its dimensions
-		options.inJustDecodeBounds = true;
-		// bitmap could be Null when decodeFile() fails, but we have not encountered this
-		Bitmap bitmap = BitmapFactory.decodeFile(Globals.PHOTO_PATH, options);
-		int h, w;
-		if (options.outHeight > options.outWidth){
-			h = (int) Math.ceil(options.outHeight/(float) Globals.TARGET_SHORT_SIDE);
-			w = (int) Math.ceil(options.outWidth/(float) Globals.TARGET_LONG_SIDE);
-		} else {
-			w = (int) Math.ceil(options.outHeight/(float) Globals.TARGET_SHORT_SIDE);
-			h = (int) Math.ceil(options.outWidth/(float) Globals.TARGET_LONG_SIDE);
-		}
-		if(h>1 || w>1){
-			options.inSampleSize = (h > w) ? h : w;
-		}
+
 		// now we actually produce the bitmap, resized
 		options.inJustDecodeBounds=false;
-		bitmap =BitmapFactory.decodeFile(Globals.PHOTO_PATH, options);
-		logMsg("Our new height x width: " + bitmap.getHeight() + " x " + bitmap.getWidth());
-		
-		return bitmap;
-	}
-	
-	protected Bitmap _bytesResizeBitmap(byte [] orig_bytes, Bitmap orig_bitmap){
-		BitmapFactory.Options options =new BitmapFactory.Options();
-		int h, w;
-		if (orig_bitmap.getHeight() > orig_bitmap.getWidth()){
-			h = (int) Math.ceil(orig_bitmap.getHeight()/(float) Globals.TARGET_SHORT_SIDE);
-			w = (int) Math.ceil(orig_bitmap.getWidth()/(float) Globals.TARGET_LONG_SIDE);
-		} else {
-			w = (int) Math.ceil(orig_bitmap.getHeight()/(float) Globals.TARGET_SHORT_SIDE);
-			h = (int) Math.ceil(orig_bitmap.getWidth()/(float) Globals.TARGET_LONG_SIDE);
-		}
-		if(h>1 || w>1){
-			options.inSampleSize = (h > w) ? h : w;
-		}
-		// now we actually produce the bitmap, resized
-		options.inJustDecodeBounds=false;
+		// hard-code it to a big number
+		options.inSampleSize=16;
+		// This decodeByteArray might crash the phone due to VM Heap OutOfMemoryError
+		// if the options.inSampleSize is not set to a big number
+		// that's why we garbage collect before calling this function and gc other decodeByteArrays to be safe
+		// http://stackoverflow.com/questions/6402858/android-outofmemoryerror-bitmap-size-exceeds-vm-budget
+		// http://stackoverflow.com/questions/477572/android-strange-out-of-memory-issue-while-loading-an-image-to-a-bitmap-object
 		Bitmap new_bitmap =BitmapFactory.decodeByteArray(orig_bytes, 0, orig_bytes.length, options);
+		logMsg(/* "h is: " + h + " w " + w + */ " isz " + options.inSampleSize);
 		logMsg("Our new height x width: " + new_bitmap.getHeight() + " x " + new_bitmap.getWidth());
 		
 		return new_bitmap;
@@ -794,17 +770,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		byte[] bytes = bos.toByteArray();
 		return bytes;
 	}
-	/*public Bitmap _bytesToBitmap(byte[] photo_bytes) throws OptionalDataException,
-	ClassNotFoundException, IOException {
-		try {
-			return BitmapFactory.decodeByteArray(photo_bytes, 0, photo_bytes.length);
-		} catch (OutOfMemoryError e){
-			logMsg("#*######################################################");
-			logMsg("Out of memory localized message: " + e.getLocalizedMessage());
-			e.printStackTrace();
-			return BitmapFactory.decodeByteArray(photo_bytes, 0, photo_bytes.length);
-		}
-	} */
 
 	// can't do Java generics because we are serializing
 	public static GetPhotoInfo _bytesToGetphotoinfo(byte[] int_bytes)

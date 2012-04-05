@@ -47,13 +47,11 @@ public class Globals {
 
         
         final static public int SPARSE_NUM_ITER=100000;
-		public static final boolean DEBUG_SKIP_CLOUD = false;
+		public static final boolean DEBUG_SKIP_CLOUD = true; // TODO: SET TO false
 
 		// photo properties
 		final static public int COMP_QUALITY = 10; // 0 - 100, 100 is max quality
 		final static String PHOTO_PATH = Environment.getExternalStorageDirectory().getName() + File.separatorChar + "temp_photo.jpg";
-		final static int TARGET_SHORT_SIDE = 200;
-		final static int TARGET_LONG_SIDE = 240;
 		final static String PHOTO_KEY = "diplomaPhotos";
 		
 		// Nexus S phones use "wlan0", Galaxy Notes use "eth0"
