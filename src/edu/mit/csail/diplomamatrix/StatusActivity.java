@@ -407,7 +407,13 @@ public class StatusActivity extends Activity implements LocationListener {
                 		// disable button clicks ASAP
                 		areButtonsEnabled = false;
                 		logMsg("areButtonsEnabled --> false");
-                		
+            			logMsg("disabling buttons ...");
+            			// Disable buttons until timeout is over or received reply
+            			// TODO: ASk why is it mux.myHandler?
+            			// TODO: DON'T POST DISABLEBUTTONSPROGRESSSTART
+            			mux.myHandler.post(disableButtonsProgressStartR);
+            			mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, uploadTimeoutPeriod);
+            			
                 		logMsg("** Clicked take picture button **");
                 		
                         Camera camera = cameraSurfaceView.getCamera();
@@ -475,6 +481,19 @@ public class StatusActivity extends Activity implements LocationListener {
 				e.printStackTrace();
 			}
 		}
+		
+		// set the network name according to phone build
+		logMsg("Android build: " + android.os.Build.MODEL);
+		if (android.os.Build.MODEL.equals("SAMSUNG-SGH-I717")){
+			Globals.NET_NAME = "eth0";
+		} else if (android.os.Build.MODEL.equals("Nexus S")){
+			Globals.NET_NAME = "wlan0";
+		} else {
+			logMsg("DON'T KNOW ANDROID BUILD!, neither 'SAMSUNG-SGH-I717' nor 'Nexus S'");
+			onDestroy();
+		}
+		logMsg("NET_NAME set to: " + Globals.NET_NAME);
+
 
 		// Start the mux, which will start the entire VNC, CSM, etc stack
 		long id = -1;
@@ -645,13 +664,9 @@ public class StatusActivity extends Activity implements LocationListener {
 		@Override
 		public void onPictureTaken(byte[] picture, Camera camera) {
 			logMsg("inside HandlePictureStorage onPictureTaken()");
-			logMsg("disabling buttons ...");
-			// Disable buttons until timeout is over or received reply
-			// TODO: ASk why is it mux.myHandler?
-			mux.myHandler.post(disableButtonsProgressStartR);
-			mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, uploadTimeoutPeriod);
 
 			// let the preview work again
+			// IS THIS A NEW THREAD??
 			cameraSurfaceView.camera.startPreview();
 			
 			logMsg("Picture successfully taken, ORIG BYTE LENGTH = " + picture.length);

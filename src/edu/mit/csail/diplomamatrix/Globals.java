@@ -8,8 +8,7 @@ import android.os.Environment;
 
 public class Globals {
 		// frequently changed constants
-		// Nexus S phones use "wlan0", Galaxy Notes use "eth0"
-		final static public String NET_NAME = "eth0";
+		
 		// cloud server to keep leaders consistent
 		//final static public String CSM_SERVER_NAME="128.30.87.130:8212"; //128.30.66.123:5212
         final static public String CSM_SERVER_NAME="hermes5.csail.mit.edu:8212"; //128.30.66.123:5212
@@ -56,4 +55,7 @@ public class Globals {
 		final static int TARGET_SHORT_SIDE = 200;
 		final static int TARGET_LONG_SIDE = 240;
 		final static String PHOTO_KEY = "diplomaPhotos";
+		
+		// Nexus S phones use "wlan0", Galaxy Notes use "eth0"
+		static public String NET_NAME = "bad"; // set in StatusActivity
 } 
