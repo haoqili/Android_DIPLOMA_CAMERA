@@ -135,7 +135,6 @@ public class StatusActivity extends Activity implements LocationListener {
 					}
 					logMsg("I'm a leader and I SUCCEEDED in saving my client's new photo");
 					
-					//Bitmap photo_clientnew = _bytesToBitmap(gpinfo_ssn.photoBytes);
 					ImageView image = (ImageView) findViewById(R.id.photoResultView);
 					logMsg("now showing in UI the new photo I just saved ... ");
 					logMsg("the photo length: " + gpinfo_ssn.photoBytes.length);
@@ -192,7 +191,6 @@ public class StatusActivity extends Activity implements LocationListener {
 						} else { // success and has photo data!
 							
 							// process photo
-							//photo_remote = _bytesToBitmap(my_gpinfo3.photoBytes);
 							ImageView image = (ImageView) findViewById(R.id.photoResultView);
 							
 							// print success!
@@ -336,9 +334,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		progressDialog.dismiss();
 		areButtonsEnabled = true;
 		Log.i(TAG, "areButtonsEnabled --> true");
-		CharSequence text = "Can press buttons again";
-		Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
-		toast.show();
 	}
 	/** Enable buttons again, either when getting reply or timed out */
 	private Runnable buttonsEnableProgressTimeoutR = new Runnable() {
@@ -753,7 +748,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		// http://stackoverflow.com/questions/6402858/android-outofmemoryerror-bitmap-size-exceeds-vm-budget
 		// http://stackoverflow.com/questions/477572/android-strange-out-of-memory-issue-while-loading-an-image-to-a-bitmap-object
 		Bitmap new_bitmap =BitmapFactory.decodeByteArray(orig_bytes, 0, orig_bytes.length, options);
-		logMsg(/* "h is: " + h + " w " + w + */ " isz " + options.inSampleSize);
 		logMsg("Our new height x width: " + new_bitmap.getHeight() + " x " + new_bitmap.getWidth());
 		
 		return new_bitmap;
