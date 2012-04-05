@@ -8,7 +8,9 @@ import android.os.Environment;
 
 public class Globals {
 		// frequently changed constants
-		
+		final static public int JPEG_SAMPLE_SIZE = 12; // if too low, will cause Nexus S out of memory!
+		public static final boolean DEBUG_SKIP_CLOUD = false; // TODO: SET TO false
+
 		// cloud server to keep leaders consistent
 		//final static public String CSM_SERVER_NAME="128.30.87.130:8212"; //128.30.66.123:5212
         final static public String CSM_SERVER_NAME="hermes5.csail.mit.edu:8212"; //128.30.66.123:5212
@@ -47,7 +49,6 @@ public class Globals {
 
         
         final static public int SPARSE_NUM_ITER=100000;
-		public static final boolean DEBUG_SKIP_CLOUD = true; // TODO: SET TO false
 
 		// photo properties
 		final static public int COMP_QUALITY = 10; // 0 - 100, 100 is max quality

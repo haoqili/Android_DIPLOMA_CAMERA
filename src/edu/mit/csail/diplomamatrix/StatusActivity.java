@@ -746,7 +746,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		// now we actually produce the bitmap, resized
 		options.inJustDecodeBounds=false;
 		// hard-code it to a big number
-		options.inSampleSize=16;
+		options.inSampleSize=Globals.JPEG_SAMPLE_SIZE;
 		// This decodeByteArray might crash the phone due to VM Heap OutOfMemoryError
 		// if the options.inSampleSize is not set to a big number
 		// that's why we garbage collect before calling this function and gc other decodeByteArrays to be safe
