@@ -231,8 +231,7 @@ public class StatusActivity extends Activity implements LocationListener {
 						}
 					}
 					
-					// TODO: WHY MUX HANDLER??
-					// enable buttons right now, not untill progressdialog timeout
+					// enable buttons right now, not until progressdialog timeout
 					myHandler.removeCallbacks(buttonsEnableProgressDownloadTimeoutR);
 					_enableButtons();
 					
@@ -297,7 +296,6 @@ public class StatusActivity extends Activity implements LocationListener {
 						//toast.show();
 					}
 					
-					// TODO: MUX.MYHANDLER??
 					// enable buttons right now, not until progressdialog timeout
 					myHandler.removeCallbacks(buttonsEnableProgressUploadTimeoutR);
 					_enableButtons();
@@ -494,8 +492,6 @@ public class StatusActivity extends Activity implements LocationListener {
                 		logMsg("areButtonsEnabled --> false");
             			logMsg("disabling buttons ...");
             			// Disable buttons until timeout is over or received reply
-            			// TODO: ASk why is it mux.myHandler?
-            			// TODO: DON'T POST DISABLEBUTTONSPROGRESSSTART
             			//myHandler.post(disableButtonsProgressStartR);
             			logMsg("took picture disableButtonsR");
             			areButtonsEnabled = false;
@@ -581,8 +577,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		} else if (android.os.Build.MODEL.equals("Nexus S")){
 			Globals.NET_NAME = "wlan0";
 			// TODO: CHANGE THIS BACK TO FALSE!!!!!!!!!!!!
-			// TODO:
-			Globals.DEBUG_SKIP_CLOUD = true;
+			Globals.DEBUG_SKIP_CLOUD = false;
 		} else {
 			logMsg("DON'T KNOW ANDROID BUILD!, neither 'SAMSUNG-SGH-I717' nor 'Nexus S'");
 			onDestroy();
