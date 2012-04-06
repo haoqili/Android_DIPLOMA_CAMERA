@@ -49,7 +49,7 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	// UI elements
 	Button region_button, my_camera_button;
-	Button get1_button, get2_button, get3_button, get4_button, get5_button, get6_button;
+	Button get0_button, get1_button, get2_button, get3_button, get4_button, get5_button;
 	TextView opCountTv, successCountTv, failureCountTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
 	EditText regionText, threadsText;
@@ -331,7 +331,11 @@ public class StatusActivity extends Activity implements LocationListener {
 	
 	private void _enableButtons(){
 		Log.i(TAG, "Inside _enableButtons");
-		progressDialog.dismiss();
+		if (progressDialog != null) {
+			progressDialog.dismiss();
+		} else {
+			logMsg("No progress dialog to dismiss");
+		}
 		areButtonsEnabled = true;
 		Log.i(TAG, "areButtonsEnabled --> true");
 	}
@@ -389,18 +393,19 @@ public class StatusActivity extends Activity implements LocationListener {
 		// Buttons
 		region_button = (Button) findViewById(R.id.region_button);
 		region_button.setOnClickListener(region_button_listener);
+		get0_button = (Button) findViewById(R.id.get0_button);
+		get0_button.setOnClickListener(get_button_listener);
 		get1_button = (Button) findViewById(R.id.get1_button);
-		get1_button.setOnClickListener(get1_button_listener);
+		get1_button.setOnClickListener(get_button_listener);
 		get2_button = (Button) findViewById(R.id.get2_button);
-		get2_button.setOnClickListener(get2_button_listener);
+		get2_button.setOnClickListener(get_button_listener);
 		get3_button = (Button) findViewById(R.id.get3_button);
-		get3_button.setOnClickListener(get3_button_listener);
+		get3_button.setOnClickListener(get_button_listener);
 		get4_button = (Button) findViewById(R.id.get4_button);
-		get4_button.setOnClickListener(get4_button_listener);
+		get4_button.setOnClickListener(get_button_listener);
 		get5_button = (Button) findViewById(R.id.get5_button);
-		get5_button.setOnClickListener(get5_button_listener);
-		get6_button = (Button) findViewById(R.id.get6_button);
-		get6_button.setOnClickListener(get6_button_listener);
+		get5_button.setOnClickListener(get_button_listener);
+
 		
         //Setup the FrameLayout with the Camera Preview Screen
 		cameraSurfaceView = new CameraSurfaceView(this);
@@ -497,6 +502,9 @@ public class StatusActivity extends Activity implements LocationListener {
 			Globals.NET_NAME = "eth0";
 		} else if (android.os.Build.MODEL.equals("Nexus S")){
 			Globals.NET_NAME = "wlan0";
+			// TODO: CHANGE THIS BACK TO FALSE!!!!!!!!!!!!
+			// TODO:
+			Globals.DEBUG_SKIP_CLOUD = true;
 		} else {
 			logMsg("DON'T KNOW ANDROID BUILD!, neither 'SAMSUNG-SGH-I717' nor 'Nexus S'");
 			onDestroy();
@@ -786,135 +794,74 @@ public class StatusActivity extends Activity implements LocationListener {
 	}
 	
 	/* ############################################### */
-	/* ############################################### */
-	/* ############################################### */
-	/* dumb button listeners */
-	private OnClickListener get1_button_listener = new OnClickListener(){
+	private OnClickListener get_button_listener = new OnClickListener(){
 		public void onClick(View v){
 			if (canPressButton()) {
 				// disable button clicks ASAP
         		areButtonsEnabled = false;
         		logMsg("areButtonsEnabled --> false ");
+        		// Disable buttons until timeout is over, or received reply
+        		// TODO: WHY IS IT mux.myHandler??
+        		mux.myHandler.post(disableButtonsProgressStartR);
+        		mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, downloadTimoutPeriod);
         		
-				logMsg("** Clicked getphotos Button from region 1 **");
-				long targetRegion = 1;
-				_button_listener_helper(targetRegion);
+        		long targetRegion = 666;
+        		switch (v.getId()){
+        		case R.id.get0_button:
+        			targetRegion = 0;
+        			break;
+        		case R.id.get1_button:
+        			targetRegion = 1;
+        			break;
+        		case R.id.get2_button:
+        			targetRegion = 2;
+        			break;
+        		case R.id.get3_button:
+        			targetRegion = 3;
+        			break;
+        		case R.id.get4_button:
+        			targetRegion = 4;
+        			break;
+        		case R.id.get5_button:
+        			targetRegion = 5;
+        			break;
+        		}
+        		logMsg("** Clicked getphotos Button from region " + targetRegion + " **");
+
+        		// Create a Packet to send through Mux to Leader's UserApp
+        		Packet packet = new Packet(-1, 
+        				-1,
+        				Packet.CLIENT_REQUEST,
+        				Packet.CLIENT_DOWNLOAD_PHOTO,
+        				mux.vncDaemon.myRegion,
+        				mux.vncDaemon.myRegion); 
+        		GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
+        				mux.vncDaemon.myRegion.x, 
+        				targetRegion);
+        		logMsg("I'm the Client, and I'm in region: " + 
+        				my_getphotoinfo.srcRegion + 
+        				" nodID = " + my_getphotoinfo.originNodeId);
+        		try {
+        			// save GetPhotoInfo inside Packet
+        			packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
+        		} catch (IOException e) {
+        			logMsg("_button_listener_helper _intToBytes() failed");
+        			e.printStackTrace();
+        		}
+
+        		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+        			logMsg("I'm a leader, my requesting photos packet going to mux directly");
+        			client_download_start = System.currentTimeMillis();
+        			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
+        		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+        			logMsg("I'm a nonleader sending my requesting photos packet to my leader");
+        			client_download_start = System.currentTimeMillis();
+        			mux.vncDaemon.sendPacket(packet);
+        		}
+        		logMsg("StatusActivity sent request to get photos for region " + targetRegion);
 			} else {
-				logMsg("can't press region 1 yet");
+				logMsg("can't press any buttons yet, so can't get region");
 			}
 		}
 	};
-	private OnClickListener get2_button_listener = new OnClickListener(){
-		public void onClick(View v){
-			if (canPressButton()) {
-				// disable button clicks ASAP
-        		areButtonsEnabled = false;
-        		logMsg("areButtonsEnabled --> false ");
-        		
-				logMsg("** Clicked getphotos Button from region 2 **");
-				long targetRegion = 2;
-				_button_listener_helper(targetRegion);
-			} else {
-				logMsg("can't press region 2 yet");
-			}
-		}
-	};
-	private OnClickListener get3_button_listener = new OnClickListener(){
-		public void onClick(View v){
-			if (canPressButton()) {
-				// disable button clicks ASAP
-        		areButtonsEnabled = false;
-        		logMsg("areButtonsEnabled --> false ");
-        		
-				logMsg("** Clicked getphotos Button from region 3 **");
-				long targetRegion = 3;
-				_button_listener_helper(targetRegion);
-			} else {
-				logMsg("can't press region 3 yet");
-			}
-		}
-	};
-	private OnClickListener get4_button_listener = new OnClickListener(){
-		public void onClick(View v){
-			if (canPressButton()) {
-				// disable button clicks ASAP
-        		areButtonsEnabled = false;
-        		logMsg("areButtonsEnabled --> false ");
-        		
-				logMsg("** Clicked getphotos Button from region 4 **");
-				long targetRegion = 4;
-				_button_listener_helper(targetRegion);
-			} else {
-				logMsg("can't press region 4 yet");
-			}
-		}
-	};
-	private OnClickListener get5_button_listener = new OnClickListener(){
-		public void onClick(View v){
-			if (canPressButton()) {
-				// disable button clicks ASAP
-        		areButtonsEnabled = false;
-        		logMsg("areButtonsEnabled --> false ");
-        		
-				logMsg("** Clicked getphotos Button from region 5 **");
-				long targetRegion = 5;
-				_button_listener_helper(targetRegion);
-			} else {
-				logMsg("can't press region 5 yet");
-			}
-		}
-	};
-	private OnClickListener get6_button_listener = new OnClickListener(){
-		public void onClick(View v){
-			if (canPressButton()) {
-				// disable button clicks ASAP
-        		areButtonsEnabled = false;
-        		logMsg("areButtonsEnabled --> false ");
-        		
-				logMsg("** Clicked getphotos Button from region 6 **");
-				long targetRegion = 6;
-				_button_listener_helper(targetRegion);
-			} else {
-				logMsg("can't press region 6 yet");
-			}
-		}
-	};
-	private void _button_listener_helper(long targetRegion){
-		// Disable buttons until timeout is over, or received reply
-		// TODO: WHY IS IT mux.myHandler??
-		mux.myHandler.post(disableButtonsProgressStartR);
-		mux.myHandler.postDelayed(buttonsEnableProgressTimeoutR, downloadTimoutPeriod);
-		
-		// Create a Packet to send through Mux to Leader's UserApp
-		Packet packet = new Packet(-1, 
-				-1,
-				Packet.CLIENT_REQUEST,
-				Packet.CLIENT_DOWNLOAD_PHOTO,
-				mux.vncDaemon.myRegion,
-				mux.vncDaemon.myRegion); 
-		GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
-				mux.vncDaemon.myRegion.x, 
-				targetRegion);
-		logMsg("I'm the Client, and I'm in region: " + 
-				my_getphotoinfo.srcRegion + 
-				" nodID = " + my_getphotoinfo.originNodeId);
-		try {
-			// save GetPhotoInfo inside Packet
-			packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
-		} catch (IOException e) {
-			logMsg("_button_listener_helper _intToBytes() failed");
-			e.printStackTrace();
-		}
-		
-		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-			logMsg("I'm a leader, my requesting photos packet going to mux directly");
-			client_download_start = System.currentTimeMillis();
-			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
-		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
-			logMsg("I'm a nonleader sending my requesting photos packet to my leader");
-			client_download_start = System.currentTimeMillis();
-			mux.vncDaemon.sendPacket(packet);
-		}
-		logMsg("StatusActivity sent request to get photos for region " + targetRegion);
-	}
 }

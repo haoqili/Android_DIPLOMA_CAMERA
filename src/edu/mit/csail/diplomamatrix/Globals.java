@@ -9,8 +9,8 @@ import android.os.Environment;
 public class Globals {
 		// frequently changed constants
 		final static public int JPEG_SAMPLE_SIZE = 12; // if too low, will cause Nexus S out of memory!
-		public static final boolean DEBUG_SKIP_CLOUD = false; // TODO: SET TO false
-
+		// TODO: CHANGE TURNNING SKIP CLOUD TO FALSE!!!!!!!!!!!!!!!!!!!!
+		
 		// cloud server to keep leaders consistent
 		//final static public String CSM_SERVER_NAME="128.30.87.130:8212"; //128.30.66.123:5212
         final static public String CSM_SERVER_NAME="hermes5.csail.mit.edu:8212"; //128.30.66.123:5212
@@ -56,5 +56,7 @@ public class Globals {
 		final static String PHOTO_KEY = "diplomaPhotos";
 		
 		// Nexus S phones use "wlan0", Galaxy Notes use "eth0"
+		public static boolean DEBUG_SKIP_CLOUD = false; // TODO: SET TO false
 		static public String NET_NAME = "bad"; // set in StatusActivity
+		
 } 
