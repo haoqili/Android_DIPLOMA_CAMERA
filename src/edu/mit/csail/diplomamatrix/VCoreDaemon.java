@@ -38,7 +38,7 @@ public class VCoreDaemon extends Thread {
 
 	private final static long electCandidatePeriod = 400;
 	private final static long newLeaderAckTimeoutPeriod = 1000;
-	private final static long oldLeaderReleasePeriod = 2000;
+	private final static long oldLeaderReleasePeriod = 4000; // > 3 sec TODO: tweakable!
 
 	private final static long leaderRequestRetryPeriod = 300;
 	private final static long leaderRequestTimeoutPeriod = 1000;

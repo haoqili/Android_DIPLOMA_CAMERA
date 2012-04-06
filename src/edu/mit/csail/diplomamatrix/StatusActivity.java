@@ -407,8 +407,8 @@ public class StatusActivity extends Activity implements LocationListener {
 	private Runnable buttonsEnableProgressDownloadTimeoutR = new Runnable() {
 		public void run() {
 			getTimedout += 1;
-			Log.i(TAG, "inside buttonsEnableProgressTimeoutR. Perhaps that region doesn't have anyone. Try again later!");
-			CharSequence text = "Timed out getting a remote photo. Perhaps that region doesn't have anyone. Try again later!";
+			Log.i(TAG, "inside buttonsEnableProgressTimeoutR. Perhaps no one is in that region. Try again later!");
+			CharSequence text = "Timed out getting photo. Perhaps no one is in that region currently. Try again later!";
 			Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 			toast.setGravity(Gravity.CENTER, 0,0);
 			toast.show();
