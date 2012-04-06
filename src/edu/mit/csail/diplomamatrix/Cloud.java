@@ -84,8 +84,18 @@ public class Cloud {
 			URI uri = new URI(url);
 			HttpGet method = new HttpGet(uri);
 			DefaultHttpClient httpClient = new DefaultHttpClient();
+			
+			Log.i(TAG, "Executing makeRequest: " + url);
+
+			long startTime = System.currentTimeMillis();
 			HttpResponse response = httpClient.execute(method);
+			long stopTime = System.currentTimeMillis();
+			Log.i(TAG, String.format("makeRequest Execute HTTP latency: %dms", 
+					stopTime - startTime));
+
 			data = response.getEntity().getContent();
+			Log.i(TAG, "makeRequest() Cloud response length: "
+					+ response.getEntity().getContentLength());
 			Log.i(TAG, String.format("Request executed: %s", url));
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
@@ -111,11 +121,19 @@ public class Cloud {
 					csmDataAsString));
 			method.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-			Log.i(TAG, "Executing request: " + url);
+			Log.i(TAG, "Executing uploadState request: " + url);
 			DefaultHttpClient httpClient = new DefaultHttpClient();
+			
+			long startTime = System.currentTimeMillis();
 			HttpResponse response = httpClient.execute(method);
+			long stopTime = System.currentTimeMillis();
+			Log.i(TAG, String.format("uploadState Execute HTTP latency: %dms", 
+					stopTime - startTime));
+			
 			InputStream data = response.getEntity().getContent();
 			Reader r = new InputStreamReader(data);
+			Log.i(TAG, "uploadState() Cloud response length: "
+					+ response.getEntity().getContentLength());
 			Gson gson = new Gson();
 			cloudR = gson.fromJson(r, CloudResponse.class);
 		} catch (Exception e) {

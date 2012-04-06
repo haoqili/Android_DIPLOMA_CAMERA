@@ -249,6 +249,7 @@ public class UserApp implements DSMUser {
 			if (block.lines.get(Globals.PHOTO_KEY) == null) {
 				// this leader doesn't have any photos yet
 				my_gpinfo.photoBytes = null;
+				logMsg("I don't have any photos yet");
 			} else {
 				// this leader has a photo
 				byte[] photolist_bytes = block.lines.get(Globals.PHOTO_KEY);

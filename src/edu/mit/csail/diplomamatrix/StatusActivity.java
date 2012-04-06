@@ -193,8 +193,8 @@ public class StatusActivity extends Activity implements LocationListener {
 					
 					// see if it was unsuccessful:
 					if (!my_gpinfo3.isSuccess){
-						logMsg("FAIL! Client failed to get photo from remote region");
-						CharSequence text = "FAIL! Failed to get photo from remote region, try again";
+						logMsg("Can't get remote photo, perhaps region doesn't have a photo yet");
+						CharSequence text = "Can't get remote photo, perhaps region doesn't have a photo yet";
 						Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
 						toast.setGravity(Gravity.CENTER, 0,0);
 						toast.show();
@@ -233,7 +233,7 @@ public class StatusActivity extends Activity implements LocationListener {
 					
 					// TODO: WHY MUX HANDLER??
 					// enable buttons right now, not untill progressdialog timeout
-					mux.myHandler.removeCallbacks(buttonsEnableProgressDownloadTimeoutR);
+					myHandler.removeCallbacks(buttonsEnableProgressDownloadTimeoutR);
 					_enableButtons();
 					
 				} catch (OptionalDataException e) {
@@ -299,7 +299,7 @@ public class StatusActivity extends Activity implements LocationListener {
 					
 					// TODO: MUX.MYHANDLER??
 					// enable buttons right now, not until progressdialog timeout
-					mux.myHandler.removeCallbacks(buttonsEnableProgressUploadTimeoutR);
+					myHandler.removeCallbacks(buttonsEnableProgressUploadTimeoutR);
 					_enableButtons();
 					
 				} catch (OptionalDataException e) {
@@ -370,14 +370,14 @@ public class StatusActivity extends Activity implements LocationListener {
 	
 	// Runnables
 	/** Disable buttons at press of any button (take new pic for upload / region x get for download) */
-	private Runnable disableButtonsProgressStartR = new Runnable() {
+	/*private Runnable disableButtonsProgressStartR = new Runnable() {
 		public void run() {
 			Log.i(TAG, "Inside disableButtonsR");
 			areButtonsEnabled = false;
 			Log.i(TAG, "areButtonsEnabled --> false");
 			progressDialog = ProgressDialog.show(StatusActivity.this, "", "Processing photo get or save to leader ... :)");
 		}       
-	};  
+	}; */ 
 	
 	private void _enableButtons(){
 		Log.i(TAG, "Inside _enableButtons");
@@ -407,8 +407,8 @@ public class StatusActivity extends Activity implements LocationListener {
 	private Runnable buttonsEnableProgressDownloadTimeoutR = new Runnable() {
 		public void run() {
 			getTimedout += 1;
-			Log.i(TAG, "inside buttonsEnableProgressTimeoutR. Timed out getting a remote photo. Try again later!");
-			CharSequence text = "Timed out getting a remote photo. Try again later!";
+			Log.i(TAG, "inside buttonsEnableProgressTimeoutR. Perhaps that region doesn't have anyone. Try again later!");
+			CharSequence text = "Timed out getting a remote photo. Perhaps that region doesn't have anyone. Try again later!";
 			Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 			toast.setGravity(Gravity.CENTER, 0,0);
 			toast.show();
@@ -496,8 +496,13 @@ public class StatusActivity extends Activity implements LocationListener {
             			// Disable buttons until timeout is over or received reply
             			// TODO: ASk why is it mux.myHandler?
             			// TODO: DON'T POST DISABLEBUTTONSPROGRESSSTART
-            			mux.myHandler.post(disableButtonsProgressStartR);
-            			mux.myHandler.postDelayed(buttonsEnableProgressUploadTimeoutR, uploadTimeoutPeriod);
+            			//myHandler.post(disableButtonsProgressStartR);
+            			logMsg("took picture disableButtonsR");
+            			areButtonsEnabled = false;
+            			logMsg("areButtonsEnabled --> false");
+            			progressDialog = ProgressDialog.show(StatusActivity.this, "", "Processing photo get or save to leader ... :)");
+            			
+            			myHandler.postDelayed(buttonsEnableProgressUploadTimeoutR, uploadTimeoutPeriod);
             			
             			takeNum += 1;
             			logCounts();
@@ -514,7 +519,6 @@ public class StatusActivity extends Activity implements LocationListener {
         });
 		
 		// Text views
-        // TODO: Implement this!
 		opCountTv = (TextView) findViewById(R.id.opcount_tv);
 		successCountTv = (TextView) findViewById(R.id.successcount_tv);
 		failureCountTv = (TextView) findViewById(R.id.failurecount_tv);
@@ -811,7 +815,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		
 		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
 			logMsg("I'm a leader, upload/save new photo packet going to mux directly");
-			// TODO: logMsg("Loopback packet: " +packet.get);
 			client_upload_start = System.currentTimeMillis();
 			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
 		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
@@ -881,8 +884,13 @@ public class StatusActivity extends Activity implements LocationListener {
         		logMsg("areButtonsEnabled --> false ");
         		// Disable buttons until timeout is over, or received reply
         		// TODO: WHY IS IT mux.myHandler??
-        		mux.myHandler.post(disableButtonsProgressStartR);
-        		mux.myHandler.postDelayed(buttonsEnableProgressDownloadTimeoutR, downloadTimoutPeriod);
+        		//myHandler.post(disableButtonsProgressStartR);
+        		logMsg("get picture disableButtonsR");
+    			areButtonsEnabled = false;
+    			logMsg("areButtonsEnabled --> false");
+    			progressDialog = ProgressDialog.show(StatusActivity.this, "", "Processing photo get or save to leader ... :)");
+    			
+        		myHandler.postDelayed(buttonsEnableProgressDownloadTimeoutR, downloadTimoutPeriod);
         		
         		getNum +=1;
         		logCounts();
