@@ -143,6 +143,13 @@ public class UserApp implements DSMUser {
 			}
 
 		}
+		// Cannot handle the case of timedOut to tell nonclient that I (the leader)
+		// failed to reach the remote region so it (the nonclient) doesn't have to
+		// wait until its timeout ends. This is because the reply (without its 
+		// reply.data that contains GetPhotoInfo) cannot distinguish among its nonclients.
+		// So even if a nonclient hears a PROC REPLY of FAILURE, it can't be sure
+		// whether that PROC REPLY was a response to its request or some other 
+		// nonleader in the region's request
 	}
 
 	/**
