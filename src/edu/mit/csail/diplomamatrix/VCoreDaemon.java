@@ -184,10 +184,14 @@ public class VCoreDaemon extends Thread {
 	 */
 	private Runnable electCandidateR = new Runnable() {
 		public void run() {
-			if (mState != HANDING_OFF)
+			logMsg("INSIDE ELECT CANDIDATE");
+			if (mState != HANDING_OFF) {
+				logMsg("SKIPPING HANDING R");
 				return; // only elect a new candidate if we're a leader
-
+			}
+			
 			if (candidates.size() == 0) {
+				logMsg("CANDIDATE SIZE is 0");
 				// stop servicing CSM requests so we remain consistent
 				csm.stop();
 				long t1 = System.currentTimeMillis();
@@ -209,6 +213,7 @@ public class VCoreDaemon extends Thread {
 				// transition to new state if in bounds, otherwise go dormant
 				stateTransition(JOINING, myRegion, null);
 			} else {
+				logMsg("PICKING CANDIDATE");
 				// TODO pick candidate with same CSM data / state
 				Candidate elected = candidates.get(0);
 				Packet electionReply = new Packet(mId, elected.id,
@@ -325,7 +330,10 @@ public class VCoreDaemon extends Thread {
 				break;
 			case Packet.LEADER_NOMINATE:
 				// check that we -were- leader of that region
-				if (mState == LEADER && vnp.dstRegion.equals(leaderRegion)) {
+				//if (mState == LEADER && vnp.dstRegion.equals(leaderRegion)) {
+				logMsg("inside LEADER_NOMINATE mState = " + mState + " vnp.dstRegion = " + vnp.dstRegion 
+						+ " leaderRegion = " + leaderRegion);
+				if (mState == HANDING_OFF && vnp.dstRegion.equals(leaderRegion)) {
 					logMsg("received LEADER_NOMINATE from " + vnp.src
 							+ ", saving as candidate");
 					// add candidate to list of candidates
@@ -349,7 +357,11 @@ public class VCoreDaemon extends Thread {
 				}
 				break;
 			case Packet.LEADER_CONFIRM_ACK:
-				if (mState == LEADER && vnp.dstRegion.equals(leaderRegion)) {
+				//if (mState == LEADER && vnp.dstRegion.equals(leaderRegion)) {
+				logMsg("inside LEADER_CONFIRM_ACK mState = " + mState + " vnp.dstRegion = " + vnp.dstRegion 
+						+ " leaderRegion = " + leaderRegion);
+				if (mState == HANDING_OFF && vnp.dstRegion.equals(leaderRegion)) {
+
 					myHandler.removeCallbacks(newLeaderAckTimeoutR);
 					// cloudUploadState(leaderRegionX, leaderRegionY); // backup
 					long t1 = System.currentTimeMillis();
@@ -530,6 +542,8 @@ public class VCoreDaemon extends Thread {
 			Log.i("..... VCoreDaemon.java", "targetState = HANDING_OFF");
 			// Update self attributes
 			mState = HANDING_OFF;
+			logMsg("HANDING OFF setting leaderRegion = " + targetRegion);
+			this.leaderRegion = new RegionKey(targetRegion); // should still stay at old region's 
 			logMsg("Trying to hand off leadership");
 		}
 
@@ -568,7 +582,6 @@ public class VCoreDaemon extends Thread {
 	 * increments one by one north-west-wards along Mass Ave.
 	 */
 	public void determineLocation(Location loc, RegionKey prevRegion){
-		// TODO: make this work with Y as well
 		// currently determining region only depends on X
 		
 		logMsg("INSIDE DETERMINELOCATION");
@@ -622,7 +635,6 @@ public class VCoreDaemon extends Thread {
 		
 		// find the current region
 		// Note: only depending on loc_x_rotated for this experiment
-		// TODO: for experiments involving a matrix of regions, add y
 		double current_region = (int) Math.floor(loc_x_rotated / region_width);
 		logMsg("location PINPOINTS to region = " + current_region + ", previous " + prevRegion.x);
 		
@@ -678,7 +690,9 @@ public class VCoreDaemon extends Thread {
 
 		// take actions necessary for LEADER leaving a region
 		if (mState == LEADER && oldRegion.equals(leaderRegion)) {
-			stateTransition(HANDING_OFF, myRegion, null);
+			logMsg("change state to HANDING_OFF with parameter my previous/old region = " + oldRegion 
+					+ " before helping to elect new leader in it. (btw, newRegion " + newRegion + ")");
+			stateTransition(HANDING_OFF, oldRegion, null);
 			electNewLeader(oldRegion, newRegion);
 		} else if (mState != LEADER) { // if not leader
 			stateTransition(JOINING, myRegion, null);
