@@ -33,7 +33,7 @@ public class VCoreDaemon extends Thread {
 
 	// Time periods
 	private final static long cloudHearbeatPeriod = 30 * 1000;
-	private final static long heartbeatPeriod = 30000;
+	private final static long heartbeatPeriod = 5000;
 	private final static long stateRequestedTimeoutPeriod = 10000;
 
 	private final static long electCandidatePeriod = 400;
