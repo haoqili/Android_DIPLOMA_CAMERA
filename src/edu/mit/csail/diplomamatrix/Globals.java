@@ -17,24 +17,26 @@ public class Globals {
         
 		// new region calculations
 		// road parameters, used to calculate region width
-		final static public double PHONE_RANGE_METERS = 60; // diagonal of region
+		//final static public double PHONE_RANGE_METERS = 60; // diagonal of region
+        final static public double PHONE_RANGE_METERS=42.43;// Reduced this on April 18th to 42.43 to reduce region_width to 30 m
 		final static public double ROAD_WIDTH_METERS = 30;
 		// to calculate buffer zone
 		final static public double REGION_WIDTH_BOUNDARY_METERS = 5;
 		
 		// to calculate start point & road angle:
 		// Endpoints on (straight) Mass Ave to calculate theta
-		// Central Mass Ave
+		/* Central Mass Ave
 		final static public double NW_LONG = -71.104888;
 		final static public double NW_LAT = 42.365944;
 		final static public double SE_LONG = -71.100005;
 		final static public double SE_LAT = 42.363492;
-
-		/* 77 Mass Ave
-		final double north_west_loc_long = -71.093881;
-		final double north_west_loc_lat = 42.359644;
-		final double south_east_loc_long = -71.092894;
-		final double south_east_loc_lat = 42.357741;*/
+		*/
+		
+		// 77 Mass Ave
+		final static public double NW_LONG = -71.093881;
+		final static public double NW_LAT = 42.359644;
+		final static public double SE_LONG = -71.092894;
+		final static public double SE_LAT = 42.357741;
 	
 		
 		final static public int NTHREADS=1;

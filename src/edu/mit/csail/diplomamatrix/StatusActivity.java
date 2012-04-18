@@ -641,6 +641,12 @@ public class StatusActivity extends Activity implements LocationListener {
 	protected void onPause() {
 		logMsg("HI I'm in ONPAUSE()");
 		super.onPause();
+		
+		/*
+		 // will just tape the HOME button
+		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+			// leader release leadership
+		}*/
 	}
 
 	@Override

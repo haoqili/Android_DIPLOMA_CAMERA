@@ -32,11 +32,11 @@ public class VCoreDaemon extends Thread {
 	private static final int minLongitude = Globals.MINIMUM_LONGITUDE;
 
 	// Time periods
-	private final static long cloudHearbeatPeriod = 30 * 1000;
+	private final static long cloudHearbeatPeriod = 120000;
 	private final static long heartbeatPeriod = 5000;
-	private final static long stateRequestedTimeoutPeriod = 10000;
+	private final static long stateRequestedTimeoutPeriod = 120000;
 
-	private final static long electCandidatePeriod = 400;
+	private final static long electCandidatePeriod = 1000;
 	private final static long newLeaderAckTimeoutPeriod = 1000;
 	private final static long oldLeaderReleasePeriod = 4000; // > 3 sec TODO: tweakable!
 
@@ -140,7 +140,7 @@ public class VCoreDaemon extends Thread {
 	/** Periodic: check for heartbeats if NONLEADER, or send them if LEADER */
 	private Runnable heartbeatR = new Runnable() {
 		public void run() {
-			if (mState == LEADER) {
+			if (mState == LEADER || mState == HANDING_OFF) {
 				sendPacket(new Packet(mId, -1, Packet.VNC_MSG,
 						Packet.HEARTBEAT, myRegion, myRegion));
 			} else if (mState == NONLEADER) {
@@ -188,7 +188,7 @@ public class VCoreDaemon extends Thread {
 			logMsg("INSIDE ELECT CANDIDATE");
 			if (mState != HANDING_OFF) {
 				logMsg("SKIPPING HANDING R");
-				return; // only elect a new candidate if we're a leader
+				return; // only elect a new candidate if we're a handing_off
 			}
 			
 			if (candidates.size() == 0) {
@@ -246,7 +246,7 @@ public class VCoreDaemon extends Thread {
 	/** if we (leader) don't hear ack from newly elected leader, upload state */
 	private Runnable newLeaderAckTimeoutR = new Runnable() {
 		public void run() {
-			if (mState != LEADER)
+			if (mState != HANDING_OFF)
 				return;
 
 			csm.stop(); // stop servicing CSM requests to remain consistent
