@@ -9,6 +9,7 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.OptionalDataException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Map;
 
 import android.app.Activity;
@@ -19,7 +20,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.BitmapFactory.Options;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
 import android.location.Location;
@@ -78,6 +78,25 @@ public class StatusActivity extends Activity implements LocationListener {
 	private int getBad = 0; // # get failure
 	private int getTimedout = 0;
 	
+	// global variables for runnables
+	//private Bitmap new_bitmap;
+	//private long targetRegion; 
+	private Packet requestPacket; // saved so runnables can send it repeatedly
+	private long packet_reply_sourceID;
+	
+	// request counter stuff
+	private int requestCounter = 0; // keeping track of unique button requests
+	private final static long sendingRequestsPeriod = 300;
+	// will keep sending requests to leader UNTIL
+	//    1. heard First Leg Ack from leader 
+	// OR 2. sendingRequestsTimeoutPeriod reached
+	// sendingRequestsTimeoutPeriod must be less than upload/download Timeout Periods
+	// 		so that we don't need to deal with ProgressDialogues
+	private final static long sendingRequestsTimeoutPeriod = 1000; 
+
+	// reply counter stuff
+	private ArrayList<Integer> processedReplies = null;
+	
 	// timeout stuff
 	final static private long uploadTimeoutPeriod = 6000L;
 	final static private long downloadTimoutPeriod = 6000L;
@@ -130,22 +149,31 @@ public class StatusActivity extends Activity implements LocationListener {
 				failureCountTv.setText("failures: "
 						+ String.valueOf(data.get("failure")));
 				break;
+			case Packet.SERVER_FIRST_LEG_ACK:
+				// Yay the client got the ack from its leader, at least the first leg succeeded
+				// remove any request runnables
+				// TODO: marker
+				logMsg("inside Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables");
+				myHandler.removeCallbacks(sendRequestPacketRepeatingRunnable);
+				myHandler.removeCallbacks(sendRequestPacketTimeoutR);
+				break;
 			case Packet.SERVER_SHOW_NEWPHOTO:
-				logMsg("inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo");
+				logMsg("%%%%%%%% aside: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo");
 				Packet packet_ssn = (Packet) msg.obj;
+
 				try {
 					GetPhotoInfo gpinfo_ssn = _bytesToGetphotoinfo(packet_ssn.getphotoinfo_bytes);
 
 					if (!gpinfo_ssn.isSuccess){
-						logMsg("I'm a leader and I FAILED to save my client's new photo");
-						CharSequence text = "I'm a leader and I FAILED to save my client's new photo";
+						logMsg("I'm a leader and I failed to save my client's new photo");
+						CharSequence text = "I'm a leader and I failed to save my client's new photo";
 						Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 						toast.setGravity(Gravity.CENTER, 0,0);
 						toast.show();
 						
 						break;
 					}
-					logMsg("I'm a leader and I SUCCEEDED in saving my client's new photo");
+					logMsg("I'm a leader and I successfully saved my client's new photo");
 					
 					ImageView image = (ImageView) findViewById(R.id.photoResultView);
 					logMsg("now showing in UI the new photo I just saved ... ");
@@ -165,17 +193,37 @@ public class StatusActivity extends Activity implements LocationListener {
 					logMsg("SERVER_SHOW_NEWPHOTO byte conversion failed IOException");
 					e.printStackTrace();
 				}
+				logMsg("end of server show photo aside %%%%%%%%%");
 				break;
 			case Packet.CLIENT_SHOW_REMOTEPHOTO:
 				// this is the result of remote region photo request, the reply packet of the leader --> nonleader/leader itself
 				// where the nonleader/leader itself requested the remote region
-				
-				// latency stuff
 				long client_download_end = System.currentTimeMillis();
 				
-				boolean isGetSuccess = false;
-				
 				logMsg("inside Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply");
+				
+				Packet packet_csn = (Packet) msg.obj;
+				// global, used in finalLegAck
+				packet_reply_sourceID = packet_csn.src; 
+
+				// TODO: marker
+				// send Final Leg Ack regardless of new or already-processed reply
+				logMsg("send final leg ack regardless of new or already-processed reply");
+				finalLegAck(packet_csn.replyCounter);
+				
+				//discard packets that are already-processed
+				if (processedReplies.contains(packet_csn.replyCounter)){
+					logMsg("csn discarding repeated replyCounter="+packet_csn.replyCounter
+							+ ", but still sent an ack back");
+					return;
+				}
+				
+				logMsg("new client_show_remotephoto reply with replyCounter " + packet_csn.replyCounter);
+				// note down this newly processed request
+				logMsg("note down new reply by adding replyCounter=" + packet_csn.replyCounter + " to HashMap processedReplies");
+				processedReplies.add(packet_csn.replyCounter);
+
+				// Latency stuff
 				long download_latency = client_download_end - client_download_start;
 				if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
 					logMsg("leader download remote photo latency = " + download_latency);
@@ -184,8 +232,9 @@ public class StatusActivity extends Activity implements LocationListener {
 					logMsg("nonleader download remote photo latency = " + download_latency);
 					logMsg("= nonleader download start " + client_download_start + " ~ stop " + client_download_end);
 				}
+				
+				boolean isGetSuccess = false;
 
-				Packet packet_csn = (Packet) msg.obj;
 				Bitmap photo_remote;
 				try {
 					// get the Getphotoinfo from packet
@@ -256,11 +305,34 @@ public class StatusActivity extends Activity implements LocationListener {
 			case Packet.CLIENT_UPLOAD_PHOTO_ACK:
 				// ack from region leader for a new photo taken by client (nonleader/leader) 
 				// photoBytes is null inside GetPhotoInfo
-				// latency stuff
 				long client_upload_end = System.currentTimeMillis();
 
-				boolean isSaveSuccess = false;
 				logMsg("inside Packet.CLIENT_UPLOAD_PHOTO_ACK");
+
+				Packet packet_cupa = (Packet) msg.obj;
+				// global, used in finalLegAck
+				packet_reply_sourceID = packet_cupa.src;
+
+				// TODO: marker
+				// send Final Leg Ack regardless of new or already-processed reply
+				logMsg("send final leg ack regardless of new or already-processed reply");
+				finalLegAck(packet_cupa.replyCounter);
+				
+				//discard packets that are already-processed
+				if (processedReplies.contains(packet_cupa.replyCounter)){
+					logMsg("cupa discarding repeated replyCounter="+packet_cupa.replyCounter
+							+ ", but still sent an ack back");
+					return;
+				}
+				
+				logMsg("new client_upload_photo_ack reply with replyCounter "+packet_cupa.replyCounter);
+				// note down this newly processed request
+				logMsg("note down new reply by adding replyCounter=" + packet_cupa.replyCounter + " to HashMap processedReplies");
+				processedReplies.add(packet_cupa.replyCounter);
+				
+				boolean isSaveSuccess = false;
+				
+				// Latency stuff
 				long upload_latency = client_upload_end - client_upload_start;
 				if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
 					logMsg("leader upload new photo latency = " + upload_latency);
@@ -270,7 +342,6 @@ public class StatusActivity extends Activity implements LocationListener {
 					logMsg("= nonleader upload start " + client_upload_start + " ~ stop " + client_upload_end);
 				}
 				
-				Packet packet_cupa = (Packet) msg.obj;
 				try{
 					// get the Getphotoinfo from packet
 					GetPhotoInfo my_gpinfo3 = _bytesToGetphotoinfo(packet_cupa.getphotoinfo_bytes);
@@ -289,7 +360,7 @@ public class StatusActivity extends Activity implements LocationListener {
 						takeGoodSave += 1; // add here in case things screw up later
 						logCounts();
 						
-						logMsg("SUCCESS! Client now knows saving photo on its leader succeeded");
+						logMsg("SUCCESS Client now knows saving photo on its leader succeeded");
 						//CharSequence text = "SUCCESS! Saving photo on its leader succeeded";
 						//Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 						//toast.setGravity(Gravity.CENTER, 0,0);
@@ -297,6 +368,7 @@ public class StatusActivity extends Activity implements LocationListener {
 					}
 					
 					// enable buttons right now, not until progressdialog timeout
+					logMsg("disabling progressdialog due to successful new photo upload");
 					myHandler.removeCallbacks(buttonsEnableProgressUploadTimeoutR);
 					_enableButtons();
 					
@@ -376,6 +448,41 @@ public class StatusActivity extends Activity implements LocationListener {
 			progressDialog = ProgressDialog.show(StatusActivity.this, "", "Processing photo get or save to leader ... :)");
 		}       
 	}; */ 
+
+	// client send ack ONCE to its leader to let it know that this Final Leg is complete
+	// so that leader can resend if it doesn't hear this ack
+	// since we send it only ONCE, no need to send it repeatedly runnable
+	// TODO: marker
+	private void finalLegAck(int replyCounterReceived){
+		// increment requestCounter
+		requestCounter += 1;
+		logMsg("inside finalLegAck: change requestCounter to "+requestCounter);
+		
+		// Create an ack packet
+		Packet reply_packet = new Packet(mux.vncDaemon.mId, packet_reply_sourceID,
+				Packet.CLIENT_REQUEST, Packet.CLIENT_FINAL_LEG_ACK,
+				mux.vncDaemon.myRegion, mux.vncDaemon.myRegion);
+	
+		// because the leader is getting different phone's IDs
+		reply_packet.requestCounter = ((int)mux.vncDaemon.mId)*1000 + requestCounter;
+		
+		// put in the received replyCounter to let the leader know which runnables to kill
+		reply_packet.replyCounter = replyCounterReceived;
+		
+		logMsg("Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: " + reply_packet.requestCounter
+				+ " Client in region: " + reply_packet.srcRegion + 
+				" Client nodID: " + reply_packet.src);
+		
+		// Send final_leg ack packet to leader to let it know to stop sending reply packet
+		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+			logMsg("I'm a leader client, my final_leg packet going to mux directly");
+			mux.myHandler.obtainMessage(mux.PACKET_RECV, reply_packet).sendToTarget();
+		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+			logMsg("I'm a nonleader client sending my final_leg packet to my leader");
+			mux.vncDaemon.sendPacket(reply_packet);
+		}
+		
+	}
 	
 	private void _enableButtons(){
 		Log.i(TAG, "Inside _enableButtons");
@@ -503,7 +610,7 @@ public class StatusActivity extends Activity implements LocationListener {
             			takeNum += 1;
             			logCounts();
             			
-                		logMsg("** Clicked take picture button **");
+                		logMsg("Clicked take picture button ..");
                 		
                         Camera camera = cameraSurfaceView.getCamera();
                         camera.takePicture(null, null, new HandlePictureStorage());
@@ -576,7 +683,6 @@ public class StatusActivity extends Activity implements LocationListener {
 			Globals.NET_NAME = "eth0";
 		} else if (android.os.Build.MODEL.equals("Nexus S")){
 			Globals.NET_NAME = "wlan0";
-			// TODO: CHANGE THIS BACK TO FALSE!!!!!!!!!!!!
 			Globals.DEBUG_SKIP_CLOUD = false;
 		} else {
 			logMsg("DON'T KNOW ANDROID BUILD!, neither 'SAMSUNG-SGH-I717' nor 'Nexus S'");
@@ -601,6 +707,9 @@ public class StatusActivity extends Activity implements LocationListener {
 		// enable button pressing
 		areButtonsEnabled = true;
 		logMsg("areButtonsEnabled --> true");
+		
+		// Initialize ProcessReplies
+		processedReplies = new ArrayList<Integer>();
 		
 		// Watch out for low battery conditions
 		BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -762,12 +871,10 @@ public class StatusActivity extends Activity implements LocationListener {
 		@Override
 		public void onPictureTaken(byte[] picture, Camera camera) {
 			logMsg("inside HandlePictureStorage onPictureTaken()");
-			
 			takeCamGood += 1;
 			logCounts();
 			
 			// let the preview work again
-			// IS THIS A NEW THREAD??
 			cameraSurfaceView.camera.startPreview();
 			
 			logMsg("Picture successfully taken, ORIG BYTE LENGTH = " + picture.length);
@@ -780,52 +887,57 @@ public class StatusActivity extends Activity implements LocationListener {
 			logMsg("Show photo from handle my camera take");
 
 			image.setImageBitmap(new_bitmap);
-			sendClientNewpic(new_bitmap);
+			
+			// TODO: marker
+			// Make packet that sends the photo request to the leader
+			logMsg("** Client making NEWly TAKEN photo PACKET to send to leader **");
+			// Create a Packet to send through Mux to Leader's UserApp
+			Packet packet = new Packet(mux.vncDaemon.mId, 
+					-1,
+					Packet.CLIENT_REQUEST,
+					Packet.CLIENT_UPLOAD_PHOTO,
+					mux.vncDaemon.myRegion,
+					mux.vncDaemon.myRegion);
+    		
+    		// increment requestCounter
+			requestCounter += 1;
+			logMsg("change local requestCounter to "+requestCounter);
+			// because the leader is getting different phone's IDs
+			packet.requestCounter = ((int)mux.vncDaemon.mId)*1000 + requestCounter;
+			
+			// Create a GetPhotoInfo to contain origin ID, photo bytes
+			GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
+					mux.vncDaemon.myRegion.x, 
+					mux.vncDaemon.myRegion.x);
+
+			try {
+				// jpeg compression in bitmapToBytes
+				// and save inside GetPhotoInfo
+				my_getphotoinfo.photoBytes = _bitmapToBytes(new_bitmap);
+				logMsg("BYTE SIZE AFTER COMPRESSION: " + my_getphotoinfo.photoBytes.length);
+
+				// save GetPhotoInfo inside Packet
+				packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
+			} catch (IOException e) {
+				logMsg("sendClientNewpic _bitmapToBytes() or _intToBytes() failed");
+				e.printStackTrace();
+			}
+			
+    		// set packet to global requestPacket so it can be sent repeatedly
+			requestPacket = packet;
+			
+			logMsg("Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: " + packet.requestCounter
+    				+ " Client in region: " + my_getphotoinfo.srcRegion + 
+    				" Client nodID: " + my_getphotoinfo.originNodeId);
+			
+			// keep sending requests every sendingRequestsPeriod UNTIL
+			//    1. got First Leg Ack from leader
+			// OR 2. sendingRequestsTimeoutPeriod reached
+			myHandler.post(sendRequestPacketRepeatingRunnable);
+			myHandler.postDelayed(sendRequestPacketTimeoutR, sendingRequestsTimeoutPeriod);
 		}
 	}
 
-	protected void sendClientNewpic(Bitmap bitmap){
-		logMsg("client making photo packet to send to leader for it to save");
-		// Create a Packet to send through Mux to Leader's UserApp
-		Packet packet = new Packet(-1, 
-				-1,
-				Packet.CLIENT_REQUEST,
-				Packet.CLIENT_UPLOAD_PHOTO,
-				mux.vncDaemon.myRegion,
-				mux.vncDaemon.myRegion);
-		// Create a GetPhotoInfo to contain origin ID, photo bytes
-		GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
-				mux.vncDaemon.myRegion.x, 
-				mux.vncDaemon.myRegion.x);
-	
-		try {
-			// jpeg compression in bitmapToBytes
-			// and save inside GetPhotoInfo
-			my_getphotoinfo.photoBytes = _bitmapToBytes(bitmap);
-			logMsg("BYTE SIZE AFTER COMPRESSION: " + my_getphotoinfo.photoBytes.length);
-			
-			// save GetPhotoInfo inside Packet
-			packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
-		} catch (IOException e) {
-			logMsg("sendClientNewpic _bitmapToBytes() or _intToBytes() failed");
-			e.printStackTrace();
-		}
-		// once the nonleader mysteriously stopped executing after the above lines
-		// investigate more if this happens again
-		logMsg("about to send my pic");
-		
-		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-			logMsg("I'm a leader, upload/save new photo packet going to mux directly");
-			client_upload_start = System.currentTimeMillis();
-			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
-		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
-			logMsg("I'm a nonleader sending my new photo packet to my leader");
-			client_upload_start = System.currentTimeMillis();
-			mux.vncDaemon.sendPacket(packet);
-		}
-		logMsg("end of client send picture method");
-	}
-	
 	protected Bitmap _bytesResizeBitmap(byte [] orig_bytes){
 		BitmapFactory.Options options =new BitmapFactory.Options();
 
@@ -884,7 +996,6 @@ public class StatusActivity extends Activity implements LocationListener {
         		areButtonsEnabled = false;
         		logMsg("areButtonsEnabled --> false ");
         		// Disable buttons until timeout is over, or received reply
-        		// TODO: WHY IS IT mux.myHandler??
         		//myHandler.post(disableButtonsProgressStartR);
         		logMsg("get picture disableButtonsR");
     			areButtonsEnabled = false;
@@ -917,21 +1028,28 @@ public class StatusActivity extends Activity implements LocationListener {
         			targetRegion = 5;
         			break;
         		}
-        		logMsg("** Clicked getphotos Button from region " + targetRegion + " **");
-
+        		
+        		// TODO: marker
+        		// Make packet that sends the photo request to the leader
+        		logMsg("** Client making GET photo PACKET to send to the leader. Requesting for region: " + targetRegion + " **");
         		// Create a Packet to send through Mux to Leader's UserApp
-        		Packet packet = new Packet(-1, 
+        		Packet packet = new Packet(mux.vncDaemon.mId, 
         				-1,
         				Packet.CLIENT_REQUEST,
         				Packet.CLIENT_DOWNLOAD_PHOTO,
         				mux.vncDaemon.myRegion,
         				mux.vncDaemon.myRegion); 
+        		
+        		// increment requestCounter
+    			requestCounter += 1;
+    			logMsg("change local requestCounter to "+requestCounter);
+    			// because the leader is getting different phone's IDs
+    			packet.requestCounter = ((int)mux.vncDaemon.mId)*1000 + requestCounter;
+
         		GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
         				mux.vncDaemon.myRegion.x, 
         				targetRegion);
-        		logMsg("I'm the Client, and I'm in region: " + 
-        				my_getphotoinfo.srcRegion + 
-        				" nodID = " + my_getphotoinfo.originNodeId);
+
         		try {
         			// save GetPhotoInfo inside Packet
         			packet.getphotoinfo_bytes = _getphotoinfoToBytes(my_getphotoinfo);
@@ -939,20 +1057,53 @@ public class StatusActivity extends Activity implements LocationListener {
         			logMsg("_button_listener_helper _intToBytes() failed");
         			e.printStackTrace();
         		}
-
-        		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
-        			logMsg("I'm a leader, my requesting photos packet going to mux directly");
-        			client_download_start = System.currentTimeMillis();
-        			mux.myHandler.obtainMessage(mux.PACKET_RECV, packet).sendToTarget();
-        		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
-        			logMsg("I'm a nonleader sending my requesting photos packet to my leader");
-        			client_download_start = System.currentTimeMillis();
-        			mux.vncDaemon.sendPacket(packet);
-        		}
-        		logMsg("StatusActivity sent request to get photos for region " + targetRegion);
+        		
+        		// set packet to global requestPacket so it can be sent repeatedly
+        		requestPacket = packet;
+        		
+    			logMsg("Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: " + packet.requestCounter
+        				+ " Client in region: " + my_getphotoinfo.srcRegion + 
+        				" Client nodID: " + my_getphotoinfo.originNodeId);
+        		
+    			// keep sending requests every sendingRequestsPeriod UNTIL
+    			//    1. got First Leg Ack from leader
+    			// OR 2. sendingRequestsTimeoutPeriod reached
+    			myHandler.post(sendRequestPacketRepeatingRunnable);
+    			myHandler.postDelayed(sendRequestPacketTimeoutR, sendingRequestsTimeoutPeriod);
+			
 			} else {
 				logMsg("can't press any buttons yet, so can't get region");
 			}
 		}
 	};
+	
+	private Runnable sendRequestPacketTimeoutR = new Runnable() {
+		public void run() {
+			logMsg("inside sendRequestPacketTimeoutR, stops Client sending requestPackets");
+			myHandler.removeCallbacks(sendRequestPacketRepeatingRunnable);
+		}
+	};
+	
+	// used to send both the new picture request and get picture request
+	// since only one request can be processed at a time
+	private Runnable sendRequestPacketRepeatingRunnable = new Runnable() {
+		public void run() {
+			logMsg("----------------------------");
+			logMsg("inside sendRequestPacketRepeatingRunnable for requestCount = " + requestPacket.requestCounter);
+
+    		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
+    			logMsg("I'm a leader, my requesting photos packet going to mux directly");
+    			client_download_start = System.currentTimeMillis();
+    			mux.myHandler.obtainMessage(mux.PACKET_RECV, requestPacket).sendToTarget();
+    		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
+    			logMsg("I'm a nonleader sending my requesting photos packet to my leader");
+    			client_download_start = System.currentTimeMillis();
+    			mux.vncDaemon.sendPacket(requestPacket);
+    		}
+    		logMsg("--- Finished one round of sending REQUEST Packet ---------");
+		
+			myHandler.postDelayed(this, sendingRequestsPeriod);
+		}
+	};
+
 }

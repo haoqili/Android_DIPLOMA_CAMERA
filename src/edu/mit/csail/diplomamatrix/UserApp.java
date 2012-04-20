@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import android.graphics.Bitmap;
 import android.util.Log;
@@ -17,6 +18,28 @@ public class UserApp implements DSMUser {
 
 	private DSMLayer dsm;
 	private Mux mux;
+
+	// global variables for runnables
+	// Use a HashMap to keep track of replies since 
+	// other replies might pop in between final_ack sent and receive 
+	// The Packet is the reply packet
+	HashMap<Integer, Packet> replyPacketMap;
+	// This hashmap keeps track of all the sendingReplyRunnables
+	HashMap<Integer, Runnable> replyRepeatingRMap;
+	// This hashmap keeps track of all the timeouts so we can delete them when received ack
+	// We don't have to delete TimoutRunnables but for better logging, let's track them
+	HashMap<Integer, Runnable> replyTimeoutRMap;
+	
+	// reply counter stuff
+	private int replyCounter = 0; // keeping track of unique replies
+	private final static long sendingRepliesPeriod = 600;
+	// will keep sending replies to client UNTIL
+	//    1. heard Final Leg Ack from client 
+	// OR 2. sendingRepliesTimeoutPeriod reached
+	private final static long sendingRepliesTimeoutPeriod = 2000;
+	
+	// request counter stuff
+	private ArrayList<Integer> processedRequests = null;
 
 	// DSM Atoms that can be called
 	final static int SERVER_UPLOAD_PHOTO = 10; // when a client (nonleader/myself) of my region takes a new photo. The photo is uploaded to me to be saved.
@@ -37,6 +60,13 @@ public class UserApp implements DSMUser {
 	public UserApp(Mux m, DSMLayer c) {
 		this.mux = m;
 		this.dsm = c;
+		
+		// Initialize ProcessRequests
+		processedRequests = new ArrayList<Integer>();
+		// Initialize reply maps
+		replyPacketMap = new HashMap<Integer, Packet>();
+		replyRepeatingRMap = new HashMap<Integer, Runnable>();
+		replyTimeoutRMap = new HashMap<Integer, Runnable>();
 	}
 
 	/** Called only upon empty DSMLayer invocation in region. */
@@ -62,18 +92,18 @@ public class UserApp implements DSMUser {
 	 * Handle a DSM Atom reply from a remote region. Executed by the source /
 	 * originating region. At the end, it sends the final leg from leader (me!) to non-leader
 	 */
-	// Third part. Original leader (me) gets this emote region's reply 
+	// Third part. Original leader (me) gets this remote region's reply 
 	// with photo, in case of photo request
 	// with ack of success, in case of photo save/upload
 	public synchronized void handleDSMReply(Atom reply) {
 		origLeaderReceiveTime = System.currentTimeMillis();
 		if (!reply.timedOut) {
-			logMsg("Now back in orginitator region's leader, precssing handleDSMReply");
+			logMsg("inside handleDSMReply. Now back in orginitator leader of region " + mux.vncDaemon.myRegion.x);
 			
 			// latency stuff
 			long latency = origLeaderReceiveTime - origLeaderSendTime;
 			logMsg("Going to and from remote region took latency = " + latency);
-			logMsg("= orig leader sent packet at " + origLeaderSendTime + " ~ received reply at " + origLeaderReceiveTime);
+			logMsg("orig leader sent packet at " + origLeaderSendTime + " ~ received reply at " + origLeaderReceiveTime);
 			
 			GetPhotoInfo my_gpinfo2 = null;
 			long request_nodeId = 666;
@@ -97,19 +127,25 @@ public class UserApp implements DSMUser {
 			}
 			
 			logMsg("Originator Region=" + request_region 
-					+ " Leader (for Client=" + request_nodeId + 
+					+ "'s Leader (for Client=" + request_nodeId + 
 					") processes remote region's dsm atom reply and will send Packet reply to Originator Client");
 			
 			// Create a reply packet, note the subtype is temporarily -1 
-			Packet reply_packet = new Packet(-1, request_nodeId,
+			Packet reply_packet = new Packet(mux.vncDaemon.mId, request_nodeId,
 					Packet.SERVER_REPLY, -1,
 					mux.vncDaemon.myRegion, new RegionKey(
 							request_region, 0));
-			
+
+			// increment replyCounter
+			replyCounter += 1;
+			logMsg("change leader replyCounter to: "+replyCounter);
+			// because the leader has to keep track of different client's reply acks
+			reply_packet.replyCounter = ((int)mux.vncDaemon.mId)*100000 + replyCounter;
+
 			// Customize the reply packet
 			switch (reply.procedure) {
 			case SERVER_UPLOAD_PHOTO:
-				logMsg("reply packet contains the ACK for UPLOAD_PHOTO");
+				logMsg("reply packet contains the success info for UPLOAD_PHOTO");
 
 				reply_packet.subtype = Packet.CLIENT_UPLOAD_PHOTO_ACK;
 				break;
@@ -125,23 +161,19 @@ public class UserApp implements DSMUser {
 			// fill the packet's GetPhotoInfo with remote leader's reply.data's GetPhotoInfo
 			// reply.data is GetPhotoInfo bytes containing
 			// For SERVER_GET_PHOTO: photoBytes of the newest remote photo 
-			// For SERVER_UPLOAD_PHOTO: success of the upload
+			// For SERVER_UPLOAD_PHOTO: successfulness of the upload
 			reply_packet.getphotoinfo_bytes = reply.data;
 			
-			// Send reply packet to originator client (the final leg)
-			if (request_nodeId == mux.vncDaemon.mId) {
-				// if this node is leader, go directly to mux
-				// because phones filter out packets to itself
-				logMsg("I (the leader) was also the originator client (id = "
-						+ request_nodeId + ") so I hand the packet to my mux directly, without UDP");
-				mux.activityHandler.obtainMessage(reply_packet.subtype, reply_packet)
-				.sendToTarget();
-			} else {
-				logMsg("I (the leader) was not the originator client (which id = "
-						+ request_nodeId + ") so I use UDP to send packet back to my nonleader");
-				mux.vncDaemon.sendPacket(reply_packet);
-			}
-
+			
+			//TODO: marker
+			// put the reply with the counter in HashMap 
+			// it's like a global, so the reply_packet can be sent repeatedly
+			replyPacketMap.put(replyCounter, reply_packet);
+			
+			// keep sending replies every sendingRepliesPeriod UNTIL
+			//    1. got Final Leg Ack from client
+			// OR 2. sendingRepliesTimeoutPeriod reached
+			sendReplies(replyCounter);
 		}
 		// Cannot handle the case of timedOut to tell nonclient that I (the leader)
 		// failed to reach the remote region so it (the nonclient) doesn't have to
@@ -150,6 +182,96 @@ public class UserApp implements DSMUser {
 		// So even if a nonclient hears a PROC REPLY of FAILURE, it can't be sure
 		// whether that PROC REPLY was a response to its request or some other 
 		// nonleader in the region's request
+	}
+	
+	// keep sending replies every sendingRepliesPeriod UNTIL
+	//    1. got Final Leg Ack from client
+	// OR 2. sendingRepliesTimeoutPeriod reached
+	private void sendReplies(int replyCount_) {
+		logMsg("inside sendReplies of replyCount = " + replyCount_);
+		
+		// ReplyRepeating Runnable:
+		// reply Runnable (repeats)
+		Runnable sendReplyRepeatingRunnable = createReplyRepeatingRunnable(replyCount_);
+		// put Runnable in HashMap
+		replyRepeatingRMap.put(replyCount_, sendReplyRepeatingRunnable);
+		// post the sendReplyRepeatingRunnable
+		mux.vncDaemon.myHandler.post(sendReplyRepeatingRunnable);
+
+		// Timeout Runnable:
+		// timeout Runnable to stop the reply Runnable
+		Runnable sendReplyTimeoutR = createReplyTimeoutR(replyCount_);
+		// put Runnable in HashMap
+		replyTimeoutRMap.put(replyCount_, sendReplyTimeoutR);
+		// post timeout runnable
+		mux.vncDaemon.myHandler.postDelayed(sendReplyTimeoutR, sendingRepliesTimeoutPeriod);
+	}
+	
+	// TODO: marker
+	// Called when 
+	//    1. inside handleClientRequest when heard Final Leg Ack from client 
+	// OR 2. inside sendReplyTimeoutR when sendingRepliesTimeoutPeriod reached
+	private void deleteSendReplyRepeatingR(int replyCount_){
+		if (replyRepeatingRMap.containsKey(replyCount_)){
+			logMsg("deleting the key's associated reply_REPEATING_RMap runnable for replyCount "
+					+ replyCount_);
+			// TODO: NOT REMOVING RUNNABLE CALLBACK!!!!!!!!!!!!!!!!!!
+			Runnable sendReplyRepeatingRunnable_mine = replyRepeatingRMap.get(replyCount_);
+			mux.vncDaemon.myHandler.removeCallbacks(sendReplyRepeatingRunnable_mine);
+			// delete from hashmap
+			replyRepeatingRMap.remove(replyCount_);
+		} else {
+			logMsg("the key's associated reply_REPEATING_ RMap runnable ALREADY deleted for replyCount "
+					+ replyCount_);
+		}
+		
+	}
+	
+	private Runnable createReplyTimeoutR(final int replyCount_){
+		Runnable sendReplyTimeoutR = new Runnable(){
+			public void run(){
+				logMsg("inside sendReplyTimeoutR");
+				deleteSendReplyRepeatingR(replyCount_);
+			}
+		};
+		return sendReplyTimeoutR;
+	}
+	
+	private Runnable createReplyRepeatingRunnable(final int replyCount_) {
+		Runnable sendReplyRepeatingRunnable = new Runnable() {
+			public void run(){	
+				logMsg("=======================");
+				logMsg("inside sendReplyRepeatingRunnable for replyCount = " + replyCount_);
+				
+				// get the packet to send
+				Packet reply_packet = replyPacketMap.get(replyCount_);
+				long request_nodeId = reply_packet.dst;
+				
+				logMsg("Leader about to send REPLY packet, number: " + reply_packet.replyCounter
+						+ " type: " + reply_packet.subtype
+	    				+ " Leader in region: " + reply_packet.srcRegion + 
+	    				" to Client nodID: " + request_nodeId);
+				
+				
+				// Send reply packet to originator client (the final leg)
+				if (request_nodeId == mux.vncDaemon.mId) {
+					// if this node is leader, go directly to mux
+					// because phones filter out packets to itself
+					logMsg("I (the leader) was also the originator client (id = "
+							+ request_nodeId + ") so I hand the packet to my mux directly, without UDP");
+					mux.activityHandler.obtainMessage(reply_packet.subtype, reply_packet)
+					.sendToTarget();
+				} else {
+					logMsg("I (the leader) was not the originator client (which id = "
+							+ request_nodeId + ") so I use UDP to send packet back to my nonleader");
+					mux.vncDaemon.sendPacket(reply_packet);
+				}
+	    		logMsg("=== Finished one round of sending REPLY Packet =======");
+
+				mux.vncDaemon.myHandler.postDelayed(this, sendingRepliesPeriod);
+			}
+		};
+		return sendReplyRepeatingRunnable;
 	}
 
 	/**
@@ -162,6 +284,7 @@ public class UserApp implements DSMUser {
 	// Second Part. Remote leader region, where stuff actually gets done
 	public synchronized Atom handleDSMRequest(DSMLayer.Block block,
 			final Atom request) throws IOException, ClassNotFoundException {
+		logMsg("inside handleDSMRequest. At requests's remote leader of region " + mux.vncDaemon.myRegion.x);
 		// reply goes to the *originator* client (leader or nonleader), in the original region
 		Atom reply = new Atom(request.requestId, request.procedure,
 				Atom.PROC_REPLY, request.dstRegion, request.srcRegion);
@@ -290,7 +413,7 @@ public class UserApp implements DSMUser {
 	 * @throws ClassNotFoundException
 	 * @throws IOException
 	 */
-	// First Part. This from original client (my nonleader/myself) --> me, which is the leader of my region
+	// First Part/leg. This from original client (my nonleader/myself) --> me, which is the leader of my region
 	public synchronized void handleClientRequest(Packet packet)
 			throws IOException, ClassNotFoundException {
 		if ((packet.dstRegion.x != mux.vncDaemon.myRegion.x)
@@ -303,27 +426,86 @@ public class UserApp implements DSMUser {
 					+ packet.dstRegion);
 			return;
 		}
-		logMsg("UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest");
-		switch (packet.subtype) {
-		case Packet.CLIENT_UPLOAD_PHOTO:
-			logMsg("request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)");
-			origLeaderSendTime = System.currentTimeMillis();
-			dsm.atomRequest(SERVER_UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0,
-					true, packet.getphotoinfo_bytes);
-			break;
-		case Packet.CLIENT_DOWNLOAD_PHOTO:
-			logMsg("request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet");
-			// Packet.getphotoinfo_bytes unchanged, just retrieving info of destination region
-			GetPhotoInfo my_gpinfo = _bytesToGetphotoinfo(packet.getphotoinfo_bytes);
-			long dest_region = my_gpinfo.destRegion;
-			logMsg("Sending to region: " + dest_region);
+		logMsg("inside handleClientRequest. Originator leader of region " + mux.vncDaemon.myRegion.x);
+		// also discard packets that are already-processed
+		if (processedRequests.contains(packet.requestCounter)){
+			logMsg("discarding repeated requestCounter="+packet.requestCounter
+					+ ", but still send an ack back");
+		
+		} else {
+			logMsg("got new request, requestCounter = " + packet.requestCounter);
+			switch (packet.subtype) {
+			case Packet.CLIENT_UPLOAD_PHOTO:
+				logMsg("request is CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)");
+				origLeaderSendTime = System.currentTimeMillis();
+				dsm.atomRequest(SERVER_UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0,
+						true, packet.getphotoinfo_bytes);
+				break;
+			case Packet.CLIENT_DOWNLOAD_PHOTO:
+				logMsg("request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet");
+				// Packet.getphotoinfo_bytes unchanged, just retrieving info of destination region
+				GetPhotoInfo my_gpinfo = _bytesToGetphotoinfo(packet.getphotoinfo_bytes);
+				long dest_region = my_gpinfo.destRegion;
+				logMsg("Sending to region: " + dest_region);
 
-			// this atom Request is going to forward this to the destination region
-			origLeaderSendTime = System.currentTimeMillis();
-			dsm.atomRequest(SERVER_GET_PHOTO, dest_region, 0, false,
-					packet.getphotoinfo_bytes);
-			break;
+				// this atom Request is going to forward this to the destination region
+				origLeaderSendTime = System.currentTimeMillis();
+				dsm.atomRequest(SERVER_GET_PHOTO, dest_region, 0, false,
+						packet.getphotoinfo_bytes);
+				break;
+			case Packet.CLIENT_FINAL_LEG_ACK:
+				logMsg("request is CLIENT_FINAL_LEG_ACK with replyCounter of " + packet.replyCounter);
+				// Yay the leader got the ack from its client, the last leg succeeded
+				int replyC = packet.replyCounter;
+				logMsg("Yay the last leg succeeded. Removing reply runnables ...");
+				// remove the sendReply
+				deleteSendReplyRepeatingR(packet.replyCounter);
+				// remove sendReplyTimeoutR
+				if (replyTimeoutRMap.containsKey(replyC)){
+					logMsg("deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount "
+							+ replyC);
+					Runnable sendReplyTimeoutR_mine = replyTimeoutRMap.get(replyC);
+					mux.vncDaemon.myHandler.removeCallbacks(sendReplyTimeoutR_mine);
+					// delete from hashmap
+					replyTimeoutRMap.remove(replyC);
+				} else {
+					logMsg("the key's associated reply_TIMEOUT_RMap runnable ALREADY deleted for replyCount"
+							+ replyC);
+				}
+				logMsg("do not send ack for received final_leg_ack");
+				return;  // should not send ack for this received final_leg_ack
+			}
 		}
+
+		// note down this newly processed request
+		logMsg("Note down new request by adding requestCounter=" + packet.requestCounter + " to HashMap processedRequests");
+		processedRequests.add(packet.requestCounter);
+		
+		// TODO: marker
+		logMsg("Make FirstLeg Ack regardless of new or already-processed requests");
+		// send ack ONCE to client to let it know that this First Leg is complete
+		// so that the client can resend if it doesn't hear this ack
+		// since we send it only ONCE, no need to send it repeatedly runnable
+		//							   nor have the need of a reply counter, as it's targeted to one client
+		// Create an ack packet:
+		Packet reply_packet = new Packet(-1, packet.src,
+				Packet.SERVER_REPLY, Packet.SERVER_FIRST_LEG_ACK,
+				mux.vncDaemon.myRegion, mux.vncDaemon.myRegion);
+		
+		// Send ack packet to originator client
+		if (packet.src == mux.vncDaemon.mId) {
+			// if this node is leader, go directly to mux
+			// because phones filter out packets to itself
+			logMsg("sending a First Leg ack to myself, becaues I (the leader) was also the originator client (id = "
+					+ mux.vncDaemon.mId + ")");
+			mux.activityHandler.obtainMessage(reply_packet.subtype, reply_packet)
+			.sendToTarget();
+		} else {
+			logMsg("The leader sending a First Leg ack to originator client (which id = "
+					+ packet.src + ")");
+			mux.vncDaemon.sendPacket(reply_packet);
+		}
+		
 	}
 
 	public byte[] _bitmapToBytes(Bitmap bmp) throws IOException {

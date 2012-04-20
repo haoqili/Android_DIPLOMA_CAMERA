@@ -18,7 +18,7 @@ public class Globals {
 		// new region calculations
 		// road parameters, used to calculate region width
 		//final static public double PHONE_RANGE_METERS = 60; // diagonal of region
-        final static public double PHONE_RANGE_METERS=42.43;// Reduced this on April 18th to 42.43 to reduce region_width to 30 m
+        final static public double PHONE_RANGE_METERS=36; // sqrt(30^2+20^2), 21 meters is the max linearly on 77 Mass Ave
 		final static public double ROAD_WIDTH_METERS = 30;
 		// to calculate buffer zone
 		final static public double REGION_WIDTH_BOUNDARY_METERS = 5;

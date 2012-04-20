@@ -15,10 +15,15 @@ public class Packet implements Serializable {
 	final static int CLIENT_UPLOAD_PHOTO = 11;
 	final static int CLIENT_DOWNLOAD_PHOTO = 12;
 	final static int CLIENT_SHOW_REMOTEPHOTO = 15;
-	final static int CLIENT_UPLOAD_PHOTO_ACK = 16;
+	// client find out whether its upload photo was successful
+	final static int CLIENT_UPLOAD_PHOTO_ACK = 16; 
+	final static int CLIENT_FINAL_LEG_ACK = 17;
+	
 	// for camera server
 	final static int SERVER_REPLY = 1000;
 	final static int SERVER_SHOW_NEWPHOTO = 1001;
+	final static int SERVER_FIRST_LEG_ACK = 1002;
+	
 
 	// VNC_MSG subtypes
 	final static int LEADER_REQUEST = 0; // Who's the leader?
@@ -28,7 +33,7 @@ public class Packet implements Serializable {
 	final static int LEADER_NOMINATE = 4; // Pick me as the leader!
 	final static int LEADER_CONFIRM = 5; // Okay, you can be the leader!
 	final static int LEADER_CONFIRM_ACK = 6; // Yay, I'm the leader now!
-
+	
 	// attributes to be serialized
 	public int type;
 	public long timestamp;
@@ -50,8 +55,10 @@ public class Packet implements Serializable {
 	// public UserOp user_op = null;
 	
 	// Camera stuff
-	public byte[] getphotoinfo_bytes = null; 
-
+	public byte[] getphotoinfo_bytes = null;
+	public int requestCounter = -1;
+	public int replyCounter = -1;
+	
 	/** Construct Packet with values */
 	public Packet(long src_, long dst_, int type_, int subtype_,
 			RegionKey srcRegion_, RegionKey dstRegion_) {
