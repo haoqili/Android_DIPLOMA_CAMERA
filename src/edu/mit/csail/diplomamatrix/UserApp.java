@@ -435,13 +435,13 @@ public class UserApp implements DSMUser {
 			logMsg("got new request, requestCounter = " + packet.requestCounter);
 			switch (packet.subtype) {
 			case Packet.CLIENT_UPLOAD_PHOTO:
-				logMsg("request is CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)");
+				logMsg("Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)");
 				origLeaderSendTime = System.currentTimeMillis();
 				dsm.atomRequest(SERVER_UPLOAD_PHOTO, mux.vncDaemon.myRegion.x, 0,
 						true, packet.getphotoinfo_bytes);
 				break;
 			case Packet.CLIENT_DOWNLOAD_PHOTO:
-				logMsg("request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet");
+				logMsg("Leader received CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet");
 				// Packet.getphotoinfo_bytes unchanged, just retrieving info of destination region
 				GetPhotoInfo my_gpinfo = _bytesToGetphotoinfo(packet.getphotoinfo_bytes);
 				long dest_region = my_gpinfo.destRegion;
@@ -453,7 +453,7 @@ public class UserApp implements DSMUser {
 						packet.getphotoinfo_bytes);
 				break;
 			case Packet.CLIENT_FINAL_LEG_ACK:
-				logMsg("request is CLIENT_FINAL_LEG_ACK with replyCounter of " + packet.replyCounter);
+				logMsg("Leader received CLIENT_FINAL_LEG_ACK with replyCounter of " + packet.replyCounter);
 				// Yay the leader got the ack from its client, the last leg succeeded
 				int replyC = packet.replyCounter;
 				logMsg("Yay the last leg succeeded. Removing reply runnables ...");

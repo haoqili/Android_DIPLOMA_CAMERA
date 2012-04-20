@@ -182,7 +182,6 @@
         
 
     </LinearLayout>
-    
 
     <ListView
         android:id="@+id/msgList"
@@ -193,36 +192,57 @@
         android:transcriptMode="alwaysScroll" >
     </ListView>
 
+        
     <LinearLayout
         android:id="@+id/CountInfoLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dip" >
+        android:layout_height="wrap_content" >
 
         <TextView
             style="@style/CloudText"
-            android:id="@+id/opcount_tv"
-            android:layout_width="80dip"
+            android:id="@+id/takeNum_tv"
+            android:layout_width="50dip"
             android:layout_height="wrap_content"
-            android:text="ops: 0" >
+            android:text="t 0" >
         </TextView>
-
         <TextView
             style="@style/CloudText"
-            android:id="@+id/successcount_tv"
-            android:layout_width="110dip"
+            android:id="@+id/takeGood_tv"
+            android:layout_width="60dip"
             android:layout_height="wrap_content"
-            android:text="successes: 0" >
+            android:text="t:) 0" >
         </TextView>
-
         <TextView
             style="@style/CloudText"
-            android:id="@+id/failurecount_tv"
-            android:layout_width="90dip"
+            android:id="@+id/takePercent_tv"
+            android:layout_width="70dip"
             android:layout_height="wrap_content"
-            android:text="failures: 0" >
+            android:text="t% 0" >
+        </TextView>
+        
+        <TextView
+            style="@style/CloudText"
+            android:id="@+id/getNum_tv"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:text="g 0" >
+        </TextView>
+        <TextView
+            style="@style/CloudText"
+            android:id="@+id/getGood_tv"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:text="g:) 0" >
+        </TextView>
+        <TextView
+            style="@style/CloudText"
+            android:id="@+id/getPercent_tv"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:text="g% 0" >
         </TextView>
     </LinearLayout>
-
+    
     <LinearLayout
         android:id="@+id/RegionButtonsLayout"
         android:layout_width="fill_parent"

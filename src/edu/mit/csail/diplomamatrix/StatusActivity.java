@@ -50,7 +50,8 @@ public class StatusActivity extends Activity implements LocationListener {
 	// UI elements
 	Button region_button, my_camera_button;
 	Button get0_button, get1_button, get2_button, get3_button, get4_button, get5_button;
-	TextView opCountTv, successCountTv, failureCountTv;
+	TextView takeNumTv, takeGoodTv, takePercentTv;
+	TextView getNumTv, getGoodTv, getPercentTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
 	EditText regionText, threadsText;
 	ListView msgList;
@@ -141,24 +142,17 @@ public class StatusActivity extends Activity implements LocationListener {
 				update();
 				break;
 			case Mux.CLIENT_STATUS_CHANGE:
-				//TODO: count success/failures end to end (client to leader (and to remote and back to leader) and back to client) 
-				Map<String, Long> data = (Map<String, Long>) msg.obj;
-				opCountTv.setText("ops: " + String.valueOf(data.get("op")));
-				successCountTv.setText("successes: "
-						+ String.valueOf(data.get("success")));
-				failureCountTv.setText("failures: "
-						+ String.valueOf(data.get("failure")));
+				//nothing
 				break;
 			case Packet.SERVER_FIRST_LEG_ACK:
 				// Yay the client got the ack from its leader, at least the first leg succeeded
 				// remove any request runnables
-				// TODO: marker
-				logMsg("inside Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables");
+				logMsg("Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables");
 				myHandler.removeCallbacks(sendRequestPacketRepeatingRunnable);
 				myHandler.removeCallbacks(sendRequestPacketTimeoutR);
 				break;
 			case Packet.SERVER_SHOW_NEWPHOTO:
-				logMsg("%%%%%%%% aside: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo");
+				logMsg("%%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo");
 				Packet packet_ssn = (Packet) msg.obj;
 
 				try {
@@ -200,13 +194,12 @@ public class StatusActivity extends Activity implements LocationListener {
 				// where the nonleader/leader itself requested the remote region
 				long client_download_end = System.currentTimeMillis();
 				
-				logMsg("inside Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply");
+				logMsg("Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply");
 				
 				Packet packet_csn = (Packet) msg.obj;
 				// global, used in finalLegAck
 				packet_reply_sourceID = packet_csn.src; 
 
-				// TODO: marker
 				// send Final Leg Ack regardless of new or already-processed reply
 				logMsg("send final leg ack regardless of new or already-processed reply");
 				finalLegAck(packet_csn.replyCounter);
@@ -307,13 +300,12 @@ public class StatusActivity extends Activity implements LocationListener {
 				// photoBytes is null inside GetPhotoInfo
 				long client_upload_end = System.currentTimeMillis();
 
-				logMsg("inside Packet.CLIENT_UPLOAD_PHOTO_ACK");
+				logMsg("Client received Packet.CLIENT_UPLOAD_PHOTO_ACK");
 
 				Packet packet_cupa = (Packet) msg.obj;
 				// global, used in finalLegAck
 				packet_reply_sourceID = packet_cupa.src;
 
-				// TODO: marker
 				// send Final Leg Ack regardless of new or already-processed reply
 				logMsg("send final leg ack regardless of new or already-processed reply");
 				finalLegAck(packet_cupa.replyCounter);
@@ -409,6 +401,21 @@ public class StatusActivity extends Activity implements LocationListener {
 		logMsg("takeNum="+takeNum+ " takeCamGood="+takeCamGood+ " takeGoodSave="+takeGoodSave
 				+ " takeBad="+takeBad+ " takeTimedout="+takeTimedout+ " getNum="+getNum
 				+ " getGood="+getGood+ " getBad="+getBad+ " getTimedout=" + getTimedout);
+		takeNumTv.setText("t " + takeNum);
+		takeGoodTv.setText("t:) " + takeGoodSave);
+		if (takeNum!=0){
+			double takePercent = 100.0*takeGoodSave / (1.0*takeNum);
+			int tPercent = (int) takePercent;
+			takePercentTv.setText("t% " + tPercent);
+		}
+		
+		getNumTv.setText("g " + getNum);
+		getGoodTv.setText("g:) " + getGood);
+		if (getNum!=0){
+			double getPercent = 100.0*getGood / (1.0*getNum);
+			int gPercent = (int) getPercent;
+			getPercentTv.setText("g% " + gPercent);
+		}
 	}
 	
 	/** Force an update of the screen views */
@@ -437,22 +444,10 @@ public class StatusActivity extends Activity implements LocationListener {
 			break;
 		}
 	}
-	
-	// Runnables
-	/** Disable buttons at press of any button (take new pic for upload / region x get for download) */
-	/*private Runnable disableButtonsProgressStartR = new Runnable() {
-		public void run() {
-			Log.i(TAG, "Inside disableButtonsR");
-			areButtonsEnabled = false;
-			Log.i(TAG, "areButtonsEnabled --> false");
-			progressDialog = ProgressDialog.show(StatusActivity.this, "", "Processing photo get or save to leader ... :)");
-		}       
-	}; */ 
 
 	// client send ack ONCE to its leader to let it know that this Final Leg is complete
 	// so that leader can resend if it doesn't hear this ack
 	// since we send it only ONCE, no need to send it repeatedly runnable
-	// TODO: marker
 	private void finalLegAck(int replyCounterReceived){
 		// increment requestCounter
 		requestCounter += 1;
@@ -599,7 +594,6 @@ public class StatusActivity extends Activity implements LocationListener {
                 		logMsg("areButtonsEnabled --> false");
             			logMsg("disabling buttons ...");
             			// Disable buttons until timeout is over or received reply
-            			//myHandler.post(disableButtonsProgressStartR);
             			logMsg("took picture disableButtonsR");
             			areButtonsEnabled = false;
             			logMsg("areButtonsEnabled --> false");
@@ -622,9 +616,13 @@ public class StatusActivity extends Activity implements LocationListener {
         });
 		
 		// Text views
-		opCountTv = (TextView) findViewById(R.id.opcount_tv);
-		successCountTv = (TextView) findViewById(R.id.successcount_tv);
-		failureCountTv = (TextView) findViewById(R.id.failurecount_tv);
+		takeNumTv = (TextView) findViewById(R.id.takeNum_tv);
+		takeGoodTv = (TextView) findViewById(R.id.takeGood_tv);
+		takePercentTv = (TextView) findViewById(R.id.takePercent_tv);
+		
+		getNumTv = (TextView) findViewById(R.id.getNum_tv);
+		getGoodTv = (TextView) findViewById(R.id.getGood_tv);
+		getPercentTv = (TextView) findViewById(R.id.getPercent_tv);
 
 		regionText = (EditText) findViewById(R.id.region_text);
 
@@ -888,7 +886,6 @@ public class StatusActivity extends Activity implements LocationListener {
 
 			image.setImageBitmap(new_bitmap);
 			
-			// TODO: marker
 			// Make packet that sends the photo request to the leader
 			logMsg("** Client making NEWly TAKEN photo PACKET to send to leader **");
 			// Create a Packet to send through Mux to Leader's UserApp
@@ -996,7 +993,6 @@ public class StatusActivity extends Activity implements LocationListener {
         		areButtonsEnabled = false;
         		logMsg("areButtonsEnabled --> false ");
         		// Disable buttons until timeout is over, or received reply
-        		//myHandler.post(disableButtonsProgressStartR);
         		logMsg("get picture disableButtonsR");
     			areButtonsEnabled = false;
     			logMsg("areButtonsEnabled --> false");
@@ -1029,7 +1025,6 @@ public class StatusActivity extends Activity implements LocationListener {
         			break;
         		}
         		
-        		// TODO: marker
         		// Make packet that sends the photo request to the leader
         		logMsg("** Client making GET photo PACKET to send to the leader. Requesting for region: " + targetRegion + " **");
         		// Create a Packet to send through Mux to Leader's UserApp
