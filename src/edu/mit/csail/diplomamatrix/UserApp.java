@@ -32,11 +32,11 @@ public class UserApp implements DSMUser {
 	
 	// reply counter stuff
 	private int replyCounter = 0; // keeping track of unique replies
-	private final static long sendingRepliesPeriod = 600;
+	private final static long sendingRepliesPeriod = 300;
 	// will keep sending replies to client UNTIL
 	//    1. heard Final Leg Ack from client 
 	// OR 2. sendingRepliesTimeoutPeriod reached
-	private final static long sendingRepliesTimeoutPeriod = 2000;
+	private final static long sendingRepliesTimeoutPeriod = 1000;
 	
 	// request counter stuff
 	private ArrayList<Integer> processedRequests = null;
@@ -168,12 +168,12 @@ public class UserApp implements DSMUser {
 			//TODO: marker
 			// put the reply with the counter in HashMap 
 			// it's like a global, so the reply_packet can be sent repeatedly
-			replyPacketMap.put(replyCounter, reply_packet);
+			replyPacketMap.put(reply_packet.replyCounter, reply_packet);
 			
 			// keep sending replies every sendingRepliesPeriod UNTIL
 			//    1. got Final Leg Ack from client
 			// OR 2. sendingRepliesTimeoutPeriod reached
-			sendReplies(replyCounter);
+			sendReplies(reply_packet.replyCounter);
 		}
 		// Cannot handle the case of timedOut to tell nonclient that I (the leader)
 		// failed to reach the remote region so it (the nonclient) doesn't have to
@@ -215,7 +215,6 @@ public class UserApp implements DSMUser {
 		if (replyRepeatingRMap.containsKey(replyCount_)){
 			logMsg("deleting the key's associated reply_REPEATING_RMap runnable for replyCount "
 					+ replyCount_);
-			// TODO: NOT REMOVING RUNNABLE CALLBACK!!!!!!!!!!!!!!!!!!
 			Runnable sendReplyRepeatingRunnable_mine = replyRepeatingRMap.get(replyCount_);
 			mux.vncDaemon.myHandler.removeCallbacks(sendReplyRepeatingRunnable_mine);
 			// delete from hashmap
@@ -469,7 +468,7 @@ public class UserApp implements DSMUser {
 					// delete from hashmap
 					replyTimeoutRMap.remove(replyC);
 				} else {
-					logMsg("the key's associated reply_TIMEOUT_RMap runnable ALREADY deleted for replyCount"
+					logMsg("the key's associated reply_TIMEOUT_RMap runnable ALREADY deleted for replyCount "
 							+ replyC);
 				}
 				logMsg("do not send ack for received final_leg_ack");
