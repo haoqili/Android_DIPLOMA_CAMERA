@@ -254,6 +254,7 @@ public class StatusActivity extends Activity implements LocationListener {
 					} else { // success
 						isGetSuccess = true;
 						getGood += 1;
+						logCounts(); // logCounts has to be called to refresh the UI anyway.	
 						
 						if (my_gpinfo3.photoBytes == null) {
 							logMsg("PHOTO DATA is NULL, because region doesn't have a photo yet");
@@ -262,9 +263,6 @@ public class StatusActivity extends Activity implements LocationListener {
 							toast.setGravity(Gravity.CENTER, 0,0);
 							toast.show();
 						} else { // success and has photo data!
-							
-							logCounts();
-							
 							// process photo
 							ImageView image = (ImageView) findViewById(R.id.photoResultView);
 							

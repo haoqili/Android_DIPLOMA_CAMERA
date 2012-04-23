@@ -433,6 +433,7 @@ public class VCoreDaemon extends Thread {
 			Cloud.CloudResponse csmR = null;
 
 			if (!Globals.DEBUG_SKIP_CLOUD) {
+				logMsg("trying to take leadership to the cloud");
 				csmR = myCloud.takeLeadership(myRegion, mId);
 				if (csmR == null || csmR.status == Cloud.CR_ERROR) {
 					logMsg("cloud rejected leadership request or request failed, wait to retry");
