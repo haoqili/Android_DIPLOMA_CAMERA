@@ -460,8 +460,13 @@ public class DSMLayer implements Serializable {
 							Atom reply = new Atom(request.requestId,
 									request.procedure, Atom.PROC_REPLY,
 									request.dstRegion, request.srcRegion);
+							
+							// request.data must have the original client node ID
+							reply.data=request.data; 
+							// now all data from the original timed out request is available in the reply
+							
 							reply.timedOut = true;
-							logMsg("Request timed out, send failure " + reply);
+							logMsg("DSM Layer: Request timed out, send failure " + reply);
 							sentReplies.get(reply.dstRegion).put(
 									reply.requestId, reply);
 							dispatchCSMOp(reply);

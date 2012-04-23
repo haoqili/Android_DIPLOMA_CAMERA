@@ -71,12 +71,23 @@ public class StatusActivity extends Activity implements LocationListener {
 	// counts: success/failures
 	private int takeNum = 0; // # of times pressed "Take Picture"
 	private int takeCamGood = 0; // # times got into the Camera callback
-	private int takeGoodSave = 0; // # "Take Picture" successes
+	// takeGoodSave is used to calculate the percentage of success
+	private int takeGoodSave = 0; // # "Take Picture" successes, saved to the leader.
+	// takeBad is incremented when we do get a response from the leader, but 
+	//            the leader failed to saved the picture 
+	//            or the response contains data that can't be converted into a bitmap picture 
 	private int takeBad = 0; // # "Take Picture" failures
+	// takeTimeout is incremented when we never get a response from the leader,
+	// thus timing out.
 	private int takeTimedout = 0;
+	
 	private int getNum = 0; // # of times pressed "Get x Region"
+	// getGood is incremented when the request completes completely, 
+	//    disregarding whether there is actually a picture on the remote region or not
 	private int getGood = 0; // # get success
+	// get a response back, but remote region had something bad
 	private int getBad = 0; // # get failure
+	// timed out
 	private int getTimedout = 0;
 	
 	// global variables for runnables
@@ -235,22 +246,23 @@ public class StatusActivity extends Activity implements LocationListener {
 					
 					// see if it was unsuccessful:
 					if (!my_gpinfo3.isSuccess){
-						logMsg("Can't get remote photo, perhaps region doesn't have a photo yet");
-						CharSequence text = "Can't get remote photo, perhaps region doesn't have a photo yet";
+						logMsg("Can't get remote photo, because DSM Layer on originator leader timed out");
+						CharSequence text = "Can't get remote photo, because originator leader timed out";
 						Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
 						toast.setGravity(Gravity.CENTER, 0,0);
 						toast.show();
 					} else { // success
+						isGetSuccess = true;
+						getGood += 1;
+						
 						if (my_gpinfo3.photoBytes == null) {
-							logMsg("PHOTO DATA is NULL, perhaps region doesn't have a photo yet");
-							CharSequence text = "PHOTO DATA is NULL, perhaps region doesn't have a photo yet";
+							logMsg("PHOTO DATA is NULL, because region doesn't have a photo yet");
+							CharSequence text = "PHOTO DATA is NULL, because region doesn't have a photo yet";
 							Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
 							toast.setGravity(Gravity.CENTER, 0,0);
 							toast.show();
 						} else { // success and has photo data!
 							
-							isGetSuccess = true;
-							getGood += 1;
 							logCounts();
 							
 							// process photo
@@ -340,8 +352,8 @@ public class StatusActivity extends Activity implements LocationListener {
 
 					// see if it was unsuccessful:
 					if (!my_gpinfo3.isSuccess){
-						logMsg("FAIL! Client now knows saving photo on its leader failed");
-						CharSequence text = "FAIL! Saving photo on leader failed, try again.";
+						logMsg("Can't save new photo on leader, because DSM Layer on originator leader timed out");
+						CharSequence text = "Can't save new photo on leader, because leader timed out";
 						Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 						toast.setGravity(Gravity.CENTER, 0,0);
 						toast.show();
@@ -480,26 +492,26 @@ public class StatusActivity extends Activity implements LocationListener {
 	}
 	
 	private void _enableButtons(){
-		Log.i(TAG, "Inside _enableButtons");
+		logMsg("Inside _enableButtons");
 		if (progressDialog != null) {
 			progressDialog.dismiss();
 		} else {
 			logMsg("No progress dialog to dismiss");
 		}
 		areButtonsEnabled = true;
-		Log.i(TAG, "areButtonsEnabled --> true");
+		logMsg("areButtonsEnabled --> true");
 	}
 	/** Enable buttons again due to time out */
 	private Runnable buttonsEnableProgressUploadTimeoutR = new Runnable() {
 		public void run() {
 			takeTimedout += 1;
-			Log.i(TAG, "inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.");
+			logMsg("inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.");
 			CharSequence text = "Timed out saving the photo you took";
 			Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 			toast.setGravity(Gravity.CENTER, 0,0);
 			toast.show();
 			_enableButtons();
-			Log.i(TAG, "takeNum="+takeNum+ " takeCamGood="+takeCamGood+ " takeGoodSave="+takeGoodSave
+			logMsg("takeNum="+takeNum+ " takeCamGood="+takeCamGood+ " takeGoodSave="+takeGoodSave
 				+ " takeBad="+takeBad+ " takeTimedout="+takeTimedout+ " getNum="+getNum
 				+ " getGood="+getGood+ " getBad="+getBad+ " getTimedout=" + getTimedout);
 		}       
@@ -507,13 +519,13 @@ public class StatusActivity extends Activity implements LocationListener {
 	private Runnable buttonsEnableProgressDownloadTimeoutR = new Runnable() {
 		public void run() {
 			getTimedout += 1;
-			Log.i(TAG, "inside buttonsEnableProgressTimeoutR. Perhaps no one is in that region. Try again later!");
+			logMsg("inside buttonsEnableProgressTimeoutR. Perhaps no one is in that region. Try again later!");
 			CharSequence text = "Timed out getting photo. Perhaps no one is in that region currently. Try again later!";
 			Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 			toast.setGravity(Gravity.CENTER, 0,0);
 			toast.show();
 			_enableButtons();
-			Log.i(TAG, "takeNum="+takeNum+ " takeCamGood="+takeCamGood+ " takeGoodSave="+takeGoodSave
+			logMsg("takeNum="+takeNum+ " takeCamGood="+takeCamGood+ " takeGoodSave="+takeGoodSave
 					+ " takeBad="+takeBad+ " takeTimedout="+takeTimedout+ " getNum="+getNum
 					+ " getGood="+getGood+ " getBad="+getBad+ " getTimedout=" + getTimedout);
 		}       

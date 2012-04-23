@@ -97,93 +97,94 @@ public class UserApp implements DSMUser {
 	// with ack of success, in case of photo save/upload
 	public synchronized void handleDSMReply(Atom reply) {
 		origLeaderReceiveTime = System.currentTimeMillis();
+
+		logMsg("inside handleDSMReply. Now back in originator leader of region " + mux.vncDaemon.myRegion.x);
+
 		if (!reply.timedOut) {
-			logMsg("inside handleDSMReply. Now back in orginitator leader of region " + mux.vncDaemon.myRegion.x);
-			
 			// latency stuff
 			long latency = origLeaderReceiveTime - origLeaderSendTime;
-			logMsg("Going to and from remote region took latency = " + latency);
-			logMsg("orig leader sent packet at " + origLeaderSendTime + " ~ received reply at " + origLeaderReceiveTime);
-			
-			GetPhotoInfo my_gpinfo2 = null;
-			long request_nodeId = 666;
-			long request_region = 666;
-			
-			try {
-				// First, figure out the mID of client to send to 
-				// from remote leader's reply.data's GetPhotoInfo
-				my_gpinfo2 = _bytesToGetphotoinfo(reply.data);
-				request_nodeId = my_gpinfo2.originNodeId;
-				request_region = my_gpinfo2.srcRegion;
-				
-			} catch (IOException e1) {
-				logMsg("FAIL remote region's dsm atom reply data to Originator Region "
-						+ " could not be converted into GetPhotoInfo. IOException");
-				e1.printStackTrace();
-			} catch (ClassNotFoundException e1) {
-				logMsg("FAIL remote region's dsm atom reply data to Originator Region "
-						+ " could not be converted into GetPhotoInfo. ClassNotFoundException");
-				e1.printStackTrace();
-			}
-			
-			logMsg("Originator Region=" + request_region 
-					+ "'s Leader (for Client=" + request_nodeId + 
-					") processes remote region's dsm atom reply and will send Packet reply to Originator Client");
-			
-			// Create a reply packet, note the subtype is temporarily -1 
-			Packet reply_packet = new Packet(mux.vncDaemon.mId, request_nodeId,
-					Packet.SERVER_REPLY, -1,
-					mux.vncDaemon.myRegion, new RegionKey(
-							request_region, 0));
-
-			// increment replyCounter
-			replyCounter += 1;
-			logMsg("change leader replyCounter to: "+replyCounter);
-			// because the leader has to keep track of different client's reply acks
-			reply_packet.replyCounter = ((int)mux.vncDaemon.mId)*100000 + replyCounter;
-
-			// Customize the reply packet
-			switch (reply.procedure) {
-			case SERVER_UPLOAD_PHOTO:
-				logMsg("reply packet contains the success info for UPLOAD_PHOTO");
-
-				reply_packet.subtype = Packet.CLIENT_UPLOAD_PHOTO_ACK;
-				break;
-				
-			case SERVER_GET_PHOTO:
-				// handle a reply to our SERVER_GET_PHOTO request
-				logMsg("reply packet contains the newest photo from the remote region");
-
-				reply_packet.subtype = Packet.CLIENT_SHOW_REMOTEPHOTO;
-				break;
-			}
-			
-			// fill the packet's GetPhotoInfo with remote leader's reply.data's GetPhotoInfo
-			// reply.data is GetPhotoInfo bytes containing
-			// For SERVER_GET_PHOTO: photoBytes of the newest remote photo 
-			// For SERVER_UPLOAD_PHOTO: successfulness of the upload
-			reply_packet.getphotoinfo_bytes = reply.data;
-			
-			
-			//TODO: marker
-			// put the reply with the counter in HashMap 
-			// it's like a global, so the reply_packet can be sent repeatedly
-			replyPacketMap.put(reply_packet.replyCounter, reply_packet);
-			
-			// keep sending replies every sendingRepliesPeriod UNTIL
-			//    1. got Final Leg Ack from client
-			// OR 2. sendingRepliesTimeoutPeriod reached
-			sendReplies(reply_packet.replyCounter);
+			logMsg("DSM layer: Going to and from remote region took latency = " + latency);
+			logMsg("DSM layer: orig leader sent packet at " + origLeaderSendTime 
+					+ " ~ received reply from remote leader at " + origLeaderReceiveTime);
+		} else {
+			logMsg("DSM layer timed out, don't log dsm layer latency stuff.");
 		}
-		// Cannot handle the case of timedOut to tell nonclient that I (the leader)
-		// failed to reach the remote region so it (the nonclient) doesn't have to
-		// wait until its timeout ends. This is because the reply (without its 
-		// reply.data that contains GetPhotoInfo) cannot distinguish among its nonclients.
-		// So even if a nonclient hears a PROC REPLY of FAILURE, it can't be sure
-		// whether that PROC REPLY was a response to its request or some other 
-		// nonleader in the region's request
+		
+		GetPhotoInfo my_gpinfo2 = null;
+		long request_nodeId = 666; // arbitrary initialization value
+		long request_region = 666;
+
+		try {
+			// First, figure out the mID of client to send to 
+			// from remote leader's reply.data's GetPhotoInfo
+			my_gpinfo2 = _bytesToGetphotoinfo(reply.data);
+			request_nodeId = my_gpinfo2.originNodeId;
+			request_region = my_gpinfo2.srcRegion;
+			if (reply.timedOut){
+				my_gpinfo2.isSuccess = false;
+			}
+
+		} catch (IOException e1) {
+			logMsg("FAIL remote region's dsm atom reply data to Originator Region "
+					+ " could not be converted into GetPhotoInfo. IOException");
+			e1.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			logMsg("FAIL remote region's dsm atom reply data to Originator Region "
+					+ " could not be converted into GetPhotoInfo. ClassNotFoundException");
+			e1.printStackTrace();
+		}
+
+		logMsg("Originator Region=" + request_region 
+				+ "'s Leader (for Client=" + request_nodeId + 
+				") processes remote region's dsm atom reply and will send Packet reply to Originator Client");
+
+		// Create a reply packet, note the subtype is temporarily -1 
+		Packet reply_packet = new Packet(mux.vncDaemon.mId, request_nodeId,
+				Packet.SERVER_REPLY, -1,
+				mux.vncDaemon.myRegion, new RegionKey(
+						request_region, 0));
+
+		// increment replyCounter
+		replyCounter += 1;
+		logMsg("change leader replyCounter to: "+replyCounter);
+		// because the leader has to keep track of different client's reply acks
+		reply_packet.replyCounter = ((int)mux.vncDaemon.mId)*100000 + replyCounter;
+
+		// Customize the reply packet
+		switch (reply.procedure) {
+		case SERVER_UPLOAD_PHOTO: 
+			logMsg("reply packet contains the success info for UPLOAD_PHOTO");
+
+			reply_packet.subtype = Packet.CLIENT_UPLOAD_PHOTO_ACK;
+			break;
+
+		case SERVER_GET_PHOTO:
+			// handle a reply to our SERVER_GET_PHOTO request
+			logMsg("reply packet contains the newest photo/success info from the remote region");
+
+			reply_packet.subtype = Packet.CLIENT_SHOW_REMOTEPHOTO;
+			break;
+		}
+
+		// fill the packet's GetPhotoInfo with remote leader's reply.data's GetPhotoInfo
+		// reply.data is GetPhotoInfo bytes containing
+		// For SERVER_GET_PHOTO: photoBytes of the newest remote photo 
+		// For SERVER_UPLOAD_PHOTO: successfulness of the upload
+		reply_packet.getphotoinfo_bytes = reply.data;
+
+
+		//TODO: marker
+		// put the reply with the counter in HashMap 
+		// it's like a global, so the reply_packet can be sent repeatedly
+		replyPacketMap.put(reply_packet.replyCounter, reply_packet);
+
+		// keep sending replies every sendingRepliesPeriod UNTIL
+		//    1. got Final Leg Ack from client
+		// OR 2. sendingRepliesTimeoutPeriod reached
+		sendReplies(reply_packet.replyCounter);
+
 	}
-	
+
 	// keep sending replies every sendingRepliesPeriod UNTIL
 	//    1. got Final Leg Ack from client
 	// OR 2. sendingRepliesTimeoutPeriod reached
@@ -372,6 +373,7 @@ public class UserApp implements DSMUser {
 				// this leader doesn't have any photos yet
 				my_gpinfo.photoBytes = null;
 				logMsg("I don't have any photos yet");
+				my_gpinfo.isSuccess = true;
 			} else {
 				// this leader has a photo
 				byte[] photolist_bytes = block.lines.get(Globals.PHOTO_KEY);
