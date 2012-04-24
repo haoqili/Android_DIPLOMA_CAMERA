@@ -423,7 +423,8 @@ public class StatusActivity extends Activity implements LocationListener {
 	}
 
 	private void logCounts(){
-		logMsg("takeNum="+takeNum+ " takeCamGood="+takeCamGood+ " takeGoodSave="+takeGoodSave
+		logMsg("reg="+mux.vncDaemon.myRegion.x+" state="+mux.vncDaemon.mState
+				+" takeNum="+takeNum+ " takeCamGood="+takeCamGood+ " takeGoodSave="+takeGoodSave
 				+ " takeBad="+takeBad+ " takeTimedout="+takeTimedout+ " getNum="+getNum
 				+ " getGood="+getGood+ " getBad="+getBad+ " getTimedout=" + getTimedout);
 		takeNumTv.setText("t " + takeNum);

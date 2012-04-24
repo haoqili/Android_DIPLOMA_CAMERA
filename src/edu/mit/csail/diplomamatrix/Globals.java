@@ -13,16 +13,17 @@ public class Globals {
 		
 		// cloud server to keep leaders consistent
 		//final static public String CSM_SERVER_NAME="128.30.87.130:8212"; //128.30.66.123:5212
-        //final static public String CSM_SERVER_NAME="18.111.87.171:8212"; //128.30.66.123:5212
-        final static public String CSM_SERVER_NAME="hermes5.csail.mit.edu:8212"; //128.30.66.123:5212
+        final static public String CSM_SERVER_NAME="18.111.14.105:8212"; //128.30.66.123:5212
+        //final static public String CSM_SERVER_NAME="hermes5.csail.mit.edu:8212"; //128.30.66.123:5212
 
 		// new region calculations
 		// road parameters, used to calculate region width
-		//final static public double PHONE_RANGE_METERS = 60; // diagonal of region
-        final static public double PHONE_RANGE_METERS=36; // sqrt(30^2+20^2), 21 meters is the max linearly on 77 Mass Ave
+        // sqrt(30^2+15^2), 21 meters is the max linearly on 77 Mass Ave, 
+        // and we want PHONE_RANGE_METERS to span 2 regions, but 10.5 meters is too short
+        final static public double PHONE_RANGE_METERS=33;
 		final static public double ROAD_WIDTH_METERS = 30;
 		// to calculate buffer zone
-		final static public double REGION_WIDTH_BOUNDARY_METERS = 5;
+		final static public double REGION_WIDTH_BOUNDARY_METERS = 0; // ANIRUDH: Disable hysterisis for now
 		
 		// to calculate start point & road angle:
 		// Endpoints on (straight) Mass Ave to calculate theta

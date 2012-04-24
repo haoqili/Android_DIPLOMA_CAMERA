@@ -33,14 +33,15 @@ public class VCoreDaemon extends Thread {
 
 	// Time periods
 	private final static long cloudHearbeatPeriod = 120000;
-	private final static long heartbeatPeriod = 5000;
+	// 3 of these heartbeats below will timeout
+	private final static long heartbeatPeriod = 5000; // leader to non-leader heartbeat over wifi
 	private final static long stateRequestedTimeoutPeriod = 120000;
 
 	private final static long electCandidatePeriod = 1000;
 	private final static long newLeaderAckTimeoutPeriod = 1000;
 	private final static long oldLeaderReleasePeriod = 4000; // > 3 sec TODO: tweakable!
 
-	private final static long leaderRequestRetryPeriod = 300;
+	private final static long leaderRequestRetryPeriod = 300; // send out leader request over wifi every once in this period
 	private final static long leaderRequestTimeoutPeriod = 1000;
 
 	// Daemon states
@@ -634,10 +635,10 @@ public class VCoreDaemon extends Thread {
 		// find the current region
 		// Note: only depending on loc_x_rotated for this experiment
 		double current_region = (int) Math.floor(loc_x_rotated / region_width);
-		logMsg("location PINPOINTS to region = " + current_region + ", previous " + prevRegion.x);
+		// logMsg("location PINPOINTS to region = " + current_region + ", previous " + prevRegion.x);
 		
  
-		double region_width_boundary = Globals.REGION_WIDTH_BOUNDARY_METERS;
+		/*double region_width_boundary = Globals.REGION_WIDTH_BOUNDARY_METERS;
 		// check if it's inside boundary of region
 		// region_width_boundary is defined as the boundary from the edge of region to edge of boundary
 		// i.e. the total boundary length surrounding an edge is 2*this value
@@ -645,19 +646,19 @@ public class VCoreDaemon extends Thread {
 		     (fractionMod(region_width - loc_x_rotated, region_width) < region_width_boundary)
 			){
 			logMsg("location is INSIDE BOUNDARY, stay at prev region = " + prevRegion);
-		} else { 
-			// outside boundary
-			
-			// check that prev region and new region are different
-			RegionKey new_region = new RegionKey((int) current_region, 0);
-			if  (Math.abs(new_region.x - prevRegion.x) == 0) {
-				logMsg("stay at region " + prevRegion.x);
-			}
-			else {
-				logMsg("location CHANGED TO NEW region = " + new_region + " from region = " + prevRegion);
-				changeRegion(new_region);
-			}
+		} else { */
+		// outside boundary
+
+		// check that prev region and new region are different
+		RegionKey new_region = new RegionKey((int) current_region, 0);
+		if  (Math.abs(new_region.x - prevRegion.x) == 0) {
+			logMsg("stay at region " + prevRegion.x);
 		}
+		else {
+			logMsg("location CHANGED TO NEW region = " + new_region + " from region = " + prevRegion);
+			changeRegion(new_region);
+		}
+		//}
 	}	
 	private double fractionMod(double a, double b){
 		double quotient = Math.floor(a/b);

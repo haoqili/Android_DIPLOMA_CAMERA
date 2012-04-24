@@ -83,6 +83,19 @@ public class Mux extends Thread {
 					(vncDaemon.myRegion.y == vnp.srcRegion.y)	) {
 
 					logMsg("I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp");
+					if (vncDaemon == null) {
+						logMsg("vncDaemon is null tee hee");
+					}
+					if (vncDaemon.csm == null){
+						logMsg("vncDaemon.csm is null laa laa");
+					}
+					if (vncDaemon.csm.userApp == null){
+						logMsg("vncDaemon.csm.userApp is null");
+					}
+					if (vnp == null){
+						logMsg("vnp is null");
+					}
+					assert(vncDaemon.csm.userApp != null);
 					vncDaemon.csm.userApp.handleClientRequest(vnp);
 				} else if (vncDaemon.mState == VCoreDaemon.NONLEADER) {
 					// non leaders can be from both my region and
