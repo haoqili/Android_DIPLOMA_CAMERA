@@ -50,6 +50,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	// UI elements
 	Button region_button, my_camera_button;
 	Button get0_button, get1_button, get2_button, get3_button, get4_button, get5_button;
+	Button sreg0, sreg1, sreg2, sreg3, sreg4, sreg5;
 	TextView takeNumTv, takeGoodTv, takePercentTv;
 	TextView getNumTv, getGoodTv, getPercentTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
@@ -600,6 +601,18 @@ public class StatusActivity extends Activity implements LocationListener {
 		get4_button.setOnClickListener(get_button_listener);
 		get5_button = (Button) findViewById(R.id.get5_button);
 		get5_button.setOnClickListener(get_button_listener);
+		sreg0 = (Button) findViewById(R.id.reg0);
+		sreg0.setOnClickListener(set_reg_listener);
+		sreg1 = (Button) findViewById(R.id.reg1);
+		sreg1.setOnClickListener(set_reg_listener);
+		sreg2 = (Button) findViewById(R.id.reg2);
+		sreg2.setOnClickListener(set_reg_listener);
+		sreg3 = (Button) findViewById(R.id.reg3);
+		sreg3.setOnClickListener(set_reg_listener);
+		sreg4 = (Button) findViewById(R.id.reg4);
+		sreg4.setOnClickListener(set_reg_listener);
+		sreg5 = (Button) findViewById(R.id.reg5);
+		sreg5.setOnClickListener(set_reg_listener);
 
 		
         //Setup the FrameLayout with the Camera Preview Screen
@@ -836,6 +849,34 @@ public class StatusActivity extends Activity implements LocationListener {
 					mux.vncDaemon.changeRegion(new RegionKey(rX, rY));
 				}
 			}
+		}
+	};
+	private OnClickListener set_reg_listener = new OnClickListener(){
+		public void onClick(View v){
+			
+			long newRegion = -1;
+			switch(v.getId()){
+			case R.id.reg0:
+				newRegion = 0;
+				break;
+			case R.id.reg1:
+				newRegion = 1;
+				break;
+			case R.id.reg2:
+				newRegion = 2;
+				break;
+			case R.id.reg3:
+				newRegion = 3;
+				break;
+			case R.id.reg4:
+				newRegion = 4;
+				break;
+			case R.id.reg5:
+				newRegion = 5;
+				break;
+			}
+		
+			mux.vncDaemon.changeRegion(new RegionKey(newRegion, 0));
 		}
 	};
 
