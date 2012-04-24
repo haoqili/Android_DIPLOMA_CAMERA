@@ -13,8 +13,9 @@ public class Globals {
 		
 		// cloud server to keep leaders consistent
 		//final static public String CSM_SERVER_NAME="128.30.87.130:8212"; //128.30.66.123:5212
-        final static public String CSM_SERVER_NAME="18.111.87.171:8212"; //128.30.66.123:5212
-        
+        //final static public String CSM_SERVER_NAME="18.111.87.171:8212"; //128.30.66.123:5212
+        final static public String CSM_SERVER_NAME="hermes5.csail.mit.edu:8212"; //128.30.66.123:5212
+
 		// new region calculations
 		// road parameters, used to calculate region width
 		//final static public double PHONE_RANGE_METERS = 60; // diagonal of region

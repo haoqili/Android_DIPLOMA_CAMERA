@@ -206,11 +206,17 @@ public class StatusActivity extends Activity implements LocationListener {
 				long client_download_end = System.currentTimeMillis();
 				
 				logMsg("Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply");
+
+				// disable timeout, is it too early to do it here
+				// enable buttons right now, not until progressdialog timeout
+				logMsg("disabling progressdialog due to successful new photo get");
+				myHandler.removeCallbacks(buttonsEnableProgressDownloadTimeoutR);
+				_enableButtons();
 				
 				Packet packet_csn = (Packet) msg.obj;
 				// global, used in finalLegAck
 				packet_reply_sourceID = packet_csn.src; 
-
+				
 				// send Final Leg Ack regardless of new or already-processed reply
 				logMsg("send final leg ack regardless of new or already-processed reply");
 				finalLegAck(packet_csn.replyCounter);
@@ -283,9 +289,11 @@ public class StatusActivity extends Activity implements LocationListener {
 						}
 					}
 					
+					/* move it up?
 					// enable buttons right now, not until progressdialog timeout
+					logMsg("disabling progressdialog due to successful new photo get");
 					myHandler.removeCallbacks(buttonsEnableProgressDownloadTimeoutR);
-					_enableButtons();
+					_enableButtons();*/
 					
 				} catch (OptionalDataException e) {
 					logMsg("CLIENT_SHOW_REMOTEPHOTO: byte conversion failed OptionalDataException");
@@ -312,6 +320,12 @@ public class StatusActivity extends Activity implements LocationListener {
 
 				logMsg("Client received Packet.CLIENT_UPLOAD_PHOTO_ACK");
 
+				// disable timeout, is it too early to do it here
+				// enable buttons right now, not until progressdialog timeout
+				logMsg("disabling progressdialog due to successful new photo upload");
+				myHandler.removeCallbacks(buttonsEnableProgressUploadTimeoutR);
+				_enableButtons();
+				
 				Packet packet_cupa = (Packet) msg.obj;
 				// global, used in finalLegAck
 				packet_reply_sourceID = packet_cupa.src;
@@ -368,12 +382,12 @@ public class StatusActivity extends Activity implements LocationListener {
 						//toast.setGravity(Gravity.CENTER, 0,0);
 						//toast.show();
 					}
-					
+					/* move this up??
 					// enable buttons right now, not until progressdialog timeout
 					logMsg("disabling progressdialog due to successful new photo upload");
 					myHandler.removeCallbacks(buttonsEnableProgressUploadTimeoutR);
 					_enableButtons();
-					
+					*/
 				} catch (OptionalDataException e) {
 					logMsg("CLIENT_UPLOAD_PHOTO_ACK byte conversion failed OptionalDataException");
 					e.printStackTrace();
