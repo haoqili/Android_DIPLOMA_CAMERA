@@ -30,14 +30,20 @@ public class VCoreDaemon extends Thread {
 	// Time periods
 	private final static long cloudHearbeatPeriod = 120000;
 	// 3 of these heartbeats below will timeout
-	private final static long heartbeatPeriod = 5000; // leader to non-leader heartbeat over wifi
+	private final static long heartbeatPeriod = 5000; // leader to non-leader
+														// heartbeat over wifi
 	private final static long stateRequestedTimeoutPeriod = 120000;
 
 	private final static long electCandidatePeriod = 1000;
 	private final static long newLeaderAckTimeoutPeriod = 1000;
-	private final static long oldLeaderReleasePeriod = 4000; // > 3 sec TODO: tweakable!
+	private final static long oldLeaderReleasePeriod = 4000; // > 3 sec TODO:
+																// tweakable!
 
-	private final static long leaderRequestRetryPeriod = 300; // send out leader request over wifi every once in this period
+	private final static long leaderRequestRetryPeriod = 300; // send out leader
+																// request over
+																// wifi every
+																// once in this
+																// period
 	private final static long leaderRequestTimeoutPeriod = 1000;
 
 	// Daemon states
@@ -45,7 +51,8 @@ public class VCoreDaemon extends Thread {
 	final static int JOINING = 1; // waiting to join region
 	final static int LEADER = 2; // leader of region
 	final static int NONLEADER = 3; // non-leader of region following a leader
-	final static int HANDING_OFF = 4; // leader of region handing off leadership to another guy
+	final static int HANDING_OFF = 4; // leader of region handing off leadership
+										// to another guy
 
 	// Attributes
 	int mState;
@@ -90,10 +97,10 @@ public class VCoreDaemon extends Thread {
 
 		mState = JOINING;
 		myRegion = new RegionKey(initRx, initRy);
-		// note minlong, minlat, regionwidth are not used 
-		String line = String
-				.format("Started VCoreDaemon with parameters maxRx = %d , maxRY= %d",
-						maxRx, maxRy);
+		// note minlong, minlat, regionwidth are not used
+		String line = String.format(
+				"Started VCoreDaemon with parameters maxRx = %d , maxRY= %d",
+				maxRx, maxRy);
 		logMsg(line);
 	}
 
@@ -109,8 +116,8 @@ public class VCoreDaemon extends Thread {
 		logMsg("inside sendPacket(Packet p)");
 		mux.myHandler.obtainMessage(Mux.PACKET_SEND, p).sendToTarget();
 	}
-	
-	/** Periodic: check-in with cloud by taking leadership again every  20 min */
+
+	/** Periodic: check-in with cloud by taking leadership again every 20 min */
 	private Runnable cloudHeartbeatR = new Runnable() {
 		public void run() {
 			if (mState == LEADER) {
@@ -118,11 +125,10 @@ public class VCoreDaemon extends Thread {
 				if (!Globals.DEBUG_SKIP_CLOUD) {
 					CloudResponse csmR = myCloud.takeLeadership(myRegion, mId);
 				}
-			} 
+			}
 			myHandler.postDelayed(this, cloudHearbeatPeriod);
-		}       
-	};      
-
+		}
+	};
 
 	/** Periodic: check for LEADER again if still in JOINING state */
 	private Runnable stateRequestedTimeoutR = new Runnable() {
@@ -190,23 +196,25 @@ public class VCoreDaemon extends Thread {
 				logMsg("SKIPPING HANDING R");
 				return; // only elect a new candidate if we're a handing_off
 			}
-			
+
 			if (candidates.size() == 0) {
 				logMsg("CANDIDATE SIZE is 0");
 				// stop servicing CSM requests so we remain consistent
 				csm.stop();
 				long t1 = System.currentTimeMillis();
 				String json = csmGetJson(csm);
-				if (!Globals.DEBUG_SKIP_CLOUD){
+				if (!Globals.DEBUG_SKIP_CLOUD) {
 					myCloud.uploadState(leaderRegion, mId, json);
-					CloudResponse cr = myCloud.releaseLeadership(leaderRegion, mId);
+					CloudResponse cr = myCloud.releaseLeadership(leaderRegion,
+							mId);
 					if (cr == null || cr.status != Cloud.CR_OKAY) {
 						logMsg("Error releasing leadership. Retrying...");
 						cr = myCloud.releaseLeadership(leaderRegion, mId);
 					}
 				}
 				long t2 = System.currentTimeMillis();
-				// for logging the size of 4G request, we'll then add the constant overhead in bytes
+				// for logging the size of 4G request, we'll then add the
+				// constant overhead in bytes
 				logMsg(String
 						.format("old region empty, uploaded state to cloud in %dms as json %d bytes",
 								t2 - t1, json.getBytes().length));
@@ -253,7 +261,7 @@ public class VCoreDaemon extends Thread {
 			// upload CSM state to cloud and release leadership
 			String json = csmGetJson(csm);
 			long t1 = System.currentTimeMillis();
-			if (!Globals.DEBUG_SKIP_CLOUD){
+			if (!Globals.DEBUG_SKIP_CLOUD) {
 				myCloud.uploadState(leaderRegion, mId, json);
 				CloudResponse cr = myCloud.releaseLeadership(leaderRegion, mId);
 				if (cr == null || cr.status != Cloud.CR_OKAY) {
@@ -281,8 +289,18 @@ public class VCoreDaemon extends Thread {
 		case Packet.VNC_MSG:
 			switch (vnp.subtype) {
 			case Packet.HEARTBEAT: // update heartbeat deadline
-				if (vnp.dstRegion.equals(myRegion) && vnp.src == leaderId)
+				if (vnp.dstRegion.equals(myRegion) && vnp.src == leaderId) {
 					lastHeartbeatTime = System.currentTimeMillis();
+				}
+				if (mState == JOINING && vnp.dstRegion.equals(myRegion)) {
+					myHandler.removeCallbacks(leaderRequestTimeoutR);
+					logMsg("removing leaderRequestRetryR because heard Packet.Heartbeat");
+					myHandler.removeCallbacks(leaderRequestRetryR);
+
+					logMsg("heard HEARTBEAT from " + vnp.src
+							+ ", now following");
+					stateTransition(NONLEADER, myRegion, vnp);
+				}
 				break;
 			case Packet.LEADER_REQUEST:
 				// respond with csm data if we're LEADER of the relevant region
@@ -308,16 +326,16 @@ public class VCoreDaemon extends Thread {
 					myHandler.removeCallbacks(leaderRequestTimeoutR);
 					logMsg("removing leaderRequestRetryR because heard Packet.Leader_reply");
 					myHandler.removeCallbacks(leaderRequestRetryR);
-					
+
 					logMsg("heard LEADER_REPLY from " + vnp.src);
 					stateTransition(NONLEADER, myRegion, vnp);
-					
+
 				} else if (mState == NONLEADER && vnp.src != leaderId
 						&& vnp.dstRegion.equals(myRegion)) {
 					myHandler.removeCallbacks(leaderRequestTimeoutR);
 					logMsg("removing leaderRequestRetryR because heard Packet.Leader_reply");
 					myHandler.removeCallbacks(leaderRequestRetryR);
-					
+
 					logMsg("heard LEADER_REPLY from new leader " + vnp.src);
 					stateTransition(NONLEADER, myRegion, vnp);
 				} else {
@@ -340,8 +358,9 @@ public class VCoreDaemon extends Thread {
 				break;
 			case Packet.LEADER_NOMINATE:
 				// check that we -were- leader of that region
-				//if (mState == LEADER && vnp.dstRegion.equals(leaderRegion)) {
-				logMsg("inside LEADER_NOMINATE mState = " + mState + " vnp.dstRegion = " + vnp.dstRegion 
+				// if (mState == LEADER && vnp.dstRegion.equals(leaderRegion)) {
+				logMsg("inside LEADER_NOMINATE mState = " + mState
+						+ " vnp.dstRegion = " + vnp.dstRegion
 						+ " leaderRegion = " + leaderRegion);
 				if (mState == HANDING_OFF && vnp.dstRegion.equals(leaderRegion)) {
 					logMsg("received LEADER_NOMINATE from " + vnp.src
@@ -367,17 +386,18 @@ public class VCoreDaemon extends Thread {
 				}
 				break;
 			case Packet.LEADER_CONFIRM_ACK:
-				//if (mState == LEADER && vnp.dstRegion.equals(leaderRegion)) {
-				logMsg("inside LEADER_CONFIRM_ACK mState = " + mState + " vnp.dstRegion = " + vnp.dstRegion 
+				// if (mState == LEADER && vnp.dstRegion.equals(leaderRegion)) {
+				logMsg("inside LEADER_CONFIRM_ACK mState = " + mState
+						+ " vnp.dstRegion = " + vnp.dstRegion
 						+ " leaderRegion = " + leaderRegion);
 				if (mState == HANDING_OFF && vnp.dstRegion.equals(leaderRegion)) {
 
 					myHandler.removeCallbacks(newLeaderAckTimeoutR);
 					// cloudUploadState(leaderRegionX, leaderRegionY); // backup
 					long t1 = System.currentTimeMillis();
-					if (!Globals.DEBUG_SKIP_CLOUD){
-						CloudResponse cr = myCloud.releaseLeadership(leaderRegion,
-								mId);
+					if (!Globals.DEBUG_SKIP_CLOUD) {
+						CloudResponse cr = myCloud.releaseLeadership(
+								leaderRegion, mId);
 						if (cr == null || cr.status != Cloud.CR_OKAY) {
 							logMsg("Error releasing leadership. Retrying...");
 							cr = myCloud.releaseLeadership(leaderRegion, mId);
@@ -404,7 +424,7 @@ public class VCoreDaemon extends Thread {
 		myHandler.removeCallbacks(leaderRequestRetryR);
 		myHandler.removeCallbacks(leaderRequestTimeoutR);
 		myHandler.removeCallbacks(stateRequestedTimeoutR);
-		
+
 		// Cancel leader to cloud heartbeat
 		myHandler.removeCallbacks(cloudHeartbeatR);
 
@@ -434,7 +454,8 @@ public class VCoreDaemon extends Thread {
 			myHandler.post(leaderRequestRetryR);
 			myHandler.postDelayed(leaderRequestTimeoutR,
 					VCoreDaemon.leaderRequestTimeoutPeriod);
-			// In case of leader unreachable AND unable to take leadership from cloud
+			// In case of leader unreachable AND unable to take leadership from
+			// cloud
 			myHandler.postDelayed(stateRequestedTimeoutR,
 					VCoreDaemon.stateRequestedTimeoutPeriod); // in case
 		} else if (targetState == LEADER) {
@@ -471,8 +492,10 @@ public class VCoreDaemon extends Thread {
 			if (csm != null) {
 				logMsg("..... VCoreDaemon.java targetState = LEADER and csm is not null --> csm.stop()");
 				csm.stop();
-			}if (false) { // TODO if (vnp.csm_hash != csm.getHash()) { // use own
-				Log.i("..... VCoreDaemon.java", "targetState = LEADER and (false)");
+			}
+			if (false) { // TODO if (vnp.csm_hash != csm.getHash()) { // use own
+				Log.i("..... VCoreDaemon.java",
+						"targetState = LEADER and (false)");
 				logMsg("continuing with csm data from local replica");
 			} else {
 				logMsg("..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D");
@@ -519,7 +542,7 @@ public class VCoreDaemon extends Thread {
 				logMsg("error attaching CSM data to reply: " + e.getMessage());
 			}
 			sendPacket(reply);
-			
+
 			// Start recurring heartbeat to cloud
 			myHandler.postDelayed(cloudHeartbeatR, cloudHearbeatPeriod);
 
@@ -551,12 +574,14 @@ public class VCoreDaemon extends Thread {
 			logMsg(String.format(
 					"now NONLEADER (id=%d) following LEADER (id=%d) in %s",
 					mId, leaderId, myRegion));
-		} else if (targetState == HANDING_OFF){
+		} else if (targetState == HANDING_OFF) {
 			logMsg("..... VCoreDaemon.java targetState = HANDING_OFF");
 			// Update self attributes
 			mState = HANDING_OFF;
 			logMsg("HANDING OFF setting leaderRegion = " + targetRegion);
-			this.leaderRegion = new RegionKey(targetRegion); // should still stay at old region's 
+			this.leaderRegion = new RegionKey(targetRegion); // should still
+																// stay at old
+																// region's
 			logMsg("Trying to hand off leadership");
 		}
 
@@ -568,81 +593,96 @@ public class VCoreDaemon extends Thread {
 	/*
 	 * Called when location has changed
 	 * 
-	 * Region 0 starts at south-east point and 
-	 * increments one by one north-west-wards along Mass Ave.
+	 * Region 0 starts at south-east point and increments one by one
+	 * north-west-wards along Mass Ave.
 	 */
-	public void determineLocation(Location loc, RegionKey prevRegion){
+	public void determineLocation(Location loc, RegionKey prevRegion) {
 		// currently determining region only depends on X
-		
+
 		logMsg("Loc = " + loc + " Previous Region = " + prevRegion);
-		
+
 		double locx = loc.getLongitude();
-		double locy = loc.getLatitude();		
+		double locy = loc.getLatitude();
 		double power = 100000;
-		
+
 		// x-width of a rectangular region
 		double region_width = Globals.REGION_WIDTH;
-		
-		logMsg("GPS x/long:" + locx + ", GPS y/lat: " + locy + ". Region width in x: " + region_width);
+
+		logMsg("GPS x/long:" + locx + ", GPS y/lat: " + locy
+				+ ". Region width in x: " + region_width);
 
 		// X = Longitude, Y = Latitude
-		
+
 		// Converting Latitude and Longitude into meters
 		// Latitude: each is 10^-5 degree of lat Y
-		final int earth_radius_meters = 6378140; //at equator
-		final double location_latitude = 42.365; // angle from location to equator
-		double one_lat_to_meters = earth_radius_meters * 2 * Math.PI / (360*power); // 1.113 meters
-		//logMsg("one_lat_to_meters = " + one_lat_to_meters);
-		double one_long_to_meters = Math.cos(Math.toRadians(location_latitude))*one_lat_to_meters; // 0.822 meters
-		//logMsg("one_long_to_meters = " + one_long_to_meters);
-		
+		final int earth_radius_meters = 6378140; // at equator
+		final double location_latitude = 42.365; // angle from location to
+													// equator
+		double one_lat_to_meters = earth_radius_meters * 2 * Math.PI
+				/ (360 * power); // 1.113 meters
+		// logMsg("one_lat_to_meters = " + one_lat_to_meters);
+		double one_long_to_meters = Math.cos(Math.toRadians(location_latitude))
+				* one_lat_to_meters; // 0.822 meters
+		// logMsg("one_long_to_meters = " + one_long_to_meters);
+
 		// Endpoints of straight road to calculate theta
 		final double north_west_loc_long = Globals.NW_LONG;
 		final double north_west_loc_lat = Globals.NW_LAT;
 		final double south_east_loc_long = Globals.SE_LONG;
 		final double south_east_loc_lat = Globals.SE_LAT;
-		
-		double x_diff = Math.abs(south_east_loc_long - north_west_loc_long) * one_long_to_meters * power; // 401.6m
-		//logMsg("x_diff = " + x_diff);
-		double y_diff = Math.abs(north_west_loc_lat - south_east_loc_lat) * one_lat_to_meters * power; // 272.9m
-		//logMsg("y_diff = " + y_diff);
-		double theta = Math.atan(y_diff / x_diff); // 0.597 radians or 34.21 degrees
-		//logMsg("theta = " + theta); 		
-		
+
+		double x_diff = Math.abs(south_east_loc_long - north_west_loc_long)
+				* one_long_to_meters * power; // 401.6m
+		// logMsg("x_diff = " + x_diff);
+		double y_diff = Math.abs(north_west_loc_lat - south_east_loc_lat)
+				* one_lat_to_meters * power; // 272.9m
+		// logMsg("y_diff = " + y_diff);
+		double theta = Math.atan(y_diff / x_diff); // 0.597 radians or 34.21
+													// degrees
+		// logMsg("theta = " + theta);
+
 		// location in respect to south_east point
-		double loc_x = (locx - south_east_loc_long) * one_long_to_meters * power;
+		double loc_x = (locx - south_east_loc_long) * one_long_to_meters
+				* power;
 		double loc_y = (locy - south_east_loc_lat) * one_lat_to_meters * power;
-		//logMsg("unrotated x, y: " + loc_x + ", " + loc_y);
-		
+		// logMsg("unrotated x, y: " + loc_x + ", " + loc_y);
+
 		// rotational matrix
-		double loc_x_rotated = -1 * loc_x * Math.cos(theta) + loc_y * Math.sin(theta); 
-		double loc_y_rotated = loc_x * Math.sin(theta) + loc_y * Math.cos(theta);
-		//logMsg("rotated x, y: " + loc_x_rotated + ", " + loc_y_rotated);
-		
+		double loc_x_rotated = -1 * loc_x * Math.cos(theta) + loc_y
+				* Math.sin(theta);
+		double loc_y_rotated = loc_x * Math.sin(theta) + loc_y
+				* Math.cos(theta);
+		// logMsg("rotated x, y: " + loc_x_rotated + ", " + loc_y_rotated);
+
 		// find the current region
 		// Note: only depending on loc_x_rotated for this experiment
 		double current_region = (int) Math.floor(loc_x_rotated / region_width);
-		logMsg("location PINPOINTS to region = " + current_region + ", previous " + prevRegion.x);
-		mux.myHandler.obtainMessage(Mux.LOCCHANGE, current_region).sendToTarget();
-		
-		if (Globals.HYSTERESIS != 0){
+		logMsg("location PINPOINTS to region = " + current_region
+				+ ", previous " + prevRegion.x);
+		mux.myHandler.obtainMessage(Mux.LOCCHANGE, current_region)
+				.sendToTarget();
+
+		if (Globals.HYSTERESIS != 0) {
 			logMsg("Hysteresis = " + Globals.HYSTERESIS);
-			double region_width_boundary = region_width*Globals.HYSTERESIS;
+			double region_width_boundary = region_width * Globals.HYSTERESIS;
 			// check if it's inside boundary of region
-			// region_width_boundary is defined as the boundary from the edge of region to edge of boundary
-			// i.e. the total boundary length surrounding an edge is 2*this value
-			if ( (fractionMod(loc_x_rotated, region_width) < region_width_boundary) ||
-					(fractionMod(region_width - loc_x_rotated, region_width) < region_width_boundary)
-					){
-				logMsg("location is INSIDE BOUNDARY, stay at prev region = " + prevRegion);
-			
+			// region_width_boundary is defined as the boundary from the edge of
+			// region to edge of boundary
+			// i.e. the total boundary length surrounding an edge is 2*this
+			// value
+			if ((fractionMod(loc_x_rotated, region_width) < region_width_boundary)
+					|| (fractionMod(region_width - loc_x_rotated, region_width) < region_width_boundary)) {
+				logMsg("location is INSIDE BOUNDARY, stay at prev region = "
+						+ prevRegion);
+
 			} else {// outside boundary
 				// check that prev region and new region are different
 				RegionKey new_region = new RegionKey((int) current_region, 0);
-				if  (Math.abs(new_region.x - prevRegion.x) == 0) {
+				if (Math.abs(new_region.x - prevRegion.x) == 0) {
 					logMsg("stay at region " + prevRegion.x);
 				} else {
-					logMsg("location CHANGED TO NEW region = " + new_region + " from region = " + prevRegion);
+					logMsg("location CHANGED TO NEW region = " + new_region
+							+ " from region = " + prevRegion);
 					changeRegion(new_region);
 				}
 			}
@@ -650,17 +690,19 @@ public class VCoreDaemon extends Thread {
 			logMsg("Hysteresis is " + Globals.HYSTERESIS);
 			// check that prev region and new region are different
 			RegionKey new_region = new RegionKey((int) current_region, 0);
-			if  (Math.abs(new_region.x - prevRegion.x) == 0) {
+			if (Math.abs(new_region.x - prevRegion.x) == 0) {
 				logMsg("stay at region " + prevRegion.x);
 			} else {
-				logMsg("location CHANGED TO NEW region = " + new_region + " from region = " + prevRegion);
+				logMsg("location CHANGED TO NEW region = " + new_region
+						+ " from region = " + prevRegion);
 				changeRegion(new_region);
 			}
 		}
 	}
-	private double fractionMod(double a, double b){
-		double quotient = Math.floor(a/b);
-		return a-quotient*b;
+
+	private double fractionMod(double a, double b) {
+		double quotient = Math.floor(a / b);
+		return a - quotient * b;
 	}
 
 	public synchronized void electNewLeader(RegionKey oldRegion,
@@ -687,8 +729,10 @@ public class VCoreDaemon extends Thread {
 
 		// take actions necessary for LEADER leaving a region
 		if (mState == LEADER && oldRegion.equals(leaderRegion)) {
-			logMsg("change state to HANDING_OFF with parameter my previous/old region = " + oldRegion 
-					+ " before helping to elect new leader in it. (btw, newRegion " + newRegion + ")");
+			logMsg("change state to HANDING_OFF with parameter my previous/old region = "
+					+ oldRegion
+					+ " before helping to elect new leader in it. (btw, newRegion "
+					+ newRegion + ")");
 			stateTransition(HANDING_OFF, oldRegion, null);
 			electNewLeader(oldRegion, newRegion);
 		} else if (mState != LEADER) { // if not leader

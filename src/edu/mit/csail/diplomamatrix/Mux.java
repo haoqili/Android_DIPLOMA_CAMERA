@@ -61,7 +61,7 @@ public class Mux extends Thread {
 		case Mux.PACKET_RECV:
 			Packet vnp = (Packet) msg.obj;
 			if (vnp == null) { // due to some error in networkthread loop
-				logMsg("Received null packet...");
+				logMsg("mux: Received null packet...");
 				return;
 			}
 			switch (vnp.type) {
@@ -70,50 +70,50 @@ public class Mux extends Thread {
 				vncDaemon.myHandler.sendMessage(Message.obtain(msg));
 				break;
 			case Packet.CSM_MSG:
-			    logMsg("GOT CSM_Msg");
+			    logMsg("mux: GOT CSM_Msg");
 				if (vncDaemon.mState == VCoreDaemon.LEADER
 						&& vncDaemon.csm != null)
 					vncDaemon.csm.handleCSMOp(vnp.csm_op);
 				break;
 
 			case Packet.CLIENT_REQUEST:
-				logMsg("Inside mux Packet.CLIENT_REQUEST");
+				logMsg("mux: Inside mux Packet.CLIENT_REQUEST");
 				// send request to UserApp to upload photo
 				if ((vncDaemon.mState == VCoreDaemon.LEADER) &&
 					(vncDaemon.myRegion.x == vnp.srcRegion.x) &&
 					(vncDaemon.myRegion.y == vnp.srcRegion.y)	) {
 
-					logMsg("I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp");
+					logMsg("mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp");
 					if (vncDaemon == null) {
-						logMsg("vncDaemon is null tee hee");
+						logMsg("mux: vncDaemon is null tee hee");
 					}
 					if (vncDaemon.csm == null){
-						logMsg("vncDaemon.csm is null laa laa");
+						logMsg("mux: vncDaemon.csm is null laa laa");
 					}
 					if (vncDaemon.csm.userApp == null){
-						logMsg("vncDaemon.csm.userApp is null");
+						logMsg("mux: vncDaemon.csm.userApp is null");
 					}
 					if (vnp == null){
-						logMsg("vnp is null");
+						logMsg("mux: vnp is null");
 					}
 					assert(vncDaemon.csm.userApp != null);
 					vncDaemon.csm.userApp.handleClientRequest(vnp);
 				} else if (vncDaemon.mState == VCoreDaemon.NONLEADER) {
 					// non leaders can be from both my region and
 					// neighboring regions
-					logMsg("Nonleader does nothing for Packet.CLIENT_REQUEST");
+					logMsg("mux: Nonleader does nothing for Packet.CLIENT_REQUEST");
 				}
 				break;
 			case Packet.SERVER_REPLY:
-				logMsg("Inside mux Packet.SERVER_REPLY");
+				logMsg("mux: Inside Packet.SERVER_REPLY");
 				// check that it's the original photo requester
 				if (vnp.dst == nodeId) {
-					logMsg("I have the photo requester id = " + nodeId
+					logMsg("mux: I have the photo requester id = " + nodeId
 							+ " about to display photo or receive upload ack");
 					activityHandler.obtainMessage(vnp.subtype, vnp)
 							.sendToTarget();
 				} else {
-					logMsg("Ignoring SERVER_REPLY since it's not for me  " + nodeId);
+					logMsg("mux: Ignoring SERVER_REPLY since it's not for me  " + nodeId);
 				}
 				break;
 			} // end switch(vnp.type)
@@ -132,7 +132,7 @@ public class Mux extends Thread {
 			p.csm_op = op;
 			if (vncDaemon.mState == VCoreDaemon.LEADER) {
 				// logMsg("CSM -> Network");
-				logMsg("I got a CSM packet at a leader \n");
+				logMsg("mux: I got a CSM packet at a leader \n");
 				this.netThread.sendPacket(p);
 				vncDaemon.csm.handleCSMOp(op);
 			} else if (vncDaemon.mState == VCoreDaemon.NONLEADER) {
@@ -167,7 +167,7 @@ public class Mux extends Thread {
 		netThread = new NetworkThread(myHandler);
 		if (!netThread.socketIsOK()) {
 			Log.e(TAG, "Cannot start server: socket not ok.");
-			logMsg("FATAL!! Cannot start server: socket not ok. shut down/destroy activity");
+			logMsg("mux: FATAL!! Cannot start server: socket not ok. shut down/destroy activity");
 			// quit application
 			activityHandler.obtainMessage(ACTIVITY_DESTROY).sendToTarget();
 			return; // quit out
@@ -175,7 +175,7 @@ public class Mux extends Thread {
 		netThread.start();
 		if (netThread.getLocalAddress() == null) {
 			Log.e(TAG, "Couldn't get my IP address.");
-			logMsg("FATAL!! Couldn't get my IP address. shut down/destroy activity");
+			logMsg("mux: FATAL!! Couldn't get my IP address. shut down/destroy activity");
 			// quit application
 			activityHandler.obtainMessage(ACTIVITY_DESTROY).sendToTarget();
 			return; // quit out
@@ -184,7 +184,7 @@ public class Mux extends Thread {
 		if (nodeId < 0) {
 			nodeId = 1000 * netThread.getLocalAddress().getAddress()[2]
 					+ netThread.getLocalAddress().getAddress()[3];
-			logMsg("Mux.java's nodeId is" + String.valueOf(nodeId));
+			logMsg("mux: Mux.java's nodeId is" + String.valueOf(nodeId));
 			// nodeId = netThread.getLocalAddress().getAddress()[3]; // lastoct
 		}
 
@@ -192,17 +192,19 @@ public class Mux extends Thread {
 		long initRx = -1;
 		long initRy = -1;
 
-		logMsg("mux starting vncDaemon ........");
+		logMsg("mux: starting vncDaemon ........");
 		vncDaemon = new VCoreDaemon(this, nodeId, initRx, initRy, maxRx, maxRy);
 		vncDaemon.start();
-		logMsg("vncDaemon started");
+		logMsg("mux: vncDaemon started");
 	}
 
 	/** Stuff to do right BEFORE exiting the run loop. */
 	private void onRequestStop() {
+		logMsg("mux: onRequestStop() calls vncDaemonrequeststop");
 		vncDaemon.requestStop();
 		while (vncDaemon.isAlive()) {
 			Log.d(TAG, "Waiting for VCoreDaemon to stop...");
+			logMsg("mux: Waiting for VCoreDaemon to stop...");
 			try {
 				sleep(1000L);
 			} catch (Exception e) {
@@ -216,10 +218,11 @@ public class Mux extends Thread {
 	 * processing remaining tasks / messages / runnables)
 	 **/
 	private void onStop() {
-
+		logMsg("mux: onStop()");
 		netThread.closeSocket();
 		while (netThread.isAlive()) {
 			Log.d(TAG, "Waiting for NetworkThread to stop...");
+			logMsg("mux: Waiting for NetworkThread to stop");
 			try {
 				sleep(1000L);
 			} catch (Exception e) {
@@ -233,7 +236,7 @@ public class Mux extends Thread {
 		myHandler.post(new Runnable() {
 			@Override
 			public void run() {
-				logMsg("mux requestStop() encountered.");
+				logMsg("mux: requestStop() encountered.");
 				onRequestStop();
 				Looper.myLooper().quit();
 			}
@@ -244,7 +247,7 @@ public class Mux extends Thread {
 	@Override
 	public void run() {
 		// Prepare looper and handler on current thread
-		logMsg("Mux.java run() beginning -------------");
+		logMsg("mux: Mux.java run() beginning -------------");
 		Looper.prepare();
 		myHandler = new Handler() {
 			@Override
@@ -263,6 +266,6 @@ public class Mux extends Thread {
 		onStart(); // Start up
 		Looper.loop();
 		onStop();
-		logMsg("mux run() Thread exiting");
+		logMsg("mux: run() Thread exiting");
 	}
 }
