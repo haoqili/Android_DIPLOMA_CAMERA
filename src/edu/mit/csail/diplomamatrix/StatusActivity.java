@@ -52,7 +52,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	Button my_camera_button;
 	Button width_button;
 	Button get0_button, get1_button, get2_button, get3_button, get4_button, get5_button;
+	Button hyst_show;
 	Button sreg0, sreg1, sreg2, sreg3, sreg4, sreg5;
+
 	TextView takeTv, getTv;
 	TextView widthTv;
 	TextView hystTv;
@@ -452,7 +454,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		logMsg("reg="+mux.vncDaemon.myRegion.x +" id="+mux.vncDaemon.mId
 				+" state="+mux.vncDaemon.mState 
 				+ " regionWidth="+Globals.REGION_WIDTH + " hyst="+Globals.HYSTERESIS
-				+" takeNum="+takeNum+ " takeCamGood="+takeCamGood+ " takeGoodSave="+takeGoodSave
+				+ " takeNum="+takeNum+ " takeCamGood="+takeCamGood+ " takeGoodSave="+takeGoodSave
 				+ " takeBad="+takeBad+ " takeTimedout="+takeTimedout+ " takePercent="+tPercent+"%"
 				
 				+ " getNum="+getNum + " getGood="+getGood+ " getBad="+getBad+ " getTimedout="
@@ -622,6 +624,9 @@ public class StatusActivity extends Activity implements LocationListener {
 		get4_button.setOnClickListener(get_button_listener);
 		get5_button = (Button) findViewById(R.id.get5_button);
 		get5_button.setOnClickListener(get_button_listener);
+		hyst_show = (Button) findViewById(R.id.hyst_button);
+		hyst_show.setOnClickListener(hyst_show_listener);
+		
 		sreg0 = (Button) findViewById(R.id.reg0);
 		sreg0.setOnClickListener(set_reg_listener);
 		sreg1 = (Button) findViewById(R.id.reg1);
@@ -789,7 +794,7 @@ public class StatusActivity extends Activity implements LocationListener {
 			Globals.HYSTERESIS = 0;
 		} else if (str.equals("Hysteresis_5")){
 			Globals.HYSTERESIS = 0.05;
-		} else if (str.equals("Hysteresis_15")){
+		} else if (str.equals("Hysteresis_10")){
 			Globals.HYSTERESIS = 0.1;
 		} else if (str.equals("Hysteresis_15")){
 			Globals.HYSTERESIS = 0.15;
@@ -799,6 +804,11 @@ public class StatusActivity extends Activity implements LocationListener {
 			Globals.HYSTERESIS = 0.25;
 		}
 	}
+	private OnClickListener hyst_show_listener = new OnClickListener(){
+		public void onClick(View v){
+			hystTv.setText("h " + Globals.HYSTERESIS);
+		}
+	};
 	
 	/**
 	 * onResume is is always called after onStart, even if userApp's not

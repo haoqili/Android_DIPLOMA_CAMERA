@@ -41,6 +41,7 @@ public final class R {
         public static final int get5_button=0x7f070017;
         public static final int get_tv=0x7f070023;
         public static final int gps_tv=0x7f070026;
+        public static final int hyst_button=0x7f07002b;
         public static final int hyst_tv=0x7f070025;
         public static final int hysteresis_spinner=0x7f07002a;
         public static final int id_tv=0x7f07000c;

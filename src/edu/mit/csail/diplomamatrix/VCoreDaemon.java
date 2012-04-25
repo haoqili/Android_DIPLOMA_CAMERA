@@ -626,7 +626,7 @@ public class VCoreDaemon extends Thread {
 		mux.myHandler.obtainMessage(Mux.LOCCHANGE, current_region).sendToTarget();
 		
 		if (Globals.HYSTERESIS != 0){
-			logMsg("hasHysteresis = true");
+			logMsg("Hysteresis = " + Globals.HYSTERESIS);
 			double region_width_boundary = region_width*Globals.HYSTERESIS;
 			// check if it's inside boundary of region
 			// region_width_boundary is defined as the boundary from the edge of region to edge of boundary
@@ -647,7 +647,7 @@ public class VCoreDaemon extends Thread {
 				}
 			}
 		} else {
-			logMsg("hasHysteresis = false");
+			logMsg("Hysteresis is " + Globals.HYSTERESIS);
 			// check that prev region and new region are different
 			RegionKey new_region = new RegionKey((int) current_region, 0);
 			if  (Math.abs(new_region.x - prevRegion.x) == 0) {
