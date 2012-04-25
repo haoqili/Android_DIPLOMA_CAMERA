@@ -159,6 +159,7 @@ public class VCoreDaemon extends Thread {
 				logMsg("sending LEADER_REQUEST");
 				sendPacket(new Packet(mId, -1, Packet.VNC_MSG,
 						Packet.LEADER_REQUEST, myRegion, myRegion));
+				logMsg("posting another leaderRequestRetryR after leaderRequestRetryPeriod");
 				myHandler.postDelayed(leaderRequestRetryR,
 						leaderRequestRetryPeriod);
 			}
@@ -168,9 +169,11 @@ public class VCoreDaemon extends Thread {
 	/** Didn't hear a LEADER_REPLY, so take action */
 	private Runnable leaderRequestTimeoutR = new Runnable() {
 		public void run() {
+			logMsg("inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply");
+			logMsg("and I'm removing leaderRequestRetryR because leader_request timed out");
 			myHandler.removeCallbacks(leaderRequestRetryR);
-			logMsg("LEADER_REQUEST timed out");
 			if (mState == JOINING) {
+				logMsg("inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER");
 				stateTransition(LEADER, myRegion, null);
 			}
 		}
@@ -300,16 +303,25 @@ public class VCoreDaemon extends Thread {
 				}
 				break;
 			case Packet.LEADER_REPLY:
-				myHandler.removeCallbacks(leaderRequestTimeoutR);
-				myHandler.removeCallbacks(leaderRequestRetryR);
 				// follow leader if in same region, and not already following
 				if (mState == JOINING && vnp.dstRegion.equals(myRegion)) {
+					myHandler.removeCallbacks(leaderRequestTimeoutR);
+					logMsg("removing leaderRequestRetryR because heard Packet.Leader_reply");
+					myHandler.removeCallbacks(leaderRequestRetryR);
+					
 					logMsg("heard LEADER_REPLY from " + vnp.src);
 					stateTransition(NONLEADER, myRegion, vnp);
+					
 				} else if (mState == NONLEADER && vnp.src != leaderId
 						&& vnp.dstRegion.equals(myRegion)) {
+					myHandler.removeCallbacks(leaderRequestTimeoutR);
+					logMsg("removing leaderRequestRetryR because heard Packet.Leader_reply");
+					myHandler.removeCallbacks(leaderRequestRetryR);
+					
 					logMsg("heard LEADER_REPLY from new leader " + vnp.src);
 					stateTransition(NONLEADER, myRegion, vnp);
+				} else {
+					logMsg("ignoring leader_reply that's not for me");
 				}
 				break;
 			case Packet.LEADER_ELECT:
@@ -386,8 +398,9 @@ public class VCoreDaemon extends Thread {
 
 	private void stateTransition(int targetState, RegionKey targetRegion,
 			Packet vnp) {
-		Log.i("VCoreDaemon.java", "inside stateTransition ......................................................................................");
+		logMsg("VCoreDaemon.java inside stateTransition ..........");
 		// Cancel outstanding leader requests, retries, etc.
+		logMsg("removing leaderRequestRetryR because I'm doing a stateTransition");
 		myHandler.removeCallbacks(leaderRequestRetryR);
 		myHandler.removeCallbacks(leaderRequestTimeoutR);
 		myHandler.removeCallbacks(stateRequestedTimeoutR);
@@ -398,7 +411,7 @@ public class VCoreDaemon extends Thread {
 		// If out of bounds, don't do anything and just wait
 		if (myRegion.x > maxRx || myRegion.y > maxRy || myRegion.x < 0
 				|| myRegion.y < 0) {
-			Log.i("..... VCoreDaemon.java", "out of bounds");
+			logMsg("..... VCoreDaemon.java out of bounds");
 			logMsg(String.format("region (%d, %d) out of bounds, dormant",
 					myRegion.x, myRegion.y));
 
@@ -409,7 +422,7 @@ public class VCoreDaemon extends Thread {
 			this.lastHeartbeatTime = -1;
 
 		} else if (targetState == JOINING) {
-			Log.i("..... VCoreDaemon.java", "targetState = JOINING");
+			logMsg("..... VCoreDaemon.java targetState = JOINING");
 			this.mState = targetState;
 			this.myRegion = new RegionKey(targetRegion);
 			this.leaderId = -1;
@@ -417,6 +430,7 @@ public class VCoreDaemon extends Thread {
 			this.lastHeartbeatTime = -1;
 
 			// Otherwise ask leader (if any) if we can join
+			logMsg("posting leaderRequestRetryR because I'm joining");
 			myHandler.post(leaderRequestRetryR);
 			myHandler.postDelayed(leaderRequestTimeoutR,
 					VCoreDaemon.leaderRequestTimeoutPeriod);
@@ -424,7 +438,7 @@ public class VCoreDaemon extends Thread {
 			myHandler.postDelayed(stateRequestedTimeoutR,
 					VCoreDaemon.stateRequestedTimeoutPeriod); // in case
 		} else if (targetState == LEADER) {
-			Log.i("..... VCoreDaemon.java", "targetState = LEADER");
+			logMsg("..... VCoreDaemon.java targetState = LEADER");
 			// Ask cloud if we can become the leader
 
 			Cloud.CloudResponse csmR = null;
@@ -455,13 +469,13 @@ public class VCoreDaemon extends Thread {
 
 			// Reset the CSM layer
 			if (csm != null) {
-				Log.i("..... VCoreDaemon.java", "targetState = LEADER and csm is not null");
+				logMsg("..... VCoreDaemon.java targetState = LEADER and csm is not null --> csm.stop()");
 				csm.stop();
 			}if (false) { // TODO if (vnp.csm_hash != csm.getHash()) { // use own
 				Log.i("..... VCoreDaemon.java", "targetState = LEADER and (false)");
 				logMsg("continuing with csm data from local replica");
 			} else {
-				Log.i("..... VCoreDaemon.java", "targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D");
+				logMsg("..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D");
 				csm = new DSMLayer(this, targetRegion, this.cacheEnabled);
 				// if triggered by a packet (e.g. leader handoff), try that data
 				if (vnp != null && vnp.csm_data != null) {
@@ -512,7 +526,7 @@ public class VCoreDaemon extends Thread {
 			logMsg(String.format("now fully up as LEADER (id=%d) of %s", mId,
 					myRegion));
 		} else if (targetState == NONLEADER) {
-			Log.i("..... VCoreDaemon.java", "targetState = NONLEADER");
+			logMsg("..... VCoreDaemon.java targetState = NONLEADER");
 			// Update self attributes
 			mState = NONLEADER;
 			leaderId = vnp.src;
@@ -538,7 +552,7 @@ public class VCoreDaemon extends Thread {
 					"now NONLEADER (id=%d) following LEADER (id=%d) in %s",
 					mId, leaderId, myRegion));
 		} else if (targetState == HANDING_OFF){
-			Log.i("..... VCoreDaemon.java", "targetState = HANDING_OFF");
+			logMsg("..... VCoreDaemon.java targetState = HANDING_OFF");
 			// Update self attributes
 			mState = HANDING_OFF;
 			logMsg("HANDING OFF setting leaderRegion = " + targetRegion);
@@ -547,7 +561,7 @@ public class VCoreDaemon extends Thread {
 		}
 
 		mux.myHandler.obtainMessage(Mux.VNC_STATUS_CHANGE).sendToTarget();
-		Log.i("..... VCoreDaemon.java", "ends xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+		logMsg("..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx");
 		return;
 	}
 
@@ -609,11 +623,11 @@ public class VCoreDaemon extends Thread {
 		// Note: only depending on loc_x_rotated for this experiment
 		double current_region = (int) Math.floor(loc_x_rotated / region_width);
 		logMsg("location PINPOINTS to region = " + current_region + ", previous " + prevRegion.x);
+		mux.myHandler.obtainMessage(Mux.LOCCHANGE, current_region).sendToTarget();
 		
- 
-		if (Globals.HASHYSTERESIS){
+		if (Globals.HYSTERESIS != 0){
 			logMsg("hasHysteresis = true");
-			double region_width_boundary = region_width*0.1;
+			double region_width_boundary = region_width*Globals.HYSTERESIS;
 			// check if it's inside boundary of region
 			// region_width_boundary is defined as the boundary from the edge of region to edge of boundary
 			// i.e. the total boundary length surrounding an edge is 2*this value
@@ -729,7 +743,7 @@ public class VCoreDaemon extends Thread {
 	}
 
 	private void onStart() {
-		Log.i("VCoreDaemon.java", "onStart() about to stateTransition.........................................................................");
+		logMsg("VCoreDaemon.java onStart() ....");
 		logMsg("started, mId = " + mId);
 		myCloud = new Cloud();
 		stateTransition(JOINING, myRegion, null);
@@ -783,7 +797,7 @@ public class VCoreDaemon extends Thread {
 		onStart();
 		Looper.loop();
 		onStop();
-		Log.i(TAG, "Loop ended, vncDaemon thread exiting");
+		logMsg("VCoreDaemon Loop ended, vncDaemon thread exiting");
 	}
 
 	/** Exit after all queued tasks are done. */
@@ -791,7 +805,7 @@ public class VCoreDaemon extends Thread {
 		myHandler.post(new Runnable() {
 			@Override
 			public void run() {
-				Log.i(TAG, "Stop request encountered.");
+				logMsg("VCoreDaemon requestStop() encountered.");
 				Looper.myLooper().quit();
 			}
 		});

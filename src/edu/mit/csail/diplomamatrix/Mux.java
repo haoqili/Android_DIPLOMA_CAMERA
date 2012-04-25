@@ -30,6 +30,7 @@ public class Mux extends Thread {
 	protected final static int VNC_STATUS_CHANGE = 6;
 	protected final static int REGION_CHANGE = 7;
 	protected final static int CLIENT_STATUS_CHANGE = 8;
+	protected final static int LOCCHANGE = 99;
 
 	// Components TODO make private
 	private NetworkThread netThread;
@@ -183,7 +184,7 @@ public class Mux extends Thread {
 		if (nodeId < 0) {
 			nodeId = 1000 * netThread.getLocalAddress().getAddress()[2]
 					+ netThread.getLocalAddress().getAddress()[3];
-			Log.i("Mux.java's nodeId is", String.valueOf(nodeId));
+			logMsg("Mux.java's nodeId is" + String.valueOf(nodeId));
 			// nodeId = netThread.getLocalAddress().getAddress()[3]; // lastoct
 		}
 
@@ -191,10 +192,10 @@ public class Mux extends Thread {
 		long initRx = -1;
 		long initRy = -1;
 
-		Log.i(TAG, "starting vncDaemon ........");
+		logMsg("mux starting vncDaemon ........");
 		vncDaemon = new VCoreDaemon(this, nodeId, initRx, initRy, maxRx, maxRy);
 		vncDaemon.start();
-		Log.i(TAG, "vncDaemon started");
+		logMsg("vncDaemon started");
 	}
 
 	/** Stuff to do right BEFORE exiting the run loop. */
@@ -232,7 +233,7 @@ public class Mux extends Thread {
 		myHandler.post(new Runnable() {
 			@Override
 			public void run() {
-				Log.i(TAG, "Stop request encountered.");
+				logMsg("mux requestStop() encountered.");
 				onRequestStop();
 				Looper.myLooper().quit();
 			}
@@ -243,7 +244,7 @@ public class Mux extends Thread {
 	@Override
 	public void run() {
 		// Prepare looper and handler on current thread
-		Log.i("Mux.java", "run() beginning -------------");
+		logMsg("Mux.java run() beginning -------------");
 		Looper.prepare();
 		myHandler = new Handler() {
 			@Override
@@ -262,6 +263,6 @@ public class Mux extends Thread {
 		onStart(); // Start up
 		Looper.loop();
 		onStop();
-		Log.i(TAG, "Thread exiting");
+		logMsg("mux run() Thread exiting");
 	}
 }
