@@ -149,6 +149,7 @@ public class VCoreDaemon extends Thread {
 			} else if (mState == NONLEADER) {
 				if (lastHeartbeatTime < System.currentTimeMillis() - 3
 						* heartbeatPeriod) {
+					logMsg("Missed 3 HEARTBEATS from LEADER, going to JOINING.");
 					stateTransition(JOINING, myRegion, null);
 				}
 			} else if (mState == JOINING) {
@@ -175,8 +176,7 @@ public class VCoreDaemon extends Thread {
 	/** Didn't hear a LEADER_REPLY, so take action */
 	private Runnable leaderRequestTimeoutR = new Runnable() {
 		public void run() {
-			logMsg("inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply");
-			logMsg("and I'm removing leaderRequestRetryR because leader_request timed out");
+			logMsg("inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out");
 			myHandler.removeCallbacks(leaderRequestRetryR);
 			if (mState == JOINING) {
 				logMsg("inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER");
@@ -293,9 +293,11 @@ public class VCoreDaemon extends Thread {
 					lastHeartbeatTime = System.currentTimeMillis();
 				}
 				if (mState == JOINING && vnp.dstRegion.equals(myRegion)) {
+					myHandler.removeCallbacks(stateRequestedTimeoutR);
 					myHandler.removeCallbacks(leaderRequestTimeoutR);
-					logMsg("removing leaderRequestRetryR because heard Packet.Heartbeat");
 					myHandler.removeCallbacks(leaderRequestRetryR);
+
+					logMsg("removing leaderRequestRetryR because heard Packet.Heartbeat");
 
 					logMsg("heard HEARTBEAT from " + vnp.src
 							+ ", now following");
@@ -323,9 +325,11 @@ public class VCoreDaemon extends Thread {
 			case Packet.LEADER_REPLY:
 				// follow leader if in same region, and not already following
 				if (mState == JOINING && vnp.dstRegion.equals(myRegion)) {
+					myHandler.removeCallbacks(stateRequestedTimeoutR);
 					myHandler.removeCallbacks(leaderRequestTimeoutR);
-					logMsg("removing leaderRequestRetryR because heard Packet.Leader_reply");
 					myHandler.removeCallbacks(leaderRequestRetryR);
+
+					logMsg("removing leaderRequestRetryR because heard Packet.Leader_reply");
 
 					logMsg("heard LEADER_REPLY from " + vnp.src);
 					stateTransition(NONLEADER, myRegion, vnp);
@@ -554,6 +558,7 @@ public class VCoreDaemon extends Thread {
 			mState = NONLEADER;
 			leaderId = vnp.src;
 			// initNeighbors();
+			lastHeartbeatTime = System.currentTimeMillis();
 
 			// Reset the CSM layer
 			if (csm != null)
