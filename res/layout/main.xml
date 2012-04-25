@@ -81,6 +81,7 @@
             android:id="@+id/state_tv"
             android:layout_width="80dip"
             android:layout_height="wrap_content"
+            android:textColor="#419918"
             android:text="State" >
         </TextView>
 
@@ -89,6 +90,7 @@
             android:id="@+id/region_tv"
             android:layout_width="80dip"
             android:layout_height="wrap_content"
+            android:textColor="#D41D19"
             android:text="Region" >
         </TextView>
 
@@ -255,7 +257,7 @@
         android:layout_height="fill_parent"
         android:layout_weight="2"
         android:stackFromBottom="true"
-        android:transcriptMode="alwaysScroll" >
+        android:transcriptMode="normal" >
     </ListView>
 
         
@@ -281,7 +283,7 @@
         <TextView
             style="@style/CloudText"
             android:id="@+id/takePercent_tv"
-            android:layout_width="70dip"
+            android:layout_width="60dip"
             android:layout_height="wrap_content"
             android:text="t% 0" >
         </TextView>
@@ -310,23 +312,36 @@
     </LinearLayout>
     
     <LinearLayout
-        android:id="@+id/RegionButtonsLayout"
+        android:id="@+id/SetParameters"
         android:layout_width="fill_parent"
         android:layout_height="40dip"
         android:orientation="horizontal" >
 
-        <EditText
+        <!--<EditText
             android:id="@+id/region_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:inputType="number" />-->
+       
+       <EditText
+            android:id="@+id/width_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:inputType="number" />
-
+        
         <Button
-            android:id="@+id/region_button"
+            android:id="@+id/width_button"
             android:layout_width="90dip"
             android:layout_height="match_parent"
-            android:text="Set Region" />
+            android:text="Width" />
+        
+        <Spinner
+            android:id="@+id/hysteresis_spinner"
+            android:layout_width="60dip"
+            android:layout_height="match_parent"
+            android:prompt="@string/spinner_prompt"/>
     </LinearLayout>
 
 </LinearLayout>

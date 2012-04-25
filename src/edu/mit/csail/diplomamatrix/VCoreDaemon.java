@@ -26,10 +26,6 @@ public class VCoreDaemon extends Thread {
 	public boolean cacheEnabled = Globals.CACHE_ENABLED_ON_START;
 
 	// Constants
-	private static final int regionWidth = Globals.REGION_WIDTH; // ~meters
-	// lat / long * 10^5, e.g. 103.77900 becomes 10377900
-	private static final int minLatitude = Globals.MINIMUM_LATITUDE;
-	private static final int minLongitude = Globals.MINIMUM_LONGITUDE;
 
 	// Time periods
 	private final static long cloudHearbeatPeriod = 120000;
@@ -96,8 +92,8 @@ public class VCoreDaemon extends Thread {
 		myRegion = new RegionKey(initRx, initRy);
 		// note minlong, minlat, regionwidth are not used 
 		String line = String
-				.format("Started VCoreDaemon with parameters maxRx = %d , maxRY= %d, minLongitude = %d , minLatitude = %d, regionWidth =%d",
-						maxRx, maxRy, minLongitude, minLatitude, regionWidth);
+				.format("Started VCoreDaemon with parameters maxRx = %d , maxRY= %d",
+						maxRx, maxRy);
 		logMsg(line);
 	}
 
@@ -555,33 +551,9 @@ public class VCoreDaemon extends Thread {
 		return;
 	}
 
-	// NOT USED NOT USED NOT USED NOT USED NOT USED
-	/** Called when location has changed, or periodically */
-	public synchronized void checkLocation(Location loc) {
-		if (loc == null)
-			return;
-
-		// round to 5th decimal place (approx 1 meter at equator)
-		long mX = Math.round((loc.getLongitude() * 100000) - minLongitude);
-		long mY = Math.round((loc.getLatitude() * 100000) - minLatitude);
-		logMsg(String.format(
-				"GPS lat,long: %f,%f mapping to cartesian x,y: %d,%d",
-				loc.getLongitude(), loc.getLatitude(), mX, mY));
-
-		// Determine what region we're in now
-		// and if we've entered a new region since last check, take action
-		/*long rx = mX / regionWidth;
-		long ry = mY / regionWidth;
-		RegionKey newRegion = new RegionKey(rx, ry);
-		if (!newRegion.equals(myRegion))
-			changeRegion(newRegion);*/
-		long rx = Math.round(mX / regionWidth);
-		//long ry = mY / regionWidth;
-		RegionKey newRegion = new RegionKey(rx, 0);
-		if (!newRegion.equals(myRegion))
-			changeRegion(newRegion);
-	}
 	/*
+	 * Called when location has changed
+	 * 
 	 * Region 0 starts at south-east point and 
 	 * increments one by one north-west-wards along Mass Ave.
 	 */
@@ -595,7 +567,8 @@ public class VCoreDaemon extends Thread {
 		double power = 100000;
 		
 		// x-width of a rectangular region
-		double region_width = Math.sqrt(Math.pow(Globals.PHONE_RANGE_METERS, 2) - Math.pow(Globals.ROAD_WIDTH_METERS, 2));
+		double region_width = Globals.REGION_WIDTH;
+		
 		logMsg("GPS x/long:" + locx + ", GPS y/lat: " + locy + ". Region width in x: " + region_width);
 
 		// X = Longitude, Y = Latitude
@@ -635,31 +608,42 @@ public class VCoreDaemon extends Thread {
 		// find the current region
 		// Note: only depending on loc_x_rotated for this experiment
 		double current_region = (int) Math.floor(loc_x_rotated / region_width);
-		// logMsg("location PINPOINTS to region = " + current_region + ", previous " + prevRegion.x);
+		logMsg("location PINPOINTS to region = " + current_region + ", previous " + prevRegion.x);
 		
  
-		/*double region_width_boundary = Globals.REGION_WIDTH_BOUNDARY_METERS;
-		// check if it's inside boundary of region
-		// region_width_boundary is defined as the boundary from the edge of region to edge of boundary
-		// i.e. the total boundary length surrounding an edge is 2*this value
-		if ( (fractionMod(loc_x_rotated, region_width) < region_width_boundary) ||
-		     (fractionMod(region_width - loc_x_rotated, region_width) < region_width_boundary)
-			){
-			logMsg("location is INSIDE BOUNDARY, stay at prev region = " + prevRegion);
-		} else { */
-		// outside boundary
-
-		// check that prev region and new region are different
-		RegionKey new_region = new RegionKey((int) current_region, 0);
-		if  (Math.abs(new_region.x - prevRegion.x) == 0) {
-			logMsg("stay at region " + prevRegion.x);
+		if (Globals.HASHYSTERESIS){
+			logMsg("hasHysteresis = true");
+			double region_width_boundary = region_width*0.1;
+			// check if it's inside boundary of region
+			// region_width_boundary is defined as the boundary from the edge of region to edge of boundary
+			// i.e. the total boundary length surrounding an edge is 2*this value
+			if ( (fractionMod(loc_x_rotated, region_width) < region_width_boundary) ||
+					(fractionMod(region_width - loc_x_rotated, region_width) < region_width_boundary)
+					){
+				logMsg("location is INSIDE BOUNDARY, stay at prev region = " + prevRegion);
+			
+			} else {// outside boundary
+				// check that prev region and new region are different
+				RegionKey new_region = new RegionKey((int) current_region, 0);
+				if  (Math.abs(new_region.x - prevRegion.x) == 0) {
+					logMsg("stay at region " + prevRegion.x);
+				} else {
+					logMsg("location CHANGED TO NEW region = " + new_region + " from region = " + prevRegion);
+					changeRegion(new_region);
+				}
+			}
+		} else {
+			logMsg("hasHysteresis = false");
+			// check that prev region and new region are different
+			RegionKey new_region = new RegionKey((int) current_region, 0);
+			if  (Math.abs(new_region.x - prevRegion.x) == 0) {
+				logMsg("stay at region " + prevRegion.x);
+			} else {
+				logMsg("location CHANGED TO NEW region = " + new_region + " from region = " + prevRegion);
+				changeRegion(new_region);
+			}
 		}
-		else {
-			logMsg("location CHANGED TO NEW region = " + new_region + " from region = " + prevRegion);
-			changeRegion(new_region);
-		}
-		//}
-	}	
+	}
 	private double fractionMod(double a, double b){
 		double quotient = Math.floor(a/b);
 		return a-quotient*b;

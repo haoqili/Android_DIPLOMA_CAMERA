@@ -10,7 +10,7 @@ import android.util.Log;
 public class Mux extends Thread {
 	private final static String TAG = "Mux";
 
-	private final static long maxRx = Globals.MAX_X_REGIONS;
+	private final static long maxRx = Globals.MAX_REGION;
 	private final static long maxRy = Globals.MAX_Y_REGIONS;
 
 	private long nodeId;

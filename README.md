@@ -3,19 +3,29 @@ This project is going to be modifying Jason's DIPLOMAMatrix that does sparse mat
 Checklist
 =========
 
+WHAT IP ADDRESS WILL WE HAVE??
+
+* __GPS on__
+* Sound on
+
+Settings
+Display: 
+* __Auto-rotate screen OFF__
+* Screen timeout: 10min
+Applications, Development
+* USB debbugging on
+
+Barnacle
+* __IP address different__
+
 0. Make sure 4G/3G is on
-0. Make sure the IP addresses of the phones are all different
 1. SMCloud restart server running ?
-2. DIPLOMA restart server running ?
-3. Ensure Items 1 and 2 above do not run on the same port on the same machine.
+2. DIPLOMA restart server running ? on different port?
 4. The code on the phone must point to the right server in both cases
 1 and 2 above.
-5. Turn on Sound, Turn on GPS, Brightness, USB Debugging,
-6. Turn off rotation
-7. Turn on GPS
+
 8. Clear log
 7. Clear log files from sdcard of all phones.
-8. Make sure logs are flushed on to the sdcard immediately so that we don't end up with empty logs at the end of an experiment.
 
 Procedure
 ========

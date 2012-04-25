@@ -41,6 +41,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,16 +49,18 @@ public class StatusActivity extends Activity implements LocationListener {
 	final static private String TAG = "StatusActivity";
 
 	// UI elements
-	Button region_button, my_camera_button;
+	Button my_camera_button;
+	Button width_button;
 	Button get0_button, get1_button, get2_button, get3_button, get4_button, get5_button;
 	Button sreg0, sreg1, sreg2, sreg3, sreg4, sreg5;
 	TextView takeNumTv, takeGoodTv, takePercentTv;
 	TextView getNumTv, getGoodTv, getPercentTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
-	EditText regionText, threadsText;
+	EditText widthText;
 	ListView msgList;
 	ArrayAdapter<String> receivedMessages;
 	CameraSurfaceView cameraSurfaceView;
+	Spinner spinner;
 
 	PowerManager.WakeLock wl = null;
 	LocationManager lm;
@@ -423,7 +426,9 @@ public class StatusActivity extends Activity implements LocationListener {
 	}
 
 	private void logCounts(){
-		logMsg("reg="+mux.vncDaemon.myRegion.x+" state="+mux.vncDaemon.mState
+		logMsg("reg="+mux.vncDaemon.myRegion.x +" id="+mux.vncDaemon.mId
+				+" state="+mux.vncDaemon.mState 
+				+ " regionWidth="+Globals.REGION_WIDTH + " hyst="+Globals.HASHYSTERESIS
 				+" takeNum="+takeNum+ " takeCamGood="+takeCamGood+ " takeGoodSave="+takeGoodSave
 				+ " takeBad="+takeBad+ " takeTimedout="+takeTimedout+ " getNum="+getNum
 				+ " getGood="+getGood+ " getBad="+getBad+ " getTimedout=" + getTimedout);
@@ -556,9 +561,9 @@ public class StatusActivity extends Activity implements LocationListener {
 			toast.show();
 			return false;
 		}
-		if (mux.vncDaemon.myRegion.x < Globals.MIN_REGION || mux.vncDaemon.myRegion.x > Globals.MAX_REGION){
-			logMsg("canPressButton = false. Can't press button because you're not at a valid region: " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION + ". You're at " + mux.vncDaemon.myRegion.x);
-			CharSequence text = "Can't press button because you're not at a valid region: " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION + ". You're at " + mux.vncDaemon.myRegion.x;
+		if (mux.vncDaemon.myRegion.x < 0 || mux.vncDaemon.myRegion.x > Globals.MAX_REGION){
+			logMsg("canPressButton = false. Can't press button because you're not at a valid region: 0 ~ " + Globals.MAX_REGION + ". You're at " + mux.vncDaemon.myRegion.x);
+			CharSequence text = "Can't press button because you're not at a valid region: 0 ~ " + Globals.MAX_REGION + ". You're at " + mux.vncDaemon.myRegion.x;
 			Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
 			toast.setGravity(Gravity.CENTER, 0,0);
 			toast.show();
@@ -587,9 +592,17 @@ public class StatusActivity extends Activity implements LocationListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		
+		// Hysteresis Spinner
+		Spinner spinner = (Spinner) findViewById(R.id.hysteresis_spinner);
+	    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+	            this, R.array.spinner_choices, android.R.layout.simple_spinner_item);
+	    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    spinner.setAdapter(adapter);
+	    spinner.setOnItemSelectedListener(new HysteresisSpinnerListener());
+	    
 		// Buttons
-		region_button = (Button) findViewById(R.id.region_button);
-		region_button.setOnClickListener(region_button_listener);
+		width_button = (Button) findViewById(R.id.width_button);
+		width_button.setOnClickListener(width_button_listener);
 		get0_button = (Button) findViewById(R.id.get0_button);
 		get0_button.setOnClickListener(get_button_listener);
 		get1_button = (Button) findViewById(R.id.get1_button);
@@ -662,7 +675,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		getGoodTv = (TextView) findViewById(R.id.getGood_tv);
 		getPercentTv = (TextView) findViewById(R.id.getPercent_tv);
 
-		regionText = (EditText) findViewById(R.id.region_text);
+		widthText = (EditText) findViewById(R.id.width_text);
 
 		// Text views
 		idTv = (TextView) findViewById(R.id.id_tv);
@@ -764,6 +777,15 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	} // end OnCreate()
 
+	// Called by HysteresisSpinnerListener
+	public static void changeHysteresis(String str){
+		if (str.equals("Hysteresis_ON")){
+			Globals.HASHYSTERESIS = true;
+		} else {
+			Globals.HASHYSTERESIS = false;
+		}
+	}
+	
 	/**
 	 * onResume is is always called after onStart, even if userApp's not
 	 * paused
@@ -828,27 +850,19 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	/*** UI Callbacks for Buttons, etc. ***/
 	// UI callback for "Set Region" button.
-	private OnClickListener region_button_listener = new OnClickListener() {
+	private OnClickListener width_button_listener = new OnClickListener() {
 		public void onClick(View v) {
-			String strX = regionText.getText().toString();
+			String strX = widthText.getText().toString();
 			if (strX.equals("")){
-				logMsg("please input a region");
-				CharSequence text = "please input a region";
+				logMsg("please input some width");
+				CharSequence text = "please input a width";
 				Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
 				toast.setGravity(Gravity.CENTER, 0,0);
 				toast.show();
 			} else {
 				int rX = Integer.parseInt(strX);
-				int rY = 0;
-				if (rX < Globals.MIN_REGION || rX > Globals.MAX_REGION){
-					logMsg("please input a region between " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION);
-					CharSequence text = "please input a region between " + Globals.MIN_REGION + " ~ " + Globals.MAX_REGION;
-					Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
-					toast.setGravity(Gravity.CENTER, 0,0);
-					toast.show();	
-				} else {
-					mux.vncDaemon.changeRegion(new RegionKey(rX, rY));
-				}
+				Globals.REGION_WIDTH = rX;
+				logMsg("Region width is changed to: " + rX);
 			}
 		}
 	};
@@ -891,7 +905,6 @@ public class StatusActivity extends Activity implements LocationListener {
 	public void onLocationChanged(Location loc) {
 		logMsg(".......... GPS onLocationChanged ...... ");
 		if (loc != null) {
-			//mux.vncDaemon.checkLocation(loc);
 			mux.vncDaemon.determineLocation(loc, mux.vncDaemon.myRegion);
 		} else {
 			logMsg("Null Location");
