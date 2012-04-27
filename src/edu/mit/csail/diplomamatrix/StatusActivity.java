@@ -273,7 +273,7 @@ public class StatusActivity extends Activity implements LocationListener {
 						isGetSuccess = true;
 						getGood += 1;
 						logCounts(); // logCounts has to be called to refresh the UI anyway.	
-						
+						logMsg("successful reply for client get photo");
 						if (my_gpinfo3.photoBytes == null) {
 							logMsg("PHOTO DATA is NULL, because region doesn't have a photo yet");
 							CharSequence text = "PHOTO DATA is NULL, because region doesn't have a photo yet";
@@ -1131,7 +1131,7 @@ public class StatusActivity extends Activity implements LocationListener {
         		}
         		
         		// Make packet that sends the photo request to the leader
-        		logMsg("** Client making GET photo PACKET to send to the leader. Requesting for region: " + targetRegion + " **");
+        		logMsg("** Client of state " +mux.vncDaemon.mState +" in region " + mux.vncDaemon.myRegion.x + " making GET photo PACKET to send to the leader. Requesting for region: " + targetRegion + " **");
         		// Create a Packet to send through Mux to Leader's UserApp
         		Packet packet = new Packet(mux.vncDaemon.mId, 
         				-1,

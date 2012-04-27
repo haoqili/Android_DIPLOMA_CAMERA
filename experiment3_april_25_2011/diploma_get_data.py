@@ -2,10 +2,6 @@ import os
 import re
 import math
 
-# add region width
-# add region info. like how far away gets are made to
-# leader vs nonleader
-
 diploma_take_latency = []
 diploma_get_latency = []
 
@@ -157,7 +153,7 @@ def printResults():
     print "number:\t\t%d" % diploma_getNum
     print "successes:\t%d\t%d %%\tincluding existing regions without a photo" % (diploma_getGood, (diploma_getGood*100/diploma_getNum))
     print "fails:\t\t%d due to null region" % diploma_getBad
-    print "timed outs:\t%d requests that take longer than 6 seconds, some don't ever have responses" % diploma_takeTimedout
+    print "timed outs:\t%d requests that take longer than 6 seconds, some don't ever have responses" % diploma_getTimedout
     latencyPrints(diploma_get_latency)
 
     print
