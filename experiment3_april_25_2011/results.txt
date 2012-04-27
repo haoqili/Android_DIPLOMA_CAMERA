@@ -197,3 +197,185 @@ mean:           464 ms
 stdv:           1091 ms
 median:         347 ms
 range:          91 ms ~ 13387 ms
+
+
+
+#############################################
+###### Diploma Gets based on hop number #####
+#############################################
+takes about 2 minutes to run for me
+
+=============================
+====== Diploma Nexus ========
+=============================
+
+======= GETs for hop 0 ========
+number:         126
+successes:      109     86 %    including existing regions without a photo
+fails:          2 due to null region, but still with reply
+~timed outs:    15 calculated indirectly by number-successes-fails
+-- Latency: raw, including timed outs --
+number:         111
+mean:           2638 ms
+stdv:           5427 ms
+median:         339 ms
+range:          66 ms ~ 29264 ms
+-- Latency: excluding timed outs --
+number:         95      is 85 % of all latencies.       16 requests never have responses
+mean:           750 ms
+stdv:           1244 ms
+median:         292 ms
+range:          66 ms ~ 5757 ms
+
+======= GETs for hop 1 ========
+number:         210
+successes:      15      7 %     including existing regions without a photo
+fails:          114 due to null region, but still with reply
+~timed outs:    81 calculated indirectly by number-successes-fails
+-- Latency: raw, including timed outs --
+number:         136
+mean:           5479 ms
+stdv:           10619 ms
+median:         2246 ms
+range:          171 ms ~ 83681 ms
+-- Latency: excluding timed outs --
+number:         115     is 84 % of all latencies.       21 requests never have responses
+mean:           2455 ms
+stdv:           1023 ms
+median:         2218 ms
+range:          171 ms ~ 5780 ms
+
+======= GETs for hop 2 ========
+number:         92
+successes:      6       6 %     including existing regions without a photo
+fails:          49 due to null region, but still with reply
+~timed outs:    37 calculated indirectly by number-successes-fails
+-- Latency: raw, including timed outs --
+number:         58
+mean:           3996 ms
+stdv:           4365 ms
+median:         2265 ms
+range:          829 ms ~ 28760 ms
+-- Latency: excluding timed outs --
+number:         48      is 82 % of all latencies.       10 requests never have responses
+mean:           2509 ms
+stdv:           999 ms
+median:         2220 ms
+range:          829 ms ~ 5728 ms
+
+======= GETs for hop 3 ========
+number:         33
+successes:      0       0 %     including existing regions without a photo
+fails:          20 due to null region, but still with reply
+~timed outs:    13 calculated indirectly by number-successes-fails
+-- Latency: raw, including timed outs --
+number:         27
+mean:           5224 ms
+stdv:           5921 ms
+median:         2241 ms
+range:          2 ms ~ 21938 ms
+-- Latency: excluding timed outs --
+number:         19      is 70 % of all latencies.       8 requests never have responses
+mean:           2108 ms
+stdv:           973 ms
+median:         2205 ms
+range:          2 ms ~ 4993 ms
+
+======= GETs for hop 4 ========
+number:         8
+successes:      0       0 %     including existing regions without a photo
+fails:          2 due to null region, but still with reply
+~timed outs:    6 calculated indirectly by number-successes-fails
+-- Latency: raw, including timed outs --
+number:         2
+mean:           2173 ms
+stdv:           3 ms
+median:         2176 ms
+range:          2170 ms ~ 2176 ms
+-- Latency: excluding timed outs --
+number:         2       is 100 % of all latencies.      0 requests never have responses
+mean:           2173 ms
+stdv:           3 ms
+median:         2176 ms
+range:          2170 ms ~ 2176 ms
+
+======= GETs for hop 5 ========
+number:         1
+successes:      0       0 %     including existing regions without a photo
+fails:          0 due to null region, but still with reply
+~timed outs:    1 calculated indirectly by number-successes-fails
+no latency calculations since no there are no replies
+
+
+=============================
+====== Diploma Notes ========
+=============================
+
+======= GETs for hop 0 ========
+number:         23
+successes:      15      65 %    including existing regions without a photo
+fails:          1 due to null region, but still with reply
+~timed outs:    7 calculated indirectly by number-successes-fails
+-- Latency: raw, including timed outs --
+number:         17
+mean:           9388 ms
+stdv:           17091 ms
+median:         73 ms
+range:          49 ms ~ 46311 ms
+-- Latency: excluding timed outs --
+number:         13      is 76 % of all latencies.       4 requests never have responses
+mean:           69 ms
+stdv:           10 ms
+median:         69 ms
+range:          49 ms ~ 92 ms
+
+======= GETs for hop 1 ========
+number:         28
+successes:      2       7 %     including existing regions without a photo
+fails:          10 due to null region, but still with reply
+~timed outs:    16 calculated indirectly by number-successes-fails
+-- Latency: raw, including timed outs --
+number:         12
+mean:           10182 ms
+stdv:           13885 ms
+median:         2189 ms
+range:          2131 ms ~ 35017 ms
+-- Latency: excluding timed outs --
+number:         9       is 75 % of all latencies.       3 requests never have responses
+mean:           2170 ms
+stdv:           22 ms
+median:         2171 ms
+range:          2131 ms ~ 2204 ms
+
+======= GETs for hop 2 ========
+number:         21
+successes:      0       0 %     including existing regions without a photo
+fails:          2 due to null region, but still with reply
+~timed outs:    19 calculated indirectly by number-successes-fails
+-- Latency: raw, including timed outs --
+number:         2
+mean:           2188 ms
+stdv:           2 ms
+median:         2191 ms
+range:          2186 ms ~ 2191 ms
+-- Latency: excluding timed outs --
+number:         2       is 100 % of all latencies.      0 requests never have responses
+mean:           2188 ms
+stdv:           2 ms
+median:         2191 ms
+range:          2186 ms ~ 2191 ms
+
+======= GETs for hop 3 ========
+number:         3
+successes:      0       0 %     including existing regions without a photo
+fails:          0 due to null region, but still with reply
+~timed outs:    3 calculated indirectly by number-successes-fails
+no latency calculations since no there are no replies
+
+======= GETs for hop 4 ========
+number:         0
+no requests means no analysis
+
+======= GETs for hop 5 ========
+number:         0
+no requests means no analysis

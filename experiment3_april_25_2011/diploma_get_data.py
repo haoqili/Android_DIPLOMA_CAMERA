@@ -53,6 +53,7 @@ def dirWalk(dirname):
                 # I accidentally deleted the line that set upload start
                 # since only 1 request is processed at a time
                 # this greps for the line that is within 2ms of upload_start
+                # if multiple send requests, assume the latest one is the one succeeded
                 startS = re.search("(.*): inside sendRequestPacketRepeatingRunnable for requestCount = ", line)
                 if startS is not None:
                     upload_start = int(startS.group(1))
