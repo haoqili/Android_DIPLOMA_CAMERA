@@ -1,0 +1,2532 @@
+1335385212652: *** Opened log file for writing ***
+1335385212653: Android build: SAMSUNG-SGH-I717
+1335385212653: NET_NAME set to: eth0
+1335385212653: starting Mux with id = -1
+1335385212660: areButtonsEnabled --> true
+1335385212661: *** Application started ***
+1335385212662: HI I'm in ONRESUME()
+1335385212665: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1335385212657: mux: Mux.java run() beginning -------------
+1335385212673: mux: Mux.java's nodeId is5018
+1335385212673: mux: starting vncDaemon ........
+1335385212675: mux: vncDaemon started
+1335385212674: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1335385212680: VCoreDaemon.java onStart() ....
+1335385212680: started, mId = 5018
+1335385212680: VCoreDaemon.java inside stateTransition ..........
+1335385212680: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385212681: ..... VCoreDaemon.java out of bounds
+1335385212681: region (-1, -1) out of bounds, dormant
+1335385212681: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385213638: .......... GPS onLocationChanged ...... 
+1335385213639: Loc = Location[mProvider=gps,mTime=1335385214000,mLatitude=42.35799771,mLongitude=-71.09300634,mHasAltitude=true,mAltitude=-30.899999618530273,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (-1,-1)
+1335385213639: GPS x/long:-71.09300634, GPS y/lat: 42.35799771. Region width in x: 20.0
+1335385213639: location PINPOINTS to region = 1.0, previous -1
+1335385213639: Hysteresis is 0.0
+1335385213639: location CHANGED TO NEW region = (1,0) from region = (-1,-1)
+1335385213640: moving from region (-1,-1), to (1,0)
+1335385213640: VCoreDaemon.java inside stateTransition ..........
+1335385213640: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385213640: ..... VCoreDaemon.java targetState = JOINING
+1335385213640: posting leaderRequestRetryR because I'm joining
+1335385213643: sending LEADER_REQUEST
+1335385213643: inside sendPacket(Packet p)
+1335385213643: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385213669: Sending UDP payload: 446
+1335385213672: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385213944: sending LEADER_REQUEST
+1335385213944: inside sendPacket(Packet p)
+1335385213944: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385213945: Sending UDP payload: 446
+1335385214245: sending LEADER_REQUEST
+1335385214245: inside sendPacket(Packet p)
+1335385214245: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385214247: Sending UDP payload: 446
+1335385214545: sending LEADER_REQUEST
+1335385214546: inside sendPacket(Packet p)
+1335385214546: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385214547: Sending UDP payload: 446
+1335385214672: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385214673: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385214673: VCoreDaemon.java inside stateTransition ..........
+1335385214674: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385214674: ..... VCoreDaemon.java targetState = LEADER
+1335385214678: trying to take leadership to the cloud
+1335385215067: cloud rejected leadership request or request failed, wait to retry
+1335385221080: Received UDP payload: 446
+1335385221112: Received UDP payload: 446
+1335385221126: Received UDP payload: 446
+1335385221184: Received UDP payload: 6317
+1335385221225: mux: GOT CSM_Msg
+1335385221244: Received UDP payload: 989
+1335385221290: mux: GOT CSM_Msg
+1335385221301: Received UDP payload: 446
+1335385221327: Received UDP payload: 989
+1335385221358: mux: GOT CSM_Msg
+1335385221400: Received UDP payload: 6317
+1335385221427: mux: GOT CSM_Msg
+1335385221441: Received UDP payload: 446
+1335385221449: Received UDP payload: 446
+1335385221457: Received UDP payload: 446
+1335385221505: Received UDP payload: 463
+1335385221526: Received UDP payload: 446
+1335385221558: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385221559: heard HEARTBEAT from 5020, now following
+1335385221559: VCoreDaemon.java inside stateTransition ..........
+1335385221561: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385221561: ..... VCoreDaemon.java targetState = NONLEADER
+1335385221565: now NONLEADER (id=5018) following LEADER (id=5020) in (1,0)
+1335385221566: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385221567: Received UDP payload: 446
+1335385221583: Received UDP payload: 446
+1335385221601: Received UDP payload: 446
+1335385221627: Received UDP payload: 446
+1335385230904: Received UDP payload: 446
+1335385230910: Received UDP payload: 446
+1335385230916: Received UDP payload: 446
+1335385230926: Received UDP payload: 446
+1335385230968: Received UDP payload: 625
+1335385230972: mux: Inside mux Packet.CLIENT_REQUEST
+1335385230973: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385230979: Received UDP payload: 625
+1335385230996: mux: Inside mux Packet.CLIENT_REQUEST
+1335385230997: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385231011: Received UDP payload: 625
+1335385231018: mux: Inside mux Packet.CLIENT_REQUEST
+1335385231019: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385231029: Received UDP payload: 625
+1335385231036: mux: Inside mux Packet.CLIENT_REQUEST
+1335385231036: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385237706: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335385237707: VCoreDaemon.java inside stateTransition ..........
+1335385237708: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385237708: ..... VCoreDaemon.java targetState = JOINING
+1335385237709: posting leaderRequestRetryR because I'm joining
+1335385237709: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385237710: sending LEADER_REQUEST
+1335385237710: inside sendPacket(Packet p)
+1335385237710: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385237715: Sending UDP payload: 446
+1335385238026: sending LEADER_REQUEST
+1335385238026: inside sendPacket(Packet p)
+1335385238027: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385238032: Sending UDP payload: 446
+1335385238328: sending LEADER_REQUEST
+1335385238329: inside sendPacket(Packet p)
+1335385238329: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385238335: Sending UDP payload: 446
+1335385238630: sending LEADER_REQUEST
+1335385238631: inside sendPacket(Packet p)
+1335385238632: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385238636: Sending UDP payload: 446
+1335385238709: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385238710: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385238710: VCoreDaemon.java inside stateTransition ..........
+1335385238711: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385238711: ..... VCoreDaemon.java targetState = LEADER
+1335385238712: trying to take leadership to the cloud
+1335385239268: cloud accepted leadership request, returned csm bytes size 29826
+1335385239269: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
+1335385239270: *** Starting CSM Layer ***
+1335385239271: *** CSM Layer starting with cache disabled ***
+1335385239271: *** CSM Layer starting with forwarding enabled ***
+1335385240332: DSMLayer starting
+1335385240341: UserApp started.
+1335385240342: loaded csm data from cloud
+1335385240444: inside sendPacket(Packet p)
+1335385240448: Sending UDP payload: 12644
+1335385240469: now fully up as LEADER (id=5018) of (1,0)
+1335385240470: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385242710: inside sendPacket(Packet p)
+1335385242726: Sending UDP payload: 446
+1335385247729: inside sendPacket(Packet p)
+1335385247733: Sending UDP payload: 446
+1335385252730: inside sendPacket(Packet p)
+1335385252736: Sending UDP payload: 446
+1335385257731: inside sendPacket(Packet p)
+1335385257734: Sending UDP payload: 446
+1335385262732: inside sendPacket(Packet p)
+1335385262748: Sending UDP payload: 446
+1335385264568: Received UDP payload: 446
+1335385264596: Received UDP payload: 446
+1335385264605: Received UDP payload: 446
+1335385264671: Received UDP payload: 3512
+1335385264682: ignoring leader_reply that's not for me
+1335385264701: Received UDP payload: 446
+1335385264712: Received UDP payload: 446
+1335385264741: Received UDP payload: 446
+1335385264766: Received UDP payload: 446
+1335385264837: Received UDP payload: 446
+1335385264848: Received UDP payload: 446
+1335385264898: Received UDP payload: 446
+1335385264922: Received UDP payload: 446
+1335385264937: Received UDP payload: 446
+1335385264946: Received UDP payload: 446
+1335385265063: Received UDP payload: 446
+1335385265149: Received UDP payload: 446
+1335385267750: inside sendPacket(Packet p)
+1335385267767: Sending UDP payload: 446
+1335385272750: inside sendPacket(Packet p)
+1335385272754: Sending UDP payload: 446
+1335385273016: Received UDP payload: 446
+1335385273029: Received UDP payload: 463
+1335385273040: Received UDP payload: 446
+1335385273049: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385273100: Received UDP payload: 446
+1335385273112: Received UDP payload: 446
+1335385273148: Received UDP payload: 446
+1335385273169: inside sendPacket(Packet p)
+1335385273186: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385273202: Sending UDP payload: 12199
+1335385273240: inside sendPacket(Packet p)
+1335385273248: Sending UDP payload: 12199
+1335385273249: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385273290: inside sendPacket(Packet p)
+1335385273292: Sending UDP payload: 12199
+1335385273293: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385273296: Received UDP payload: 625
+1335385273298: mux: Inside mux Packet.CLIENT_REQUEST
+1335385273298: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385273298: inside handleClientRequest. Originator leader of region 1
+1335385273298: got new request, requestCounter = 5003002
+1335385273298: Leader received CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1335385273300: Sending to region: 0
+1335385273302: Sending PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385273302: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385273303: mux: I got a CSM packet at a leader 
+
+1335385273303: Note down new request by adding requestCounter=5003002 to HashMap processedRequests
+1335385273303: Make FirstLeg Ack regardless of new or already-processed requests
+1335385273303: The leader sending a First Leg ack to originator client (which id = 5003)
+1335385273303: inside sendPacket(Packet p)
+1335385273305: Received UDP payload: 625
+1335385273308: Sending UDP payload: 989
+1335385273308: nonce 38 heard from src region (1,0)
+1335385273309: Sending UDP payload: 446
+1335385273330: mux: Inside mux Packet.CLIENT_REQUEST
+1335385273330: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385273330: inside handleClientRequest. Originator leader of region 1
+1335385273330: discarding repeated requestCounter=5003002, but still send an ack back
+1335385273331: Note down new request by adding requestCounter=5003002 to HashMap processedRequests
+1335385273331: Make FirstLeg Ack regardless of new or already-processed requests
+1335385273331: The leader sending a First Leg ack to originator client (which id = 5003)
+1335385273331: inside sendPacket(Packet p)
+1335385273332: Sending UDP payload: 446
+1335385273351: inside sendPacket(Packet p)
+1335385273352: Sending UDP payload: 12483
+1335385274058: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274069: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274070: mux: I got a CSM packet at a leader 
+
+1335385274075: Sending UDP payload: 989
+1335385274096: nonce 39 heard from src region (1,0)
+1335385274180: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274180: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274181: mux: I got a CSM packet at a leader 
+
+1335385274183: Sending UDP payload: 989
+1335385274185: nonce 40 heard from src region (1,0)
+1335385274281: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274281: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274282: mux: I got a CSM packet at a leader 
+
+1335385274284: Sending UDP payload: 989
+1335385274286: nonce 41 heard from src region (1,0)
+1335385274382: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274383: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274383: mux: I got a CSM packet at a leader 
+
+1335385274385: Sending UDP payload: 989
+1335385274393: nonce 42 heard from src region (1,0)
+1335385274484: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274484: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274485: mux: I got a CSM packet at a leader 
+
+1335385274487: Sending UDP payload: 989
+1335385274492: nonce 43 heard from src region (1,0)
+1335385274585: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274585: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274586: mux: I got a CSM packet at a leader 
+
+1335385274588: Sending UDP payload: 989
+1335385274588: nonce 44 heard from src region (1,0)
+1335385274686: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274687: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274687: mux: I got a CSM packet at a leader 
+
+1335385274689: Sending UDP payload: 989
+1335385274689: nonce 45 heard from src region (1,0)
+1335385274788: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274788: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274790: mux: I got a CSM packet at a leader 
+
+1335385274795: Sending UDP payload: 989
+1335385274809: nonce 46 heard from src region (1,0)
+1335385274889: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274890: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274891: mux: I got a CSM packet at a leader 
+
+1335385274893: Sending UDP payload: 989
+1335385274894: nonce 47 heard from src region (1,0)
+1335385274991: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274992: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385274992: mux: I got a CSM packet at a leader 
+
+1335385274994: Sending UDP payload: 989
+1335385274997: nonce 48 heard from src region (1,0)
+1335385275093: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385275094: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385275095: mux: I got a CSM packet at a leader 
+
+1335385275098: Sending UDP payload: 989
+1335385275102: nonce 49 heard from src region (1,0)
+1335385275195: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385275197: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385275199: mux: I got a CSM packet at a leader 
+
+1335385275209: Sending UDP payload: 989
+1335385275212: nonce 50 heard from src region (1,0)
+1335385275299: Retrying PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385275302: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(0,0)
+1335385275304: mux: I got a CSM packet at a leader 
+
+1335385275314: Sending UDP payload: 989
+1335385275318: nonce 51 heard from src region (1,0)
+1335385275404: DSM Layer: Request timed out, send failure PROC_REPLY 11:1 (0,0)->(1,0)
+1335385275404: Dispatching Atom PROC_REPLY 11:1 (0,0)->(1,0)
+1335385275406: mux: I got a CSM packet at a leader 
+
+1335385275408: Sending UDP payload: 989
+1335385275413: Received PROC_REPLY 11:1 (0,0)->(1,0), handing to UserApp
+1335385275413: inside handleDSMReply. Now back in originator leader of region 1
+1335385275414: DSM layer timed out, don't log dsm layer latency stuff.
+1335385275420: Originator Region=1's Leader (for Client=5003) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335385275421: change leader replyCounter to: 1
+1335385275421: reply packet contains the newest photo/success info from the remote region
+1335385275422: inside sendReplies of replyCount = 501800001
+1335385275423: =======================
+1335385275423: inside sendReplyRepeatingRunnable for replyCount = 501800001
+1335385275424: Leader about to send REPLY packet, number: 501800001 type: 15 Leader in region: (1,0) to Client nodID: 5003
+1335385275424: I (the leader) was not the originator client (which id = 5003) so I use UDP to send packet back to my nonleader
+1335385275424: inside sendPacket(Packet p)
+1335385275424: === Finished one round of sending REPLY Packet =======
+1335385275430: Sending UDP payload: 642
+1335385275725: =======================
+1335385275726: inside sendReplyRepeatingRunnable for replyCount = 501800001
+1335385275727: Leader about to send REPLY packet, number: 501800001 type: 15 Leader in region: (1,0) to Client nodID: 5003
+1335385275728: I (the leader) was not the originator client (which id = 5003) so I use UDP to send packet back to my nonleader
+1335385275728: inside sendPacket(Packet p)
+1335385275729: === Finished one round of sending REPLY Packet =======
+1335385275734: Sending UDP payload: 642
+1335385276030: =======================
+1335385276031: inside sendReplyRepeatingRunnable for replyCount = 501800001
+1335385276032: Leader about to send REPLY packet, number: 501800001 type: 15 Leader in region: (1,0) to Client nodID: 5003
+1335385276033: I (the leader) was not the originator client (which id = 5003) so I use UDP to send packet back to my nonleader
+1335385276033: inside sendPacket(Packet p)
+1335385276037: Sending UDP payload: 642
+1335385276039: === Finished one round of sending REPLY Packet =======
+1335385276340: =======================
+1335385276341: inside sendReplyRepeatingRunnable for replyCount = 501800001
+1335385276342: Leader about to send REPLY packet, number: 501800001 type: 15 Leader in region: (1,0) to Client nodID: 5003
+1335385276342: I (the leader) was not the originator client (which id = 5003) so I use UDP to send packet back to my nonleader
+1335385276342: inside sendPacket(Packet p)
+1335385276343: === Finished one round of sending REPLY Packet =======
+1335385276344: Sending UDP payload: 642
+1335385276426: inside sendReplyTimeoutR
+1335385276427: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501800001
+1335385277751: inside sendPacket(Packet p)
+1335385277760: Sending UDP payload: 446
+1335385282762: inside sendPacket(Packet p)
+1335385282764: Sending UDP payload: 446
+1335385287763: inside sendPacket(Packet p)
+1335385287768: Sending UDP payload: 446
+1335385292764: inside sendPacket(Packet p)
+1335385292768: Sending UDP payload: 446
+1335385297765: inside sendPacket(Packet p)
+1335385297767: Sending UDP payload: 446
+1335385302766: inside sendPacket(Packet p)
+1335385302769: Sending UDP payload: 446
+1335385307767: inside sendPacket(Packet p)
+1335385307783: Sending UDP payload: 446
+1335385309811: canPressButton = TRUE
+1335385309812: areButtonsEnabled --> false
+1335385309812: disabling buttons ...
+1335385309813: took picture disableButtonsR
+1335385309814: areButtonsEnabled --> false
+1335385309927: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335385309927: Clicked take picture button ..
+1335385311351: inside HandlePictureStorage onPictureTaken()
+1335385311351: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335385311626: Picture successfully taken, ORIG BYTE LENGTH = 3252918
+1335385311891: Our new height x width: 306 x 408
+1335385311891: Show photo from handle my camera take
+1335385311892: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335385311892: change local requestCounter to 1
+1335385311908: BYTE SIZE AFTER COMPRESSION: 3967
+1335385311914: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5018001 Client in region: 1 Client nodID: 5018
+1335385311945: ----------------------------
+1335385311945: inside sendRequestPacketRepeatingRunnable for requestCount = 5018001
+1335385311946: I'm a leader, my requesting photos packet going to mux directly
+1335385311954: --- Finished one round of sending REQUEST Packet ---------
+1335385311946: mux: Inside mux Packet.CLIENT_REQUEST
+1335385311946: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385311997: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335385311946: inside handleClientRequest. Originator leader of region 1
+1335385311946: got new request, requestCounter = 5018001
+1335385311946: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
+1335385311947: Sending PROC_REQUEST 10:4 (1,0)->(1,0)
+1335385311947: Dispatching Atom PROC_REQUEST 10:4 (1,0)->(1,0)
+1335385311948: mux: I got a CSM packet at a leader 
+
+1335385311999: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335385312001: I'm a leader and I successfully saved my client's new photo
+1335385312001: now showing in UI the new photo I just saved ... 
+1335385312001: the photo length: 3967
+1335385312037: end of server show photo aside %%%%%%%%%
+1335385311947: Note down new request by adding requestCounter=5018001 to HashMap processedRequests
+1335385311947: Make FirstLeg Ack regardless of new or already-processed requests
+1335385311948: sending a First Leg ack to myself, becaues I (the leader) was also the originator client (id = 5018)
+1335385311961: Sending UDP payload: 4978
+1335385311966: removed replies before id 4 from sentReplies of size 0
+1335385311966: inside handleDSMRequest. At requests's remote leader of region 1
+1335385311970: Inside UPLOAD_PHOTO!!
+1335385311973: my_gpinfo.isSuccess is now (should be true): true
+1335385311973: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1335385311982: Received PROC_REQUEST 10:4 (1,0)->(1,0), replying PROC_REPLY 10:4 (1,0)->(1,0)
+1335385311983: Dispatching Atom PROC_REPLY 10:4 (1,0)->(1,0)
+1335385311983: mux: I got a CSM packet at a leader 
+
+1335385312038: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
+1335385312039: disabling progressdialog due to successful new photo upload
+1335385312039: Inside _enableButtons
+1335385312040: areButtonsEnabled --> true
+1335385312040: send final leg ack regardless of new or already-processed reply
+1335385312040: inside finalLegAck: change requestCounter to 2
+1335385312041: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5018002 Client in region: (1,0) Client nodID: 5018
+1335385312041: I'm a leader client, my final_leg packet going to mux directly
+1335385312043: new client_upload_photo_ack reply with replyCounter 501800002
+1335385312044: note down new reply by adding replyCounter=501800002 to HashMap processedReplies
+1335385312044: leader upload new photo latency = 1335385312038
+1335385312044: = leader upload start 0 ~ stop 1335385312038
+1335385312046: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=100% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335385312047: SUCCESS Client now knows saving photo on its leader succeeded
+1335385311984: Sending UDP payload: 989
+1335385311985: Received PROC_REPLY 10:4 (1,0)->(1,0), handing to UserApp
+1335385311985: inside handleDSMReply. Now back in originator leader of region 1
+1335385311985: DSM layer: Going to and from remote region took latency = 39
+1335385311986: DSM layer: orig leader sent packet at 1335385311946 ~ received reply from remote leader at 1335385311985
+1335385311987: Originator Region=1's Leader (for Client=5018) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335385311987: change leader replyCounter to: 2
+1335385311987: reply packet contains the success info for UPLOAD_PHOTO
+1335385311987: inside sendReplies of replyCount = 501800002
+1335385311987: =======================
+1335385311988: inside sendReplyRepeatingRunnable for replyCount = 501800002
+1335385311988: Leader about to send REPLY packet, number: 501800002 type: 16 Leader in region: (1,0) to Client nodID: 5018
+1335385311988: I (the leader) was also the originator client (id = 5018) so I hand the packet to my mux directly, without UDP
+1335385311988: === Finished one round of sending REPLY Packet =======
+1335385312042: mux: Inside mux Packet.CLIENT_REQUEST
+1335385312042: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385312042: inside handleClientRequest. Originator leader of region 1
+1335385312042: got new request, requestCounter = 5018002
+1335385312042: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 501800002
+1335385312042: Yay the last leg succeeded. Removing reply runnables ...
+1335385312042: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501800002
+1335385312043: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 501800002
+1335385312043: do not send ack for received final_leg_ack
+1335385312768: inside sendPacket(Packet p)
+1335385312797: Sending UDP payload: 446
+1335385317647: Received UDP payload: 625
+1335385317670: mux: Inside mux Packet.CLIENT_REQUEST
+1335385317670: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385317671: inside handleClientRequest. Originator leader of region 1
+1335385317672: discarding repeated requestCounter=5003002, but still send an ack back
+1335385317672: Note down new request by adding requestCounter=5003002 to HashMap processedRequests
+1335385317672: Make FirstLeg Ack regardless of new or already-processed requests
+1335385317673: The leader sending a First Leg ack to originator client (which id = 5003)
+1335385317687: inside sendPacket(Packet p)
+1335385317691: Received UDP payload: 625
+1335385317693: Sending UDP payload: 446
+1335385317716: mux: Inside mux Packet.CLIENT_REQUEST
+1335385317717: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385317717: inside handleClientRequest. Originator leader of region 1
+1335385317717: discarding repeated requestCounter=5003002, but still send an ack back
+1335385317719: Note down new request by adding requestCounter=5003002 to HashMap processedRequests
+1335385317719: Make FirstLeg Ack regardless of new or already-processed requests
+1335385317720: The leader sending a First Leg ack to originator client (which id = 5003)
+1335385317721: inside sendPacket(Packet p)
+1335385317724: Sending UDP payload: 446
+1335385317732: Received UDP payload: 625
+1335385317741: mux: Inside mux Packet.CLIENT_REQUEST
+1335385317742: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385317742: inside handleClientRequest. Originator leader of region 1
+1335385317743: got new request, requestCounter = 5003003
+1335385317743: Leader received CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1335385317757: Received UDP payload: 625
+1335385317791: inside sendPacket(Packet p)
+1335385317799: Sending to region: 1
+1335385317800: Sending PROC_REQUEST 11:5 (1,0)->(1,0)
+1335385317818: mux: Inside mux Packet.CLIENT_REQUEST
+1335385317818: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385317805: Received UDP payload: 625
+1335385317809: Dispatching Atom PROC_REQUEST 11:5 (1,0)->(1,0)
+1335385317830: mux: I got a CSM packet at a leader 
+
+1335385317809: Note down new request by adding requestCounter=5003003 to HashMap processedRequests
+1335385317810: Make FirstLeg Ack regardless of new or already-processed requests
+1335385317810: The leader sending a First Leg ack to originator client (which id = 5003)
+1335385317810: inside sendPacket(Packet p)
+1335385317817: Sending UDP payload: 446
+1335385317819: inside handleClientRequest. Originator leader of region 1
+1335385317819: discarding repeated requestCounter=5003003, but still send an ack back
+1335385317820: Note down new request by adding requestCounter=5003003 to HashMap processedRequests
+1335385317820: Make FirstLeg Ack regardless of new or already-processed requests
+1335385317907: mux: Inside mux Packet.CLIENT_REQUEST
+1335385317908: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385317821: Received UDP payload: 625
+1335385317915: mux: Inside mux Packet.CLIENT_REQUEST
+1335385317915: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385317829: The leader sending a First Leg ack to originator client (which id = 5003)
+1335385317829: inside sendPacket(Packet p)
+1335385317842: Sending UDP payload: 989
+1335385317843: removed replies before id 5 from sentReplies of size 0
+1335385317843: inside handleDSMRequest. At requests's remote leader of region 1
+1335385317846: INSIDE SERVER_GET_PHOTO!!!
+1335385317857: Received UDP payload: 446
+1335385317871: Received UDP payload: 446
+1335385317876: dst_region == src_region = 1
+1335385317877:  1 self to self atomRequest
+1335385317897: Received PROC_REQUEST 11:5 (1,0)->(1,0), replying PROC_REPLY 11:5 (1,0)->(1,0)
+1335385317898: Dispatching Atom PROC_REPLY 11:5 (1,0)->(1,0)
+1335385317952: mux: I got a CSM packet at a leader 
+
+1335385317902: Sending UDP payload: 446
+1335385317908: inside handleClientRequest. Originator leader of region 1
+1335385317912: discarding repeated requestCounter=5003003, but still send an ack back
+1335385317913: Note down new request by adding requestCounter=5003003 to HashMap processedRequests
+1335385317914: Make FirstLeg Ack regardless of new or already-processed requests
+1335385317914: The leader sending a First Leg ack to originator client (which id = 5003)
+1335385317914: inside sendPacket(Packet p)
+1335385317916: inside handleClientRequest. Originator leader of region 1
+1335385317916: discarding repeated requestCounter=5003003, but still send an ack back
+1335385317917: Note down new request by adding requestCounter=5003003 to HashMap processedRequests
+1335385317917: Make FirstLeg Ack regardless of new or already-processed requests
+1335385317917: The leader sending a First Leg ack to originator client (which id = 5003)
+1335385317918: inside sendPacket(Packet p)
+1335385317932: Sending UDP payload: 446
+1335385317935: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385317958: Sending UDP payload: 4978
+1335385317973: Received PROC_REPLY 11:5 (1,0)->(1,0), handing to UserApp
+1335385317973: inside handleDSMReply. Now back in originator leader of region 1
+1335385317974: DSM layer: Going to and from remote region took latency = 174
+1335385317974: DSM layer: orig leader sent packet at 1335385317799 ~ received reply from remote leader at 1335385317973
+1335385317977: Originator Region=1's Leader (for Client=5003) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335385317977: change leader replyCounter to: 3
+1335385317978: reply packet contains the newest photo/success info from the remote region
+1335385317978: inside sendReplies of replyCount = 501800003
+1335385317998: Sending UDP payload: 446
+1335385318015: Sending UDP payload: 446
+1335385318092: inside sendPacket(Packet p)
+1335385318093: Sending UDP payload: 12339
+1335385318099: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385318125: inside sendPacket(Packet p)
+1335385318126: Sending UDP payload: 12339
+1335385318134: =======================
+1335385318135: inside sendReplyRepeatingRunnable for replyCount = 501800003
+1335385318136: Leader about to send REPLY packet, number: 501800003 type: 15 Leader in region: (1,0) to Client nodID: 5003
+1335385318136: I (the leader) was not the originator client (which id = 5003) so I use UDP to send packet back to my nonleader
+1335385318136: inside sendPacket(Packet p)
+1335385318137: Sending UDP payload: 4631
+1335385318138: === Finished one round of sending REPLY Packet =======
+1335385318439: =======================
+1335385318439: inside sendReplyRepeatingRunnable for replyCount = 501800003
+1335385318439: Leader about to send REPLY packet, number: 501800003 type: 15 Leader in region: (1,0) to Client nodID: 5003
+1335385318439: I (the leader) was not the originator client (which id = 5003) so I use UDP to send packet back to my nonleader
+1335385318439: inside sendPacket(Packet p)
+1335385318439: === Finished one round of sending REPLY Packet =======
+1335385318441: Sending UDP payload: 4631
+1335385318740: =======================
+1335385318741: inside sendReplyRepeatingRunnable for replyCount = 501800003
+1335385318742: Leader about to send REPLY packet, number: 501800003 type: 15 Leader in region: (1,0) to Client nodID: 5003
+1335385318742: I (the leader) was not the originator client (which id = 5003) so I use UDP to send packet back to my nonleader
+1335385318742: inside sendPacket(Packet p)
+1335385318743: === Finished one round of sending REPLY Packet =======
+1335385318746: Sending UDP payload: 4631
+1335385318995: inside sendReplyTimeoutR
+1335385318996: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501800003
+1335385319080: Received UDP payload: 446
+1335385319087: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385319142: inside sendPacket(Packet p)
+1335385319144: Sending UDP payload: 12339
+1335385319155: Received UDP payload: 446
+1335385319158: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385319161: Received UDP payload: 446
+1335385319180: inside sendPacket(Packet p)
+1335385319181: Sending UDP payload: 12339
+1335385319182: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385319232: inside sendPacket(Packet p)
+1335385319233: Sending UDP payload: 12339
+1335385319605: Received UDP payload: 446
+1335385319632: Received UDP payload: 446
+1335385319641: Received UDP payload: 446
+1335385319646: Received UDP payload: 446
+1335385319807: Received UDP payload: 3512
+1335385319815: ignoring leader_reply that's not for me
+1335385319867: Received UDP payload: 446
+1335385319870: Received UDP payload: 446
+1335385319900: Received UDP payload: 446
+1335385320413: Received UDP payload: 6853
+1335385320420: mux: Inside mux Packet.CLIENT_REQUEST
+1335385320421: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385320421: inside handleClientRequest. Originator leader of region 1
+1335385320422: got new request, requestCounter = 5004001
+1335385320422: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
+1335385320423: Sending PROC_REQUEST 10:6 (1,0)->(1,0)
+1335385320425: Dispatching Atom PROC_REQUEST 10:6 (1,0)->(1,0)
+1335385320443: mux: I got a CSM packet at a leader 
+
+1335385320674: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335385320677: I'm a leader and I successfully saved my client's new photo
+1335385320678: now showing in UI the new photo I just saved ... 
+1335385320678: the photo length: 6206
+1335385320716: end of server show photo aside %%%%%%%%%
+1335385320425: Note down new request by adding requestCounter=5004001 to HashMap processedRequests
+1335385320425: Make FirstLeg Ack regardless of new or already-processed requests
+1335385320426: The leader sending a First Leg ack to originator client (which id = 5004)
+1335385320426: inside sendPacket(Packet p)
+1335385320557: Sending UDP payload: 7217
+1335385320564: removed replies before id 6 from sentReplies of size 0
+1335385320564: inside handleDSMRequest. At requests's remote leader of region 1
+1335385320588: Inside UPLOAD_PHOTO!!
+1335385320609: my_gpinfo.isSuccess is now (should be true): true
+1335385320609: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1335385320624: Received PROC_REQUEST 10:6 (1,0)->(1,0), replying PROC_REPLY 10:6 (1,0)->(1,0)
+1335385320626: Dispatching Atom PROC_REPLY 10:6 (1,0)->(1,0)
+1335385320637: mux: I got a CSM packet at a leader 
+
+1335385320629: Sending UDP payload: 446
+1335385320647: Sending UDP payload: 989
+1335385320653: Received PROC_REPLY 10:6 (1,0)->(1,0), handing to UserApp
+1335385320653: inside handleDSMReply. Now back in originator leader of region 1
+1335385320653: DSM layer: Going to and from remote region took latency = 231
+1335385320654: DSM layer: orig leader sent packet at 1335385320422 ~ received reply from remote leader at 1335385320653
+1335385320658: Originator Region=1's Leader (for Client=5004) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335385320658: change leader replyCounter to: 4
+1335385320659: reply packet contains the success info for UPLOAD_PHOTO
+1335385320659: inside sendReplies of replyCount = 501800004
+1335385320660: =======================
+1335385320660: inside sendReplyRepeatingRunnable for replyCount = 501800004
+1335385320661: Leader about to send REPLY packet, number: 501800004 type: 16 Leader in region: (1,0) to Client nodID: 5004
+1335385320661: I (the leader) was not the originator client (which id = 5004) so I use UDP to send packet back to my nonleader
+1335385320662: inside sendPacket(Packet p)
+1335385320662: === Finished one round of sending REPLY Packet =======
+1335385320668: Sending UDP payload: 642
+1335385320962: =======================
+1335385320963: inside sendReplyRepeatingRunnable for replyCount = 501800004
+1335385320963: Leader about to send REPLY packet, number: 501800004 type: 16 Leader in region: (1,0) to Client nodID: 5004
+1335385320963: I (the leader) was not the originator client (which id = 5004) so I use UDP to send packet back to my nonleader
+1335385320963: inside sendPacket(Packet p)
+1335385320963: === Finished one round of sending REPLY Packet =======
+1335385320969: Sending UDP payload: 642
+1335385321263: =======================
+1335385321264: inside sendReplyRepeatingRunnable for replyCount = 501800004
+1335385321264: Leader about to send REPLY packet, number: 501800004 type: 16 Leader in region: (1,0) to Client nodID: 5004
+1335385321264: I (the leader) was not the originator client (which id = 5004) so I use UDP to send packet back to my nonleader
+1335385321265: inside sendPacket(Packet p)
+1335385321265: === Finished one round of sending REPLY Packet =======
+1335385321269: Sending UDP payload: 642
+1335385321566: =======================
+1335385321567: inside sendReplyRepeatingRunnable for replyCount = 501800004
+1335385321569: Leader about to send REPLY packet, number: 501800004 type: 16 Leader in region: (1,0) to Client nodID: 5004
+1335385321570: I (the leader) was not the originator client (which id = 5004) so I use UDP to send packet back to my nonleader
+1335385321571: inside sendPacket(Packet p)
+1335385321574: Sending UDP payload: 642
+1335385321576: === Finished one round of sending REPLY Packet =======
+1335385321664: inside sendReplyTimeoutR
+1335385321664: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501800004
+1335385321780: Received UDP payload: 446
+1335385321788: heard LEADER_REQUEST from node 5004, responding LEADER_REPLY
+1335385321806: Received UDP payload: 446
+1335385321852: inside sendPacket(Packet p)
+1335385321865: Sending UDP payload: 10589
+1335385321866: heard LEADER_REQUEST from node 5004, responding LEADER_REPLY
+1335385321900: inside sendPacket(Packet p)
+1335385321909: Sending UDP payload: 10589
+1335385322792: inside sendPacket(Packet p)
+1335385322810: Sending UDP payload: 446
+1335385327793: inside sendPacket(Packet p)
+1335385327795: Sending UDP payload: 446
+1335385332793: inside sendPacket(Packet p)
+1335385332797: Sending UDP payload: 446
+1335385337794: inside sendPacket(Packet p)
+1335385337798: Sending UDP payload: 446
+1335385342795: inside sendPacket(Packet p)
+1335385342798: Sending UDP payload: 446
+1335385347795: inside sendPacket(Packet p)
+1335385347798: Sending UDP payload: 446
+1335385352796: inside sendPacket(Packet p)
+1335385352800: Sending UDP payload: 446
+1335385357797: inside sendPacket(Packet p)
+1335385357810: Sending UDP payload: 446
+1335385359114: Received UDP payload: 446
+1335385359127: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385359155: Received UDP payload: 446
+1335385359174: Received UDP payload: 446
+1335385359182: inside sendPacket(Packet p)
+1335385359189: Sending UDP payload: 10589
+1335385359191: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385359210: inside sendPacket(Packet p)
+1335385359211: Sending UDP payload: 10589
+1335385359212: heard LEADER_REQUEST from node 5003, responding LEADER_REPLY
+1335385359234: inside sendPacket(Packet p)
+1335385359235: Sending UDP payload: 10589
+1335385360468: leader to cloud hearbeat...
+1335385362798: inside sendPacket(Packet p)
+1335385362828: Sending UDP payload: 446
+1335385367798: inside sendPacket(Packet p)
+1335385367802: Sending UDP payload: 446
+1335385370239: canPressButton = TRUE
+1335385370239: areButtonsEnabled --> false
+1335385370239: disabling buttons ...
+1335385370240: took picture disableButtonsR
+1335385370240: areButtonsEnabled --> false
+1335385370266: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335385370266: Clicked take picture button ..
+1335385371546: inside HandlePictureStorage onPictureTaken()
+1335385371547: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335385371836: Picture successfully taken, ORIG BYTE LENGTH = 2265025
+1335385372061: Our new height x width: 306 x 408
+1335385372062: Show photo from handle my camera take
+1335385372062: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335385372063: change local requestCounter to 3
+1335385372076: BYTE SIZE AFTER COMPRESSION: 3506
+1335385372081: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5018003 Client in region: 1 Client nodID: 5018
+1335385372111: ----------------------------
+1335385372112: inside sendRequestPacketRepeatingRunnable for requestCount = 5018003
+1335385372112: I'm a leader, my requesting photos packet going to mux directly
+1335385372122: --- Finished one round of sending REQUEST Packet ---------
+1335385372112: mux: Inside mux Packet.CLIENT_REQUEST
+1335385372112: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385372160: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335385372112: inside handleClientRequest. Originator leader of region 1
+1335385372113: got new request, requestCounter = 5018003
+1335385372113: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
+1335385372113: Sending PROC_REQUEST 10:7 (1,0)->(1,0)
+1335385372113: Dispatching Atom PROC_REQUEST 10:7 (1,0)->(1,0)
+1335385372114: mux: I got a CSM packet at a leader 
+
+1335385372166: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335385372167: I'm a leader and I successfully saved my client's new photo
+1335385372167: now showing in UI the new photo I just saved ... 
+1335385372168: the photo length: 3506
+1335385372201: end of server show photo aside %%%%%%%%%
+1335385372114: Note down new request by adding requestCounter=5018003 to HashMap processedRequests
+1335385372114: Make FirstLeg Ack regardless of new or already-processed requests
+1335385372114: sending a First Leg ack to myself, becaues I (the leader) was also the originator client (id = 5018)
+1335385372122: Sending UDP payload: 4517
+1335385372131: removed replies before id 7 from sentReplies of size 0
+1335385372132: inside handleDSMRequest. At requests's remote leader of region 1
+1335385372134: Inside UPLOAD_PHOTO!!
+1335385372137: my_gpinfo.isSuccess is now (should be true): true
+1335385372137: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1335385372139: Received PROC_REQUEST 10:7 (1,0)->(1,0), replying PROC_REPLY 10:7 (1,0)->(1,0)
+1335385372139: Dispatching Atom PROC_REPLY 10:7 (1,0)->(1,0)
+1335385372139: mux: I got a CSM packet at a leader 
+
+1335385372203: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
+1335385372203: disabling progressdialog due to successful new photo upload
+1335385372204: Inside _enableButtons
+1335385372204: areButtonsEnabled --> true
+1335385372204: send final leg ack regardless of new or already-processed reply
+1335385372204: inside finalLegAck: change requestCounter to 4
+1335385372205: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5018004 Client in region: (1,0) Client nodID: 5018
+1335385372205: I'm a leader client, my final_leg packet going to mux directly
+1335385372206: new client_upload_photo_ack reply with replyCounter 501800005
+1335385372207: note down new reply by adding replyCounter=501800005 to HashMap processedReplies
+1335385372207: leader upload new photo latency = 1335385372203
+1335385372208: = leader upload start 0 ~ stop 1335385372203
+1335385372211: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335385372211: SUCCESS Client now knows saving photo on its leader succeeded
+1335385372148: Sending UDP payload: 989
+1335385372149: Received PROC_REPLY 10:7 (1,0)->(1,0), handing to UserApp
+1335385372149: inside handleDSMReply. Now back in originator leader of region 1
+1335385372149: DSM layer: Going to and from remote region took latency = 36
+1335385372149: DSM layer: orig leader sent packet at 1335385372113 ~ received reply from remote leader at 1335385372149
+1335385372151: Originator Region=1's Leader (for Client=5018) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335385372151: change leader replyCounter to: 5
+1335385372151: reply packet contains the success info for UPLOAD_PHOTO
+1335385372152: inside sendReplies of replyCount = 501800005
+1335385372152: =======================
+1335385372152: inside sendReplyRepeatingRunnable for replyCount = 501800005
+1335385372152: Leader about to send REPLY packet, number: 501800005 type: 16 Leader in region: (1,0) to Client nodID: 5018
+1335385372152: I (the leader) was also the originator client (id = 5018) so I hand the packet to my mux directly, without UDP
+1335385372152: === Finished one round of sending REPLY Packet =======
+1335385372205: mux: Inside mux Packet.CLIENT_REQUEST
+1335385372205: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385372205: inside handleClientRequest. Originator leader of region 1
+1335385372205: got new request, requestCounter = 5018004
+1335385372206: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 501800005
+1335385372206: Yay the last leg succeeded. Removing reply runnables ...
+1335385372206: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501800005
+1335385372206: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 501800005
+1335385372206: do not send ack for received final_leg_ack
+1335385372398: .......... GPS onLocationChanged ...... 
+1335385372399: Loc = Location[mProvider=gps,mTime=1335385373000,mLatitude=42.35801497,mLongitude=-71.09297679,mHasAltitude=true,mAltitude=-31.200000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385372399: GPS x/long:-71.09297679, GPS y/lat: 42.35801497. Region width in x: 20.0
+1335385372399: location PINPOINTS to region = 1.0, previous 1
+1335385372399: Hysteresis is 0.0
+1335385372399: stay at region 1
+1335385372798: inside sendPacket(Packet p)
+1335385372808: Sending UDP payload: 446
+1335385373417: .......... GPS onLocationChanged ...... 
+1335385373419: Loc = Location[mProvider=gps,mTime=1335385374000,mLatitude=42.3580203,mLongitude=-71.09295715,mHasAltitude=true,mAltitude=-31.0,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385373421: GPS x/long:-71.09295715, GPS y/lat: 42.3580203. Region width in x: 20.0
+1335385373422: location PINPOINTS to region = 1.0, previous 1
+1335385373423: Hysteresis is 0.0
+1335385373424: stay at region 1
+1335385375410: .......... GPS onLocationChanged ...... 
+1335385375412: Loc = Location[mProvider=gps,mTime=1335385376000,mLatitude=42.35802491,mLongitude=-71.09293363,mHasAltitude=true,mAltitude=-31.0,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385375415: GPS x/long:-71.09293363, GPS y/lat: 42.35802491. Region width in x: 20.0
+1335385375416: location PINPOINTS to region = 1.0, previous 1
+1335385375417: Hysteresis is 0.0
+1335385375418: stay at region 1
+1335385376099: canPressButton = TRUE
+1335385376099: areButtonsEnabled --> false 
+1335385376099: get picture disableButtonsR
+1335385376100: areButtonsEnabled --> false
+1335385376126: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=1 getGood=0 getBad=0 getTimedout=0 getPercent=0%
+1335385376127: ** Client making GET photo PACKET to send to the leader. Requesting for region: 1 **
+1335385376127: change local requestCounter to 5
+1335385376129: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5018005 Client in region: 1 Client nodID: 5018
+1335385376162: ----------------------------
+1335385376163: inside sendRequestPacketRepeatingRunnable for requestCount = 5018005
+1335385376163: I'm a leader, my requesting photos packet going to mux directly
+1335385376172: --- Finished one round of sending REQUEST Packet ---------
+1335385376163: mux: Inside mux Packet.CLIENT_REQUEST
+1335385376163: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385376231: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335385376163: inside handleClientRequest. Originator leader of region 1
+1335385376164: got new request, requestCounter = 5018005
+1335385376164: Leader received CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1335385376165: Sending to region: 1
+1335385376166: Sending PROC_REQUEST 11:8 (1,0)->(1,0)
+1335385376166: Dispatching Atom PROC_REQUEST 11:8 (1,0)->(1,0)
+1335385376167: mux: I got a CSM packet at a leader 
+
+1335385376166: Note down new request by adding requestCounter=5018005 to HashMap processedRequests
+1335385376166: Make FirstLeg Ack regardless of new or already-processed requests
+1335385376166: sending a First Leg ack to myself, becaues I (the leader) was also the originator client (id = 5018)
+1335385376172: Sending UDP payload: 989
+1335385376175: removed replies before id 8 from sentReplies of size 0
+1335385376175: inside handleDSMRequest. At requests's remote leader of region 1
+1335385376176: INSIDE SERVER_GET_PHOTO!!!
+1335385376188: dst_region == src_region = 1
+1335385376188:  1 self to self atomRequest
+1335385376189: Received PROC_REQUEST 11:8 (1,0)->(1,0), replying PROC_REPLY 11:8 (1,0)->(1,0)
+1335385376190: Dispatching Atom PROC_REPLY 11:8 (1,0)->(1,0)
+1335385376190: mux: I got a CSM packet at a leader 
+
+1335385376236: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1335385376237: disabling progressdialog due to successful new photo get
+1335385376237: Inside _enableButtons
+1335385376237: areButtonsEnabled --> true
+1335385376237: send final leg ack regardless of new or already-processed reply
+1335385376238: inside finalLegAck: change requestCounter to 6
+1335385376238: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5018006 Client in region: (1,0) Client nodID: 5018
+1335385376238: I'm a leader client, my final_leg packet going to mux directly
+1335385376240: new client_show_remotephoto reply with replyCounter 501800006
+1335385376240: note down new reply by adding replyCounter=501800006 to HashMap processedReplies
+1335385376241: leader download remote photo latency = 73
+1335385376241: = leader download start 1335385376163 ~ stop 1335385376236
+1335385376246: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=1 getGood=1 getBad=0 getTimedout=0 getPercent=100%
+1335385376246: Success! Client getting photo from remote region, showing photo...
+1335385376247: Remote photo's length: 3506
+1335385376204: Sending UDP payload: 4517
+1335385376205: Received PROC_REPLY 11:8 (1,0)->(1,0), handing to UserApp
+1335385376206: inside handleDSMReply. Now back in originator leader of region 1
+1335385376206: DSM layer: Going to and from remote region took latency = 39
+1335385376206: DSM layer: orig leader sent packet at 1335385376166 ~ received reply from remote leader at 1335385376205
+1335385376207: Originator Region=1's Leader (for Client=5018) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335385376207: change leader replyCounter to: 6
+1335385376207: reply packet contains the newest photo/success info from the remote region
+1335385376207: inside sendReplies of replyCount = 501800006
+1335385376207: =======================
+1335385376207: inside sendReplyRepeatingRunnable for replyCount = 501800006
+1335385376208: Leader about to send REPLY packet, number: 501800006 type: 15 Leader in region: (1,0) to Client nodID: 5018
+1335385376208: I (the leader) was also the originator client (id = 5018) so I hand the packet to my mux directly, without UDP
+1335385376208: === Finished one round of sending REPLY Packet =======
+1335385376239: mux: Inside mux Packet.CLIENT_REQUEST
+1335385376239: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385376239: inside handleClientRequest. Originator leader of region 1
+1335385376239: got new request, requestCounter = 5018006
+1335385376239: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 501800006
+1335385376239: Yay the last leg succeeded. Removing reply runnables ...
+1335385376239: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501800006
+1335385376240: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 501800006
+1335385376240: do not send ack for received final_leg_ack
+1335385377416: .......... GPS onLocationChanged ...... 
+1335385377419: Loc = Location[mProvider=gps,mTime=1335385378000,mLatitude=42.35802437,mLongitude=-71.09292136,mHasAltitude=true,mAltitude=-30.600000381469727,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385377421: GPS x/long:-71.09292136, GPS y/lat: 42.35802437. Region width in x: 20.0
+1335385377424: location PINPOINTS to region = 1.0, previous 1
+1335385377425: Hysteresis is 0.0
+1335385377426: stay at region 1
+1335385377799: inside sendPacket(Packet p)
+1335385377801: Sending UDP payload: 446
+1335385380393: .......... GPS onLocationChanged ...... 
+1335385380394: Loc = Location[mProvider=gps,mTime=1335385381000,mLatitude=42.35801539,mLongitude=-71.09291898,mHasAltitude=true,mAltitude=-30.200000762939453,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385380394: GPS x/long:-71.09291898, GPS y/lat: 42.35801539. Region width in x: 20.0
+1335385380395: location PINPOINTS to region = 1.0, previous 1
+1335385380395: Hysteresis is 0.0
+1335385380395: stay at region 1
+1335385382408: .......... GPS onLocationChanged ...... 
+1335385382411: Loc = Location[mProvider=gps,mTime=1335385383000,mLatitude=42.35801313,mLongitude=-71.09288578,mHasAltitude=true,mAltitude=-29.899999618530273,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385382412: GPS x/long:-71.09288578, GPS y/lat: 42.35801313. Region width in x: 20.0
+1335385382412: location PINPOINTS to region = 1.0, previous 1
+1335385382413: Hysteresis is 0.0
+1335385382414: stay at region 1
+1335385382669: canPressButton = TRUE
+1335385382669: areButtonsEnabled --> false 
+1335385382669: get picture disableButtonsR
+1335385382670: areButtonsEnabled --> false
+1335385382696: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=2 getGood=1 getBad=0 getTimedout=0 getPercent=50%
+1335385382696: ** Client making GET photo PACKET to send to the leader. Requesting for region: 2 **
+1335385382696: change local requestCounter to 7
+1335385382697: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5018007 Client in region: 1 Client nodID: 5018
+1335385382778: ----------------------------
+1335385382779: inside sendRequestPacketRepeatingRunnable for requestCount = 5018007
+1335385382779: I'm a leader, my requesting photos packet going to mux directly
+1335385382791: --- Finished one round of sending REQUEST Packet ---------
+1335385382704: Received UDP payload: 446
+1335385382709: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1335385382719: Received UDP payload: 446
+1335385382732: Received UDP payload: 446
+1335385382737: Received UDP payload: 446
+1335385382759: inside sendPacket(Packet p)
+1335385382760: Sending UDP payload: 11417
+1335385382766: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1335385382770: Received UDP payload: 446
+1335385382779: mux: Inside mux Packet.CLIENT_REQUEST
+1335385382779: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385382870: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335385382779: inside handleClientRequest. Originator leader of region 1
+1335385382779: got new request, requestCounter = 5018007
+1335385382780: Leader received CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1335385382780: Sending to region: 2
+1335385382781: Sending PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385382782: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385382783: mux: I got a CSM packet at a leader 
+
+1335385382782: Note down new request by adding requestCounter=5018007 to HashMap processedRequests
+1335385382783: Make FirstLeg Ack regardless of new or already-processed requests
+1335385382783: sending a First Leg ack to myself, becaues I (the leader) was also the originator client (id = 5018)
+1335385382785: Sending UDP payload: 989
+1335385382785: Received UDP payload: 446
+1335385382789: Received UDP payload: 446
+1335385382791: nonce 63 heard from src region (1,0)
+1335385382818: inside sendPacket(Packet p)
+1335385382819: Sending UDP payload: 11692
+1335385382823: Received UDP payload: 446
+1335385382828: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1335385382830: Received UDP payload: 446
+1335385382838: Received UDP payload: 446
+1335385382853: inside sendPacket(Packet p)
+1335385382863: Sending UDP payload: 11692
+1335385382864: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1335385382880: Received UDP payload: 446
+1335385382894: inside sendPacket(Packet p)
+1335385382895: Sending UDP payload: 11692
+1335385382901: inside sendPacket(Packet p)
+1335385382903: Sending UDP payload: 446
+1335385382903: Received UDP payload: 446
+1335385382909: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1335385382919: inside sendPacket(Packet p)
+1335385382931: Sending UDP payload: 11692
+1335385382937: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1335385382961: inside sendPacket(Packet p)
+1335385382962: Sending UDP payload: 11692
+1335385382963: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1335385382988: inside sendPacket(Packet p)
+1335385382992: Sending UDP payload: 11692
+1335385382995: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1335385383028: inside sendPacket(Packet p)
+1335385383029: Sending UDP payload: 11692
+1335385383413: .......... GPS onLocationChanged ...... 
+1335385383415: Loc = Location[mProvider=gps,mTime=1335385384000,mLatitude=42.35800712,mLongitude=-71.0928763,mHasAltitude=true,mAltitude=-29.700000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385383415: GPS x/long:-71.0928763, GPS y/lat: 42.35800712. Region width in x: 20.0
+1335385383416: location PINPOINTS to region = 1.0, previous 1
+1335385383417: Hysteresis is 0.0
+1335385383418: stay at region 1
+1335385383533: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385383534: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385383534: mux: I got a CSM packet at a leader 
+
+1335385383537: Sending UDP payload: 989
+1335385383540: nonce 64 heard from src region (1,0)
+1335385383635: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385383636: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385383636: mux: I got a CSM packet at a leader 
+
+1335385383638: Sending UDP payload: 989
+1335385383639: nonce 65 heard from src region (1,0)
+1335385383737: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385383737: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385383738: mux: I got a CSM packet at a leader 
+
+1335385383740: Sending UDP payload: 989
+1335385383741: nonce 66 heard from src region (1,0)
+1335385383838: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385383839: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385383839: mux: I got a CSM packet at a leader 
+
+1335385383842: Sending UDP payload: 989
+1335385383843: nonce 67 heard from src region (1,0)
+1335385383940: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385383941: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385383941: mux: I got a CSM packet at a leader 
+
+1335385383946: Sending UDP payload: 989
+1335385383948: nonce 68 heard from src region (1,0)
+1335385384042: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384042: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384048: mux: I got a CSM packet at a leader 
+
+1335385384050: Sending UDP payload: 989
+1335385384052: nonce 69 heard from src region (1,0)
+1335385384143: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384144: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384144: mux: I got a CSM packet at a leader 
+
+1335385384147: Sending UDP payload: 989
+1335385384148: nonce 70 heard from src region (1,0)
+1335385384245: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384245: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384246: mux: I got a CSM packet at a leader 
+
+1335385384260: Sending UDP payload: 989
+1335385384261: nonce 71 heard from src region (1,0)
+1335385384347: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384348: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384352: mux: I got a CSM packet at a leader 
+
+1335385384360: Sending UDP payload: 989
+1335385384362: nonce 72 heard from src region (1,0)
+1335385384410: .......... GPS onLocationChanged ...... 
+1335385384411: Loc = Location[mProvider=gps,mTime=1335385385000,mLatitude=42.35800888,mLongitude=-71.09286372,mHasAltitude=true,mAltitude=-29.899999618530273,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385384411: GPS x/long:-71.09286372, GPS y/lat: 42.35800888. Region width in x: 20.0
+1335385384412: location PINPOINTS to region = 1.0, previous 1
+1335385384412: Hysteresis is 0.0
+1335385384412: stay at region 1
+1335385384449: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384450: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384450: mux: I got a CSM packet at a leader 
+
+1335385384452: Sending UDP payload: 989
+1335385384452: nonce 73 heard from src region (1,0)
+1335385384550: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384551: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384552: mux: I got a CSM packet at a leader 
+
+1335385384553: Sending UDP payload: 989
+1335385384555: nonce 74 heard from src region (1,0)
+1335385384652: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384653: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384653: mux: I got a CSM packet at a leader 
+
+1335385384654: Sending UDP payload: 989
+1335385384655: nonce 75 heard from src region (1,0)
+1335385384754: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384754: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384754: mux: I got a CSM packet at a leader 
+
+1335385384756: Sending UDP payload: 989
+1335385384757: nonce 76 heard from src region (1,0)
+1335385384855: Retrying PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384855: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1335385384856: mux: I got a CSM packet at a leader 
+
+1335385384857: Sending UDP payload: 989
+1335385384858: nonce 77 heard from src region (1,0)
+1335385384956: DSM Layer: Request timed out, send failure PROC_REPLY 11:1 (2,0)->(1,0)
+1335385384957: Dispatching Atom PROC_REPLY 11:1 (2,0)->(1,0)
+1335385384957: mux: I got a CSM packet at a leader 
+
+1335385384958: Sending UDP payload: 989
+1335385384959: Received PROC_REPLY 11:1 (2,0)->(1,0), handing to UserApp
+1335385384959: inside handleDSMReply. Now back in originator leader of region 1
+1335385384960: DSM layer timed out, don't log dsm layer latency stuff.
+1335385384961: Originator Region=1's Leader (for Client=5018) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335385384962: change leader replyCounter to: 7
+1335385384962: reply packet contains the newest photo/success info from the remote region
+1335385384963: inside sendReplies of replyCount = 501800007
+1335385384964: =======================
+1335385384964: inside sendReplyRepeatingRunnable for replyCount = 501800007
+1335385384964: Leader about to send REPLY packet, number: 501800007 type: 15 Leader in region: (1,0) to Client nodID: 5018
+1335385384974: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1335385384975: disabling progressdialog due to successful new photo get
+1335385384975: Inside _enableButtons
+1335385384975: areButtonsEnabled --> true
+1335385384976: send final leg ack regardless of new or already-processed reply
+1335385384976: inside finalLegAck: change requestCounter to 8
+1335385384976: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5018008 Client in region: (1,0) Client nodID: 5018
+1335385384976: I'm a leader client, my final_leg packet going to mux directly
+1335385384977: new client_show_remotephoto reply with replyCounter 501800007
+1335385384977: note down new reply by adding replyCounter=501800007 to HashMap processedReplies
+1335385384977: leader download remote photo latency = 2195
+1335385384978: = leader download start 1335385382779 ~ stop 1335385384974
+1335385384979: Can't get remote photo, because DSM Layer on originator leader timed out
+1335385384985: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=2 getGood=1 getBad=1 getTimedout=0 getPercent=50%
+1335385384986: getBad++
+1335385384965: I (the leader) was also the originator client (id = 5018) so I hand the packet to my mux directly, without UDP
+1335385384965: === Finished one round of sending REPLY Packet =======
+1335385384977: mux: Inside mux Packet.CLIENT_REQUEST
+1335385384977: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385384977: inside handleClientRequest. Originator leader of region 1
+1335385384977: got new request, requestCounter = 5018008
+1335385384977: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 501800007
+1335385384978: Yay the last leg succeeded. Removing reply runnables ...
+1335385384978: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501800007
+1335385384978: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 501800007
+1335385384978: do not send ack for received final_leg_ack
+1335385385382: .......... GPS onLocationChanged ...... 
+1335385385383: Loc = Location[mProvider=gps,mTime=1335385386000,mLatitude=42.35801127,mLongitude=-71.09285188,mHasAltitude=true,mAltitude=-29.899999618530273,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385385383: GPS x/long:-71.09285188, GPS y/lat: 42.35801127. Region width in x: 20.0
+1335385385383: location PINPOINTS to region = 1.0, previous 1
+1335385385383: Hysteresis is 0.0
+1335385385383: stay at region 1
+1335385386642: canPressButton = TRUE
+1335385386642: areButtonsEnabled --> false 
+1335385386642: get picture disableButtonsR
+1335385386643: areButtonsEnabled --> false
+1335385386666: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=3 getGood=1 getBad=1 getTimedout=0 getPercent=33%
+1335385386666: ** Client making GET photo PACKET to send to the leader. Requesting for region: 3 **
+1335385386667: change local requestCounter to 9
+1335385386668: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5018009 Client in region: 1 Client nodID: 5018
+1335385386713: ----------------------------
+1335385386714: inside sendRequestPacketRepeatingRunnable for requestCount = 5018009
+1335385386714: I'm a leader, my requesting photos packet going to mux directly
+1335385386720: --- Finished one round of sending REQUEST Packet ---------
+1335385386715: mux: Inside mux Packet.CLIENT_REQUEST
+1335385386715: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385386767: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335385386715: inside handleClientRequest. Originator leader of region 1
+1335385386715: got new request, requestCounter = 5018009
+1335385386715: Leader received CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1335385386716: Sending to region: 3
+1335385386716: Sending PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385386716: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385386717: mux: I got a CSM packet at a leader 
+
+1335385386716: Note down new request by adding requestCounter=5018009 to HashMap processedRequests
+1335385386717: Make FirstLeg Ack regardless of new or already-processed requests
+1335385386717: sending a First Leg ack to myself, becaues I (the leader) was also the originator client (id = 5018)
+1335385386719: Sending UDP payload: 989
+1335385386720: nonce 79 heard from src region (1,0)
+1335385387464: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387465: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387465: mux: I got a CSM packet at a leader 
+
+1335385387466: Sending UDP payload: 989
+1335385387467: nonce 80 heard from src region (1,0)
+1335385387566: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387566: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387566: mux: I got a CSM packet at a leader 
+
+1335385387567: Sending UDP payload: 989
+1335385387568: nonce 81 heard from src region (1,0)
+1335385387667: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387667: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387667: mux: I got a CSM packet at a leader 
+
+1335385387668: Sending UDP payload: 989
+1335385387669: nonce 82 heard from src region (1,0)
+1335385387768: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387768: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387768: mux: I got a CSM packet at a leader 
+
+1335385387770: Sending UDP payload: 989
+1335385387771: nonce 83 heard from src region (1,0)
+1335385387869: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387869: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387869: mux: I got a CSM packet at a leader 
+
+1335385387870: Sending UDP payload: 989
+1335385387871: nonce 84 heard from src region (1,0)
+1335385387910: inside sendPacket(Packet p)
+1335385387911: Sending UDP payload: 446
+1335385387969: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387969: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385387970: mux: I got a CSM packet at a leader 
+
+1335385387971: Sending UDP payload: 989
+1335385387971: nonce 85 heard from src region (1,0)
+1335385388070: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388070: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388071: mux: I got a CSM packet at a leader 
+
+1335385388075: Sending UDP payload: 989
+1335385388077: nonce 86 heard from src region (1,0)
+1335385388173: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388173: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388174: mux: I got a CSM packet at a leader 
+
+1335385388177: Sending UDP payload: 989
+1335385388178: nonce 87 heard from src region (1,0)
+1335385388274: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388275: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388275: mux: I got a CSM packet at a leader 
+
+1335385388279: Sending UDP payload: 989
+1335385388280: nonce 88 heard from src region (1,0)
+1335385388376: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388376: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388383: mux: I got a CSM packet at a leader 
+
+1335385388410: .......... GPS onLocationChanged ...... 
+1335385388387: Sending UDP payload: 989
+1335385388401: nonce 89 heard from src region (1,0)
+1335385388412: Loc = Location[mProvider=gps,mTime=1335385389000,mLatitude=42.35801416,mLongitude=-71.09283902,mHasAltitude=true,mAltitude=-29.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385388412: GPS x/long:-71.09283902, GPS y/lat: 42.35801416. Region width in x: 20.0
+1335385388413: location PINPOINTS to region = 1.0, previous 1
+1335385388413: Hysteresis is 0.0
+1335385388414: stay at region 1
+1335385388477: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388477: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388478: mux: I got a CSM packet at a leader 
+
+1335385388480: Sending UDP payload: 989
+1335385388510: nonce 90 heard from src region (1,0)
+1335385388578: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388579: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388579: mux: I got a CSM packet at a leader 
+
+1335385388580: Sending UDP payload: 989
+1335385388580: nonce 91 heard from src region (1,0)
+1335385388679: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388680: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388680: mux: I got a CSM packet at a leader 
+
+1335385388682: Sending UDP payload: 989
+1335385388683: nonce 92 heard from src region (1,0)
+1335385388781: Retrying PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388782: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(3,0)
+1335385388783: mux: I got a CSM packet at a leader 
+
+1335385388785: Sending UDP payload: 989
+1335385388786: nonce 93 heard from src region (1,0)
+1335385388883: DSM Layer: Request timed out, send failure PROC_REPLY 11:0 (3,0)->(1,0)
+1335385388883: Dispatching Atom PROC_REPLY 11:0 (3,0)->(1,0)
+1335385388884: mux: I got a CSM packet at a leader 
+
+1335385388905: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1335385388905: disabling progressdialog due to successful new photo get
+1335385388906: Inside _enableButtons
+1335385388906: areButtonsEnabled --> true
+1335385388907: send final leg ack regardless of new or already-processed reply
+1335385388907: inside finalLegAck: change requestCounter to 10
+1335385388908: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5018010 Client in region: (1,0) Client nodID: 5018
+1335385388908: I'm a leader client, my final_leg packet going to mux directly
+1335385388908: new client_show_remotephoto reply with replyCounter 501800008
+1335385388909: note down new reply by adding replyCounter=501800008 to HashMap processedReplies
+1335385388910: leader download remote photo latency = 2191
+1335385388910: = leader download start 1335385386714 ~ stop 1335385388905
+1335385388912: Can't get remote photo, because DSM Layer on originator leader timed out
+1335385388918: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=3 getGood=1 getBad=2 getTimedout=0 getPercent=33%
+1335385388918: getBad++
+1335385388887: Sending UDP payload: 989
+1335385388888: Received PROC_REPLY 11:0 (3,0)->(1,0), handing to UserApp
+1335385388888: inside handleDSMReply. Now back in originator leader of region 1
+1335385388888: DSM layer timed out, don't log dsm layer latency stuff.
+1335385388893: Originator Region=1's Leader (for Client=5018) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335385388893: change leader replyCounter to: 8
+1335385388894: reply packet contains the newest photo/success info from the remote region
+1335385388894: inside sendReplies of replyCount = 501800008
+1335385388895: =======================
+1335385388895: inside sendReplyRepeatingRunnable for replyCount = 501800008
+1335385388896: Leader about to send REPLY packet, number: 501800008 type: 15 Leader in region: (1,0) to Client nodID: 5018
+1335385388896: I (the leader) was also the originator client (id = 5018) so I hand the packet to my mux directly, without UDP
+1335385388896: === Finished one round of sending REPLY Packet =======
+1335385388909: mux: Inside mux Packet.CLIENT_REQUEST
+1335385388909: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385388909: inside handleClientRequest. Originator leader of region 1
+1335385388910: got new request, requestCounter = 5018010
+1335385388910: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 501800008
+1335385388910: Yay the last leg succeeded. Removing reply runnables ...
+1335385388910: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501800008
+1335385388911: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 501800008
+1335385388911: do not send ack for received final_leg_ack
+1335385392745: Received UDP payload: 7952
+1335385392748: mux: Inside mux Packet.CLIENT_REQUEST
+1335385392748: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385392749: inside handleClientRequest. Originator leader of region 1
+1335385392749: got new request, requestCounter = 5005001
+1335385392749: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
+1335385392749: Sending PROC_REQUEST 10:9 (1,0)->(1,0)
+1335385392750: Dispatching Atom PROC_REQUEST 10:9 (1,0)->(1,0)
+1335385392750: mux: I got a CSM packet at a leader 
+
+1335385392795: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335385392796: I'm a leader and I successfully saved my client's new photo
+1335385392796: now showing in UI the new photo I just saved ... 
+1335385392796: the photo length: 7305
+1335385392859: end of server show photo aside %%%%%%%%%
+1335385392750: Note down new request by adding requestCounter=5005001 to HashMap processedRequests
+1335385392750: Make FirstLeg Ack regardless of new or already-processed requests
+1335385392750: The leader sending a First Leg ack to originator client (which id = 5005)
+1335385392750: inside sendPacket(Packet p)
+1335385392761: Sending UDP payload: 8316
+1335385392762: removed replies before id 9 from sentReplies of size 0
+1335385392762: inside handleDSMRequest. At requests's remote leader of region 1
+1335385392763: Inside UPLOAD_PHOTO!!
+1335385392764: my_gpinfo.isSuccess is now (should be true): true
+1335385392764: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1335385392774: Received PROC_REQUEST 10:9 (1,0)->(1,0), replying PROC_REPLY 10:9 (1,0)->(1,0)
+1335385392775: Dispatching Atom PROC_REPLY 10:9 (1,0)->(1,0)
+1335385392781: mux: I got a CSM packet at a leader 
+
+1335385392777: Sending UDP payload: 446
+1335385392782: Sending UDP payload: 989
+1335385392784: Received PROC_REPLY 10:9 (1,0)->(1,0), handing to UserApp
+1335385392784: inside handleDSMReply. Now back in originator leader of region 1
+1335385392784: DSM layer: Going to and from remote region took latency = 35
+1335385392784: DSM layer: orig leader sent packet at 1335385392749 ~ received reply from remote leader at 1335385392784
+1335385392785: Originator Region=1's Leader (for Client=5005) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335385392785: change leader replyCounter to: 9
+1335385392786: reply packet contains the success info for UPLOAD_PHOTO
+1335385392786: inside sendReplies of replyCount = 501800009
+1335385392786: =======================
+1335385392786: inside sendReplyRepeatingRunnable for replyCount = 501800009
+1335385392786: Leader about to send REPLY packet, number: 501800009 type: 16 Leader in region: (1,0) to Client nodID: 5005
+1335385392787: I (the leader) was not the originator client (which id = 5005) so I use UDP to send packet back to my nonleader
+1335385392787: inside sendPacket(Packet p)
+1335385392787: === Finished one round of sending REPLY Packet =======
+1335385392849: Sending UDP payload: 642
+1335385392911: inside sendPacket(Packet p)
+1335385392912: Sending UDP payload: 446
+1335385393056: Received UDP payload: 7952
+1335385393065: mux: Inside mux Packet.CLIENT_REQUEST
+1335385393065: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385393066: inside handleClientRequest. Originator leader of region 1
+1335385393066: discarding repeated requestCounter=5005001, but still send an ack back
+1335385393067: Note down new request by adding requestCounter=5005001 to HashMap processedRequests
+1335385393067: Make FirstLeg Ack regardless of new or already-processed requests
+1335385393068: The leader sending a First Leg ack to originator client (which id = 5005)
+1335385393068: inside sendPacket(Packet p)
+1335385393074: Sending UDP payload: 446
+1335385393088: =======================
+1335385393089: inside sendReplyRepeatingRunnable for replyCount = 501800009
+1335385393092: Leader about to send REPLY packet, number: 501800009 type: 16 Leader in region: (1,0) to Client nodID: 5005
+1335385393092: I (the leader) was not the originator client (which id = 5005) so I use UDP to send packet back to my nonleader
+1335385393093: inside sendPacket(Packet p)
+1335385393093: === Finished one round of sending REPLY Packet =======
+1335385393099: Sending UDP payload: 642
+1335385393214: Received UDP payload: 625
+1335385393219: mux: Inside mux Packet.CLIENT_REQUEST
+1335385393219: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385393219: inside handleClientRequest. Originator leader of region 1
+1335385393221: Received UDP payload: 625
+1335385393220: got new request, requestCounter = 5005002
+1335385393232: Leader received CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1335385393239: Sending to region: 1
+1335385393264: mux: Inside mux Packet.CLIENT_REQUEST
+1335385393265: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385393246: Received UDP payload: 625
+1335385393252: Sending PROC_REQUEST 11:10 (1,0)->(1,0)
+1335385393255: Dispatching Atom PROC_REQUEST 11:10 (1,0)->(1,0)
+1335385393269: mux: I got a CSM packet at a leader 
+
+1335385393255: Note down new request by adding requestCounter=5005002 to HashMap processedRequests
+1335385393256: Make FirstLeg Ack regardless of new or already-processed requests
+1335385393256: The leader sending a First Leg ack to originator client (which id = 5005)
+1335385393257: inside sendPacket(Packet p)
+1335385393265: inside handleClientRequest. Originator leader of region 1
+1335385393266: discarding repeated requestCounter=5005002, but still send an ack back
+1335385393267: Note down new request by adding requestCounter=5005002 to HashMap processedRequests
+1335385393267: Make FirstLeg Ack regardless of new or already-processed requests
+1335385393268: The leader sending a First Leg ack to originator client (which id = 5005)
+1335385393268: inside sendPacket(Packet p)
+1335385393301: mux: Inside mux Packet.CLIENT_REQUEST
+1335385393301: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385393272: Received UDP payload: 625
+1335385393311: mux: Inside mux Packet.CLIENT_REQUEST
+1335385393311: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335385393294: Sending UDP payload: 989
+1335385393294: removed replies before id 10 from sentReplies of size 0
+1335385393294: inside handleDSMRequest. At requests's remote leader of region 1
+1335385393295: INSIDE SERVER_GET_PHOTO!!!
+1335385393296: dst_region == src_region = 1
+1335385393296:  1 self to self atomRequest
+1335385393298: Received PROC_REQUEST 11:10 (1,0)->(1,0), replying PROC_REPLY 11:10 (1,0)->(1,0)
+1335385393298: Dispatching Atom PROC_REPLY 11:10 (1,0)->(1,0)
+1335385393313: mux: I got a CSM packet at a leader 
+
+1335385393299: Sending UDP payload: 446
+1335385393301: Sending UDP payload: 446
+1335385393301: inside handleClientRequest. Originator leader of region 1
+1335385393301: discarding repeated requestCounter=5005002, but still send an ack back
+1335385393302: Received UDP payload: 446
+1335385393304: Received UDP payload: 446
+1335385393306: Received UDP payload: 446
+1335385393308: Received UDP payload: 446
+1335385393309: Received UDP payload: 446
+1335385393301: Note down new request by adding requestCounter=5005002 to HashMap processedRequests
+1335385393311: Make FirstLeg Ack regardless of new or already-processed requests
+1335385393311: The leader sending a First Leg ack to originator client (which id = 5005)
+1335385393311: inside sendPacket(Packet p)
+1335385393312: inside handleClientRequest. Originator leader of region 1
+1335385393312: discarding repeated requestCounter=5005002, but still send an ack back
+1335385393312: Note down new request by adding requestCounter=5005002 to HashMap processedRequests
+1335385393312: Make FirstLeg Ack regardless of new or already-processed requests
+1335385393312: The leader sending a First Leg ack to originator client (which id = 5005)
+1335385393313: inside sendPacket(Packet p)
+1335385393315: Sending UDP payload: 8316
+1335385393316: Received PROC_REPLY 11:10 (1,0)->(1,0), handing to UserApp
+1335385393316: inside handleDSMReply. Now back in originator leader of region 1
+1335385393316: DSM layer: Going to and from remote region took latency = 76
+1335385393317: DSM layer: orig leader sent packet at 1335385393240 ~ received reply from remote leader at 1335385393316
+1335385393317: Originator Region=1's Leader (for Client=5005) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335385393318: change leader replyCounter to: 10
+1335385393318: Received UDP payload: 446
+1335385393318: reply packet contains the newest photo/success info from the remote region
+1335385393318: inside sendReplies of replyCount = 501800010
+1335385393319: =======================
+1335385393319: inside sendReplyRepeatingRunnable for replyCount = 501800010
+1335385393319: Leader about to send REPLY packet, number: 501800010 type: 15 Leader in region: (1,0) to Client nodID: 5005
+1335385393319: I (the leader) was not the originator client (which id = 5005) so I use UDP to send packet back to my nonleader
+1335385393319: inside sendPacket(Packet p)
+1335385393319: === Finished one round of sending REPLY Packet =======
+1335385393321: heard LEADER_REQUEST from node 5005, responding LEADER_REPLY
+1335385393332: Sending UDP payload: 446
+1335385393333: Received UDP payload: 446
+1335385393334: Sending UDP payload: 446
+1335385393336: Sending UDP payload: 7969
+1335385393339: Received UDP payload: 446
+1335385393344: inside sendPacket(Packet p)
+1335385393346: Sending UDP payload: 19042
+1335385393347: heard LEADER_REQUEST from node 5005, responding LEADER_REPLY
+1335385393358: inside sendPacket(Packet p)
+1335385393359: Sending UDP payload: 19042
+1335385393360: heard LEADER_REQUEST from node 5005, responding LEADER_REPLY
+1335385393377: inside sendPacket(Packet p)
+1335385393378: Sending UDP payload: 19042
+1335385393379: heard LEADER_REQUEST from node 5005, responding LEADER_REPLY
+1335385393402: inside sendPacket(Packet p)
+1335385393445: .......... GPS onLocationChanged ...... 
+1335385395417: .......... GPS onLocationChanged ...... 
+1335385395437: canPressButton = TRUE
+1335385395438: areButtonsEnabled --> false
+1335385395438: disabling buttons ...
+1335385395438: took picture disableButtonsR
+1335385395439: areButtonsEnabled --> false
+1335385395475: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=66% getNum=3 getGood=1 getBad=2 getTimedout=0 getPercent=33%
+1335385395475: Clicked take picture button ..
+1335385396867: inside HandlePictureStorage onPictureTaken()
+1335385396870: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=66% getNum=3 getGood=1 getBad=2 getTimedout=0 getPercent=33%
+1335385397133: Picture successfully taken, ORIG BYTE LENGTH = 3436450
+1335385397370: Our new height x width: 306 x 408
+1335385397371: Show photo from handle my camera take
+1335385397371: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335385397372: change local requestCounter to 11
+1335385397391: BYTE SIZE AFTER COMPRESSION: 3036
+1335385397399: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5018011 Client in region: 1 Client nodID: 5018
+1335385397438: .......... GPS onLocationChanged ...... 
+1335385397441: ----------------------------
+1335385397442: inside sendRequestPacketRepeatingRunnable for requestCount = 5018011
+1335385397442: I'm a leader, my requesting photos packet going to mux directly
+1335385397443: --- Finished one round of sending REQUEST Packet ---------
+1335385397745: ----------------------------
+1335385397747: inside sendRequestPacketRepeatingRunnable for requestCount = 5018011
+1335385397748: I'm a leader, my requesting photos packet going to mux directly
+1335385397749: --- Finished one round of sending REQUEST Packet ---------
+1335385398052: ----------------------------
+1335385398053: inside sendRequestPacketRepeatingRunnable for requestCount = 5018011
+1335385398053: I'm a leader, my requesting photos packet going to mux directly
+1335385398054: --- Finished one round of sending REQUEST Packet ---------
+1335385398355: ----------------------------
+1335385398356: inside sendRequestPacketRepeatingRunnable for requestCount = 5018011
+1335385398357: I'm a leader, my requesting photos packet going to mux directly
+1335385398358: --- Finished one round of sending REQUEST Packet ---------
+1335385398402: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
+1335385399402: .......... GPS onLocationChanged ...... 
+1335385401425: .......... GPS onLocationChanged ...... 
+1335385401475: reg=1 id=5018 state=2 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=2 takeBad=0 takeTimedout=1 takePercent=66% getNum=3 getGood=1 getBad=2 getTimedout=0 getPercent=33%
+1335385401476: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
+1335385401479: Inside _enableButtons
+1335385401479: areButtonsEnabled --> true
+1335385403424: .......... GPS onLocationChanged ...... 
+1335385405390: .......... GPS onLocationChanged ...... 
+1335385408419: .......... GPS onLocationChanged ...... 
+1335385411423: .......... GPS onLocationChanged ...... 
+1335385415203: canPressButton = false. state is + 1 Can't press button because you're in a transient state (JOINING or HANDING_OFF)
+1335385415206: can't press any buttons yet, so can't get region
+1335385419423: .......... GPS onLocationChanged ...... 
+1335385421394: .......... GPS onLocationChanged ...... 
+1335385421576: canPressButton = false. state is + 1 Can't press button because you're in a transient state (JOINING or HANDING_OFF)
+1335385421582: can't press camera button yet
+1335385422396: .......... GPS onLocationChanged ...... 
+1335385423416: .......... GPS onLocationChanged ...... 
+1335385424419: .......... GPS onLocationChanged ...... 
+1335385426427: .......... GPS onLocationChanged ...... 
+1335385430476: .......... GPS onLocationChanged ...... 
+1335385430520: canPressButton = false. state is + 1 Can't press button because you're in a transient state (JOINING or HANDING_OFF)
+1335385430525: can't press camera button yet
+1335385433429: .......... GPS onLocationChanged ...... 
+1335385434418: .......... GPS onLocationChanged ...... 
+1335385436389: .......... GPS onLocationChanged ...... 
+1335385436411: canPressButton = false. state is + 1 Can't press button because you're in a transient state (JOINING or HANDING_OFF)
+1335385436414: can't press camera button yet
+1335385393411: Sending UDP payload: 19042
+1335385393412: =======================
+1335385393412: inside sendReplyRepeatingRunnable for replyCount = 501800009
+1335385393412: Leader about to send REPLY packet, number: 501800009 type: 16 Leader in region: (1,0) to Client nodID: 5005
+1335385393412: I (the leader) was not the originator client (which id = 5005) so I use UDP to send packet back to my nonleader
+1335385393413: inside sendPacket(Packet p)
+1335385393413: === Finished one round of sending REPLY Packet =======
+1335385393447: Loc = Location[mProvider=gps,mTime=1335385394000,mLatitude=42.3580033,mLongitude=-71.09281676,mHasAltitude=true,mAltitude=-29.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385393447: GPS x/long:-71.09281676, GPS y/lat: 42.3580033. Region width in x: 20.0
+1335385393447: location PINPOINTS to region = 1.0, previous 1
+1335385393447: Hysteresis is 0.0
+1335385393447: stay at region 1
+1335385393619: =======================
+1335385393620: inside sendReplyRepeatingRunnable for replyCount = 501800010
+1335385393620: Leader about to send REPLY packet, number: 501800010 type: 15 Leader in region: (1,0) to Client nodID: 5005
+1335385393620: I (the leader) was not the originator client (which id = 5005) so I use UDP to send packet back to my nonleader
+1335385393620: inside sendPacket(Packet p)
+1335385393620: === Finished one round of sending REPLY Packet =======
+1335385393713: =======================
+1335385393713: inside sendReplyRepeatingRunnable for replyCount = 501800009
+1335385393713: Leader about to send REPLY packet, number: 501800009 type: 16 Leader in region: (1,0) to Client nodID: 5005
+1335385393713: I (the leader) was not the originator client (which id = 5005) so I use UDP to send packet back to my nonleader
+1335385393713: inside sendPacket(Packet p)
+1335385393713: === Finished one round of sending REPLY Packet =======
+1335385393790: inside sendReplyTimeoutR
+1335385393790: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501800009
+1335385393921: =======================
+1335385393921: inside sendReplyRepeatingRunnable for replyCount = 501800010
+1335385393921: Leader about to send REPLY packet, number: 501800010 type: 15 Leader in region: (1,0) to Client nodID: 5005
+1335385393921: I (the leader) was not the originator client (which id = 5005) so I use UDP to send packet back to my nonleader
+1335385393921: inside sendPacket(Packet p)
+1335385393922: === Finished one round of sending REPLY Packet =======
+1335385394222: =======================
+1335385394223: inside sendReplyRepeatingRunnable for replyCount = 501800010
+1335385394224: Leader about to send REPLY packet, number: 501800010 type: 15 Leader in region: (1,0) to Client nodID: 5005
+1335385394225: I (the leader) was not the originator client (which id = 5005) so I use UDP to send packet back to my nonleader
+1335385394225: inside sendPacket(Packet p)
+1335385394226: === Finished one round of sending REPLY Packet =======
+1335385394319: inside sendReplyTimeoutR
+1335385394321: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501800010
+1335385395418: Loc = Location[mProvider=gps,mTime=1335385396000,mLatitude=42.35799812,mLongitude=-71.09280555,mHasAltitude=true,mAltitude=-29.799999237060547,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385395418: GPS x/long:-71.09280555, GPS y/lat: 42.35799812. Region width in x: 20.0
+1335385395418: location PINPOINTS to region = 1.0, previous 1
+1335385395418: Hysteresis is 0.0
+1335385395418: stay at region 1
+1335385397440: Loc = Location[mProvider=gps,mTime=1335385398000,mLatitude=42.35798956,mLongitude=-71.09279664,mHasAltitude=true,mAltitude=-29.299999237060547,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385397440: GPS x/long:-71.09279664, GPS y/lat: 42.35798956. Region width in x: 20.0
+1335385397440: location PINPOINTS to region = 1.0, previous 1
+1335385397440: Hysteresis is 0.0
+1335385397441: stay at region 1
+1335385443603: mux: Inside mux Packet.CLIENT_REQUEST
+1335385443603: mux: Inside mux Packet.CLIENT_REQUEST
+1335385397912: inside sendPacket(Packet p)
+1335385443604: mux: Inside mux Packet.CLIENT_REQUEST
+1335385443604: mux: Inside mux Packet.CLIENT_REQUEST
+1335385399403: Loc = Location[mProvider=gps,mTime=1335385400000,mLatitude=42.35797855,mLongitude=-71.09277883,mHasAltitude=true,mAltitude=-29.0,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385399404: GPS x/long:-71.09277883, GPS y/lat: 42.35797855. Region width in x: 20.0
+1335385399404: location PINPOINTS to region = 1.0, previous 1
+1335385399404: Hysteresis is 0.0
+1335385399404: stay at region 1
+1335385401425: Loc = Location[mProvider=gps,mTime=1335385402000,mLatitude=42.35797061,mLongitude=-71.09276567,mHasAltitude=true,mAltitude=-30.299999237060547,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385401425: GPS x/long:-71.09276567, GPS y/lat: 42.35797061. Region width in x: 20.0
+1335385401426: location PINPOINTS to region = 1.0, previous 1
+1335385401426: Hysteresis is 0.0
+1335385401426: stay at region 1
+1335385402913: inside sendPacket(Packet p)
+1335385403424: Loc = Location[mProvider=gps,mTime=1335385404000,mLatitude=42.35796612,mLongitude=-71.09275459,mHasAltitude=true,mAltitude=-30.600000381469727,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385403425: GPS x/long:-71.09275459, GPS y/lat: 42.35796612. Region width in x: 20.0
+1335385403425: location PINPOINTS to region = 0.0, previous 1
+1335385403425: Hysteresis is 0.0
+1335385403425: location CHANGED TO NEW region = (0,0) from region = (1,0)
+1335385403425: moving from region (1,0), to (0,0)
+1335385403426: change state to HANDING_OFF with parameter my previous/old region = (1,0) before helping to elect new leader in it. (btw, newRegion (0,0))
+1335385403426: VCoreDaemon.java inside stateTransition ..........
+1335385403426: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385403426: ..... VCoreDaemon.java targetState = HANDING_OFF
+1335385403426: HANDING OFF setting leaderRegion = (1,0)
+1335385403426: Trying to hand off leadership
+1335385403426: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385403426: broadcasting LEADER_ELECT to old (1,0)
+1335385403427: inside sendPacket(Packet p)
+1335385404427: INSIDE ELECT CANDIDATE
+1335385404427: CANDIDATE SIZE is 0
+1335385404427: UserApp stopped.
+1335385404427: DSMLayer stopped
+1335385404428: serializing DSMLayer to JSON
+1335385405391: Loc = Location[mProvider=gps,mTime=1335385406000,mLatitude=42.35796181,mLongitude=-71.09274324,mHasAltitude=true,mAltitude=-29.5,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335385405391: GPS x/long:-71.09274324, GPS y/lat: 42.35796181. Region width in x: 20.0
+1335385405391: location PINPOINTS to region = 0.0, previous 0
+1335385405391: Hysteresis is 0.0
+1335385405392: stay at region 0
+1335385405917: Error releasing leadership. Retrying...
+1335385406073: old region empty, uploaded state to cloud in 1640ms as json 54344 bytes
+1335385406074: VCoreDaemon.java inside stateTransition ..........
+1335385406074: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385406075: ..... VCoreDaemon.java targetState = JOINING
+1335385406075: posting leaderRequestRetryR because I'm joining
+1335385406076: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385406077: sending LEADER_REQUEST
+1335385406077: inside sendPacket(Packet p)
+1335385406078: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385406379: sending LEADER_REQUEST
+1335385406379: inside sendPacket(Packet p)
+1335385406380: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385406681: sending LEADER_REQUEST
+1335385406682: inside sendPacket(Packet p)
+1335385406683: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385406984: sending LEADER_REQUEST
+1335385406984: inside sendPacket(Packet p)
+1335385406985: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385407076: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385407077: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385407077: VCoreDaemon.java inside stateTransition ..........
+1335385407078: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385407078: ..... VCoreDaemon.java targetState = LEADER
+1335385407078: trying to take leadership to the cloud
+1335385407203: cloud rejected leadership request or request failed, wait to retry
+1335385408422: Loc = Location[mProvider=gps,mTime=1335385409000,mLatitude=42.35795746,mLongitude=-71.09272743,mHasAltitude=true,mAltitude=-27.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335385408423: GPS x/long:-71.09272743, GPS y/lat: 42.35795746. Region width in x: 20.0
+1335385408423: location PINPOINTS to region = 0.0, previous 0
+1335385408424: Hysteresis is 0.0
+1335385408424: stay at region 0
+1335385411424: Loc = Location[mProvider=gps,mTime=1335385412000,mLatitude=42.3579498,mLongitude=-71.09271653,mHasAltitude=true,mAltitude=-25.799999237060547,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335385411424: GPS x/long:-71.09271653, GPS y/lat: 42.3579498. Region width in x: 20.0
+1335385411424: location PINPOINTS to region = 0.0, previous 0
+1335385411425: Hysteresis is 0.0
+1335385411425: stay at region 0
+1335385419426: Loc = Location[mProvider=gps,mTime=1335385420000,mLatitude=42.35796429,mLongitude=-71.09272808,mHasAltitude=true,mAltitude=-26.799999237060547,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335385419427: GPS x/long:-71.09272808, GPS y/lat: 42.35796429. Region width in x: 20.0
+1335385419427: location PINPOINTS to region = 0.0, previous 0
+1335385419428: Hysteresis is 0.0
+1335385419428: stay at region 0
+1335385421395: Loc = Location[mProvider=gps,mTime=1335385422000,mLatitude=42.35798234,mLongitude=-71.09274431,mHasAltitude=true,mAltitude=-27.899999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335385421395: GPS x/long:-71.09274431, GPS y/lat: 42.35798234. Region width in x: 20.0
+1335385421395: location PINPOINTS to region = 1.0, previous 0
+1335385421395: Hysteresis is 0.0
+1335385421396: location CHANGED TO NEW region = (1,0) from region = (0,0)
+1335385421396: moving from region (0,0), to (1,0)
+1335385421396: VCoreDaemon.java inside stateTransition ..........
+1335385421396: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385421396: ..... VCoreDaemon.java targetState = JOINING
+1335385421396: posting leaderRequestRetryR because I'm joining
+1335385421396: sending LEADER_REQUEST
+1335385421397: inside sendPacket(Packet p)
+1335385421397: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385421397: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385421697: sending LEADER_REQUEST
+1335385421697: inside sendPacket(Packet p)
+1335385421698: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385421999: sending LEADER_REQUEST
+1335385422000: inside sendPacket(Packet p)
+1335385422000: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385422301: sending LEADER_REQUEST
+1335385422302: inside sendPacket(Packet p)
+1335385422302: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385422397: Loc = Location[mProvider=gps,mTime=1335385423000,mLatitude=42.35799391,mLongitude=-71.09275124,mHasAltitude=true,mAltitude=-28.100000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385422398: GPS x/long:-71.09275124, GPS y/lat: 42.35799391. Region width in x: 20.0
+1335385422398: location PINPOINTS to region = 1.0, previous 1
+1335385422398: Hysteresis is 0.0
+1335385422398: stay at region 1
+1335385422399: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385422399: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385422400: VCoreDaemon.java inside stateTransition ..........
+1335385422400: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385422400: ..... VCoreDaemon.java targetState = LEADER
+1335385422400: trying to take leadership to the cloud
+1335385422728: cloud rejected leadership request or request failed, wait to retry
+1335385423416: Loc = Location[mProvider=gps,mTime=1335385424000,mLatitude=42.3580039,mLongitude=-71.09275781,mHasAltitude=true,mAltitude=-28.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385423417: GPS x/long:-71.09275781, GPS y/lat: 42.3580039. Region width in x: 20.0
+1335385423417: location PINPOINTS to region = 1.0, previous 1
+1335385423417: Hysteresis is 0.0
+1335385423417: stay at region 1
+1335385424421: Loc = Location[mProvider=gps,mTime=1335385425000,mLatitude=42.35801516,mLongitude=-71.09276638,mHasAltitude=true,mAltitude=-27.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385424422: GPS x/long:-71.09276638, GPS y/lat: 42.35801516. Region width in x: 20.0
+1335385424423: location PINPOINTS to region = 1.0, previous 1
+1335385424423: Hysteresis is 0.0
+1335385424424: stay at region 1
+1335385426428: Loc = Location[mProvider=gps,mTime=1335385427000,mLatitude=42.35802271,mLongitude=-71.09277483,mHasAltitude=true,mAltitude=-27.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385426428: GPS x/long:-71.09277483, GPS y/lat: 42.35802271. Region width in x: 20.0
+1335385426428: location PINPOINTS to region = 1.0, previous 1
+1335385426428: Hysteresis is 0.0
+1335385426428: stay at region 1
+1335385430478: Loc = Location[mProvider=gps,mTime=1335385431000,mLatitude=42.35801658,mLongitude=-71.09278803,mHasAltitude=true,mAltitude=-27.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385430479: GPS x/long:-71.09278803, GPS y/lat: 42.35801658. Region width in x: 20.0
+1335385430479: location PINPOINTS to region = 1.0, previous 1
+1335385430480: Hysteresis is 0.0
+1335385430480: stay at region 1
+1335385433432: Loc = Location[mProvider=gps,mTime=1335385434000,mLatitude=42.35800741,mLongitude=-71.0928019,mHasAltitude=true,mAltitude=-27.100000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385433433: GPS x/long:-71.0928019, GPS y/lat: 42.35800741. Region width in x: 20.0
+1335385433438: location PINPOINTS to region = 1.0, previous 1
+1335385433438: Hysteresis is 0.0
+1335385433439: stay at region 1
+1335385434419: Loc = Location[mProvider=gps,mTime=1335385435000,mLatitude=42.35800305,mLongitude=-71.09281429,mHasAltitude=true,mAltitude=-26.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385434419: GPS x/long:-71.09281429, GPS y/lat: 42.35800305. Region width in x: 20.0
+1335385434419: location PINPOINTS to region = 1.0, previous 1
+1335385434420: Hysteresis is 0.0
+1335385434420: stay at region 1
+1335385436389: Loc = Location[mProvider=gps,mTime=1335385437000,mLatitude=42.35799768,mLongitude=-71.09282853,mHasAltitude=true,mAltitude=-26.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385436390: GPS x/long:-71.09282853, GPS y/lat: 42.35799768. Region width in x: 20.0
+1335385436390: location PINPOINTS to region = 1.0, previous 1
+1335385436390: Hysteresis is 0.0
+1335385436390: stay at region 1
+1335385443558: Received UDP payload: 6619
+1335385443581: Sending UDP payload: 642
+1335385443680: mux: Inside mux Packet.CLIENT_REQUEST
+1335385443588: Received UDP payload: 6619
+1335385443680: mux: Inside mux Packet.CLIENT_REQUEST
+1335385443592: Received UDP payload: 446
+1335385443596: Sending UDP payload: 7969
+1335385443598: Sending UDP payload: 642
+1335385443600: Sending UDP payload: 7969
+1335385443602: Sending UDP payload: 7969
+1335385443604: Sending UDP payload: 446
+1335385443606: Sending UDP payload: 446
+1335385443608: Sending UDP payload: 463
+1335385443610: Sending UDP payload: 446
+1335385443614: Received UDP payload: 446
+1335385443631: Sending UDP payload: 446
+1335385443634: Received UDP payload: 446
+1335385443636: Received UDP payload: 446
+1335385443639: Received UDP payload: 446
+1335385443649: Sending UDP payload: 446
+1335385443650: Sending UDP payload: 446
+1335385443652: Sending UDP payload: 446
+1335385443654: Sending UDP payload: 446
+1335385443655: Sending UDP payload: 446
+1335385443656: Received UDP payload: 446
+1335385443665: Sending UDP payload: 446
+1335385443668: Received UDP payload: 446
+1335385443670: Received UDP payload: 446
+1335385443676: Received UDP payload: 446
+1335385443691: Received UDP payload: 446
+1335385443695: Received UDP payload: 446
+1335385443702: Received UDP payload: 446
+1335385443705: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385443705: heard HEARTBEAT from 5008, now following
+1335385443705: VCoreDaemon.java inside stateTransition ..........
+1335385443705: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385443705: ..... VCoreDaemon.java targetState = NONLEADER
+1335385443705: DSMLayer stopped
+1335385443706: now NONLEADER (id=5018) following LEADER (id=5008) in (1,0)
+1335385443706: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385443707: Received UDP payload: 446
+1335385443723: Received UDP payload: 22335
+1335385443727: Received UDP payload: 446
+1335385443730: Received UDP payload: 446
+1335385443734: Received UDP payload: 446
+1335385443742: Received UDP payload: 446
+1335385443745: Received UDP payload: 446
+1335385443757: Received UDP payload: 446
+1335385443760: Received UDP payload: 446
+1335385443769: Received UDP payload: 446
+1335385443779: Received UDP payload: 446
+1335385443781: Received UDP payload: 446
+1335385443783: Received UDP payload: 446
+1335385443786: Received UDP payload: 446
+1335385443788: Received UDP payload: 446
+1335385443790: Received UDP payload: 446
+1335385443793: Received UDP payload: 446
+1335385443795: Received UDP payload: 446
+1335385443797: Received UDP payload: 446
+1335385443799: Received UDP payload: 446
+1335385443853: Received UDP payload: 22335
+1335385443856: Received UDP payload: 22335
+1335385443861: Received UDP payload: 22335
+1335385443865: Received UDP payload: 446
+1335385443868: Received UDP payload: 446
+1335385443884: Received UDP payload: 446
+1335385443889: Received UDP payload: 446
+1335385443900: Received UDP payload: 446
+1335385443904: Received UDP payload: 446
+1335385443922: Received UDP payload: 446
+1335385443926: Received UDP payload: 446
+1335385443932: Received UDP payload: 446
+1335385443939: Received UDP payload: 446
+1335385443957: Received UDP payload: 446
+1335385443962: Received UDP payload: 446
+1335385443968: Received UDP payload: 446
+1335385443974: Received UDP payload: 4882
+1335385443978: mux: Inside mux Packet.CLIENT_REQUEST
+1335385443979: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385443979: Received UDP payload: 4882
+1335385443985: mux: Inside mux Packet.CLIENT_REQUEST
+1335385443986: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385443986: Received UDP payload: 4882
+1335385443995: mux: Inside mux Packet.CLIENT_REQUEST
+1335385443995: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385443996: Received UDP payload: 4882
+1335385444001: mux: Inside mux Packet.CLIENT_REQUEST
+1335385444002: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385445525: canPressButton = TRUE
+1335385445528: areButtonsEnabled --> false
+1335385445529: disabling buttons ...
+1335385445529: took picture disableButtonsR
+1335385445529: areButtonsEnabled --> false
+1335385445568: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=3 takeGoodSave=2 takeBad=0 takeTimedout=1 takePercent=50% getNum=3 getGood=1 getBad=2 getTimedout=0 getPercent=33%
+1335385445568: Clicked take picture button ..
+1335385447118: inside HandlePictureStorage onPictureTaken()
+1335385447119: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=4 takeGoodSave=2 takeBad=0 takeTimedout=1 takePercent=50% getNum=3 getGood=1 getBad=2 getTimedout=0 getPercent=33%
+1335385447389: Picture successfully taken, ORIG BYTE LENGTH = 3526800
+1335385447646: Our new height x width: 306 x 408
+1335385447646: Show photo from handle my camera take
+1335385447647: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335385447647: change local requestCounter to 12
+1335385447661: BYTE SIZE AFTER COMPRESSION: 3160
+1335385447667: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5018012 Client in region: 1 Client nodID: 5018
+1335385447574: Received UDP payload: 3573
+1335385447580: mux: Inside mux Packet.CLIENT_REQUEST
+1335385447581: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385447643: Received UDP payload: 3573
+1335385447645: mux: Inside mux Packet.CLIENT_REQUEST
+1335385447646: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385447699: ----------------------------
+1335385447699: inside sendRequestPacketRepeatingRunnable for requestCount = 5018012
+1335385447699: I'm a nonleader sending my requesting photos packet to my leader
+1335385447704: --- Finished one round of sending REQUEST Packet ---------
+1335385447699: inside sendPacket(Packet p)
+1335385447703: Sending UDP payload: 3807
+1335385447722: Received UDP payload: 3573
+1335385447725: mux: Inside mux Packet.CLIENT_REQUEST
+1335385447725: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385448005: ----------------------------
+1335385448005: inside sendRequestPacketRepeatingRunnable for requestCount = 5018012
+1335385448005: I'm a nonleader sending my requesting photos packet to my leader
+1335385448006: --- Finished one round of sending REQUEST Packet ---------
+1335385448006: inside sendPacket(Packet p)
+1335385448007: Sending UDP payload: 3807
+1335385448208: Received UDP payload: 3573
+1335385448211: mux: Inside mux Packet.CLIENT_REQUEST
+1335385448211: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385448306: ----------------------------
+1335385448307: inside sendRequestPacketRepeatingRunnable for requestCount = 5018012
+1335385448307: I'm a nonleader sending my requesting photos packet to my leader
+1335385448312: --- Finished one round of sending REQUEST Packet ---------
+1335385448308: inside sendPacket(Packet p)
+1335385448310: Sending UDP payload: 3807
+1335385448613: ----------------------------
+1335385448614: inside sendRequestPacketRepeatingRunnable for requestCount = 5018012
+1335385448614: I'm a nonleader sending my requesting photos packet to my leader
+1335385448621: --- Finished one round of sending REQUEST Packet ---------
+1335385448615: inside sendPacket(Packet p)
+1335385448618: Sending UDP payload: 3807
+1335385448687: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
+1335385450032: Received UDP payload: 446
+1335385450041: Received UDP payload: 446
+1335385450226: Received UDP payload: 11247
+1335385450235: ignoring leader_reply that's not for me
+1335385450253: Received UDP payload: 446
+1335385450489: Received UDP payload: 7644
+1335385450497: mux: GOT CSM_Msg
+1335385450571: Received UDP payload: 7644
+1335385450576: mux: GOT CSM_Msg
+1335385450707: Received UDP payload: 7644
+1335385450712: mux: GOT CSM_Msg
+1335385451501: Received UDP payload: 7644
+1335385451506: mux: GOT CSM_Msg
+1335385451568: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=4 takeGoodSave=2 takeBad=0 takeTimedout=2 takePercent=50% getNum=3 getGood=1 getBad=2 getTimedout=0 getPercent=33%
+1335385451569: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
+1335385451575: Inside _enableButtons
+1335385451576: areButtonsEnabled --> true
+1335385452281: Received UDP payload: 22335
+1335385452812: Received UDP payload: 7644
+1335385452819: mux: GOT CSM_Msg
+1335385455018: Received UDP payload: 625
+1335385455025: mux: Inside mux Packet.CLIENT_REQUEST
+1335385455025: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385455356: Received UDP payload: 625
+1335385455367: mux: Inside mux Packet.CLIENT_REQUEST
+1335385455368: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385455622: Received UDP payload: 625
+1335385455623: mux: Inside mux Packet.CLIENT_REQUEST
+1335385455623: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385455939: Received UDP payload: 625
+1335385455941: mux: Inside mux Packet.CLIENT_REQUEST
+1335385455941: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385460299: Received UDP payload: 7644
+1335385460314: mux: GOT CSM_Msg
+1335385460434: Received UDP payload: 7644
+1335385460437: mux: GOT CSM_Msg
+1335385460553: canPressButton = TRUE
+1335385460553: areButtonsEnabled --> false
+1335385460553: disabling buttons ...
+1335385460554: took picture disableButtonsR
+1335385460554: areButtonsEnabled --> false
+1335385460591: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=4 takeGoodSave=2 takeBad=0 takeTimedout=2 takePercent=40% getNum=3 getGood=1 getBad=2 getTimedout=0 getPercent=33%
+1335385460591: Clicked take picture button ..
+1335385460655: Received UDP payload: 7644
+1335385460658: mux: GOT CSM_Msg
+1335385460803: Received UDP payload: 7644
+1335385460806: mux: GOT CSM_Msg
+1335385460953: Received UDP payload: 7644
+1335385460956: mux: GOT CSM_Msg
+1335385461132: Received UDP payload: 7644
+1335385461135: mux: GOT CSM_Msg
+1335385461140: Received UDP payload: 446
+1335385461144: Received UDP payload: 446
+1335385461156: Received UDP payload: 446
+1335385461173: Received UDP payload: 446
+1335385461191: Received UDP payload: 446
+1335385461202: Received UDP payload: 446
+1335385461622: Received UDP payload: 446
+1335385461962: inside HandlePictureStorage onPictureTaken()
+1335385461963: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=5 takeGoodSave=2 takeBad=0 takeTimedout=2 takePercent=40% getNum=3 getGood=1 getBad=2 getTimedout=0 getPercent=33%
+1335385462244: Picture successfully taken, ORIG BYTE LENGTH = 2771332
+1335385462653: Our new height x width: 306 x 408
+1335385462653: Show photo from handle my camera take
+1335385462653: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335385462654: change local requestCounter to 13
+1335385462670: BYTE SIZE AFTER COMPRESSION: 5279
+1335385462674: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5018013 Client in region: 1 Client nodID: 5018
+1335385462703: ----------------------------
+1335385462704: inside sendRequestPacketRepeatingRunnable for requestCount = 5018013
+1335385462704: I'm a nonleader sending my requesting photos packet to my leader
+1335385462710: --- Finished one round of sending REQUEST Packet ---------
+1335385462704: inside sendPacket(Packet p)
+1335385462709: Sending UDP payload: 5926
+1335385462952: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335385462952: VCoreDaemon.java inside stateTransition ..........
+1335385462952: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385462952: ..... VCoreDaemon.java targetState = JOINING
+1335385462952: posting leaderRequestRetryR because I'm joining
+1335385462952: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385462953: sending LEADER_REQUEST
+1335385462953: inside sendPacket(Packet p)
+1335385462953: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385462954: Sending UDP payload: 446
+1335385463011: ----------------------------
+1335385463012: inside sendRequestPacketRepeatingRunnable for requestCount = 5018013
+1335385463012: --- Finished one round of sending REQUEST Packet ---------
+1335385463253: sending LEADER_REQUEST
+1335385463253: inside sendPacket(Packet p)
+1335385463254: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385463255: Sending UDP payload: 446
+1335385463312: ----------------------------
+1335385463313: inside sendRequestPacketRepeatingRunnable for requestCount = 5018013
+1335385463315: --- Finished one round of sending REQUEST Packet ---------
+1335385463554: sending LEADER_REQUEST
+1335385463554: inside sendPacket(Packet p)
+1335385463555: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385463556: Sending UDP payload: 446
+1335385463616: ----------------------------
+1335385463617: inside sendRequestPacketRepeatingRunnable for requestCount = 5018013
+1335385463618: --- Finished one round of sending REQUEST Packet ---------
+1335385463675: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
+1335385463855: sending LEADER_REQUEST
+1335385463855: inside sendPacket(Packet p)
+1335385463856: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385463857: Sending UDP payload: 446
+1335385463953: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385463953: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385463953: VCoreDaemon.java inside stateTransition ..........
+1335385463953: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385463954: ..... VCoreDaemon.java targetState = LEADER
+1335385463954: trying to take leadership to the cloud
+1335385464289: cloud rejected leadership request or request failed, wait to retry
+1335385466585: reg=1 id=5018 state=1 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=5 takeGoodSave=2 takeBad=0 takeTimedout=3 takePercent=40% getNum=3 getGood=1 getBad=2 getTimedout=0 getPercent=33%
+1335385466586: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
+1335385466598: Inside _enableButtons
+1335385466599: areButtonsEnabled --> true
+1335385467749: Received UDP payload: 446
+1335385467764: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385467765: heard HEARTBEAT from 5012, now following
+1335385467765: VCoreDaemon.java inside stateTransition ..........
+1335385467765: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385467766: ..... VCoreDaemon.java targetState = NONLEADER
+1335385467766: now NONLEADER (id=5018) following LEADER (id=5012) in (1,0)
+1335385467767: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385467777: Received UDP payload: 446
+1335385469131: Received UDP payload: 5071
+1335385469140: mux: Inside mux Packet.CLIENT_REQUEST
+1335385469141: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385471134: Received UDP payload: 5071
+1335385471144: mux: Inside mux Packet.CLIENT_REQUEST
+1335385471144: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385471764: Received UDP payload: 3985
+1335385471770: mux: Inside mux Packet.CLIENT_REQUEST
+1335385471770: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335385471956: canPressButton = TRUE
+1335385471957: areButtonsEnabled --> false 
+1335385471957: get picture disableButtonsR
+1335385471957: areButtonsEnabled --> false
+1335385471984: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=5 takeGoodSave=2 takeBad=0 takeTimedout=3 takePercent=40% getNum=4 getGood=1 getBad=2 getTimedout=0 getPercent=25%
+1335385471984: ** Client making GET photo PACKET to send to the leader. Requesting for region: 0 **
+1335385471984: change local requestCounter to 14
+1335385471985: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5018014 Client in region: 1 Client nodID: 5018
+1335385472021: ----------------------------
+1335385472022: inside sendRequestPacketRepeatingRunnable for requestCount = 5018014
+1335385472022: I'm a nonleader sending my requesting photos packet to my leader
+1335385472024: --- Finished one round of sending REQUEST Packet ---------
+1335385472022: inside sendPacket(Packet p)
+1335385472023: Sending UDP payload: 625
+1335385472325: ----------------------------
+1335385472325: inside sendRequestPacketRepeatingRunnable for requestCount = 5018014
+1335385472325: I'm a nonleader sending my requesting photos packet to my leader
+1335385472336: --- Finished one round of sending REQUEST Packet ---------
+1335385472326: inside sendPacket(Packet p)
+1335385472327: Sending UDP payload: 625
+1335385472637: ----------------------------
+1335385472638: inside sendRequestPacketRepeatingRunnable for requestCount = 5018014
+1335385472638: I'm a nonleader sending my requesting photos packet to my leader
+1335385472640: --- Finished one round of sending REQUEST Packet ---------
+1335385472638: inside sendPacket(Packet p)
+1335385472639: Sending UDP payload: 625
+1335385472939: ----------------------------
+1335385472940: inside sendRequestPacketRepeatingRunnable for requestCount = 5018014
+1335385472940: I'm a nonleader sending my requesting photos packet to my leader
+1335385472942: --- Finished one round of sending REQUEST Packet ---------
+1335385472940: inside sendPacket(Packet p)
+1335385472941: Sending UDP payload: 625
+1335385472985: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
+1335385477984: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=5 takeGoodSave=2 takeBad=0 takeTimedout=3 takePercent=40% getNum=4 getGood=1 getBad=2 getTimedout=1 getPercent=25%
+1335385477984: inside buttonsEnableProgressTimeoutR. Perhaps no one is in that region. Try again later!
+1335385477989: Inside _enableButtons
+1335385477989: areButtonsEnabled --> true
+1335385478626: Received UDP payload: 446
+1335385478635: Received UDP payload: 446
+1335385478646: Received UDP payload: 446
+1335385478979: Received UDP payload: 446
+1335385479022: Received UDP payload: 446
+1335385479180: Received UDP payload: 446
+1335385480964: Received UDP payload: 12199
+1335385482589: Received UDP payload: 3529
+1335385482600: Received UDP payload: 446
+1335385482612: Received UDP payload: 446
+1335385482754: Received UDP payload: 446
+1335385482856: Received UDP payload: 446
+1335385482964: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335385482965: VCoreDaemon.java inside stateTransition ..........
+1335385482965: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385482966: ..... VCoreDaemon.java targetState = JOINING
+1335385482966: posting leaderRequestRetryR because I'm joining
+1335385482966: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385482967: sending LEADER_REQUEST
+1335385482967: inside sendPacket(Packet p)
+1335385482967: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385482981: Sending UDP payload: 446
+1335385483268: sending LEADER_REQUEST
+1335385483269: inside sendPacket(Packet p)
+1335385483269: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385483272: Sending UDP payload: 446
+1335385483570: sending LEADER_REQUEST
+1335385483571: inside sendPacket(Packet p)
+1335385483571: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385483574: Sending UDP payload: 446
+1335385483872: sending LEADER_REQUEST
+1335385483872: inside sendPacket(Packet p)
+1335385483872: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385483874: Sending UDP payload: 446
+1335385483967: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385483967: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385483968: VCoreDaemon.java inside stateTransition ..........
+1335385483968: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385483968: ..... VCoreDaemon.java targetState = LEADER
+1335385483968: trying to take leadership to the cloud
+1335385484287: Received UDP payload: 446
+1335385484298: mux: Inside mux Packet.CLIENT_REQUEST
+1335385484318: Received UDP payload: 446
+1335385484334: mux: Inside mux Packet.CLIENT_REQUEST
+1335385484349: cloud rejected leadership request or request failed, wait to retry
+1335385485517: canPressButton = false. state is + 1 Can't press button because you're in a transient state (JOINING or HANDING_OFF)
+1335385485523: can't press camera button yet
+1335385486054: Received UDP payload: 446
+1335385486071: Received UDP payload: 446
+1335385486089: Received UDP payload: 446
+1335385486096: Received UDP payload: 446
+1335385486108: Received UDP payload: 446
+1335385486115: Received UDP payload: 446
+1335385486124: Received UDP payload: 446
+1335385486144: Received UDP payload: 446
+1335385486260: Received UDP payload: 7278
+1335385486264: mux: Inside mux Packet.CLIENT_REQUEST
+1335385486388: Received UDP payload: 7278
+1335385486393: mux: Inside mux Packet.CLIENT_REQUEST
+1335385486595: Received UDP payload: 7278
+1335385486598: mux: Inside mux Packet.CLIENT_REQUEST
+1335385487002: Received UDP payload: 625
+1335385487009: mux: Inside mux Packet.CLIENT_REQUEST
+1335385487027: Received UDP payload: 625
+1335385487034: mux: Inside mux Packet.CLIENT_REQUEST
+1335385487035: Received UDP payload: 625
+1335385487047: mux: Inside mux Packet.CLIENT_REQUEST
+1335385487056: Received UDP payload: 625
+1335385487063: mux: Inside mux Packet.CLIENT_REQUEST
+1335385487268: Received UDP payload: 5071
+1335385487275: mux: Inside mux Packet.CLIENT_REQUEST
+1335385487283: Received UDP payload: 625
+1335385487289: mux: Inside mux Packet.CLIENT_REQUEST
+1335385487294: Received UDP payload: 625
+1335385487302: mux: Inside mux Packet.CLIENT_REQUEST
+1335385487374: Received UDP payload: 5071
+1335385487376: mux: Inside mux Packet.CLIENT_REQUEST
+1335385487532: Received UDP payload: 446
+1335385487595: Received UDP payload: 446
+1335385487876: Received UDP payload: 446
+1335385487890: Received UDP payload: 446
+1335385491412: Received UDP payload: 446
+1335385491426: Received UDP payload: 446
+1335385491465: Received UDP payload: 446
+1335385491504: Received UDP payload: 989
+1335385491508: mux: GOT CSM_Msg
+1335385493283: Received UDP payload: 989
+1335385493307: mux: GOT CSM_Msg
+1335385496416: .......... GPS onLocationChanged ...... 
+1335385496417: Loc = Location[mProvider=gps,mTime=1335385497000,mLatitude=42.3579891,mLongitude=-71.0928323,mHasAltitude=true,mAltitude=-28.200000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385496417: GPS x/long:-71.0928323, GPS y/lat: 42.3579891. Region width in x: 20.0
+1335385496417: location PINPOINTS to region = 1.0, previous 1
+1335385496417: Hysteresis is 0.0
+1335385496418: stay at region 1
+1335385500075: Received UDP payload: 446
+1335385500077: mux: Inside mux Packet.CLIENT_REQUEST
+1335385500305: Received UDP payload: 7050
+1335385500309: mux: Inside mux Packet.CLIENT_REQUEST
+1335385500501: Received UDP payload: 7050
+1335385500504: mux: Inside mux Packet.CLIENT_REQUEST
+1335385500685: Received UDP payload: 7050
+1335385500689: mux: Inside mux Packet.CLIENT_REQUEST
+1335385500813: Received UDP payload: 7050
+1335385500826: mux: Inside mux Packet.CLIENT_REQUEST
+1335385501398: Received UDP payload: 446
+1335385501405: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385501405: heard HEARTBEAT from 5008, now following
+1335385501406: VCoreDaemon.java inside stateTransition ..........
+1335385501406: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385501406: ..... VCoreDaemon.java targetState = NONLEADER
+1335385501407: now NONLEADER (id=5018) following LEADER (id=5008) in (1,0)
+1335385501407: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385501674: Received UDP payload: 446
+1335385501961: Received UDP payload: 12199
+1335385501963: ignoring leader_reply that's not for me
+1335385502266: Received UDP payload: 12199
+1335385502274: ignoring leader_reply that's not for me
+1335385508615: Received UDP payload: 3529
+1335385508652: Received UDP payload: 3529
+1335385508686: Received UDP payload: 446
+1335385508691: Received UDP payload: 446
+1335385508701: Received UDP payload: 446
+1335385508707: Received UDP payload: 446
+1335385508863: Received UDP payload: 989
+1335385508874: mux: GOT CSM_Msg
+1335385508874: Received UDP payload: 446
+1335385508880: Received UDP payload: 446
+1335385508888: Received UDP payload: 446
+1335385509642: Received UDP payload: 12414
+1335385509663: Received UDP payload: 446
+1335385511218: Received UDP payload: 12414
+1335385512791: canPressButton = TRUE
+1335385512792: areButtonsEnabled --> false
+1335385512792: disabling buttons ...
+1335385512792: took picture disableButtonsR
+1335385512792: areButtonsEnabled --> false
+1335385512808: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=6 takeCamGood=5 takeGoodSave=2 takeBad=0 takeTimedout=3 takePercent=33% getNum=4 getGood=1 getBad=2 getTimedout=1 getPercent=25%
+1335385512808: Clicked take picture button ..
+1335385514229: inside HandlePictureStorage onPictureTaken()
+1335385514231: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=6 takeCamGood=6 takeGoodSave=2 takeBad=0 takeTimedout=3 takePercent=33% getNum=4 getGood=1 getBad=2 getTimedout=1 getPercent=25%
+1335385514496: Picture successfully taken, ORIG BYTE LENGTH = 3413853
+1335385515060: Our new height x width: 306 x 408
+1335385515061: Show photo from handle my camera take
+1335385515061: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335385515061: change local requestCounter to 15
+1335385515076: BYTE SIZE AFTER COMPRESSION: 3442
+1335385515081: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5018015 Client in region: 1 Client nodID: 5018
+1335385515108: ----------------------------
+1335385515109: inside sendRequestPacketRepeatingRunnable for requestCount = 5018015
+1335385515109: I'm a nonleader sending my requesting photos packet to my leader
+1335385515115: --- Finished one round of sending REQUEST Packet ---------
+1335385515109: inside sendPacket(Packet p)
+1335385515113: Sending UDP payload: 4089
+1335385515415: ----------------------------
+1335385515416: inside sendRequestPacketRepeatingRunnable for requestCount = 5018015
+1335385515416: I'm a nonleader sending my requesting photos packet to my leader
+1335385515418: --- Finished one round of sending REQUEST Packet ---------
+1335385515416: inside sendPacket(Packet p)
+1335385515417: Sending UDP payload: 4089
+1335385515718: ----------------------------
+1335385515719: inside sendRequestPacketRepeatingRunnable for requestCount = 5018015
+1335385515719: I'm a nonleader sending my requesting photos packet to my leader
+1335385515722: --- Finished one round of sending REQUEST Packet ---------
+1335385515719: inside sendPacket(Packet p)
+1335385515720: Sending UDP payload: 4089
+1335385516022: ----------------------------
+1335385516023: inside sendRequestPacketRepeatingRunnable for requestCount = 5018015
+1335385516023: I'm a nonleader sending my requesting photos packet to my leader
+1335385516026: --- Finished one round of sending REQUEST Packet ---------
+1335385516023: inside sendPacket(Packet p)
+1335385516024: Sending UDP payload: 4089
+1335385516081: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
+1335385517986: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335385517986: VCoreDaemon.java inside stateTransition ..........
+1335385517987: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385517987: ..... VCoreDaemon.java targetState = JOINING
+1335385517987: posting leaderRequestRetryR because I'm joining
+1335385517988: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385517993: sending LEADER_REQUEST
+1335385517993: inside sendPacket(Packet p)
+1335385517996: Sending UDP payload: 446
+1335385517997: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385518298: sending LEADER_REQUEST
+1335385518299: inside sendPacket(Packet p)
+1335385518299: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385518303: Sending UDP payload: 446
+1335385518600: sending LEADER_REQUEST
+1335385518601: inside sendPacket(Packet p)
+1335385518601: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385518601: Sending UDP payload: 446
+1335385518809: reg=1 id=5018 state=1 regionWidth=20.0 hyst=0.0 takeNum=6 takeCamGood=6 takeGoodSave=2 takeBad=0 takeTimedout=4 takePercent=33% getNum=4 getGood=1 getBad=2 getTimedout=1 getPercent=25%
+1335385518809: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
+1335385518812: Inside _enableButtons
+1335385518813: areButtonsEnabled --> true
+1335385518901: sending LEADER_REQUEST
+1335385518901: inside sendPacket(Packet p)
+1335385518902: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385518903: Sending UDP payload: 446
+1335385518988: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385518988: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385518988: VCoreDaemon.java inside stateTransition ..........
+1335385518989: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385518989: ..... VCoreDaemon.java targetState = LEADER
+1335385518989: trying to take leadership to the cloud
+1335385519359: cloud rejected leadership request or request failed, wait to retry
+1335385521525: Received UDP payload: 12414
+1335385523049: Received UDP payload: 446
+1335385523056: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385523056: heard HEARTBEAT from 5020, now following
+1335385523057: VCoreDaemon.java inside stateTransition ..........
+1335385523064: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385523064: ..... VCoreDaemon.java targetState = NONLEADER
+1335385523065: now NONLEADER (id=5018) following LEADER (id=5020) in (1,0)
+1335385523067: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385523074: Received UDP payload: 446
+1335385523092: Received UDP payload: 989
+1335385523112: mux: GOT CSM_Msg
+1335385523199: Received UDP payload: 8316
+1335385523202: mux: GOT CSM_Msg
+1335385523206: Received UDP payload: 446
+1335385526424: .......... GPS onLocationChanged ...... 
+1335385526425: Loc = Location[mProvider=gps,mTime=1335385527000,mLatitude=42.35800141,mLongitude=-71.09283069,mHasAltitude=true,mAltitude=-25.700000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385526425: GPS x/long:-71.09283069, GPS y/lat: 42.35800141. Region width in x: 20.0
+1335385526425: location PINPOINTS to region = 1.0, previous 1
+1335385526425: Hysteresis is 0.0
+1335385526426: stay at region 1
+1335385528427: .......... GPS onLocationChanged ...... 
+1335385528429: Loc = Location[mProvider=gps,mTime=1335385529000,mLatitude=42.35801377,mLongitude=-71.09283871,mHasAltitude=true,mAltitude=-25.899999618530273,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385528430: GPS x/long:-71.09283871, GPS y/lat: 42.35801377. Region width in x: 20.0
+1335385528431: location PINPOINTS to region = 1.0, previous 1
+1335385528432: Hysteresis is 0.0
+1335385528433: stay at region 1
+1335385530404: .......... GPS onLocationChanged ...... 
+1335385530405: Loc = Location[mProvider=gps,mTime=1335385531000,mLatitude=42.35802857,mLongitude=-71.09284702,mHasAltitude=true,mAltitude=-26.700000762939453,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385530405: GPS x/long:-71.09284702, GPS y/lat: 42.35802857. Region width in x: 20.0
+1335385530405: location PINPOINTS to region = 1.0, previous 1
+1335385530406: Hysteresis is 0.0
+1335385530406: stay at region 1
+1335385532434: .......... GPS onLocationChanged ...... 
+1335385532434: Loc = Location[mProvider=gps,mTime=1335385533000,mLatitude=42.3580428,mLongitude=-71.09286122,mHasAltitude=true,mAltitude=-25.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385532435: GPS x/long:-71.09286122, GPS y/lat: 42.3580428. Region width in x: 20.0
+1335385532435: location PINPOINTS to region = 1.0, previous 1
+1335385532435: Hysteresis is 0.0
+1335385532435: stay at region 1
+1335385533938: canPressButton = TRUE
+1335385533939: areButtonsEnabled --> false
+1335385533939: disabling buttons ...
+1335385533939: took picture disableButtonsR
+1335385533939: areButtonsEnabled --> false
+1335385533966: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=7 takeCamGood=6 takeGoodSave=2 takeBad=0 takeTimedout=4 takePercent=28% getNum=4 getGood=1 getBad=2 getTimedout=1 getPercent=25%
+1335385533966: Clicked take picture button ..
+1335385534386: .......... GPS onLocationChanged ...... 
+1335385534386: Loc = Location[mProvider=gps,mTime=1335385535000,mLatitude=42.35805587,mLongitude=-71.09287375,mHasAltitude=true,mAltitude=-25.399999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385534387: GPS x/long:-71.09287375, GPS y/lat: 42.35805587. Region width in x: 20.0
+1335385534387: location PINPOINTS to region = 1.0, previous 1
+1335385534387: Hysteresis is 0.0
+1335385534387: stay at region 1
+1335385535330: inside HandlePictureStorage onPictureTaken()
+1335385535331: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=7 takeCamGood=7 takeGoodSave=2 takeBad=0 takeTimedout=4 takePercent=28% getNum=4 getGood=1 getBad=2 getTimedout=1 getPercent=25%
+1335385535596: Picture successfully taken, ORIG BYTE LENGTH = 3480729
+1335385535796: Our new height x width: 306 x 408
+1335385535797: Show photo from handle my camera take
+1335385535797: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335385535797: change local requestCounter to 16
+1335385535811: BYTE SIZE AFTER COMPRESSION: 3798
+1335385535817: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5018016 Client in region: 1 Client nodID: 5018
+1335385535846: ----------------------------
+1335385535846: inside sendRequestPacketRepeatingRunnable for requestCount = 5018016
+1335385535847: I'm a nonleader sending my requesting photos packet to my leader
+1335385535853: --- Finished one round of sending REQUEST Packet ---------
+1335385535847: inside sendPacket(Packet p)
+1335385535852: Sending UDP payload: 4445
+1335385536152: ----------------------------
+1335385536153: inside sendRequestPacketRepeatingRunnable for requestCount = 5018016
+1335385536153: I'm a nonleader sending my requesting photos packet to my leader
+1335385536155: --- Finished one round of sending REQUEST Packet ---------
+1335385536153: inside sendPacket(Packet p)
+1335385536154: Sending UDP payload: 4445
+1335385536456: ----------------------------
+1335385536456: inside sendRequestPacketRepeatingRunnable for requestCount = 5018016
+1335385536456: I'm a nonleader sending my requesting photos packet to my leader
+1335385536458: --- Finished one round of sending REQUEST Packet ---------
+1335385536457: inside sendPacket(Packet p)
+1335385536458: Sending UDP payload: 4445
+1335385536564: .......... GPS onLocationChanged ...... 
+1335385536565: Loc = Location[mProvider=gps,mTime=1335385537000,mLatitude=42.35806415,mLongitude=-71.09288183,mHasAltitude=true,mAltitude=-25.399999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385536565: GPS x/long:-71.09288183, GPS y/lat: 42.35806415. Region width in x: 20.0
+1335385536566: location PINPOINTS to region = 1.0, previous 1
+1335385536566: Hysteresis is 0.0
+1335385536566: stay at region 1
+1335385536758: ----------------------------
+1335385536759: inside sendRequestPacketRepeatingRunnable for requestCount = 5018016
+1335385536759: I'm a nonleader sending my requesting photos packet to my leader
+1335385536761: --- Finished one round of sending REQUEST Packet ---------
+1335385536759: inside sendPacket(Packet p)
+1335385536760: Sending UDP payload: 4445
+1335385536817: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
+1335385539967: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=7 takeCamGood=7 takeGoodSave=2 takeBad=0 takeTimedout=5 takePercent=28% getNum=4 getGood=1 getBad=2 getTimedout=1 getPercent=25%
+1335385539968: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
+1335385539977: Inside _enableButtons
+1335385539978: areButtonsEnabled --> true
+1335385543016: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335385543017: VCoreDaemon.java inside stateTransition ..........
+1335385543017: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385543018: ..... VCoreDaemon.java targetState = JOINING
+1335385543018: posting leaderRequestRetryR because I'm joining
+1335385543018: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385543019: sending LEADER_REQUEST
+1335385543019: inside sendPacket(Packet p)
+1335385543020: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385543023: Sending UDP payload: 446
+1335385543320: sending LEADER_REQUEST
+1335385543321: inside sendPacket(Packet p)
+1335385543321: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385543322: Sending UDP payload: 446
+1335385543367: Received UDP payload: 446
+1335385543373: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385543373: heard HEARTBEAT from 5011, now following
+1335385543373: VCoreDaemon.java inside stateTransition ..........
+1335385543373: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385543374: ..... VCoreDaemon.java targetState = NONLEADER
+1335385543374: now NONLEADER (id=5018) following LEADER (id=5011) in (1,0)
+1335385543374: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385544435: .......... GPS onLocationChanged ...... 
+1335385544437: Loc = Location[mProvider=gps,mTime=1335385545000,mLatitude=42.35805415,mLongitude=-71.09288708,mHasAltitude=true,mAltitude=-26.399999618530273,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385544439: GPS x/long:-71.09288708, GPS y/lat: 42.35805415. Region width in x: 20.0
+1335385544445: location PINPOINTS to region = 1.0, previous 1
+1335385544445: Hysteresis is 0.0
+1335385544446: stay at region 1
+1335385546014: canPressButton = TRUE
+1335385546015: areButtonsEnabled --> false
+1335385546015: disabling buttons ...
+1335385546015: took picture disableButtonsR
+1335385546015: areButtonsEnabled --> false
+1335385546044: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=8 takeCamGood=7 takeGoodSave=2 takeBad=0 takeTimedout=5 takePercent=25% getNum=4 getGood=1 getBad=2 getTimedout=1 getPercent=25%
+1335385546044: Clicked take picture button ..
+1335385547310: inside HandlePictureStorage onPictureTaken()
+1335385547311: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=8 takeCamGood=8 takeGoodSave=2 takeBad=0 takeTimedout=5 takePercent=25% getNum=4 getGood=1 getBad=2 getTimedout=1 getPercent=25%
+1335385547591: Picture successfully taken, ORIG BYTE LENGTH = 2724674
+1335385547786: Our new height x width: 306 x 408
+1335385547787: Show photo from handle my camera take
+1335385547787: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335385547787: change local requestCounter to 17
+1335385547805: BYTE SIZE AFTER COMPRESSION: 6474
+1335385547812: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5018017 Client in region: 1 Client nodID: 5018
+1335385547841: ----------------------------
+1335385547842: inside sendRequestPacketRepeatingRunnable for requestCount = 5018017
+1335385547842: I'm a nonleader sending my requesting photos packet to my leader
+1335385547851: --- Finished one round of sending REQUEST Packet ---------
+1335385547842: inside sendPacket(Packet p)
+1335385547850: Sending UDP payload: 7121
+1335385548152: ----------------------------
+1335385548152: inside sendRequestPacketRepeatingRunnable for requestCount = 5018017
+1335385548152: I'm a nonleader sending my requesting photos packet to my leader
+1335385548156: --- Finished one round of sending REQUEST Packet ---------
+1335385548153: inside sendPacket(Packet p)
+1335385548154: Sending UDP payload: 7121
+1335385548456: ----------------------------
+1335385548456: inside sendRequestPacketRepeatingRunnable for requestCount = 5018017
+1335385548456: I'm a nonleader sending my requesting photos packet to my leader
+1335385548457: --- Finished one round of sending REQUEST Packet ---------
+1335385548457: inside sendPacket(Packet p)
+1335385548460: Sending UDP payload: 7121
+1335385548757: ----------------------------
+1335385548758: inside sendRequestPacketRepeatingRunnable for requestCount = 5018017
+1335385548758: I'm a nonleader sending my requesting photos packet to my leader
+1335385548759: --- Finished one round of sending REQUEST Packet ---------
+1335385548758: inside sendPacket(Packet p)
+1335385548759: Sending UDP payload: 7121
+1335385548817: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
+1335385552045: reg=1 id=5018 state=3 regionWidth=20.0 hyst=0.0 takeNum=8 takeCamGood=8 takeGoodSave=2 takeBad=0 takeTimedout=6 takePercent=25% getNum=4 getGood=1 getBad=2 getTimedout=1 getPercent=25%
+1335385552047: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
+1335385552062: Inside _enableButtons
+1335385552063: areButtonsEnabled --> true
+1335385563039: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335385563040: VCoreDaemon.java inside stateTransition ..........
+1335385563040: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385563040: ..... VCoreDaemon.java targetState = JOINING
+1335385563041: posting leaderRequestRetryR because I'm joining
+1335385563041: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385563042: sending LEADER_REQUEST
+1335385563042: inside sendPacket(Packet p)
+1335385563046: Sending UDP payload: 446
+1335385563042: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385563361: sending LEADER_REQUEST
+1335385563362: inside sendPacket(Packet p)
+1335385563362: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385563363: Sending UDP payload: 446
+1335385563662: sending LEADER_REQUEST
+1335385563663: inside sendPacket(Packet p)
+1335385563663: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385563664: Sending UDP payload: 446
+1335385563963: sending LEADER_REQUEST
+1335385563964: inside sendPacket(Packet p)
+1335385563964: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385563967: Sending UDP payload: 446
+1335385564041: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385564041: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385564041: VCoreDaemon.java inside stateTransition ..........
+1335385564041: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385564041: ..... VCoreDaemon.java targetState = LEADER
+1335385564041: trying to take leadership to the cloud
+1335385564362: cloud rejected leadership request or request failed, wait to retry
+1335385585125: Received UDP payload: 446
+1335385585170: Received UDP payload: 446
+1335385585200: Received UDP payload: 446
+1335385585209: Received UDP payload: 446
+1335385585214: Received UDP payload: 446
+1335385585276: Received UDP payload: 446
+1335385596066: Received UDP payload: 446
+1335385604474: canPressButton = false. state is + 1 Can't press button because you're in a transient state (JOINING or HANDING_OFF)
+1335385604482: can't press camera button yet
+1335385606097: canPressButton = false. state is + 1 Can't press button because you're in a transient state (JOINING or HANDING_OFF)
+1335385606099: can't press camera button yet
+1335385610514: Received UDP payload: 446
+1335385612431: .......... GPS onLocationChanged ...... 
+1335385612436: Loc = Location[mProvider=gps,mTime=1335385613000,mLatitude=42.35804905,mLongitude=-71.09289781,mHasAltitude=true,mAltitude=-27.399999618530273,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385612436: GPS x/long:-71.09289781, GPS y/lat: 42.35804905. Region width in x: 20.0
+1335385612436: location PINPOINTS to region = 1.0, previous 1
+1335385612436: Hysteresis is 0.0
+1335385612436: stay at region 1
+1335385616427: .......... GPS onLocationChanged ...... 
+1335385616429: Loc = Location[mProvider=gps,mTime=1335385617000,mLatitude=42.35804985,mLongitude=-71.09291079,mHasAltitude=true,mAltitude=-27.399999618530273,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385616434: GPS x/long:-71.09291079, GPS y/lat: 42.35804985. Region width in x: 20.0
+1335385616434: location PINPOINTS to region = 1.0, previous 1
+1335385616434: Hysteresis is 0.0
+1335385616434: stay at region 1
+1335385621812: Received UDP payload: 446
+1335385622430: Received UDP payload: 446
+1335385622481: Received UDP payload: 446
+1335385622737: Received UDP payload: 446
+1335385622969: Received UDP payload: 446
+1335385624438: .......... GPS onLocationChanged ...... 
+1335385624443: Loc = Location[mProvider=gps,mTime=1335385625000,mLatitude=42.35804256,mLongitude=-71.09291962,mHasAltitude=true,mAltitude=-28.899999618530273,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385624444: GPS x/long:-71.09291962, GPS y/lat: 42.35804256. Region width in x: 20.0
+1335385624444: location PINPOINTS to region = 1.0, previous 1
+1335385624444: Hysteresis is 0.0
+1335385624444: stay at region 1
+1335385648453: .......... GPS onLocationChanged ...... 
+1335385648454: Loc = Location[mProvider=gps,mTime=1335385649000,mLatitude=42.3580345,mLongitude=-71.09292557,mHasAltitude=true,mAltitude=-29.0,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385648454: GPS x/long:-71.09292557, GPS y/lat: 42.3580345. Region width in x: 20.0
+1335385648454: location PINPOINTS to region = 1.0, previous 1
+1335385648454: Hysteresis is 0.0
+1335385648454: stay at region 1
+1335385656905: Received UDP payload: 446
+1335385656953: Received UDP payload: 446
+1335385656973: Received UDP payload: 625
+1335385656983: mux: Inside mux Packet.CLIENT_REQUEST
+1335385657012: Received UDP payload: 625
+1335385657018: mux: Inside mux Packet.CLIENT_REQUEST
+1335385684363: been in JOINING state for a while now, start over
+1335385684363: VCoreDaemon.java inside stateTransition ..........
+1335385684363: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385684364: ..... VCoreDaemon.java targetState = JOINING
+1335385684364: posting leaderRequestRetryR because I'm joining
+1335385684365: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385684365: sending LEADER_REQUEST
+1335385684365: inside sendPacket(Packet p)
+1335385684366: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385684370: Sending UDP payload: 446
+1335385684666: sending LEADER_REQUEST
+1335385684667: inside sendPacket(Packet p)
+1335385684667: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385684668: Sending UDP payload: 446
+1335385684967: sending LEADER_REQUEST
+1335385684967: inside sendPacket(Packet p)
+1335385684968: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385684969: Sending UDP payload: 446
+1335385685268: sending LEADER_REQUEST
+1335385685268: inside sendPacket(Packet p)
+1335385685268: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385685276: Sending UDP payload: 446
+1335385685365: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385685365: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385685365: VCoreDaemon.java inside stateTransition ..........
+1335385685365: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385685365: ..... VCoreDaemon.java targetState = LEADER
+1335385685366: trying to take leadership to the cloud
+1335385685732: cloud rejected leadership request or request failed, wait to retry
+1335385686097: Received UDP payload: 446
+1335385686131: Received UDP payload: 446
+1335385690273: canPressButton = false. state is + 1 Can't press button because you're in a transient state (JOINING or HANDING_OFF)
+1335385690276: can't press camera button yet
+1335385693537: Received UDP payload: 446
+1335385693544: mux: Inside Packet.SERVER_REPLY
+1335385693545: mux: Ignoring SERVER_REPLY since it's not for me  5018
+1335385699425: .......... GPS onLocationChanged ...... 
+1335385699425: Loc = Location[mProvider=gps,mTime=1335385700000,mLatitude=42.35802654,mLongitude=-71.09291448,mHasAltitude=true,mAltitude=-29.5,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385699426: GPS x/long:-71.09291448, GPS y/lat: 42.35802654. Region width in x: 20.0
+1335385699426: location PINPOINTS to region = 1.0, previous 1
+1335385699426: Hysteresis is 0.0
+1335385699426: stay at region 1
+1335385701425: .......... GPS onLocationChanged ...... 
+1335385701428: Loc = Location[mProvider=gps,mTime=1335385702000,mLatitude=42.35802036,mLongitude=-71.09289877,mHasAltitude=true,mAltitude=-30.299999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385701429: GPS x/long:-71.09289877, GPS y/lat: 42.35802036. Region width in x: 20.0
+1335385701429: location PINPOINTS to region = 1.0, previous 1
+1335385701433: Hysteresis is 0.0
+1335385701433: stay at region 1
+1335385703427: .......... GPS onLocationChanged ...... 
+1335385703430: Loc = Location[mProvider=gps,mTime=1335385704000,mLatitude=42.35801286,mLongitude=-71.09288348,mHasAltitude=true,mAltitude=-30.399999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385703433: GPS x/long:-71.09288348, GPS y/lat: 42.35801286. Region width in x: 20.0
+1335385703433: location PINPOINTS to region = 1.0, previous 1
+1335385703433: Hysteresis is 0.0
+1335385703434: stay at region 1
+1335385704424: .......... GPS onLocationChanged ...... 
+1335385704424: Loc = Location[mProvider=gps,mTime=1335385705000,mLatitude=42.35801505,mLongitude=-71.09286961,mHasAltitude=true,mAltitude=-30.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385704425: GPS x/long:-71.09286961, GPS y/lat: 42.35801505. Region width in x: 20.0
+1335385704425: location PINPOINTS to region = 1.0, previous 1
+1335385704425: Hysteresis is 0.0
+1335385704425: stay at region 1
+1335385706419: .......... GPS onLocationChanged ...... 
+1335385706420: Loc = Location[mProvider=gps,mTime=1335385707000,mLatitude=42.35801768,mLongitude=-71.09285317,mHasAltitude=true,mAltitude=-30.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385706420: GPS x/long:-71.09285317, GPS y/lat: 42.35801768. Region width in x: 20.0
+1335385706420: location PINPOINTS to region = 1.0, previous 1
+1335385706421: Hysteresis is 0.0
+1335385706421: stay at region 1
+1335385711664: Received UDP payload: 12414
+1335385713416: .......... GPS onLocationChanged ...... 
+1335385713419: Loc = Location[mProvider=gps,mTime=1335385714000,mLatitude=42.35800917,mLongitude=-71.09284278,mHasAltitude=true,mAltitude=-30.100000381469727,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=118.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385713419: GPS x/long:-71.09284278, GPS y/lat: 42.35800917. Region width in x: 20.0
+1335385713420: location PINPOINTS to region = 1.0, previous 1
+1335385713423: Hysteresis is 0.0
+1335385713423: stay at region 1
+1335385716415: .......... GPS onLocationChanged ...... 
+1335385716418: Loc = Location[mProvider=gps,mTime=1335385717000,mLatitude=42.35800101,mLongitude=-71.09284821,mHasAltitude=true,mAltitude=-29.299999237060547,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385716419: GPS x/long:-71.09284821, GPS y/lat: 42.35800101. Region width in x: 20.0
+1335385716420: location PINPOINTS to region = 1.0, previous 1
+1335385716423: Hysteresis is 0.0
+1335385716423: stay at region 1
+1335385719415: .......... GPS onLocationChanged ...... 
+1335385719417: Loc = Location[mProvider=gps,mTime=1335385720000,mLatitude=42.35799081,mLongitude=-71.09284923,mHasAltitude=true,mAltitude=-28.5,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385719418: GPS x/long:-71.09284923, GPS y/lat: 42.35799081. Region width in x: 20.0
+1335385719419: location PINPOINTS to region = 1.0, previous 1
+1335385719420: Hysteresis is 0.0
+1335385719421: stay at region 1
+1335385747409: .......... GPS onLocationChanged ...... 
+1335385747411: Loc = Location[mProvider=gps,mTime=1335385748000,mLatitude=42.35798296,mLongitude=-71.09284145,mHasAltitude=true,mAltitude=-27.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385747412: GPS x/long:-71.09284145, GPS y/lat: 42.35798296. Region width in x: 20.0
+1335385747413: location PINPOINTS to region = 1.0, previous 1
+1335385747414: Hysteresis is 0.0
+1335385747415: stay at region 1
+1335385753439: HI I'm in ONPAUSE()
+1335385754802: inside onDestroy()

@@ -1,0 +1,108 @@
+Last login: Wed Apr 25 15:48:07 on ttys004
+-bash: __git_ps1: command not found
+haoqili@pratt-four-ninety-seven:15:48:50:)~$ cd haoqi/
+haoqili@pratt-four-ninety-seven:15:48:52:)~/haoqi$ python dip
+dip1.txt                  diploma_camera_server.py  
+haoqili@pratt-four-ninety-seven:15:48:52:)~/haoqi$ python diploma_camera_server.py 
+ * Running on http://0.0.0.0:8212/
+Traceback (most recent call last):
+  File "diploma_camera_server.py", line 126, in <module>
+    app.run(host='0.0.0.0', port=8212)
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 703, in run
+    run_simple(host, port, self, **options)
+  File "/Library/Python/2.6/site-packages/Werkzeug-0.8.3-py2.6.egg/werkzeug/serving.py", line 613, in run_simple
+    test_socket.bind((hostname, port))
+  File "<string>", line 1, in bind
+socket.error: [Errno 48] Address already in use
+haoqili@pratt-four-ninety-seven:15:48:58:(~/haoqi$ python diploma_camera_server.py 
+ * Running on http://0.0.0.0:8212/
+ * Restarting with reloader
+
+take_leadership() in (2, 0) by id 5115
+this is a brand new region, create it
+take_leadership() set region (2, 0) with id = 5115 at 1335383378409
+208.54.36.192 - - [25/Apr/2012 15:49:41] "GET /take/2/0/5115/1335383378409/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.136 - - [25/Apr/2012 15:49:44] "GET /take/2/0/5118/1335383380213/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5118
+this is a brand new region, create it
+take_leadership() set region (3, 0) with id = 5118 at 1335383382517
+208.54.36.136 - - [25/Apr/2012 15:49:44] "GET /take/3/0/5118/1335383382517/ HTTP/1.1" 200 -
+
+upload() in (2, 0) by id 5115
+208.54.36.192 - - [25/Apr/2012 15:49:44] "POST /upload/2/0/5115/1335383383667/ HTTP/1.1" 200 -
+
+release_leadership() in (2, 0) by id 5115
+208.54.36.192 - - [25/Apr/2012 15:49:44] "GET /release/2/0/5115/1335383384108/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5115
+this is a brand new region, create it
+take_leadership() set region (4, 0) with id = 5115 at 1335383388529
+208.54.36.192 - - [25/Apr/2012 15:49:49] "GET /take/4/0/5115/1335383388529/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5118
+208.54.36.136 - - [25/Apr/2012 15:49:50] "POST /upload/3/0/5118/1335383388522/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5118
+208.54.36.136 - - [25/Apr/2012 15:49:50] "GET /release/3/0/5118/1335383388993/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5108
+take_leadership() set region (3, 0) with id = 5108 at 1335383392718
+208.54.36.248 - - [25/Apr/2012 15:49:55] "GET /take/3/0/5108/1335383392718/ HTTP/1.1" 200 -
+
+release_leadership() in (4, 0) by id 5115
+208.54.36.192 - - [25/Apr/2012 15:50:00] "GET /release/4/0/5115/1335383399363/ HTTP/1.1" 200 -
+
+take_leadership() in (5, 0) by id 5115
+this is a brand new region, create it
+take_leadership() set region (5, 0) with id = 5115 at 1335383401703
+208.54.36.192 - - [25/Apr/2012 15:50:03] "GET /take/5/0/5115/1335383401703/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5118
+take_leadership() set region (4, 0) with id = 5118 at 1335383402143
+208.54.36.136 - - [25/Apr/2012 15:50:06] "GET /take/4/0/5118/1335383402143/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:50:08] "POST /upload/3/0/5108/1335383405552/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:50:08] "GET /release/3/0/5108/1335383407900/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5110
+take_leadership() set region (3, 0) with id = 5110 at 1335383427422
+208.54.36.132 - - [25/Apr/2012 15:50:30] "GET /take/3/0/5110/1335383427422/ HTTP/1.1" 200 -
+
+upload() in (5, 0) by id 5115
+208.54.36.192 - - [25/Apr/2012 15:50:32] "POST /upload/5/0/5115/1335383427621/ HTTP/1.1" 200 -
+
+release_leadership() in (5, 0) by id 5115
+208.54.36.192 - - [25/Apr/2012 15:50:33] "GET /release/5/0/5115/1335383432254/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5104
+this is a brand new region, create it
+take_leadership() set region (0, 0) with id = 5104 at 1335383431911
+208.54.36.131 - - [25/Apr/2012 15:50:34] "GET /take/0/0/5104/1335383431911/ HTTP/1.1" 200 -
+
+take_leadership() in (5, 0) by id 5108
+take_leadership() set region (5, 0) with id = 5108 at 1335383436369
+208.54.36.248 - - [25/Apr/2012 15:50:39] "GET /take/5/0/5108/1335383436369/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5110
+208.54.36.132 - - [25/Apr/2012 15:50:40] "POST /upload/3/0/5110/1335383437560/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5110
+208.54.36.132 - - [25/Apr/2012 15:50:40] "GET /release/3/0/5110/1335383440046/ HTTP/1.1" 200 -
+
+upload() in (0, 0) by id 5104
+208.54.36.131 - - [25/Apr/2012 15:50:45] "POST /upload/0/0/5104/1335383441169/ HTTP/1.1" 200 -
+
+release_leadership() in (0, 0) by id 5104
+208.54.36.131 - - [25/Apr/2012 15:50:45] "GET /release/0/0/5104/1335383443535/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5104
+take_leadership() set region (3, 0) with id = 5104 at 1335383444765
+208.54.36.131 - - [25/Apr/2012 15:50:46] "GET /take/3/0/5104/1335383444765/ HTTP/1.1" 200 -
+

@@ -1,0 +1,887 @@
+Last login: Wed Apr 25 15:48:07 on ttys004
+-bash: __git_ps1: command not found
+haoqili@pratt-four-ninety-seven:15:48:50:)~$ cd haoqi/
+haoqili@pratt-four-ninety-seven:15:48:52:)~/haoqi$ python dip
+dip1.txt                  diploma_camera_server.py  
+haoqili@pratt-four-ninety-seven:15:48:52:)~/haoqi$ python diploma_camera_server.py 
+ * Running on http://0.0.0.0:8212/
+Traceback (most recent call last):
+  File "diploma_camera_server.py", line 126, in <module>
+    app.run(host='0.0.0.0', port=8212)
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 703, in run
+    run_simple(host, port, self, **options)
+  File "/Library/Python/2.6/site-packages/Werkzeug-0.8.3-py2.6.egg/werkzeug/serving.py", line 613, in run_simple
+    test_socket.bind((hostname, port))
+  File "<string>", line 1, in bind
+socket.error: [Errno 48] Address already in use
+haoqili@pratt-four-ninety-seven:15:48:58:(~/haoqi$ python diploma_camera_server.py 
+ * Running on http://0.0.0.0:8212/
+ * Restarting with reloader
+
+take_leadership() in (2, 0) by id 5115
+this is a brand new region, create it
+take_leadership() set region (2, 0) with id = 5115 at 1335383378409
+208.54.36.192 - - [25/Apr/2012 15:49:41] "GET /take/2/0/5115/1335383378409/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.136 - - [25/Apr/2012 15:49:44] "GET /take/2/0/5118/1335383380213/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5118
+this is a brand new region, create it
+take_leadership() set region (3, 0) with id = 5118 at 1335383382517
+208.54.36.136 - - [25/Apr/2012 15:49:44] "GET /take/3/0/5118/1335383382517/ HTTP/1.1" 200 -
+
+upload() in (2, 0) by id 5115
+208.54.36.192 - - [25/Apr/2012 15:49:44] "POST /upload/2/0/5115/1335383383667/ HTTP/1.1" 200 -
+
+release_leadership() in (2, 0) by id 5115
+208.54.36.192 - - [25/Apr/2012 15:49:44] "GET /release/2/0/5115/1335383384108/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5115
+this is a brand new region, create it
+take_leadership() set region (4, 0) with id = 5115 at 1335383388529
+208.54.36.192 - - [25/Apr/2012 15:49:49] "GET /take/4/0/5115/1335383388529/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5118
+208.54.36.136 - - [25/Apr/2012 15:49:50] "POST /upload/3/0/5118/1335383388522/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5118
+208.54.36.136 - - [25/Apr/2012 15:49:50] "GET /release/3/0/5118/1335383388993/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5108
+take_leadership() set region (3, 0) with id = 5108 at 1335383392718
+208.54.36.248 - - [25/Apr/2012 15:49:55] "GET /take/3/0/5108/1335383392718/ HTTP/1.1" 200 -
+
+release_leadership() in (4, 0) by id 5115
+208.54.36.192 - - [25/Apr/2012 15:50:00] "GET /release/4/0/5115/1335383399363/ HTTP/1.1" 200 -
+
+take_leadership() in (5, 0) by id 5115
+this is a brand new region, create it
+take_leadership() set region (5, 0) with id = 5115 at 1335383401703
+208.54.36.192 - - [25/Apr/2012 15:50:03] "GET /take/5/0/5115/1335383401703/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5118
+take_leadership() set region (4, 0) with id = 5118 at 1335383402143
+208.54.36.136 - - [25/Apr/2012 15:50:06] "GET /take/4/0/5118/1335383402143/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:50:08] "POST /upload/3/0/5108/1335383405552/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:50:08] "GET /release/3/0/5108/1335383407900/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5110
+take_leadership() set region (3, 0) with id = 5110 at 1335383427422
+208.54.36.132 - - [25/Apr/2012 15:50:30] "GET /take/3/0/5110/1335383427422/ HTTP/1.1" 200 -
+
+upload() in (5, 0) by id 5115
+208.54.36.192 - - [25/Apr/2012 15:50:32] "POST /upload/5/0/5115/1335383427621/ HTTP/1.1" 200 -
+
+release_leadership() in (5, 0) by id 5115
+208.54.36.192 - - [25/Apr/2012 15:50:33] "GET /release/5/0/5115/1335383432254/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5104
+this is a brand new region, create it
+take_leadership() set region (0, 0) with id = 5104 at 1335383431911
+208.54.36.131 - - [25/Apr/2012 15:50:34] "GET /take/0/0/5104/1335383431911/ HTTP/1.1" 200 -
+
+take_leadership() in (5, 0) by id 5108
+take_leadership() set region (5, 0) with id = 5108 at 1335383436369
+208.54.36.248 - - [25/Apr/2012 15:50:39] "GET /take/5/0/5108/1335383436369/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5110
+208.54.36.132 - - [25/Apr/2012 15:50:40] "POST /upload/3/0/5110/1335383437560/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5110
+208.54.36.132 - - [25/Apr/2012 15:50:40] "GET /release/3/0/5110/1335383440046/ HTTP/1.1" 200 -
+
+upload() in (0, 0) by id 5104
+208.54.36.131 - - [25/Apr/2012 15:50:45] "POST /upload/0/0/5104/1335383441169/ HTTP/1.1" 200 -
+
+release_leadership() in (0, 0) by id 5104
+208.54.36.131 - - [25/Apr/2012 15:50:45] "GET /release/0/0/5104/1335383443535/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5104
+take_leadership() set region (3, 0) with id = 5104 at 1335383444765
+208.54.36.131 - - [25/Apr/2012 15:50:46] "GET /take/3/0/5104/1335383444765/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5104
+208.54.36.131 - - [25/Apr/2012 15:51:04] "GET /release/3/0/5104/1335383460331/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5114
+take_leadership() set region (3, 0) with id = 5114 at 1335383465217
+208.54.36.151 - - [25/Apr/2012 15:51:08] "GET /take/3/0/5114/1335383465217/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5114
+208.54.36.151 - - [25/Apr/2012 15:51:14] "POST /upload/3/0/5114/1335383470916/ HTTP/1.1" 200 -
+208.54.36.151 - - [25/Apr/2012 15:51:14] "GET /release/-1/-1/5114/1335383473367/ HTTP/1.1" 404 -
+208.54.36.151 - - [25/Apr/2012 15:51:14] "GET /release/-1/-1/5114/1335383473540/ HTTP/1.1" 404 -
+
+take_leadership() in (2, 0) by id 5114
+take_leadership() set region (2, 0) with id = 5114 at 1335383474705
+208.54.36.151 - - [25/Apr/2012 15:51:15] "GET /take/2/0/5114/1335383474705/ HTTP/1.1" 200 -
+
+release_leadership() in (5, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:51:16] "GET /release/5/0/5108/1335383473550/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:51:17] "GET /take/4/0/5108/1335383476664/ HTTP/1.1" 200 -
+
+take_leadership() in (5, 0) by id 5110
+take_leadership() set region (5, 0) with id = 5110 at 1335383477558
+208.54.36.138 - - [25/Apr/2012 15:51:21] "GET /take/5/0/5110/1335383477558/ HTTP/1.1" 200 -
+
+upload() in (4, 0) by id 5118
+208.54.36.236 - - [25/Apr/2012 15:51:33] "POST /upload/4/0/5118/1335383491651/ HTTP/1.1" 200 -
+
+release_leadership() in (4, 0) by id 5118
+208.54.36.236 - - [25/Apr/2012 15:51:33] "GET /release/4/0/5118/1335383491874/ HTTP/1.1" 200 -
+
+upload() in (2, 0) by id 5114
+208.54.36.151 - - [25/Apr/2012 15:51:45] "POST /upload/2/0/5114/1335383502152/ HTTP/1.1" 200 -
+
+release_leadership() in (2, 0) by id 5114
+208.54.36.151 - - [25/Apr/2012 15:51:45] "GET /release/2/0/5114/1335383504391/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5108
+take_leadership() set region (4, 0) with id = 5108 at 1335383506691
+208.54.36.248 - - [25/Apr/2012 15:51:49] "GET /take/4/0/5108/1335383506691/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5104
+someone tried to take leadership of a region already being led
+208.54.36.131 - - [25/Apr/2012 15:51:49] "GET /take/4/0/5104/1335383505609/ HTTP/1.1" 200 -
+
+release_leadership() in (4, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:52:03] "GET /release/4/0/5108/1335383521583/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5114
+take_leadership() set region (4, 0) with id = 5114 at 1335383525254
+208.54.36.151 - - [25/Apr/2012 15:52:08] "GET /take/4/0/5114/1335383525254/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5109
+this is a brand new region, create it
+take_leadership() set region (1, 0) with id = 5109 at 1335383528420
+208.54.36.159 - - [25/Apr/2012 15:52:11] "GET /take/1/0/5109/1335383528420/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5109
+take_leadership() set region (0, 0) with id = 5109 at 1335383532424
+208.54.36.159 - - [25/Apr/2012 15:52:13] "GET /take/0/0/5109/1335383532424/ HTTP/1.1" 200 -
+
+upload() in (0, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:52:20] "POST /upload/0/0/5109/1335383538944/ HTTP/1.1" 200 -
+
+release_leadership() in (0, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:52:21] "GET /release/0/0/5109/1335383540470/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5109
+take_leadership() set region (2, 0) with id = 5109 at 1335383541692
+208.54.36.159 - - [25/Apr/2012 15:52:22] "GET /take/2/0/5109/1335383541692/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:52:29] "GET /take/3/0/5108/1335383545393/ HTTP/1.1" 200 -
+
+release_leadership() in (5, 0) by id 5110
+208.54.36.146 - - [25/Apr/2012 15:52:33] "GET /release/5/0/5110/1335383550488/ HTTP/1.1" 200 -
+
+take_leadership() in (5, 0) by id 5115
+take_leadership() set region (5, 0) with id = 5115 at 1335383554628
+208.54.36.192 - - [25/Apr/2012 15:52:37] "GET /take/5/0/5115/1335383554628/ HTTP/1.1" 200 -
+
+take_leadership() in (5, 0) by id 5110
+someone tried to take leadership of a region already being led
+208.54.36.146 - - [25/Apr/2012 15:52:46] "GET /take/5/0/5110/1335383565406/ HTTP/1.1" 200 -
+
+upload() in (2, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:52:51] "POST /upload/2/0/5109/1335383566826/ HTTP/1.1" 200 -
+
+release_leadership() in (2, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:52:51] "GET /release/2/0/5109/1335383571260/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5107
+giving leadership of a dead region to a new leader last heard at: 1335383465217
+take_leadership() set region (3, 0) with id = 5107 at 1335383573193
+208.54.36.226 - - [25/Apr/2012 15:52:57] "GET /take/3/0/5107/1335383573193/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5104
+someone tried to take leadership of a region already being led
+208.54.36.131 - - [25/Apr/2012 15:52:58] "GET /take/3/0/5104/1335383574164/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:53:00] "GET /take/3/0/5108/1335383577351/ HTTP/1.1" 200 -
+
+upload() in (4, 0) by id 5114
+208.54.36.151 - - [25/Apr/2012 15:53:00] "POST /upload/4/0/5114/1335383577252/ HTTP/1.1" 200 -
+
+release_leadership() in (4, 0) by id 5114
+208.54.36.151 - - [25/Apr/2012 15:53:00] "GET /release/4/0/5114/1335383579488/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5110
+take_leadership() set region (4, 0) with id = 5110 at 1335383578359
+208.54.36.146 - - [25/Apr/2012 15:53:01] "GET /take/4/0/5110/1335383578359/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.236 - - [25/Apr/2012 15:53:05] "GET /take/4/0/5118/1335383579395/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5114
+take_leadership() set region (2, 0) with id = 5114 at 1335383591046
+208.54.36.151 - - [25/Apr/2012 15:53:12] "GET /take/2/0/5114/1335383591046/ HTTP/1.1" 200 -
+
+release_leadership() in (4, 0) by id 5110
+208.54.36.146 - - [25/Apr/2012 15:53:17] "GET /release/4/0/5110/1335383594601/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5108
+take_leadership() set region (4, 0) with id = 5108 at 1335383598542
+208.54.36.248 - - [25/Apr/2012 15:53:21] "GET /take/4/0/5108/1335383598542/ HTTP/1.1" 200 -
+
+upload() in (4, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:53:32] "POST /upload/4/0/5108/1335383609524/ HTTP/1.1" 200 -
+
+release_leadership() in (4, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:53:32] "GET /release/4/0/5108/1335383612021/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5109
+heartbeat received
+208.54.36.159 - - [25/Apr/2012 15:53:49] "GET /take/1/0/5109/1335383626619/ HTTP/1.1" 200 -
+
+upload() in (1, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:54:06] "POST /upload/1/0/5109/1335383642674/ HTTP/1.1" 200 -
+
+release_leadership() in (1, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:54:06] "GET /release/1/0/5109/1335383645649/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5109
+take_leadership() set region (0, 0) with id = 5109 at 1335383646814
+208.54.36.159 - - [25/Apr/2012 15:54:07] "GET /take/0/0/5109/1335383646814/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5107
+208.54.36.226 - - [25/Apr/2012 15:54:11] "POST /upload/3/0/5107/1335383647922/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5107
+208.54.36.226 - - [25/Apr/2012 15:54:12] "GET /release/3/0/5107/1335383650901/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5118
+take_leadership() set region (1, 0) with id = 5118 at 1335383651357
+208.54.36.236 - - [25/Apr/2012 15:54:13] "GET /take/1/0/5118/1335383651357/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5120
+take_leadership() set region (3, 0) with id = 5120 at 1335383653775
+208.54.36.244 - - [25/Apr/2012 15:54:15] "GET /take/3/0/5120/1335383653775/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:54:28] "GET /take/1/0/5108/1335383665400/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5110
+someone tried to take leadership of a region already being led
+208.54.36.146 - - [25/Apr/2012 15:54:32] "GET /take/2/0/5110/1335383669426/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:54:38] "GET /take/0/0/5108/1335383675365/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5115
+someone tried to take leadership of a region already being led
+208.54.36.192 - - [25/Apr/2012 15:54:40] "GET /take/1/0/5115/1335383677525/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5104
+someone tried to take leadership of a region already being led
+208.54.36.131 - - [25/Apr/2012 15:54:46] "GET /take/2/0/5104/1335383682363/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 15:54:48] "GET /take/2/0/5103/1335383684752/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.226 - - [25/Apr/2012 15:54:50] "GET /take/3/0/5107/1335383687097/ HTTP/1.1" 200 -
+
+upload() in (0, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:55:00] "POST /upload/0/0/5109/1335383696125/ HTTP/1.1" 200 -
+
+release_leadership() in (0, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:55:00] "GET /release/0/0/5109/1335383699578/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5109
+someone tried to take leadership of a region already being led
+208.54.36.159 - - [25/Apr/2012 15:55:01] "GET /take/1/0/5109/1335383700756/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5110
+someone tried to take leadership of a region already being led
+208.54.36.146 - - [25/Apr/2012 15:55:03] "GET /take/1/0/5110/1335383701387/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5109
+giving leadership of a dead region to a new leader last heard at: 1335383591046
+take_leadership() set region (2, 0) with id = 5109 at 1335383702658
+208.54.36.159 - - [25/Apr/2012 15:55:03] "GET /take/2/0/5109/1335383702658/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5108
+take_leadership() set region (0, 0) with id = 5108 at 1335383708734
+208.54.36.248 - - [25/Apr/2012 15:55:11] "GET /take/0/0/5108/1335383708734/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5114
+someone tried to take leadership of a region already being led
+208.54.36.151 - - [25/Apr/2012 15:55:15] "GET /take/2/0/5114/1335383712278/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 15:55:32] "GET /take/1/0/5103/1335383728332/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.226 - - [25/Apr/2012 15:55:35] "GET /take/3/0/5107/1335383732112/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5110
+someone tried to take leadership of a region already being led
+208.54.36.146 - - [25/Apr/2012 15:55:40] "GET /take/1/0/5110/1335383739137/ HTTP/1.1" 200 -
+
+upload() in (0, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:55:43] "POST /upload/0/0/5108/1335383737992/ HTTP/1.1" 200 -
+
+release_leadership() in (0, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:55:43] "GET /release/0/0/5108/1335383742299/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5115
+someone tried to take leadership of a region already being led
+208.54.36.142 - - [25/Apr/2012 15:55:43] "GET /take/1/0/5115/1335383740645/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5108
+take_leadership() set region (0, 0) with id = 5108 at 1335383744413
+208.54.36.248 - - [25/Apr/2012 15:55:45] "GET /take/0/0/5108/1335383744413/ HTTP/1.1" 200 -
+
+upload() in (1, 0) by id 5118
+208.54.36.236 - - [25/Apr/2012 15:55:51] "POST /upload/1/0/5118/1335383745684/ HTTP/1.1" 200 -
+
+release_leadership() in (1, 0) by id 5118
+208.54.36.236 - - [25/Apr/2012 15:55:51] "GET /release/1/0/5118/1335383749238/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.236 - - [25/Apr/2012 15:55:52] "GET /take/0/0/5118/1335383750401/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5115
+someone tried to take leadership of a region already being led
+208.54.36.142 - - [25/Apr/2012 15:55:53] "GET /take/0/0/5115/1335383750556/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5115
+take_leadership() set region (1, 0) with id = 5115 at 1335383754540
+208.54.36.142 - - [25/Apr/2012 15:55:55] "GET /take/1/0/5115/1335383754540/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5120
+208.54.36.244 - - [25/Apr/2012 15:56:00] "POST /upload/3/0/5120/1335383755507/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5110
+someone tried to take leadership of a region already being led
+208.54.36.146 - - [25/Apr/2012 15:56:00] "GET /take/0/0/5110/1335383759395/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5120
+208.54.36.244 - - [25/Apr/2012 15:56:00] "GET /release/3/0/5120/1335383759970/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.236 - - [25/Apr/2012 15:56:02] "GET /take/0/0/5118/1335383758377/ HTTP/1.1" 200 -
+
+upload() in (0, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:56:04] "POST /upload/0/0/5108/1335383760750/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.226 - - [25/Apr/2012 15:56:04] "GET /take/1/0/5107/1335383760075/ HTTP/1.1" 200 -
+
+release_leadership() in (0, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:56:04] "GET /release/0/0/5108/1335383763882/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 15:56:09] "GET /take/2/0/5103/1335383765329/ HTTP/1.1" 200 -
+
+upload() in (2, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:56:21] "POST /upload/2/0/5109/1335383777177/ HTTP/1.1" 200 -
+
+release_leadership() in (2, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:56:21] "GET /release/2/0/5109/1335383780905/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5109
+someone tried to take leadership of a region already being led
+208.54.36.159 - - [25/Apr/2012 15:56:22] "GET /take/1/0/5109/1335383782130/ HTTP/1.1" 200 -
+
+upload() in (1, 0) by id 5115
+208.54.36.193 - - [25/Apr/2012 15:56:26] "POST /upload/1/0/5115/1335383780575/ HTTP/1.1" 200 -
+
+upload() in (2, 0) by id 5114
+208.54.36.151 - - [25/Apr/2012 15:56:26] "POST /upload/2/0/5114/1335383781478/ HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1518, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1506, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1504, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1264, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1262, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1248, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/haoqili/haoqi/diploma_camera_server.py", line 54, in upload
+    print 'leader id mismatch: got %d, expected %d' % (regions[(x,y)]['leader'], id)
+TypeError: %d format: a number is required, not NoneType
+
+release_leadership() in (1, 0) by id 5115
+208.54.36.193 - - [25/Apr/2012 15:56:26] "GET /release/1/0/5115/1335383786240/ HTTP/1.1" 200 -
+
+release_leadership() in (2, 0) by id 5114
+208.54.36.151 - - [25/Apr/2012 15:56:27] "GET /release/2/0/5114/1335383785828/ HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1518, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1506, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1504, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1264, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1262, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1248, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/haoqili/haoqi/diploma_camera_server.py", line 112, in release_leadership
+    print 'leader id mismatch: got %d, expected %d' % (regions[(x,y)]['leader'], id)
+TypeError: %d format: a number is required, not NoneType
+
+release_leadership() in (2, 0) by id 5114
+208.54.36.151 - - [25/Apr/2012 15:56:27] "GET /release/2/0/5114/1335383786149/ HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1518, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1506, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1504, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1264, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1262, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.6/site-packages/Flask-0.8-py2.6.egg/flask/app.py", line 1248, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/haoqili/haoqi/diploma_camera_server.py", line 112, in release_leadership
+    print 'leader id mismatch: got %d, expected %d' % (regions[(x,y)]['leader'], id)
+TypeError: %d format: a number is required, not NoneType
+
+take_leadership() in (2, 0) by id 5115
+take_leadership() set region (2, 0) with id = 5115 at 1335383787511
+208.54.36.193 - - [25/Apr/2012 15:56:28] "GET /take/2/0/5115/1335383787511/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5114
+take_leadership() set region (3, 0) with id = 5114 at 1335383787480
+208.54.36.151 - - [25/Apr/2012 15:56:28] "GET /take/3/0/5114/1335383787480/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5120
+someone tried to take leadership of a region already being led
+208.54.36.244 - - [25/Apr/2012 15:56:31] "GET /take/2/0/5120/1335383791178/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5103
+take_leadership() set region (1, 0) with id = 5103 at 1335383788322
+208.54.36.204 - - [25/Apr/2012 15:56:32] "GET /take/1/0/5103/1335383788322/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5109
+take_leadership() set region (0, 0) with id = 5109 at 1335383789668
+208.54.36.159 - - [25/Apr/2012 15:56:32] "GET /take/0/0/5109/1335383789668/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.226 - - [25/Apr/2012 15:56:37] "GET /take/1/0/5107/1335383794774/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:56:40] "GET /take/1/0/5108/1335383795056/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5110
+someone tried to take leadership of a region already being led
+208.54.36.146 - - [25/Apr/2012 15:56:50] "GET /take/1/0/5110/1335383807410/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5114
+208.54.36.151 - - [25/Apr/2012 15:56:54] "POST /upload/3/0/5114/1335383808348/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5114
+208.54.36.151 - - [25/Apr/2012 15:56:54] "GET /release/3/0/5114/1335383813109/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5120
+someone tried to take leadership of a region already being led
+208.54.36.244 - - [25/Apr/2012 15:56:59] "GET /take/1/0/5120/1335383816481/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.226 - - [25/Apr/2012 15:57:03] "GET /take/0/0/5107/1335383820150/ HTTP/1.1" 200 -
+
+upload() in (2, 0) by id 5115
+208.54.36.174 - - [25/Apr/2012 15:57:09] "POST /upload/2/0/5115/1335383824086/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5114
+someone tried to take leadership of a region already being led
+208.54.36.151 - - [25/Apr/2012 15:57:14] "GET /take/1/0/5114/1335383825061/ HTTP/1.1" 200 -
+
+release_leadership() in (2, 0) by id 5115
+208.54.36.174 - - [25/Apr/2012 15:57:14] "GET /release/2/0/5115/1335383828876/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5108
+take_leadership() set region (2, 0) with id = 5108 at 1335383836410
+208.54.36.248 - - [25/Apr/2012 15:57:19] "GET /take/2/0/5108/1335383836410/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5104
+someone tried to take leadership of a region already being led
+208.54.36.133 - - [25/Apr/2012 15:57:21] "GET /take/2/0/5104/1335383837406/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.236 - - [25/Apr/2012 15:57:22] "GET /take/1/0/5118/1335383838384/ HTTP/1.1" 200 -
+
+upload() in (0, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:57:28] "POST /upload/0/0/5109/1335383843868/ HTTP/1.1" 200 -
+
+release_leadership() in (0, 0) by id 5109
+208.54.36.159 - - [25/Apr/2012 15:57:28] "GET /release/0/0/5109/1335383848229/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5109
+someone tried to take leadership of a region already being led
+208.54.36.159 - - [25/Apr/2012 15:57:30] "GET /take/1/0/5109/1335383849430/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5118
+take_leadership() set region (0, 0) with id = 5118 at 1335383854332
+208.54.36.236 - - [25/Apr/2012 15:57:38] "GET /take/0/0/5118/1335383854332/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5115
+someone tried to take leadership of a region already being led
+208.54.36.174 - - [25/Apr/2012 15:57:39] "GET /take/0/0/5115/1335383856537/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.226 - - [25/Apr/2012 15:57:43] "GET /take/0/0/5107/1335383859793/ HTTP/1.1" 200 -
+
+upload() in (1, 0) by id 5103
+208.54.36.204 - - [25/Apr/2012 15:57:59] "POST /upload/1/0/5103/1335383873920/ HTTP/1.1" 200 -
+
+release_leadership() in (1, 0) by id 5103
+208.54.36.204 - - [25/Apr/2012 15:57:59] "GET /release/1/0/5103/1335383877650/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5109
+someone tried to take leadership of a region already being led
+208.54.36.147 - - [25/Apr/2012 15:58:02] "GET /take/2/0/5109/1335383879445/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5104
+someone tried to take leadership of a region already being led
+208.54.36.181 - - [25/Apr/2012 15:58:06] "GET /take/2/0/5104/1335383882412/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5110
+take_leadership() set region (1, 0) with id = 5110 at 1335383885700
+208.54.36.146 - - [25/Apr/2012 15:58:08] "GET /take/1/0/5110/1335383885700/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5114
+someone tried to take leadership of a region already being led
+208.54.36.151 - - [25/Apr/2012 15:58:09] "GET /take/1/0/5114/1335383886064/ HTTP/1.1" 200 -
+
+upload() in (2, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:58:15] "POST /upload/2/0/5108/1335383889818/ HTTP/1.1" 200 -
+
+upload() in (0, 0) by id 5118
+208.54.36.236 - - [25/Apr/2012 15:58:16] "POST /upload/0/0/5118/1335383890321/ HTTP/1.1" 200 -
+
+release_leadership() in (2, 0) by id 5108
+208.54.36.248 - - [25/Apr/2012 15:58:16] "GET /release/2/0/5108/1335383894884/ HTTP/1.1" 200 -
+
+release_leadership() in (0, 0) by id 5118
+208.54.36.236 - - [25/Apr/2012 15:58:16] "GET /release/0/0/5118/1335383895014/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5109
+take_leadership() set region (3, 0) with id = 5109 at 1335383894639
+208.54.36.147 - - [25/Apr/2012 15:58:17] "GET /take/3/0/5109/1335383894639/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:58:18] "GET /take/3/0/5108/1335383897063/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5103
+take_leadership() set region (0, 0) with id = 5103 at 1335383903895
+208.54.36.204 - - [25/Apr/2012 15:58:27] "GET /take/0/0/5103/1335383903895/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.226 - - [25/Apr/2012 15:58:27] "GET /take/0/0/5107/1335383904814/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5115
+take_leadership() set region (2, 0) with id = 5115 at 1335383907542
+208.54.36.174 - - [25/Apr/2012 15:58:30] "GET /take/2/0/5115/1335383907542/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5114
+someone tried to take leadership of a region already being led
+208.54.36.151 - - [25/Apr/2012 15:58:34] "GET /take/0/0/5114/1335383911044/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:58:36] "GET /take/2/0/5108/1335383913418/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:58:42] "GET /take/3/0/5108/1335383920357/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5120
+someone tried to take leadership of a region already being led
+208.54.36.244 - - [25/Apr/2012 15:58:43] "GET /take/2/0/5120/1335383920435/ HTTP/1.1" 200 -
+
+upload() in (2, 0) by id 5115
+208.54.36.174 - - [25/Apr/2012 15:58:57] "POST /upload/2/0/5115/1335383932804/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5114
+someone tried to take leadership of a region already being led
+208.54.36.151 - - [25/Apr/2012 15:58:57] "GET /take/0/0/5114/1335383934400/ HTTP/1.1" 200 -
+
+release_leadership() in (2, 0) by id 5115
+208.54.36.174 - - [25/Apr/2012 15:58:57] "GET /release/2/0/5115/1335383936974/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.226 - - [25/Apr/2012 15:58:57] "GET /take/0/0/5107/1335383934882/ HTTP/1.1" 200 -
+
+upload() in (0, 0) by id 5103
+208.54.36.204 - - [25/Apr/2012 15:59:00] "POST /upload/0/0/5103/1335383933599/ HTTP/1.1" 200 -
+
+release_leadership() in (0, 0) by id 5103
+208.54.36.204 - - [25/Apr/2012 15:59:00] "GET /release/0/0/5103/1335383938638/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5115
+take_leadership() set region (2, 0) with id = 5115 at 1335383951560
+208.54.36.174 - - [25/Apr/2012 15:59:12] "GET /take/2/0/5115/1335383951560/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:59:17] "GET /take/2/0/5108/1335383954365/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 15:59:17] "GET /take/2/0/5103/1335383953336/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5109
+208.54.36.164 - - [25/Apr/2012 15:59:18] "POST /upload/3/0/5109/1335383954381/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5109
+208.54.36.164 - - [25/Apr/2012 15:59:18] "GET /release/3/0/5109/1335383957868/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5109
+someone tried to take leadership of a region already being led
+208.54.36.164 - - [25/Apr/2012 15:59:19] "GET /take/2/0/5109/1335383959034/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5108
+take_leadership() set region (3, 0) with id = 5108 at 1335383960370
+208.54.36.248 - - [25/Apr/2012 15:59:22] "GET /take/3/0/5108/1335383960370/ HTTP/1.1" 200 -
+
+upload() in (1, 0) by id 5110
+208.54.36.146 - - [25/Apr/2012 15:59:24] "POST /upload/1/0/5110/1335383956315/ HTTP/1.1" 200 -
+208.54.36.146 - - [25/Apr/2012 15:59:25] "GET /release/-1/-1/5110/1335383964280/ HTTP/1.1" 404 -
+208.54.36.146 - - [25/Apr/2012 15:59:25] "GET /release/-1/-1/5110/1335383964438/ HTTP/1.1" 404 -
+
+take_leadership() in (0, 0) by id 5104
+take_leadership() set region (0, 0) with id = 5104 at 1335383961203
+208.54.36.131 - - [25/Apr/2012 15:59:25] "GET /take/0/0/5104/1335383961203/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5110
+someone tried to take leadership of a region already being led
+208.54.36.146 - - [25/Apr/2012 15:59:26] "GET /take/3/0/5110/1335383965636/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.236 - - [25/Apr/2012 15:59:27] "GET /take/2/0/5118/1335383963318/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 15:59:29] "GET /take/1/0/5103/1335383965353/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5120
+someone tried to take leadership of a region already being led
+208.54.36.244 - - [25/Apr/2012 15:59:32] "GET /take/3/0/5120/1335383971235/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5115
+heartbeat received
+208.54.36.248 - - [25/Apr/2012 15:59:37] "GET /take/2/0/5115/1335383974584/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5109
+someone tried to take leadership of a region already being led
+208.54.36.131 - - [25/Apr/2012 15:59:40] "GET /take/1/0/5109/1335383977622/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 15:59:41] "GET /take/0/0/5103/1335383977353/ HTTP/1.1" 200 -
+
+upload() in (2, 0) by id 5115
+208.54.36.248 - - [25/Apr/2012 15:59:41] "POST /upload/2/0/5115/1335383980606/ HTTP/1.1" 200 -
+
+release_leadership() in (2, 0) by id 5115
+208.54.36.248 - - [25/Apr/2012 15:59:41] "GET /release/2/0/5115/1335383980951/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5115
+someone tried to take leadership of a region already being led
+208.54.36.248 - - [25/Apr/2012 15:59:42] "GET /take/3/0/5115/1335383982149/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5120
+take_leadership() set region (2, 0) with id = 5120 at 1335383990442
+208.54.36.244 - - [25/Apr/2012 15:59:53] "GET /take/2/0/5120/1335383990442/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5120
+giving leadership of a dead region to a new leader last heard at: 1335383885700
+take_leadership() set region (1, 0) with id = 5120 at 1335384000124
+208.54.36.244 - - [25/Apr/2012 16:00:01] "GET /take/1/0/5120/1335384000124/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.226 - - [25/Apr/2012 16:00:03] "GET /take/0/0/5107/1335384001324/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5108
+heartbeat received
+208.54.36.248 - - [25/Apr/2012 16:00:05] "GET /take/3/0/5108/1335384002087/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5115
+someone tried to take leadership of a region already being led
+208.54.36.157 - - [25/Apr/2012 16:00:10] "GET /take/2/0/5115/1335384009530/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 16:00:13] "GET /take/1/0/5103/1335384009335/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.171 - - [25/Apr/2012 16:00:15] "GET /take/2/0/5118/1335384011588/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.171 - - [25/Apr/2012 16:00:16] "GET /take/1/0/5118/1335384014350/ HTTP/1.1" 200 -
+
+upload() in (1, 0) by id 5120
+208.54.36.244 - - [25/Apr/2012 16:00:21] "POST /upload/1/0/5120/1335384017829/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5110
+someone tried to take leadership of a region already being led
+208.54.36.146 - - [25/Apr/2012 16:00:21] "GET /take/2/0/5110/1335384016396/ HTTP/1.1" 200 -
+
+release_leadership() in (1, 0) by id 5120
+208.54.36.244 - - [25/Apr/2012 16:00:22] "GET /release/1/0/5120/1335384021227/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5120
+heartbeat received
+208.54.36.244 - - [25/Apr/2012 16:00:23] "GET /take/2/0/5120/1335384022480/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.171 - - [25/Apr/2012 16:00:30] "GET /take/2/0/5118/1335384026329/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5109
+take_leadership() set region (1, 0) with id = 5109 at 1335384030779
+208.54.36.198 - - [25/Apr/2012 16:00:31] "GET /take/1/0/5109/1335384030779/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5108
+208.54.36.170 - - [25/Apr/2012 16:00:36] "POST /upload/3/0/5108/1335384033215/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 16:00:36] "GET /take/1/0/5103/1335384032600/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5108
+208.54.36.170 - - [25/Apr/2012 16:00:37] "GET /release/3/0/5108/1335384036116/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5104
+heartbeat received
+208.54.36.172 - - [25/Apr/2012 16:00:37] "GET /take/0/0/5104/1335384033231/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.170 - - [25/Apr/2012 16:00:38] "GET /take/2/0/5108/1335384037357/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5114
+someone tried to take leadership of a region already being led
+208.54.36.151 - - [25/Apr/2012 16:00:51] "GET /take/0/0/5114/1335384049554/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 16:00:57] "GET /take/0/0/5103/1335384053362/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5115
+someone tried to take leadership of a region already being led
+208.54.36.210 - - [25/Apr/2012 16:01:02] "GET /take/2/0/5115/1335384059456/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5110
+someone tried to take leadership of a region already being led
+208.54.36.149 - - [25/Apr/2012 16:01:05] "GET /take/2/0/5110/1335384062169/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.226 - - [25/Apr/2012 16:01:05] "GET /take/2/0/5108/1335384062369/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.201 - - [25/Apr/2012 16:01:05] "GET /take/2/0/5118/1335384061607/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 16:01:15] "GET /take/0/0/5103/1335384070959/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5115
+take_leadership() set region (3, 0) with id = 5115 at 1335384079531
+208.54.36.162 - - [25/Apr/2012 16:01:22] "GET /take/3/0/5115/1335384079531/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.148 - - [25/Apr/2012 16:01:30] "GET /take/0/0/5107/1335384088756/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5114
+someone tried to take leadership of a region already being led
+208.54.36.246 - - [25/Apr/2012 16:01:36] "GET /take/0/0/5114/1335384092765/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5118
+someone tried to take leadership of a region already being led
+208.54.36.255 - - [25/Apr/2012 16:01:40] "GET /take/2/0/5118/1335384096627/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5115
+208.54.36.155 - - [25/Apr/2012 16:01:43] "POST /upload/3/0/5115/1335384099719/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5115
+208.54.36.155 - - [25/Apr/2012 16:01:43] "GET /release/3/0/5115/1335384103184/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5115
+someone tried to take leadership of a region already being led
+208.54.36.155 - - [25/Apr/2012 16:01:45] "GET /take/2/0/5115/1335384104407/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5108
+someone tried to take leadership of a region already being led
+208.54.36.206 - - [25/Apr/2012 16:01:45] "GET /take/2/0/5108/1335384102382/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5110
+someone tried to take leadership of a region already being led
+208.54.36.149 - - [25/Apr/2012 16:01:45] "GET /take/2/0/5110/1335384102191/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5114
+someone tried to take leadership of a region already being led
+208.54.36.205 - - [25/Apr/2012 16:01:52] "GET /take/0/0/5114/1335384109049/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5115
+someone tried to take leadership of a region already being led
+208.54.36.155 - - [25/Apr/2012 16:01:59] "GET /take/2/0/5115/1335384116559/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5115
+someone tried to take leadership of a region already being led
+208.54.36.155 - - [25/Apr/2012 16:02:01] "GET /take/1/0/5115/1335384120533/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5103
+someone tried to take leadership of a region already being led
+208.54.36.204 - - [25/Apr/2012 16:02:03] "GET /take/0/0/5103/1335384119973/ HTTP/1.1" 200 -
+
+take_leadership() in (0, 0) by id 5107
+someone tried to take leadership of a region already being led
+208.54.36.233 - - [25/Apr/2012 16:02:04] "GET /take/0/0/5107/1335384123772/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5115
+giving leadership of a dead region to a new leader last heard at: 1335384022480
+take_leadership() set region (2, 0) with id = 5115 at 1335384129599
+208.54.36.155 - - [25/Apr/2012 16:02:11] "GET /take/2/0/5115/1335384129599/ HTTP/1.1" 200 -
+

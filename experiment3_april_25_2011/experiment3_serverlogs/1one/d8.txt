@@ -1,0 +1,1010 @@
+Last login: Wed Apr 25 12:56:58 on ttys000
+-bash: __git_ps1: command not found
+haoqili@pratt-four-ninety-seven:13:43:03:)~$ ifconfig
+lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> mtu 16384
+        inet6 ::1 prefixlen 128 
+        inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1 
+        inet 127.0.0.1 netmask 0xff000000 
+gif0: flags=8010<POINTOPOINT,MULTICAST> mtu 1280
+stf0: flags=0<> mtu 1280
+en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+        ether c8:2a:14:26:75:1c 
+        inet6 fe80::ca2a:14ff:fe26:751c%en0 prefixlen 64 scopeid 0x4 
+        inet 18.38.6.242 netmask 0xffff0000 broadcast 18.38.255.255
+        media: autoselect (1000baseT <full-duplex,flow-control>)
+        status: active
+en1: flags=8823<UP,BROADCAST,SMART,SIMPLEX,MULTICAST> mtu 1500
+        ether e0:f8:47:3d:f4:5e 
+        media: autoselect (<unknown type>)
+        status: inactive
+fw0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 4078
+        lladdr c8:2a:14:ff:fe:81:ee:fa 
+        media: autoselect <full-duplex>
+        status: inactive
+vmnet1: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+        ether 00:50:56:c0:00:01 
+        inet 172.16.121.1 netmask 0xffffff00 broadcast 172.16.121.255
+vmnet8: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+        ether 00:50:56:c0:00:08 
+        inet 172.16.35.1 netmask 0xffffff00 broadcast 172.16.35.255
+haoqili@pratt-four-ninety-seven:13:43:05:)~$ cd haoqi/
+haoqili@pratt-four-ninety-seven:13:49:17:)~/haoqi$ python diploma_camera_server.py 
+ * Running on http://0.0.0.0:8212/
+ * Restarting with reloader
+
+
+
+
+
+
+
+
+take_leadership() in (0, 0) by id 5015
+this is a brand new region, create it
+take_leadership() set region (0, 0) with id = 5015 at 1335376165114
+198.228.205.228 - - [25/Apr/2012 13:49:26] "GET /take/0/0/5015/1335376165114/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5012
+this is a brand new region, create it
+take_leadership() set region (1, 0) with id = 5012 at 1335376170062
+198.228.206.183 - - [25/Apr/2012 13:49:30] "GET /take/1/0/5012/1335376170062/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5002
+this is a brand new region, create it
+take_leadership() set region (2, 0) with id = 5002 at 1335376174725
+198.228.205.99 - - [25/Apr/2012 13:49:35] "GET /take/2/0/5002/1335376174725/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5007
+this is a brand new region, create it
+take_leadership() set region (3, 0) with id = 5007 at 1335376175434
+198.228.205.233 - - [25/Apr/2012 13:49:36] "GET /take/3/0/5007/1335376175434/ HTTP/1.1" 200 -
+
+take_leadership() in (4, 0) by id 5010
+this is a brand new region, create it
+take_leadership() set region (4, 0) with id = 5010 at 1335376176788
+198.228.205.129 - - [25/Apr/2012 13:49:37] "GET /take/4/0/5010/1335376176788/ HTTP/1.1" 200 -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+upload() in (1, 0) by id 5012
+198.228.206.183 - - [25/Apr/2012 13:49:57] "POST /upload/1/0/5012/1335376196725/ HTTP/1.1" 200 -
+
+release_leadership() in (1, 0) by id 5012
+198.228.206.183 - - [25/Apr/2012 13:49:57] "GET /release/1/0/5012/1335376197449/ HTTP/1.1" 200 -
+
+upload() in (3, 0) by id 5007
+198.228.205.233 - - [25/Apr/2012 13:50:05] "POST /upload/3/0/5007/1335376204080/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5007
+198.228.205.233 - - [25/Apr/2012 13:50:05] "GET /release/3/0/5007/1335376204435/ HTTP/1.1" 200 -
+
+upload() in (4, 0) by id 5010
+198.228.205.129 - - [25/Apr/2012 13:50:06] "POST /upload/4/0/5010/1335376205704/ HTTP/1.1" 200 -
+
+release_leadership() in (4, 0) by id 5010
+198.228.205.129 - - [25/Apr/2012 13:50:06] "GET /release/4/0/5010/1335376206123/ HTTP/1.1" 200 -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+release_leadership() in (2, 0) by id 5002
+198.228.205.99 - - [25/Apr/2012 13:50:20] "GET /release/2/0/5002/1335376219735/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5007
+take_leadership() set region (2, 0) with id = 5007 at 1335376223163
+198.228.205.233 - - [25/Apr/2012 13:50:24] "GET /take/2/0/5007/1335376223163/ HTTP/1.1" 200 -
+
+
+
+
+
+
+take_leadership() in (5, 0) by id 5104
+this is a brand new region, create it
+take_leadership() set region (5, 0) with id = 5104 at 1335377136923
+208.54.36.240 - - [25/Apr/2012 14:05:56] "GET /take/5/0/5104/1335377136923/ HTTP/1.1" 200 -
+
+
+
+
+
+
+
+
+
+
+
+
+take_leadership() in (4, 0) by id 5106
+take_leadership() set region (4, 0) with id = 5106 at 1335377299395
+208.54.36.193 - - [25/Apr/2012 14:08:28] "GET /take/4/0/5106/1335377299395/ HTTP/1.1" 200 -
+
+take_leadership() in (3, 0) by id 5109
+take_leadership() set region (3, 0) with id = 5109 at 1335377300765
+208.54.36.250 - - [25/Apr/2012 14:08:28] "GET /take/3/0/5109/1335377300765/ HTTP/1.1" 200 -
+
+
+
+
+
+
+
+
+
+
+
+
+upload() in (3, 0) by id 5109
+208.54.36.179 - - [25/Apr/2012 14:08:47] "POST /upload/3/0/5109/1335377322006/ HTTP/1.1" 200 -
+
+release_leadership() in (3, 0) by id 5109
+208.54.36.179 - - [25/Apr/2012 14:08:47] "GET /release/3/0/5109/1335377326048/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5119
+take_leadership() set region (1, 0) with id = 5119 at 1335378673164
+208.54.36.139 - - [25/Apr/2012 14:31:14] "GET /take/1/0/5119/1335378673164/ HTTP/1.1" 200 -
+^Chaoqili@pratt-four-ninety-seven:14:32:13:)~/haoqi$ python diploma_came_server.py 
+ * Running on http://0.0.0.0:8212/
+ * Restarting with reloader
+
+take_leadership() in (1, 0) by id 5118
+this is a brand new region, create it
+take_leadership() set region (1, 0) with id = 5118 at 1335378759146
+208.54.36.129 - - [25/Apr/2012 14:32:40] "GET /take/1/0/5118/1335378759146/ HTTP/1.1" 200 -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+release_leadership() in (1, 0) by id 5118
+208.54.36.129 - - [25/Apr/2012 14:34:08] "GET /release/1/0/5118/1335378846185/ HTTP/1.1" 200 -
+
+take_leadership() in (2, 0) by id 5118
+this is a brand new region, create it
+take_leadership() set region (2, 0) with id = 5118 at 1335378848774
+208.54.36.129 - - [25/Apr/2012 14:34:11] "GET /take/2/0/5118/1335378848774/ HTTP/1.1" 200 -
+
+take_leadership() in (1, 0) by id 5117
+take_leadership() set region (1, 0) with id = 5117 at 1335378849798
+208.54.36.130 - - [25/Apr/2012 14:34:11] "GET /take/1/0/5117/1335378849798/ HTTP/1.1" 200 -
+
+upload() in (1, 0) by id 5117
+208.54.36.130 - - [25/Apr/2012 14:34:40] "POST /upload/1/0/5117/1335378875970/ HTTP/1.1" 200 -
+
+
+
+
+
+
+
+
+
+
+
+
+^Chaoqili@pratt-four-ninety-seven:15:08:16:)~/haoqi$ python diploma_came_server.py 
+ * Running on http://0.0.0.0:8212/
+ * Restarting with reloader
+^Chaoqili@pratt-four-ninety-seven:15:14:48:)~/haoqi$ python diploma_came_server.py command | tee out.txt
+ * Running on http://0.0.0.0:8212/
+ * Restarting with reloader
+^C
+haoqili@pratt-four-ninety-seven:15:14:52:(~/haoqi$ python diploma_camera_server.py | tee dip1.txt
+ * Running on http://0.0.0.0:8212/
+ * Restarting with reloader
+
+
+
+208.54.36.223 - - [25/Apr/2012 15:22:43] "GET /take/5/0/5117/1335381761197/ HTTP/1.1" 200 -
+208.54.36.239 - - [25/Apr/2012 15:22:49] "GET /take/5/0/5105/1335381763514/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:22:51] "GET /take/5/0/5108/1335381767336/ HTTP/1.1" 200 -
+208.54.36.178 - - [25/Apr/2012 15:22:51] "GET /take/5/0/5109/1335381769186/ HTTP/1.1" 200 -
+208.54.36.237 - - [25/Apr/2012 15:22:53] "GET /take/5/0/5102/1335381770931/ HTTP/1.1" 200 -
+208.54.36.138 - - [25/Apr/2012 15:22:55] "GET /take/5/0/5104/1335381772227/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:22:58] "POST /upload/5/0/5117/1335381775408/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:22:59] "GET /release/5/0/5117/1335381777703/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:22:59] "GET /take/5/0/5113/1335381776353/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:23:00] "GET /take/4/0/5117/1335381779397/ HTTP/1.1" 200 -
+208.54.36.220 - - [25/Apr/2012 15:23:01] "GET /take/5/0/5115/1335381778564/ HTTP/1.1" 200 -
+208.54.36.239 - - [25/Apr/2012 15:23:02] "GET /take/4/0/5105/1335381776543/ HTTP/1.1" 200 -
+208.54.36.154 - - [25/Apr/2012 15:23:02] "GET /take/5/0/5120/1335381779407/ HTTP/1.1" 200 -
+208.54.36.138 - - [25/Apr/2012 15:23:07] "GET /take/4/0/5104/1335381784129/ HTTP/1.1" 200 -
+208.54.36.136 - - [25/Apr/2012 15:23:08] "GET /take/5/0/5103/1335381785797/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:23:11] "GET /take/4/0/5108/1335381788556/ HTTP/1.1" 200 -
+208.54.36.229 - - [25/Apr/2012 15:23:11] "GET /take/4/0/5102/1335381788933/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:23:12] "GET /take/4/0/5109/1335381789183/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:23:14] "POST /upload/4/0/5117/1335381790724/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:23:17] "GET /release/4/0/5117/1335381793552/ HTTP/1.1" 200 -
+208.54.36.239 - - [25/Apr/2012 15:23:17] "GET /take/3/0/5105/1335381793550/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:23:18] "POST /upload/5/0/5113/1335381795469/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:23:18] "GET /release/5/0/5113/1335381797910/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:23:19] "GET /take/3/0/5117/1335381797564/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:23:20] "GET /take/4/0/5113/1335381799098/ HTTP/1.1" 200 -
+208.54.36.149 - - [25/Apr/2012 15:23:23] "GET /take/4/0/5120/1335381800432/ HTTP/1.1" 200 -
+208.54.36.220 - - [25/Apr/2012 15:23:24] "GET /take/4/0/5115/1335381801548/ HTTP/1.1" 200 -
+208.54.36.229 - - [25/Apr/2012 15:23:24] "GET /take/3/0/5102/1335381801945/ HTTP/1.1" 200 -
+208.54.36.138 - - [25/Apr/2012 15:23:25] "GET /take/3/0/5104/1335381801149/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:23:25] "GET /take/3/0/5109/1335381803183/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:23:27] "GET /take/3/0/5108/1335381804496/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:23:32] "POST /upload/4/0/5113/1335381809526/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:23:32] "GET /release/4/0/5113/1335381811917/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:23:34] "GET /take/4/0/5103/1335381806825/ HTTP/1.1" 200 -
+208.54.36.220 - - [25/Apr/2012 15:23:42] "GET /take/3/0/5115/1335381819537/ HTTP/1.1" 200 -
+208.54.36.149 - - [25/Apr/2012 15:23:44] "GET /take/3/0/5120/1335381821419/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:23:48] "GET /take/2/0/5117/1335381825015/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:23:50] "GET /take/3/0/5108/1335381827693/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:23:51] "POST /upload/4/0/5103/1335381829439/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:23:51] "GET /release/4/0/5103/1335381829777/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:23:53] "POST /upload/2/0/5117/1335381831147/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:23:53] "GET /release/2/0/5117/1335381832682/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:23:59] "GET /take/2/0/5113/1335381836309/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:24:14] "POST /upload/2/0/5113/1335381850411/ HTTP/1.1" 200 -
+208.54.36.220 - - [25/Apr/2012 15:24:14] "GET /take/2/0/5115/1335381851501/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:24:14] "GET /release/2/0/5113/1335381853772/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:24:57] "GET /take/2/0/5113/1335381894331/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:25:05] "POST /upload/2/0/5113/1335381901418/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:25:06] "GET /release/2/0/5113/1335381905158/ HTTP/1.1" 200 -
+208.54.36.250 - - [25/Apr/2012 15:25:19] "GET /take/2/0/5120/1335381916435/ HTTP/1.1" 200 -
+208.54.36.214 - - [25/Apr/2012 15:25:19] "GET /take/3/0/5105/1335381916190/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:26:26] "GET /take/1/0/5109/1335381983613/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:26:29] "GET /take/1/0/5113/1335381986311/ HTTP/1.1" 200 -
+208.54.36.220 - - [25/Apr/2012 15:26:31] "GET /take/1/0/5115/1335381988544/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:26:43] "POST /upload/1/0/5109/1335382000843/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:26:44] "GET /release/1/0/5109/1335382003348/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:26:45] "GET /take/0/0/5109/1335382004568/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:26:46] "GET /take/0/0/5113/1335382003298/ HTTP/1.1" 200 -
+208.54.36.220 - - [25/Apr/2012 15:26:56] "GET /take/2/0/5115/1335382013506/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:26:58] "POST /upload/0/0/5109/1335382015826/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:26:59] "GET /release/0/0/5109/1335382018384/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:27:00] "GET /take/1/0/5109/1335382019561/ HTTP/1.1" 200 -
+208.54.36.156 - - [25/Apr/2012 15:27:07] "GET /take/1/0/5104/1335382023217/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:27:19] "GET /take/1/0/5113/1335382036321/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:27:20] "POST /upload/1/0/5109/1335382036707/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:27:20] "GET /release/1/0/5109/1335382039759/ HTTP/1.1" 200 -
+208.54.36.250 - - [25/Apr/2012 15:27:21] "POST /upload/2/0/5120/1335382037747/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:27:21] "GET /take/2/0/5103/1335382037303/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:27:21] "GET /take/2/0/5109/1335382040957/ HTTP/1.1" 200 -
+208.54.36.250 - - [25/Apr/2012 15:27:22] "GET /release/-1/-1/5120/1335382041134/ HTTP/1.1" 404 -
+208.54.36.214 - - [25/Apr/2012 15:27:22] "GET /take/3/0/5105/1335382038327/ HTTP/1.1" 200 -
+208.54.36.250 - - [25/Apr/2012 15:27:22] "GET /release/-1/-1/5120/1335382041390/ HTTP/1.1" 404 -
+208.54.36.250 - - [25/Apr/2012 15:27:23] "GET /take/2/0/5120/1335382042590/ HTTP/1.1" 200 -
+208.54.36.214 - - [25/Apr/2012 15:27:24] "POST /upload/3/0/5105/1335382041878/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:27:24] "GET /take/2/0/5117/1335382041434/ HTTP/1.1" 200 -
+208.54.36.214 - - [25/Apr/2012 15:27:25] "GET /release/3/0/5105/1335382043235/ HTTP/1.1" 200 -
+208.54.36.214 - - [25/Apr/2012 15:27:26] "GET /take/2/0/5105/1335382044502/ HTTP/1.1" 200 -
+208.54.36.220 - - [25/Apr/2012 15:27:35] "GET /take/2/0/5115/1335382051694/ HTTP/1.1" 200 -
+208.54.36.156 - - [25/Apr/2012 15:27:35] "GET /take/1/0/5104/1335382051419/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:27:43] "GET /take/2/0/5109/1335382060970/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:27:51] "GET /take/1/0/5102/1335382067095/ HTTP/1.1" 200 -
+208.54.36.225 - - [25/Apr/2012 15:27:57] "GET /take/3/0/5109/1335382072623/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:28:24] "GET /take/0/0/5113/1335382101374/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:28:25] "GET /take/2/0/5108/1335382103372/ HTTP/1.1" 200 -
+208.54.36.214 - - [25/Apr/2012 15:28:25] "GET /take/2/0/5105/1335382101712/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:28:36] "POST /upload/3/0/5109/1335382112770/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:28:36] "GET /release/3/0/5109/1335382115959/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:28:37] "GET /take/2/0/5109/1335382117163/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:28:55] "GET /take/1/0/5117/1335382132045/ HTTP/1.1" 200 -
+208.54.36.214 - - [25/Apr/2012 15:29:00] "GET /take/2/0/5105/1335382136721/ HTTP/1.1" 200 -
+208.54.36.250 - - [25/Apr/2012 15:29:05] "GET /take/1/0/5120/1335382142634/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:29:05] "GET /take/2/0/5109/1335382142179/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:29:17] "POST /upload/0/0/5113/1335382145518/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:29:17] "GET /take/0/0/5115/1335382146549/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:29:18] "GET /release/0/0/5113/1335382157112/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:29:19] "GET /take/0/0/5102/1335382155394/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:29:19] "POST /upload/2/0/5103/1335382155385/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:29:20] "POST /upload/2/0/5103/1335382155385/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:29:20] "POST /upload/2/0/5103/1335382155385/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:29:20] "POST /upload/2/0/5103/1335382155385/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:29:21] "GET /release/2/0/5103/1335382159075/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:29:21] "GET /release/2/0/5103/1335382159288/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:29:22] "GET /take/0/0/5108/1335382161338/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:29:34] "GET /take/0/0/5115/1335382171558/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:29:38] "POST /upload/0/0/5102/1335382172982/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:29:39] "GET /take/1/0/5104/1335382176463/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:29:39] "GET /release/0/0/5102/1335382176823/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:29:41] "GET /take/1/0/5105/1335382178578/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:29:51] "GET /take/1/0/5108/1335382189474/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:30:02] "POST /upload/1/0/5104/1335382192554/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:30:02] "GET /take/1/0/5103/1335382195551/ HTTP/1.1" 200 -
+208.54.36.250 - - [25/Apr/2012 15:30:02] "GET /take/1/0/5120/1335382197686/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:30:02] "GET /take/0/0/5108/1335382198399/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:30:02] "GET /take/1/0/5113/1335382198384/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:30:02] "GET /take/1/0/5105/1335382196757/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:30:05] "GET /release/1/0/5104/1335382202091/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:30:05] "GET /take/0/0/5117/1335382201999/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:30:10] "GET /take/0/0/5102/1335382208009/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:30:10] "GET /take/0/0/5103/1335382207312/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:30:15] "GET /take/0/0/5115/1335382210935/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:30:18] "GET /take/1/0/5117/1335382216027/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:30:20] "GET /take/1/0/5105/1335382217087/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:30:27] "GET /take/0/0/5113/1335382224357/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:30:37] "GET /take/0/0/5103/1335382233248/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:30:44] "POST /upload/2/0/5109/1335382239726/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:30:44] "GET /release/2/0/5109/1335382243647/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:30:45] "GET /take/1/0/5109/1335382244824/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:30:55] "POST /upload/1/0/5117/1335382249723/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:30:55] "GET /take/0/0/5115/1335382251189/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:30:56] "GET /release/1/0/5117/1335382254761/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:30:58] "GET /take/1/0/5103/1335382254348/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:30:59] "GET /take/1/0/5115/1335382257505/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:31:12] "GET /take/1/0/5109/1335382269834/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:31:13] "GET /take/0/0/5115/1335382269512/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:31:16] "GET /take/1/0/5105/1335382272105/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:31:21] "GET /take/0/0/5109/1335382278605/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:31:22] "GET /take/1/0/5115/1335382279560/ HTTP/1.1" 200 -
+208.54.36.207 - - [25/Apr/2012 15:31:25] "GET /take/0/0/5120/1335382282983/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:31:28] "POST /upload/0/0/5108/1335382280195/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:31:28] "GET /take/0/0/5117/1335382286316/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:31:28] "GET /take/0/0/5102/1335382283396/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:31:28] "GET /release/0/0/5108/1335382287869/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:31:29] "GET /take/0/0/5104/1335382285246/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:31:29] "GET /take/1/0/5108/1335382289037/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:31:39] "GET /take/0/0/5109/1335382296820/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:31:41] "GET /take/0/0/5113/1335382298410/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:31:41] "GET /take/0/0/5105/1335382297587/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:31:44] "GET /take/1/0/5102/1335382300030/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:31:49] "GET /take/0/0/5102/1335382305996/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:32:05] "GET /take/2/0/5115/1335382322521/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:32:20] "GET /take/0/0/5103/1335382337226/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:32:42] "GET /take/1/0/5109/1335382359611/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:32:48] "POST /upload/2/0/5115/1335382364046/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:32:48] "GET /release/2/0/5115/1335382367627/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:32:49] "GET /take/1/0/5115/1335382368855/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:32:59] "GET /take/0/0/5115/1335382376525/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:33:08] "GET /take/0/0/5102/1335382383929/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:33:08] "GET /take/0/0/5103/1335382384552/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:33:09] "GET /take/0/0/5117/1335382386370/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:33:10] "GET /take/0/0/5105/1335382387148/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:33:12] "GET /take/1/0/5113/1335382389312/ HTTP/1.1" 200 -
+208.54.36.207 - - [25/Apr/2012 15:33:12] "GET /take/0/0/5120/1335382388042/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:33:35] "GET /take/0/0/5104/1335382411165/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:33:43] "GET /take/1/0/5115/1335382420526/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:33:47] "GET /take/1/0/5108/1335382424114/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:33:51] "GET /take/1/0/5113/1335382428460/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:33:52] "GET /take/2/0/5108/1335382430383/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:34:02] "POST /upload/1/0/5109/1335382438169/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:34:03] "GET /release/-1/-1/5109/1335382442428/ HTTP/1.1" 404 -
+208.54.36.172 - - [25/Apr/2012 15:34:03] "GET /release/-1/-1/5109/1335382442618/ HTTP/1.1" 404 -
+208.54.36.172 - - [25/Apr/2012 15:34:04] "GET /take/1/0/5109/1335382443800/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:34:22] "GET /take/1/0/5105/1335382460563/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:34:44] "GET /take/0/0/5102/1335382480011/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:35:08] "GET /take/2/0/5115/1335382505349/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:35:11] "POST /upload/1/0/5109/1335382507965/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:35:12] "GET /release/1/0/5109/1335382511508/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:35:22] "GET /take/1/0/5115/1335382519508/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:35:26] "GET /take/1/0/5105/1335382522189/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:35:27] "POST /upload/2/0/5108/1335382523048/ HTTP/1.1" 200 -
+208.54.36.207 - - [25/Apr/2012 15:35:27] "GET /take/1/0/5120/1335382524432/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:35:27] "GET /release/2/0/5108/1335382526959/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:35:29] "GET /take/3/0/5108/1335382528154/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:35:30] "GET /take/0/0/5109/1335382527718/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:35:38] "GET /take/0/0/5105/1335382534530/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:35:50] "POST /upload/0/0/5104/1335382534044/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:35:52] "POST /upload/0/0/5104/1335382534044/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:35:53] "GET /take/0/0/5109/1335382552307/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:35:55] "POST /upload/0/0/5104/1335382534044/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:35:56] "POST /upload/0/0/5104/1335382534044/ HTTP/1.1" 200 -
+
+take_leadership() in (5, 0) by id 5117
+this is a brand new region, create it
+take_leadership() set region (5, 0) with id = 5117 at 1335381761197
+
+take_leadership() in (5, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+take_leadership() in (5, 0) by id 5108
+someone tried to take leadership of a region already being led
+
+take_leadership() in (5, 0) by id 5109
+someone tried to take leadership of a region already being led
+
+take_leadership() in (5, 0) by id 5102
+someone tried to take leadership of a region already being led
+
+take_leadership() in (5, 0) by id 5104
+someone tried to take leadership of a region already being led
+
+upload() in (5, 0) by id 5117
+
+release_leadership() in (5, 0) by id 5117
+
+take_leadership() in (5, 0) by id 5113
+take_leadership() set region (5, 0) with id = 5113 at 1335381776353
+
+take_leadership() in (4, 0) by id 5117
+this is a brand new region, create it
+take_leadership() set region (4, 0) with id = 5117 at 1335381779397
+
+take_leadership() in (5, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (4, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+take_leadership() in (5, 0) by id 5120
+someone tried to take leadership of a region already being led
+
+take_leadership() in (4, 0) by id 5104
+someone tried to take leadership of a region already being led
+
+take_leadership() in (5, 0) by id 5103
+someone tried to take leadership of a region already being led
+
+take_leadership() in (4, 0) by id 5108
+someone tried to take leadership of a region already being led
+
+take_leadership() in (4, 0) by id 5102
+someone tried to take leadership of a region already being led
+
+take_leadership() in (4, 0) by id 5109
+someone tried to take leadership of a region already being led
+
+upload() in (4, 0) by id 5117
+
+release_leadership() in (4, 0) by id 5117
+
+take_leadership() in (3, 0) by id 5105
+this is a brand new region, create it
+take_leadership() set region (3, 0) with id = 5105 at 1335381793550
+
+upload() in (5, 0) by id 5113
+
+release_leadership() in (5, 0) by id 5113
+
+take_leadership() in (3, 0) by id 5117
+someone tried to take leadership of a region already being led
+
+take_leadership() in (4, 0) by id 5113
+take_leadership() set region (4, 0) with id = 5113 at 1335381799098
+
+take_leadership() in (4, 0) by id 5120
+someone tried to take leadership of a region already being led
+
+take_leadership() in (4, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (3, 0) by id 5102
+someone tried to take leadership of a region already being led
+
+take_leadership() in (3, 0) by id 5104
+someone tried to take leadership of a region already being led
+
+take_leadership() in (3, 0) by id 5109
+someone tried to take leadership of a region already being led
+
+take_leadership() in (3, 0) by id 5108
+someone tried to take leadership of a region already being led
+
+upload() in (4, 0) by id 5113
+
+release_leadership() in (4, 0) by id 5113
+
+take_leadership() in (4, 0) by id 5103
+take_leadership() set region (4, 0) with id = 5103 at 1335381806825
+
+take_leadership() in (3, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (3, 0) by id 5120
+someone tried to take leadership of a region already being led
+
+take_leadership() in (2, 0) by id 5117
+this is a brand new region, create it
+take_leadership() set region (2, 0) with id = 5117 at 1335381825015
+
+take_leadership() in (3, 0) by id 5108
+someone tried to take leadership of a region already being led
+
+upload() in (4, 0) by id 5103
+
+release_leadership() in (4, 0) by id 5103
+
+upload() in (2, 0) by id 5117
+
+release_leadership() in (2, 0) by id 5117
+
+take_leadership() in (2, 0) by id 5113
+take_leadership() set region (2, 0) with id = 5113 at 1335381836309
+
+upload() in (2, 0) by id 5113
+
+take_leadership() in (2, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+release_leadership() in (2, 0) by id 5113
+
+take_leadership() in (2, 0) by id 5113
+take_leadership() set region (2, 0) with id = 5113 at 1335381894331
+
+upload() in (2, 0) by id 5113
+
+release_leadership() in (2, 0) by id 5113
+
+take_leadership() in (2, 0) by id 5120
+take_leadership() set region (2, 0) with id = 5120 at 1335381916435
+
+take_leadership() in (3, 0) by id 5105
+heartbeat received
+
+take_leadership() in (1, 0) by id 5109
+this is a brand new region, create it
+take_leadership() set region (1, 0) with id = 5109 at 1335381983613
+
+take_leadership() in (1, 0) by id 5113
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+upload() in (1, 0) by id 5109
+
+release_leadership() in (1, 0) by id 5109
+
+take_leadership() in (0, 0) by id 5109
+this is a brand new region, create it
+take_leadership() set region (0, 0) with id = 5109 at 1335382004568
+
+take_leadership() in (0, 0) by id 5113
+someone tried to take leadership of a region already being led
+
+take_leadership() in (2, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+upload() in (0, 0) by id 5109
+
+release_leadership() in (0, 0) by id 5109
+
+take_leadership() in (1, 0) by id 5109
+take_leadership() set region (1, 0) with id = 5109 at 1335382019561
+
+take_leadership() in (1, 0) by id 5104
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5113
+someone tried to take leadership of a region already being led
+
+upload() in (1, 0) by id 5109
+
+release_leadership() in (1, 0) by id 5109
+
+upload() in (2, 0) by id 5120
+
+take_leadership() in (2, 0) by id 5103
+giving leadership of a dead region to a new leader last heard at: 1335381916435
+take_leadership() set region (2, 0) with id = 5103 at 1335382037303
+
+take_leadership() in (2, 0) by id 5109
+someone tried to take leadership of a region already being led
+
+take_leadership() in (3, 0) by id 5105
+heartbeat received
+
+take_leadership() in (2, 0) by id 5120
+someone tried to take leadership of a region already being led
+
+upload() in (3, 0) by id 5105
+
+take_leadership() in (2, 0) by id 5117
+someone tried to take leadership of a region already being led
+
+release_leadership() in (3, 0) by id 5105
+
+take_leadership() in (2, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+take_leadership() in (2, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5104
+take_leadership() set region (1, 0) with id = 5104 at 1335382051419
+
+take_leadership() in (2, 0) by id 5109
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5102
+someone tried to take leadership of a region already being led
+
+take_leadership() in (3, 0) by id 5109
+take_leadership() set region (3, 0) with id = 5109 at 1335382072623
+
+take_leadership() in (0, 0) by id 5113
+take_leadership() set region (0, 0) with id = 5113 at 1335382101374
+
+take_leadership() in (2, 0) by id 5108
+someone tried to take leadership of a region already being led
+
+take_leadership() in (2, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+upload() in (3, 0) by id 5109
+
+release_leadership() in (3, 0) by id 5109
+
+take_leadership() in (2, 0) by id 5109
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5117
+someone tried to take leadership of a region already being led
+
+take_leadership() in (2, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5120
+someone tried to take leadership of a region already being led
+
+take_leadership() in (2, 0) by id 5109
+giving leadership of a dead region to a new leader last heard at: 1335382037303
+take_leadership() set region (2, 0) with id = 5109 at 1335382142179
+
+upload() in (0, 0) by id 5113
+
+take_leadership() in (0, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+release_leadership() in (0, 0) by id 5113
+
+take_leadership() in (0, 0) by id 5102
+take_leadership() set region (0, 0) with id = 5102 at 1335382155394
+
+upload() in (2, 0) by id 5103
+lead208.54.36.251 - - [25/Apr/2012 15:35:57] "GET /release/0/0/5104/1335382554783/ HTTP/1.1" 200 -
+er id mismatch: got 5109, expected 5103
+
+upload() in (2, 0) by id 5103
+leader id mismatch: got 5109, expected 5103
+
+upload() in (2, 0) by id 5103
+leader id mismatch: got 5109, expected 5103
+
+upload() in (2, 0) by id 5103
+leader id mismatch: got 5109, expected 5103
+
+release_leadership() in (2, 0) by id 5103
+leader id mismatch: got 5109, expected 5103
+
+release_leadership() in (2, 0) by id 5103
+leader id mismatch: got 5109, expected 5103
+
+take_leadership() in (0, 0) by id 5108
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+upload() in (0, 0) by id 5102
+
+take_leadership() in (1, 0) by id 5104
+heartbeat received
+
+release_leadership() in (0, 0) by id 5102
+
+take_leadership() in (1, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5108
+someone tried to take leadership of a region already being led
+
+upload() in (1, 0) by id 5104
+
+take_leadership() in (1, 0) by id 5103
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5120
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5108
+take_leadership() set region (0, 0) with id = 5108 at 1335382198399
+
+take_leadership() in (1, 0) by id 5113
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+release_leadership() in (1, 0) by id 5104
+
+take_leadership() in (0, 0) by id 5117
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5102
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5103
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5117
+take_leadership() set region (1, 0) with id = 5117 at 1335382216027
+
+take_leadership() in (1, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5113
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5103
+someone tried to take leadership of a region already being led
+
+upload() in (2, 0) by id 5109
+
+release_leadership() in (2, 0) by id 5109
+
+take_leadership() in (1, 0) by id 5109
+someone tried to take leadership of a region already being led
+
+upload() in (1, 0) by id 5117
+
+take_leadership() in (0, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+release_leadership() in (1, 0) by id 5117
+
+take_leadership() in (1, 0) by id 5103
+take_leadership() set region (1, 0) with id = 5103 at 1335382254348
+
+take_leadership() in (1, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5109
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5109
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5120
+someone tried to take leadership of a region already being led
+
+upload() in (0, 0) by id 5108
+
+take_leadership() in (0, 0) by id 5117
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5102
+someone tried to take leadership of a region already being led
+
+release_leadership() in (0, 0) by id 5108
+
+take_leadership() in (0, 0) by id 5104
+take_leadership() set region (0, 0) with id = 5104 at 1335382285246
+
+take_leadership() in (1, 0) by id 5108
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5109
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5113
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5102
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5102
+someone tried to take leadership of a region already being led
+
+take_leadership() in (2, 0) by id 5115
+take_leadership() set region (2, 0) with id = 5115 at 1335382322521
+
+take_leadership() in (0, 0) by id 5103
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5109
+giving leadership of a dead region to a new leader last heard at: 1335382254348
+take_leadership() set region (1, 0) with id = 5109 at 1335382359611
+
+upload() in (2, 0) by id 5115
+
+release_leadership() in (2, 0) by id 5115
+
+take_leadership() in (1, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5102
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5103
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5117
+giving leadership of a dead region to a new leader last heard at: 1335382285246
+take_leadership() set region (0, 0) with id = 5117 at 1335382386370
+
+take_leadership() in (0, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5113
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5120
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5104
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5108
+someone tried to take leadership of a region already being led
+
+take_leadership() in (1, 0) by id 5113
+someone tried to take leadership of a region already being led
+
+take_leadership() in (2, 0) by id 5108
+take_leadership() set region (2, 0) with id = 5108 at 1335382430383
+
+upload() in (1, 0) by id 5109
+
+take_leadership() in (1, 0) by id 5109
+heartbeat received
+
+take_leadership() in (1, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+take_leadership() in (0, 0) by id 5102
+someone tried to take leadership of a region already being led
+
+take_leadership() in (2, 0) by id 5115
+someone tried to take leadership of a region already being led
+
+upload() in (1, 0) by id 5109
+
+release_leadership() in (1, 0) by id 5109
+
+take_leadership() in (1, 0) by id 5115
+take_leadership() set region (1, 0) with id = 5115 at 1335382519508
+
+take_leadership() in (1, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+upload() in (2, 0) by id 5108
+
+take_leadership() in (1, 0) by id 5120
+someone tried to take leadership of a region already being led
+
+release_leadership() in (2, 0) by id 5108
+
+take_leadership() in (3, 0) by id 5108
+take_leadership() set region (3, 0) with id = 5108 at 1335382528154
+
+take_leadership() in (0, 0) by id 5109
+giving leadership of a dead region to a new leader last heard at: 1335382386370
+take_leadership() set region (0, 0) with id = 5109 at 1335382527718
+
+take_leadership() in (0, 0) by id 5105
+someone tried to take leadership of a region already being led
+
+upload() in (0, 0) by id 5104
+leader id mismatch: got 5109, expected 5104
+
+upload() in (0, 0) by id 5104
+leader id mismatch: got 5109, expected 5104
+
+take_leadership() in (0, 0) by id 5109
+heartbeat received
+
+upload() in (0, 0) by id 5104
+leader id mismatch: got 5109, expected 5104
+
+upload() in (0, 0) by id 5104
+leader id mismatch: got 5109, expected 5104
+
+release_leadership() in (0, 0) by id 5104
+leader id mismatch: got 5109, ex208.54.36.251 - - [25/Apr/2012 15:35:58] "GET /release/0/0/5104/1335382555816/ HTTP/1.1" 200 -
+208.54.36.207 - - [25/Apr/2012 15:36:01] "GET /take/1/0/5120/1335382558422/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:36:01] "GET /take/1/0/5113/1335382558504/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:36:15] "GET /take/1/0/5104/1335382572188/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:36:22] "POST /upload/3/0/5108/1335382577701/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:36:22] "GET /release/3/0/5108/1335382581797/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:36:23] "GET /take/2/0/5108/1335382582988/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:36:32] "GET /release/0/0/5117/1335382588723/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:36:32] "GET /release/0/0/5117/1335382591155/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:36:36] "GET /take/0/0/5103/1335382591998/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:36:38] "POST /upload/2/0/5108/1335382593661/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:36:38] "GET /release/2/0/5108/1335382597376/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:36:50] "GET /take/1/0/5103/1335382606303/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:36:55] "POST /upload/0/0/5109/1335382610910/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:36:55] "GET /release/0/0/5109/1335382614904/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:36:56] "GET /take/1/0/5109/1335382616110/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:36:58] "GET /take/1/0/5117/1335382617405/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:37:00] "GET /take/1/0/5108/1335382618603/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:37:01] "GET /take/1/0/5104/1335382617201/ HTTP/1.1" 200 -
+208.54.36.207 - - [25/Apr/2012 15:37:01] "GET /take/1/0/5120/1335382618438/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:37:01] "GET /take/1/0/5113/1335382618524/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:37:01] "GET /take/1/0/5105/1335382617810/ HTTP/1.1" 200 -
+208.54.36.254 - - [25/Apr/2012 15:37:03] "GET /take/0/0/5102/1335382618996/ HTTP/1.1" 200 -
+208.54.36.172 - - [25/Apr/2012 15:37:08] "GET /take/2/0/5109/1335382625627/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:37:24] "GET /take/1/0/5108/1335382643621/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:37:25] "GET /take/1/0/5117/1335382642435/ HTTP/1.1" 200 -
+208.54.36.207 - - [25/Apr/2012 15:37:26] "GET /take/1/0/5120/1335382643465/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:37:26] "GET /take/1/0/5104/1335382642217/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:37:26] "GET /take/1/0/5105/1335382642820/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:37:29] "GET /take/1/0/5103/1335382645437/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:37:29] "POST /upload/1/0/5115/1335382645829/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:37:29] "POST /upload/1/0/5115/1335382645829/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:37:30] "POST /upload/1/0/5115/1335382645829/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:37:30] "POST /upload/1/0/5115/1335382645829/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:37:30] "GET /release/1/0/5115/1335382649974/ HTTP/1.1" 200 -
+208.54.36.139 - - [25/Apr/2012 15:37:30] "GET /release/1/0/5115/1335382650192/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:37:49] "GET /take/0/0/5113/1335382666376/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:37:57] "GET /take/1/0/5108/1335382674483/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:37:58] "GET /take/1/0/5103/1335382675443/ HTTP/1.1" 200 -
+208.54.36.251 - - [25/Apr/2012 15:37:59] "GET /take/1/0/5104/1335382677249/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:38:01] "GET /take/1/0/5117/1335382677469/ HTTP/1.1" 200 -
+208.54.36.207 - - [25/Apr/2012 15:38:01] "GET /take/1/0/5120/1335382678479/ HTTP/1.1" 200 -
+208.54.36.200 - - [25/Apr/2012 15:38:01] "GET /take/1/0/5105/1335382677850/ HTTP/1.1" 200 -
+208.54.36.196 - - [25/Apr/2012 15:38:46] "GET /take/1/0/5115/1335382723553/ HTTP/1.1" 200 -
+208.54.36.237 - - [25/Apr/2012 15:39:00] "POST /upload/0/0/5102/1335382734322/ HTTP/1.1" 200 -
+208.54.36.237 - - [25/Apr/2012 15:39:00] "GET /release/0/0/5102/1335382738025/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:39:07] "GET /take/0/0/5113/1335382744640/ HTTP/1.1" 200 -
+208.54.36.206 - - [25/Apr/2012 15:39:09] "POST /upload/2/0/5109/1335382745053/ HTTP/1.1" 200 -
+208.54.36.216 - - [25/Apr/2012 15:39:09] "GET /take/2/0/5103/1335382746410/ HTTP/1.1" 200 -
+208.54.36.206 - - [25/Apr/2012 15:39:09] "GET /release/2/0/5109/1335382749286/ HTTP/1.1" 200 -
+208.54.36.206 - - [25/Apr/2012 15:39:10] "GET /release/2/0/5109/1335382749421/ HTTP/1.1" 200 -
+208.54.36.237 - - [25/Apr/2012 15:39:11] "GET /take/2/0/5102/1335382746985/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:39:27] "POST /upload/0/0/5113/1335382754347/ HTTP/1.1" 200 -
+208.54.36.249 - - [25/Apr/2012 15:39:27] "GET /release/0/0/5113/1335382766584/ HTTP/1.1" 200 -
+208.54.36.237 - - [25/Apr/2012 15:39:40] "GET /take/3/0/5102/1335382776996/ HTTP/1.1" 200 -
+208.54.36.223 - - [25/Apr/2012 15:39:43] "GET /take/2/0/5117/1335382780007/ HTTP/1.1" 200 -
+208.54.36.228 - - [25/Apr/2012 15:39:54] "GET /take/1/0/5103/1335382791562/ HTTP/1.1" 200 -
+208.54.36.193 - - [25/Apr/2012 15:39:57] "GET /take/2/0/5104/1335382793236/ HTTP/1.1" 200 -
+208.54.36.150 - - [25/Apr/2012 15:40:00] "GET /take/1/0/5108/1335382797986/ HTTP/1.1" 200 -
+208.54.36.247 - - [25/Apr/2012 15:40:13] "GET /take/2/0/5109/1335382810665/ HTTP/1.1" 200 -
+

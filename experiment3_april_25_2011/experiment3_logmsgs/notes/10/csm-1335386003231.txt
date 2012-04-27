@@ -1,0 +1,1175 @@
+1335386003237: *** Opened log file for writing ***
+1335386003237: Android build: SAMSUNG-SGH-I717
+1335386003238: NET_NAME set to: eth0
+1335386003238: starting Mux with id = -1
+1335386003239: areButtonsEnabled --> true
+1335386003240: *** Application started ***
+1335386003240: HI I'm in ONRESUME()
+1335386003243: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1335386003251: mux: Mux.java run() beginning -------------
+1335386003256: mux: Mux.java's nodeId is5012
+1335386003256: mux: starting vncDaemon ........
+1335386003262: mux: vncDaemon started
+1335386003257: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1335386003263: VCoreDaemon.java onStart() ....
+1335386003263: started, mId = 5012
+1335386003263: VCoreDaemon.java inside stateTransition ..........
+1335386003263: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386003263: ..... VCoreDaemon.java out of bounds
+1335386003264: region (-1, -1) out of bounds, dormant
+1335386003264: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386005620: .......... GPS onLocationChanged ...... 
+1335386005622: Loc = Location[mProvider=gps,mTime=1335386005399,mLatitude=42.35798114,mLongitude=-71.09273798,mHasAltitude=true,mAltitude=-28.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (-1,-1)
+1335386005622: GPS x/long:-71.09273798, GPS y/lat: 42.35798114. Region width in x: 20.0
+1335386005622: location PINPOINTS to region = 1.0, previous -1
+1335386005623: Hysteresis is 0.0
+1335386005623: location CHANGED TO NEW region = (1,0) from region = (-1,-1)
+1335386005625: moving from region (-1,-1), to (1,0)
+1335386005639: VCoreDaemon.java inside stateTransition ..........
+1335386005639: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386005639: ..... VCoreDaemon.java targetState = JOINING
+1335386005639: posting leaderRequestRetryR because I'm joining
+1335386005639: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386005641: sending LEADER_REQUEST
+1335386005641: inside sendPacket(Packet p)
+1335386005641: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386005667: Sending UDP payload: 446
+1335386005941: sending LEADER_REQUEST
+1335386005942: inside sendPacket(Packet p)
+1335386005942: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386005949: Sending UDP payload: 446
+1335386006242: sending LEADER_REQUEST
+1335386006243: inside sendPacket(Packet p)
+1335386006243: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386006246: Sending UDP payload: 446
+1335386006543: sending LEADER_REQUEST
+1335386006544: inside sendPacket(Packet p)
+1335386006544: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386006545: Sending UDP payload: 446
+1335386006639: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335386006639: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335386006639: VCoreDaemon.java inside stateTransition ..........
+1335386006640: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386006640: ..... VCoreDaemon.java targetState = LEADER
+1335386006640: trying to take leadership to the cloud
+1335386007072: cloud rejected leadership request or request failed, wait to retry
+1335386007791: Received UDP payload: 7969
+1335386007800: mux: Inside Packet.SERVER_REPLY
+1335386007800: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386007804: Received UDP payload: 446
+1335386007810: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335386007811: heard HEARTBEAT from 5018, now following
+1335386007811: VCoreDaemon.java inside stateTransition ..........
+1335386007811: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386007811: ..... VCoreDaemon.java targetState = NONLEADER
+1335386007812: now NONLEADER (id=5012) following LEADER (id=5018) in (1,0)
+1335386007812: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386007820: Received UDP payload: 446
+1335386007827: Received UDP payload: 463
+1335386007832: heard LEADER_ELECT from node 5018, responding LEADER_NOMINATE
+1335386007832: inside sendPacket(Packet p)
+1335386007834: Sending UDP payload: 446
+1335386007842: Received UDP payload: 446
+1335386007848: Received UDP payload: 446
+1335386007899: Received UDP payload: 446
+1335386007911: Received UDP payload: 446
+1335386007922: Received UDP payload: 446
+1335386007929: Received UDP payload: 446
+1335386007940: Received UDP payload: 446
+1335386007951: Received UDP payload: 446
+1335386009909: canPressButton = TRUE
+1335386009909: areButtonsEnabled --> false
+1335386009910: disabling buttons ...
+1335386009910: took picture disableButtonsR
+1335386009910: areButtonsEnabled --> false
+1335386009989: reg=1 id=5012 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335386009989: Clicked take picture button ..
+1335386011346: inside HandlePictureStorage onPictureTaken()
+1335386011348: reg=1 id=5012 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335386011619: Picture successfully taken, ORIG BYTE LENGTH = 2968223
+1335386012161: Our new height x width: 306 x 408
+1335386012161: Show photo from handle my camera take
+1335386012161: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335386012162: change local requestCounter to 1
+1335386012176: BYTE SIZE AFTER COMPRESSION: 3705
+1335386012181: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5012001 Client in region: 1 Client nodID: 5012
+1335386011468: Received UDP payload: 6773
+1335386011482: mux: Inside mux Packet.CLIENT_REQUEST
+1335386011482: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386011588: Received UDP payload: 6773
+1335386011597: mux: Inside mux Packet.CLIENT_REQUEST
+1335386011597: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386011714: Received UDP payload: 6773
+1335386011726: mux: Inside mux Packet.CLIENT_REQUEST
+1335386011727: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386011841: Received UDP payload: 6773
+1335386011847: mux: Inside mux Packet.CLIENT_REQUEST
+1335386011847: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386011881: Received UDP payload: 446
+1335386011898: Received UDP payload: 446
+1335386011906: Received UDP payload: 446
+1335386012000: Received UDP payload: 446
+1335386012216: ----------------------------
+1335386012216: inside sendRequestPacketRepeatingRunnable for requestCount = 5012001
+1335386012217: I'm a nonleader sending my requesting photos packet to my leader
+1335386012223: --- Finished one round of sending REQUEST Packet ---------
+1335386012217: inside sendPacket(Packet p)
+1335386012221: Sending UDP payload: 4352
+1335386012523: ----------------------------
+1335386012524: inside sendRequestPacketRepeatingRunnable for requestCount = 5012001
+1335386012524: I'm a nonleader sending my requesting photos packet to my leader
+1335386012526: --- Finished one round of sending REQUEST Packet ---------
+1335386012524: inside sendPacket(Packet p)
+1335386012525: Sending UDP payload: 4352
+1335386012827: ----------------------------
+1335386012829: inside sendRequestPacketRepeatingRunnable for requestCount = 5012001
+1335386012829: I'm a nonleader sending my requesting photos packet to my leader
+1335386012834: --- Finished one round of sending REQUEST Packet ---------
+1335386012829: inside sendPacket(Packet p)
+1335386012831: Sending UDP payload: 4352
+1335386013134: ----------------------------
+1335386013137: inside sendRequestPacketRepeatingRunnable for requestCount = 5012001
+1335386013137: I'm a nonleader sending my requesting photos packet to my leader
+1335386013143: --- Finished one round of sending REQUEST Packet ---------
+1335386013138: inside sendPacket(Packet p)
+1335386013141: Sending UDP payload: 4352
+1335386013184: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
+1335386013746: .......... GPS onLocationChanged ...... 
+1335386013747: Loc = Location[mProvider=gps,mTime=1335386014000,mLatitude=42.35797256,mLongitude=-71.09274395,mHasAltitude=true,mAltitude=-26.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386013747: GPS x/long:-71.09274395, GPS y/lat: 42.35797256. Region width in x: 20.0
+1335386013747: location PINPOINTS to region = 0.0, previous 1
+1335386013748: Hysteresis is 0.0
+1335386013748: location CHANGED TO NEW region = (0,0) from region = (1,0)
+1335386013748: moving from region (1,0), to (0,0)
+1335386013748: VCoreDaemon.java inside stateTransition ..........
+1335386013748: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386013748: ..... VCoreDaemon.java targetState = JOINING
+1335386013750: posting leaderRequestRetryR because I'm joining
+1335386013750: sending LEADER_REQUEST
+1335386013750: inside sendPacket(Packet p)
+1335386013750: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386013752: Sending UDP payload: 446
+1335386013752: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386014051: sending LEADER_REQUEST
+1335386014051: inside sendPacket(Packet p)
+1335386014051: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386014053: Sending UDP payload: 446
+1335386014352: sending LEADER_REQUEST
+1335386014352: inside sendPacket(Packet p)
+1335386014353: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386014358: Sending UDP payload: 446
+1335386014597: Received UDP payload: 22335
+1335386014609: Received UDP payload: 446
+1335386014653: sending LEADER_REQUEST
+1335386014654: inside sendPacket(Packet p)
+1335386014654: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386014657: Sending UDP payload: 446
+1335386014665: Received UDP payload: 446
+1335386014752: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335386014752: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335386014753: VCoreDaemon.java inside stateTransition ..........
+1335386014753: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386014753: ..... VCoreDaemon.java targetState = LEADER
+1335386014753: trying to take leadership to the cloud
+1335386014862: cloud rejected leadership request or request failed, wait to retry
+1335386015990: reg=0 id=5012 state=1 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=1 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335386015991: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
+1335386016000: Inside _enableButtons
+1335386016001: areButtonsEnabled --> true
+1335386018716: .......... GPS onLocationChanged ...... 
+1335386018718: Loc = Location[mProvider=gps,mTime=1335386019000,mLatitude=42.35796279,mLongitude=-71.09274844,mHasAltitude=true,mAltitude=-25.299999237060547,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386018719: GPS x/long:-71.09274844, GPS y/lat: 42.35796279. Region width in x: 20.0
+1335386018719: location PINPOINTS to region = 0.0, previous 0
+1335386018719: Hysteresis is 0.0
+1335386018720: stay at region 0
+1335386023950: Received UDP payload: 625
+1335386023960: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024233: Received UDP payload: 625
+1335386024241: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024256: Received UDP payload: 625
+1335386024265: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024273: Received UDP payload: 625
+1335386024287: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024287: Received UDP payload: 625
+1335386024307: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024309: Received UDP payload: 625
+1335386024326: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024360: Received UDP payload: 625
+1335386024368: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024378: Received UDP payload: 625
+1335386024396: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024412: Received UDP payload: 446
+1335386024431: Received UDP payload: 446
+1335386024440: Received UDP payload: 446
+1335386024465: Received UDP payload: 446
+1335386024481: Received UDP payload: 446
+1335386024494: Received UDP payload: 446
+1335386024527: Received UDP payload: 446
+1335386024536: Received UDP payload: 446
+1335386024553: Received UDP payload: 446
+1335386024568: Received UDP payload: 446
+1335386024611: Received UDP payload: 446
+1335386024627: Received UDP payload: 446
+1335386024636: Received UDP payload: 446
+1335386024646: Received UDP payload: 446
+1335386024661: Received UDP payload: 446
+1335386024711: Received UDP payload: 446
+1335386024716: Received UDP payload: 446
+1335386024734: Received UDP payload: 446
+1335386024744: Received UDP payload: 446
+1335386024776: Received UDP payload: 446
+1335386025072: Received UDP payload: 446
+1335386025103: Received UDP payload: 446
+1335386025107: Received UDP payload: 446
+1335386025125: Received UDP payload: 446
+1335386025144: Received UDP payload: 446
+1335386025309: Received UDP payload: 446
+1335386025321: Received UDP payload: 446
+1335386025436: Received UDP payload: 446
+1335386025450: Received UDP payload: 446
+1335386025487: Received UDP payload: 446
+1335386025512: Received UDP payload: 446
+1335386025523: Received UDP payload: 446
+1335386025529: Received UDP payload: 446
+1335386025535: Received UDP payload: 446
+1335386025558: Received UDP payload: 446
+1335386025567: Received UDP payload: 446
+1335386026246: Received UDP payload: 4772
+1335386026253: mux: Inside mux Packet.CLIENT_REQUEST
+1335386026684: .......... GPS onLocationChanged ...... 
+1335386026686: Loc = Location[mProvider=gps,mTime=1335386027000,mLatitude=42.35795448,mLongitude=-71.09275335,mHasAltitude=true,mAltitude=-24.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386026689: GPS x/long:-71.09275335, GPS y/lat: 42.35795448. Region width in x: 20.0
+1335386026690: location PINPOINTS to region = 0.0, previous 0
+1335386026692: Hysteresis is 0.0
+1335386026692: stay at region 0
+1335386027464: Received UDP payload: 4772
+1335386027474: mux: Inside mux Packet.CLIENT_REQUEST
+1335386027947: Received UDP payload: 18625
+1335386027983: Received UDP payload: 446
+1335386027990: mux: Inside Packet.SERVER_REPLY
+1335386027990: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386028225: Received UDP payload: 18625
+1335386029958: Received UDP payload: 642
+1335386029964: mux: Inside Packet.SERVER_REPLY
+1335386029964: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386029972: Received UDP payload: 642
+1335386029987: mux: Inside Packet.SERVER_REPLY
+1335386029987: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386029987: Received UDP payload: 446
+1335386029991: mux: Inside Packet.SERVER_REPLY
+1335386029991: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386030033: Received UDP payload: 446
+1335386030037: mux: Inside Packet.SERVER_REPLY
+1335386030037: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386030043: Received UDP payload: 446
+1335386030048: mux: Inside Packet.SERVER_REPLY
+1335386030048: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386030066: Received UDP payload: 446
+1335386030070: mux: Inside Packet.SERVER_REPLY
+1335386030070: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386030072: Received UDP payload: 446
+1335386030081: mux: Inside Packet.SERVER_REPLY
+1335386030081: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386030123: Received UDP payload: 989
+1335386030135: mux: GOT CSM_Msg
+1335386030143: Received UDP payload: 446
+1335386030147: mux: Inside Packet.SERVER_REPLY
+1335386030148: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386030236: Received UDP payload: 7642
+1335386030243: mux: GOT CSM_Msg
+1335386030246: Received UDP payload: 446
+1335386030250: mux: Inside Packet.SERVER_REPLY
+1335386030250: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386030558: Received UDP payload: 989
+1335386030573: mux: GOT CSM_Msg
+1335386030586: Received UDP payload: 989
+1335386030626: mux: GOT CSM_Msg
+1335386030706: Received UDP payload: 989
+1335386030721: mux: GOT CSM_Msg
+1335386030722: Received UDP payload: 989
+1335386030734: mux: GOT CSM_Msg
+1335386030760: Received UDP payload: 989
+1335386030773: mux: GOT CSM_Msg
+1335386030872: Received UDP payload: 989
+1335386030890: mux: GOT CSM_Msg
+1335386030933: Received UDP payload: 989
+1335386030937: mux: GOT CSM_Msg
+1335386030950: Received UDP payload: 989
+1335386030953: mux: GOT CSM_Msg
+1335386030972: Received UDP payload: 989
+1335386030975: mux: GOT CSM_Msg
+1335386031004: Received UDP payload: 989
+1335386031007: mux: GOT CSM_Msg
+1335386031021: Received UDP payload: 989
+1335386031025: mux: GOT CSM_Msg
+1335386031041: Received UDP payload: 989
+1335386031044: mux: GOT CSM_Msg
+1335386031059: Received UDP payload: 989
+1335386031066: mux: GOT CSM_Msg
+1335386031147: Received UDP payload: 642
+1335386031149: mux: Inside Packet.SERVER_REPLY
+1335386031149: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031156: Received UDP payload: 642
+1335386031159: mux: Inside Packet.SERVER_REPLY
+1335386031159: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031164: Received UDP payload: 642
+1335386031166: mux: Inside Packet.SERVER_REPLY
+1335386031167: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031317: Received UDP payload: 642
+1335386031320: mux: Inside Packet.SERVER_REPLY
+1335386031320: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031320: Received UDP payload: 446
+1335386031479: Received UDP payload: 446
+1335386031482: mux: Inside Packet.SERVER_REPLY
+1335386031482: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031516: Received UDP payload: 989
+1335386031522: mux: GOT CSM_Msg
+1335386031544: Received UDP payload: 446
+1335386031547: mux: Inside Packet.SERVER_REPLY
+1335386031548: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031553: Received UDP payload: 446
+1335386031557: mux: Inside Packet.SERVER_REPLY
+1335386031557: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031567: Received UDP payload: 642
+1335386031572: mux: Inside Packet.SERVER_REPLY
+1335386031573: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031573: Received UDP payload: 446
+1335386031576: mux: Inside Packet.SERVER_REPLY
+1335386031576: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031580: Received UDP payload: 446
+1335386031605: Received UDP payload: 642
+1335386031608: mux: Inside Packet.SERVER_REPLY
+1335386031609: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031623: Received UDP payload: 446
+1335386031639: Received UDP payload: 989
+1335386031645: mux: GOT CSM_Msg
+1335386031646: Received UDP payload: 446
+1335386031656: Received UDP payload: 446
+1335386031668: Received UDP payload: 446
+1335386031672: Received UDP payload: 446
+1335386031682: Received UDP payload: 446
+1335386031689: Received UDP payload: 446
+1335386031693: Received UDP payload: 446
+1335386031963: Received UDP payload: 446
+1335386031966: mux: Inside Packet.SERVER_REPLY
+1335386031967: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386031979: Received UDP payload: 642
+1335386031986: mux: Inside Packet.SERVER_REPLY
+1335386031987: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386032003: Received UDP payload: 642
+1335386032008: mux: Inside Packet.SERVER_REPLY
+1335386032008: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386032184: Received UDP payload: 642
+1335386032191: mux: Inside Packet.SERVER_REPLY
+1335386032192: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386032197: Received UDP payload: 446
+1335386032264: Received UDP payload: 989
+1335386032277: mux: GOT CSM_Msg
+1335386032278: Received UDP payload: 989
+1335386032292: mux: GOT CSM_Msg
+1335386032424: Received UDP payload: 989
+1335386032426: mux: GOT CSM_Msg
+1335386032436: Received UDP payload: 989
+1335386032447: mux: GOT CSM_Msg
+1335386032484: Received UDP payload: 989
+1335386032495: mux: GOT CSM_Msg
+1335386032668: .......... GPS onLocationChanged ...... 
+1335386032671: Loc = Location[mProvider=gps,mTime=1335386033000,mLatitude=42.35794924,mLongitude=-71.09276557,mHasAltitude=true,mAltitude=-24.799999237060547,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386032672: GPS x/long:-71.09276557, GPS y/lat: 42.35794924. Region width in x: 20.0
+1335386032673: location PINPOINTS to region = 0.0, previous 0
+1335386032674: Hysteresis is 0.0
+1335386032674: stay at region 0
+1335386032754: Received UDP payload: 989
+1335386032764: mux: GOT CSM_Msg
+1335386033568: Received UDP payload: 989
+1335386033583: mux: GOT CSM_Msg
+1335386033598: Received UDP payload: 989
+1335386033610: mux: GOT CSM_Msg
+1335386033635: Received UDP payload: 989
+1335386033638: mux: GOT CSM_Msg
+1335386033831: Received UDP payload: 989
+1335386033836: mux: GOT CSM_Msg
+1335386033843: Received UDP payload: 989
+1335386033847: mux: GOT CSM_Msg
+1335386033864: Received UDP payload: 989
+1335386033868: mux: GOT CSM_Msg
+1335386033874: Received UDP payload: 989
+1335386033879: mux: GOT CSM_Msg
+1335386033903: Received UDP payload: 446
+1335386033912: Received UDP payload: 989
+1335386033918: mux: GOT CSM_Msg
+1335386033922: Received UDP payload: 989
+1335386033925: mux: GOT CSM_Msg
+1335386033932: Received UDP payload: 989
+1335386033935: mux: GOT CSM_Msg
+1335386033945: Received UDP payload: 989
+1335386033948: mux: GOT CSM_Msg
+1335386033968: Received UDP payload: 989
+1335386033976: mux: GOT CSM_Msg
+1335386033986: Received UDP payload: 989
+1335386033990: mux: GOT CSM_Msg
+1335386034003: Received UDP payload: 989
+1335386034007: mux: GOT CSM_Msg
+1335386034016: Received UDP payload: 989
+1335386034021: mux: GOT CSM_Msg
+1335386034030: Received UDP payload: 989
+1335386034034: mux: GOT CSM_Msg
+1335386034066: Received UDP payload: 989
+1335386034083: mux: GOT CSM_Msg
+1335386034083: Received UDP payload: 989
+1335386034088: mux: GOT CSM_Msg
+1335386034101: Received UDP payload: 989
+1335386034104: mux: GOT CSM_Msg
+1335386034138: Received UDP payload: 989
+1335386034155: mux: GOT CSM_Msg
+1335386034157: Received UDP payload: 989
+1335386034163: mux: GOT CSM_Msg
+1335386034172: Received UDP payload: 989
+1335386034191: mux: GOT CSM_Msg
+1335386034192: Received UDP payload: 989
+1335386034197: mux: GOT CSM_Msg
+1335386034197: Received UDP payload: 989
+1335386034203: mux: GOT CSM_Msg
+1335386034273: Received UDP payload: 5389
+1335386034277: mux: GOT CSM_Msg
+1335386034283: Received UDP payload: 446
+1335386034295: Received UDP payload: 446
+1335386037039: Received UDP payload: 446
+1335386037044: Received UDP payload: 446
+1335386037056: Received UDP payload: 446
+1335386037079: Received UDP payload: 625
+1335386037084: mux: Inside mux Packet.CLIENT_REQUEST
+1335386037100: Received UDP payload: 625
+1335386037103: mux: Inside mux Packet.CLIENT_REQUEST
+1335386037106: Received UDP payload: 625
+1335386037110: mux: Inside mux Packet.CLIENT_REQUEST
+1335386037170: Received UDP payload: 446
+1335386037596: Received UDP payload: 446
+1335386037904: Received UDP payload: 446
+1335386037913: Received UDP payload: 446
+1335386039652: Received UDP payload: 446
+1335386039701: Received UDP payload: 4445
+1335386039703: mux: Inside mux Packet.CLIENT_REQUEST
+1335386039777: Received UDP payload: 4445
+1335386039779: mux: Inside mux Packet.CLIENT_REQUEST
+1335386039913: Received UDP payload: 4445
+1335386039915: mux: Inside mux Packet.CLIENT_REQUEST
+1335386039923: Received UDP payload: 446
+1335386039948: Received UDP payload: 446
+1335386040294: Received UDP payload: 7121
+1335386040302: mux: Inside mux Packet.CLIENT_REQUEST
+1335386040438: Received UDP payload: 7121
+1335386040441: mux: Inside mux Packet.CLIENT_REQUEST
+1335386040485: Received UDP payload: 446
+1335386040489: Received UDP payload: 446
+1335386040502: Received UDP payload: 446
+1335386040783: Received UDP payload: 446
+1335386040795: Received UDP payload: 446
+1335386040802: Received UDP payload: 446
+1335386040892: Received UDP payload: 446
+1335386040904: Received UDP payload: 446
+1335386040915: Received UDP payload: 446
+1335386040929: Received UDP payload: 446
+1335386040940: Received UDP payload: 446
+1335386040942: Received UDP payload: 446
+1335386040943: Received UDP payload: 446
+1335386040946: Received UDP payload: 446
+1335386040952: Received UDP payload: 446
+1335386040960: Received UDP payload: 446
+1335386040963: Received UDP payload: 446
+1335386040977: Received UDP payload: 446
+1335386040988: Received UDP payload: 446
+1335386040998: Received UDP payload: 446
+1335386041022: Received UDP payload: 446
+1335386041029: Received UDP payload: 446
+1335386041072: Received UDP payload: 3512
+1335386041075: removing leaderRequestRetryR because heard Packet.Leader_reply
+1335386041076: heard LEADER_REPLY from 5018
+1335386041076: VCoreDaemon.java inside stateTransition ..........
+1335386041076: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386041076: ..... VCoreDaemon.java targetState = NONLEADER
+1335386041077: now NONLEADER (id=5012) following LEADER (id=5018) in (0,0)
+1335386041077: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386041095: Received UDP payload: 446
+1335386041101: Received UDP payload: 446
+1335386041110: Received UDP payload: 446
+1335386041124: Received UDP payload: 446
+1335386041136: Received UDP payload: 446
+1335386041140: Received UDP payload: 446
+1335386041149: Received UDP payload: 446
+1335386041179: Received UDP payload: 446
+1335386041186: Received UDP payload: 446
+1335386041191: Received UDP payload: 446
+1335386041196: Received UDP payload: 446
+1335386041219: Received UDP payload: 446
+1335386041229: Received UDP payload: 446
+1335386041237: Received UDP payload: 446
+1335386041249: Received UDP payload: 446
+1335386041259: Received UDP payload: 446
+1335386041352: Received UDP payload: 3529
+1335386041440: Received UDP payload: 3529
+1335386042035: Received UDP payload: 446
+1335386042042: Received UDP payload: 446
+1335386042051: Received UDP payload: 446
+1335386042058: Received UDP payload: 446
+1335386042069: Received UDP payload: 446
+1335386042076: Received UDP payload: 446
+1335386042234: Received UDP payload: 446
+1335386042240: Received UDP payload: 446
+1335386042251: Received UDP payload: 446
+1335386042257: Received UDP payload: 446
+1335386042336: Received UDP payload: 446
+1335386042527: Received UDP payload: 446
+1335386042536: Received UDP payload: 446
+1335386042549: Received UDP payload: 446
+1335386042558: Received UDP payload: 446
+1335386043127: Received UDP payload: 446
+1335386043140: Received UDP payload: 446
+1335386043149: Received UDP payload: 446
+1335386043158: Received UDP payload: 446
+1335386043165: Received UDP payload: 446
+1335386043544: Received UDP payload: 446
+1335386043555: Received UDP payload: 989
+1335386043570: mux: GOT CSM_Msg
+1335386043583: Received UDP payload: 446
+1335386043590: mux: Inside Packet.SERVER_REPLY
+1335386043591: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386043620: Received UDP payload: 642
+1335386043622: mux: Inside Packet.SERVER_REPLY
+1335386043622: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386043647: Received UDP payload: 642
+1335386043649: mux: Inside Packet.SERVER_REPLY
+1335386043650: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386043670: Received UDP payload: 989
+1335386043672: mux: GOT CSM_Msg
+1335386043690: Received UDP payload: 989
+1335386043694: mux: GOT CSM_Msg
+1335386043726: Received UDP payload: 642
+1335386043727: mux: Inside Packet.SERVER_REPLY
+1335386043728: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386043784: Received UDP payload: 989
+1335386043787: mux: GOT CSM_Msg
+1335386043853: Received UDP payload: 989
+1335386043856: mux: GOT CSM_Msg
+1335386043883: Received UDP payload: 989
+1335386043888: mux: GOT CSM_Msg
+1335386043902: Received UDP payload: 989
+1335386043905: mux: GOT CSM_Msg
+1335386043916: Received UDP payload: 989
+1335386043919: mux: GOT CSM_Msg
+1335386043928: Received UDP payload: 989
+1335386043931: mux: GOT CSM_Msg
+1335386043948: Received UDP payload: 642
+1335386043950: mux: Inside Packet.SERVER_REPLY
+1335386043950: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386043961: Received UDP payload: 642
+1335386043962: mux: Inside Packet.SERVER_REPLY
+1335386043963: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386043969: Received UDP payload: 642
+1335386043971: mux: Inside Packet.SERVER_REPLY
+1335386043971: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386043981: Received UDP payload: 642
+1335386043982: mux: Inside Packet.SERVER_REPLY
+1335386043983: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386043987: Received UDP payload: 446
+1335386044000: Received UDP payload: 446
+1335386044010: Received UDP payload: 446
+1335386044018: Received UDP payload: 446
+1335386044087: Received UDP payload: 446
+1335386044111: Received UDP payload: 446
+1335386044139: Received UDP payload: 446
+1335386044155: Received UDP payload: 446
+1335386044161: Received UDP payload: 446
+1335386044170: Received UDP payload: 446
+1335386044175: Received UDP payload: 446
+1335386044181: Received UDP payload: 446
+1335386044198: Received UDP payload: 446
+1335386044218: Received UDP payload: 446
+1335386044230: Received UDP payload: 446
+1335386044252: Received UDP payload: 446
+1335386044705: Received UDP payload: 3529
+1335386044967: Received UDP payload: 446
+1335386045052: Received UDP payload: 446
+1335386045061: Received UDP payload: 446
+1335386045125: Received UDP payload: 989
+1335386045128: mux: GOT CSM_Msg
+1335386045135: Received UDP payload: 446
+1335386045284: Received UDP payload: 446
+1335386046463: Received UDP payload: 446
+1335386046473: Received UDP payload: 446
+1335386046524: Received UDP payload: 3689
+1335386046532: mux: Inside mux Packet.CLIENT_REQUEST
+1335386046532: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386046691: Received UDP payload: 3689
+1335386046694: mux: Inside mux Packet.CLIENT_REQUEST
+1335386046694: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386046783: Received UDP payload: 3660
+1335386046785: mux: Inside mux Packet.CLIENT_REQUEST
+1335386046785: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386046839: Received UDP payload: 3660
+1335386046842: mux: Inside mux Packet.CLIENT_REQUEST
+1335386046842: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386046939: Received UDP payload: 3660
+1335386046942: mux: Inside mux Packet.CLIENT_REQUEST
+1335386046942: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386047109: Received UDP payload: 446
+1335386047288: Received UDP payload: 446
+1335386047297: inside LEADER_NOMINATE mState = 3 vnp.dstRegion = (1,0) leaderRegion = (-1,-1)
+1335386057710: Received UDP payload: 3660
+1335386057711: mux: Inside mux Packet.CLIENT_REQUEST
+1335386057711: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386057961: Received UDP payload: 3997
+1335386057964: mux: Inside mux Packet.CLIENT_REQUEST
+1335386057964: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386058035: Received UDP payload: 3997
+1335386058038: mux: Inside mux Packet.CLIENT_REQUEST
+1335386058038: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386058111: Received UDP payload: 3997
+1335386058114: mux: Inside mux Packet.CLIENT_REQUEST
+1335386058114: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386058231: Received UDP payload: 446
+1335386058256: Received UDP payload: 446
+1335386058278: Received UDP payload: 446
+1335386063285: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335386063286: VCoreDaemon.java inside stateTransition ..........
+1335386063286: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386063287: ..... VCoreDaemon.java targetState = JOINING
+1335386063287: posting leaderRequestRetryR because I'm joining
+1335386063287: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386063298: sending LEADER_REQUEST
+1335386063299: inside sendPacket(Packet p)
+1335386063311: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386063354: Sending UDP payload: 446
+1335386063404: Received UDP payload: 23037
+1335386063613: sending LEADER_REQUEST
+1335386063613: inside sendPacket(Packet p)
+1335386063613: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386063614: Sending UDP payload: 446
+1335386063914: sending LEADER_REQUEST
+1335386063914: inside sendPacket(Packet p)
+1335386063914: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386063916: Sending UDP payload: 446
+1335386064215: sending LEADER_REQUEST
+1335386064216: inside sendPacket(Packet p)
+1335386064217: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386064220: Sending UDP payload: 446
+1335386064288: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335386064289: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335386064289: VCoreDaemon.java inside stateTransition ..........
+1335386064290: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386064290: ..... VCoreDaemon.java targetState = LEADER
+1335386064290: trying to take leadership to the cloud
+1335386064700: cloud rejected leadership request or request failed, wait to retry
+1335386064738: .......... GPS onLocationChanged ...... 
+1335386064739: Loc = Location[mProvider=gps,mTime=1335386065000,mLatitude=42.35794369,mLongitude=-71.09280282,mHasAltitude=true,mAltitude=-27.0,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=165.9,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386064739: GPS x/long:-71.09280282, GPS y/lat: 42.35794369. Region width in x: 20.0
+1335386064739: location PINPOINTS to region = 0.0, previous 0
+1335386064740: Hysteresis is 0.0
+1335386064740: stay at region 0
+1335386065650: .......... GPS onLocationChanged ...... 
+1335386065651: Loc = Location[mProvider=gps,mTime=1335386066000,mLatitude=42.35794015,mLongitude=-71.09281975,mHasAltitude=true,mAltitude=-25.299999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=165.9,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386065651: GPS x/long:-71.09281975, GPS y/lat: 42.35794015. Region width in x: 20.0
+1335386065651: location PINPOINTS to region = 0.0, previous 0
+1335386065652: Hysteresis is 0.0
+1335386065652: stay at region 0
+1335386066674: .......... GPS onLocationChanged ...... 
+1335386066675: Loc = Location[mProvider=gps,mTime=1335386067000,mLatitude=42.3579412,mLongitude=-71.09283205,mHasAltitude=true,mAltitude=-25.100000381469727,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=165.9,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386066675: GPS x/long:-71.09283205, GPS y/lat: 42.3579412. Region width in x: 20.0
+1335386066675: location PINPOINTS to region = 0.0, previous 0
+1335386066675: Hysteresis is 0.0
+1335386066675: stay at region 0
+1335386067707: .......... GPS onLocationChanged ...... 
+1335386067710: Loc = Location[mProvider=gps,mTime=1335386068000,mLatitude=42.35793502,mLongitude=-71.09288254,mHasAltitude=true,mAltitude=-25.899999618530273,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386067712: GPS x/long:-71.09288254, GPS y/lat: 42.35793502. Region width in x: 20.0
+1335386067713: location PINPOINTS to region = 0.0, previous 0
+1335386067714: Hysteresis is 0.0
+1335386067715: stay at region 0
+1335386068696: .......... GPS onLocationChanged ...... 
+1335386068697: Loc = Location[mProvider=gps,mTime=1335386069000,mLatitude=42.35792937,mLongitude=-71.09292031,mHasAltitude=true,mAltitude=-25.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386068697: GPS x/long:-71.09292031, GPS y/lat: 42.35792937. Region width in x: 20.0
+1335386068698: location PINPOINTS to region = 1.0, previous 0
+1335386068698: Hysteresis is 0.0
+1335386068698: location CHANGED TO NEW region = (1,0) from region = (0,0)
+1335386068698: moving from region (0,0), to (1,0)
+1335386068698: VCoreDaemon.java inside stateTransition ..........
+1335386068698: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386068699: ..... VCoreDaemon.java targetState = JOINING
+1335386068699: posting leaderRequestRetryR because I'm joining
+1335386068699: sending LEADER_REQUEST
+1335386068699: inside sendPacket(Packet p)
+1335386068699: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386068705: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386068707: Sending UDP payload: 446
+1335386069000: sending LEADER_REQUEST
+1335386069001: inside sendPacket(Packet p)
+1335386069001: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386069005: Sending UDP payload: 446
+1335386069302: sending LEADER_REQUEST
+1335386069302: inside sendPacket(Packet p)
+1335386069302: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386069303: Sending UDP payload: 446
+1335386069603: sending LEADER_REQUEST
+1335386069603: inside sendPacket(Packet p)
+1335386069603: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386069604: Sending UDP payload: 446
+1335386069704: .......... GPS onLocationChanged ...... 
+1335386069706: Loc = Location[mProvider=gps,mTime=1335386070000,mLatitude=42.35792315,mLongitude=-71.09295043,mHasAltitude=true,mAltitude=-26.200000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386069706: GPS x/long:-71.09295043, GPS y/lat: 42.35792315. Region width in x: 20.0
+1335386069707: location PINPOINTS to region = 1.0, previous 1
+1335386069707: Hysteresis is 0.0
+1335386069707: stay at region 1
+1335386069708: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335386069708: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335386069708: VCoreDaemon.java inside stateTransition ..........
+1335386069708: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386069708: ..... VCoreDaemon.java targetState = LEADER
+1335386069709: trying to take leadership to the cloud
+1335386069808: cloud rejected leadership request or request failed, wait to retry
+1335386070719: .......... GPS onLocationChanged ...... 
+1335386070720: Loc = Location[mProvider=gps,mTime=1335386071000,mLatitude=42.35791779,mLongitude=-71.09296424,mHasAltitude=true,mAltitude=-26.200000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386070720: GPS x/long:-71.09296424, GPS y/lat: 42.35791779. Region width in x: 20.0
+1335386070721: location PINPOINTS to region = 1.0, previous 1
+1335386070721: Hysteresis is 0.0
+1335386070721: stay at region 1
+1335386072689: .......... GPS onLocationChanged ...... 
+1335386072690: Loc = Location[mProvider=gps,mTime=1335386073000,mLatitude=42.35790792,mLongitude=-71.09298169,mHasAltitude=true,mAltitude=-26.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386072690: GPS x/long:-71.09298169, GPS y/lat: 42.35790792. Region width in x: 20.0
+1335386072690: location PINPOINTS to region = 0.0, previous 1
+1335386072690: Hysteresis is 0.0
+1335386072690: location CHANGED TO NEW region = (0,0) from region = (1,0)
+1335386072691: moving from region (1,0), to (0,0)
+1335386072691: VCoreDaemon.java inside stateTransition ..........
+1335386072691: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386072691: ..... VCoreDaemon.java targetState = JOINING
+1335386072691: posting leaderRequestRetryR because I'm joining
+1335386072691: sending LEADER_REQUEST
+1335386072692: inside sendPacket(Packet p)
+1335386072692: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386072692: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386072693: Sending UDP payload: 446
+1335386072992: sending LEADER_REQUEST
+1335386072992: inside sendPacket(Packet p)
+1335386072992: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386072994: Sending UDP payload: 446
+1335386073293: sending LEADER_REQUEST
+1335386073293: inside sendPacket(Packet p)
+1335386073293: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386073294: Sending UDP payload: 446
+1335386073594: sending LEADER_REQUEST
+1335386073595: inside sendPacket(Packet p)
+1335386073596: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386073600: Sending UDP payload: 446
+1335386073692: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335386073693: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335386073693: VCoreDaemon.java inside stateTransition ..........
+1335386073694: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386073694: ..... VCoreDaemon.java targetState = LEADER
+1335386073694: trying to take leadership to the cloud
+1335386073816: cloud rejected leadership request or request failed, wait to retry
+1335386077705: .......... GPS onLocationChanged ...... 
+1335386077706: Loc = Location[mProvider=gps,mTime=1335386078000,mLatitude=42.35791068,mLongitude=-71.09296899,mHasAltitude=true,mAltitude=-25.899999618530273,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386077706: GPS x/long:-71.09296899, GPS y/lat: 42.35791068. Region width in x: 20.0
+1335386077706: location PINPOINTS to region = 0.0, previous 0
+1335386077706: Hysteresis is 0.0
+1335386077706: stay at region 0
+1335386079697: .......... GPS onLocationChanged ...... 
+1335386079698: Loc = Location[mProvider=gps,mTime=1335386080000,mLatitude=42.35792214,mLongitude=-71.09296829,mHasAltitude=true,mAltitude=-22.899999618530273,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=165.9,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386079698: GPS x/long:-71.09296829, GPS y/lat: 42.35792214. Region width in x: 20.0
+1335386079699: location PINPOINTS to region = 1.0, previous 0
+1335386079699: Hysteresis is 0.0
+1335386079699: location CHANGED TO NEW region = (1,0) from region = (0,0)
+1335386079699: moving from region (0,0), to (1,0)
+1335386079699: VCoreDaemon.java inside stateTransition ..........
+1335386079699: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386079699: ..... VCoreDaemon.java targetState = JOINING
+1335386079700: posting leaderRequestRetryR because I'm joining
+1335386079700: sending LEADER_REQUEST
+1335386079701: inside sendPacket(Packet p)
+1335386079701: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386079702: Sending UDP payload: 446
+1335386079703: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386080001: sending LEADER_REQUEST
+1335386080001: inside sendPacket(Packet p)
+1335386080001: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386080003: Sending UDP payload: 446
+1335386080302: sending LEADER_REQUEST
+1335386080302: inside sendPacket(Packet p)
+1335386080302: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386080304: Sending UDP payload: 446
+1335386080603: sending LEADER_REQUEST
+1335386080603: inside sendPacket(Packet p)
+1335386080603: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386080604: Sending UDP payload: 446
+1335386080703: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335386080704: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335386080704: VCoreDaemon.java inside stateTransition ..........
+1335386080704: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386080704: ..... VCoreDaemon.java targetState = LEADER
+1335386080704: trying to take leadership to the cloud
+1335386080811: cloud rejected leadership request or request failed, wait to retry
+1335386081661: .......... GPS onLocationChanged ...... 
+1335386081663: Loc = Location[mProvider=gps,mTime=1335386082000,mLatitude=42.3579316,mLongitude=-71.09296105,mHasAltitude=true,mAltitude=-21.899999618530273,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=165.9,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386081663: GPS x/long:-71.09296105, GPS y/lat: 42.3579316. Region width in x: 20.0
+1335386081664: location PINPOINTS to region = 1.0, previous 1
+1335386081664: Hysteresis is 0.0
+1335386081665: stay at region 1
+1335386084687: .......... GPS onLocationChanged ...... 
+1335386084688: Loc = Location[mProvider=gps,mTime=1335386085000,mLatitude=42.35793692,mLongitude=-71.09294487,mHasAltitude=true,mAltitude=-22.200000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=165.9,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386084688: GPS x/long:-71.09294487, GPS y/lat: 42.35793692. Region width in x: 20.0
+1335386084688: location PINPOINTS to region = 1.0, previous 1
+1335386084688: Hysteresis is 0.0
+1335386084688: stay at region 1
+1335386087703: .......... GPS onLocationChanged ...... 
+1335386087704: Loc = Location[mProvider=gps,mTime=1335386088000,mLatitude=42.35794501,mLongitude=-71.09292295,mHasAltitude=true,mAltitude=-26.200000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386087704: GPS x/long:-71.09292295, GPS y/lat: 42.35794501. Region width in x: 20.0
+1335386087704: location PINPOINTS to region = 1.0, previous 1
+1335386087704: Hysteresis is 0.0
+1335386087705: stay at region 1
+1335386089742: .......... GPS onLocationChanged ...... 
+1335386089747: Loc = Location[mProvider=gps,mTime=1335386090000,mLatitude=42.35795252,mLongitude=-71.09291608,mHasAltitude=true,mAltitude=-28.5,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386089748: GPS x/long:-71.09291608, GPS y/lat: 42.35795252. Region width in x: 20.0
+1335386089749: location PINPOINTS to region = 1.0, previous 1
+1335386089750: Hysteresis is 0.0
+1335386089751: stay at region 1
+1335386093745: .......... GPS onLocationChanged ...... 
+1335386093748: Loc = Location[mProvider=gps,mTime=1335386094000,mLatitude=42.3579595,mLongitude=-71.09290202,mHasAltitude=true,mAltitude=-28.200000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386093749: GPS x/long:-71.09290202, GPS y/lat: 42.3579595. Region width in x: 20.0
+1335386093750: location PINPOINTS to region = 1.0, previous 1
+1335386093751: Hysteresis is 0.0
+1335386093752: stay at region 1
+1335386095701: .......... GPS onLocationChanged ...... 
+1335386095702: Loc = Location[mProvider=gps,mTime=1335386096000,mLatitude=42.35796362,mLongitude=-71.09288981,mHasAltitude=true,mAltitude=-28.200000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386095702: GPS x/long:-71.09288981, GPS y/lat: 42.35796362. Region width in x: 20.0
+1335386095702: location PINPOINTS to region = 1.0, previous 1
+1335386095702: Hysteresis is 0.0
+1335386095702: stay at region 1
+1335386097723: .......... GPS onLocationChanged ...... 
+1335386097724: Loc = Location[mProvider=gps,mTime=1335386098000,mLatitude=42.35797041,mLongitude=-71.09287849,mHasAltitude=true,mAltitude=-28.200000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386097724: GPS x/long:-71.09287849, GPS y/lat: 42.35797041. Region width in x: 20.0
+1335386097724: location PINPOINTS to region = 1.0, previous 1
+1335386097724: Hysteresis is 0.0
+1335386097724: stay at region 1
+1335386099147: Received UDP payload: 446
+1335386099223: Received UDP payload: 6139
+1335386099233: mux: Inside mux Packet.CLIENT_REQUEST
+1335386099554: Received UDP payload: 6139
+1335386099561: mux: Inside mux Packet.CLIENT_REQUEST
+1335386099645: Received UDP payload: 6139
+1335386099653: mux: Inside mux Packet.CLIENT_REQUEST
+1335386099676: Received UDP payload: 625
+1335386099683: mux: Inside mux Packet.CLIENT_REQUEST
+1335386099683: Received UDP payload: 625
+1335386099691: mux: Inside mux Packet.CLIENT_REQUEST
+1335386099692: Received UDP payload: 625
+1335386099699: mux: Inside mux Packet.CLIENT_REQUEST
+1335386099722: Received UDP payload: 446
+1335386099730: Received UDP payload: 446
+1335386099738: Received UDP payload: 446
+1335386100189: Received UDP payload: 446
+1335386102705: .......... GPS onLocationChanged ...... 
+1335386102710: Loc = Location[mProvider=gps,mTime=1335386103000,mLatitude=42.35797573,mLongitude=-71.09286742,mHasAltitude=true,mAltitude=-28.200000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386102711: GPS x/long:-71.09286742, GPS y/lat: 42.35797573. Region width in x: 20.0
+1335386102711: location PINPOINTS to region = 1.0, previous 1
+1335386102711: Hysteresis is 0.0
+1335386102711: stay at region 1
+1335386106683: Received UDP payload: 446
+1335386106694: Received UDP payload: 446
+1335386106704: Received UDP payload: 446
+1335386106713: Received UDP payload: 446
+1335386120704: Received UDP payload: 446
+1335386122093: Received UDP payload: 23037
+1335386124300: Received UDP payload: 989
+1335386124322: mux: GOT CSM_Msg
+1335386125020: Received UDP payload: 30218
+1335386128874: Received UDP payload: 30037
+1335386128957: Received UDP payload: 446
+1335386128961: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335386128961: heard HEARTBEAT from 5004, now following
+1335386128961: VCoreDaemon.java inside stateTransition ..........
+1335386128962: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386128962: ..... VCoreDaemon.java targetState = NONLEADER
+1335386128962: now NONLEADER (id=5012) following LEADER (id=5004) in (1,0)
+1335386128962: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386128975: Received UDP payload: 446
+1335386128979: Received UDP payload: 446
+1335386129198: Received UDP payload: 989
+1335386129205: mux: GOT CSM_Msg
+1335386129715: Received UDP payload: 7904
+1335386129736: mux: GOT CSM_Msg
+1335386129746: Received UDP payload: 989
+1335386129749: mux: GOT CSM_Msg
+1335386134246: Received UDP payload: 3951
+1335386134249: mux: Inside mux Packet.CLIENT_REQUEST
+1335386134250: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386134644: Received UDP payload: 3951
+1335386134650: mux: Inside mux Packet.CLIENT_REQUEST
+1335386134651: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386135641: Received UDP payload: 3951
+1335386135649: mux: Inside mux Packet.CLIENT_REQUEST
+1335386135649: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386135689: Received UDP payload: 3951
+1335386135695: mux: Inside mux Packet.CLIENT_REQUEST
+1335386135696: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386138302: Received UDP payload: 446
+1335386138318: Received UDP payload: 446
+1335386138332: Received UDP payload: 463
+1335386138625: Received UDP payload: 446
+1335386139795: Received UDP payload: 446
+1335386139849: Received UDP payload: 4253
+1335386139855: mux: GOT CSM_Msg
+1335386140123: Received UDP payload: 989
+1335386140130: mux: GOT CSM_Msg
+1335386150959: Received UDP payload: 446
+1335386151027: Received UDP payload: 446
+1335386151050: Received UDP payload: 446
+1335386151123: Received UDP payload: 446
+1335386151157: Received UDP payload: 446
+1335386151176: Received UDP payload: 446
+1335386151199: Received UDP payload: 463
+1335386151207: heard LEADER_ELECT from node 5011, responding LEADER_NOMINATE
+1335386151207: inside sendPacket(Packet p)
+1335386151217: Received UDP payload: 446
+1335386151241: Sending UDP payload: 446
+1335386151264: Received UDP payload: 446
+1335386151268: Received UDP payload: 446
+1335386151273: Received UDP payload: 446
+1335386151275: Received UDP payload: 446
+1335386151281: Received UDP payload: 446
+1335386151285: Received UDP payload: 446
+1335386151323: Received UDP payload: 446
+1335386151330: Received UDP payload: 446
+1335386151345: Received UDP payload: 446
+1335386151356: Received UDP payload: 446
+1335386151761: Received UDP payload: 446
+1335386151779: Received UDP payload: 446
+1335386153474: Received UDP payload: 446
+1335386153527: Received UDP payload: 4213
+1335386153535: mux: Inside mux Packet.CLIENT_REQUEST
+1335386153536: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386153601: Received UDP payload: 4213
+1335386153603: mux: Inside mux Packet.CLIENT_REQUEST
+1335386153603: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386153653: Received UDP payload: 4213
+1335386153655: mux: Inside mux Packet.CLIENT_REQUEST
+1335386153655: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386153698: Received UDP payload: 4213
+1335386153699: mux: Inside mux Packet.CLIENT_REQUEST
+1335386153700: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386153711: Received UDP payload: 446
+1335386153722: Received UDP payload: 446
+1335386154051: Received UDP payload: 446
+1335386154434: Received UDP payload: 446
+1335386155255: Received UDP payload: 446
+1335386155272: Received UDP payload: 446
+1335386155285: Received UDP payload: 446
+1335386155357: Received UDP payload: 446
+1335386155368: Received UDP payload: 446
+1335386155377: Received UDP payload: 446
+1335386155420: Received UDP payload: 446
+1335386155453: Received UDP payload: 446
+1335386158364: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335386158365: VCoreDaemon.java inside stateTransition ..........
+1335386158365: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386158366: ..... VCoreDaemon.java targetState = JOINING
+1335386158366: posting leaderRequestRetryR because I'm joining
+1335386158367: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386158367: sending LEADER_REQUEST
+1335386158367: inside sendPacket(Packet p)
+1335386158368: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386158430: Sending UDP payload: 446
+1335386158670: sending LEADER_REQUEST
+1335386158670: inside sendPacket(Packet p)
+1335386158671: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386158674: Sending UDP payload: 446
+1335386158971: sending LEADER_REQUEST
+1335386158972: inside sendPacket(Packet p)
+1335386158972: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386158976: Sending UDP payload: 446
+1335386159273: sending LEADER_REQUEST
+1335386159274: inside sendPacket(Packet p)
+1335386159274: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386159278: Sending UDP payload: 446
+1335386159367: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335386159367: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335386159367: VCoreDaemon.java inside stateTransition ..........
+1335386159367: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386159367: ..... VCoreDaemon.java targetState = LEADER
+1335386159367: trying to take leadership to the cloud
+1335386159737: cloud rejected leadership request or request failed, wait to retry
+1335386160706: .......... GPS onLocationChanged ...... 
+1335386160707: Loc = Location[mProvider=gps,mTime=1335386161000,mLatitude=42.35796671,mLongitude=-71.09286686,mHasAltitude=true,mAltitude=-26.799999237060547,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386160707: GPS x/long:-71.09286686, GPS y/lat: 42.35796671. Region width in x: 20.0
+1335386160708: location PINPOINTS to region = 1.0, previous 1
+1335386160708: Hysteresis is 0.0
+1335386160708: stay at region 1
+1335386174532: Received UDP payload: 625
+1335386174539: mux: Inside mux Packet.CLIENT_REQUEST
+1335386174548: Received UDP payload: 625
+1335386174552: mux: Inside mux Packet.CLIENT_REQUEST
+1335386174583: Received UDP payload: 625
+1335386174585: mux: Inside mux Packet.CLIENT_REQUEST
+1335386174695: Received UDP payload: 625
+1335386174697: mux: Inside mux Packet.CLIENT_REQUEST
+1335386174703: Received UDP payload: 446
+1335386174718: Received UDP payload: 446
+1335386174731: Received UDP payload: 446
+1335386174758: Received UDP payload: 446
+1335386174765: Received UDP payload: 446
+1335386174781: Received UDP payload: 446
+1335386174788: Received UDP payload: 446
+1335386174829: Received UDP payload: 446
+1335386175296: Received UDP payload: 3512
+1335386175301: ignoring leader_reply that's not for me
+1335386175352: Received UDP payload: 446
+1335386176099: Received UDP payload: 463
+1335386176111: Received UDP payload: 446
+1335386176131: Received UDP payload: 446
+1335386176139: Received UDP payload: 446
+1335386176162: Received UDP payload: 446
+1335386176441: Received UDP payload: 12182
+1335386176444: removing leaderRequestRetryR because heard Packet.Leader_reply
+1335386176444: heard LEADER_REPLY from 5003
+1335386176445: VCoreDaemon.java inside stateTransition ..........
+1335386176445: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386176445: ..... VCoreDaemon.java targetState = NONLEADER
+1335386176445: now NONLEADER (id=5012) following LEADER (id=5003) in (1,0)
+1335386176446: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386176453: Received UDP payload: 446
+1335386176463: Received UDP payload: 989
+1335386176481: mux: GOT CSM_Msg
+1335386176536: Received UDP payload: 446
+1335386176538: mux: Inside Packet.SERVER_REPLY
+1335386176538: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386176546: Received UDP payload: 446
+1335386176549: mux: Inside Packet.SERVER_REPLY
+1335386176549: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386176559: Received UDP payload: 446
+1335386176561: mux: Inside Packet.SERVER_REPLY
+1335386176562: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386176576: Received UDP payload: 989
+1335386176580: mux: GOT CSM_Msg
+1335386176588: Received UDP payload: 989
+1335386176594: mux: GOT CSM_Msg
+1335386176612: Received UDP payload: 446
+1335386176615: mux: Inside Packet.SERVER_REPLY
+1335386176615: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386176641: Received UDP payload: 989
+1335386176646: mux: GOT CSM_Msg
+1335386176646: Received UDP payload: 989
+1335386176651: mux: GOT CSM_Msg
+1335386176658: Received UDP payload: 989
+1335386176691: mux: GOT CSM_Msg
+1335386176700: Received UDP payload: 989
+1335386176705: mux: GOT CSM_Msg
+1335386176722: Received UDP payload: 989
+1335386176739: mux: GOT CSM_Msg
+1335386176739: Received UDP payload: 989
+1335386176743: mux: GOT CSM_Msg
+1335386176759: Received UDP payload: 989
+1335386176764: mux: GOT CSM_Msg
+1335386176772: Received UDP payload: 989
+1335386176777: mux: GOT CSM_Msg
+1335386176791: Received UDP payload: 989
+1335386176795: mux: GOT CSM_Msg
+1335386176811: Received UDP payload: 989
+1335386176815: mux: GOT CSM_Msg
+1335386176831: Received UDP payload: 989
+1335386176833: mux: GOT CSM_Msg
+1335386176853: Received UDP payload: 989
+1335386176857: mux: GOT CSM_Msg
+1335386176875: Received UDP payload: 989
+1335386176878: mux: GOT CSM_Msg
+1335386176927: Received UDP payload: 642
+1335386176929: mux: Inside Packet.SERVER_REPLY
+1335386176929: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386177048: Received UDP payload: 8552
+1335386177051: mux: GOT CSM_Msg
+1335386177061: Received UDP payload: 642
+1335386177063: mux: Inside Packet.SERVER_REPLY
+1335386177063: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386177074: Received UDP payload: 446
+1335386177135: Received UDP payload: 642
+1335386177137: mux: Inside Packet.SERVER_REPLY
+1335386177137: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386177192: Received UDP payload: 642
+1335386177193: mux: Inside Packet.SERVER_REPLY
+1335386177193: mux: Ignoring SERVER_REPLY since it's not for me  5012
+1335386177223: Received UDP payload: 989
+1335386177226: mux: GOT CSM_Msg
+1335386177249: Received UDP payload: 989
+1335386177252: mux: GOT CSM_Msg
+1335386177266: Received UDP payload: 989
+1335386177269: mux: GOT CSM_Msg
+1335386177279: Received UDP payload: 989
+1335386177285: mux: GOT CSM_Msg
+1335386177299: Received UDP payload: 989
+1335386177307: mux: GOT CSM_Msg
+1335386177321: Received UDP payload: 989
+1335386177328: mux: GOT CSM_Msg
+1335386177334: Received UDP payload: 989
+1335386177338: mux: GOT CSM_Msg
+1335386178061: Received UDP payload: 989
+1335386178072: mux: GOT CSM_Msg
+1335386178072: Received UDP payload: 989
+1335386178097: mux: GOT CSM_Msg
+1335386185827: Received UDP payload: 989
+1335386185830: mux: GOT CSM_Msg
+1335386185896: Received UDP payload: 989
+1335386185906: mux: GOT CSM_Msg
+1335386186250: Received UDP payload: 989
+1335386186260: mux: GOT CSM_Msg
+1335386186922: Received UDP payload: 989
+1335386186928: mux: GOT CSM_Msg
+1335386186941: Received UDP payload: 989
+1335386186947: mux: GOT CSM_Msg
+1335386186956: Received UDP payload: 989
+1335386186962: mux: GOT CSM_Msg
+1335386186963: Received UDP payload: 446
+1335386187079: Received UDP payload: 463
+1335386187081: heard LEADER_ELECT from node 5003, responding LEADER_NOMINATE
+1335386187081: inside sendPacket(Packet p)
+1335386187082: Sending UDP payload: 446
+1335386187363: Received UDP payload: 446
+1335386190134: Received UDP payload: 446
+1335386190146: Received UDP payload: 446
+1335386190168: Received UDP payload: 446
+1335386190171: Received UDP payload: 446
+1335386190188: Received UDP payload: 446
+1335386190194: Received UDP payload: 446
+1335386190204: Received UDP payload: 446
+1335386190213: Received UDP payload: 446
+1335386190236: Received UDP payload: 446
+1335386190264: Received UDP payload: 446
+1335386190275: Received UDP payload: 446
+1335386190332: Received UDP payload: 446
+1335386190386: Received UDP payload: 446
+1335386190401: Received UDP payload: 446
+1335386190426: Received UDP payload: 446
+1335386190449: Received UDP payload: 446
+1335386190455: Received UDP payload: 446
+1335386190469: Received UDP payload: 446
+1335386190562: Received UDP payload: 446
+1335386190592: Received UDP payload: 446
+1335386190611: Received UDP payload: 446
+1335386190637: Received UDP payload: 446
+1335386190639: Received UDP payload: 446
+1335386190652: Received UDP payload: 446
+1335386190762: Received UDP payload: 446
+1335386190791: Received UDP payload: 446
+1335386190795: Received UDP payload: 446
+1335386190803: Received UDP payload: 446
+1335386190817: Received UDP payload: 446
+1335386190827: Received UDP payload: 446
+1335386190831: Received UDP payload: 446
+1335386190838: Received UDP payload: 446
+1335386190844: Received UDP payload: 446
+1335386190853: Received UDP payload: 446
+1335386190863: Received UDP payload: 446
+1335386190884: Received UDP payload: 446
+1335386190900: Received UDP payload: 446
+1335386190909: Received UDP payload: 446
+1335386190913: Received UDP payload: 446
+1335386190924: Received UDP payload: 446
+1335386190929: Received UDP payload: 446
+1335386190995: Received UDP payload: 446
+1335386193187: HI I'm in ONPAUSE()

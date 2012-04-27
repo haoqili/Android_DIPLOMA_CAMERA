@@ -1,0 +1,201 @@
+From code from
+
+#################################
+###### All of Diploma's Data ####
+#################################
+takes about 20 secs to run for me
+
+=============================
+====== Diploma Nexus ========
+=============================
+
+--------- TAKEs -------------
+number:         362
+successes:      251     69 %
+fails:          5 successful replies but saving failed
+timed outs:     138 requests that take longer than 6 seconds, some don't ever have responses
+-- Latency: raw, including timed outs --
+number:         256
+mean:           2768 ms
+stdv:           7241 ms
+median:         300 ms
+range:          4 ms ~ 64094 ms
+-- Latency: excluding timed outs --
+number:         225     is 87 % of all latencies.       31 requests never have responses
+mean:           900 ms
+stdv:           1328 ms
+median:         259 ms
+range:          4 ms ~ 5690 ms
+
+--------- GETs ---------------
+number:         470
+successes:      131     27 %    including existing regions without a photo
+fails:          205 due to null region
+timed outs:     138 requests that take longer than 6 seconds, some don't ever have responses
+-- Latency: raw, including timed outs --
+number:         334
+mean:           4237 ms
+stdv:           7965 ms
+median:         2205 ms
+range:          2 ms ~ 83681 ms
+-- Latency: excluding timed outs --
+number:         279     is 83 % of all latencies.       55 requests never have responses
+mean:           1858 ms
+stdv:           1355 ms
+median:         2169 ms
+range:          2 ms ~ 5780 ms
+
+--------- BOTH --------------
+number:         832
+successes:      382     45 %
+-- Latency: raw, including timed outs --
+number:         590
+mean:           3599 ms
+stdv:           7693 ms
+median:         1968 ms
+range:          2 ms ~ 83681 ms
+-- Latency: excluding timed outs --
+number:         504     is 85 % of all latencies.       86 requests never have responses
+mean:           1431 ms
+stdv:           1425 ms
+median:         894 ms
+range:          2 ms ~ 5780 ms
+
+
+=============================
+====== Diploma Notes ========
+=============================
+
+--------- TAKEs -------------
+number:         82
+successes:      22      26 %
+fails:          1 successful replies but saving failed
+timed outs:     59 requests that take longer than 6 seconds, some don't ever have responses
+-- Latency: raw, including timed outs --
+number:         23
+mean:           5680 ms
+stdv:           15378 ms
+median:         95 ms
+range:          82 ms ~ 65732 ms
+-- Latency: excluding timed outs --
+number:         20      is 86 % of all latencies.       3 requests never have responses
+mean:           206 ms
+stdv:           455 ms
+median:         93 ms
+range:          82 ms ~ 2187 ms
+
+--------- GETs ---------------
+number:         75
+successes:      17      22 %    including existing regions without a photo
+fails:          14 due to null region
+timed outs:     59 requests that take longer than 6 seconds, some don't ever have responses
+-- Latency: raw, including timed outs --
+number:         31
+mean:           9231 ms
+stdv:           15440 ms
+median:         2156 ms
+range:          49 ms ~ 46311 ms
+-- Latency: excluding timed outs --
+number:         24      is 77 % of all latencies.       7 requests never have responses
+mean:           1033 ms
+stdv:           1048 ms
+median:         92 ms
+range:          49 ms ~ 2204 ms
+
+--------- BOTH --------------
+number:         157
+successes:      39      24 %
+-- Latency: raw, including timed outs --
+number:         54
+mean:           7719 ms
+stdv:           15513 ms
+median:         107 ms
+range:          49 ms ~ 65732 ms
+-- Latency: excluding timed outs --
+number:         44      is 81 % of all latencies.       10 requests never have responses
+mean:           657 ms
+stdv:           929 ms
+median:         93 ms
+range:          49 ms ~ 2204 ms
+
+
+
+#################################
+###### All of Cloud's Data ######
+#################################
+
+=============================
+====== Cloud Nexus ==========
+=============================
+
+--------- TAKEs -------------
+number:         388
+successes:      388     100 %
+fails:          0 successful replies but saving failed
+exceptions:     0 didn't complete cloud request
+-- Latency --
+number:         388
+mean:           3749 ms
+stdv:           4134 ms
+median:         2567 ms
+range:          394 ms ~ 33831 ms
+
+--------- GETs ---------------
+number:         455
+successes:      438     96 %
+fails:          14 due to null region or region doesn't have photo
+exceptions:     2 didn't complete cloud request
+-- Latency --
+number:         452
+mean:           2704 ms
+stdv:           3175 ms
+median:         2264 ms
+range:          171 ms ~ 25481 ms
+
+--------- BOTH --------------
+number:         843
+successes:      826     97 %
+-- Latency --
+number:         840
+mean:           3186 ms
+stdv:           3686 ms
+median:         2474 ms
+range:          171 ms ~ 33831 ms
+
+=============================
+====== Cloud Notes ==========
+=============================
+
+--------- TAKEs -------------
+number:         111
+successes:      83      74 %
+fails:          0 successful replies but saving failed
+exceptions:     28 didn't complete cloud request
+-- Latency --
+number:         83
+mean:           651 ms
+stdv:           1450 ms
+median:         495 ms
+range:          165 ms ~ 13387 ms
+
+--------- GETs ---------------
+number:         105
+successes:      58      55 %
+fails:          21 due to null region or region doesn't have photo
+exceptions:     26 didn't complete cloud request
+-- Latency --
+number:         79
+mean:           268 ms
+stdv:           394 ms
+median:         166 ms
+range:          91 ms ~ 3447 ms
+
+--------- BOTH --------------
+number:         216
+successes:      141     65 %
+-- Latency --
+number:         162
+mean:           464 ms
+stdv:           1091 ms
+median:         347 ms
+range:          91 ms ~ 13387 ms

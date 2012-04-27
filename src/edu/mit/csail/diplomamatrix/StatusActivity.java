@@ -1194,10 +1194,12 @@ public class StatusActivity extends Activity implements LocationListener {
     		if (mux.vncDaemon.mState == VCoreDaemon.LEADER) {
     			logMsg("I'm a leader, my requesting photos packet going to mux directly");
     			client_download_start = System.currentTimeMillis();
+    			client_upload_start = System.currentTimeMillis();
     			mux.myHandler.obtainMessage(mux.PACKET_RECV, requestPacket).sendToTarget();
     		} else if (mux.vncDaemon.mState == VCoreDaemon.NONLEADER) {
     			logMsg("I'm a nonleader sending my requesting photos packet to my leader");
     			client_download_start = System.currentTimeMillis();
+    			client_upload_start = System.currentTimeMillis();
     			mux.vncDaemon.sendPacket(requestPacket);
     		}
     		logMsg("--- Finished one round of sending REQUEST Packet ---------");

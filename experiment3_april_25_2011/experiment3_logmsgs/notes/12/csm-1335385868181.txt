@@ -1,0 +1,1096 @@
+1335385868188: *** Opened log file for writing ***
+1335385868188: Android build: SAMSUNG-SGH-I717
+1335385868189: NET_NAME set to: eth0
+1335385868189: starting Mux with id = -1
+1335385868189: areButtonsEnabled --> true
+1335385868191: *** Application started ***
+1335385868191: HI I'm in ONRESUME()
+1335385868194: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1335385868197: mux: Mux.java run() beginning -------------
+1335385868214: mux: Mux.java's nodeId is5003
+1335385868214: mux: starting vncDaemon ........
+1335385868227: mux: vncDaemon started
+1335385868215: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1335385868227: VCoreDaemon.java onStart() ....
+1335385868227: started, mId = 5003
+1335385868228: VCoreDaemon.java inside stateTransition ..........
+1335385868228: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385868228: ..... VCoreDaemon.java out of bounds
+1335385868228: region (-1, -1) out of bounds, dormant
+1335385868228: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385873316: .......... GPS onLocationChanged ...... 
+1335385873317: Loc = Location[mProvider=gps,mTime=1335385874000,mLatitude=42.35797364,mLongitude=-71.09283443,mHasAltitude=true,mAltitude=-32.400001525878906,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=38.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (-1,-1)
+1335385873317: GPS x/long:-71.09283443, GPS y/lat: 42.35797364. Region width in x: 20.0
+1335385873317: location PINPOINTS to region = 1.0, previous -1
+1335385873317: Hysteresis is 0.0
+1335385873318: location CHANGED TO NEW region = (1,0) from region = (-1,-1)
+1335385873318: moving from region (-1,-1), to (1,0)
+1335385873318: VCoreDaemon.java inside stateTransition ..........
+1335385873318: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385873318: ..... VCoreDaemon.java targetState = JOINING
+1335385873318: posting leaderRequestRetryR because I'm joining
+1335385873320: sending LEADER_REQUEST
+1335385873321: inside sendPacket(Packet p)
+1335385873321: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385873331: Sending UDP payload: 446
+1335385873334: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385873621: sending LEADER_REQUEST
+1335385873622: inside sendPacket(Packet p)
+1335385873622: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385873623: Sending UDP payload: 446
+1335385873922: sending LEADER_REQUEST
+1335385873923: inside sendPacket(Packet p)
+1335385873923: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385873926: Sending UDP payload: 446
+1335385874224: sending LEADER_REQUEST
+1335385874224: inside sendPacket(Packet p)
+1335385874225: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385874227: Sending UDP payload: 446
+1335385874335: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385874335: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385874336: VCoreDaemon.java inside stateTransition ..........
+1335385874336: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385874336: ..... VCoreDaemon.java targetState = LEADER
+1335385874336: trying to take leadership to the cloud
+1335385874903: cloud rejected leadership request or request failed, wait to retry
+1335385876022: Received UDP payload: 625
+1335385876047: mux: Inside mux Packet.CLIENT_REQUEST
+1335385876060: Received UDP payload: 625
+1335385876079: mux: Inside mux Packet.CLIENT_REQUEST
+1335385882330: .......... GPS onLocationChanged ...... 
+1335385882331: Loc = Location[mProvider=gps,mTime=1335385883000,mLatitude=42.35795724,mLongitude=-71.09287232,mHasAltitude=true,mAltitude=-38.099998474121094,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=11.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385882331: GPS x/long:-71.09287232, GPS y/lat: 42.35795724. Region width in x: 20.0
+1335385882332: location PINPOINTS to region = 1.0, previous 1
+1335385882332: Hysteresis is 0.0
+1335385882332: stay at region 1
+1335385883442: .......... GPS onLocationChanged ...... 
+1335385883443: Loc = Location[mProvider=gps,mTime=1335385884000,mLatitude=42.35794663,mLongitude=-71.09288958,mHasAltitude=true,mAltitude=-40.29999923706055,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=11.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385883443: GPS x/long:-71.09288958, GPS y/lat: 42.35794663. Region width in x: 20.0
+1335385883443: location PINPOINTS to region = 1.0, previous 1
+1335385883443: Hysteresis is 0.0
+1335385883443: stay at region 1
+1335385885322: .......... GPS onLocationChanged ...... 
+1335385885323: Loc = Location[mProvider=gps,mTime=1335385886000,mLatitude=42.35794199,mLongitude=-71.0929004,mHasAltitude=true,mAltitude=-42.79999923706055,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=295.7,mHasAccuracy=true,mAccuracy=11.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385885323: GPS x/long:-71.0929004, GPS y/lat: 42.35794199. Region width in x: 20.0
+1335385885323: location PINPOINTS to region = 1.0, previous 1
+1335385885323: Hysteresis is 0.0
+1335385885323: stay at region 1
+1335385886343: .......... GPS onLocationChanged ...... 
+1335385886346: Loc = Location[mProvider=gps,mTime=1335385887000,mLatitude=42.35795649,mLongitude=-71.09286583,mHasAltitude=true,mAltitude=-39.70000076293945,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=295.7,mHasAccuracy=true,mAccuracy=9.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385886348: GPS x/long:-71.09286583, GPS y/lat: 42.35795649. Region width in x: 20.0
+1335385886348: location PINPOINTS to region = 1.0, previous 1
+1335385886350: Hysteresis is 0.0
+1335385886350: stay at region 1
+1335385887321: .......... GPS onLocationChanged ...... 
+1335385887322: Loc = Location[mProvider=gps,mTime=1335385888000,mLatitude=42.3579654,mLongitude=-71.09285029,mHasAltitude=true,mAltitude=-34.900001525878906,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=295.7,mHasAccuracy=true,mAccuracy=8.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385887322: GPS x/long:-71.09285029, GPS y/lat: 42.3579654. Region width in x: 20.0
+1335385887322: location PINPOINTS to region = 1.0, previous 1
+1335385887322: Hysteresis is 0.0
+1335385887322: stay at region 1
+1335385888332: .......... GPS onLocationChanged ...... 
+1335385888336: Loc = Location[mProvider=gps,mTime=1335385889000,mLatitude=42.35797287,mLongitude=-71.0928416,mHasAltitude=true,mAltitude=-31.899999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=295.7,mHasAccuracy=true,mAccuracy=8.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385888339: GPS x/long:-71.0928416, GPS y/lat: 42.35797287. Region width in x: 20.0
+1335385888339: location PINPOINTS to region = 1.0, previous 1
+1335385888340: Hysteresis is 0.0
+1335385888341: stay at region 1
+1335385889342: .......... GPS onLocationChanged ...... 
+1335385889345: Loc = Location[mProvider=gps,mTime=1335385890000,mLatitude=42.35797625,mLongitude=-71.09283033,mHasAltitude=true,mAltitude=-29.5,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=8.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385889347: GPS x/long:-71.09283033, GPS y/lat: 42.35797625. Region width in x: 20.0
+1335385889349: location PINPOINTS to region = 1.0, previous 1
+1335385889350: Hysteresis is 0.0
+1335385889351: stay at region 1
+1335385894332: .......... GPS onLocationChanged ...... 
+1335385894337: Loc = Location[mProvider=gps,mTime=1335385895000,mLatitude=42.35796912,mLongitude=-71.09282285,mHasAltitude=true,mAltitude=-27.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385894338: GPS x/long:-71.09282285, GPS y/lat: 42.35796912. Region width in x: 20.0
+1335385894338: location PINPOINTS to region = 1.0, previous 1
+1335385894339: Hysteresis is 0.0
+1335385894339: stay at region 1
+1335385898330: .......... GPS onLocationChanged ...... 
+1335385898331: Loc = Location[mProvider=gps,mTime=1335385899000,mLatitude=42.35797731,mLongitude=-71.09281766,mHasAltitude=true,mAltitude=-27.700000762939453,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385898332: GPS x/long:-71.09281766, GPS y/lat: 42.35797731. Region width in x: 20.0
+1335385898332: location PINPOINTS to region = 1.0, previous 1
+1335385898332: Hysteresis is 0.0
+1335385898332: stay at region 1
+1335385902341: .......... GPS onLocationChanged ...... 
+1335385902342: Loc = Location[mProvider=gps,mTime=1335385903000,mLatitude=42.35798674,mLongitude=-71.09281325,mHasAltitude=true,mAltitude=-26.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385902343: GPS x/long:-71.09281325, GPS y/lat: 42.35798674. Region width in x: 20.0
+1335385902343: location PINPOINTS to region = 1.0, previous 1
+1335385902343: Hysteresis is 0.0
+1335385902344: stay at region 1
+1335385911357: .......... GPS onLocationChanged ...... 
+1335385911358: Loc = Location[mProvider=gps,mTime=1335385912000,mLatitude=42.35799193,mLongitude=-71.09280271,mHasAltitude=true,mAltitude=-26.700000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=295.7,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385911359: GPS x/long:-71.09280271, GPS y/lat: 42.35799193. Region width in x: 20.0
+1335385911359: location PINPOINTS to region = 1.0, previous 1
+1335385911359: Hysteresis is 0.0
+1335385911360: stay at region 1
+1335385913320: .......... GPS onLocationChanged ...... 
+1335385913321: Loc = Location[mProvider=gps,mTime=1335385914000,mLatitude=42.35799535,mLongitude=-71.09279088,mHasAltitude=true,mAltitude=-26.899999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=295.7,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385913321: GPS x/long:-71.09279088, GPS y/lat: 42.35799535. Region width in x: 20.0
+1335385913322: location PINPOINTS to region = 1.0, previous 1
+1335385913322: Hysteresis is 0.0
+1335385913322: stay at region 1
+1335385926334: .......... GPS onLocationChanged ...... 
+1335385926335: Loc = Location[mProvider=gps,mTime=1335385927000,mLatitude=42.35800031,mLongitude=-71.09280343,mHasAltitude=true,mAltitude=-24.5,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385926335: GPS x/long:-71.09280343, GPS y/lat: 42.35800031. Region width in x: 20.0
+1335385926335: location PINPOINTS to region = 1.0, previous 1
+1335385926335: Hysteresis is 0.0
+1335385926336: stay at region 1
+1335385930328: .......... GPS onLocationChanged ...... 
+1335385930329: Loc = Location[mProvider=gps,mTime=1335385931000,mLatitude=42.35799822,mLongitude=-71.09281571,mHasAltitude=true,mAltitude=-23.299999237060547,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385930329: GPS x/long:-71.09281571, GPS y/lat: 42.35799822. Region width in x: 20.0
+1335385930329: location PINPOINTS to region = 1.0, previous 1
+1335385930330: Hysteresis is 0.0
+1335385930330: stay at region 1
+1335385941321: .......... GPS onLocationChanged ...... 
+1335385941322: Loc = Location[mProvider=gps,mTime=1335385942000,mLatitude=42.35800324,mLongitude=-71.09282915,mHasAltitude=true,mAltitude=-24.100000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=295.7,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385941322: GPS x/long:-71.09282915, GPS y/lat: 42.35800324. Region width in x: 20.0
+1335385941322: location PINPOINTS to region = 1.0, previous 1
+1335385941322: Hysteresis is 0.0
+1335385941322: stay at region 1
+1335385943313: .......... GPS onLocationChanged ...... 
+1335385943314: Loc = Location[mProvider=gps,mTime=1335385944000,mLatitude=42.35799604,mLongitude=-71.09284266,mHasAltitude=true,mAltitude=-21.399999618530273,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385943314: GPS x/long:-71.09284266, GPS y/lat: 42.35799604. Region width in x: 20.0
+1335385943314: location PINPOINTS to region = 1.0, previous 1
+1335385943314: Hysteresis is 0.0
+1335385943314: stay at region 1
+1335385945877: Received UDP payload: 446
+1335385945883: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385945883: heard HEARTBEAT from 5011, now following
+1335385945883: VCoreDaemon.java inside stateTransition ..........
+1335385945883: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385945884: ..... VCoreDaemon.java targetState = NONLEADER
+1335385945884: now NONLEADER (id=5003) following LEADER (id=5011) in (1,0)
+1335385945884: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385946076: Received UDP payload: 446
+1335385953324: .......... GPS onLocationChanged ...... 
+1335385953329: Loc = Location[mProvider=gps,mTime=1335385954000,mLatitude=42.35799157,mLongitude=-71.09286347,mHasAltitude=true,mAltitude=-20.399999618530273,mHasSpeed=true,mSpeed=1.0,mHasBearing=true,mBearing=262.7,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385953330: GPS x/long:-71.09286347, GPS y/lat: 42.35799157. Region width in x: 20.0
+1335385953330: location PINPOINTS to region = 1.0, previous 1
+1335385953330: Hysteresis is 0.0
+1335385953331: stay at region 1
+1335385954329: .......... GPS onLocationChanged ...... 
+1335385954331: Loc = Location[mProvider=gps,mTime=1335385955000,mLatitude=42.35799099,mLongitude=-71.09287599,mHasAltitude=true,mAltitude=-20.399999618530273,mHasSpeed=true,mSpeed=1.25,mHasBearing=true,mBearing=262.3,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385954332: GPS x/long:-71.09287599, GPS y/lat: 42.35799099. Region width in x: 20.0
+1335385954333: location PINPOINTS to region = 1.0, previous 1
+1335385954333: Hysteresis is 0.0
+1335385954334: stay at region 1
+1335385956322: .......... GPS onLocationChanged ...... 
+1335385956323: Loc = Location[mProvider=gps,mTime=1335385957000,mLatitude=42.35799591,mLongitude=-71.092895,mHasAltitude=true,mAltitude=-20.299999237060547,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=282.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385956323: GPS x/long:-71.092895, GPS y/lat: 42.35799591. Region width in x: 20.0
+1335385956323: location PINPOINTS to region = 1.0, previous 1
+1335385956323: Hysteresis is 0.0
+1335385956323: stay at region 1
+1335385958321: .......... GPS onLocationChanged ...... 
+1335385958321: Loc = Location[mProvider=gps,mTime=1335385959000,mLatitude=42.35800672,mLongitude=-71.09288555,mHasAltitude=true,mAltitude=-19.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385958322: GPS x/long:-71.09288555, GPS y/lat: 42.35800672. Region width in x: 20.0
+1335385958322: location PINPOINTS to region = 1.0, previous 1
+1335385958322: Hysteresis is 0.0
+1335385958322: stay at region 1
+1335385960320: .......... GPS onLocationChanged ...... 
+1335385960321: Loc = Location[mProvider=gps,mTime=1335385961000,mLatitude=42.35801386,mLongitude=-71.09287688,mHasAltitude=true,mAltitude=-19.5,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385960321: GPS x/long:-71.09287688, GPS y/lat: 42.35801386. Region width in x: 20.0
+1335385960321: location PINPOINTS to region = 1.0, previous 1
+1335385960322: Hysteresis is 0.0
+1335385960322: stay at region 1
+1335385963324: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335385963324: VCoreDaemon.java inside stateTransition ..........
+1335385963324: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385963325: ..... VCoreDaemon.java targetState = JOINING
+1335385963325: posting leaderRequestRetryR because I'm joining
+1335385963325: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385963325: sending LEADER_REQUEST
+1335385963325: inside sendPacket(Packet p)
+1335385963325: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385963331: Sending UDP payload: 446
+1335385963626: sending LEADER_REQUEST
+1335385963626: inside sendPacket(Packet p)
+1335385963626: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385963628: Sending UDP payload: 446
+1335385963927: sending LEADER_REQUEST
+1335385963927: inside sendPacket(Packet p)
+1335385963928: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385963931: Sending UDP payload: 446
+1335385964228: sending LEADER_REQUEST
+1335385964229: inside sendPacket(Packet p)
+1335385964230: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385964237: Sending UDP payload: 446
+1335385964325: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385964325: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385964325: VCoreDaemon.java inside stateTransition ..........
+1335385964325: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385964325: ..... VCoreDaemon.java targetState = LEADER
+1335385964325: trying to take leadership to the cloud
+1335385964692: cloud rejected leadership request or request failed, wait to retry
+1335385965318: .......... GPS onLocationChanged ...... 
+1335385965319: Loc = Location[mProvider=gps,mTime=1335385966000,mLatitude=42.35802223,mLongitude=-71.09285943,mHasAltitude=true,mAltitude=-18.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=6.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385965319: GPS x/long:-71.09285943, GPS y/lat: 42.35802223. Region width in x: 20.0
+1335385965319: location PINPOINTS to region = 1.0, previous 1
+1335385965319: Hysteresis is 0.0
+1335385965319: stay at region 1
+1335385968321: .......... GPS onLocationChanged ...... 
+1335385968322: Loc = Location[mProvider=gps,mTime=1335385969000,mLatitude=42.35802805,mLongitude=-71.09284407,mHasAltitude=true,mAltitude=-18.600000381469727,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385968323: GPS x/long:-71.09284407, GPS y/lat: 42.35802805. Region width in x: 20.0
+1335385968323: location PINPOINTS to region = 1.0, previous 1
+1335385968323: Hysteresis is 0.0
+1335385968323: stay at region 1
+1335385971330: .......... GPS onLocationChanged ...... 
+1335385971332: Loc = Location[mProvider=gps,mTime=1335385972000,mLatitude=42.35803508,mLongitude=-71.09283636,mHasAltitude=true,mAltitude=-18.899999618530273,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385971333: GPS x/long:-71.09283636, GPS y/lat: 42.35803508. Region width in x: 20.0
+1335385971334: location PINPOINTS to region = 1.0, previous 1
+1335385971335: Hysteresis is 0.0
+1335385971336: stay at region 1
+1335385974323: .......... GPS onLocationChanged ...... 
+1335385974324: Loc = Location[mProvider=gps,mTime=1335385975000,mLatitude=42.35804238,mLongitude=-71.09284598,mHasAltitude=true,mAltitude=-18.899999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=282.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385974324: GPS x/long:-71.09284598, GPS y/lat: 42.35804238. Region width in x: 20.0
+1335385974324: location PINPOINTS to region = 1.0, previous 1
+1335385974325: Hysteresis is 0.0
+1335385974325: stay at region 1
+1335385975242: canPressButton = false. state is + 1 Can't press button because you're in a transient state (JOINING or HANDING_OFF)
+1335385975249: can't press camera button yet
+1335385976318: .......... GPS onLocationChanged ...... 
+1335385976319: Loc = Location[mProvider=gps,mTime=1335385977000,mLatitude=42.35804759,mLongitude=-71.09286607,mHasAltitude=true,mAltitude=-17.200000762939453,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=282.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385976319: GPS x/long:-71.09286607, GPS y/lat: 42.35804759. Region width in x: 20.0
+1335385976319: location PINPOINTS to region = 1.0, previous 1
+1335385976319: Hysteresis is 0.0
+1335385976319: stay at region 1
+1335385977322: .......... GPS onLocationChanged ...... 
+1335385977323: Loc = Location[mProvider=gps,mTime=1335385978000,mLatitude=42.35805059,mLongitude=-71.09287885,mHasAltitude=true,mAltitude=-16.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=282.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385977323: GPS x/long:-71.09287885, GPS y/lat: 42.35805059. Region width in x: 20.0
+1335385977323: location PINPOINTS to region = 1.0, previous 1
+1335385977323: Hysteresis is 0.0
+1335385977323: stay at region 1
+1335385978332: .......... GPS onLocationChanged ...... 
+1335385978336: Loc = Location[mProvider=gps,mTime=1335385979000,mLatitude=42.35805583,mLongitude=-71.09289279,mHasAltitude=true,mAltitude=-15.5,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=282.1,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385978339: GPS x/long:-71.09289279, GPS y/lat: 42.35805583. Region width in x: 20.0
+1335385978353: location PINPOINTS to region = 1.0, previous 1
+1335385978354: Hysteresis is 0.0
+1335385978357: stay at region 1
+1335385979288: .......... GPS onLocationChanged ...... 
+1335385979289: Loc = Location[mProvider=gps,mTime=1335385980000,mLatitude=42.35806134,mLongitude=-71.09290883,mHasAltitude=true,mAltitude=-15.300000190734863,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=282.1,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385979289: GPS x/long:-71.09290883, GPS y/lat: 42.35806134. Region width in x: 20.0
+1335385979289: location PINPOINTS to region = 1.0, previous 1
+1335385979290: Hysteresis is 0.0
+1335385979290: stay at region 1
+1335385980282: .......... GPS onLocationChanged ...... 
+1335385980283: Loc = Location[mProvider=gps,mTime=1335385981000,mLatitude=42.35806883,mLongitude=-71.09292345,mHasAltitude=true,mAltitude=-15.699999809265137,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=303.7,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385980283: GPS x/long:-71.09292345, GPS y/lat: 42.35806883. Region width in x: 20.0
+1335385980283: location PINPOINTS to region = 1.0, previous 1
+1335385980284: Hysteresis is 0.0
+1335385980284: stay at region 1
+1335385980944: Received UDP payload: 446
+1335385980979: Received UDP payload: 446
+1335385980986: Received UDP payload: 446
+1335385980996: Received UDP payload: 446
+1335385981144: Received UDP payload: 463
+1335385981151: Received UDP payload: 446
+1335385981176: Received UDP payload: 446
+1335385981197: Received UDP payload: 446
+1335385981208: Received UDP payload: 446
+1335385981232: Received UDP payload: 446
+1335385981245: Received UDP payload: 446
+1335385981260: Received UDP payload: 446
+1335385981270: Received UDP payload: 446
+1335385981281: Received UDP payload: 446
+1335385981329: .......... GPS onLocationChanged ...... 
+1335385981330: Loc = Location[mProvider=gps,mTime=1335385982000,mLatitude=42.35807862,mLongitude=-71.09293525,mHasAltitude=true,mAltitude=-15.199999809265137,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385981330: GPS x/long:-71.09293525, GPS y/lat: 42.35807862. Region width in x: 20.0
+1335385981331: location PINPOINTS to region = 1.0, previous 1
+1335385981331: Hysteresis is 0.0
+1335385981331: stay at region 1
+1335385981562: Received UDP payload: 446
+1335385981564: Received UDP payload: 446
+1335385982330: .......... GPS onLocationChanged ...... 
+1335385982332: Loc = Location[mProvider=gps,mTime=1335385983000,mLatitude=42.35808494,mLongitude=-71.09294476,mHasAltitude=true,mAltitude=-15.0,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385982333: GPS x/long:-71.09294476, GPS y/lat: 42.35808494. Region width in x: 20.0
+1335385982334: location PINPOINTS to region = 1.0, previous 1
+1335385982336: Hysteresis is 0.0
+1335385982336: stay at region 1
+1335385983322: .......... GPS onLocationChanged ...... 
+1335385983323: Loc = Location[mProvider=gps,mTime=1335385984000,mLatitude=42.35809469,mLongitude=-71.0929481,mHasAltitude=true,mAltitude=-15.5,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385983323: GPS x/long:-71.0929481, GPS y/lat: 42.35809469. Region width in x: 20.0
+1335385983323: location PINPOINTS to region = 1.0, previous 1
+1335385983323: Hysteresis is 0.0
+1335385983324: stay at region 1
+1335385985189: Received UDP payload: 446
+1335385985298: .......... GPS onLocationChanged ...... 
+1335385985299: Loc = Location[mProvider=gps,mTime=1335385986000,mLatitude=42.35810983,mLongitude=-71.09295701,mHasAltitude=true,mAltitude=-16.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385985300: GPS x/long:-71.09295701, GPS y/lat: 42.35810983. Region width in x: 20.0
+1335385985300: location PINPOINTS to region = 2.0, previous 1
+1335385985300: Hysteresis is 0.0
+1335385985301: location CHANGED TO NEW region = (2,0) from region = (1,0)
+1335385985301: moving from region (1,0), to (2,0)
+1335385985303: VCoreDaemon.java inside stateTransition ..........
+1335385985303: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385985304: ..... VCoreDaemon.java targetState = JOINING
+1335385985304: posting leaderRequestRetryR because I'm joining
+1335385985305: sending LEADER_REQUEST
+1335385985305: inside sendPacket(Packet p)
+1335385985305: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385985312: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385985336: Sending UDP payload: 446
+1335385985606: sending LEADER_REQUEST
+1335385985606: inside sendPacket(Packet p)
+1335385985609: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385985618: Sending UDP payload: 446
+1335385985910: sending LEADER_REQUEST
+1335385985910: inside sendPacket(Packet p)
+1335385985911: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385985931: Sending UDP payload: 446
+1335385986211: sending LEADER_REQUEST
+1335385986212: inside sendPacket(Packet p)
+1335385986212: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385986216: Sending UDP payload: 446
+1335385986313: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385986313: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385986314: VCoreDaemon.java inside stateTransition ..........
+1335385986314: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385986314: ..... VCoreDaemon.java targetState = LEADER
+1335385986315: trying to take leadership to the cloud
+1335385986695: cloud accepted leadership request, no csm data included.
+1335385986696: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
+1335385986698: *** Starting CSM Layer ***
+1335385986698: *** CSM Layer starting with cache disabled ***
+1335385986699: *** CSM Layer starting with forwarding enabled ***
+1335385986747: DSMLayer starting
+1335385986748: UserApp started.
+1335385986749: UserApp for Camera Diploma initialized and waiting for requests.
+1335385986928: inside sendPacket(Packet p)
+1335385986930: Sending UDP payload: 22318
+1335385986934: now fully up as LEADER (id=5003) of (2,0)
+1335385986935: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385987279: .......... GPS onLocationChanged ...... 
+1335385987280: Loc = Location[mProvider=gps,mTime=1335385988000,mLatitude=42.35812066,mLongitude=-71.09296574,mHasAltitude=true,mAltitude=-15.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335385987280: GPS x/long:-71.09296574, GPS y/lat: 42.35812066. Region width in x: 20.0
+1335385987281: location PINPOINTS to region = 2.0, previous 2
+1335385987281: Hysteresis is 0.0
+1335385987281: stay at region 2
+1335385988340: inside sendPacket(Packet p)
+1335385988341: Sending UDP payload: 446
+1335385990062: Received UDP payload: 446
+1335385990083: Received UDP payload: 446
+1335385990093: Received UDP payload: 446
+1335385990132: Received UDP payload: 446
+1335385990145: Received UDP payload: 446
+1335385990157: Received UDP payload: 446
+1335385990182: Received UDP payload: 446
+1335385990263: Received UDP payload: 446
+1335385990308: Received UDP payload: 446
+1335385990323: .......... GPS onLocationChanged ...... 
+1335385990326: Loc = Location[mProvider=gps,mTime=1335385991000,mLatitude=42.35812981,mLongitude=-71.09297298,mHasAltitude=true,mAltitude=-15.600000381469727,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335385990328: GPS x/long:-71.09297298, GPS y/lat: 42.35812981. Region width in x: 20.0
+1335385990329: location PINPOINTS to region = 2.0, previous 2
+1335385990330: Hysteresis is 0.0
+1335385990331: stay at region 2
+1335385990348: Received UDP payload: 446
+1335385990353: Received UDP payload: 446
+1335385990385: Received UDP payload: 446
+1335385990416: Received UDP payload: 446
+1335385990440: Received UDP payload: 446
+1335385990447: Received UDP payload: 446
+1335385990455: Received UDP payload: 446
+1335385990468: Received UDP payload: 446
+1335385990471: Received UDP payload: 446
+1335385990518: Received UDP payload: 446
+1335385990531: Received UDP payload: 446
+1335385990554: Received UDP payload: 446
+1335385990571: Received UDP payload: 446
+1335385990680: Received UDP payload: 446
+1335385990695: Received UDP payload: 446
+1335385991436: Received UDP payload: 446
+1335385991446: Received UDP payload: 446
+1335385991467: Received UDP payload: 446
+1335385991490: Received UDP payload: 446
+1335385991522: Received UDP payload: 446
+1335385991532: Received UDP payload: 446
+1335385991542: Received UDP payload: 446
+1335385993341: inside sendPacket(Packet p)
+1335385993346: Sending UDP payload: 446
+1335385994547: Received UDP payload: 642
+1335385994551: mux: Inside Packet.SERVER_REPLY
+1335385994552: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335385994984: Received UDP payload: 7969
+1335385994986: mux: Inside Packet.SERVER_REPLY
+1335385994987: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335385995003: Received UDP payload: 642
+1335385995006: mux: Inside Packet.SERVER_REPLY
+1335385995007: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335385996323: .......... GPS onLocationChanged ...... 
+1335385996323: Loc = Location[mProvider=gps,mTime=1335385997000,mLatitude=42.35813835,mLongitude=-71.09296816,mHasAltitude=true,mAltitude=-15.800000190734863,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=6.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335385996324: GPS x/long:-71.09296816, GPS y/lat: 42.35813835. Region width in x: 20.0
+1335385996324: location PINPOINTS to region = 2.0, previous 2
+1335385996324: Hysteresis is 0.0
+1335385996324: stay at region 2
+1335385998342: inside sendPacket(Packet p)
+1335385998343: Sending UDP payload: 446
+1335385999322: .......... GPS onLocationChanged ...... 
+1335385999323: Loc = Location[mProvider=gps,mTime=1335386000000,mLatitude=42.35814701,mLongitude=-71.09296021,mHasAltitude=true,mAltitude=-16.0,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=7.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335385999324: GPS x/long:-71.09296021, GPS y/lat: 42.35814701. Region width in x: 20.0
+1335385999324: location PINPOINTS to region = 2.0, previous 2
+1335385999324: Hysteresis is 0.0
+1335385999324: stay at region 2
+1335386003320: .......... GPS onLocationChanged ...... 
+1335386003320: Loc = Location[mProvider=gps,mTime=1335386004000,mLatitude=42.35814939,mLongitude=-71.09294139,mHasAltitude=true,mAltitude=-16.100000381469727,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=7.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335386003321: GPS x/long:-71.09294139, GPS y/lat: 42.35814939. Region width in x: 20.0
+1335386003321: location PINPOINTS to region = 2.0, previous 2
+1335386003321: Hysteresis is 0.0
+1335386003321: stay at region 2
+1335386003341: inside sendPacket(Packet p)
+1335386003343: Sending UDP payload: 446
+1335386003729: Received UDP payload: 446
+1335386003733: Received UDP payload: 446
+1335386003758: Received UDP payload: 446
+1335386003772: Received UDP payload: 446
+1335386003784: Received UDP payload: 446
+1335386003795: Received UDP payload: 446
+1335386004674: Received UDP payload: 22335
+1335386004684: ignoring leader_reply that's not for me
+1335386005322: .......... GPS onLocationChanged ...... 
+1335386005323: Loc = Location[mProvider=gps,mTime=1335386006000,mLatitude=42.35815135,mLongitude=-71.0929233,mHasAltitude=true,mAltitude=-16.200000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=8.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335386005323: GPS x/long:-71.0929233, GPS y/lat: 42.35815135. Region width in x: 20.0
+1335386005323: location PINPOINTS to region = 2.0, previous 2
+1335386005323: Hysteresis is 0.0
+1335386005323: stay at region 2
+1335386006238: Received UDP payload: 22335
+1335386006247: ignoring leader_reply that's not for me
+1335386006353: .......... GPS onLocationChanged ...... 
+1335386006355: Loc = Location[mProvider=gps,mTime=1335386007000,mLatitude=42.35815006,mLongitude=-71.09291112,mHasAltitude=true,mAltitude=-16.299999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=8.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335386006356: GPS x/long:-71.09291112, GPS y/lat: 42.35815006. Region width in x: 20.0
+1335386006357: location PINPOINTS to region = 2.0, previous 2
+1335386006358: Hysteresis is 0.0
+1335386006358: stay at region 2
+1335386007451: Received UDP payload: 446
+1335386007466: Received UDP payload: 446
+1335386007478: Received UDP payload: 463
+1335386007490: Received UDP payload: 446
+1335386007499: Received UDP payload: 446
+1335386007546: Received UDP payload: 446
+1335386007559: Received UDP payload: 446
+1335386007569: Received UDP payload: 446
+1335386007581: Received UDP payload: 446
+1335386007591: Received UDP payload: 446
+1335386007606: Received UDP payload: 446
+1335386008336: .......... GPS onLocationChanged ...... 
+1335386008339: Loc = Location[mProvider=gps,mTime=1335386009000,mLatitude=42.35814478,mLongitude=-71.09289043,mHasAltitude=true,mAltitude=-16.299999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=9.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335386008340: GPS x/long:-71.09289043, GPS y/lat: 42.35814478. Region width in x: 20.0
+1335386008340: location PINPOINTS to region = 2.0, previous 2
+1335386008341: Hysteresis is 0.0
+1335386008343: inside sendPacket(Packet p)
+1335386008347: Sending UDP payload: 446
+1335386008350: stay at region 2
+1335386011232: Received UDP payload: 6773
+1335386011266: mux: Inside mux Packet.CLIENT_REQUEST
+1335386011381: .......... GPS onLocationChanged ...... 
+1335386011382: Loc = Location[mProvider=gps,mTime=1335386012000,mLatitude=42.35813404,mLongitude=-71.09289126,mHasAltitude=true,mAltitude=-16.799999237060547,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=9.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335386011382: GPS x/long:-71.09289126, GPS y/lat: 42.35813404. Region width in x: 20.0
+1335386011382: location PINPOINTS to region = 2.0, previous 2
+1335386011382: Hysteresis is 0.0
+1335386011382: stay at region 2
+1335386011487: Received UDP payload: 6773
+1335386011489: mux: Inside mux Packet.CLIENT_REQUEST
+1335386011529: Received UDP payload: 446
+1335386011543: Received UDP payload: 446
+1335386011646: Received UDP payload: 446
+1335386013323: .......... GPS onLocationChanged ...... 
+1335386013324: Loc = Location[mProvider=gps,mTime=1335386014000,mLatitude=42.35812027,mLongitude=-71.09289854,mHasAltitude=true,mAltitude=-16.799999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=9.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335386013324: GPS x/long:-71.09289854, GPS y/lat: 42.35812027. Region width in x: 20.0
+1335386013324: location PINPOINTS to region = 1.0, previous 2
+1335386013324: Hysteresis is 0.0
+1335386013324: location CHANGED TO NEW region = (1,0) from region = (2,0)
+1335386013325: moving from region (2,0), to (1,0)
+1335386013325: change state to HANDING_OFF with parameter my previous/old region = (2,0) before helping to elect new leader in it. (btw, newRegion (1,0))
+1335386013326: VCoreDaemon.java inside stateTransition ..........
+1335386013326: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386013326: ..... VCoreDaemon.java targetState = HANDING_OFF
+1335386013326: HANDING OFF setting leaderRegion = (2,0)
+1335386013327: Trying to hand off leadership
+1335386013327: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386013327: broadcasting LEADER_ELECT to old (2,0)
+1335386013327: inside sendPacket(Packet p)
+1335386013328: Sending UDP payload: 463
+1335386013345: inside sendPacket(Packet p)
+1335386013346: Sending UDP payload: 446
+1335386014325: .......... GPS onLocationChanged ...... 
+1335386014327: Loc = Location[mProvider=gps,mTime=1335386015000,mLatitude=42.35811266,mLongitude=-71.09290575,mHasAltitude=true,mAltitude=-16.799999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=true,mBearing=307.6,mHasAccuracy=true,mAccuracy=9.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386014328: GPS x/long:-71.09290575, GPS y/lat: 42.35811266. Region width in x: 20.0
+1335386014329: INSIDE ELECT CANDIDATE
+1335386014331: CANDIDATE SIZE is 0
+1335386014332: UserApp stopped.
+1335386014332: DSMLayer stopped
+1335386014334: serializing DSMLayer to JSON
+1335386014341: location PINPOINTS to region = 1.0, previous 1
+1335386014342: Hysteresis is 0.0
+1335386014343: stay at region 1
+1335386014993: old region empty, uploaded state to cloud in 658ms as json 1307 bytes
+1335386015002: VCoreDaemon.java inside stateTransition ..........
+1335386015003: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386015003: ..... VCoreDaemon.java targetState = JOINING
+1335386015003: posting leaderRequestRetryR because I'm joining
+1335386015004: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386015004: sending LEADER_REQUEST
+1335386015005: inside sendPacket(Packet p)
+1335386015019: Sending UDP payload: 446
+1335386015020: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386015321: sending LEADER_REQUEST
+1335386015321: inside sendPacket(Packet p)
+1335386015321: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386015322: Sending UDP payload: 446
+1335386015621: sending LEADER_REQUEST
+1335386015622: inside sendPacket(Packet p)
+1335386015622: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386015623: Sending UDP payload: 446
+1335386015900: Received UDP payload: 22335
+1335386015916: removing leaderRequestRetryR because heard Packet.Leader_reply
+1335386015917: heard LEADER_REPLY from 5012
+1335386015917: VCoreDaemon.java inside stateTransition ..........
+1335386015918: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386015918: ..... VCoreDaemon.java targetState = NONLEADER
+1335386015928: DSMLayer stopped
+1335386015930: now NONLEADER (id=5003) following LEADER (id=5012) in (1,0)
+1335386015944: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386015945: Received UDP payload: 446
+1335386015958: Received UDP payload: 463
+1335386015966: heard LEADER_ELECT from node 5012, responding LEADER_NOMINATE
+1335386015966: inside sendPacket(Packet p)
+1335386015967: Sending UDP payload: 446
+1335386015972: Received UDP payload: 446
+1335386015974: Received UDP payload: 446
+1335386015976: Received UDP payload: 446
+1335386015985: Received UDP payload: 446
+1335386016068: Received UDP payload: 446
+1335386016111: Received UDP payload: 446
+1335386016291: .......... GPS onLocationChanged ...... 
+1335386016292: Loc = Location[mProvider=gps,mTime=1335386017000,mLatitude=42.35809253,mLongitude=-71.09291757,mHasAltitude=true,mAltitude=-16.799999237060547,mHasSpeed=true,mSpeed=0.75,mHasBearing=true,mBearing=195.4,mHasAccuracy=true,mAccuracy=9.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386016292: GPS x/long:-71.09291757, GPS y/lat: 42.35809253. Region width in x: 20.0
+1335386016292: location PINPOINTS to region = 1.0, previous 1
+1335386016292: Hysteresis is 0.0
+1335386016292: stay at region 1
+1335386016316: Received UDP payload: 6583
+1335386016320: mux: Inside mux Packet.CLIENT_REQUEST
+1335386016320: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386017324: .......... GPS onLocationChanged ...... 
+1335386017325: Loc = Location[mProvider=gps,mTime=1335386018000,mLatitude=42.35807497,mLongitude=-71.09292239,mHasAltitude=true,mAltitude=-16.799999237060547,mHasSpeed=true,mSpeed=1.25,mHasBearing=true,mBearing=185.9,mHasAccuracy=true,mAccuracy=9.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386017325: GPS x/long:-71.09292239, GPS y/lat: 42.35807497. Region width in x: 20.0
+1335386017325: location PINPOINTS to region = 1.0, previous 1
+1335386017325: Hysteresis is 0.0
+1335386017325: stay at region 1
+1335386018331: .......... GPS onLocationChanged ...... 
+1335386018333: Loc = Location[mProvider=gps,mTime=1335386019000,mLatitude=42.35805698,mLongitude=-71.09292994,mHasAltitude=true,mAltitude=-16.799999237060547,mHasSpeed=true,mSpeed=1.25,mHasBearing=true,mBearing=189.7,mHasAccuracy=true,mAccuracy=10.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386018335: GPS x/long:-71.09292994, GPS y/lat: 42.35805698. Region width in x: 20.0
+1335386018336: location PINPOINTS to region = 1.0, previous 1
+1335386018337: Hysteresis is 0.0
+1335386018338: stay at region 1
+1335386019325: .......... GPS onLocationChanged ...... 
+1335386019325: Loc = Location[mProvider=gps,mTime=1335386020000,mLatitude=42.35804103,mLongitude=-71.09293559,mHasAltitude=true,mAltitude=-16.799999237060547,mHasSpeed=true,mSpeed=1.25,mHasBearing=true,mBearing=191.2,mHasAccuracy=true,mAccuracy=10.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386019326: GPS x/long:-71.09293559, GPS y/lat: 42.35804103. Region width in x: 20.0
+1335386019326: location PINPOINTS to region = 1.0, previous 1
+1335386019326: Hysteresis is 0.0
+1335386019326: stay at region 1
+1335386020324: .......... GPS onLocationChanged ...... 
+1335386020325: Loc = Location[mProvider=gps,mTime=1335386021000,mLatitude=42.35802444,mLongitude=-71.09294113,mHasAltitude=true,mAltitude=-16.799999237060547,mHasSpeed=true,mSpeed=1.25,mHasBearing=true,mBearing=192.4,mHasAccuracy=true,mAccuracy=11.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386020325: GPS x/long:-71.09294113, GPS y/lat: 42.35802444. Region width in x: 20.0
+1335386020325: location PINPOINTS to region = 1.0, previous 1
+1335386020325: Hysteresis is 0.0
+1335386020325: stay at region 1
+1335386021327: .......... GPS onLocationChanged ...... 
+1335386021329: Loc = Location[mProvider=gps,mTime=1335386022000,mLatitude=42.35800804,mLongitude=-71.09294605,mHasAltitude=true,mAltitude=-16.799999237060547,mHasSpeed=true,mSpeed=1.25,mHasBearing=true,mBearing=191.7,mHasAccuracy=true,mAccuracy=12.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386021331: GPS x/long:-71.09294605, GPS y/lat: 42.35800804. Region width in x: 20.0
+1335386021332: location PINPOINTS to region = 1.0, previous 1
+1335386021332: Hysteresis is 0.0
+1335386021333: stay at region 1
+1335386022366: .......... GPS onLocationChanged ...... 
+1335386022366: Loc = Location[mProvider=gps,mTime=1335386023000,mLatitude=42.35798291,mLongitude=-71.09294538,mHasAltitude=true,mAltitude=-19.399999618530273,mHasSpeed=true,mSpeed=1.5,mHasBearing=true,mBearing=185.5,mHasAccuracy=true,mAccuracy=12.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386022366: GPS x/long:-71.09294538, GPS y/lat: 42.35798291. Region width in x: 20.0
+1335386022367: location PINPOINTS to region = 1.0, previous 1
+1335386022367: Hysteresis is 0.0
+1335386022367: stay at region 1
+1335386023072: Received UDP payload: 6642
+1335386023082: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023082: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386023256: Received UDP payload: 6642
+1335386023265: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023266: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386023277: Received UDP payload: 446
+1335386023296: Received UDP payload: 446
+1335386023302: Received UDP payload: 625
+1335386023309: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023309: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386023427: .......... GPS onLocationChanged ...... 
+1335386023430: Loc = Location[mProvider=gps,mTime=1335386024000,mLatitude=42.35796126,mLongitude=-71.09294353,mHasAltitude=true,mAltitude=-19.299999237060547,mHasSpeed=true,mSpeed=1.5,mHasBearing=true,mBearing=181.5,mHasAccuracy=true,mAccuracy=13.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386023432: GPS x/long:-71.09294353, GPS y/lat: 42.35796126. Region width in x: 20.0
+1335386023433: location PINPOINTS to region = 1.0, previous 1
+1335386023434: Hysteresis is 0.0
+1335386023435: stay at region 1
+1335386023520: Received UDP payload: 4148
+1335386023522: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023522: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386023580: Received UDP payload: 4148
+1335386023583: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023583: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386023593: Received UDP payload: 625
+1335386023595: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023595: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386023878: Received UDP payload: 625
+1335386023880: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023880: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386023894: Received UDP payload: 625
+1335386023896: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023896: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386023906: Received UDP payload: 625
+1335386023908: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023908: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386023918: Received UDP payload: 625
+1335386023919: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023920: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386023926: Received UDP payload: 625
+1335386023928: mux: Inside mux Packet.CLIENT_REQUEST
+1335386023928: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386024007: Received UDP payload: 625
+1335386024008: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024009: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386024020: Received UDP payload: 625
+1335386024023: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024024: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386024058: Received UDP payload: 446
+1335386024078: Received UDP payload: 446
+1335386024082: Received UDP payload: 446
+1335386024090: Received UDP payload: 446
+1335386024101: Received UDP payload: 446
+1335386024129: Received UDP payload: 446
+1335386024140: Received UDP payload: 446
+1335386024150: Received UDP payload: 446
+1335386024172: Received UDP payload: 446
+1335386024189: Received UDP payload: 625
+1335386024192: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024192: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386024204: Received UDP payload: 625
+1335386024207: mux: Inside mux Packet.CLIENT_REQUEST
+1335386024208: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335386024213: Received UDP payload: 446
+1335386024257: Received UDP payload: 446
+1335386024272: Received UDP payload: 446
+1335386024280: Received UDP payload: 446
+1335386024290: Received UDP payload: 446
+1335386024305: .......... GPS onLocationChanged ...... 
+1335386024306: Loc = Location[mProvider=gps,mTime=1335386025000,mLatitude=42.35793918,mLongitude=-71.09294403,mHasAltitude=true,mAltitude=-19.5,mHasSpeed=true,mSpeed=1.5,mHasBearing=true,mBearing=185.0,mHasAccuracy=true,mAccuracy=15.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386024306: GPS x/long:-71.09294403, GPS y/lat: 42.35793918. Region width in x: 20.0
+1335386024307: Received UDP payload: 446
+1335386024308: location PINPOINTS to region = 1.0, previous 1
+1335386024308: Hysteresis is 0.0
+1335386024312: stay at region 1
+1335386024356: Received UDP payload: 446
+1335386024361: Received UDP payload: 446
+1335386024383: Received UDP payload: 446
+1335386024390: Received UDP payload: 446
+1335386024420: Received UDP payload: 446
+1335386024718: Received UDP payload: 446
+1335386024750: Received UDP payload: 446
+1335386024759: Received UDP payload: 446
+1335386024776: Received UDP payload: 446
+1335386024791: Received UDP payload: 446
+1335386024921: Received UDP payload: 446
+1335386024949: Received UDP payload: 446
+1335386024963: Received UDP payload: 446
+1335386025075: Received UDP payload: 446
+1335386025096: Received UDP payload: 446
+1335386025130: Received UDP payload: 446
+1335386025157: Received UDP payload: 446
+1335386025169: Received UDP payload: 446
+1335386025178: Received UDP payload: 446
+1335386025189: Received UDP payload: 446
+1335386025199: Received UDP payload: 446
+1335386025213: Received UDP payload: 446
+1335386025312: .......... GPS onLocationChanged ...... 
+1335386025314: Loc = Location[mProvider=gps,mTime=1335386026000,mLatitude=42.35791797,mLongitude=-71.09294395,mHasAltitude=true,mAltitude=-19.600000381469727,mHasSpeed=true,mSpeed=1.5,mHasBearing=true,mBearing=184.0,mHasAccuracy=true,mAccuracy=17.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386025314: GPS x/long:-71.09294395, GPS y/lat: 42.35791797. Region width in x: 20.0
+1335386025314: location PINPOINTS to region = 0.0, previous 1
+1335386025315: Hysteresis is 0.0
+1335386025315: location CHANGED TO NEW region = (0,0) from region = (1,0)
+1335386025316: moving from region (1,0), to (0,0)
+1335386025316: VCoreDaemon.java inside stateTransition ..........
+1335386025316: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386025316: ..... VCoreDaemon.java targetState = JOINING
+1335386025316: posting leaderRequestRetryR because I'm joining
+1335386025317: sending LEADER_REQUEST
+1335386025317: inside sendPacket(Packet p)
+1335386025318: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386025320: Sending UDP payload: 446
+1335386025322: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386025619: sending LEADER_REQUEST
+1335386025619: inside sendPacket(Packet p)
+1335386025619: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386025621: Sending UDP payload: 446
+1335386025798: Received UDP payload: 625
+1335386025802: mux: Inside mux Packet.CLIENT_REQUEST
+1335386025836: Received UDP payload: 625
+1335386025842: mux: Inside mux Packet.CLIENT_REQUEST
+1335386025853: Received UDP payload: 625
+1335386025858: mux: Inside mux Packet.CLIENT_REQUEST
+1335386025859: Received UDP payload: 446
+1335386025891: Received UDP payload: 4772
+1335386025893: mux: Inside mux Packet.CLIENT_REQUEST
+1335386025920: sending LEADER_REQUEST
+1335386025920: inside sendPacket(Packet p)
+1335386025920: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386025921: Sending UDP payload: 446
+1335386026129: Received UDP payload: 446
+1335386026135: Received UDP payload: 446
+1335386026146: Received UDP payload: 446
+1335386026154: Received UDP payload: 446
+1335386026196: Received UDP payload: 4772
+1335386026198: mux: Inside mux Packet.CLIENT_REQUEST
+1335386026221: sending LEADER_REQUEST
+1335386026221: inside sendPacket(Packet p)
+1335386026221: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386026222: Sending UDP payload: 446
+1335386026280: .......... GPS onLocationChanged ...... 
+1335386026281: Loc = Location[mProvider=gps,mTime=1335386027000,mLatitude=42.35790584,mLongitude=-71.09294543,mHasAltitude=true,mAltitude=-20.0,mHasSpeed=true,mSpeed=1.25,mHasBearing=true,mBearing=186.3,mHasAccuracy=true,mAccuracy=18.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386026282: GPS x/long:-71.09294543, GPS y/lat: 42.35790584. Region width in x: 20.0
+1335386026282: location PINPOINTS to region = 0.0, previous 0
+1335386026282: Hysteresis is 0.0
+1335386026282: stay at region 0
+1335386026322: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335386026322: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335386026323: VCoreDaemon.java inside stateTransition ..........
+1335386026323: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386026323: ..... VCoreDaemon.java targetState = LEADER
+1335386026323: trying to take leadership to the cloud
+1335386026642: cloud rejected leadership request or request failed, wait to retry
+1335386026998: canPressButton = false. state is + 1 Can't press button because you're in a transient state (JOINING or HANDING_OFF)
+1335386027015: can't press camera button yet
+1335386027107: Received UDP payload: 4772
+1335386027108: mux: Inside mux Packet.CLIENT_REQUEST
+1335386027288: .......... GPS onLocationChanged ...... 
+1335386027288: Loc = Location[mProvider=gps,mTime=1335386028000,mLatitude=42.35789709,mLongitude=-71.09295084,mHasAltitude=true,mAltitude=-19.5,mHasSpeed=true,mSpeed=1.25,mHasBearing=true,mBearing=190.2,mHasAccuracy=true,mAccuracy=19.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386027289: GPS x/long:-71.09295084, GPS y/lat: 42.35789709. Region width in x: 20.0
+1335386027289: location PINPOINTS to region = 0.0, previous 0
+1335386027289: Hysteresis is 0.0
+1335386027289: stay at region 0
+1335386027592: Received UDP payload: 18625
+1335386027639: Received UDP payload: 446
+1335386027659: mux: Inside Packet.SERVER_REPLY
+1335386027659: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386028103: Received UDP payload: 18625
+1335386029235: Received UDP payload: 18625
+1335386029583: Received UDP payload: 18625
+1335386029604: Received UDP payload: 642
+1335386029609: mux: Inside Packet.SERVER_REPLY
+1335386029610: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386029625: Received UDP payload: 642
+1335386029630: mux: Inside Packet.SERVER_REPLY
+1335386029631: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386029631: Received UDP payload: 446
+1335386029642: mux: Inside Packet.SERVER_REPLY
+1335386029642: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386029643: Received UDP payload: 989
+1335386029667: mux: GOT CSM_Msg
+1335386029678: Received UDP payload: 446
+1335386029681: mux: Inside Packet.SERVER_REPLY
+1335386029681: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386029688: Received UDP payload: 446
+1335386029691: mux: Inside Packet.SERVER_REPLY
+1335386029692: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386029712: Received UDP payload: 446
+1335386029716: mux: Inside Packet.SERVER_REPLY
+1335386029716: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386029717: Received UDP payload: 446
+1335386029721: mux: Inside Packet.SERVER_REPLY
+1335386029721: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386029724: Received UDP payload: 642
+1335386029728: mux: Inside Packet.SERVER_REPLY
+1335386029729: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386029769: Received UDP payload: 989
+1335386029782: mux: GOT CSM_Msg
+1335386029892: Received UDP payload: 446
+1335386029896: mux: Inside Packet.SERVER_REPLY
+1335386029896: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386030025: Received UDP payload: 7295
+1335386030031: mux: Inside Packet.SERVER_REPLY
+1335386030031: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386030183: Received UDP payload: 7295
+1335386030193: mux: Inside Packet.SERVER_REPLY
+1335386030193: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386030203: Received UDP payload: 989
+1335386030213: mux: GOT CSM_Msg
+1335386030224: Received UDP payload: 989
+1335386030241: mux: GOT CSM_Msg
+1335386030338: Received UDP payload: 7295
+1335386030347: mux: Inside Packet.SERVER_REPLY
+1335386030347: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386030376: Received UDP payload: 989
+1335386030387: mux: GOT CSM_Msg
+1335386030388: Received UDP payload: 989
+1335386030398: mux: GOT CSM_Msg
+1335386030399: Received UDP payload: 989
+1335386030446: mux: GOT CSM_Msg
+1335386030503: Received UDP payload: 7295
+1335386030512: mux: Inside Packet.SERVER_REPLY
+1335386030512: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386030514: Received UDP payload: 989
+1335386030528: mux: GOT CSM_Msg
+1335386030529: Received UDP payload: 989
+1335386030538: mux: GOT CSM_Msg
+1335386030579: Received UDP payload: 989
+1335386030597: mux: GOT CSM_Msg
+1335386030598: Received UDP payload: 989
+1335386030608: mux: GOT CSM_Msg
+1335386030618: Received UDP payload: 989
+1335386030637: mux: GOT CSM_Msg
+1335386030650: Received UDP payload: 989
+1335386030652: mux: GOT CSM_Msg
+1335386030667: Received UDP payload: 989
+1335386030669: mux: GOT CSM_Msg
+1335386030690: Received UDP payload: 989
+1335386030693: mux: GOT CSM_Msg
+1335386030714: Received UDP payload: 989
+1335386030718: mux: GOT CSM_Msg
+1335386030800: Received UDP payload: 989
+1335386030803: mux: GOT CSM_Msg
+1335386030804: Received UDP payload: 642
+1335386030806: mux: Inside Packet.SERVER_REPLY
+1335386030806: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386030807: Received UDP payload: 642
+1335386030815: mux: Inside Packet.SERVER_REPLY
+1335386030816: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386030816: Received UDP payload: 642
+1335386030819: mux: Inside Packet.SERVER_REPLY
+1335386030819: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386030954: Received UDP payload: 642
+1335386030956: mux: Inside Packet.SERVER_REPLY
+1335386030956: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386030962: Received UDP payload: 446
+1335386031024: Received UDP payload: 446
+1335386031117: Received UDP payload: 7414
+1335386031120: mux: GOT CSM_Msg
+1335386031125: Received UDP payload: 446
+1335386031126: mux: Inside Packet.SERVER_REPLY
+1335386031127: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031161: Received UDP payload: 989
+1335386031164: mux: GOT CSM_Msg
+1335386031168: Received UDP payload: 642
+1335386031170: mux: Inside Packet.SERVER_REPLY
+1335386031170: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031189: Received UDP payload: 446
+1335386031191: mux: Inside Packet.SERVER_REPLY
+1335386031191: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031198: Received UDP payload: 446
+1335386031200: mux: Inside Packet.SERVER_REPLY
+1335386031200: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031211: Received UDP payload: 642
+1335386031214: mux: Inside Packet.SERVER_REPLY
+1335386031214: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031218: Received UDP payload: 446
+1335386031220: mux: Inside Packet.SERVER_REPLY
+1335386031220: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031225: Received UDP payload: 446
+1335386031250: Received UDP payload: 642
+1335386031255: mux: Inside Packet.SERVER_REPLY
+1335386031255: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031269: Received UDP payload: 642
+1335386031270: mux: Inside Packet.SERVER_REPLY
+1335386031271: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031271: Received UDP payload: 446
+1335386031284: Received UDP payload: 989
+1335386031287: mux: GOT CSM_Msg
+1335386031293: Received UDP payload: 446
+1335386031300: Received UDP payload: 446
+1335386031308: Received UDP payload: 446
+1335386031314: Received UDP payload: 446
+1335386031318: Received UDP payload: 446
+1335386031323: Received UDP payload: 446
+1335386031334: Received UDP payload: 446
+1335386031346: Received UDP payload: 989
+1335386031351: mux: GOT CSM_Msg
+1335386031461: Received UDP payload: 9114
+1335386031465: mux: GOT CSM_Msg
+1335386031475: Received UDP payload: 446
+1335386031489: Received UDP payload: 446
+1335386031576: Received UDP payload: 5389
+1335386031579: mux: GOT CSM_Msg
+1335386031594: Received UDP payload: 446
+1335386031598: mux: Inside Packet.SERVER_REPLY
+1335386031598: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031608: Received UDP payload: 989
+1335386031612: mux: GOT CSM_Msg
+1335386031624: Received UDP payload: 642
+1335386031627: mux: Inside Packet.SERVER_REPLY
+1335386031627: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031631: Received UDP payload: 642
+1335386031634: mux: Inside Packet.SERVER_REPLY
+1335386031635: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031648: Received UDP payload: 642
+1335386031650: mux: Inside Packet.SERVER_REPLY
+1335386031650: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031666: Received UDP payload: 446
+1335386031820: Received UDP payload: 642
+1335386031822: mux: Inside Packet.SERVER_REPLY
+1335386031822: mux: Ignoring SERVER_REPLY since it's not for me  5003
+1335386031828: Received UDP payload: 446
+1335386031861: Received UDP payload: 446
+1335386031908: Received UDP payload: 989
+1335386031911: mux: GOT CSM_Msg
+1335386031922: Received UDP payload: 989
+1335386031925: mux: GOT CSM_Msg
+1335386032077: Received UDP payload: 989
+1335386032080: mux: GOT CSM_Msg
+1335386032081: Received UDP payload: 989
+1335386032083: mux: GOT CSM_Msg
+1335386032128: Received UDP payload: 989
+1335386032131: mux: GOT CSM_Msg
+1335386032399: Received UDP payload: 989
+1335386032412: mux: GOT CSM_Msg
+1335386032426: Received UDP payload: 989
+1335386032432: mux: GOT CSM_Msg
+1335386033221: Received UDP payload: 989
+1335386033236: mux: GOT CSM_Msg
+1335386033259: Received UDP payload: 989
+1335386033268: mux: GOT CSM_Msg
+1335386033268: Received UDP payload: 989
+1335386033270: mux: GOT CSM_Msg
+1335386033403: Received UDP payload: 989
+1335386033406: mux: GOT CSM_Msg
+1335386033477: Received UDP payload: 989
+1335386033480: mux: GOT CSM_Msg
+1335386033488: Received UDP payload: 989
+1335386033491: mux: GOT CSM_Msg
+1335386033510: Received UDP payload: 989
+1335386033512: mux: GOT CSM_Msg
+1335386033520: Received UDP payload: 989
+1335386033523: mux: GOT CSM_Msg
+1335386033537: Received UDP payload: 989
+1335386033539: mux: GOT CSM_Msg
+1335386033548: Received UDP payload: 446
+1335386033557: Received UDP payload: 989
+1335386033560: mux: GOT CSM_Msg
+1335386033567: Received UDP payload: 989
+1335386033570: mux: GOT CSM_Msg
+1335386033577: Received UDP payload: 989
+1335386033580: mux: GOT CSM_Msg
+1335386033590: Received UDP payload: 989
+1335386033593: mux: GOT CSM_Msg
+1335386033622: Received UDP payload: 989
+1335386033625: mux: GOT CSM_Msg
+1335386033631: Received UDP payload: 989
+1335386033635: mux: GOT CSM_Msg
+1335386033647: Received UDP payload: 989
+1335386033650: mux: GOT CSM_Msg
+1335386033673: Received UDP payload: 989
+1335386033677: mux: GOT CSM_Msg
+1335386033678: Received UDP payload: 989
+1335386033685: mux: GOT CSM_Msg
+1335386033712: Received UDP payload: 989
+1335386033715: mux: GOT CSM_Msg
+1335386033740: Received UDP payload: 989
+1335386033744: mux: GOT CSM_Msg
+1335386033743: Received UDP payload: 989
+1335386033757: mux: GOT CSM_Msg
+1335386033783: Received UDP payload: 989
+1335386033787: mux: GOT CSM_Msg
+1335386033802: Received UDP payload: 989
+1335386033805: mux: GOT CSM_Msg
+1335386033818: Received UDP payload: 989
+1335386033821: mux: GOT CSM_Msg
+1335386033828: Received UDP payload: 989
+1335386033831: mux: GOT CSM_Msg
+1335386033842: Received UDP payload: 989
+1335386033845: mux: GOT CSM_Msg
+1335386033919: Received UDP payload: 5389
+1335386033922: mux: GOT CSM_Msg
+1335386033929: Received UDP payload: 446
+1335386033942: Received UDP payload: 446
+1335386034236: Received UDP payload: 20790
+1335386034336: .......... GPS onLocationChanged ...... 
+1335386034340: Loc = Location[mProvider=gps,mTime=1335386035000,mLatitude=42.35790818,mLongitude=-71.09296147,mHasAltitude=true,mAltitude=-19.899999618530273,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=191.2,mHasAccuracy=true,mAccuracy=14.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386034341: GPS x/long:-71.09296147, GPS y/lat: 42.35790818. Region width in x: 20.0
+1335386034342: location PINPOINTS to region = 0.0, previous 0
+1335386034342: Hysteresis is 0.0
+1335386034343: stay at region 0
+1335386034528: Received UDP payload: 20790
+1335386034903: Received UDP payload: 20790
+1335386035260: Received UDP payload: 20790
+1335386036330: .......... GPS onLocationChanged ...... 
+1335386036331: Loc = Location[mProvider=gps,mTime=1335386037000,mLatitude=42.35792298,mLongitude=-71.09296259,mHasAltitude=true,mAltitude=-20.299999237060547,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=191.2,mHasAccuracy=true,mAccuracy=10.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335386036331: GPS x/long:-71.09296259, GPS y/lat: 42.35792298. Region width in x: 20.0
+1335386036331: location PINPOINTS to region = 1.0, previous 0
+1335386036331: Hysteresis is 0.0
+1335386036332: location CHANGED TO NEW region = (1,0) from region = (0,0)
+1335386036332: moving from region (0,0), to (1,0)
+1335386036332: VCoreDaemon.java inside stateTransition ..........
+1335386036332: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386036332: ..... VCoreDaemon.java targetState = JOINING
+1335386036332: posting leaderRequestRetryR because I'm joining
+1335386036333: sending LEADER_REQUEST
+1335386036333: inside sendPacket(Packet p)
+1335386036333: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386036334: Sending UDP payload: 446
+1335386036335: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335386036499: Received UDP payload: 3807
+1335386036501: mux: Inside mux Packet.CLIENT_REQUEST
+1335386036553: Received UDP payload: 3807
+1335386036555: mux: Inside mux Packet.CLIENT_REQUEST
+1335386036633: sending LEADER_REQUEST
+1335386036634: inside sendPacket(Packet p)
+1335386036634: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386036635: Sending UDP payload: 446
+1335386036683: Received UDP payload: 446
+1335386036688: Received UDP payload: 446
+1335386036700: Received UDP payload: 446
+1335386036704: Received UDP payload: 446
+1335386036724: Received UDP payload: 625
+1335386036727: mux: Inside mux Packet.CLIENT_REQUEST
+1335386036727: Received UDP payload: 625
+1335386036729: mux: Inside mux Packet.CLIENT_REQUEST
+1335386036745: Received UDP payload: 625
+1335386036748: mux: Inside mux Packet.CLIENT_REQUEST
+1335386036751: Received UDP payload: 625
+1335386036753: mux: Inside mux Packet.CLIENT_REQUEST
+1335386036770: Received UDP payload: 446
+1335386036785: Received UDP payload: 446
+1335386036795: Received UDP payload: 446
+1335386036805: Received UDP payload: 446
+1335386036890: Received UDP payload: 4089
+1335386036894: mux: Inside mux Packet.CLIENT_REQUEST
+1335386036934: sending LEADER_REQUEST
+1335386036934: inside sendPacket(Packet p)
+1335386036934: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386036951: Sending UDP payload: 446
+1335386036962: Received UDP payload: 4089
+1335386036967: mux: Inside mux Packet.CLIENT_REQUEST
+1335386037168: Received UDP payload: 4089
+1335386037175: mux: Inside mux Packet.CLIENT_REQUEST
+1335386037232: Received UDP payload: 4089
+1335386037235: sending LEADER_REQUEST
+1335386037235: inside sendPacket(Packet p)
+1335386037236: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335386037244: mux: Inside mux Packet.CLIENT_REQUEST
+1335386037243: Sending UDP payload: 446
+1335386037246: Received UDP payload: 446
+1335386037252: Received UDP payload: 446
+1335386037335: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335386037335: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335386037335: VCoreDaemon.java inside stateTransition ..........
+1335386037336: removing leaderRequestRetryR because I'm doing a stateTransition
+1335386037336: ..... VCoreDaemon.java targetState = LEADER
+1335386037336: trying to take leadership to the cloud
+1335386037552: Received UDP payload: 446
+1335386037554: Received UDP payload: 446
+1335386038409: .......... GPS onLocationChanged ...... 
+1335386038412: Loc = Location[mProvider=gps,mTime=1335386039000,mLatitude=42.35793962,mLongitude=-71.09296604,mHasAltitude=true,mAltitude=-21.0,mHasSpeed=true,mSpeed=0.25,mHasBearing=true,mBearing=191.2,mHasAccuracy=true,mAccuracy=8.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335386038413: GPS x/long:-71.09296604, GPS y/lat: 42.35793962. Region width in x: 20.0
+1335386038414: location PINPOINTS to region = 1.0, previous 1
+1335386038415: Hysteresis is 0.0
+1335386038416: stay at region 1
+1335386038919: cloud accepted leadership request, returned csm bytes size 12737
+1335386038927: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
+1335386038928: *** Starting CSM Layer ***
+1335386038928: *** CSM Layer starting with cache disabled ***
+1335386038929: *** CSM Layer starting with forwarding enabled ***
+1335386039296: Received UDP payload: 446
+1335386039363: Received UDP payload: 4445
+1335386039366: mux: Inside mux Packet.CLIENT_REQUEST
+1335386039366: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335386039366: mux: vncDaemon.csm.userApp is null
+1335386039382: HI I'm in ONPAUSE()
+1335386045129: .......... GPS onLocationChanged ...... 
+1335386045134: .......... GPS onLocationChanged ...... 
+1335386045138: .......... GPS onLocationChanged ...... 
+1335386045156: inside onDestroy()

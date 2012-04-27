@@ -1,0 +1,120 @@
+1335378836151: *** Opened log file for writing ***
+1335378836152: Android build: Nexus S
+1335378836152: NET_NAME set to: wlan0
+1335378836153: starting Mux with id = -1
+1335378836154: areButtonsEnabled --> true
+1335378836156: *** Application started ***
+1335378836156: HI I'm in ONRESUME()
+1335378836161: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1335378836171: mux: Mux.java run() beginning -------------
+1335378836195: mux: Mux.java's nodeId is5117
+1335378836195: mux: starting vncDaemon ........
+1335378836201: mux: vncDaemon started
+1335378836196: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1335378836202: VCoreDaemon.java onStart() ....
+1335378836205: started, mId = 5117
+1335378836206: VCoreDaemon.java inside stateTransition ..........
+1335378836206: removing leaderRequestRetryR because I'm doing a stateTransition
+1335378836206: ..... VCoreDaemon.java out of bounds
+1335378836206: region (-1, -1) out of bounds, dormant
+1335378836206: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335378839735: moving from region (-1,-1), to (1,0)
+1335378839736: VCoreDaemon.java inside stateTransition ..........
+1335378839736: removing leaderRequestRetryR because I'm doing a stateTransition
+1335378839736: ..... VCoreDaemon.java targetState = JOINING
+1335378839737: posting leaderRequestRetryR because I'm joining
+1335378839737: sending LEADER_REQUEST
+1335378839737: inside sendPacket(Packet p)
+1335378839737: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335378839738: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335378839750: Sending UDP payload: 446
+1335378840037: sending LEADER_REQUEST
+1335378840038: inside sendPacket(Packet p)
+1335378840039: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335378840046: Sending UDP payload: 446
+1335378840193: Received UDP payload: 22335
+1335378840202: removing leaderRequestRetryR because heard Packet.Leader_reply
+1335378840202: heard LEADER_REPLY from 5118
+1335378840202: VCoreDaemon.java inside stateTransition ..........
+1335378840202: removing leaderRequestRetryR because I'm doing a stateTransition
+1335378840209: ..... VCoreDaemon.java targetState = NONLEADER
+1335378840209: now NONLEADER (id=5117) following LEADER (id=5118) in (1,0)
+1335378840209: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335378840515: Received UDP payload: 22335
+1335378840586: ignoring leader_reply that's not for me
+1335378841048: Received UDP payload: 446
+1335378844311: Received UDP payload: 463
+1335378844346: heard LEADER_ELECT from node 5118, responding LEADER_NOMINATE
+1335378844347: inside sendPacket(Packet p)
+1335378844352: Sending UDP payload: 446
+1335378845784: Received UDP payload: 22335
+1335378845792: received LEADER_CONFIRM from 5118, replying LEADER_CONFIRM_ACK
+1335378845793: inside sendPacket(Packet p)
+1335378845793: waiting to give old leader time to release
+1335378845802: Sending UDP payload: 463
+1335378847492: Received UDP payload: 446
+1335378847827: Received UDP payload: 446
+1335378848129: Received UDP payload: 446
+1335378848426: Received UDP payload: 446
+1335378849795: VCoreDaemon.java inside stateTransition ..........
+1335378849796: removing leaderRequestRetryR because I'm doing a stateTransition
+1335378849797: ..... VCoreDaemon.java targetState = LEADER
+1335378849797: trying to take leadership to the cloud
+1335378850755: Received UDP payload: 22318
+1335378851107: cloud accepted leadership request, no csm data included.
+1335378851115: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
+1335378851116: *** Starting CSM Layer ***
+1335378851116: *** CSM Layer starting with cache disabled ***
+1335378851117: *** CSM Layer starting with forwarding enabled ***
+1335378851433: DSMLayer starting
+1335378851439: UserApp started.
+1335378851442: loaded csm data from old leader
+1335378851620: inside sendPacket(Packet p)
+1335378851629: Sending UDP payload: 22318
+1335378851643: now fully up as LEADER (id=5117) of (1,0)
+1335378851643: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335378851644: ignoring leader_reply that's not for me
+1335378851644: inside sendPacket(Packet p)
+1335378851645: Sending UDP payload: 446
+1335378852518: Received UDP payload: 446
+1335378856647: inside sendPacket(Packet p)
+1335378856663: Sending UDP payload: 446
+1335378861649: inside sendPacket(Packet p)
+1335378861670: Sending UDP payload: 446
+1335378862494: Received UDP payload: 446
+1335378866655: inside sendPacket(Packet p)
+1335378866677: Sending UDP payload: 446
+1335378867481: Received UDP payload: 446
+1335378871660: inside sendPacket(Packet p)
+1335378871687: Sending UDP payload: 446
+1335378872496: Received UDP payload: 446
+1335378874724: .......... GPS onLocationChanged ...... 
+1335378874727: Loc = Location[mProvider=gps,mTime=1335465276000,mLatitude=42.358381915220946,mLongitude=-71.09258389784596,mHasAltitude=true,mAltitude=-22.0,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=40.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335378874728: GPS x/long:-71.09258389784596, GPS y/lat: 42.358381915220946. Region width in x: 20.0
+1335378874728: location PINPOINTS to region = 2.0, previous 1
+1335378874728: Hysteresis is 0.0
+1335378874728: location CHANGED TO NEW region = (2,0) from region = (1,0)
+1335378874737: moving from region (1,0), to (2,0)
+1335378874738: change state to HANDING_OFF with parameter my previous/old region = (1,0) before helping to elect new leader in it. (btw, newRegion (2,0))
+1335378874738: VCoreDaemon.java inside stateTransition ..........
+1335378874738: removing leaderRequestRetryR because I'm doing a stateTransition
+1335378874738: ..... VCoreDaemon.java targetState = HANDING_OFF
+1335378874739: HANDING OFF setting leaderRegion = (1,0)
+1335378874740: Trying to hand off leadership
+1335378874740: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335378874741: broadcasting LEADER_ELECT to old (1,0)
+1335378874743: inside sendPacket(Packet p)
+1335378874744: Sending UDP payload: 463
+1335378875746: INSIDE ELECT CANDIDATE
+1335378875746: CANDIDATE SIZE is 0
+1335378875747: UserApp stopped.
+1335378875747: DSMLayer stopped
+1335378875757: serializing DSMLayer to JSON
+1335378876137: .......... GPS onLocationChanged ...... 
+1335378876138: Loc = Location[mProvider=gps,mTime=1335465277000,mLatitude=42.358343085536156,mLongitude=-71.09277572638949,mHasAltitude=true,mAltitude=-22.0,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=40.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (2,0)
+1335378876139: GPS x/long:-71.09277572638949, GPS y/lat: 42.358343085536156. Region width in x: 20.0
+1335378876139: location PINPOINTS to region = 2.0, previous 2
+1335378876139: Hysteresis is 0.0
+1335378876139: stay at region 2
+1335378876755: HI I'm in ONPAUSE()
+1335378878468: inside onDestroy()
