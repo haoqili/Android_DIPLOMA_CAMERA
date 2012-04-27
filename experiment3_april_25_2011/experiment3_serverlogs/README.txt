@@ -1,0 +1,2 @@
+At first, I used tee, but soon I realized it wasn't saving anything into the files. So I began copy pasting from the terminal outputs while still running tee. Once every few minutes, the output spills out a bunch of text outputs from the server, each text output separated from its http request record.
+For the later runs, I just used regular outputs so that each text output is printed next to its http request record. But I still copy pasted everything every minute or so.
