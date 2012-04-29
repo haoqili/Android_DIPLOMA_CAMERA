@@ -272,6 +272,7 @@ public class StatusActivity extends Activity implements LocationListener {
 					} else { // success
 						isGetSuccess = true;
 						getGood += 1;
+						logMsg("one more getGood: "+getGood);
 						logCounts(); // logCounts has to be called to refresh the UI anyway.	
 						logMsg("successful reply for client get photo");
 						if (my_gpinfo3.photoBytes == null) {
@@ -320,6 +321,7 @@ public class StatusActivity extends Activity implements LocationListener {
 				
 				if (!isGetSuccess){
 					getBad += 1;
+					logMsg("one more getBad: "+getBad);
 					logCounts();
 					logMsg("getBad++");
 				}
@@ -386,6 +388,7 @@ public class StatusActivity extends Activity implements LocationListener {
 						// count it
 						isSaveSuccess = true;
 						takeGoodSave += 1; // add here in case things screw up later
+						logMsg("one more takeGoodSave: "+takeGoodSave);
 						logCounts();
 						
 						logMsg("SUCCESS Client now knows saving photo on its leader succeeded");
@@ -413,6 +416,7 @@ public class StatusActivity extends Activity implements LocationListener {
 				
 				if (!isSaveSuccess){
 					takeBad += 1;
+					logMsg("one more takeBad: "+takeBad);
 					logCounts();
 					logMsg("takeBad++");
 				}
@@ -536,6 +540,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	private Runnable buttonsEnableProgressUploadTimeoutR = new Runnable() {
 		public void run() {
 			takeTimedout += 1;
+			logMsg("one more takeTimedout: "+takeTimedout);
 			logCounts();
 			logMsg("inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.");
 			CharSequence text = "Timed out saving the photo you took";
@@ -548,6 +553,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	private Runnable buttonsEnableProgressDownloadTimeoutR = new Runnable() {
 		public void run() {
 			getTimedout += 1;
+			logMsg("one more getTimedout: "+getTimedout);
 			logCounts();
 			logMsg("inside buttonsEnableProgressTimeoutR. Perhaps no one is in that region. Try again later!");
 			CharSequence text = "Timed out getting photo. Perhaps no one is in that region currently. Try again later!";
@@ -665,6 +671,7 @@ public class StatusActivity extends Activity implements LocationListener {
             			myHandler.postDelayed(buttonsEnableProgressUploadTimeoutR, uploadTimeoutPeriod);
             			
             			takeNum += 1;
+            			logMsg("one more takeNum: "+takeNum);
             			logCounts();
             			
                 		logMsg("Clicked take picture button ..");
@@ -975,6 +982,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		public void onPictureTaken(byte[] picture, Camera camera) {
 			logMsg("inside HandlePictureStorage onPictureTaken()");
 			takeCamGood += 1;
+			logMsg("one more takeCamGood: "+takeCamGood);
 			logCounts();
 			
 			// let the preview work again
@@ -1106,6 +1114,7 @@ public class StatusActivity extends Activity implements LocationListener {
         		myHandler.postDelayed(buttonsEnableProgressDownloadTimeoutR, downloadTimoutPeriod);
         		
         		getNum +=1;
+        		logMsg("one more getNum: "+getNum);
         		logCounts();
         		
         		long targetRegion = 666;

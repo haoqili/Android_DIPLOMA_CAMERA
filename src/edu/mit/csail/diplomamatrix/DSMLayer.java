@@ -270,6 +270,7 @@ public class DSMLayer implements Serializable {
 				break;
 			}
 		} else if (forwardingEnabled) {
+			logMsg("forwardingEnabled, forwarding packets");
 			// Initialize HashSet for nonces heard from this source region
 			if (!this.forwardedPackets.containsKey(op.srcRegion)) {
 				this.forwardedPackets.put(new RegionKey(op.srcRegion),
@@ -299,7 +300,10 @@ public class DSMLayer implements Serializable {
 			} else {
 				logMsg("Received Atom already forwarded, ignoring...");
 			}
+		} else if (!forwardingEnabled){
+			logMsg("forwarding disabled, not forwarding packets");
 		}
+		
 	}
 
 	/** go through buffered write updates and apply the ones we can */
@@ -362,7 +366,7 @@ public class DSMLayer implements Serializable {
 	public DSMLayer(VCoreDaemon vnc, RegionKey r, boolean cachen) {
 		this.vncDaemon = vnc;
 		this.cacheEnabled = cachen;
-		this.forwardingEnabled = true; // for matrix mult bench, all in range //
+		this.forwardingEnabled = false; // for matrix mult bench, all in range //
 										// hop forward
 		this.synced = false;
 
