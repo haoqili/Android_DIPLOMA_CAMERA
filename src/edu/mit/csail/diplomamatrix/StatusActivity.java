@@ -265,7 +265,7 @@ public class StatusActivity extends Activity implements LocationListener {
 					// see if it was unsuccessful:
 					if (!my_gpinfo3.isSuccess){
 						logMsg("Can't get remote photo, because DSM Layer on originator leader timed out");
-						CharSequence text = "Can't get remote photo, because originator leader timed out";
+						CharSequence text = "Can't get remote photo, because DSM Layer on originator leader timed out";
 						Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
 						toast.setGravity(Gravity.CENTER, 0,0);
 						toast.show();
@@ -733,7 +733,7 @@ public class StatusActivity extends Activity implements LocationListener {
 
 		if (mExternalStorageAvailable && mExternalStorageWriteable) {
 			myLogFile = new File(Environment.getExternalStorageDirectory(),
-					String.format("csm-%d.txt", System.currentTimeMillis()));
+					String.format("csm_dip-%d.txt", System.currentTimeMillis()));
 			try {
 				myLogWriter = new PrintWriter(myLogFile);
 				logMsg("*** Opened log file for writing ***");

@@ -446,7 +446,7 @@ public class VCoreDaemon extends Thread {
 			this.lastHeartbeatTime = -1;
 
 		} else if (targetState == JOINING) {
-			logMsg("..... VCoreDaemon.java targetState = JOINING");
+			logMsg("..... VCoreDaemon.java targetState = JOINING " + this.myRegion);
 			this.mState = targetState;
 			this.myRegion = new RegionKey(targetRegion);
 			this.leaderId = -1;
@@ -469,7 +469,7 @@ public class VCoreDaemon extends Thread {
 			Cloud.CloudResponse csmR = null;
 
 			if (!Globals.DEBUG_SKIP_CLOUD) {
-				logMsg("trying to take leadership to the cloud");
+				logMsg("trying to take leadership " + myRegion + " to the cloud");
 				csmR = myCloud.takeLeadership(myRegion, mId);
 				if (csmR == null || csmR.status == Cloud.CR_ERROR) {
 					logMsg("cloud rejected leadership request or request failed, wait to retry");
