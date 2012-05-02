@@ -1,0 +1,558 @@
+1335781574201: *** Opened log file for writing ***
+1335781574202: Android build: SAMSUNG-SGH-I717
+1335781574202: NET_NAME set to: eth0
+1335781574203: starting Mux with id = -1
+1335781574204: areButtonsEnabled --> true
+1335781574205: *** Application started ***
+1335781574206: HI I'm in ONRESUME()
+1335781574220: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1335781574208: mux: Mux.java run() beginning -------------
+1335781574217: mux: Mux.java's nodeId is5022
+1335781574217: mux: starting vncDaemon ........
+1335781574253: mux: vncDaemon started
+1335781574226: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1335781574254: VCoreDaemon.java onStart() ....
+1335781574254: started, mId = 5022
+1335781574254: VCoreDaemon.java inside stateTransition ..........
+1335781574255: removing leaderRequestRetryR because I'm doing a stateTransition
+1335781574255: ..... VCoreDaemon.java out of bounds
+1335781574255: region (-1, -1) out of bounds, dormant
+1335781574255: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335781577388: Received UDP payload: 446
+1335781578544: Received UDP payload: 446
+1335781582400: Received UDP payload: 446
+1335781583543: Received UDP payload: 446
+1335781587405: Received UDP payload: 446
+1335781588549: Received UDP payload: 446
+1335781590339: moving from region (-1,-1), to (1,0)
+1335781590340: VCoreDaemon.java inside stateTransition ..........
+1335781590342: removing leaderRequestRetryR because I'm doing a stateTransition
+1335781590343: ..... VCoreDaemon.java targetState = JOINING
+1335781590344: posting leaderRequestRetryR because I'm joining
+1335781590345: sending LEADER_REQUEST
+1335781590346: inside sendPacket(Packet p)
+1335781590346: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335781590346: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335781590370: Sending UDP payload: 446
+1335781590508: Received UDP payload: 4506
+1335781590512: removing leaderRequestRetryR because heard Packet.Leader_reply
+1335781590512: heard LEADER_REPLY from 5016
+1335781590512: VCoreDaemon.java inside stateTransition ..........
+1335781590513: removing leaderRequestRetryR because I'm doing a stateTransition
+1335781590513: ..... VCoreDaemon.java targetState = NONLEADER
+1335781590513: now NONLEADER (id=5022) following LEADER (id=5016) in (1,0)
+1335781590513: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335781592421: Received UDP payload: 446
+1335781593544: Received UDP payload: 446
+1335781593675: canPressButton = TRUE
+1335781593676: areButtonsEnabled --> false 
+1335781593676: get picture disableButtonsR
+1335781593676: areButtonsEnabled --> false
+1335781593757: one more getNum: 1
+1335781593759: reg=1 id=5022 state=3 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=1 getGood=0 getBad=0 getTimedout=0 getPercent=0%
+1335781593759: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 4 **
+1335781593760: change local requestCounter to 1
+1335781593774: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5022001 Client in region: 1 Client nodID: 5022
+1335781593812: ----------------------------
+1335781593812: inside sendRequestPacketRepeatingRunnable for requestCount = 5022001
+1335781593813: I'm a nonleader sending my requesting photos packet to my leader
+1335781593817: --- Finished one round of sending REQUEST Packet ---------
+1335781593813: inside sendPacket(Packet p)
+1335781593815: Sending UDP payload: 625
+1335781593881: Received UDP payload: 989
+1335781593886: mux: GOT CSM_Msg
+1335781593892: Received UDP payload: 446
+1335781593894: mux: Inside Packet.SERVER_REPLY
+1335781593894: mux: I have the photo requester id = 5022 about to display photo or receive upload ack
+1335781593949: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335781594601: Received UDP payload: 989
+1335781594604: mux: GOT CSM_Msg
+1335781594716: Received UDP payload: 989
+1335781594720: mux: GOT CSM_Msg
+1335781594808: Received UDP payload: 989
+1335781594818: mux: GOT CSM_Msg
+1335781594916: Received UDP payload: 989
+1335781594923: mux: GOT CSM_Msg
+1335781595008: Received UDP payload: 989
+1335781595012: mux: GOT CSM_Msg
+1335781595112: Received UDP payload: 989
+1335781595116: mux: GOT CSM_Msg
+1335781595214: Received UDP payload: 989
+1335781595220: mux: GOT CSM_Msg
+1335781595321: Received UDP payload: 989
+1335781595326: mux: GOT CSM_Msg
+1335781595423: Received UDP payload: 989
+1335781595428: mux: GOT CSM_Msg
+1335781595519: Received UDP payload: 989
+1335781595538: mux: GOT CSM_Msg
+1335781595619: Received UDP payload: 989
+1335781595623: mux: GOT CSM_Msg
+1335781595722: Received UDP payload: 989
+1335781595744: mux: GOT CSM_Msg
+1335781595824: Received UDP payload: 989
+1335781595827: mux: GOT CSM_Msg
+1335781595926: Received UDP payload: 989
+1335781595938: mux: GOT CSM_Msg
+1335781596029: Received UDP payload: 989
+1335781596036: mux: GOT CSM_Msg
+1335781596044: Received UDP payload: 642
+1335781596049: mux: Inside Packet.SERVER_REPLY
+1335781596050: mux: I have the photo requester id = 5022 about to display photo or receive upload ack
+1335781596076: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1335781596077: disabling progressdialog due to successful new photo get
+1335781596077: Inside _enableButtons
+1335781596078: areButtonsEnabled --> true
+1335781596079: send final leg ack regardless of new or already-processed reply
+1335781596080: inside finalLegAck: change requestCounter to 2
+1335781596082: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5022002 Client in region: (1,0) Client nodID: 5022
+1335781596083: I'm a nonleader client sending my final_leg packet to my leader
+1335781596090: new client_show_remotephoto reply with replyCounter 501600003
+1335781596091: note down new reply by adding replyCounter=501600003 to HashMap processedReplies
+1335781596093: nonleader download remote photo latency = 2263
+1335781596094: = nonleader download start 1335781593813 ~ stop 1335781596076
+1335781596097: Can't get remote photo, because DSM Layer on originator leader timed out
+1335781596112: one more getBad: 1
+1335781596115: reg=1 id=5022 state=3 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=1 getGood=0 getBad=1 getTimedout=0 getPercent=0%
+1335781596116: getBad++
+1335781596083: inside sendPacket(Packet p)
+1335781596087: Sending UDP payload: 446
+1335781597421: Received UDP payload: 446
+1335781598545: Received UDP payload: 446
+1335781602393: Received UDP payload: 446
+1335781603545: Received UDP payload: 446
+1335781606353: canPressButton = TRUE
+1335781606353: areButtonsEnabled --> false 
+1335781606353: get picture disableButtonsR
+1335781606354: areButtonsEnabled --> false
+1335781606376: one more getNum: 2
+1335781606378: reg=1 id=5022 state=3 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=2 getGood=0 getBad=1 getTimedout=0 getPercent=0%
+1335781606379: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 4 **
+1335781606379: change local requestCounter to 3
+1335781606380: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5022003 Client in region: 1 Client nodID: 5022
+1335781606424: ----------------------------
+1335781606425: inside sendRequestPacketRepeatingRunnable for requestCount = 5022003
+1335781606425: I'm a nonleader sending my requesting photos packet to my leader
+1335781606430: --- Finished one round of sending REQUEST Packet ---------
+1335781606425: inside sendPacket(Packet p)
+1335781606427: Sending UDP payload: 625
+1335781606461: Received UDP payload: 989
+1335781606465: mux: GOT CSM_Msg
+1335781606469: Received UDP payload: 446
+1335781606472: mux: Inside Packet.SERVER_REPLY
+1335781606472: mux: I have the photo requester id = 5022 about to display photo or receive upload ack
+1335781606503: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335781607183: Received UDP payload: 989
+1335781607187: mux: GOT CSM_Msg
+1335781607285: Received UDP payload: 989
+1335781607291: mux: GOT CSM_Msg
+1335781607387: Received UDP payload: 989
+1335781607391: mux: GOT CSM_Msg
+1335781607392: Received UDP payload: 446
+1335781607488: Received UDP payload: 989
+1335781607493: mux: GOT CSM_Msg
+1335781607600: Received UDP payload: 989
+1335781607603: mux: GOT CSM_Msg
+1335781607703: Received UDP payload: 989
+1335781607707: mux: GOT CSM_Msg
+1335781607795: Received UDP payload: 989
+1335781607822: mux: GOT CSM_Msg
+1335781607911: Received UDP payload: 989
+1335781607915: mux: GOT CSM_Msg
+1335781608006: Received UDP payload: 989
+1335781608011: mux: GOT CSM_Msg
+1335781608103: Received UDP payload: 989
+1335781608106: mux: GOT CSM_Msg
+1335781608206: Received UDP payload: 989
+1335781608210: mux: GOT CSM_Msg
+1335781608310: Received UDP payload: 989
+1335781608314: mux: GOT CSM_Msg
+1335781608414: Received UDP payload: 989
+1335781608422: mux: GOT CSM_Msg
+1335781608508: Received UDP payload: 989
+1335781608514: mux: GOT CSM_Msg
+1335781608547: Received UDP payload: 446
+1335781608610: Received UDP payload: 989
+1335781608614: mux: GOT CSM_Msg
+1335781608622: Received UDP payload: 642
+1335781608624: mux: Inside Packet.SERVER_REPLY
+1335781608624: mux: I have the photo requester id = 5022 about to display photo or receive upload ack
+1335781608637: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1335781608637: disabling progressdialog due to successful new photo get
+1335781608638: Inside _enableButtons
+1335781608638: areButtonsEnabled --> true
+1335781608638: send final leg ack regardless of new or already-processed reply
+1335781608639: inside finalLegAck: change requestCounter to 4
+1335781608639: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5022004 Client in region: (1,0) Client nodID: 5022
+1335781608639: I'm a nonleader client sending my final_leg packet to my leader
+1335781608644: new client_show_remotephoto reply with replyCounter 501600004
+1335781608645: note down new reply by adding replyCounter=501600004 to HashMap processedReplies
+1335781608645: nonleader download remote photo latency = 2212
+1335781608646: = nonleader download start 1335781606425 ~ stop 1335781608637
+1335781608646: Can't get remote photo, because DSM Layer on originator leader timed out
+1335781608652: one more getBad: 2
+1335781608653: reg=1 id=5022 state=3 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=2 getGood=0 getBad=2 getTimedout=0 getPercent=0%
+1335781608656: getBad++
+1335781608640: inside sendPacket(Packet p)
+1335781608641: Sending UDP payload: 446
+1335781612399: Received UDP payload: 446
+1335781612904: canPressButton = TRUE
+1335781612905: areButtonsEnabled --> false 
+1335781612905: get picture disableButtonsR
+1335781612905: areButtonsEnabled --> false
+1335781612930: one more getNum: 3
+1335781612931: reg=1 id=5022 state=3 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=3 getGood=0 getBad=2 getTimedout=0 getPercent=0%
+1335781612931: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 5 **
+1335781612932: change local requestCounter to 5
+1335781612932: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5022005 Client in region: 1 Client nodID: 5022
+1335781612973: ----------------------------
+1335781612974: inside sendRequestPacketRepeatingRunnable for requestCount = 5022005
+1335781612974: I'm a nonleader sending my requesting photos packet to my leader
+1335781612979: --- Finished one round of sending REQUEST Packet ---------
+1335781612975: inside sendPacket(Packet p)
+1335781612976: Sending UDP payload: 625
+1335781613034: Received UDP payload: 989
+1335781613037: mux: GOT CSM_Msg
+1335781613042: Received UDP payload: 446
+1335781613046: mux: Inside Packet.SERVER_REPLY
+1335781613046: mux: I have the photo requester id = 5022 about to display photo or receive upload ack
+1335781613092: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335781613548: Received UDP payload: 446
+1335781613740: Received UDP payload: 989
+1335781613746: mux: GOT CSM_Msg
+1335781613842: Received UDP payload: 989
+1335781613846: mux: GOT CSM_Msg
+1335781613949: Received UDP payload: 989
+1335781613952: mux: GOT CSM_Msg
+1335781614045: Received UDP payload: 989
+1335781614049: mux: GOT CSM_Msg
+1335781614143: Received UDP payload: 989
+1335781614146: mux: GOT CSM_Msg
+1335781614246: Received UDP payload: 989
+1335781614249: mux: GOT CSM_Msg
+1335781614345: Received UDP payload: 989
+1335781614350: mux: GOT CSM_Msg
+1335781614446: Received UDP payload: 989
+1335781614450: mux: GOT CSM_Msg
+1335781614548: Received UDP payload: 989
+1335781614552: mux: GOT CSM_Msg
+1335781614649: Received UDP payload: 989
+1335781614654: mux: GOT CSM_Msg
+1335781614752: Received UDP payload: 989
+1335781614761: mux: GOT CSM_Msg
+1335781614855: Received UDP payload: 989
+1335781614862: mux: GOT CSM_Msg
+1335781614957: Received UDP payload: 989
+1335781614960: mux: GOT CSM_Msg
+1335781615060: Received UDP payload: 989
+1335781615064: mux: GOT CSM_Msg
+1335781615166: Received UDP payload: 989
+1335781615172: mux: GOT CSM_Msg
+1335781615173: Received UDP payload: 642
+1335781615176: mux: Inside Packet.SERVER_REPLY
+1335781615177: mux: I have the photo requester id = 5022 about to display photo or receive upload ack
+1335781615202: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1335781615203: disabling progressdialog due to successful new photo get
+1335781615204: Inside _enableButtons
+1335781615205: areButtonsEnabled --> true
+1335781615206: send final leg ack regardless of new or already-processed reply
+1335781615207: inside finalLegAck: change requestCounter to 6
+1335781615209: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5022006 Client in region: (1,0) Client nodID: 5022
+1335781615210: I'm a nonleader client sending my final_leg packet to my leader
+1335781615217: new client_show_remotephoto reply with replyCounter 501600005
+1335781615219: note down new reply by adding replyCounter=501600005 to HashMap processedReplies
+1335781615221: nonleader download remote photo latency = 2227
+1335781615223: = nonleader download start 1335781612975 ~ stop 1335781615202
+1335781615225: Can't get remote photo, because DSM Layer on originator leader timed out
+1335781615234: one more getBad: 3
+1335781615239: reg=1 id=5022 state=3 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=3 getGood=0 getBad=3 getTimedout=0 getPercent=0%
+1335781615240: getBad++
+1335781615212: inside sendPacket(Packet p)
+1335781615216: Sending UDP payload: 446
+1335781617398: Received UDP payload: 446
+1335781618547: Received UDP payload: 446
+1335781620392: canPressButton = TRUE
+1335781620392: areButtonsEnabled --> false 
+1335781620393: get picture disableButtonsR
+1335781620393: areButtonsEnabled --> false
+1335781620411: one more getNum: 4
+1335781620413: reg=1 id=5022 state=3 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=4 getGood=0 getBad=3 getTimedout=0 getPercent=0%
+1335781620413: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 5 **
+1335781620415: change local requestCounter to 7
+1335781620416: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5022007 Client in region: 1 Client nodID: 5022
+1335781620457: ----------------------------
+1335781620459: inside sendRequestPacketRepeatingRunnable for requestCount = 5022007
+1335781620460: I'm a nonleader sending my requesting photos packet to my leader
+1335781620470: --- Finished one round of sending REQUEST Packet ---------
+1335781620461: inside sendPacket(Packet p)
+1335781620463: Sending UDP payload: 625
+1335781620551: Received UDP payload: 989
+1335781620571: mux: GOT CSM_Msg
+1335781620572: Received UDP payload: 446
+1335781620579: mux: Inside Packet.SERVER_REPLY
+1335781620579: mux: I have the photo requester id = 5022 about to display photo or receive upload ack
+1335781620613: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335781621317: Received UDP payload: 989
+1335781621330: mux: GOT CSM_Msg
+1335781621397: Received UDP payload: 989
+1335781621401: mux: GOT CSM_Msg
+1335781621499: Received UDP payload: 989
+1335781621502: mux: GOT CSM_Msg
+1335781621600: Received UDP payload: 989
+1335781621604: mux: GOT CSM_Msg
+1335781621703: Received UDP payload: 989
+1335781621706: mux: GOT CSM_Msg
+1335781621805: Received UDP payload: 989
+1335781621808: mux: GOT CSM_Msg
+1335781621909: Received UDP payload: 989
+1335781621915: mux: GOT CSM_Msg
+1335781622012: Received UDP payload: 989
+1335781622019: mux: GOT CSM_Msg
+1335781622108: Received UDP payload: 989
+1335781622111: mux: GOT CSM_Msg
+1335781622215: Received UDP payload: 989
+1335781622223: mux: GOT CSM_Msg
+1335781622313: Received UDP payload: 989
+1335781622316: mux: GOT CSM_Msg
+1335781622392: Received UDP payload: 446
+1335781622415: Received UDP payload: 989
+1335781622419: mux: GOT CSM_Msg
+1335781622520: Received UDP payload: 989
+1335781622523: mux: GOT CSM_Msg
+1335781622640: Received UDP payload: 989
+1335781622643: mux: GOT CSM_Msg
+1335781622664: Received UDP payload: 642
+1335781622667: mux: Inside Packet.SERVER_REPLY
+1335781622667: mux: I have the photo requester id = 5022 about to display photo or receive upload ack
+1335781622671: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1335781622672: disabling progressdialog due to successful new photo get
+1335781622673: Inside _enableButtons
+1335781622674: areButtonsEnabled --> true
+1335781622674: send final leg ack regardless of new or already-processed reply
+1335781622675: inside finalLegAck: change requestCounter to 8
+1335781622677: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5022008 Client in region: (1,0) Client nodID: 5022
+1335781622678: I'm a nonleader client sending my final_leg packet to my leader
+1335781622679: new client_show_remotephoto reply with replyCounter 501600006
+1335781622682: note down new reply by adding replyCounter=501600006 to HashMap processedReplies
+1335781622685: nonleader download remote photo latency = 2210
+1335781622687: = nonleader download start 1335781620461 ~ stop 1335781622671
+1335781622690: Can't get remote photo, because DSM Layer on originator leader timed out
+1335781622698: one more getBad: 4
+1335781622702: reg=1 id=5022 state=3 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=4 getGood=0 getBad=4 getTimedout=0 getPercent=0%
+1335781622702: getBad++
+1335781622679: inside sendPacket(Packet p)
+1335781622681: Sending UDP payload: 446
+1335781623550: Received UDP payload: 446
+1335781627654: Received UDP payload: 446
+1335781629150: Received UDP payload: 446
+1335781632662: Received UDP payload: 446
+1335781634156: Received UDP payload: 446
+1335781637664: Received UDP payload: 446
+1335781639157: Received UDP payload: 446
+1335781642669: Received UDP payload: 446
+1335781644156: Received UDP payload: 446
+1335781647669: Received UDP payload: 446
+1335781649156: Received UDP payload: 446
+1335781651565: canPressButton = TRUE
+1335781651565: areButtonsEnabled --> false 
+1335781651566: get picture disableButtonsR
+1335781651566: areButtonsEnabled --> false
+1335781651595: one more getNum: 5
+1335781651598: reg=1 id=5022 state=3 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=5 getGood=0 getBad=4 getTimedout=0 getPercent=0%
+1335781651599: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 5 **
+1335781651600: change local requestCounter to 9
+1335781651600: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5022009 Client in region: 1 Client nodID: 5022
+1335781651637: ----------------------------
+1335781651638: inside sendRequestPacketRepeatingRunnable for requestCount = 5022009
+1335781651639: I'm a nonleader sending my requesting photos packet to my leader
+1335781651643: --- Finished one round of sending REQUEST Packet ---------
+1335781651639: inside sendPacket(Packet p)
+1335781651641: Sending UDP payload: 625
+1335781651728: Received UDP payload: 989
+1335781651730: mux: GOT CSM_Msg
+1335781651734: Received UDP payload: 446
+1335781651736: mux: Inside Packet.SERVER_REPLY
+1335781651736: mux: I have the photo requester id = 5022 about to display photo or receive upload ack
+1335781651756: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335781652454: Received UDP payload: 989
+1335781652459: mux: GOT CSM_Msg
+1335781652555: Received UDP payload: 989
+1335781652560: mux: GOT CSM_Msg
+1335781652660: Received UDP payload: 989
+1335781652669: mux: GOT CSM_Msg
+1335781652669: Received UDP payload: 446
+1335781652759: Received UDP payload: 989
+1335781652763: mux: GOT CSM_Msg
+1335781652862: Received UDP payload: 989
+1335781652867: mux: GOT CSM_Msg
+1335781652965: Received UDP payload: 989
+1335781652968: mux: GOT CSM_Msg
+1335781653061: Received UDP payload: 989
+1335781653065: mux: GOT CSM_Msg
+1335781653164: Received UDP payload: 989
+1335781653168: mux: GOT CSM_Msg
+1335781653264: Received UDP payload: 989
+1335781653275: mux: GOT CSM_Msg
+1335781653365: Received UDP payload: 989
+1335781653370: mux: GOT CSM_Msg
+1335781653465: Received UDP payload: 989
+1335781653473: mux: GOT CSM_Msg
+1335781653571: Received UDP payload: 989
+1335781653577: mux: GOT CSM_Msg
+1335781653668: Received UDP payload: 989
+1335781653675: mux: GOT CSM_Msg
+1335781653783: Received UDP payload: 989
+1335781653789: mux: GOT CSM_Msg
+1335781653881: Received UDP payload: 989
+1335781653893: mux: GOT CSM_Msg
+1335781653904: Received UDP payload: 642
+1335781653911: mux: Inside Packet.SERVER_REPLY
+1335781653911: mux: I have the photo requester id = 5022 about to display photo or receive upload ack
+1335781653938: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1335781653938: disabling progressdialog due to successful new photo get
+1335781653939: Inside _enableButtons
+1335781653940: areButtonsEnabled --> true
+1335781653941: send final leg ack regardless of new or already-processed reply
+1335781653941: inside finalLegAck: change requestCounter to 10
+1335781653942: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5022010 Client in region: (1,0) Client nodID: 5022
+1335781653943: I'm a nonleader client sending my final_leg packet to my leader
+1335781653954: new client_show_remotephoto reply with replyCounter 501600007
+1335781653956: note down new reply by adding replyCounter=501600007 to HashMap processedReplies
+1335781653956: nonleader download remote photo latency = 2299
+1335781653957: = nonleader download start 1335781651639 ~ stop 1335781653938
+1335781653960: Can't get remote photo, because DSM Layer on originator leader timed out
+1335781653965: one more getBad: 5
+1335781653965: reg=1 id=5022 state=3 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=5 getGood=0 getBad=5 getTimedout=0 getPercent=0%
+1335781653966: getBad++
+1335781653944: inside sendPacket(Packet p)
+1335781653953: Sending UDP payload: 446
+1335781654159: Received UDP payload: 446
+1335781656893: broadcasting LEADER_ELECT to old (1,0)
+1335781656893: inside sendPacket(Packet p)
+1335781656895: Sending UDP payload: 446
+1335781657663: Received UDP payload: 446
+1335781657895: INSIDE ELECT CANDIDATE
+1335781657895: SKIPPING HANDING R
+1335781659160: Received UDP payload: 446
+1335781662664: Received UDP payload: 446
+1335781664160: Received UDP payload: 446
+1335781667666: Received UDP payload: 446
+1335781669160: Received UDP payload: 446
+1335781672665: Received UDP payload: 446
+1335781674161: Received UDP payload: 446
+1335781677665: Received UDP payload: 446
+1335781679161: Received UDP payload: 446
+1335781682670: Received UDP payload: 446
+1335781684162: Received UDP payload: 446
+1335781687667: Received UDP payload: 446
+1335781689163: Received UDP payload: 446
+1335781692666: Received UDP payload: 446
+1335781694163: Received UDP payload: 446
+1335781697666: Received UDP payload: 446
+1335781699163: Received UDP payload: 446
+1335781702667: Received UDP payload: 446
+1335781704164: Received UDP payload: 446
+1335781707666: Received UDP payload: 446
+1335781709167: Received UDP payload: 446
+1335781712672: Received UDP payload: 446
+1335781714168: Received UDP payload: 446
+1335781717668: Received UDP payload: 446
+1335781719175: Received UDP payload: 446
+1335781722675: Received UDP payload: 446
+1335781724170: Received UDP payload: 446
+1335781727671: Received UDP payload: 446
+1335781729171: Received UDP payload: 446
+1335781732678: Received UDP payload: 446
+1335781734171: Received UDP payload: 446
+1335781737675: Received UDP payload: 446
+1335781739172: Received UDP payload: 446
+1335781742674: Received UDP payload: 446
+1335781744180: Received UDP payload: 446
+1335781748334: Received UDP payload: 446
+1335781749770: Received UDP payload: 446
+1335781753342: Received UDP payload: 446
+1335781754774: Received UDP payload: 446
+1335781758341: Received UDP payload: 446
+1335781759775: Received UDP payload: 446
+1335781763344: Received UDP payload: 446
+1335781764775: Received UDP payload: 446
+1335781768354: Received UDP payload: 446
+1335781769781: Received UDP payload: 446
+1335781773344: Received UDP payload: 446
+1335781774788: Received UDP payload: 446
+1335781778363: Received UDP payload: 446
+1335781779779: Received UDP payload: 446
+1335781783351: Received UDP payload: 446
+1335781784781: Received UDP payload: 446
+1335781788353: Received UDP payload: 446
+1335781789781: Received UDP payload: 446
+1335781793361: Received UDP payload: 446
+1335781794784: Received UDP payload: 446
+1335781798356: Received UDP payload: 446
+1335781799784: Received UDP payload: 446
+1335781803355: Received UDP payload: 446
+1335781804783: Received UDP payload: 446
+1335781808366: Received UDP payload: 446
+1335781809791: Received UDP payload: 446
+1335781813372: Received UDP payload: 446
+1335781814797: Received UDP payload: 446
+1335781818370: Received UDP payload: 446
+1335781819790: Received UDP payload: 446
+1335781823360: Received UDP payload: 446
+1335781824804: Received UDP payload: 446
+1335781828361: Received UDP payload: 446
+1335781829810: Received UDP payload: 446
+1335781833360: Received UDP payload: 446
+1335781834812: Received UDP payload: 446
+1335781838374: Received UDP payload: 446
+1335781839829: Received UDP payload: 446
+1335781843393: Received UDP payload: 446
+1335781844814: Received UDP payload: 446
+1335781848381: Received UDP payload: 446
+1335781849814: Received UDP payload: 446
+1335781853380: Received UDP payload: 446
+1335781854822: Received UDP payload: 446
+1335781858381: Received UDP payload: 446
+1335781859821: Received UDP payload: 446
+1335781861854: HI I'm in ONPAUSE()
+1335781879314: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335781879315: VCoreDaemon.java inside stateTransition ..........
+1335781879315: removing leaderRequestRetryR because I'm doing a stateTransition
+1335781879315: ..... VCoreDaemon.java targetState = JOINING
+1335781879316: posting leaderRequestRetryR because I'm joining
+1335781879316: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335781879329: sending LEADER_REQUEST
+1335781879330: inside sendPacket(Packet p)
+1335781879335: Sending UDP payload: 446
+1335781879340: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335781879641: sending LEADER_REQUEST
+1335781879642: inside sendPacket(Packet p)
+1335781879642: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335781879646: Sending UDP payload: 446
+1335781879943: sending LEADER_REQUEST
+1335781879944: inside sendPacket(Packet p)
+1335781879944: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335781879959: Sending UDP payload: 446
+1335781880245: sending LEADER_REQUEST
+1335781880246: inside sendPacket(Packet p)
+1335781880246: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335781880250: Sending UDP payload: 446
+1335781880316: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335781880317: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335781880317: VCoreDaemon.java inside stateTransition ..........
+1335781880318: removing leaderRequestRetryR because I'm doing a stateTransition
+1335781880318: ..... VCoreDaemon.java targetState = LEADER
+1335781880319: trying to take leadership to the cloud
+1335781881173: cloud rejected leadership request or request failed, wait to retry
+1335781894591: HI I'm in ONRESUME()
+1335781894643: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1335781895352: Received UDP payload: 446
+1335781895360: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335781895361: heard HEARTBEAT from 5016, now following
+1335781895361: VCoreDaemon.java inside stateTransition ..........
+1335781895362: removing leaderRequestRetryR because I'm doing a stateTransition
+1335781895362: ..... VCoreDaemon.java targetState = NONLEADER
+1335781895373: now NONLEADER (id=5022) following LEADER (id=5016) in (1,0)
+1335781895376: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335781900354: Received UDP payload: 446
+1335781905359: Received UDP payload: 446
+1335781907099: HI I'm in ONPAUSE()
