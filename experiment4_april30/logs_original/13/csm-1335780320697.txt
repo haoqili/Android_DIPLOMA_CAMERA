@@ -1,0 +1,374 @@
+1335780320701: *** Opened log file for writing ***
+1335780320702: Android build: SAMSUNG-SGH-I717
+1335780320703: NET_NAME set to: eth0
+1335780320703: starting Mux with id = -1
+1335780320704: areButtonsEnabled --> true
+1335780320706: *** Application started ***
+1335780320706: HI I'm in ONRESUME()
+1335780320712: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1335780320706: mux: Mux.java run() beginning -------------
+1335780320720: mux: Mux.java's nodeId is5017
+1335780320720: mux: starting vncDaemon ........
+1335780320723: mux: vncDaemon started
+1335780320721: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1335780320727: VCoreDaemon.java onStart() ....
+1335780320729: started, mId = 5017
+1335780320729: VCoreDaemon.java inside stateTransition ..........
+1335780320729: removing leaderRequestRetryR because I'm doing a stateTransition
+1335780320732: ..... VCoreDaemon.java out of bounds
+1335780320735: region (-1, -1) out of bounds, dormant
+1335780320736: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335780324982: moving from region (-1,-1), to (1,0)
+1335780324983: VCoreDaemon.java inside stateTransition ..........
+1335780324984: removing leaderRequestRetryR because I'm doing a stateTransition
+1335780324985: ..... VCoreDaemon.java targetState = JOINING
+1335780324986: posting leaderRequestRetryR because I'm joining
+1335780324988: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335780324988: sending LEADER_REQUEST
+1335780324989: inside sendPacket(Packet p)
+1335780324989: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335780325026: Sending UDP payload: 446
+1335780325290: sending LEADER_REQUEST
+1335780325290: inside sendPacket(Packet p)
+1335780325290: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335780325293: Sending UDP payload: 446
+1335780325590: sending LEADER_REQUEST
+1335780325591: inside sendPacket(Packet p)
+1335780325591: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335780325593: Sending UDP payload: 446
+1335780325892: sending LEADER_REQUEST
+1335780325892: inside sendPacket(Packet p)
+1335780325892: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335780325894: Sending UDP payload: 446
+1335780325989: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335780325989: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335780325990: VCoreDaemon.java inside stateTransition ..........
+1335780325990: removing leaderRequestRetryR because I'm doing a stateTransition
+1335780325990: ..... VCoreDaemon.java targetState = LEADER
+1335780325990: trying to take leadership to the cloud
+1335780326464: moving from region (1,0), to (3,0)
+1335780326464: VCoreDaemon.java inside stateTransition ..........
+1335780326466: removing leaderRequestRetryR because I'm doing a stateTransition
+1335780326466: ..... VCoreDaemon.java targetState = JOINING
+1335780326467: posting leaderRequestRetryR because I'm joining
+1335780326468: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335780326578: cloud accepted leadership request, returned csm bytes size 1307
+1335780326586: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
+1335780326587: *** Starting CSM Layer ***
+1335780326587: *** CSM Layer starting with cache disabled ***
+1335780326588: *** CSM Layer starting with forwarding disabled ***
+1335780326700: DSMLayer starting
+1335780326703: UserApp started.
+1335780326704: loaded csm data from cloud
+1335780326760: inside sendPacket(Packet p)
+1335780326772: Sending UDP payload: 3512
+1335780326774: now fully up as LEADER (id=5017) of (1,0)
+1335780326774: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335780327469: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335780328010: moving from region (1,0), to (5,0)
+1335780328010: change state to HANDING_OFF with parameter my previous/old region = (1,0) before helping to elect new leader in it. (btw, newRegion (5,0))
+1335780328011: VCoreDaemon.java inside stateTransition ..........
+1335780328011: removing leaderRequestRetryR because I'm doing a stateTransition
+1335780328011: ..... VCoreDaemon.java targetState = HANDING_OFF
+1335780328011: HANDING OFF setting leaderRegion = (1,0)
+1335780328011: Trying to hand off leadership
+1335780328011: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335780328011: broadcasting LEADER_ELECT to old (1,0)
+1335780328012: inside sendPacket(Packet p)
+1335780328017: Sending UDP payload: 463
+1335780329012: INSIDE ELECT CANDIDATE
+1335780329013: CANDIDATE SIZE is 0
+1335780329014: UserApp stopped.
+1335780329014: DSMLayer stopped
+1335780329035: serializing DSMLayer to JSON
+1335780329595: moving from region (5,0), to (0,0)
+1335780329595: VCoreDaemon.java inside stateTransition ..........
+1335780329596: removing leaderRequestRetryR because I'm doing a stateTransition
+1335780329596: ..... VCoreDaemon.java targetState = JOINING
+1335780329596: posting leaderRequestRetryR because I'm joining
+1335780329596: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335780330239: moving from region (0,0), to (2,0)
+1335780330240: VCoreDaemon.java inside stateTransition ..........
+1335780330240: removing leaderRequestRetryR because I'm doing a stateTransition
+1335780330241: ..... VCoreDaemon.java targetState = JOINING
+1335780330241: posting leaderRequestRetryR because I'm joining
+1335780330242: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335780330788: moving from region (2,0), to (4,0)
+1335780330788: VCoreDaemon.java inside stateTransition ..........
+1335780330788: removing leaderRequestRetryR because I'm doing a stateTransition
+1335780330789: ..... VCoreDaemon.java targetState = JOINING
+1335780330790: posting leaderRequestRetryR because I'm joining
+1335780330793: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335780330835: Error releasing leadership. Retrying...
+1335780331151: old region empty, uploaded state to cloud in 2115ms as json 1307 bytes
+1335780331153: VCoreDaemon.java inside stateTransition ..........
+1335780331153: removing leaderRequestRetryR because I'm doing a stateTransition
+1335780331160: ..... VCoreDaemon.java targetState = JOINING
+1335780331162: posting leaderRequestRetryR because I'm joining
+1335780331164: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335780331168: sending LEADER_REQUEST
+1335780331171: inside sendPacket(Packet p)
+1335780331201: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335780331198: Sending UDP payload: 446
+1335780331503: sending LEADER_REQUEST
+1335780331504: inside sendPacket(Packet p)
+1335780331504: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335780331509: Sending UDP payload: 446
+1335780331806: sending LEADER_REQUEST
+1335780331806: inside sendPacket(Packet p)
+1335780331806: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335780331808: Sending UDP payload: 446
+1335780332107: sending LEADER_REQUEST
+1335780332108: inside sendPacket(Packet p)
+1335780332108: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335780332109: Sending UDP payload: 446
+1335780332163: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335780332163: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335780332163: VCoreDaemon.java inside stateTransition ..........
+1335780332163: removing leaderRequestRetryR because I'm doing a stateTransition
+1335780332164: ..... VCoreDaemon.java targetState = LEADER
+1335780332164: trying to take leadership to the cloud
+1335780332501: cloud accepted leadership request, no csm data included.
+1335780332515: ..... VCoreDaemon.java targetState = LEADER and csm is not null --> csm.stop()
+1335780332516: DSMLayer stopped
+1335780332516: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
+1335780332517: *** Starting CSM Layer ***
+1335780332519: *** CSM Layer starting with cache disabled ***
+1335780332519: *** CSM Layer starting with forwarding disabled ***
+1335780332540: DSMLayer starting
+1335780332541: UserApp started.
+1335780332556: UserApp for Camera Diploma initialized and waiting for requests.
+1335780332721: inside sendPacket(Packet p)
+1335780332760: now fully up as LEADER (id=5017) of (4,0)
+1335780332760: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335780332764: Sending UDP payload: 22318
+1335780336169: inside sendPacket(Packet p)
+1335780336172: Sending UDP payload: 446
+1335780341170: inside sendPacket(Packet p)
+1335780341174: Sending UDP payload: 446
+1335780346171: inside sendPacket(Packet p)
+1335780346175: Sending UDP payload: 446
+1335780351172: inside sendPacket(Packet p)
+1335780351189: Sending UDP payload: 446
+1335780356173: inside sendPacket(Packet p)
+1335780356178: Sending UDP payload: 446
+1335780361174: inside sendPacket(Packet p)
+1335780361187: Sending UDP payload: 446
+1335780366183: inside sendPacket(Packet p)
+1335780366188: Sending UDP payload: 446
+1335780371185: inside sendPacket(Packet p)
+1335780371199: Sending UDP payload: 446
+1335780376185: inside sendPacket(Packet p)
+1335780376197: Sending UDP payload: 446
+1335780381199: inside sendPacket(Packet p)
+1335780381200: Sending UDP payload: 446
+1335780386199: inside sendPacket(Packet p)
+1335780386200: Sending UDP payload: 446
+1335780391199: inside sendPacket(Packet p)
+1335780391201: Sending UDP payload: 446
+1335780396200: inside sendPacket(Packet p)
+1335780396202: Sending UDP payload: 446
+1335780401201: inside sendPacket(Packet p)
+1335780401202: Sending UDP payload: 446
+1335780406201: inside sendPacket(Packet p)
+1335780406204: Sending UDP payload: 446
+1335780411202: inside sendPacket(Packet p)
+1335780411203: Sending UDP payload: 446
+1335780416203: inside sendPacket(Packet p)
+1335780416205: Sending UDP payload: 446
+1335780421204: inside sendPacket(Packet p)
+1335780421211: Sending UDP payload: 446
+1335780426205: inside sendPacket(Packet p)
+1335780426211: Sending UDP payload: 446
+1335780431206: inside sendPacket(Packet p)
+1335780431217: Sending UDP payload: 446
+1335780436207: inside sendPacket(Packet p)
+1335780436212: Sending UDP payload: 446
+1335780441209: inside sendPacket(Packet p)
+1335780441213: Sending UDP payload: 446
+1335780446209: inside sendPacket(Packet p)
+1335780446214: Sending UDP payload: 446
+1335780451211: inside sendPacket(Packet p)
+1335780451223: Sending UDP payload: 446
+1335780452759: leader to cloud hearbeat...
+1335780456211: inside sendPacket(Packet p)
+1335780456212: Sending UDP payload: 446
+1335780461213: inside sendPacket(Packet p)
+1335780461218: Sending UDP payload: 446
+1335780466215: inside sendPacket(Packet p)
+1335780466219: Sending UDP payload: 446
+1335780471215: inside sendPacket(Packet p)
+1335780471219: Sending UDP payload: 446
+1335780476216: inside sendPacket(Packet p)
+1335780476219: Sending UDP payload: 446
+1335780481216: inside sendPacket(Packet p)
+1335780481220: Sending UDP payload: 446
+1335780486221: inside sendPacket(Packet p)
+1335780486234: Sending UDP payload: 446
+1335780491222: inside sendPacket(Packet p)
+1335780491235: Sending UDP payload: 446
+1335780496233: inside sendPacket(Packet p)
+1335780496236: Sending UDP payload: 446
+1335780501234: inside sendPacket(Packet p)
+1335780501237: Sending UDP payload: 446
+1335780506234: inside sendPacket(Packet p)
+1335780506250: Sending UDP payload: 446
+1335780511252: inside sendPacket(Packet p)
+1335780511270: Sending UDP payload: 446
+1335780516254: inside sendPacket(Packet p)
+1335780516257: Sending UDP payload: 446
+1335780521254: inside sendPacket(Packet p)
+1335780521259: Sending UDP payload: 446
+1335780526255: inside sendPacket(Packet p)
+1335780526259: Sending UDP payload: 446
+1335780531256: inside sendPacket(Packet p)
+1335780531260: Sending UDP payload: 446
+1335780536258: inside sendPacket(Packet p)
+1335780536262: Sending UDP payload: 446
+1335780541259: inside sendPacket(Packet p)
+1335780541263: Sending UDP payload: 446
+1335780546259: inside sendPacket(Packet p)
+1335780546275: Sending UDP payload: 446
+1335780551278: inside sendPacket(Packet p)
+1335780551282: Sending UDP payload: 446
+1335780556279: inside sendPacket(Packet p)
+1335780556283: Sending UDP payload: 446
+1335780561280: inside sendPacket(Packet p)
+1335780561289: Sending UDP payload: 446
+1335780566287: inside sendPacket(Packet p)
+1335780566292: Sending UDP payload: 446
+1335780571290: inside sendPacket(Packet p)
+1335780571293: Sending UDP payload: 446
+1335780573428: leader to cloud hearbeat...
+1335780576290: inside sendPacket(Packet p)
+1335780576294: Sending UDP payload: 446
+1335780581292: inside sendPacket(Packet p)
+1335780581307: Sending UDP payload: 446
+1335780586292: inside sendPacket(Packet p)
+1335780586302: Sending UDP payload: 446
+1335780591293: inside sendPacket(Packet p)
+1335780591295: Sending UDP payload: 446
+1335780596294: inside sendPacket(Packet p)
+1335780596298: Sending UDP payload: 446
+1335780601296: inside sendPacket(Packet p)
+1335780601299: Sending UDP payload: 446
+1335780606296: inside sendPacket(Packet p)
+1335780606307: Sending UDP payload: 446
+1335780611309: inside sendPacket(Packet p)
+1335780611310: Sending UDP payload: 446
+1335780616309: inside sendPacket(Packet p)
+1335780616313: Sending UDP payload: 446
+1335780621311: inside sendPacket(Packet p)
+1335780621322: Sending UDP payload: 446
+1335780626313: inside sendPacket(Packet p)
+1335780626317: Sending UDP payload: 446
+1335780631313: inside sendPacket(Packet p)
+1335780631318: Sending UDP payload: 446
+1335780636315: inside sendPacket(Packet p)
+1335780636317: Sending UDP payload: 446
+1335780641316: inside sendPacket(Packet p)
+1335780641319: Sending UDP payload: 446
+1335780646317: inside sendPacket(Packet p)
+1335780646321: Sending UDP payload: 446
+1335780651319: inside sendPacket(Packet p)
+1335780651323: Sending UDP payload: 446
+1335780656320: inside sendPacket(Packet p)
+1335780656324: Sending UDP payload: 446
+1335780661322: inside sendPacket(Packet p)
+1335780661334: Sending UDP payload: 446
+1335780666322: inside sendPacket(Packet p)
+1335780666326: Sending UDP payload: 446
+1335780671323: inside sendPacket(Packet p)
+1335780671327: Sending UDP payload: 446
+1335780676325: inside sendPacket(Packet p)
+1335780676328: Sending UDP payload: 446
+1335780681325: inside sendPacket(Packet p)
+1335780681329: Sending UDP payload: 446
+1335780686326: inside sendPacket(Packet p)
+1335780686329: Sending UDP payload: 446
+1335780691326: inside sendPacket(Packet p)
+1335780691330: Sending UDP payload: 446
+1335780694111: leader to cloud hearbeat...
+1335780696328: inside sendPacket(Packet p)
+1335780696331: Sending UDP payload: 446
+1335780701329: inside sendPacket(Packet p)
+1335780701333: Sending UDP payload: 446
+1335780706331: inside sendPacket(Packet p)
+1335780706341: Sending UDP payload: 446
+1335780711343: inside sendPacket(Packet p)
+1335780711347: Sending UDP payload: 446
+1335780716346: inside sendPacket(Packet p)
+1335780716359: Sending UDP payload: 446
+1335780721347: inside sendPacket(Packet p)
+1335780721351: Sending UDP payload: 446
+1335780726348: inside sendPacket(Packet p)
+1335780726352: Sending UDP payload: 446
+1335780731349: inside sendPacket(Packet p)
+1335780731353: Sending UDP payload: 446
+1335780736353: inside sendPacket(Packet p)
+1335780736357: Sending UDP payload: 446
+1335780741355: inside sendPacket(Packet p)
+1335780741361: Sending UDP payload: 446
+1335780746357: inside sendPacket(Packet p)
+1335780746359: Sending UDP payload: 446
+1335780751358: inside sendPacket(Packet p)
+1335780751363: Sending UDP payload: 446
+1335780756360: inside sendPacket(Packet p)
+1335780756381: Sending UDP payload: 446
+1335780761363: inside sendPacket(Packet p)
+1335780761370: Sending UDP payload: 446
+1335780766365: inside sendPacket(Packet p)
+1335780766369: Sending UDP payload: 446
+1335780771368: inside sendPacket(Packet p)
+1335780771372: Sending UDP payload: 446
+1335780776369: inside sendPacket(Packet p)
+1335780776374: Sending UDP payload: 446
+1335780781371: inside sendPacket(Packet p)
+1335780781374: Sending UDP payload: 446
+1335780786372: inside sendPacket(Packet p)
+1335780786388: Sending UDP payload: 446
+1335780791372: inside sendPacket(Packet p)
+1335780791374: Sending UDP payload: 446
+1335780796374: inside sendPacket(Packet p)
+1335780796376: Sending UDP payload: 446
+1335780801375: inside sendPacket(Packet p)
+1335780801380: Sending UDP payload: 446
+1335780806378: inside sendPacket(Packet p)
+1335780806382: Sending UDP payload: 446
+1335780811379: inside sendPacket(Packet p)
+1335780811383: Sending UDP payload: 446
+1335780814764: leader to cloud hearbeat...
+1335780816383: inside sendPacket(Packet p)
+1335780816387: Sending UDP payload: 446
+1335780821384: inside sendPacket(Packet p)
+1335780821388: Sending UDP payload: 446
+1335780826385: inside sendPacket(Packet p)
+1335780826390: Sending UDP payload: 446
+1335780831386: inside sendPacket(Packet p)
+1335780831390: Sending UDP payload: 446
+1335780836387: inside sendPacket(Packet p)
+1335780836389: Sending UDP payload: 446
+1335780841387: inside sendPacket(Packet p)
+1335780841388: Sending UDP payload: 446
+1335780846387: inside sendPacket(Packet p)
+1335780846390: Sending UDP payload: 446
+1335780851389: inside sendPacket(Packet p)
+1335780851394: Sending UDP payload: 446
+1335780856391: inside sendPacket(Packet p)
+1335780856392: Sending UDP payload: 446
+1335780861392: inside sendPacket(Packet p)
+1335780861396: Sending UDP payload: 446
+1335780866394: inside sendPacket(Packet p)
+1335780866396: Sending UDP payload: 446
+1335780871394: inside sendPacket(Packet p)
+1335780871396: Sending UDP payload: 446
+1335780876395: inside sendPacket(Packet p)
+1335780876396: Sending UDP payload: 446
+1335780881396: inside sendPacket(Packet p)
+1335780881397: Sending UDP payload: 446
+1335780886397: inside sendPacket(Packet p)
+1335780886398: Sending UDP payload: 446
+1335780891398: inside sendPacket(Packet p)
+1335780891400: Sending UDP payload: 446
+1335780895711: HI I'm in ONPAUSE()
+1335780896353: inside onDestroy()

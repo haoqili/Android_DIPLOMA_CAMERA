@@ -1,0 +1,719 @@
+1335716735465: *** Opened log file for writing ***
+1335716735466: Android build: SAMSUNG-SGH-I717
+1335716735467: NET_NAME set to: eth0
+1335716735467: starting Mux with id = -1
+1335716735469: areButtonsEnabled --> true
+1335716735470: *** Application started ***
+1335716735471: HI I'm in ONRESUME()
+1335716735477: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1335716735470: mux: Mux.java run() beginning -------------
+1335716735497: mux: Mux.java's nodeId is5003
+1335716735497: mux: starting vncDaemon ........
+1335716735502: mux: vncDaemon started
+1335716735499: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1335716735502: VCoreDaemon.java onStart() ....
+1335716735502: started, mId = 5003
+1335716735503: VCoreDaemon.java inside stateTransition ..........
+1335716735503: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716735503: ..... VCoreDaemon.java out of bounds
+1335716735503: region (-1, -1) out of bounds, dormant
+1335716735503: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716741795: moving from region (-1,-1), to (0,0)
+1335716741796: VCoreDaemon.java inside stateTransition ..........
+1335716741796: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716741796: ..... VCoreDaemon.java targetState = JOINING
+1335716741797: posting leaderRequestRetryR because I'm joining
+1335716741797: sending LEADER_REQUEST
+1335716741797: inside sendPacket(Packet p)
+1335716741797: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716741834: Sending UDP payload: 446
+1335716741838: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716742098: sending LEADER_REQUEST
+1335716742098: inside sendPacket(Packet p)
+1335716742098: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716742103: Sending UDP payload: 446
+1335716742399: sending LEADER_REQUEST
+1335716742399: inside sendPacket(Packet p)
+1335716742407: Sending UDP payload: 446
+1335716742410: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716742711: sending LEADER_REQUEST
+1335716742712: inside sendPacket(Packet p)
+1335716742712: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716742716: Sending UDP payload: 446
+1335716742838: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335716742838: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335716742838: VCoreDaemon.java inside stateTransition ..........
+1335716742838: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716742839: ..... VCoreDaemon.java targetState = LEADER
+1335716742839: trying to take leadership to the cloud
+1335716743244: cloud accepted leadership request, no csm data included.
+1335716743255: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
+1335716743256: *** Starting CSM Layer ***
+1335716743257: *** CSM Layer starting with cache disabled ***
+1335716743257: *** CSM Layer starting with forwarding disabled ***
+1335716743296: DSMLayer starting
+1335716743306: UserApp started.
+1335716743306: UserApp for Camera Diploma initialized and waiting for requests.
+1335716743523: inside sendPacket(Packet p)
+1335716743539: Sending UDP payload: 22318
+1335716743543: now fully up as LEADER (id=5003) of (0,0)
+1335716743544: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716745431: Received UDP payload: 446
+1335716745506: inside sendPacket(Packet p)
+1335716745522: Sending UDP payload: 446
+1335716745713: Received UDP payload: 446
+1335716746018: Received UDP payload: 446
+1335716746320: Received UDP payload: 446
+1335716747287: Received UDP payload: 22318
+1335716747293: ignoring leader_reply that's not for me
+1335716748110: Received UDP payload: 446
+1335716748406: Received UDP payload: 446
+1335716748716: Received UDP payload: 446
+1335716749010: Received UDP payload: 446
+1335716749453: Received UDP payload: 446
+1335716749844: Received UDP payload: 446
+1335716750139: Received UDP payload: 22318
+1335716750153: ignoring leader_reply that's not for me
+1335716750156: Received UDP payload: 446
+1335716750446: Received UDP payload: 446
+1335716750524: inside sendPacket(Packet p)
+1335716750529: Sending UDP payload: 446
+1335716750819: Received UDP payload: 446
+1335716752038: Received UDP payload: 22318
+1335716752041: ignoring leader_reply that's not for me
+1335716753386: Received UDP payload: 446
+1335716753684: moving from region (0,0), to (3,0)
+1335716753686: change state to HANDING_OFF with parameter my previous/old region = (0,0) before helping to elect new leader in it. (btw, newRegion (3,0))
+1335716753688: VCoreDaemon.java inside stateTransition ..........
+1335716753690: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716753691: ..... VCoreDaemon.java targetState = HANDING_OFF
+1335716753691: HANDING OFF setting leaderRegion = (0,0)
+1335716753691: Trying to hand off leadership
+1335716753692: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716753692: broadcasting LEADER_ELECT to old (0,0)
+1335716753693: inside sendPacket(Packet p)
+1335716753694: Sending UDP payload: 463
+1335716753970: Received UDP payload: 446
+1335716754496: Received UDP payload: 446
+1335716754697: INSIDE ELECT CANDIDATE
+1335716754697: CANDIDATE SIZE is 0
+1335716754697: UserApp stopped.
+1335716754697: DSMLayer stopped
+1335716754697: serializing DSMLayer to JSON
+1335716755381: old region empty, uploaded state to cloud in 684ms as json 1308 bytes
+1335716755382: VCoreDaemon.java inside stateTransition ..........
+1335716755384: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716755386: ..... VCoreDaemon.java targetState = JOINING
+1335716755388: posting leaderRequestRetryR because I'm joining
+1335716755390: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716755391: sending LEADER_REQUEST
+1335716755392: inside sendPacket(Packet p)
+1335716755409: Sending UDP payload: 446
+1335716755411: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716755713: sending LEADER_REQUEST
+1335716755713: inside sendPacket(Packet p)
+1335716755713: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716755714: Sending UDP payload: 446
+1335716755822: Received UDP payload: 22335
+1335716755828: removing leaderRequestRetryR because heard Packet.Leader_reply
+1335716755828: heard LEADER_REPLY from 5004
+1335716755828: VCoreDaemon.java inside stateTransition ..........
+1335716755828: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716755828: ..... VCoreDaemon.java targetState = NONLEADER
+1335716755829: DSMLayer stopped
+1335716755829: now NONLEADER (id=5003) following LEADER (id=5004) in (3,0)
+1335716755829: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716756072: Received UDP payload: 22335
+1335716756081: ignoring leader_reply that's not for me
+1335716758446: Received UDP payload: 446
+1335716758528: Received UDP payload: 463
+1335716758948: Received UDP payload: 446
+1335716759494: Received UDP payload: 446
+1335716760196: Received UDP payload: 446
+1335716760501: Received UDP payload: 446
+1335716760807: Received UDP payload: 446
+1335716761104: Received UDP payload: 446
+1335716761191: Received UDP payload: 463
+1335716761690: Received UDP payload: 22318
+1335716761699: ignoring leader_reply that's not for me
+1335716763036: Received UDP payload: 446
+1335716763343: Received UDP payload: 446
+1335716763418: Received UDP payload: 446
+1335716763646: Received UDP payload: 446
+1335716763952: Received UDP payload: 446
+1335716764532: Received UDP payload: 22318
+1335716764542: ignoring leader_reply that's not for me
+1335716764573: Received UDP payload: 446
+1335716765261: Received UDP payload: 463
+1335716765270: heard LEADER_ELECT from node 5004, responding LEADER_NOMINATE
+1335716765271: inside sendPacket(Packet p)
+1335716765277: Sending UDP payload: 446
+1335716766727: Received UDP payload: 22335
+1335716766737: received LEADER_CONFIRM from 5004, replying LEADER_CONFIRM_ACK
+1335716766737: inside sendPacket(Packet p)
+1335716766738: waiting to give old leader time to release
+1335716766744: Sending UDP payload: 463
+1335716767147: Received UDP payload: 446
+1335716767461: Received UDP payload: 446
+1335716767583: Received UDP payload: 22335
+1335716767786: Received UDP payload: 446
+1335716767834: Received UDP payload: 22335
+1335716768139: Received UDP payload: 22335
+1335716769000: Received UDP payload: 446
+1335716769573: Received UDP payload: 446
+1335716770739: VCoreDaemon.java inside stateTransition ..........
+1335716770740: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716770740: ..... VCoreDaemon.java targetState = LEADER
+1335716770741: trying to take leadership to the cloud
+1335716771149: cloud accepted leadership request, no csm data included.
+1335716771156: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
+1335716771156: *** Starting CSM Layer ***
+1335716771157: *** CSM Layer starting with cache disabled ***
+1335716771158: *** CSM Layer starting with forwarding disabled ***
+1335716771516: DSMLayer starting
+1335716771528: UserApp started.
+1335716771529: loaded csm data from old leader
+1335716771624: inside sendPacket(Packet p)
+1335716771656: now fully up as LEADER (id=5003) of (3,0)
+1335716771656: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716771656: Sending UDP payload: 22318
+1335716773990: Received UDP payload: 446
+1335716774208: moving from region (3,0), to (4,0)
+1335716774209: change state to HANDING_OFF with parameter my previous/old region = (3,0) before helping to elect new leader in it. (btw, newRegion (4,0))
+1335716774209: VCoreDaemon.java inside stateTransition ..........
+1335716774209: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716774209: ..... VCoreDaemon.java targetState = HANDING_OFF
+1335716774209: HANDING OFF setting leaderRegion = (3,0)
+1335716774210: Trying to hand off leadership
+1335716774211: Received UDP payload: 446
+1335716774214: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716774214: broadcasting LEADER_ELECT to old (3,0)
+1335716774215: inside sendPacket(Packet p)
+1335716774218: Sending UDP payload: 463
+1335716774512: Received UDP payload: 446
+1335716774802: Received UDP payload: 22950
+1335716774861: Received UDP payload: 446
+1335716775047: Received UDP payload: 22335
+1335716775053: Received UDP payload: 446
+1335716775219: INSIDE ELECT CANDIDATE
+1335716775219: CANDIDATE SIZE is 0
+1335716775219: UserApp stopped.
+1335716775220: DSMLayer stopped
+1335716775220: serializing DSMLayer to JSON
+1335716775294: Received UDP payload: 22335
+1335716775738: old region empty, uploaded state to cloud in 518ms as json 1307 bytes
+1335716775746: VCoreDaemon.java inside stateTransition ..........
+1335716775747: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716775747: ..... VCoreDaemon.java targetState = JOINING
+1335716775748: posting leaderRequestRetryR because I'm joining
+1335716775749: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716775750: sending LEADER_REQUEST
+1335716775751: inside sendPacket(Packet p)
+1335716775752: Sending UDP payload: 446
+1335716775755: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716776057: sending LEADER_REQUEST
+1335716776057: inside sendPacket(Packet p)
+1335716776057: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716776059: Sending UDP payload: 446
+1335716776145: Received UDP payload: 22335
+1335716776149: removing leaderRequestRetryR because heard Packet.Leader_reply
+1335716776149: heard LEADER_REPLY from 5001
+1335716776150: VCoreDaemon.java inside stateTransition ..........
+1335716776150: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716776150: ..... VCoreDaemon.java targetState = NONLEADER
+1335716776150: DSMLayer stopped
+1335716776150: now NONLEADER (id=5003) following LEADER (id=5001) in (4,0)
+1335716776151: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716776404: Received UDP payload: 22335
+1335716776410: ignoring leader_reply that's not for me
+1335716779074: Received UDP payload: 446
+1335716779697: Received UDP payload: 446
+1335716784031: Received UDP payload: 446
+1335716784689: Received UDP payload: 446
+1335716785413: moving from region (4,0), to (1,0)
+1335716785414: VCoreDaemon.java inside stateTransition ..........
+1335716785414: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716785417: ..... VCoreDaemon.java targetState = JOINING
+1335716785418: posting leaderRequestRetryR because I'm joining
+1335716785419: sending LEADER_REQUEST
+1335716785419: inside sendPacket(Packet p)
+1335716785419: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716785419: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716785421: Sending UDP payload: 446
+1335716785434: Received UDP payload: 446
+1335716785720: sending LEADER_REQUEST
+1335716785720: inside sendPacket(Packet p)
+1335716785720: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716785721: Sending UDP payload: 446
+1335716785731: Received UDP payload: 446
+1335716786020: sending LEADER_REQUEST
+1335716786020: inside sendPacket(Packet p)
+1335716786021: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716786023: Sending UDP payload: 446
+1335716786032: Received UDP payload: 446
+1335716786322: sending LEADER_REQUEST
+1335716786322: inside sendPacket(Packet p)
+1335716786322: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335716786325: Sending UDP payload: 446
+1335716786339: Received UDP payload: 446
+1335716786418: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335716786419: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335716786419: VCoreDaemon.java inside stateTransition ..........
+1335716786419: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716786419: ..... VCoreDaemon.java targetState = LEADER
+1335716786420: trying to take leadership to the cloud
+1335716787011: Received UDP payload: 3512
+1335716787965: cloud rejected leadership request or request failed, wait to retry
+1335716787973: removing leaderRequestRetryR because heard Packet.Leader_reply
+1335716787974: heard LEADER_REPLY from 5004
+1335716787974: VCoreDaemon.java inside stateTransition ..........
+1335716787974: removing leaderRequestRetryR because I'm doing a stateTransition
+1335716787974: ..... VCoreDaemon.java targetState = NONLEADER
+1335716787975: now NONLEADER (id=5003) following LEADER (id=5004) in (1,0)
+1335716787976: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335716788406: Received UDP payload: 446
+1335716789039: Received UDP payload: 446
+1335716789685: Received UDP payload: 446
+1335716793408: Received UDP payload: 446
+1335716794037: Received UDP payload: 446
+1335716794686: Received UDP payload: 446
+1335716798406: Received UDP payload: 446
+1335716799037: Received UDP payload: 446
+1335716799694: Received UDP payload: 446
+1335716803409: Received UDP payload: 446
+1335716804048: Received UDP payload: 446
+1335716804688: Received UDP payload: 446
+1335716808411: Received UDP payload: 446
+1335716809029: Received UDP payload: 446
+1335716809688: Received UDP payload: 446
+1335716813412: Received UDP payload: 446
+1335716814040: Received UDP payload: 446
+1335716814687: Received UDP payload: 446
+1335716818411: Received UDP payload: 446
+1335716819033: Received UDP payload: 446
+1335716819690: Received UDP payload: 446
+1335716823413: Received UDP payload: 446
+1335716824031: Received UDP payload: 446
+1335716824699: Received UDP payload: 446
+1335716828413: Received UDP payload: 446
+1335716829032: Received UDP payload: 446
+1335716829694: Received UDP payload: 446
+1335716833413: Received UDP payload: 446
+1335716834049: Received UDP payload: 446
+1335716834703: Received UDP payload: 446
+1335716838413: Received UDP payload: 446
+1335716839048: Received UDP payload: 446
+1335716839736: Received UDP payload: 446
+1335716843417: Received UDP payload: 446
+1335716844044: Received UDP payload: 446
+1335716844706: Received UDP payload: 446
+1335716848414: Received UDP payload: 446
+1335716849046: Received UDP payload: 446
+1335716849715: Received UDP payload: 446
+1335716853415: Received UDP payload: 446
+1335716854036: Received UDP payload: 446
+1335716854720: Received UDP payload: 446
+1335716858454: Received UDP payload: 446
+1335716859039: Received UDP payload: 446
+1335716859719: Received UDP payload: 446
+1335716863421: Received UDP payload: 446
+1335716864053: Received UDP payload: 446
+1335716864723: Received UDP payload: 446
+1335716868418: Received UDP payload: 446
+1335716869043: Received UDP payload: 446
+1335716869725: Received UDP payload: 446
+1335716873418: Received UDP payload: 446
+1335716874060: Received UDP payload: 446
+1335716874736: Received UDP payload: 446
+1335716878424: Received UDP payload: 446
+1335716879048: Received UDP payload: 446
+1335716879736: Received UDP payload: 446
+1335716883419: Received UDP payload: 446
+1335716884045: Received UDP payload: 446
+1335716884759: Received UDP payload: 446
+1335716888443: Received UDP payload: 446
+1335716889043: Received UDP payload: 446
+1335716889739: Received UDP payload: 446
+1335716893456: Received UDP payload: 446
+1335716894053: Received UDP payload: 446
+1335716894737: Received UDP payload: 446
+1335716898448: Received UDP payload: 446
+1335716899049: Received UDP payload: 446
+1335716899738: Received UDP payload: 446
+1335716903450: Received UDP payload: 446
+1335716904083: Received UDP payload: 446
+1335716904740: Received UDP payload: 446
+1335716908449: Received UDP payload: 446
+1335716909046: Received UDP payload: 446
+1335716909739: Received UDP payload: 446
+1335716913449: Received UDP payload: 446
+1335716914074: Received UDP payload: 446
+1335716914740: Received UDP payload: 446
+1335716918449: Received UDP payload: 446
+1335716919071: Received UDP payload: 446
+1335716919742: Received UDP payload: 446
+1335716923449: Received UDP payload: 446
+1335716924053: Received UDP payload: 446
+1335716924741: Received UDP payload: 446
+1335716928461: Received UDP payload: 446
+1335716929081: Received UDP payload: 446
+1335716929752: Received UDP payload: 446
+1335716933477: Received UDP payload: 446
+1335716934052: Received UDP payload: 446
+1335716934757: Received UDP payload: 446
+1335716938483: Received UDP payload: 446
+1335716939087: Received UDP payload: 446
+1335716939743: Received UDP payload: 446
+1335716943459: Received UDP payload: 446
+1335716944052: Received UDP payload: 446
+1335716944754: Received UDP payload: 446
+1335716948454: Received UDP payload: 446
+1335716949054: Received UDP payload: 446
+1335716949754: Received UDP payload: 446
+1335716953466: Received UDP payload: 446
+1335716954053: Received UDP payload: 446
+1335716954756: Received UDP payload: 446
+1335716958458: Received UDP payload: 446
+1335716959055: Received UDP payload: 446
+1335716959761: Received UDP payload: 446
+1335716963474: Received UDP payload: 446
+1335716964056: Received UDP payload: 446
+1335716964760: Received UDP payload: 446
+1335716968459: Received UDP payload: 446
+1335716969066: Received UDP payload: 446
+1335716969759: Received UDP payload: 446
+1335716973463: Received UDP payload: 446
+1335716974069: Received UDP payload: 446
+1335716974760: Received UDP payload: 446
+1335716978460: Received UDP payload: 446
+1335716979058: Received UDP payload: 446
+1335716979761: Received UDP payload: 446
+1335716983460: Received UDP payload: 446
+1335716984077: Received UDP payload: 446
+1335716984770: Received UDP payload: 446
+1335716988472: Received UDP payload: 446
+1335716989109: Received UDP payload: 446
+1335716989762: Received UDP payload: 446
+1335716993464: Received UDP payload: 446
+1335716994108: Received UDP payload: 446
+1335716994764: Received UDP payload: 446
+1335716998460: Received UDP payload: 446
+1335716999130: Received UDP payload: 446
+1335716999767: Received UDP payload: 446
+1335717003464: Received UDP payload: 446
+1335717004161: Received UDP payload: 446
+1335717004817: Received UDP payload: 446
+1335717008462: Received UDP payload: 446
+1335717009159: Received UDP payload: 446
+1335717009768: Received UDP payload: 446
+1335717013464: Received UDP payload: 446
+1335717014195: Received UDP payload: 446
+1335717014769: Received UDP payload: 446
+1335717018464: Received UDP payload: 446
+1335717019181: Received UDP payload: 446
+1335717019770: Received UDP payload: 446
+1335717023474: Received UDP payload: 446
+1335717024198: Received UDP payload: 446
+1335717024785: Received UDP payload: 446
+1335717028492: Received UDP payload: 446
+1335717029210: Received UDP payload: 446
+1335717029784: Received UDP payload: 446
+1335717033468: Received UDP payload: 446
+1335717034209: Received UDP payload: 446
+1335717034774: Received UDP payload: 446
+1335717038485: Received UDP payload: 446
+1335717039256: Received UDP payload: 446
+1335717039778: Received UDP payload: 446
+1335717043467: Received UDP payload: 446
+1335717044222: Received UDP payload: 446
+1335717044780: Received UDP payload: 446
+1335717048471: Received UDP payload: 446
+1335717049240: Received UDP payload: 446
+1335717049780: Received UDP payload: 446
+1335717053487: Received UDP payload: 446
+1335717054257: Received UDP payload: 446
+1335717054779: Received UDP payload: 446
+1335717058474: Received UDP payload: 446
+1335717059275: Received UDP payload: 446
+1335717059817: Received UDP payload: 446
+1335717063476: Received UDP payload: 446
+1335717064270: Received UDP payload: 446
+1335717064791: Received UDP payload: 446
+1335717068504: Received UDP payload: 446
+1335717069303: Received UDP payload: 446
+1335717073476: Received UDP payload: 446
+1335717074281: Received UDP payload: 446
+1335717074800: Received UDP payload: 446
+1335717078477: Received UDP payload: 446
+1335717079311: Received UDP payload: 446
+1335717079806: Received UDP payload: 446
+1335717083487: Received UDP payload: 446
+1335717084307: Received UDP payload: 446
+1335717084802: Received UDP payload: 446
+1335717088531: Received UDP payload: 446
+1335717089267: Received UDP payload: 446
+1335717089813: Received UDP payload: 446
+1335717093480: Received UDP payload: 446
+1335717094270: Received UDP payload: 446
+1335717094805: Received UDP payload: 446
+1335717098484: Received UDP payload: 446
+1335717099271: Received UDP payload: 446
+1335717099804: Received UDP payload: 446
+1335717103482: Received UDP payload: 446
+1335717104271: Received UDP payload: 446
+1335717104814: Received UDP payload: 446
+1335717108488: Received UDP payload: 446
+1335717109294: Received UDP payload: 446
+1335717109826: Received UDP payload: 446
+1335717113486: Received UDP payload: 446
+1335717114287: Received UDP payload: 446
+1335717114807: Received UDP payload: 446
+1335717118490: Received UDP payload: 446
+1335717119289: Received UDP payload: 446
+1335717119840: Received UDP payload: 446
+1335717123486: Received UDP payload: 446
+1335717124284: Received UDP payload: 446
+1335717124813: Received UDP payload: 446
+1335717128487: Received UDP payload: 446
+1335717129328: Received UDP payload: 446
+1335717129808: Received UDP payload: 446
+1335717133493: Received UDP payload: 446
+1335717134286: Received UDP payload: 446
+1335717134811: Received UDP payload: 446
+1335717138504: Received UDP payload: 446
+1335717139277: Received UDP payload: 446
+1335717139810: Received UDP payload: 446
+1335717143494: Received UDP payload: 446
+1335717144283: Received UDP payload: 446
+1335717144820: Received UDP payload: 446
+1335717148520: Received UDP payload: 446
+1335717149281: Received UDP payload: 446
+1335717149820: Received UDP payload: 446
+1335717153523: Received UDP payload: 446
+1335717154281: Received UDP payload: 446
+1335717154813: Received UDP payload: 446
+1335717158527: Received UDP payload: 446
+1335717159308: Received UDP payload: 446
+1335717159814: Received UDP payload: 446
+1335717163527: Received UDP payload: 446
+1335717164297: Received UDP payload: 446
+1335717164819: Received UDP payload: 446
+1335717168527: Received UDP payload: 446
+1335717169288: Received UDP payload: 446
+1335717169817: Received UDP payload: 446
+1335717173534: Received UDP payload: 446
+1335717174323: Received UDP payload: 446
+1335717174835: Received UDP payload: 446
+1335717178539: Received UDP payload: 446
+1335717179300: Received UDP payload: 446
+1335717179826: Received UDP payload: 446
+1335717183532: Received UDP payload: 446
+1335717184309: Received UDP payload: 446
+1335717184843: Received UDP payload: 446
+1335717188531: Received UDP payload: 446
+1335717189289: Received UDP payload: 446
+1335717189826: Received UDP payload: 446
+1335717193544: Received UDP payload: 446
+1335717194291: Received UDP payload: 446
+1335717194827: Received UDP payload: 446
+1335717198534: Received UDP payload: 446
+1335717199303: Received UDP payload: 446
+1335717199834: Received UDP payload: 446
+1335717203542: Received UDP payload: 446
+1335717204320: Received UDP payload: 446
+1335717204838: Received UDP payload: 446
+1335717208539: Received UDP payload: 446
+1335717209298: Received UDP payload: 446
+1335717209830: Received UDP payload: 446
+1335717213537: Received UDP payload: 446
+1335717214307: Received UDP payload: 446
+1335717214863: Received UDP payload: 446
+1335717218544: Received UDP payload: 446
+1335717219296: Received UDP payload: 446
+1335717219880: Received UDP payload: 446
+1335717223549: Received UDP payload: 446
+1335717224296: Received UDP payload: 446
+1335717224835: Received UDP payload: 446
+1335717228584: Received UDP payload: 446
+1335717229299: Received UDP payload: 446
+1335717229844: Received UDP payload: 446
+1335717233541: Received UDP payload: 446
+1335717234357: Received UDP payload: 446
+1335717234848: Received UDP payload: 446
+1335717238541: Received UDP payload: 446
+1335717239302: Received UDP payload: 446
+1335717239840: Received UDP payload: 446
+1335717243542: Received UDP payload: 446
+1335717244319: Received UDP payload: 446
+1335717244850: Received UDP payload: 446
+1335717248545: Received UDP payload: 446
+1335717249302: Received UDP payload: 446
+1335717249880: Received UDP payload: 446
+1335717253550: Received UDP payload: 446
+1335717254317: Received UDP payload: 446
+1335717254844: Received UDP payload: 446
+1335717258563: Received UDP payload: 446
+1335717259305: Received UDP payload: 446
+1335717259856: Received UDP payload: 446
+1335717263547: Received UDP payload: 446
+1335717264317: Received UDP payload: 446
+1335717264855: Received UDP payload: 446
+1335717268654: Received UDP payload: 446
+1335717269309: Received UDP payload: 446
+1335717269863: Received UDP payload: 446
+1335717273646: Received UDP payload: 446
+1335717274310: Received UDP payload: 446
+1335717274850: Received UDP payload: 446
+1335717278657: Received UDP payload: 446
+1335717279328: Received UDP payload: 446
+1335717279868: Received UDP payload: 446
+1335717283653: Received UDP payload: 446
+1335717284315: Received UDP payload: 446
+1335717284853: Received UDP payload: 446
+1335717288653: Received UDP payload: 446
+1335717289312: Received UDP payload: 446
+1335717289872: Received UDP payload: 446
+1335717293650: Received UDP payload: 446
+1335717294321: Received UDP payload: 446
+1335717294855: Received UDP payload: 446
+1335717298664: Received UDP payload: 446
+1335717299316: Received UDP payload: 446
+1335717299880: Received UDP payload: 446
+1335717303680: Received UDP payload: 446
+1335717304323: Received UDP payload: 446
+1335717304870: Received UDP payload: 446
+1335717308673: Received UDP payload: 446
+1335717309321: Received UDP payload: 446
+1335717309895: Received UDP payload: 446
+1335717313673: Received UDP payload: 446
+1335717314324: Received UDP payload: 446
+1335717314875: Received UDP payload: 446
+1335717318676: Received UDP payload: 446
+1335717319344: Received UDP payload: 446
+1335717319864: Received UDP payload: 446
+1335717323674: Received UDP payload: 446
+1335717324364: Received UDP payload: 446
+1335717324866: Received UDP payload: 446
+1335717328675: Received UDP payload: 446
+1335717329326: Received UDP payload: 446
+1335717329870: Received UDP payload: 446
+1335717333674: Received UDP payload: 446
+1335717334324: Received UDP payload: 446
+1335717334870: Received UDP payload: 446
+1335717338676: Received UDP payload: 446
+1335717339353: Received UDP payload: 446
+1335717339903: Received UDP payload: 446
+1335717343677: Received UDP payload: 446
+1335717344327: Received UDP payload: 446
+1335717344868: Received UDP payload: 446
+1335717348678: Received UDP payload: 446
+1335717349327: Received UDP payload: 446
+1335717349867: Received UDP payload: 446
+1335717353689: Received UDP payload: 446
+1335717354353: Received UDP payload: 446
+1335717354883: Received UDP payload: 446
+1335717358680: Received UDP payload: 446
+1335717359356: Received UDP payload: 446
+1335717359910: Received UDP payload: 446
+1335717363682: Received UDP payload: 446
+1335717364327: Received UDP payload: 446
+1335717368686: Received UDP payload: 446
+1335717369327: Received UDP payload: 446
+1335717373680: Received UDP payload: 446
+1335717374339: Received UDP payload: 446
+1335717378682: Received UDP payload: 446
+1335717379331: Received UDP payload: 446
+1335717383683: Received UDP payload: 446
+1335717384332: Received UDP payload: 446
+1335717389005: Received UDP payload: 446
+1335717389330: Received UDP payload: 446
+1335717394008: Received UDP payload: 446
+1335717394331: Received UDP payload: 446
+1335717399009: Received UDP payload: 446
+1335717399329: Received UDP payload: 446
+1335717404011: Received UDP payload: 446
+1335717404333: Received UDP payload: 446
+1335717409010: Received UDP payload: 446
+1335717409332: Received UDP payload: 446
+1335717414010: Received UDP payload: 446
+1335717414365: Received UDP payload: 446
+1335717419011: Received UDP payload: 446
+1335717419335: Received UDP payload: 446
+1335717424011: Received UDP payload: 446
+1335717424334: Received UDP payload: 446
+1335717429012: Received UDP payload: 446
+1335717429352: Received UDP payload: 446
+1335717434010: Received UDP payload: 446
+1335717434334: Received UDP payload: 446
+1335717439011: Received UDP payload: 446
+1335717439336: Received UDP payload: 446
+1335717444011: Received UDP payload: 446
+1335717444337: Received UDP payload: 446
+1335717449012: Received UDP payload: 446
+1335717449359: Received UDP payload: 446
+1335717454034: Received UDP payload: 446
+1335717454338: Received UDP payload: 446
+1335717459016: Received UDP payload: 446
+1335717459339: Received UDP payload: 446
+1335717464014: Received UDP payload: 446
+1335717464341: Received UDP payload: 446
+1335717469018: Received UDP payload: 446
+1335717469342: Received UDP payload: 446
+1335717474022: Received UDP payload: 446
+1335717474340: Received UDP payload: 446
+1335717479016: Received UDP payload: 446
+1335717479339: Received UDP payload: 446
+1335717484017: Received UDP payload: 446
+1335717484340: Received UDP payload: 446
+1335717489019: Received UDP payload: 446
+1335717494017: Received UDP payload: 446
+1335717499018: Received UDP payload: 446
+1335717504025: Received UDP payload: 446
+1335717509180: Received UDP payload: 446
+1335717514185: Received UDP payload: 446
+1335717519190: Received UDP payload: 446
+1335717524186: Received UDP payload: 446
+1335717529185: Received UDP payload: 446
+1335717534187: Received UDP payload: 446
+1335717539189: Received UDP payload: 446
+1335717544189: Received UDP payload: 446
+1335717549192: Received UDP payload: 446
+1335717554189: Received UDP payload: 446
+1335717559191: Received UDP payload: 446
+1335717564192: Received UDP payload: 446
+1335717569193: Received UDP payload: 446
+1335717574193: Received UDP payload: 446
+1335717579196: Received UDP payload: 446
+1335717584213: Received UDP payload: 446
+1335717589193: Received UDP payload: 446
+1335717594211: Received UDP payload: 446
+1335717599196: Received UDP payload: 446
+1335717604196: Received UDP payload: 446
+1335717609200: Received UDP payload: 446
+1335717614197: Received UDP payload: 446
+1335717619200: Received UDP payload: 446
+1335717624198: Received UDP payload: 446
+1335717629629: Received UDP payload: 446
+1335717634630: Received UDP payload: 446
+1335717639632: Received UDP payload: 446
+1335717644644: Received UDP payload: 446
+1335717649638: Received UDP payload: 446
+1335717654643: Received UDP payload: 446
+1335717659660: Received UDP payload: 446
+1335717664644: Received UDP payload: 446
+1335717669648: Received UDP payload: 446
+1335717674646: Received UDP payload: 446
+1335717679661: Received UDP payload: 446
+1335717684674: Received UDP payload: 446
+1335717689665: Received UDP payload: 446
+1335717694672: Received UDP payload: 446
+1335717699681: Received UDP payload: 446
+1335717704684: Received UDP payload: 446
+1335717709700: Received UDP payload: 446
+1335717714733: Received UDP payload: 446
+1335717719695: Received UDP payload: 446
+1335717724689: Received UDP payload: 446
+1335717729692: Received UDP payload: 446
+1335717734691: Received UDP payload: 446
+1335717736150: HI I'm in ONPAUSE()
+1335717737743: inside onDestroy()

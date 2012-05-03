@@ -1,0 +1,241 @@
+1334779547448: *** Opened log file for writing ***
+1334779547449: Android build: SAMSUNG-SGH-I717
+1334779547450: NET_NAME set to: eth0
+1334779547451: starting Mux with id = -1
+1334779547455: areButtonsEnabled --> true
+1334779547457: *** Application started ***
+1334779547458: HI I'm in ONRESUME()
+1334779547470: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1334779547515: Started VCoreDaemon with parameters maxRx = 6 , maxRY= 1, minLongitude = -7110102 , minLatitude = 4236349, regionWidth =17
+1334779547524: started, mId = 5004
+1334779547526: region (-1, -1) out of bounds, dormant
+1334779556854: moving from region (-1,-1), to (1,0)
+1334779556855: sending LEADER_REQUEST
+1334779556856: inside sendPacket(Packet p)
+1334779556880: Sending UDP payload: 427
+1334779557156: sending LEADER_REQUEST
+1334779557157: inside sendPacket(Packet p)
+1334779557161: Sending UDP payload: 427
+1334779557458: sending LEADER_REQUEST
+1334779557458: inside sendPacket(Packet p)
+1334779557471: Sending UDP payload: 427
+1334779557760: sending LEADER_REQUEST
+1334779557760: inside sendPacket(Packet p)
+1334779557765: Sending UDP payload: 427
+1334779557870: LEADER_REQUEST timed out
+1334779558469: cloud accepted leadership request, no csm data included.
+1334779558470: *** Starting CSM Layer ***
+1334779558471: *** CSM Layer starting with cache disabled ***
+1334779558472: *** CSM Layer starting with forwarding enabled ***
+1334779558526: DSMLayer starting
+1334779558528: UserApp started.
+1334779558532: UserApp for Camera Diploma initialized and waiting for requests.
+1334779558823: inside sendPacket(Packet p)
+1334779558825: now fully up as LEADER (id=5004) of (1,0)
+1334779558828: Sending UDP payload: 25273
+1334779560687: Received UDP payload: 427
+1334779560701: heard LEADER_REQUEST from node 5020, responding LEADER_REPLY
+1334779560877: inside sendPacket(Packet p)
+1334779560880: Sending UDP payload: 25290
+1334779561289: Received UDP payload: 427
+1334779561304: heard LEADER_REQUEST from node 5020, responding LEADER_REPLY
+1334779561472: inside sendPacket(Packet p)
+1334779561482: Sending UDP payload: 25290
+1334779561747: Received UDP payload: 427
+1334779561755: heard LEADER_REQUEST from node 5020, responding LEADER_REPLY
+1334779562007: inside sendPacket(Packet p)
+1334779562027: Sending UDP payload: 25905
+1334779562533: inside sendPacket(Packet p)
+1334779562548: Sending UDP payload: 427
+1334779564586: Received UDP payload: 427
+1334779564882: Received UDP payload: 427
+1334779565177: Received UDP payload: 427
+1334779565483: Received UDP payload: 427
+1334779566762: Received UDP payload: 25888
+1334779567533: inside sendPacket(Packet p)
+1334779567537: Sending UDP payload: 427
+1334779567858: Received UDP payload: 427
+1334779572269: Received UDP payload: 5729
+1334779572275: Inside mux Packet.CLIENT_REQUEST
+1334779572276: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1334779572276: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1334779572277: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1334779572282: Sending PROC_REQUEST 10:0 (1,0)->(1,0)
+1334779572284: Dispatching Atom PROC_REQUEST 10:0 (1,0)->(1,0)
+1334779572296: I got a CSM packet at a leader 
+
+1334779572372: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1334779572389: I'm a leader and I SUCCEEDED in saving my client's new photo
+1334779572390: now showing in UI the new photo I just saved ... 
+1334779572390: the photo length: 5101
+1334779572285: adding requestCounter=1
+1334779572293: The leader sending a First Leg ack to originator client (which id = 5020)
+1334779572295: inside sendPacket(Packet p)
+1334779572315: Sending UDP payload: 6093
+1334779572332: removed replies before id 0 from sentReplies of size 0
+1334779572338: Inside UPLOAD_PHOTO!!
+1334779572348: my_gpinfo.isSuccess is now (should be true): true
+1334779572349: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1334779572351: Received PROC_REQUEST 10:0 (1,0)->(1,0), replying PROC_REPLY 10:0 (1,0)->(1,0)
+1334779572352: Dispatching Atom PROC_REPLY 10:0 (1,0)->(1,0)
+1334779572380: I got a CSM packet at a leader 
+
+1334779572354: Sending UDP payload: 427
+1334779572383: Sending UDP payload: 970
+1334779572385: Received PROC_REPLY 10:0 (1,0)->(1,0), handing to UserApp
+1334779572386: Now back in orginitator region's leader, precssing handleDSMReply
+1334779572386: Going to and from remote region took latency = 109
+1334779572386: = orig leader sent packet at 1334779572277 ~ received reply at 1334779572386
+1334779572387: Originator Region=1 Leader (for Client=5020) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1334779572387: reply packet contains the ACK for UPLOAD_PHOTO
+1334779572388: I (the leader) was not the originator client (which id = 5020) so I use UDP to send packet back to my nonleader
+1334779572388: inside sendPacket(Packet p)
+1334779572448: Sending UDP payload: 623
+1334779572535: inside sendPacket(Packet p)
+1334779572536: Sending UDP payload: 427
+1334779572864: Received UDP payload: 427
+1334779577535: inside sendPacket(Packet p)
+1334779577539: Sending UDP payload: 427
+1334779577870: Received UDP payload: 427
+1334779582536: inside sendPacket(Packet p)
+1334779582537: Sending UDP payload: 427
+1334779582866: Received UDP payload: 427
+1334779587536: inside sendPacket(Packet p)
+1334779587538: Sending UDP payload: 427
+1334779587867: Received UDP payload: 427
+1334779592536: inside sendPacket(Packet p)
+1334779592551: Sending UDP payload: 427
+1334779592871: Received UDP payload: 427
+1334779597538: inside sendPacket(Packet p)
+1334779597540: Sending UDP payload: 427
+1334779597868: Received UDP payload: 427
+1334779602538: inside sendPacket(Packet p)
+1334779602539: Sending UDP payload: 427
+1334779602874: Received UDP payload: 427
+1334779607538: inside sendPacket(Packet p)
+1334779607548: Sending UDP payload: 427
+1334779607868: Received UDP payload: 427
+1334779612540: inside sendPacket(Packet p)
+1334779612544: Sending UDP payload: 427
+1334779612873: Received UDP payload: 427
+1334779617541: inside sendPacket(Packet p)
+1334779617545: Sending UDP payload: 427
+1334779617888: Received UDP payload: 427
+1334779622541: inside sendPacket(Packet p)
+1334779622545: Sending UDP payload: 427
+1334779622880: Received UDP payload: 427
+1334779627542: inside sendPacket(Packet p)
+1334779627546: Sending UDP payload: 427
+1334779627885: Received UDP payload: 427
+1334779632544: inside sendPacket(Packet p)
+1334779632547: Sending UDP payload: 427
+1334779632880: Received UDP payload: 427
+1334779637544: inside sendPacket(Packet p)
+1334779637546: Sending UDP payload: 427
+1334779637882: Received UDP payload: 427
+1334779642544: inside sendPacket(Packet p)
+1334779642548: Sending UDP payload: 427
+1334779642893: Received UDP payload: 427
+1334779647545: inside sendPacket(Packet p)
+1334779647571: Sending UDP payload: 427
+1334779647885: Received UDP payload: 427
+1334779652546: inside sendPacket(Packet p)
+1334779652549: Sending UDP payload: 427
+1334779652884: Received UDP payload: 427
+1334779657547: inside sendPacket(Packet p)
+1334779657551: Sending UDP payload: 427
+1334779657905: Received UDP payload: 427
+1334779662547: inside sendPacket(Packet p)
+1334779662552: Sending UDP payload: 427
+1334779662886: Received UDP payload: 427
+1334779667549: inside sendPacket(Packet p)
+1334779667553: Sending UDP payload: 427
+1334779667887: Received UDP payload: 427
+1334779672549: inside sendPacket(Packet p)
+1334779672554: Sending UDP payload: 427
+1334779672887: Received UDP payload: 427
+1334779677550: inside sendPacket(Packet p)
+1334779677554: Sending UDP payload: 427
+1334779677897: Received UDP payload: 427
+1334779678823: leader to cloud hearbeat...
+1334779682550: inside sendPacket(Packet p)
+1334779682589: Sending UDP payload: 427
+1334779682894: Received UDP payload: 427
+1334779687551: inside sendPacket(Packet p)
+1334779687555: Sending UDP payload: 427
+1334779687919: Received UDP payload: 427
+1334779692552: inside sendPacket(Packet p)
+1334779692556: Sending UDP payload: 427
+1334779692901: Received UDP payload: 427
+1334779697554: inside sendPacket(Packet p)
+1334779697560: Sending UDP payload: 427
+1334779697892: Received UDP payload: 427
+1334779702556: inside sendPacket(Packet p)
+1334779702561: Sending UDP payload: 427
+1334779702905: Received UDP payload: 427
+1334779707557: inside sendPacket(Packet p)
+1334779707560: Sending UDP payload: 427
+1334779707911: Received UDP payload: 427
+1334779712559: inside sendPacket(Packet p)
+1334779712563: Sending UDP payload: 427
+1334779712903: Received UDP payload: 427
+1334779717559: inside sendPacket(Packet p)
+1334779717563: Sending UDP payload: 427
+1334779717896: Received UDP payload: 427
+1334779722560: inside sendPacket(Packet p)
+1334779722563: Sending UDP payload: 427
+1334779722906: Received UDP payload: 427
+1334779727561: inside sendPacket(Packet p)
+1334779727564: Sending UDP payload: 427
+1334779727897: Received UDP payload: 427
+1334779732562: inside sendPacket(Packet p)
+1334779732590: Sending UDP payload: 427
+1334779732911: Received UDP payload: 427
+1334779737563: inside sendPacket(Packet p)
+1334779737566: Sending UDP payload: 427
+1334779737901: Received UDP payload: 427
+1334779742564: inside sendPacket(Packet p)
+1334779742567: Sending UDP payload: 427
+1334779742900: Received UDP payload: 427
+1334779747566: inside sendPacket(Packet p)
+1334779747569: Sending UDP payload: 427
+1334779747901: Received UDP payload: 427
+1334779752566: inside sendPacket(Packet p)
+1334779752581: Sending UDP payload: 427
+1334779752899: Received UDP payload: 427
+1334779757567: inside sendPacket(Packet p)
+1334779757571: Sending UDP payload: 427
+1334779757903: Received UDP payload: 427
+1334779762568: inside sendPacket(Packet p)
+1334779762571: Sending UDP payload: 427
+1334779762902: Received UDP payload: 427
+1334779767570: inside sendPacket(Packet p)
+1334779767573: Sending UDP payload: 427
+1334779767908: Received UDP payload: 427
+1334779772570: inside sendPacket(Packet p)
+1334779772582: Sending UDP payload: 427
+1334779772904: Received UDP payload: 427
+1334779777571: inside sendPacket(Packet p)
+1334779777575: Sending UDP payload: 427
+1334779777910: Received UDP payload: 427
+1334779782573: inside sendPacket(Packet p)
+1334779782577: Sending UDP payload: 427
+1334779782905: Received UDP payload: 427
+1334779787574: inside sendPacket(Packet p)
+1334779787578: Sending UDP payload: 427
+1334779787906: Received UDP payload: 427
+1334779792575: inside sendPacket(Packet p)
+1334779792580: Sending UDP payload: 427
+1334779792908: Received UDP payload: 427
+1334779797576: inside sendPacket(Packet p)
+1334779797589: Sending UDP payload: 427
+1334779797945: Received UDP payload: 427
+1334779799337: leader to cloud hearbeat...
+1334779802577: inside sendPacket(Packet p)
+1334779802615: Sending UDP payload: 427
+1334779802919: Received UDP payload: 427
+1334779807578: inside sendPacket(Packet p)
+1334779807582: Sending UDP payload: 427
+1334779807917: Received UDP payload: 427
+1334779809387: HI I'm in ONPAUSE()
+1334779810091: inside onDestroy()
