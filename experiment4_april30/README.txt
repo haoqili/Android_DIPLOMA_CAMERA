@@ -1,0 +1,1 @@
+diploma_get_analysis has the checks that check for out-of-run-range samples commented out, but diploma_take_analysis have them running. Neither reported any out-of-run-range measurements, i.e. you can't find any "BADDDDDDDDDDDDDDDDDDD"s (good job volunteers for following instructions to quit/restart the apps!) <3
