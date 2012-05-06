@@ -4,13 +4,12 @@ import re
 import math
 
 # TODO: 
-# takes/both
 # cloud
-# sort logs by timestamp and see if there is a difference
-# see if there are any "bads"
-# what are "timed outs?"
+# takes/both
 # look for repeated replies
-# TODO: leader vs nonleader
+# TODO: leader vs nonleader for gets
+# gather real timed out numbers
+# region to region
 
 # These are the timestamps of the first requests to the server
 #       ordered by their run number
@@ -122,68 +121,80 @@ def dirWalk(dirname):
             # get latency from the middle of the files
             isLatencyOk = False
             hasResultBad = False
+            isGetValidR = True
             for line in open(os.path.join(path, filename)):
                 # get the number of times clicked
-                get_search = re.search("making GET photo PACKET to send to the leader", line)
+                get_search = re.search("making GET photo PACKET to send to the leader. Requesting for region: (.*) ", line)
                 #get_search = re.search("(.*):.*making GET photo PACKET to send to the leader", line)
                 if get_search is not None:
                     #thistime = int(get_search.group(1))
                     #if thistime < RUNTIMES[runNumber] or thistime > RUNTIMES[runNumber+1]:
                     #    print "making get photo BADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
                     #    continue
-                    diploma_getNum[runNumber] += 1
+                    # only run 0 uses regions 4 and 5, but they would just time out 
+                    isGetValidR = True
+                    if runNumber > 0:
+                        getRegion = int(get_search.group(1))
+                        if getRegion < 4:
+                            diploma_getNum[runNumber] += 1
+                        else:
+                            isGetValidR = False
+                    else:
+                        diploma_getNum[runNumber] += 1
+                    
 
-                # Photo latencies are recorded before we know if there was a success
-                # so save the latencies temporarily in tmp_latency and 
-                # if there is a success, save it in the array
-                
-                # TODO: add leader/nonleader analysis
-                # Retrieve latency info
-                g = re.search("(.*)leader (.*) photo latency = (.*)", line)
-                #g = re.search("(.*): (.*)leader (.*) photo latency = (.*)", line)
-                if g is not None:
-                    #thistime = int(g.group(1))
-                    #if thistime < RUNTIMES[runNumber] or thistime > RUNTIMES[runNumber+1]:
-                    #    print "photo latengy BADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
-                    #    continue
-                    # reset flags
-                    isLatencyOk = False
-                    hasResultBad = False
-
-                    #tmp_latency = int(g.group(4))
-                    tmp_latency = int(g.group(3))
-                    # there are times when strangely the start latency didn't get set
-                    # For example, see 0/csm_dip-1335799100129.txt
-                    # so it records latency as just the epoch time e.g. "1335799117233"
-                    if tmp_latency < 1000000:
-                        isLatencyOk = True
-
-                # t4. successfulness search only when isLatencyOk
-                if isLatencyOk:
-
-                    if not hasResultBad:
-                        # only search a bad when there has been no bad replies
-                        # so that we don't double count bad replies from a single request
-                        # see extra_notes/analysis_get_regions_diploma_1.txt for more info
-                        sbad = re.search("one more getBad", line)
-                        #sbad = re.search("(.*):.*one more getBad", line)
-                        if sbad is not None:
-                            #thistime = int(sbad.group(1))
-                            #if thistime < RUNTIMES[runNumber] or thistime > RUNTIMES[runNumber+1]:
-                            #    print "one more getBad BADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
-                            #    continue
-                            hasResultBad = True
-                            diploma_getBad[runNumber] += 1
-
-                    sgood = re.search("one more getGood", line)
-                    #sgood = re.search("(.*):.*one more getGood", line)
-                    if sgood is not None:
-                        #thistime = int(sgood.group(1))
+                if isGetValidR:
+                    # Photo latencies are recorded before we know if there was a success
+                    # so save the latencies temporarily in tmp_latency and 
+                    # if there is a success, save it in the array
+                    
+                    # TODO: add leader/nonleader analysis
+                    # Retrieve latency info
+                    g = re.search("(.*)leader (.*) photo latency = (.*)", line)
+                    #g = re.search("(.*): (.*)leader (.*) photo latency = (.*)", line)
+                    if g is not None:
+                        #thistime = int(g.group(1))
                         #if thistime < RUNTIMES[runNumber] or thistime > RUNTIMES[runNumber+1]:
-                        #    print "one more getGood BADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+                        #    print "photo latengy BADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
                         #    continue
-                        diploma_getGood[runNumber] += 1
-                        diploma_get_latency[runNumber].append(tmp_latency)
+                        # reset flags
+                        isLatencyOk = False
+                        hasResultBad = False
+
+                        #tmp_latency = int(g.group(4))
+                        tmp_latency = int(g.group(3))
+                        # there are times when strangely the start latency didn't get set
+                        # For example, see 0/csm_dip-1335799100129.txt
+                        # so it records latency as just the epoch time e.g. "1335799117233"
+                        if tmp_latency < 1000000:
+                            isLatencyOk = True
+
+                    # t4. successfulness search only when isLatencyOk
+                    if isLatencyOk:
+
+                        if not hasResultBad:
+                            # only search a bad when there has been no bad replies
+                            # so that we don't double count bad replies from a single request
+                            # see extra_notes/analysis_get_regions_diploma_1.txt for more info
+                            sbad = re.search("one more getBad", line)
+                            #sbad = re.search("(.*):.*one more getBad", line)
+                            if sbad is not None:
+                                #thistime = int(sbad.group(1))
+                                #if thistime < RUNTIMES[runNumber] or thistime > RUNTIMES[runNumber+1]:
+                                #    print "one more getBad BADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+                                #    continue
+                                hasResultBad = True
+                                diploma_getBad[runNumber] += 1
+
+                        sgood = re.search("one more getGood", line)
+                        #sgood = re.search("(.*):.*one more getGood", line)
+                        if sgood is not None:
+                            #thistime = int(sgood.group(1))
+                            #if thistime < RUNTIMES[runNumber] or thistime > RUNTIMES[runNumber+1]:
+                            #    print "one more getGood BADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+                            #    continue
+                            diploma_getGood[runNumber] += 1
+                            diploma_get_latency[runNumber].append(tmp_latency)
 
 def stdvCalc(list):
     cumu = 0
