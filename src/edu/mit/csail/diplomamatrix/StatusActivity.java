@@ -733,7 +733,7 @@ public class StatusActivity extends Activity implements LocationListener {
 
 		if (mExternalStorageAvailable && mExternalStorageWriteable) {
 			myLogFile = new File(Environment.getExternalStorageDirectory(),
-					String.format("csm_dip-%d.txt", System.currentTimeMillis()));
+					String.format("csm_dip0506-%d.txt", System.currentTimeMillis()));
 			try {
 				myLogWriter = new PrintWriter(myLogFile);
 				logMsg("*** Opened log file for writing ***");
@@ -1018,7 +1018,8 @@ public class StatusActivity extends Activity implements LocationListener {
 			// Create a GetPhotoInfo to contain origin ID, photo bytes
 			GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
 					mux.vncDaemon.myRegion.x, 
-					mux.vncDaemon.myRegion.x);
+					mux.vncDaemon.myRegion.x,
+					packet.requestCounter);
 
 			try {
 				// jpeg compression in bitmapToBytes
@@ -1157,7 +1158,7 @@ public class StatusActivity extends Activity implements LocationListener {
 
         		GetPhotoInfo my_getphotoinfo = new GetPhotoInfo(mux.vncDaemon.mId, 
         				mux.vncDaemon.myRegion.x, 
-        				targetRegion);
+        				targetRegion, packet.requestCounter);
 
         		try {
         			// save GetPhotoInfo inside Packet

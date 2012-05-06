@@ -13,7 +13,7 @@ public class Globals {
 		
 		// cloud server to keep leaders consistent
 		//final static public String CSM_SERVER_NAME="128.30.87.130:8212"; //128.30.66.123:5212
-        final static public String CSM_SERVER_NAME="128.30.87.195:8212"; //128.30.66.123:5212
+        final static public String CSM_SERVER_NAME="18.111.2.113:8212"; //128.30.66.123:5212
         //final static public String CSM_SERVER_NAME="hermes5.csail.mit.edu:8212"; //128.30.66.123:5212
 
 		// region calculations

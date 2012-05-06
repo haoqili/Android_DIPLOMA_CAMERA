@@ -30,8 +30,7 @@ public class UserApp implements DSMUser {
 	// We don't have to delete TimoutRunnables but for better logging, let's track them
 	HashMap<Integer, Runnable> replyTimeoutRMap;
 	
-	// reply counter stuff
-	private int replyCounter = 0; // keeping track of unique replies
+	// reply stuff
 	private final static long sendingRepliesPeriod = 300;
 	// will keep sending replies to client UNTIL
 	//    1. heard Final Leg Ack from client 
@@ -144,12 +143,14 @@ public class UserApp implements DSMUser {
 				mux.vncDaemon.myRegion, new RegionKey(
 						request_region, 0));
 
-		// increment replyCounter
-		replyCounter += 1;
-		logMsg("change leader replyCounter to: "+replyCounter);
-		// because the leader has to keep track of different client's reply acks
-		reply_packet.replyCounter = ((int)mux.vncDaemon.mId)*100000 + replyCounter;
 
+		// reply counter *must* be derived from the request counter to keep consistency
+		// at first I had a separate reply counter for each leader, but when leader changed to another
+		// region and became a different leader, the reply counter was reset to 0 --> start duplicating 
+		reply_packet.replyCounter = my_gpinfo2.requestCtr*100;
+		// increment replyCounter
+		logMsg("leader client reply has replyCounter: "+reply_packet.replyCounter);
+		
 		// Customize the reply packet
 		switch (reply.procedure) {
 		case SERVER_UPLOAD_PHOTO: 
