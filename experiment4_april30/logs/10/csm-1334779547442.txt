@@ -16,11 +16,11 @@
 1334779557156: sending LEADER_REQUEST
 1334779557157: inside sendPacket(Packet p)
 1334779557161: Sending UDP payload: 427
-1334779557458: sending LEADER_REQUEST
 1334779557458: inside sendPacket(Packet p)
+1334779557458: sending LEADER_REQUEST
 1334779557471: Sending UDP payload: 427
-1334779557760: sending LEADER_REQUEST
 1334779557760: inside sendPacket(Packet p)
+1334779557760: sending LEADER_REQUEST
 1334779557765: Sending UDP payload: 427
 1334779557870: LEADER_REQUEST timed out
 1334779558469: cloud accepted leadership request, no csm data included.
@@ -62,15 +62,10 @@
 1334779572277: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
 1334779572282: Sending PROC_REQUEST 10:0 (1,0)->(1,0)
 1334779572284: Dispatching Atom PROC_REQUEST 10:0 (1,0)->(1,0)
-1334779572296: I got a CSM packet at a leader 
-
-1334779572372: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1334779572389: I'm a leader and I SUCCEEDED in saving my client's new photo
-1334779572390: now showing in UI the new photo I just saved ... 
-1334779572390: the photo length: 5101
 1334779572285: adding requestCounter=1
 1334779572293: The leader sending a First Leg ack to originator client (which id = 5020)
 1334779572295: inside sendPacket(Packet p)
+1334779572296: I got a CSM packet at a leader 
 1334779572315: Sending UDP payload: 6093
 1334779572332: removed replies before id 0 from sentReplies of size 0
 1334779572338: Inside UPLOAD_PHOTO!!
@@ -78,18 +73,21 @@
 1334779572349: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
 1334779572351: Received PROC_REQUEST 10:0 (1,0)->(1,0), replying PROC_REPLY 10:0 (1,0)->(1,0)
 1334779572352: Dispatching Atom PROC_REPLY 10:0 (1,0)->(1,0)
-1334779572380: I got a CSM packet at a leader 
-
 1334779572354: Sending UDP payload: 427
+1334779572372: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1334779572380: I got a CSM packet at a leader 
 1334779572383: Sending UDP payload: 970
 1334779572385: Received PROC_REPLY 10:0 (1,0)->(1,0), handing to UserApp
-1334779572386: Now back in orginitator region's leader, precssing handleDSMReply
-1334779572386: Going to and from remote region took latency = 109
 1334779572386: = orig leader sent packet at 1334779572277 ~ received reply at 1334779572386
+1334779572386: Going to and from remote region took latency = 109
+1334779572386: Now back in orginitator region's leader, precssing handleDSMReply
 1334779572387: Originator Region=1 Leader (for Client=5020) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1334779572387: reply packet contains the ACK for UPLOAD_PHOTO
 1334779572388: I (the leader) was not the originator client (which id = 5020) so I use UDP to send packet back to my nonleader
 1334779572388: inside sendPacket(Packet p)
+1334779572389: I'm a leader and I SUCCEEDED in saving my client's new photo
+1334779572390: now showing in UI the new photo I just saved ... 
+1334779572390: the photo length: 5101
 1334779572448: Sending UDP payload: 623
 1334779572535: inside sendPacket(Packet p)
 1334779572536: Sending UDP payload: 427

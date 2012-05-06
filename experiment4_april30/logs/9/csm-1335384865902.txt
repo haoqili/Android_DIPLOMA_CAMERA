@@ -3,48 +3,48 @@
 1335384865912: NET_NAME set to: eth0
 1335384865912: starting Mux with id = -1
 1335384865918: areButtonsEnabled --> true
+1335384865918: mux: Mux.java run() beginning -------------
 1335384865919: *** Application started ***
 1335384865920: HI I'm in ONRESUME()
 1335384865923: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
-1335384865918: mux: Mux.java run() beginning -------------
 1335384865926: mux: Mux.java's nodeId is5005
 1335384865926: mux: starting vncDaemon ........
-1335384865938: mux: vncDaemon started
 1335384865929: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
-1335384865939: VCoreDaemon.java onStart() ....
-1335384865939: started, mId = 5005
-1335384865939: VCoreDaemon.java inside stateTransition ..........
-1335384865939: removing leaderRequestRetryR because I'm doing a stateTransition
+1335384865938: mux: vncDaemon started
 1335384865939: ..... VCoreDaemon.java out of bounds
-1335384865940: region (-1, -1) out of bounds, dormant
+1335384865939: VCoreDaemon.java inside stateTransition ..........
+1335384865939: VCoreDaemon.java onStart() ....
+1335384865939: removing leaderRequestRetryR because I'm doing a stateTransition
+1335384865939: started, mId = 5005
 1335384865940: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335384865940: region (-1, -1) out of bounds, dormant
 1335384867198: Received UDP payload: 446
 1335384872178: Received UDP payload: 446
 1335384877251: Received UDP payload: 446
 1335384881690: Received UDP payload: 446
 1335384881918: Received UDP payload: 446
 1335384882062: .......... GPS onLocationChanged ...... 
-1335384882063: Loc = Location[mProvider=gps,mTime=1335384883000,mLatitude=42.35807228,mLongitude=-71.09261605,mHasAltitude=true,mAltitude=-13.600000381469727,mHasSpeed=true,mSpeed=1.118034,mHasBearing=true,mBearing=237.5,mHasAccuracy=true,mAccuracy=27.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (-1,-1)
 1335384882063: GPS x/long:-71.09261605, GPS y/lat: 42.35807228. Region width in x: 20.0
+1335384882063: Loc = Location[mProvider=gps,mTime=1335384883000,mLatitude=42.35807228,mLongitude=-71.09261605,mHasAltitude=true,mAltitude=-13.600000381469727,mHasSpeed=true,mSpeed=1.118034,mHasBearing=true,mBearing=237.5,mHasAccuracy=true,mAccuracy=27.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (-1,-1)
 1335384882063: location PINPOINTS to region = 1.0, previous -1
+1335384882064: ..... VCoreDaemon.java targetState = JOINING
 1335384882064: Hysteresis is 0.0
+1335384882064: VCoreDaemon.java inside stateTransition ..........
 1335384882064: location CHANGED TO NEW region = (1,0) from region = (-1,-1)
 1335384882064: moving from region (-1,-1), to (1,0)
-1335384882064: VCoreDaemon.java inside stateTransition ..........
 1335384882064: removing leaderRequestRetryR because I'm doing a stateTransition
-1335384882064: ..... VCoreDaemon.java targetState = JOINING
 1335384882065: posting leaderRequestRetryR because I'm joining
-1335384882067: sending LEADER_REQUEST
 1335384882067: inside sendPacket(Packet p)
 1335384882067: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335384882067: sending LEADER_REQUEST
 1335384882073: Sending UDP payload: 446
 1335384882075: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335384882368: sending LEADER_REQUEST
 1335384882368: inside sendPacket(Packet p)
 1335384882368: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335384882368: sending LEADER_REQUEST
 1335384882370: Sending UDP payload: 446
-1335384882669: sending LEADER_REQUEST
 1335384882669: inside sendPacket(Packet p)
+1335384882669: sending LEADER_REQUEST
 1335384882670: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335384882674: Received UDP payload: 446
 1335384882678: Sending UDP payload: 446
@@ -54,24 +54,24 @@
 1335384882978: Sending UDP payload: 446
 1335384882987: Received UDP payload: 22335
 1335384883001: Received UDP payload: 446
-1335384883013: removing leaderRequestRetryR because heard Packet.Leader_reply
 1335384883013: heard LEADER_REPLY from 5011
+1335384883013: removing leaderRequestRetryR because heard Packet.Leader_reply
+1335384883014: ..... VCoreDaemon.java targetState = NONLEADER
 1335384883014: VCoreDaemon.java inside stateTransition ..........
 1335384883014: removing leaderRequestRetryR because I'm doing a stateTransition
-1335384883014: ..... VCoreDaemon.java targetState = NONLEADER
-1335384883016: now NONLEADER (id=5005) following LEADER (id=5011) in (1,0)
 1335384883016: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335384883016: now NONLEADER (id=5005) following LEADER (id=5011) in (1,0)
 1335384883180: .......... GPS onLocationChanged ...... 
-1335384883181: Loc = Location[mProvider=gps,mTime=1335384884000,mLatitude=42.35808151,mLongitude=-71.09262367,mHasAltitude=true,mAltitude=-14.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=14.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384883181: GPS x/long:-71.09262367, GPS y/lat: 42.35808151. Region width in x: 20.0
-1335384883181: location PINPOINTS to region = 1.0, previous 1
 1335384883181: Hysteresis is 0.0
+1335384883181: Loc = Location[mProvider=gps,mTime=1335384884000,mLatitude=42.35808151,mLongitude=-71.09262367,mHasAltitude=true,mAltitude=-14.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=14.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335384883181: location PINPOINTS to region = 1.0, previous 1
 1335384883181: stay at region 1
 1335384884056: .......... GPS onLocationChanged ...... 
 1335384884056: Loc = Location[mProvider=gps,mTime=1335384885000,mLatitude=42.35806946,mLongitude=-71.09265862,mHasAltitude=true,mAltitude=-13.5,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=11.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384884057: GPS x/long:-71.09265862, GPS y/lat: 42.35806946. Region width in x: 20.0
-1335384884057: location PINPOINTS to region = 1.0, previous 1
 1335384884057: Hysteresis is 0.0
+1335384884057: location PINPOINTS to region = 1.0, previous 1
 1335384884057: stay at region 1
 1335384885066: .......... GPS onLocationChanged ...... 
 1335384885070: Loc = Location[mProvider=gps,mTime=1335384886000,mLatitude=42.35805516,mLongitude=-71.09273138,mHasAltitude=true,mAltitude=-12.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=8.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
@@ -84,10 +84,10 @@
 1335384886937: Received UDP payload: 22335
 1335384886946: ignoring leader_reply that's not for me
 1335384887039: .......... GPS onLocationChanged ...... 
-1335384887040: Loc = Location[mProvider=gps,mTime=1335384888000,mLatitude=42.35806516,mLongitude=-71.09273218,mHasAltitude=true,mAltitude=-13.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=6.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384887040: GPS x/long:-71.09273218, GPS y/lat: 42.35806516. Region width in x: 20.0
-1335384887040: location PINPOINTS to region = 1.0, previous 1
 1335384887040: Hysteresis is 0.0
+1335384887040: Loc = Location[mProvider=gps,mTime=1335384888000,mLatitude=42.35806516,mLongitude=-71.09273218,mHasAltitude=true,mAltitude=-13.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=6.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335384887040: location PINPOINTS to region = 1.0, previous 1
 1335384887041: stay at region 1
 1335384887340: Received UDP payload: 446
 1335384887573: Received UDP payload: 22335
@@ -96,14 +96,14 @@
 1335384888054: .......... GPS onLocationChanged ...... 
 1335384888057: Loc = Location[mProvider=gps,mTime=1335384889000,mLatitude=42.35806336,mLongitude=-71.09275571,mHasAltitude=true,mAltitude=-13.800000190734863,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=6.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384888058: GPS x/long:-71.09275571, GPS y/lat: 42.35806336. Region width in x: 20.0
-1335384888062: location PINPOINTS to region = 1.0, previous 1
 1335384888062: Hysteresis is 0.0
+1335384888062: location PINPOINTS to region = 1.0, previous 1
 1335384888063: stay at region 1
 1335384889059: .......... GPS onLocationChanged ...... 
 1335384889059: Loc = Location[mProvider=gps,mTime=1335384890000,mLatitude=42.35805507,mLongitude=-71.09276332,mHasAltitude=true,mAltitude=-15.800000190734863,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=6.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384889060: GPS x/long:-71.09276332, GPS y/lat: 42.35805507. Region width in x: 20.0
-1335384889060: location PINPOINTS to region = 1.0, previous 1
 1335384889060: Hysteresis is 0.0
+1335384889060: location PINPOINTS to region = 1.0, previous 1
 1335384889060: stay at region 1
 1335384890065: .......... GPS onLocationChanged ...... 
 1335384890068: Loc = Location[mProvider=gps,mTime=1335384891000,mLatitude=42.35804869,mLongitude=-71.09277861,mHasAltitude=true,mAltitude=-17.299999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=6.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
@@ -114,21 +114,21 @@
 1335384892050: .......... GPS onLocationChanged ...... 
 1335384892051: Loc = Location[mProvider=gps,mTime=1335384893000,mLatitude=42.35803272,mLongitude=-71.09281768,mHasAltitude=true,mAltitude=-20.100000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384892052: GPS x/long:-71.09281768, GPS y/lat: 42.35803272. Region width in x: 20.0
-1335384892052: location PINPOINTS to region = 1.0, previous 1
 1335384892052: Hysteresis is 0.0
+1335384892052: location PINPOINTS to region = 1.0, previous 1
 1335384892052: stay at region 1
 1335384892203: Received UDP payload: 446
 1335384892615: Received UDP payload: 446
 1335384893051: .......... GPS onLocationChanged ...... 
-1335384893052: Loc = Location[mProvider=gps,mTime=1335384894000,mLatitude=42.35803069,mLongitude=-71.09283115,mHasAltitude=true,mAltitude=-19.700000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384893052: GPS x/long:-71.09283115, GPS y/lat: 42.35803069. Region width in x: 20.0
-1335384893053: location PINPOINTS to region = 1.0, previous 1
+1335384893052: Loc = Location[mProvider=gps,mTime=1335384894000,mLatitude=42.35803069,mLongitude=-71.09283115,mHasAltitude=true,mAltitude=-19.700000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384893053: Hysteresis is 0.0
+1335384893053: location PINPOINTS to region = 1.0, previous 1
 1335384893053: stay at region 1
 1335384897344: Received UDP payload: 446
 1335384900111: .......... GPS onLocationChanged ...... 
-1335384900112: Loc = Location[mProvider=gps,mTime=1335384901000,mLatitude=42.35803737,mLongitude=-71.09282022,mHasAltitude=true,mAltitude=-19.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384900112: GPS x/long:-71.09282022, GPS y/lat: 42.35803737. Region width in x: 20.0
+1335384900112: Loc = Location[mProvider=gps,mTime=1335384901000,mLatitude=42.35803737,mLongitude=-71.09282022,mHasAltitude=true,mAltitude=-19.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384900112: location PINPOINTS to region = 1.0, previous 1
 1335384900113: Hysteresis is 0.0
 1335384900113: stay at region 1
@@ -160,10 +160,10 @@
 1335384942229: Received UDP payload: 446
 1335384942775: Received UDP payload: 446
 1335384945057: .......... GPS onLocationChanged ...... 
-1335384945058: Loc = Location[mProvider=gps,mTime=1335384946000,mLatitude=42.35804582,mLongitude=-71.09279005,mHasAltitude=true,mAltitude=-19.899999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384945058: GPS x/long:-71.09279005, GPS y/lat: 42.35804582. Region width in x: 20.0
-1335384945058: location PINPOINTS to region = 1.0, previous 1
 1335384945058: Hysteresis is 0.0
+1335384945058: Loc = Location[mProvider=gps,mTime=1335384946000,mLatitude=42.35804582,mLongitude=-71.09279005,mHasAltitude=true,mAltitude=-19.899999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335384945058: location PINPOINTS to region = 1.0, previous 1
 1335384945058: stay at region 1
 1335384946063: .......... GPS onLocationChanged ...... 
 1335384946068: Loc = Location[mProvider=gps,mTime=1335384947000,mLatitude=42.35803762,mLongitude=-71.09279754,mHasAltitude=true,mAltitude=-19.799999237060547,mHasSpeed=true,mSpeed=0.559017,mHasBearing=true,mBearing=237.5,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
@@ -184,18 +184,18 @@
 1335384948071: Hysteresis is 0.0
 1335384948072: stay at region 1
 1335384949065: .......... GPS onLocationChanged ...... 
-1335384949066: Loc = Location[mProvider=gps,mTime=1335384950000,mLatitude=42.35802768,mLongitude=-71.09282051,mHasAltitude=true,mAltitude=-20.5,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384949066: GPS x/long:-71.09282051, GPS y/lat: 42.35802768. Region width in x: 20.0
-1335384949066: location PINPOINTS to region = 1.0, previous 1
 1335384949066: Hysteresis is 0.0
+1335384949066: Loc = Location[mProvider=gps,mTime=1335384950000,mLatitude=42.35802768,mLongitude=-71.09282051,mHasAltitude=true,mAltitude=-20.5,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335384949066: location PINPOINTS to region = 1.0, previous 1
 1335384949066: stay at region 1
 1335384951148: Received UDP payload: 446
 1335384952469: Received UDP payload: 446
 1335384956051: .......... GPS onLocationChanged ...... 
-1335384956052: Loc = Location[mProvider=gps,mTime=1335384957000,mLatitude=42.35803672,mLongitude=-71.09282712,mHasAltitude=true,mAltitude=-22.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384956052: GPS x/long:-71.09282712, GPS y/lat: 42.35803672. Region width in x: 20.0
-1335384956053: location PINPOINTS to region = 1.0, previous 1
+1335384956052: Loc = Location[mProvider=gps,mTime=1335384957000,mLatitude=42.35803672,mLongitude=-71.09282712,mHasAltitude=true,mAltitude=-22.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384956053: Hysteresis is 0.0
+1335384956053: location PINPOINTS to region = 1.0, previous 1
 1335384956053: stay at region 1
 1335384956105: Received UDP payload: 446
 1335384956117: Received UDP payload: 446
@@ -215,38 +215,38 @@
 1335384971564: Received UDP payload: 446
 1335384972232: Received UDP payload: 446
 1335384983055: .......... GPS onLocationChanged ...... 
-1335384983056: Loc = Location[mProvider=gps,mTime=1335384984000,mLatitude=42.35803535,mLongitude=-71.09283936,mHasAltitude=true,mAltitude=-21.5,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335384983056: GPS x/long:-71.09283936, GPS y/lat: 42.35803535. Region width in x: 20.0
-1335384983056: location PINPOINTS to region = 1.0, previous 1
 1335384983056: Hysteresis is 0.0
+1335384983056: Loc = Location[mProvider=gps,mTime=1335384984000,mLatitude=42.35803535,mLongitude=-71.09283936,mHasAltitude=true,mAltitude=-21.5,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=5.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335384983056: location PINPOINTS to region = 1.0, previous 1
 1335384983056: stay at region 1
 1335384991021: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335384991022: ..... VCoreDaemon.java targetState = JOINING
 1335384991022: VCoreDaemon.java inside stateTransition ..........
 1335384991022: removing leaderRequestRetryR because I'm doing a stateTransition
-1335384991022: ..... VCoreDaemon.java targetState = JOINING
 1335384991023: posting leaderRequestRetryR because I'm joining
 1335384991024: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335384991024: sending LEADER_REQUEST
 1335384991024: inside sendPacket(Packet p)
+1335384991024: sending LEADER_REQUEST
 1335384991045: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335384991062: Sending UDP payload: 446
 1335384991346: sending LEADER_REQUEST
 1335384991347: inside sendPacket(Packet p)
 1335384991347: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335384991348: Sending UDP payload: 446
-1335384991648: sending LEADER_REQUEST
 1335384991648: inside sendPacket(Packet p)
+1335384991648: sending LEADER_REQUEST
 1335384991649: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335384991652: Sending UDP payload: 446
-1335384991950: sending LEADER_REQUEST
 1335384991950: inside sendPacket(Packet p)
+1335384991950: sending LEADER_REQUEST
 1335384991951: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335384991954: Sending UDP payload: 446
 1335384992024: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335384992025: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335384992025: VCoreDaemon.java inside stateTransition ..........
-1335384992026: removing leaderRequestRetryR because I'm doing a stateTransition
+1335384992025: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335384992026: ..... VCoreDaemon.java targetState = LEADER
+1335384992026: removing leaderRequestRetryR because I'm doing a stateTransition
 1335384992027: trying to take leadership to the cloud
 1335384992549: cloud rejected leadership request or request failed, wait to retry
 1335385013790: Received UDP payload: 446
@@ -255,12 +255,12 @@
 1335385013848: Received UDP payload: 446
 1335385044204: Received UDP payload: 446
 1335385044211: removing leaderRequestRetryR because heard Packet.Heartbeat
-1335385044212: heard HEARTBEAT from 5012, now following
-1335385044212: VCoreDaemon.java inside stateTransition ..........
-1335385044212: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385044212: ..... VCoreDaemon.java targetState = NONLEADER
-1335385044213: now NONLEADER (id=5005) following LEADER (id=5012) in (1,0)
+1335385044212: VCoreDaemon.java inside stateTransition ..........
+1335385044212: heard HEARTBEAT from 5012, now following
+1335385044212: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385044213: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385044213: now NONLEADER (id=5005) following LEADER (id=5012) in (1,0)
 1335385044226: Received UDP payload: 446
 1335385044247: Received UDP payload: 446
 1335385044258: Received UDP payload: 446
@@ -271,23 +271,23 @@
 1335385060436: Received UDP payload: 446
 1335385061074: Missed 3 HEARTBEATS from LEADER, going to JOINING.
 1335385061075: VCoreDaemon.java inside stateTransition ..........
-1335385061076: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385061076: ..... VCoreDaemon.java targetState = JOINING
-1335385061077: posting leaderRequestRetryR because I'm joining
+1335385061076: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385061077: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385061077: posting leaderRequestRetryR because I'm joining
 1335385061077: sending LEADER_REQUEST
 1335385061078: inside sendPacket(Packet p)
 1335385061078: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385061095: Sending UDP payload: 446
-1335385061379: sending LEADER_REQUEST
 1335385061379: inside sendPacket(Packet p)
 1335385061379: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385061379: sending LEADER_REQUEST
 1335385061380: Sending UDP payload: 446
 1335385061452: Received UDP payload: 446
 1335385061489: Received UDP payload: 446
 1335385061503: Received UDP payload: 446
-1335385061680: sending LEADER_REQUEST
 1335385061680: inside sendPacket(Packet p)
+1335385061680: sending LEADER_REQUEST
 1335385061681: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385061685: Sending UDP payload: 446
 1335385061982: sending LEADER_REQUEST
@@ -295,20 +295,20 @@
 1335385061983: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385061991: Sending UDP payload: 446
 1335385062077: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335385062078: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335385062078: VCoreDaemon.java inside stateTransition ..........
-1335385062079: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385062078: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335385062079: ..... VCoreDaemon.java targetState = LEADER
+1335385062079: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385062079: trying to take leadership to the cloud
 1335385062432: cloud rejected leadership request or request failed, wait to retry
 1335385071419: Received UDP payload: 446
-1335385071424: removing leaderRequestRetryR because heard Packet.Heartbeat
 1335385071424: heard HEARTBEAT from 5012, now following
+1335385071424: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385071425: ..... VCoreDaemon.java targetState = NONLEADER
 1335385071425: VCoreDaemon.java inside stateTransition ..........
 1335385071425: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385071425: ..... VCoreDaemon.java targetState = NONLEADER
-1335385071426: now NONLEADER (id=5005) following LEADER (id=5012) in (1,0)
 1335385071426: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385071426: now NONLEADER (id=5005) following LEADER (id=5012) in (1,0)
 1335385071436: Received UDP payload: 446
 1335385071442: Received UDP payload: 446
 1335385076126: Received UDP payload: 446
@@ -318,12 +318,12 @@
 1335385076156: Received UDP payload: 446
 1335385076505: Received UDP payload: 22335
 1335385076511: removing leaderRequestRetryR because heard Packet.Leader_reply
-1335385076512: heard LEADER_REPLY from new leader 5011
-1335385076512: VCoreDaemon.java inside stateTransition ..........
-1335385076512: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385076512: ..... VCoreDaemon.java targetState = NONLEADER
-1335385076513: now NONLEADER (id=5005) following LEADER (id=5011) in (1,0)
+1335385076512: VCoreDaemon.java inside stateTransition ..........
+1335385076512: heard LEADER_REPLY from new leader 5011
+1335385076512: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385076513: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385076513: now NONLEADER (id=5005) following LEADER (id=5011) in (1,0)
 1335385081897: Received UDP payload: 22335
 1335385081930: ignoring leader_reply that's not for me
 1335385087063: Received UDP payload: 22335
@@ -334,40 +334,40 @@
 1335385090308: Received UDP payload: 446
 1335385090758: Received UDP payload: 446
 1335385093052: .......... GPS onLocationChanged ...... 
-1335385093053: Loc = Location[mProvider=gps,mTime=1335385094000,mLatitude=42.35803947,mLongitude=-71.09282006,mHasAltitude=true,mAltitude=-21.700000762939453,mHasSpeed=true,mSpeed=0.559017,mHasBearing=true,mBearing=237.5,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385093053: GPS x/long:-71.09282006, GPS y/lat: 42.35803947. Region width in x: 20.0
-1335385093054: location PINPOINTS to region = 1.0, previous 1
+1335385093053: Loc = Location[mProvider=gps,mTime=1335385094000,mLatitude=42.35803947,mLongitude=-71.09282006,mHasAltitude=true,mAltitude=-21.700000762939453,mHasSpeed=true,mSpeed=0.559017,mHasBearing=true,mBearing=237.5,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385093054: Hysteresis is 0.0
+1335385093054: location PINPOINTS to region = 1.0, previous 1
 1335385093054: stay at region 1
 1335385096054: .......... GPS onLocationChanged ...... 
-1335385096055: Loc = Location[mProvider=gps,mTime=1335385097000,mLatitude=42.3580582,mLongitude=-71.09281222,mHasAltitude=true,mAltitude=-22.899999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385096055: GPS x/long:-71.09281222, GPS y/lat: 42.3580582. Region width in x: 20.0
+1335385096055: Loc = Location[mProvider=gps,mTime=1335385097000,mLatitude=42.3580582,mLongitude=-71.09281222,mHasAltitude=true,mAltitude=-22.899999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385096055: location PINPOINTS to region = 1.0, previous 1
 1335385096056: Hysteresis is 0.0
 1335385096056: stay at region 1
 1335385097064: .......... GPS onLocationChanged ...... 
-1335385097065: Loc = Location[mProvider=gps,mTime=1335385098000,mLatitude=42.35806601,mLongitude=-71.09282624,mHasAltitude=true,mAltitude=-23.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385097065: GPS x/long:-71.09282624, GPS y/lat: 42.35806601. Region width in x: 20.0
-1335385097066: location PINPOINTS to region = 1.0, previous 1
+1335385097065: Loc = Location[mProvider=gps,mTime=1335385098000,mLatitude=42.35806601,mLongitude=-71.09282624,mHasAltitude=true,mAltitude=-23.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385097066: Hysteresis is 0.0
+1335385097066: location PINPOINTS to region = 1.0, previous 1
 1335385097066: stay at region 1
 1335385099081: .......... GPS onLocationChanged ...... 
 1335385099081: Loc = Location[mProvider=gps,mTime=1335385100000,mLatitude=42.35806654,mLongitude=-71.0928387,mHasAltitude=true,mAltitude=-23.200000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385099082: GPS x/long:-71.0928387, GPS y/lat: 42.35806654. Region width in x: 20.0
-1335385099082: location PINPOINTS to region = 1.0, previous 1
 1335385099082: Hysteresis is 0.0
+1335385099082: location PINPOINTS to region = 1.0, previous 1
 1335385099082: stay at region 1
 1335385100351: Received UDP payload: 446
 1335385100363: Received UDP payload: 446
 1335385102047: .......... GPS onLocationChanged ...... 
-1335385102048: Loc = Location[mProvider=gps,mTime=1335385103000,mLatitude=42.35807431,mLongitude=-71.09284537,mHasAltitude=true,mAltitude=-23.600000381469727,mHasSpeed=true,mSpeed=0.559017,mHasBearing=true,mBearing=237.5,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385102048: GPS x/long:-71.09284537, GPS y/lat: 42.35807431. Region width in x: 20.0
-1335385102048: location PINPOINTS to region = 1.0, previous 1
 1335385102048: Hysteresis is 0.0
+1335385102048: Loc = Location[mProvider=gps,mTime=1335385103000,mLatitude=42.35807431,mLongitude=-71.09284537,mHasAltitude=true,mAltitude=-23.600000381469727,mHasSpeed=true,mSpeed=0.559017,mHasBearing=true,mBearing=237.5,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385102048: location PINPOINTS to region = 1.0, previous 1
 1335385102049: stay at region 1
 1335385105055: .......... GPS onLocationChanged ...... 
-1335385105056: Loc = Location[mProvider=gps,mTime=1335385106000,mLatitude=42.35807804,mLongitude=-71.09286396,mHasAltitude=true,mAltitude=-24.700000762939453,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=237.5,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385105056: GPS x/long:-71.09286396, GPS y/lat: 42.35807804. Region width in x: 20.0
+1335385105056: Loc = Location[mProvider=gps,mTime=1335385106000,mLatitude=42.35807804,mLongitude=-71.09286396,mHasAltitude=true,mAltitude=-24.700000762939453,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=237.5,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385105056: location PINPOINTS to region = 1.0, previous 1
 1335385105057: Hysteresis is 0.0
 1335385105057: stay at region 1
@@ -379,29 +379,29 @@
 1335385106061: stay at region 1
 1335385106110: Missed 3 HEARTBEATS from LEADER, going to JOINING.
 1335385106110: VCoreDaemon.java inside stateTransition ..........
-1335385106111: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385106111: ..... VCoreDaemon.java targetState = JOINING
-1335385106111: posting leaderRequestRetryR because I'm joining
 1335385106111: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335385106111: sending LEADER_REQUEST
+1335385106111: ..... VCoreDaemon.java targetState = JOINING
 1335385106111: inside sendPacket(Packet p)
 1335385106111: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385106111: posting leaderRequestRetryR because I'm joining
+1335385106111: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385106111: sending LEADER_REQUEST
 1335385106127: Sending UDP payload: 446
-1335385106412: sending LEADER_REQUEST
 1335385106412: inside sendPacket(Packet p)
 1335385106412: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385106412: sending LEADER_REQUEST
 1335385106413: Sending UDP payload: 446
-1335385106713: sending LEADER_REQUEST
 1335385106713: inside sendPacket(Packet p)
+1335385106713: sending LEADER_REQUEST
 1335385106714: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385106720: Sending UDP payload: 446
 1335385107015: sending LEADER_REQUEST
 1335385107016: inside sendPacket(Packet p)
 1335385107016: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385107031: Sending UDP payload: 446
-1335385107111: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335385107111: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335385107111: VCoreDaemon.java inside stateTransition ..........
+1335385107111: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385107111: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335385107111: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385107112: ..... VCoreDaemon.java targetState = LEADER
 1335385107112: trying to take leadership to the cloud
@@ -431,13 +431,13 @@
 1335385136849: Received UDP payload: 446
 1335385136880: Received UDP payload: 446
 1335385136913: Received UDP payload: 3512
-1335385136920: removing leaderRequestRetryR because heard Packet.Leader_reply
-1335385136920: heard LEADER_REPLY from 5017
-1335385136920: VCoreDaemon.java inside stateTransition ..........
-1335385136920: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385136920: ..... VCoreDaemon.java targetState = NONLEADER
-1335385136921: now NONLEADER (id=5005) following LEADER (id=5017) in (1,0)
+1335385136920: VCoreDaemon.java inside stateTransition ..........
+1335385136920: heard LEADER_REPLY from 5017
+1335385136920: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385136920: removing leaderRequestRetryR because heard Packet.Leader_reply
 1335385136921: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385136921: now NONLEADER (id=5005) following LEADER (id=5017) in (1,0)
 1335385136963: Received UDP payload: 3529
 1335385137050: Received UDP payload: 3529
 1335385137500: Received UDP payload: 3529
@@ -452,71 +452,71 @@
 1335385145066: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335385145331: Picture successfully taken, ORIG BYTE LENGTH = 3654906
 1335385145538: Our new height x width: 306 x 408
-1335385145539: Show photo from handle my camera take
 1335385145539: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335385145539: Show photo from handle my camera take
 1335385145540: change local requestCounter to 1
 1335385145556: BYTE SIZE AFTER COMPRESSION: 7305
 1335385145562: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5005001 Client in region: 1 Client nodID: 5005
 1335385145593: ----------------------------
-1335385145594: inside sendRequestPacketRepeatingRunnable for requestCount = 5005001
 1335385145594: I'm a nonleader sending my requesting photos packet to my leader
-1335385145600: --- Finished one round of sending REQUEST Packet ---------
+1335385145594: inside sendRequestPacketRepeatingRunnable for requestCount = 5005001
 1335385145595: inside sendPacket(Packet p)
 1335385145598: Sending UDP payload: 7952
+1335385145600: --- Finished one round of sending REQUEST Packet ---------
 1335385145901: ----------------------------
-1335385145901: inside sendRequestPacketRepeatingRunnable for requestCount = 5005001
 1335385145901: I'm a nonleader sending my requesting photos packet to my leader
-1335385145904: --- Finished one round of sending REQUEST Packet ---------
+1335385145901: inside sendRequestPacketRepeatingRunnable for requestCount = 5005001
 1335385145902: inside sendPacket(Packet p)
 1335385145903: Sending UDP payload: 7952
+1335385145904: --- Finished one round of sending REQUEST Packet ---------
 1335385146205: ----------------------------
 1335385146205: inside sendRequestPacketRepeatingRunnable for requestCount = 5005001
 1335385146206: I'm a nonleader sending my requesting photos packet to my leader
-1335385146209: --- Finished one round of sending REQUEST Packet ---------
 1335385146206: inside sendPacket(Packet p)
 1335385146208: Sending UDP payload: 7952
+1335385146209: --- Finished one round of sending REQUEST Packet ---------
 1335385146510: ----------------------------
-1335385146510: inside sendRequestPacketRepeatingRunnable for requestCount = 5005001
 1335385146510: I'm a nonleader sending my requesting photos packet to my leader
-1335385146514: --- Finished one round of sending REQUEST Packet ---------
+1335385146510: inside sendRequestPacketRepeatingRunnable for requestCount = 5005001
 1335385146511: inside sendPacket(Packet p)
 1335385146512: Sending UDP payload: 7952
+1335385146514: --- Finished one round of sending REQUEST Packet ---------
 1335385146562: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
 1335385149619: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=1 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335385149621: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
 1335385149642: Inside _enableButtons
 1335385149644: areButtonsEnabled --> true
-1335385151348: canPressButton = TRUE
-1335385151348: areButtonsEnabled --> false 
-1335385151348: get picture disableButtonsR
 1335385151348: areButtonsEnabled --> false
-1335385151378: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=1 takePercent=0% getNum=1 getGood=0 getBad=0 getTimedout=0 getPercent=0%
+1335385151348: areButtonsEnabled --> false 
+1335385151348: canPressButton = TRUE
+1335385151348: get picture disableButtonsR
 1335385151378: ** Client making GET photo PACKET to send to the leader. Requesting for region: 1 **
 1335385151378: change local requestCounter to 2
+1335385151378: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=1 takePercent=0% getNum=1 getGood=0 getBad=0 getTimedout=0 getPercent=0%
 1335385151381: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5005002 Client in region: 1 Client nodID: 5005
 1335385151443: ----------------------------
-1335385151444: inside sendRequestPacketRepeatingRunnable for requestCount = 5005002
 1335385151444: I'm a nonleader sending my requesting photos packet to my leader
-1335385151447: --- Finished one round of sending REQUEST Packet ---------
 1335385151444: inside sendPacket(Packet p)
+1335385151444: inside sendRequestPacketRepeatingRunnable for requestCount = 5005002
 1335385151445: Sending UDP payload: 625
+1335385151447: --- Finished one round of sending REQUEST Packet ---------
 1335385151748: ----------------------------
 1335385151748: inside sendRequestPacketRepeatingRunnable for requestCount = 5005002
 1335385151749: I'm a nonleader sending my requesting photos packet to my leader
-1335385151758: --- Finished one round of sending REQUEST Packet ---------
 1335385151749: inside sendPacket(Packet p)
 1335385151752: Sending UDP payload: 625
+1335385151758: --- Finished one round of sending REQUEST Packet ---------
 1335385152059: ----------------------------
-1335385152060: inside sendRequestPacketRepeatingRunnable for requestCount = 5005002
 1335385152060: I'm a nonleader sending my requesting photos packet to my leader
+1335385152060: inside sendRequestPacketRepeatingRunnable for requestCount = 5005002
 1335385152061: --- Finished one round of sending REQUEST Packet ---------
 1335385152061: inside sendPacket(Packet p)
 1335385152065: Sending UDP payload: 625
 1335385152362: ----------------------------
-1335385152363: inside sendRequestPacketRepeatingRunnable for requestCount = 5005002
 1335385152363: I'm a nonleader sending my requesting photos packet to my leader
-1335385152366: --- Finished one round of sending REQUEST Packet ---------
+1335385152363: inside sendRequestPacketRepeatingRunnable for requestCount = 5005002
 1335385152364: inside sendPacket(Packet p)
+1335385152366: --- Finished one round of sending REQUEST Packet ---------
 1335385152367: Sending UDP payload: 625
 1335385152399: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
 1335385153440: Received UDP payload: 3529
@@ -554,12 +554,12 @@
 1335385171073: stay at region 1
 1335385171167: Missed 3 HEARTBEATS from LEADER, going to JOINING.
 1335385171167: VCoreDaemon.java inside stateTransition ..........
-1335385171168: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385171168: ..... VCoreDaemon.java targetState = JOINING
-1335385171168: posting leaderRequestRetryR because I'm joining
 1335385171168: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335385171168: sending LEADER_REQUEST
+1335385171168: ..... VCoreDaemon.java targetState = JOINING
 1335385171168: inside sendPacket(Packet p)
+1335385171168: posting leaderRequestRetryR because I'm joining
+1335385171168: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385171168: sending LEADER_REQUEST
 1335385171169: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385171170: Sending UDP payload: 446
 1335385171247: Received UDP payload: 4110
@@ -573,27 +573,27 @@
 1335385171772: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385171778: Sending UDP payload: 446
 1335385172048: .......... GPS onLocationChanged ...... 
-1335385172049: Loc = Location[mProvider=gps,mTime=1335385173000,mLatitude=42.35805305,mLongitude=-71.09287431,mHasAltitude=true,mAltitude=-25.899999618530273,mHasSpeed=true,mSpeed=1.118034,mHasBearing=true,mBearing=154.9,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385172049: GPS x/long:-71.09287431, GPS y/lat: 42.35805305. Region width in x: 20.0
+1335385172049: Loc = Location[mProvider=gps,mTime=1335385173000,mLatitude=42.35805305,mLongitude=-71.09287431,mHasAltitude=true,mAltitude=-25.899999618530273,mHasSpeed=true,mSpeed=1.118034,mHasBearing=true,mBearing=154.9,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385172049: location PINPOINTS to region = 1.0, previous 1
 1335385172050: Hysteresis is 0.0
 1335385172050: stay at region 1
-1335385172073: sending LEADER_REQUEST
 1335385172073: inside sendPacket(Packet p)
 1335385172073: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385172073: sending LEADER_REQUEST
 1335385172074: Sending UDP payload: 446
 1335385172167: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335385172168: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
-1335385172168: VCoreDaemon.java inside stateTransition ..........
-1335385172168: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385172168: ..... VCoreDaemon.java targetState = LEADER
+1335385172168: VCoreDaemon.java inside stateTransition ..........
+1335385172168: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385172168: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385172168: trying to take leadership to the cloud
 1335385172293: cloud rejected leadership request or request failed, wait to retry
 1335385174054: .......... GPS onLocationChanged ...... 
 1335385174055: Loc = Location[mProvider=gps,mTime=1335385175000,mLatitude=42.35803946,mLongitude=-71.09286197,mHasAltitude=true,mAltitude=-27.299999237060547,mHasSpeed=true,mSpeed=0.9013878,mHasBearing=true,mBearing=153.4,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385174056: GPS x/long:-71.09286197, GPS y/lat: 42.35803946. Region width in x: 20.0
-1335385174056: location PINPOINTS to region = 1.0, previous 1
 1335385174056: Hysteresis is 0.0
+1335385174056: location PINPOINTS to region = 1.0, previous 1
 1335385174056: stay at region 1
 1335385175061: .......... GPS onLocationChanged ...... 
 1335385175064: Loc = Location[mProvider=gps,mTime=1335385176000,mLatitude=42.35803486,mLongitude=-71.09284739,mHasAltitude=true,mAltitude=-28.600000381469727,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=153.4,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
@@ -604,10 +604,10 @@
 1335385176922: Received UDP payload: 446
 1335385176941: Received UDP payload: 446
 1335385177048: .......... GPS onLocationChanged ...... 
-1335385177050: Loc = Location[mProvider=gps,mTime=1335385178000,mLatitude=42.35804873,mLongitude=-71.09280859,mHasAltitude=true,mAltitude=-31.200000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385177050: GPS x/long:-71.09280859, GPS y/lat: 42.35804873. Region width in x: 20.0
-1335385177050: location PINPOINTS to region = 1.0, previous 1
 1335385177050: Hysteresis is 0.0
+1335385177050: Loc = Location[mProvider=gps,mTime=1335385178000,mLatitude=42.35804873,mLongitude=-71.09280859,mHasAltitude=true,mAltitude=-31.200000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385177050: location PINPOINTS to region = 1.0, previous 1
 1335385177050: stay at region 1
 1335385178070: .......... GPS onLocationChanged ...... 
 1335385178072: Loc = Location[mProvider=gps,mTime=1335385179000,mLatitude=42.35805766,mLongitude=-71.09279287,mHasAltitude=true,mAltitude=-31.700000762939453,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
@@ -618,20 +618,20 @@
 1335385179061: .......... GPS onLocationChanged ...... 
 1335385179061: Loc = Location[mProvider=gps,mTime=1335385180000,mLatitude=42.35806398,mLongitude=-71.09278075,mHasAltitude=true,mAltitude=-32.099998474121094,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385179062: GPS x/long:-71.09278075, GPS y/lat: 42.35806398. Region width in x: 20.0
-1335385179062: location PINPOINTS to region = 1.0, previous 1
 1335385179062: Hysteresis is 0.0
+1335385179062: location PINPOINTS to region = 1.0, previous 1
 1335385179062: stay at region 1
 1335385181059: .......... GPS onLocationChanged ...... 
-1335385181060: Loc = Location[mProvider=gps,mTime=1335385182000,mLatitude=42.35807145,mLongitude=-71.09276786,mHasAltitude=true,mAltitude=-32.70000076293945,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385181060: GPS x/long:-71.09276786, GPS y/lat: 42.35807145. Region width in x: 20.0
-1335385181060: location PINPOINTS to region = 1.0, previous 1
 1335385181060: Hysteresis is 0.0
+1335385181060: Loc = Location[mProvider=gps,mTime=1335385182000,mLatitude=42.35807145,mLongitude=-71.09276786,mHasAltitude=true,mAltitude=-32.70000076293945,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385181060: location PINPOINTS to region = 1.0, previous 1
 1335385181060: stay at region 1
 1335385188064: .......... GPS onLocationChanged ...... 
-1335385188065: Loc = Location[mProvider=gps,mTime=1335385189000,mLatitude=42.35807968,mLongitude=-71.0927628,mHasAltitude=true,mAltitude=-33.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385188065: GPS x/long:-71.0927628, GPS y/lat: 42.35807968. Region width in x: 20.0
-1335385188066: location PINPOINTS to region = 1.0, previous 1
+1335385188065: Loc = Location[mProvider=gps,mTime=1335385189000,mLatitude=42.35807968,mLongitude=-71.0927628,mHasAltitude=true,mAltitude=-33.0,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385188066: Hysteresis is 0.0
+1335385188066: location PINPOINTS to region = 1.0, previous 1
 1335385188066: stay at region 1
 1335385194054: Received UDP payload: 446
 1335385194069: Received UDP payload: 446
@@ -654,10 +654,10 @@
 1335385206070: Hysteresis is 0.0
 1335385206071: stay at region 1
 1335385208051: .......... GPS onLocationChanged ...... 
-1335385208052: Loc = Location[mProvider=gps,mTime=1335385209000,mLatitude=42.35805769,mLongitude=-71.09274013,mHasAltitude=true,mAltitude=-33.70000076293945,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=153.4,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385208052: GPS x/long:-71.09274013, GPS y/lat: 42.35805769. Region width in x: 20.0
-1335385208053: location PINPOINTS to region = 1.0, previous 1
+1335385208052: Loc = Location[mProvider=gps,mTime=1335385209000,mLatitude=42.35805769,mLongitude=-71.09274013,mHasAltitude=true,mAltitude=-33.70000076293945,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=153.4,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385208053: Hysteresis is 0.0
+1335385208053: location PINPOINTS to region = 1.0, previous 1
 1335385208053: stay at region 1
 1335385208783: Received UDP payload: 446
 1335385209071: Received UDP payload: 446
@@ -667,16 +667,16 @@
 1335385209992: Received UDP payload: 989
 1335385210019: mux: GOT CSM_Msg
 1335385210094: .......... GPS onLocationChanged ...... 
-1335385210095: Loc = Location[mProvider=gps,mTime=1335385211000,mLatitude=42.35804641,mLongitude=-71.09272826,mHasAltitude=true,mAltitude=-34.400001525878906,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=153.4,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385210095: GPS x/long:-71.09272826, GPS y/lat: 42.35804641. Region width in x: 20.0
+1335385210095: Loc = Location[mProvider=gps,mTime=1335385211000,mLatitude=42.35804641,mLongitude=-71.09272826,mHasAltitude=true,mAltitude=-34.400001525878906,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=153.4,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385210095: location PINPOINTS to region = 1.0, previous 1
 1335385210096: Hysteresis is 0.0
 1335385210096: stay at region 1
 1335385211062: .......... GPS onLocationChanged ...... 
-1335385211063: Loc = Location[mProvider=gps,mTime=1335385212000,mLatitude=42.35803258,mLongitude=-71.09273147,mHasAltitude=true,mAltitude=-32.79999923706055,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385211063: GPS x/long:-71.09273147, GPS y/lat: 42.35803258. Region width in x: 20.0
-1335385211063: location PINPOINTS to region = 1.0, previous 1
 1335385211063: Hysteresis is 0.0
+1335385211063: Loc = Location[mProvider=gps,mTime=1335385212000,mLatitude=42.35803258,mLongitude=-71.09273147,mHasAltitude=true,mAltitude=-32.79999923706055,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385211063: location PINPOINTS to region = 1.0, previous 1
 1335385211063: stay at region 1
 1335385211807: Received UDP payload: 6276
 1335385211821: mux: GOT CSM_Msg
@@ -687,16 +687,16 @@
 1335385212067: Hysteresis is 0.0
 1335385212068: stay at region 1
 1335385214067: .......... GPS onLocationChanged ...... 
-1335385214068: Loc = Location[mProvider=gps,mTime=1335385215000,mLatitude=42.35800668,mLongitude=-71.09273358,mHasAltitude=true,mAltitude=-31.5,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385214068: GPS x/long:-71.09273358, GPS y/lat: 42.35800668. Region width in x: 20.0
-1335385214068: location PINPOINTS to region = 1.0, previous 1
 1335385214068: Hysteresis is 0.0
+1335385214068: Loc = Location[mProvider=gps,mTime=1335385215000,mLatitude=42.35800668,mLongitude=-71.09273358,mHasAltitude=true,mAltitude=-31.5,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385214068: location PINPOINTS to region = 1.0, previous 1
 1335385214069: stay at region 1
 1335385216065: .......... GPS onLocationChanged ...... 
-1335385216066: Loc = Location[mProvider=gps,mTime=1335385217000,mLatitude=42.35799732,mLongitude=-71.09273161,mHasAltitude=true,mAltitude=-31.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385216066: GPS x/long:-71.09273161, GPS y/lat: 42.35799732. Region width in x: 20.0
-1335385216066: location PINPOINTS to region = 1.0, previous 1
 1335385216066: Hysteresis is 0.0
+1335385216066: Loc = Location[mProvider=gps,mTime=1335385217000,mLatitude=42.35799732,mLongitude=-71.09273161,mHasAltitude=true,mAltitude=-31.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385216066: location PINPOINTS to region = 1.0, previous 1
 1335385216067: stay at region 1
 1335385221069: .......... GPS onLocationChanged ...... 
 1335385221072: Loc = Location[mProvider=gps,mTime=1335385222000,mLatitude=42.35799647,mLongitude=-71.09271847,mHasAltitude=true,mAltitude=-31.399999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
@@ -711,42 +711,42 @@
 1335385221174: Received UDP payload: 446
 1335385221185: Received UDP payload: 446
 1335385243053: .......... GPS onLocationChanged ...... 
-1335385243054: Loc = Location[mProvider=gps,mTime=1335385244000,mLatitude=42.35798665,mLongitude=-71.09272272,mHasAltitude=true,mAltitude=-31.0,mHasSpeed=true,mSpeed=0.559017,mHasBearing=true,mBearing=153.4,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385243054: GPS x/long:-71.09272272, GPS y/lat: 42.35798665. Region width in x: 20.0
-1335385243055: location PINPOINTS to region = 1.0, previous 1
+1335385243054: Loc = Location[mProvider=gps,mTime=1335385244000,mLatitude=42.35798665,mLongitude=-71.09272272,mHasAltitude=true,mAltitude=-31.0,mHasSpeed=true,mSpeed=0.559017,mHasBearing=true,mBearing=153.4,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385243055: Hysteresis is 0.0
+1335385243055: location PINPOINTS to region = 1.0, previous 1
 1335385243055: stay at region 1
 1335385245060: .......... GPS onLocationChanged ...... 
-1335385245061: Loc = Location[mProvider=gps,mTime=1335385246000,mLatitude=42.3579758,mLongitude=-71.0927324,mHasAltitude=true,mAltitude=-29.700000762939453,mHasSpeed=true,mSpeed=0.559017,mHasBearing=true,mBearing=153.4,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385245061: GPS x/long:-71.0927324, GPS y/lat: 42.3579758. Region width in x: 20.0
-1335385245061: location PINPOINTS to region = 0.0, previous 1
 1335385245061: Hysteresis is 0.0
+1335385245061: Loc = Location[mProvider=gps,mTime=1335385246000,mLatitude=42.3579758,mLongitude=-71.0927324,mHasAltitude=true,mAltitude=-29.700000762939453,mHasSpeed=true,mSpeed=0.559017,mHasBearing=true,mBearing=153.4,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385245061: location CHANGED TO NEW region = (0,0) from region = (1,0)
-1335385245062: moving from region (1,0), to (0,0)
-1335385245062: VCoreDaemon.java inside stateTransition ..........
-1335385245062: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385245061: location PINPOINTS to region = 0.0, previous 1
 1335385245062: ..... VCoreDaemon.java targetState = JOINING
+1335385245062: VCoreDaemon.java inside stateTransition ..........
+1335385245062: moving from region (1,0), to (0,0)
 1335385245062: posting leaderRequestRetryR because I'm joining
-1335385245063: sending LEADER_REQUEST
+1335385245062: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385245063: inside sendPacket(Packet p)
 1335385245063: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385245063: sending LEADER_REQUEST
 1335385245064: Sending UDP payload: 446
 1335385245065: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335385245363: sending LEADER_REQUEST
 1335385245364: inside sendPacket(Packet p)
 1335385245364: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385245365: Sending UDP payload: 446
-1335385245665: sending LEADER_REQUEST
 1335385245665: inside sendPacket(Packet p)
 1335385245665: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385245665: sending LEADER_REQUEST
 1335385245667: Sending UDP payload: 446
 1335385245966: sending LEADER_REQUEST
 1335385245967: inside sendPacket(Packet p)
 1335385245967: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385245971: Sending UDP payload: 446
 1335385246067: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335385246068: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335385246068: VCoreDaemon.java inside stateTransition ..........
+1335385246068: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335385246068: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385246069: ..... VCoreDaemon.java targetState = LEADER
 1335385246069: trying to take leadership to the cloud
@@ -758,22 +758,22 @@
 1335385246133: stay at region 0
 1335385246469: cloud rejected leadership request or request failed, wait to retry
 1335385248059: .......... GPS onLocationChanged ...... 
-1335385248060: Loc = Location[mProvider=gps,mTime=1335385249000,mLatitude=42.35797014,mLongitude=-71.09275747,mHasAltitude=true,mAltitude=-30.799999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
 1335385248060: GPS x/long:-71.09275747, GPS y/lat: 42.35797014. Region width in x: 20.0
-1335385248060: location PINPOINTS to region = 0.0, previous 0
 1335385248060: Hysteresis is 0.0
+1335385248060: Loc = Location[mProvider=gps,mTime=1335385249000,mLatitude=42.35797014,mLongitude=-71.09275747,mHasAltitude=true,mAltitude=-30.799999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335385248060: location PINPOINTS to region = 0.0, previous 0
 1335385248060: stay at region 0
 1335385264192: Received UDP payload: 446
 1335385264221: Received UDP payload: 446
 1335385264227: Received UDP payload: 446
 1335385264296: Received UDP payload: 3512
 1335385264303: removing leaderRequestRetryR because heard Packet.Leader_reply
-1335385264304: heard LEADER_REPLY from 5003
-1335385264304: VCoreDaemon.java inside stateTransition ..........
-1335385264304: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385264304: ..... VCoreDaemon.java targetState = NONLEADER
-1335385264305: now NONLEADER (id=5005) following LEADER (id=5003) in (0,0)
+1335385264304: VCoreDaemon.java inside stateTransition ..........
+1335385264304: heard LEADER_REPLY from 5003
+1335385264304: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385264305: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385264305: now NONLEADER (id=5005) following LEADER (id=5003) in (0,0)
 1335385264312: Received UDP payload: 446
 1335385264340: Received UDP payload: 446
 1335385264358: Received UDP payload: 446
@@ -797,35 +797,35 @@
 1335385271001: reg=0 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=0 takeBad=0 takeTimedout=1 takePercent=0% getNum=1 getGood=0 getBad=0 getTimedout=1 getPercent=0%
 1335385271264: Picture successfully taken, ORIG BYTE LENGTH = 3099260
 1335385271492: Our new height x width: 306 x 408
-1335385271493: Show photo from handle my camera take
 1335385271493: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335385271493: Show photo from handle my camera take
 1335385271493: change local requestCounter to 3
 1335385271511: BYTE SIZE AFTER COMPRESSION: 5972
 1335385271517: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5005003 Client in region: 0 Client nodID: 5005
 1335385271549: ----------------------------
 1335385271549: inside sendRequestPacketRepeatingRunnable for requestCount = 5005003
 1335385271550: I'm a nonleader sending my requesting photos packet to my leader
-1335385271556: --- Finished one round of sending REQUEST Packet ---------
 1335385271550: inside sendPacket(Packet p)
 1335385271554: Sending UDP payload: 6619
+1335385271556: --- Finished one round of sending REQUEST Packet ---------
 1335385271858: ----------------------------
-1335385271858: inside sendRequestPacketRepeatingRunnable for requestCount = 5005003
 1335385271858: I'm a nonleader sending my requesting photos packet to my leader
-1335385271863: --- Finished one round of sending REQUEST Packet ---------
+1335385271858: inside sendRequestPacketRepeatingRunnable for requestCount = 5005003
 1335385271859: inside sendPacket(Packet p)
 1335385271860: Sending UDP payload: 6619
+1335385271863: --- Finished one round of sending REQUEST Packet ---------
 1335385272163: ----------------------------
 1335385272163: inside sendRequestPacketRepeatingRunnable for requestCount = 5005003
 1335385272164: I'm a nonleader sending my requesting photos packet to my leader
-1335385272169: --- Finished one round of sending REQUEST Packet ---------
 1335385272164: inside sendPacket(Packet p)
 1335385272167: Sending UDP payload: 6619
+1335385272169: --- Finished one round of sending REQUEST Packet ---------
 1335385272470: ----------------------------
-1335385272471: inside sendRequestPacketRepeatingRunnable for requestCount = 5005003
 1335385272471: I'm a nonleader sending my requesting photos packet to my leader
-1335385272476: --- Finished one round of sending REQUEST Packet ---------
+1335385272471: inside sendRequestPacketRepeatingRunnable for requestCount = 5005003
 1335385272472: inside sendPacket(Packet p)
 1335385272474: Sending UDP payload: 6619
+1335385272476: --- Finished one round of sending REQUEST Packet ---------
 1335385272526: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
 1335385272649: Received UDP payload: 446
 1335385272663: Received UDP payload: 446
@@ -841,36 +841,36 @@
 1335385275631: areButtonsEnabled --> true
 1335385291525: Missed 3 HEARTBEATS from LEADER, going to JOINING.
 1335385291525: VCoreDaemon.java inside stateTransition ..........
-1335385291526: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385291526: ..... VCoreDaemon.java targetState = JOINING
-1335385291526: posting leaderRequestRetryR because I'm joining
 1335385291526: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335385291526: sending LEADER_REQUEST
+1335385291526: ..... VCoreDaemon.java targetState = JOINING
 1335385291526: inside sendPacket(Packet p)
+1335385291526: posting leaderRequestRetryR because I'm joining
+1335385291526: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385291526: sending LEADER_REQUEST
 1335385291527: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385291528: Sending UDP payload: 446
 1335385291827: sending LEADER_REQUEST
 1335385291828: inside sendPacket(Packet p)
 1335385291828: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385291832: Sending UDP payload: 446
-1335385292129: sending LEADER_REQUEST
 1335385292129: inside sendPacket(Packet p)
 1335385292129: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385292129: sending LEADER_REQUEST
 1335385292131: Sending UDP payload: 446
-1335385292430: sending LEADER_REQUEST
 1335385292430: inside sendPacket(Packet p)
+1335385292430: sending LEADER_REQUEST
 1335385292431: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385292433: Sending UDP payload: 446
-1335385292527: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335385292527: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385292527: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385292528: ..... VCoreDaemon.java targetState = LEADER
 1335385292528: VCoreDaemon.java inside stateTransition ..........
 1335385292528: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385292528: ..... VCoreDaemon.java targetState = LEADER
 1335385292528: trying to take leadership to the cloud
 1335385292797: cloud rejected leadership request or request failed, wait to retry
 1335385317280: Received UDP payload: 625
-1335385317286: mux: Inside mux Packet.CLIENT_REQUEST
 1335385317283: Received UDP payload: 625
+1335385317286: mux: Inside mux Packet.CLIENT_REQUEST
 1335385317297: mux: Inside mux Packet.CLIENT_REQUEST
 1335385317299: Received UDP payload: 625
 1335385317302: mux: Inside mux Packet.CLIENT_REQUEST
@@ -894,38 +894,38 @@
 1335385328266: can't press any buttons yet, so can't get region
 1335385358732: Received UDP payload: 446
 1335385376063: .......... GPS onLocationChanged ...... 
-1335385376064: Loc = Location[mProvider=gps,mTime=1335385377000,mLatitude=42.35797783,mLongitude=-71.09276962,mHasAltitude=true,mAltitude=-30.899999618530273,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=31.7,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
 1335385376064: GPS x/long:-71.09276962, GPS y/lat: 42.35797783. Region width in x: 20.0
-1335385376064: location PINPOINTS to region = 1.0, previous 0
 1335385376064: Hysteresis is 0.0
+1335385376064: Loc = Location[mProvider=gps,mTime=1335385377000,mLatitude=42.35797783,mLongitude=-71.09276962,mHasAltitude=true,mAltitude=-30.899999618530273,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=31.7,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (0,0)
+1335385376064: location PINPOINTS to region = 1.0, previous 0
+1335385376065: ..... VCoreDaemon.java targetState = JOINING
+1335385376065: VCoreDaemon.java inside stateTransition ..........
 1335385376065: location CHANGED TO NEW region = (1,0) from region = (0,0)
 1335385376065: moving from region (0,0), to (1,0)
-1335385376065: VCoreDaemon.java inside stateTransition ..........
-1335385376065: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385376065: ..... VCoreDaemon.java targetState = JOINING
 1335385376065: posting leaderRequestRetryR because I'm joining
-1335385376066: sending LEADER_REQUEST
+1335385376065: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385376066: inside sendPacket(Packet p)
 1335385376066: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385376066: sending LEADER_REQUEST
 1335385376067: Sending UDP payload: 446
 1335385376068: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335385376367: sending LEADER_REQUEST
 1335385376367: inside sendPacket(Packet p)
 1335385376367: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385376367: sending LEADER_REQUEST
 1335385376368: Sending UDP payload: 446
-1335385376668: sending LEADER_REQUEST
 1335385376668: inside sendPacket(Packet p)
 1335385376668: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385376668: sending LEADER_REQUEST
 1335385376669: Sending UDP payload: 446
-1335385376969: sending LEADER_REQUEST
 1335385376969: inside sendPacket(Packet p)
+1335385376969: sending LEADER_REQUEST
 1335385376970: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385376974: Sending UDP payload: 446
 1335385377068: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335385377069: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335385377069: VCoreDaemon.java inside stateTransition ..........
-1335385377070: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385377069: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335385377070: ..... VCoreDaemon.java targetState = LEADER
+1335385377070: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385377070: trying to take leadership to the cloud
 1335385377449: cloud rejected leadership request or request failed, wait to retry
 1335385378048: .......... GPS onLocationChanged ...... 
@@ -935,16 +935,16 @@
 1335385378054: Hysteresis is 0.0
 1335385378054: stay at region 1
 1335385380123: .......... GPS onLocationChanged ...... 
-1335385380124: Loc = Location[mProvider=gps,mTime=1335385381000,mLatitude=42.35799098,mLongitude=-71.09279192,mHasAltitude=true,mAltitude=-30.299999237060547,mHasSpeed=true,mSpeed=0.9013878,mHasBearing=true,mBearing=343.7,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385380124: GPS x/long:-71.09279192, GPS y/lat: 42.35799098. Region width in x: 20.0
-1335385380124: location PINPOINTS to region = 1.0, previous 1
 1335385380124: Hysteresis is 0.0
+1335385380124: Loc = Location[mProvider=gps,mTime=1335385381000,mLatitude=42.35799098,mLongitude=-71.09279192,mHasAltitude=true,mAltitude=-30.299999237060547,mHasSpeed=true,mSpeed=0.9013878,mHasBearing=true,mBearing=343.7,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385380124: location PINPOINTS to region = 1.0, previous 1
 1335385380124: stay at region 1
 1335385382065: .......... GPS onLocationChanged ...... 
-1335385382066: Loc = Location[mProvider=gps,mTime=1335385383000,mLatitude=42.35799683,mLongitude=-71.09280845,mHasAltitude=true,mAltitude=-29.600000381469727,mHasSpeed=true,mSpeed=1.118034,mHasBearing=true,mBearing=313.7,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385382066: GPS x/long:-71.09280845, GPS y/lat: 42.35799683. Region width in x: 20.0
-1335385382066: location PINPOINTS to region = 1.0, previous 1
 1335385382066: Hysteresis is 0.0
+1335385382066: Loc = Location[mProvider=gps,mTime=1335385383000,mLatitude=42.35799683,mLongitude=-71.09280845,mHasAltitude=true,mAltitude=-29.600000381469727,mHasSpeed=true,mSpeed=1.118034,mHasBearing=true,mBearing=313.7,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385382066: location PINPOINTS to region = 1.0, previous 1
 1335385382067: stay at region 1
 1335385382330: Received UDP payload: 446
 1335385382334: Received UDP payload: 446
@@ -961,26 +961,26 @@
 1335385384067: .......... GPS onLocationChanged ...... 
 1335385384068: Loc = Location[mProvider=gps,mTime=1335385385000,mLatitude=42.3580042,mLongitude=-71.09282245,mHasAltitude=true,mAltitude=-29.100000381469727,mHasSpeed=true,mSpeed=0.9013878,mHasBearing=true,mBearing=345.7,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385384069: GPS x/long:-71.09282245, GPS y/lat: 42.3580042. Region width in x: 20.0
-1335385384069: location PINPOINTS to region = 1.0, previous 1
 1335385384069: Hysteresis is 0.0
+1335385384069: location PINPOINTS to region = 1.0, previous 1
 1335385384069: stay at region 1
 1335385386065: .......... GPS onLocationChanged ...... 
-1335385386066: Loc = Location[mProvider=gps,mTime=1335385387000,mLatitude=42.35800965,mLongitude=-71.09284,mHasAltitude=true,mAltitude=-28.700000762939453,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=345.7,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385386066: GPS x/long:-71.09284, GPS y/lat: 42.35800965. Region width in x: 20.0
-1335385386067: location PINPOINTS to region = 1.0, previous 1
+1335385386066: Loc = Location[mProvider=gps,mTime=1335385387000,mLatitude=42.35800965,mLongitude=-71.09284,mHasAltitude=true,mAltitude=-28.700000762939453,mHasSpeed=true,mSpeed=0.70710677,mHasBearing=true,mBearing=345.7,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385386067: Hysteresis is 0.0
+1335385386067: location PINPOINTS to region = 1.0, previous 1
 1335385386067: stay at region 1
 1335385388064: .......... GPS onLocationChanged ...... 
 1335385388064: Loc = Location[mProvider=gps,mTime=1335385389000,mLatitude=42.35800505,mLongitude=-71.09285385,mHasAltitude=true,mAltitude=-28.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385388065: GPS x/long:-71.09285385, GPS y/lat: 42.35800505. Region width in x: 20.0
-1335385388065: location PINPOINTS to region = 1.0, previous 1
 1335385388065: Hysteresis is 0.0
+1335385388065: location PINPOINTS to region = 1.0, previous 1
 1335385388065: stay at region 1
 1335385391078: .......... GPS onLocationChanged ...... 
-1335385391079: Loc = Location[mProvider=gps,mTime=1335385392000,mLatitude=42.35799691,mLongitude=-71.0928605,mHasAltitude=true,mAltitude=-28.399999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385391079: GPS x/long:-71.0928605, GPS y/lat: 42.35799691. Region width in x: 20.0
-1335385391079: location PINPOINTS to region = 1.0, previous 1
 1335385391079: Hysteresis is 0.0
+1335385391079: Loc = Location[mProvider=gps,mTime=1335385392000,mLatitude=42.35799691,mLongitude=-71.0928605,mHasAltitude=true,mAltitude=-28.399999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385391079: location PINPOINTS to region = 1.0, previous 1
 1335385391079: stay at region 1
 1335385391260: Received UDP payload: 446
 1335385391533: Received UDP payload: 446
@@ -995,19 +995,19 @@
 1335385399922: Received UDP payload: 446
 1335385399944: Received UDP payload: 446
 1335385400076: .......... GPS onLocationChanged ...... 
-1335385400077: Loc = Location[mProvider=gps,mTime=1335385401000,mLatitude=42.35799071,mLongitude=-71.0928698,mHasAltitude=true,mAltitude=-28.100000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385400077: GPS x/long:-71.0928698, GPS y/lat: 42.35799071. Region width in x: 20.0
+1335385400077: Loc = Location[mProvider=gps,mTime=1335385401000,mLatitude=42.35799071,mLongitude=-71.0928698,mHasAltitude=true,mAltitude=-28.100000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=3.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385400077: location PINPOINTS to region = 1.0, previous 1
 1335385400078: Hysteresis is 0.0
 1335385400078: stay at region 1
 1335385400373: Received UDP payload: 446
-1335385400375: removing leaderRequestRetryR because heard Packet.Heartbeat
-1335385400375: heard HEARTBEAT from 5008, now following
 1335385400375: VCoreDaemon.java inside stateTransition ..........
-1335385400376: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385400375: heard HEARTBEAT from 5008, now following
+1335385400375: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385400376: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335385400376: ..... VCoreDaemon.java targetState = NONLEADER
 1335385400376: now NONLEADER (id=5005) following LEADER (id=5008) in (1,0)
-1335385400376: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385400376: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385400421: Received UDP payload: 446
 1335385400612: Received UDP payload: 446
 1335385401598: Received UDP payload: 22335
@@ -1036,12 +1036,12 @@
 1335385416223: Received UDP payload: 22335
 1335385416234: Received UDP payload: 446
 1335385416240: Received UDP payload: 446
+1335385416613: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385416613: ..... VCoreDaemon.java targetState = JOINING
 1335385416613: Missed 3 HEARTBEATS from LEADER, going to JOINING.
 1335385416613: VCoreDaemon.java inside stateTransition ..........
-1335385416613: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385416613: ..... VCoreDaemon.java targetState = JOINING
 1335385416613: posting leaderRequestRetryR because I'm joining
-1335385416613: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385416613: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385416613: sending LEADER_REQUEST
 1335385416614: inside sendPacket(Packet p)
 1335385416614: posting another leaderRequestRetryR after leaderRequestRetryPeriod
@@ -1058,11 +1058,11 @@
 1335385417517: inside sendPacket(Packet p)
 1335385417517: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385417520: Sending UDP payload: 446
-1335385417615: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335385417615: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335385417615: VCoreDaemon.java inside stateTransition ..........
-1335385417616: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385417615: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385417615: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335385417616: ..... VCoreDaemon.java targetState = LEADER
+1335385417616: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385417616: trying to take leadership to the cloud
 1335385417954: cloud rejected leadership request or request failed, wait to retry
 1335385426063: Received UDP payload: 446
@@ -1070,11 +1070,11 @@
 1335385426122: Received UDP payload: 446
 1335385426124: Received UDP payload: 446
 1335385427610: Received UDP payload: 446
-1335385427626: removing leaderRequestRetryR because heard Packet.Heartbeat
 1335385427626: heard HEARTBEAT from 5018, now following
+1335385427626: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385427627: ..... VCoreDaemon.java targetState = NONLEADER
 1335385427627: VCoreDaemon.java inside stateTransition ..........
 1335385427627: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385427627: ..... VCoreDaemon.java targetState = NONLEADER
 1335385427628: now NONLEADER (id=5005) following LEADER (id=5018) in (1,0)
 1335385427629: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335385427640: Received UDP payload: 446
@@ -1087,8 +1087,8 @@
 1335385428094: Received UDP payload: 12199
 1335385428529: Received UDP payload: 12199
 1335385428567: Received UDP payload: 446
-1335385428570: mux: Inside Packet.SERVER_REPLY
 1335385428570: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385428570: mux: Inside Packet.SERVER_REPLY
 1335385429826: Received UDP payload: 12483
 1335385429848: Received UDP payload: 989
 1335385429868: mux: GOT CSM_Msg
@@ -1099,8 +1099,8 @@
 1335385430659: Received UDP payload: 989
 1335385430678: mux: GOT CSM_Msg
 1335385430681: Received UDP payload: 989
-1335385430696: mux: GOT CSM_Msg
 1335385430696: Received UDP payload: 989
+1335385430696: mux: GOT CSM_Msg
 1335385430698: mux: GOT CSM_Msg
 1335385430715: Received UDP payload: 989
 1335385430718: mux: GOT CSM_Msg
@@ -1120,43 +1120,43 @@
 1335385435817: Received UDP payload: 446
 1335385435927: Received UDP payload: 446
 1335385436065: Received UDP payload: 446
-1335385436970: canPressButton = TRUE
 1335385436970: areButtonsEnabled --> false
+1335385436970: canPressButton = TRUE
+1335385436971: areButtonsEnabled --> false
 1335385436971: disabling buttons ...
 1335385436971: took picture disableButtonsR
-1335385436971: areButtonsEnabled --> false
-1335385436998: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=2 takeGoodSave=0 takeBad=0 takeTimedout=2 takePercent=0% getNum=1 getGood=0 getBad=0 getTimedout=1 getPercent=0%
 1335385436998: Clicked take picture button ..
+1335385436998: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=2 takeGoodSave=0 takeBad=0 takeTimedout=2 takePercent=0% getNum=1 getGood=0 getBad=0 getTimedout=1 getPercent=0%
 1335385438275: inside HandlePictureStorage onPictureTaken()
 1335385438276: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=0 takeBad=0 takeTimedout=2 takePercent=0% getNum=1 getGood=0 getBad=0 getTimedout=1 getPercent=0%
 1335385438566: Picture successfully taken, ORIG BYTE LENGTH = 2317601
+1335385438930: ** Client making NEWly TAKEN photo PACKET to send to leader **
 1335385438930: Our new height x width: 306 x 408
 1335385438930: Show photo from handle my camera take
-1335385438930: ** Client making NEWly TAKEN photo PACKET to send to leader **
 1335385438930: change local requestCounter to 4
 1335385438944: BYTE SIZE AFTER COMPRESSION: 4235
 1335385438949: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5005004 Client in region: 1 Client nodID: 5005
 1335385438975: ----------------------------
-1335385438975: inside sendRequestPacketRepeatingRunnable for requestCount = 5005004
 1335385438975: I'm a nonleader sending my requesting photos packet to my leader
-1335385438979: --- Finished one round of sending REQUEST Packet ---------
 1335385438975: inside sendPacket(Packet p)
+1335385438975: inside sendRequestPacketRepeatingRunnable for requestCount = 5005004
+1335385438979: --- Finished one round of sending REQUEST Packet ---------
 1335385438980: Sending UDP payload: 4882
 1335385439280: ----------------------------
-1335385439280: inside sendRequestPacketRepeatingRunnable for requestCount = 5005004
 1335385439280: I'm a nonleader sending my requesting photos packet to my leader
+1335385439280: inside sendRequestPacketRepeatingRunnable for requestCount = 5005004
 1335385439281: --- Finished one round of sending REQUEST Packet ---------
 1335385439281: inside sendPacket(Packet p)
 1335385439282: Sending UDP payload: 4882
 1335385439581: ----------------------------
-1335385439582: inside sendRequestPacketRepeatingRunnable for requestCount = 5005004
 1335385439582: I'm a nonleader sending my requesting photos packet to my leader
+1335385439582: inside sendRequestPacketRepeatingRunnable for requestCount = 5005004
 1335385439583: --- Finished one round of sending REQUEST Packet ---------
 1335385439583: inside sendPacket(Packet p)
 1335385439587: Sending UDP payload: 4882
 1335385439884: ----------------------------
-1335385439885: inside sendRequestPacketRepeatingRunnable for requestCount = 5005004
 1335385439885: I'm a nonleader sending my requesting photos packet to my leader
+1335385439885: inside sendRequestPacketRepeatingRunnable for requestCount = 5005004
 1335385439886: --- Finished one round of sending REQUEST Packet ---------
 1335385439886: inside sendPacket(Packet p)
 1335385439891: Sending UDP payload: 4882
@@ -1165,16 +1165,16 @@
 1335385441918: mux: GOT CSM_Msg
 1335385441932: Received UDP payload: 642
 1335385441944: mux: Inside Packet.SERVER_REPLY
-1335385441945: mux: Ignoring SERVER_REPLY since it's not for me  5005
 1335385441945: Received UDP payload: 642
-1335385441947: mux: Inside Packet.SERVER_REPLY
+1335385441945: mux: Ignoring SERVER_REPLY since it's not for me  5005
 1335385441947: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385441947: mux: Inside Packet.SERVER_REPLY
 1335385441948: Received UDP payload: 642
-1335385441949: mux: Inside Packet.SERVER_REPLY
 1335385441949: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385441949: mux: Inside Packet.SERVER_REPLY
 1335385441950: Received UDP payload: 642
-1335385441951: mux: Inside Packet.SERVER_REPLY
 1335385441951: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385441951: mux: Inside Packet.SERVER_REPLY
 1335385441952: Received UDP payload: 446
 1335385442005: Received UDP payload: 446
 1335385442047: Received UDP payload: 446
@@ -1188,43 +1188,43 @@
 1335385442265: mux: GOT CSM_Msg
 1335385442266: Received UDP payload: 446
 1335385442271: Received UDP payload: 446
-1335385442280: mux: Inside Packet.SERVER_REPLY
 1335385442280: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385442280: mux: Inside Packet.SERVER_REPLY
 1335385442285: Received UDP payload: 446
-1335385442290: mux: Inside Packet.SERVER_REPLY
 1335385442290: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385442290: mux: Inside Packet.SERVER_REPLY
 1335385442338: Received UDP payload: 446
 1335385442351: Received UDP payload: 989
 1335385442354: mux: GOT CSM_Msg
 1335385442358: Received UDP payload: 446
 1335385442363: mux: Inside Packet.SERVER_REPLY
-1335385442364: mux: Ignoring SERVER_REPLY since it's not for me  5005
 1335385442364: Received UDP payload: 446
-1335385442371: mux: Inside Packet.SERVER_REPLY
+1335385442364: mux: Ignoring SERVER_REPLY since it's not for me  5005
 1335385442371: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385442371: mux: Inside Packet.SERVER_REPLY
 1335385442740: Received UDP payload: 4978
 1335385442744: mux: GOT CSM_Msg
 1335385442914: Received UDP payload: 446
-1335385442916: mux: Inside Packet.SERVER_REPLY
 1335385442916: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385442916: mux: Inside Packet.SERVER_REPLY
 1335385442920: Received UDP payload: 446
 1335385442930: mux: Inside Packet.SERVER_REPLY
 1335385442931: mux: Ignoring SERVER_REPLY since it's not for me  5005
-1335385442999: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=0 takeBad=0 takeTimedout=3 takePercent=0% getNum=1 getGood=0 getBad=0 getTimedout=1 getPercent=0%
 1335385442999: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
+1335385442999: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=0 takeBad=0 takeTimedout=3 takePercent=0% getNum=1 getGood=0 getBad=0 getTimedout=1 getPercent=0%
 1335385443003: Inside _enableButtons
 1335385443003: areButtonsEnabled --> true
 1335385443149: Received UDP payload: 12339
 1335385443329: Received UDP payload: 12339
 1335385443409: Received UDP payload: 4631
-1335385443411: mux: Inside Packet.SERVER_REPLY
 1335385443411: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385443411: mux: Inside Packet.SERVER_REPLY
 1335385443488: Received UDP payload: 4631
-1335385443490: mux: Inside Packet.SERVER_REPLY
 1335385443490: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385443490: mux: Inside Packet.SERVER_REPLY
 1335385443568: Received UDP payload: 4631
-1335385443570: mux: Inside Packet.SERVER_REPLY
 1335385443570: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385443570: mux: Inside Packet.SERVER_REPLY
 1335385443823: Received UDP payload: 12339
 1335385444277: Received UDP payload: 12339
 1335385444552: Received UDP payload: 12339
@@ -1239,14 +1239,14 @@
 1335385444947: mux: Inside Packet.SERVER_REPLY
 1335385444948: mux: Ignoring SERVER_REPLY since it's not for me  5005
 1335385444952: Received UDP payload: 642
-1335385444955: mux: Inside Packet.SERVER_REPLY
 1335385444955: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385444955: mux: Inside Packet.SERVER_REPLY
 1335385444976: Received UDP payload: 642
-1335385444980: mux: Inside Packet.SERVER_REPLY
 1335385444980: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385444980: mux: Inside Packet.SERVER_REPLY
 1335385445058: Received UDP payload: 642
-1335385445066: mux: Inside Packet.SERVER_REPLY
 1335385445066: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335385445066: mux: Inside Packet.SERVER_REPLY
 1335385445511: Received UDP payload: 10589
 1335385445837: Received UDP payload: 10589
 1335385445847: Received UDP payload: 446
@@ -1282,34 +1282,34 @@
 1335385452440: Received UDP payload: 7644
 1335385452445: mux: GOT CSM_Msg
 1335385454550: canPressButton = TRUE
+1335385454551: areButtonsEnabled --> false
 1335385454551: areButtonsEnabled --> false 
 1335385454551: get picture disableButtonsR
-1335385454551: areButtonsEnabled --> false
-1335385454578: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=0 takeBad=0 takeTimedout=3 takePercent=0% getNum=2 getGood=0 getBad=0 getTimedout=1 getPercent=0%
 1335385454578: ** Client making GET photo PACKET to send to the leader. Requesting for region: 0 **
 1335385454578: change local requestCounter to 5
+1335385454578: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=0 takeBad=0 takeTimedout=3 takePercent=0% getNum=2 getGood=0 getBad=0 getTimedout=1 getPercent=0%
 1335385454579: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5005005 Client in region: 1 Client nodID: 5005
 1335385454610: ----------------------------
-1335385454611: inside sendRequestPacketRepeatingRunnable for requestCount = 5005005
 1335385454611: I'm a nonleader sending my requesting photos packet to my leader
-1335385454613: --- Finished one round of sending REQUEST Packet ---------
 1335385454611: inside sendPacket(Packet p)
+1335385454611: inside sendRequestPacketRepeatingRunnable for requestCount = 5005005
 1335385454612: Sending UDP payload: 625
+1335385454613: --- Finished one round of sending REQUEST Packet ---------
 1335385454913: ----------------------------
-1335385454914: inside sendRequestPacketRepeatingRunnable for requestCount = 5005005
 1335385454914: I'm a nonleader sending my requesting photos packet to my leader
-1335385454917: --- Finished one round of sending REQUEST Packet ---------
 1335385454914: inside sendPacket(Packet p)
+1335385454914: inside sendRequestPacketRepeatingRunnable for requestCount = 5005005
 1335385454915: Sending UDP payload: 625
+1335385454917: --- Finished one round of sending REQUEST Packet ---------
 1335385455217: ----------------------------
-1335385455217: inside sendRequestPacketRepeatingRunnable for requestCount = 5005005
 1335385455217: I'm a nonleader sending my requesting photos packet to my leader
-1335385455218: --- Finished one round of sending REQUEST Packet ---------
 1335385455217: inside sendPacket(Packet p)
+1335385455217: inside sendRequestPacketRepeatingRunnable for requestCount = 5005005
+1335385455218: --- Finished one round of sending REQUEST Packet ---------
 1335385455225: Sending UDP payload: 625
 1335385455518: ----------------------------
-1335385455518: inside sendRequestPacketRepeatingRunnable for requestCount = 5005005
 1335385455518: I'm a nonleader sending my requesting photos packet to my leader
+1335385455518: inside sendRequestPacketRepeatingRunnable for requestCount = 5005005
 1335385455519: --- Finished one round of sending REQUEST Packet ---------
 1335385455519: inside sendPacket(Packet p)
 1335385455526: Sending UDP payload: 625
@@ -1334,15 +1334,15 @@
 1335385460284: mux: GOT CSM_Msg
 1335385460429: Received UDP payload: 7644
 1335385460432: mux: GOT CSM_Msg
+1335385460580: Received UDP payload: 7644
+1335385460589: mux: GOT CSM_Msg
 1335385460590: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=0 takeBad=0 takeTimedout=3 takePercent=0% getNum=2 getGood=0 getBad=0 getTimedout=2 getPercent=0%
 1335385460591: inside buttonsEnableProgressTimeoutR. Perhaps no one is in that region. Try again later!
 1335385460598: Inside _enableButtons
 1335385460599: areButtonsEnabled --> true
-1335385460580: Received UDP payload: 7644
-1335385460589: mux: GOT CSM_Msg
 1335385460752: Received UDP payload: 7644
-1335385460762: mux: GOT CSM_Msg
 1335385460762: Received UDP payload: 446
+1335385460762: mux: GOT CSM_Msg
 1335385460787: Received UDP payload: 446
 1335385460795: Received UDP payload: 446
 1335385460821: Received UDP payload: 446
@@ -1374,8 +1374,8 @@
 1335385473300: Received UDP payload: 989
 1335385473306: mux: GOT CSM_Msg
 1335385473316: Received UDP payload: 989
-1335385473328: mux: GOT CSM_Msg
 1335385473328: Received UDP payload: 989
+1335385473328: mux: GOT CSM_Msg
 1335385473364: mux: GOT CSM_Msg
 1335385473381: Received UDP payload: 989
 1335385473389: mux: GOT CSM_Msg
@@ -1390,8 +1390,8 @@
 1335385473506: Received UDP payload: 989
 1335385473513: mux: GOT CSM_Msg
 1335385473520: Received UDP payload: 989
-1335385473538: mux: GOT CSM_Msg
 1335385473538: Received UDP payload: 989
+1335385473538: mux: GOT CSM_Msg
 1335385473558: mux: GOT CSM_Msg
 1335385473559: Received UDP payload: 989
 1335385473578: mux: GOT CSM_Msg
@@ -1406,8 +1406,8 @@
 1335385473645: Received UDP payload: 989
 1335385473650: mux: GOT CSM_Msg
 1335385473651: Received UDP payload: 989
-1335385473666: mux: GOT CSM_Msg
 1335385473666: Received UDP payload: 989
+1335385473666: mux: GOT CSM_Msg
 1335385473672: mux: GOT CSM_Msg
 1335385473683: Received UDP payload: 989
 1335385473689: mux: GOT CSM_Msg
@@ -1431,8 +1431,8 @@
 1335385478639: Received UDP payload: 446
 1335385478814: Received UDP payload: 446
 1335385482213: Received UDP payload: 3529
-1335385482227: removing leaderRequestRetryR because heard Packet.Leader_reply
 1335385482227: heard LEADER_REPLY from new leader 5017
+1335385482227: removing leaderRequestRetryR because heard Packet.Leader_reply
 1335385482228: VCoreDaemon.java inside stateTransition ..........
 1335385482228: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385482229: ..... VCoreDaemon.java targetState = NONLEADER
@@ -1455,56 +1455,56 @@
 1335385483828: Received UDP payload: 446
 1335385483833: mux: Inside Packet.SERVER_REPLY
 1335385483834: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
-1335385483882: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335385483840: Received UDP payload: 989
-1335385483857: mux: GOT CSM_Msg
 1335385483857: Received UDP payload: 642
-1335385483870: mux: Inside Packet.SERVER_REPLY
+1335385483857: mux: GOT CSM_Msg
+1335385483870: Received UDP payload: 446
 1335385483870: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
+1335385483870: mux: Inside Packet.SERVER_REPLY
+1335385483872: Received UDP payload: 446
+1335385483874: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
+1335385483874: mux: Inside Packet.SERVER_REPLY
+1335385483880: Received UDP payload: 642
+1335385483882: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335385483882: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
+1335385483882: mux: Inside Packet.SERVER_REPLY
 1335385483884: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
-1335385483884: disabling progressdialog due to successful new photo upload
 1335385483884: Inside _enableButtons
 1335385483884: areButtonsEnabled --> true
+1335385483884: disabling progressdialog due to successful new photo upload
 1335385483884: send final leg ack regardless of new or already-processed reply
 1335385483885: inside finalLegAck: change requestCounter to 6
-1335385483889: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5005006 Client in region: (1,0) Client nodID: 5005
-1335385483890: I'm a nonleader client sending my final_leg packet to my leader
-1335385483892: new client_upload_photo_ack reply with replyCounter 501800009
-1335385483892: note down new reply by adding replyCounter=501800009 to HashMap processedReplies
-1335385483892: nonleader upload new photo latency = 1335385483884
-1335385483893: = nonleader upload start 0 ~ stop 1335385483884
-1335385483894: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=1 takeBad=0 takeTimedout=3 takePercent=33% getNum=2 getGood=0 getBad=0 getTimedout=2 getPercent=0%
-1335385483894: SUCCESS Client now knows saving photo on its leader succeeded
-1335385483870: Received UDP payload: 446
-1335385483872: Received UDP payload: 446
-1335385483874: mux: Inside Packet.SERVER_REPLY
-1335385483874: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
-1335385483895: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
-1335385483880: Received UDP payload: 642
-1335385483882: mux: Inside Packet.SERVER_REPLY
-1335385483882: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
-1335385483916: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
-1335385483916: disabling progressdialog due to successful new photo upload
-1335385483916: Inside _enableButtons
-1335385483916: areButtonsEnabled --> true
-1335385483917: send final leg ack regardless of new or already-processed reply
-1335385483917: inside finalLegAck: change requestCounter to 7
-1335385483917: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5005007 Client in region: (1,0) Client nodID: 5005
-1335385483917: I'm a nonleader client sending my final_leg packet to my leader
-1335385483920: cupa discarding repeated replyCounter=501800009, but still sent an ack back
 1335385483886: Received UDP payload: 989
+1335385483889: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5005006 Client in region: (1,0) Client nodID: 5005
 1335385483889: mux: GOT CSM_Msg
+1335385483890: I'm a nonleader client sending my final_leg packet to my leader
 1335385483890: inside sendPacket(Packet p)
 1335385483891: Sending UDP payload: 446
+1335385483892: new client_upload_photo_ack reply with replyCounter 501800009
+1335385483892: nonleader upload new photo latency = 1335385483884
+1335385483892: note down new reply by adding replyCounter=501800009 to HashMap processedReplies
+1335385483893: = nonleader upload start 0 ~ stop 1335385483884
+1335385483894: SUCCESS Client now knows saving photo on its leader succeeded
+1335385483894: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=1 takeBad=0 takeTimedout=3 takePercent=33% getNum=2 getGood=0 getBad=0 getTimedout=2 getPercent=0%
+1335385483895: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335385483916: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
+1335385483916: Inside _enableButtons
+1335385483916: areButtonsEnabled --> true
+1335385483916: disabling progressdialog due to successful new photo upload
+1335385483917: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5005007 Client in region: (1,0) Client nodID: 5005
+1335385483917: I'm a nonleader client sending my final_leg packet to my leader
+1335385483917: inside finalLegAck: change requestCounter to 7
 1335385483917: inside sendPacket(Packet p)
+1335385483917: send final leg ack regardless of new or already-processed reply
 1335385483919: Sending UDP payload: 446
+1335385483920: cupa discarding repeated replyCounter=501800009, but still sent an ack back
 1335385484167: Received UDP payload: 446
 1335385484168: mux: Inside Packet.SERVER_REPLY
-1335385484169: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
 1335385484169: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335385484169: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
 1335385484175: Received UDP payload: 446
-1335385484177: mux: Inside Packet.SERVER_REPLY
 1335385484177: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
+1335385484177: mux: Inside Packet.SERVER_REPLY
 1335385484185: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335385485682: Received UDP payload: 446
 1335385485698: Received UDP payload: 446
@@ -1557,12 +1557,12 @@
 1335385489682: Received UDP payload: 8316
 1335385489694: mux: GOT CSM_Msg
 1335385489710: Received UDP payload: 446
-1335385489725: mux: Inside Packet.SERVER_REPLY
 1335385489725: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
-1335385489745: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335385489725: mux: Inside Packet.SERVER_REPLY
 1335385489726: Received UDP payload: 446
-1335385489731: mux: Inside Packet.SERVER_REPLY
 1335385489731: mux: I have the photo requester id = 5005 about to display photo or receive upload ack
+1335385489731: mux: Inside Packet.SERVER_REPLY
+1335385489745: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335385489746: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335385490527: Received UDP payload: 7969
 1335385490533: mux: Inside Packet.SERVER_REPLY
@@ -1575,6 +1575,8 @@
 1335385490540: inside finalLegAck: change requestCounter to 8
 1335385490541: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5005008 Client in region: (1,0) Client nodID: 5005
 1335385490542: I'm a nonleader client sending my final_leg packet to my leader
+1335385490542: inside sendPacket(Packet p)
+1335385490549: Sending UDP payload: 446
 1335385490552: new client_show_remotephoto reply with replyCounter 501800010
 1335385490553: note down new reply by adding replyCounter=501800010 to HashMap processedReplies
 1335385490554: nonleader download remote photo latency = 35017
@@ -1582,17 +1584,15 @@
 1335385490561: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=1 takeBad=0 takeTimedout=3 takePercent=33% getNum=2 getGood=1 getBad=0 getTimedout=2 getPercent=50%
 1335385490562: Success! Client getting photo from remote region, showing photo...
 1335385490563: Remote photo's length: 7305
-1335385490542: inside sendPacket(Packet p)
-1335385490549: Sending UDP payload: 446
 1335385491024: Received UDP payload: 446
-1335385491047: canPressButton = TRUE
 1335385491047: areButtonsEnabled --> false
+1335385491047: canPressButton = TRUE
 1335385491047: disabling buttons ...
-1335385491048: took picture disableButtonsR
 1335385491048: areButtonsEnabled --> false
+1335385491048: took picture disableButtonsR
+1335385491051: Received UDP payload: 446
 1335385491070: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=3 takeGoodSave=1 takeBad=0 takeTimedout=3 takePercent=25% getNum=2 getGood=1 getBad=0 getTimedout=2 getPercent=50%
 1335385491071: Clicked take picture button ..
-1335385491051: Received UDP payload: 446
 1335385491091: Received UDP payload: 446
 1335385491130: Received UDP payload: 989
 1335385491133: mux: GOT CSM_Msg
@@ -1606,38 +1606,38 @@
 1335385493107: BYTE SIZE AFTER COMPRESSION: 6403
 1335385493115: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5005009 Client in region: 1 Client nodID: 5005
 1335385493156: ----------------------------
-1335385493156: inside sendRequestPacketRepeatingRunnable for requestCount = 5005009
 1335385493156: I'm a nonleader sending my requesting photos packet to my leader
-1335385493166: --- Finished one round of sending REQUEST Packet ---------
+1335385493156: inside sendRequestPacketRepeatingRunnable for requestCount = 5005009
 1335385493157: inside sendPacket(Packet p)
 1335385493162: Sending UDP payload: 7050
+1335385493166: --- Finished one round of sending REQUEST Packet ---------
 1335385493467: ----------------------------
 1335385493468: inside sendRequestPacketRepeatingRunnable for requestCount = 5005009
 1335385493469: I'm a nonleader sending my requesting photos packet to my leader
-1335385493479: --- Finished one round of sending REQUEST Packet ---------
 1335385493470: inside sendPacket(Packet p)
 1335385493477: Sending UDP payload: 7050
+1335385493479: --- Finished one round of sending REQUEST Packet ---------
 1335385493780: ----------------------------
-1335385493781: inside sendRequestPacketRepeatingRunnable for requestCount = 5005009
 1335385493781: I'm a nonleader sending my requesting photos packet to my leader
-1335385493784: --- Finished one round of sending REQUEST Packet ---------
 1335385493781: inside sendPacket(Packet p)
+1335385493781: inside sendRequestPacketRepeatingRunnable for requestCount = 5005009
 1335385493783: Sending UDP payload: 7050
+1335385493784: --- Finished one round of sending REQUEST Packet ---------
 1335385494085: ----------------------------
 1335385494085: inside sendRequestPacketRepeatingRunnable for requestCount = 5005009
 1335385494086: I'm a nonleader sending my requesting photos packet to my leader
-1335385494089: --- Finished one round of sending REQUEST Packet ---------
 1335385494086: inside sendPacket(Packet p)
 1335385494087: Sending UDP payload: 7050
+1335385494089: --- Finished one round of sending REQUEST Packet ---------
 1335385494140: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
 1335385496894: Received UDP payload: 19042
 1335385496917: removing leaderRequestRetryR because heard Packet.Leader_reply
-1335385496918: heard LEADER_REPLY from new leader 5018
 1335385496918: VCoreDaemon.java inside stateTransition ..........
+1335385496918: heard LEADER_REPLY from new leader 5018
 1335385496918: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385496919: ..... VCoreDaemon.java targetState = NONLEADER
-1335385496928: now NONLEADER (id=5005) following LEADER (id=5018) in (1,0)
 1335385496928: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385496928: now NONLEADER (id=5005) following LEADER (id=5018) in (1,0)
 1335385497070: reg=1 id=5005 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=4 takeGoodSave=1 takeBad=0 takeTimedout=4 takePercent=25% getNum=2 getGood=1 getBad=0 getTimedout=2 getPercent=50%
 1335385497071: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
 1335385497074: Inside _enableButtons
@@ -1648,8 +1648,8 @@
 1335385504058: .......... GPS onLocationChanged ...... 
 1335385504059: Loc = Location[mProvider=gps,mTime=1335385505000,mLatitude=42.35798372,mLongitude=-71.09288176,mHasAltitude=true,mAltitude=-25.100000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385504060: GPS x/long:-71.09288176, GPS y/lat: 42.35798372. Region width in x: 20.0
-1335385504060: location PINPOINTS to region = 1.0, previous 1
 1335385504060: Hysteresis is 0.0
+1335385504060: location PINPOINTS to region = 1.0, previous 1
 1335385504060: stay at region 1
 1335385508241: Received UDP payload: 3529
 1335385508279: Received UDP payload: 3529
@@ -1660,9 +1660,9 @@
 1335385508459: Received UDP payload: 9114
 1335385508467: mux: GOT CSM_Msg
 1335385508504: Received UDP payload: 989
-1335385508514: mux: GOT CSM_Msg
 1335385508509: Received UDP payload: 446
 1335385508511: Received UDP payload: 446
+1335385508514: mux: GOT CSM_Msg
 1335385508526: Received UDP payload: 446
 1335385509270: Received UDP payload: 12414
 1335385509290: Received UDP payload: 446
@@ -1670,39 +1670,39 @@
 1335385516661: Missed 3 HEARTBEATS from LEADER, going to JOINING.
 1335385516662: VCoreDaemon.java inside stateTransition ..........
 1335385516662: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385516663: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335385516663: ..... VCoreDaemon.java targetState = JOINING
 1335385516663: posting leaderRequestRetryR because I'm joining
-1335385516663: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335385516664: sending LEADER_REQUEST
 1335385516664: inside sendPacket(Packet p)
 1335385516664: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385516664: sending LEADER_REQUEST
 1335385516669: Sending UDP payload: 446
-1335385516978: sending LEADER_REQUEST
 1335385516978: inside sendPacket(Packet p)
 1335385516978: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385516978: sending LEADER_REQUEST
 1335385516980: Sending UDP payload: 446
-1335385517279: sending LEADER_REQUEST
 1335385517279: inside sendPacket(Packet p)
 1335385517279: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385517279: sending LEADER_REQUEST
 1335385517281: Sending UDP payload: 446
-1335385517580: sending LEADER_REQUEST
 1335385517580: inside sendPacket(Packet p)
+1335385517580: sending LEADER_REQUEST
 1335385517581: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385517584: Sending UDP payload: 446
-1335385517664: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335385517664: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385517664: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385517665: ..... VCoreDaemon.java targetState = LEADER
 1335385517665: VCoreDaemon.java inside stateTransition ..........
 1335385517665: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385517665: ..... VCoreDaemon.java targetState = LEADER
 1335385517665: trying to take leadership to the cloud
 1335385517980: cloud rejected leadership request or request failed, wait to retry
 1335385521144: Received UDP payload: 12414
 1335385522676: Received UDP payload: 446
-1335385522689: removing leaderRequestRetryR because heard Packet.Heartbeat
 1335385522689: heard HEARTBEAT from 5020, now following
+1335385522689: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335385522690: ..... VCoreDaemon.java targetState = NONLEADER
 1335385522690: VCoreDaemon.java inside stateTransition ..........
 1335385522690: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385522690: ..... VCoreDaemon.java targetState = NONLEADER
 1335385522691: now NONLEADER (id=5005) following LEADER (id=5020) in (1,0)
 1335385522692: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335385522702: Received UDP payload: 446
@@ -1718,18 +1718,18 @@
 1335385528000: mux: Inside mux Packet.CLIENT_REQUEST
 1335385528000: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335385541685: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335385541686: ..... VCoreDaemon.java targetState = JOINING
 1335385541686: VCoreDaemon.java inside stateTransition ..........
 1335385541686: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385541686: ..... VCoreDaemon.java targetState = JOINING
-1335385541687: posting leaderRequestRetryR because I'm joining
 1335385541687: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335385541688: sending LEADER_REQUEST
+1335385541687: posting leaderRequestRetryR because I'm joining
 1335385541688: inside sendPacket(Packet p)
 1335385541688: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385541688: sending LEADER_REQUEST
 1335385541697: Sending UDP payload: 446
-1335385541989: sending LEADER_REQUEST
 1335385541989: inside sendPacket(Packet p)
 1335385541989: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385541989: sending LEADER_REQUEST
 1335385541991: Sending UDP payload: 446
 1335385542291: sending LEADER_REQUEST
 1335385542292: inside sendPacket(Packet p)
@@ -1739,50 +1739,50 @@
 1335385542593: inside sendPacket(Packet p)
 1335385542593: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385542597: Sending UDP payload: 446
-1335385542688: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335385542688: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
-1335385542688: VCoreDaemon.java inside stateTransition ..........
-1335385542688: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385542688: ..... VCoreDaemon.java targetState = LEADER
+1335385542688: VCoreDaemon.java inside stateTransition ..........
+1335385542688: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385542688: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385542688: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385542688: trying to take leadership to the cloud
 1335385542993: cloud rejected leadership request or request failed, wait to retry
 1335385542998: Received UDP payload: 446
 1335385542999: removing leaderRequestRetryR because heard Packet.Heartbeat
-1335385543000: heard HEARTBEAT from 5011, now following
-1335385543000: VCoreDaemon.java inside stateTransition ..........
-1335385543000: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385543000: ..... VCoreDaemon.java targetState = NONLEADER
-1335385543000: now NONLEADER (id=5005) following LEADER (id=5011) in (1,0)
 1335385543000: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385543000: ..... VCoreDaemon.java targetState = NONLEADER
+1335385543000: VCoreDaemon.java inside stateTransition ..........
+1335385543000: heard HEARTBEAT from 5011, now following
+1335385543000: now NONLEADER (id=5005) following LEADER (id=5011) in (1,0)
+1335385543000: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385544049: .......... GPS onLocationChanged ...... 
-1335385544050: Loc = Location[mProvider=gps,mTime=1335385545000,mLatitude=42.35798393,mLongitude=-71.0928966,mHasAltitude=true,mAltitude=-23.399999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385544050: GPS x/long:-71.0928966, GPS y/lat: 42.35798393. Region width in x: 20.0
-1335385544050: location PINPOINTS to region = 1.0, previous 1
 1335385544050: Hysteresis is 0.0
+1335385544050: Loc = Location[mProvider=gps,mTime=1335385545000,mLatitude=42.35798393,mLongitude=-71.0928966,mHasAltitude=true,mAltitude=-23.399999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385544050: location PINPOINTS to region = 1.0, previous 1
 1335385544050: stay at region 1
 1335385548064: .......... GPS onLocationChanged ...... 
-1335385548065: Loc = Location[mProvider=gps,mTime=1335385549000,mLatitude=42.35797366,mLongitude=-71.09287681,mHasAltitude=true,mAltitude=-23.399999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385548065: GPS x/long:-71.09287681, GPS y/lat: 42.35797366. Region width in x: 20.0
-1335385548066: location PINPOINTS to region = 1.0, previous 1
+1335385548065: Loc = Location[mProvider=gps,mTime=1335385549000,mLatitude=42.35797366,mLongitude=-71.09287681,mHasAltitude=true,mAltitude=-23.399999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385548066: Hysteresis is 0.0
+1335385548066: location PINPOINTS to region = 1.0, previous 1
 1335385548066: stay at region 1
 1335385549065: .......... GPS onLocationChanged ...... 
-1335385549066: Loc = Location[mProvider=gps,mTime=1335385550000,mLatitude=42.35797106,mLongitude=-71.09286161,mHasAltitude=true,mAltitude=-23.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385549066: GPS x/long:-71.09286161, GPS y/lat: 42.35797106. Region width in x: 20.0
-1335385549066: location PINPOINTS to region = 1.0, previous 1
 1335385549066: Hysteresis is 0.0
+1335385549066: Loc = Location[mProvider=gps,mTime=1335385550000,mLatitude=42.35797106,mLongitude=-71.09286161,mHasAltitude=true,mAltitude=-23.600000381469727,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385549066: location PINPOINTS to region = 1.0, previous 1
 1335385549067: stay at region 1
 1335385550071: .......... GPS onLocationChanged ...... 
-1335385550072: Loc = Location[mProvider=gps,mTime=1335385551000,mLatitude=42.3579714,mLongitude=-71.09284876,mHasAltitude=true,mAltitude=-23.799999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385550072: GPS x/long:-71.09284876, GPS y/lat: 42.3579714. Region width in x: 20.0
-1335385550072: location PINPOINTS to region = 1.0, previous 1
 1335385550072: Hysteresis is 0.0
+1335385550072: Loc = Location[mProvider=gps,mTime=1335385551000,mLatitude=42.3579714,mLongitude=-71.09284876,mHasAltitude=true,mAltitude=-23.799999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
+1335385550072: location PINPOINTS to region = 1.0, previous 1
 1335385550072: stay at region 1
 1335385553057: .......... GPS onLocationChanged ...... 
-1335385553057: Loc = Location[mProvider=gps,mTime=1335385554000,mLatitude=42.35797435,mLongitude=-71.0928323,mHasAltitude=true,mAltitude=-24.299999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385553057: GPS x/long:-71.0928323, GPS y/lat: 42.35797435. Region width in x: 20.0
-1335385553058: location PINPOINTS to region = 1.0, previous 1
+1335385553057: Loc = Location[mProvider=gps,mTime=1335385554000,mLatitude=42.35797435,mLongitude=-71.0928323,mHasAltitude=true,mAltitude=-24.299999237060547,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385553058: Hysteresis is 0.0
+1335385553058: location PINPOINTS to region = 1.0, previous 1
 1335385553058: stay at region 1
 1335385554202: Received UDP payload: 5025
 1335385554211: mux: Inside mux Packet.CLIENT_REQUEST
@@ -1793,36 +1793,36 @@
 1335385557055: .......... GPS onLocationChanged ...... 
 1335385557055: Loc = Location[mProvider=gps,mTime=1335385558000,mLatitude=42.35797643,mLongitude=-71.09282035,mHasAltitude=true,mAltitude=-23.899999618530273,mHasSpeed=true,mSpeed=0.5,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=4.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (1,0)
 1335385557056: GPS x/long:-71.09282035, GPS y/lat: 42.35797643. Region width in x: 20.0
-1335385557056: location PINPOINTS to region = 1.0, previous 1
 1335385557056: Hysteresis is 0.0
+1335385557056: location PINPOINTS to region = 1.0, previous 1
 1335385557056: stay at region 1
 1335385561706: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335385561707: ..... VCoreDaemon.java targetState = JOINING
 1335385561707: VCoreDaemon.java inside stateTransition ..........
 1335385561707: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385561707: ..... VCoreDaemon.java targetState = JOINING
-1335385561708: posting leaderRequestRetryR because I'm joining
 1335385561708: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335385561708: posting leaderRequestRetryR because I'm joining
 1335385561708: sending LEADER_REQUEST
 1335385561709: inside sendPacket(Packet p)
 1335385561709: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385561718: Sending UDP payload: 446
-1335385562010: sending LEADER_REQUEST
 1335385562010: inside sendPacket(Packet p)
 1335385562010: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385562010: sending LEADER_REQUEST
 1335385562012: Sending UDP payload: 446
-1335385562311: sending LEADER_REQUEST
 1335385562311: inside sendPacket(Packet p)
 1335385562311: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385562311: sending LEADER_REQUEST
 1335385562313: Sending UDP payload: 446
-1335385562612: sending LEADER_REQUEST
 1335385562612: inside sendPacket(Packet p)
+1335385562612: sending LEADER_REQUEST
 1335385562613: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385562616: Sending UDP payload: 446
-1335385562708: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335385562708: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335385562708: VCoreDaemon.java inside stateTransition ..........
-1335385562709: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385562708: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385562708: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335385562709: ..... VCoreDaemon.java targetState = LEADER
+1335385562709: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385562709: trying to take leadership to the cloud
 1335385563073: cloud rejected leadership request or request failed, wait to retry
 1335385584742: Received UDP payload: 446
@@ -1856,8 +1856,8 @@
 1335385621832: Received UDP payload: 7477
 1335385621835: mux: GOT CSM_Msg
 1335385622038: Received UDP payload: 989
-1335385622048: mux: GOT CSM_Msg
 1335385622048: Received UDP payload: 446
+1335385622048: mux: GOT CSM_Msg
 1335385622063: Received UDP payload: 446
 1335385622083: Received UDP payload: 446
 1335385622117: Received UDP payload: 446
@@ -1884,32 +1884,32 @@
 1335385656673: Received UDP payload: 625
 1335385656677: mux: Inside mux Packet.CLIENT_REQUEST
 1335385683090: been in JOINING state for a while now, start over
-1335385683091: VCoreDaemon.java inside stateTransition ..........
-1335385683091: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385683091: ..... VCoreDaemon.java targetState = JOINING
-1335385683091: posting leaderRequestRetryR because I'm joining
 1335385683091: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335385683091: sending LEADER_REQUEST
+1335385683091: ..... VCoreDaemon.java targetState = JOINING
+1335385683091: VCoreDaemon.java inside stateTransition ..........
 1335385683091: inside sendPacket(Packet p)
 1335385683091: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385683091: posting leaderRequestRetryR because I'm joining
+1335385683091: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385683091: sending LEADER_REQUEST
 1335385683092: Sending UDP payload: 446
-1335385683392: sending LEADER_REQUEST
 1335385683392: inside sendPacket(Packet p)
 1335385683392: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385683392: sending LEADER_REQUEST
 1335385683394: Sending UDP payload: 446
-1335385683693: sending LEADER_REQUEST
 1335385683693: inside sendPacket(Packet p)
+1335385683693: sending LEADER_REQUEST
 1335385683694: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385683698: Sending UDP payload: 446
 1335385683995: sending LEADER_REQUEST
 1335385683996: inside sendPacket(Packet p)
 1335385683996: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385684000: Sending UDP payload: 446
-1335385684091: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335385684091: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
-1335385684091: VCoreDaemon.java inside stateTransition ..........
-1335385684091: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385684091: ..... VCoreDaemon.java targetState = LEADER
+1335385684091: VCoreDaemon.java inside stateTransition ..........
+1335385684091: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385684091: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385684091: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385684092: trying to take leadership to the cloud
 1335385684447: cloud rejected leadership request or request failed, wait to retry
 1335385685724: Received UDP payload: 446
@@ -1917,47 +1917,47 @@
 1335385685754: Received UDP payload: 446
 1335385685768: Received UDP payload: 446
 1335385686162: Received UDP payload: 22335
-1335385686168: removing leaderRequestRetryR because heard Packet.Leader_reply
-1335385686168: heard LEADER_REPLY from 5011
 1335385686168: VCoreDaemon.java inside stateTransition ..........
-1335385686169: removing leaderRequestRetryR because I'm doing a stateTransition
+1335385686168: heard LEADER_REPLY from 5011
+1335385686168: removing leaderRequestRetryR because heard Packet.Leader_reply
 1335385686169: ..... VCoreDaemon.java targetState = NONLEADER
 1335385686169: now NONLEADER (id=5005) following LEADER (id=5011) in (1,0)
+1335385686169: removing leaderRequestRetryR because I'm doing a stateTransition
 1335385686170: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335385693158: Received UDP payload: 7642
 1335385693165: mux: GOT CSM_Msg
 1335385693173: Received UDP payload: 446
 1335385693177: mux: Inside Packet.SERVER_REPLY
-1335385693178: mux: Ignoring SERVER_REPLY since it's not for me  5005
 1335385693178: Received UDP payload: 989
+1335385693178: mux: Ignoring SERVER_REPLY since it's not for me  5005
 1335385693194: mux: GOT CSM_Msg
 1335385701823: Missed 3 HEARTBEATS from LEADER, going to JOINING.
+1335385701824: ..... VCoreDaemon.java targetState = JOINING
 1335385701824: VCoreDaemon.java inside stateTransition ..........
 1335385701824: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385701824: ..... VCoreDaemon.java targetState = JOINING
-1335385701825: posting leaderRequestRetryR because I'm joining
 1335385701825: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335385701826: sending LEADER_REQUEST
+1335385701825: posting leaderRequestRetryR because I'm joining
 1335385701826: inside sendPacket(Packet p)
 1335385701826: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335385701826: sending LEADER_REQUEST
 1335385701839: Sending UDP payload: 446
-1335385702127: sending LEADER_REQUEST
 1335385702127: inside sendPacket(Packet p)
+1335385702127: sending LEADER_REQUEST
 1335385702128: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385702129: Sending UDP payload: 446
-1335385702428: sending LEADER_REQUEST
 1335385702428: inside sendPacket(Packet p)
+1335385702428: sending LEADER_REQUEST
 1335385702429: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385702430: Sending UDP payload: 446
 1335385702729: sending LEADER_REQUEST
 1335385702730: inside sendPacket(Packet p)
 1335385702730: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335385702734: Sending UDP payload: 446
-1335385702826: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335385702826: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335385702826: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
+1335385702827: ..... VCoreDaemon.java targetState = LEADER
 1335385702827: VCoreDaemon.java inside stateTransition ..........
 1335385702827: removing leaderRequestRetryR because I'm doing a stateTransition
-1335385702827: ..... VCoreDaemon.java targetState = LEADER
 1335385702828: trying to take leadership to the cloud
 1335385703150: cloud rejected leadership request or request failed, wait to retry
 1335385755656: HI I'm in ONPAUSE()

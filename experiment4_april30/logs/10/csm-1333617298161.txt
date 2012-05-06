@@ -6,19 +6,19 @@
 1333617298174: *** Application started ***
 1333617298175: HI I'm in ONRESUME()
 1333617298181: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
-1333617298192: ************ GPS turned OFF *************
 1333617298185: Started VCoreDaemon with parameters maxRx = 6 , maxRY= 1, minLongitude = -7110102 , minLatitude = 4236349, regionWidth =17
 1333617298187: started, mId = 5012
 1333617298188: region (-1, -1) out of bounds, dormant
+1333617298192: ************ GPS turned OFF *************
 1333617309005: moving from region (-1,-1), to (1,0)
-1333617309006: sending LEADER_REQUEST
 1333617309006: inside sendPacket(Packet p)
+1333617309006: sending LEADER_REQUEST
 1333617309029: Sending UDP payload: 406
 1333617309307: sending LEADER_REQUEST
 1333617309308: inside sendPacket(Packet p)
 1333617309313: Sending UDP payload: 406
-1333617309609: sending LEADER_REQUEST
 1333617309609: inside sendPacket(Packet p)
+1333617309609: sending LEADER_REQUEST
 1333617309613: Sending UDP payload: 406
 1333617309910: sending LEADER_REQUEST
 1333617309911: inside sendPacket(Packet p)
@@ -46,29 +46,27 @@
 1333617316939: Sending PROC_REQUEST 10:0 (1,0)->(1,0)
 1333617316943: Dispatching Atom PROC_REQUEST 10:0 (1,0)->(1,0)
 1333617316957: I got a CSM packet at a leader 
-
-1333617317006: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333617317019: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333617317034: now showing in UI the new photo I just saved ... 
 1333617316971: Sending UDP payload: 3229
 1333617316976: removed replies before id 0 from sentReplies of size 0
 1333617316993: Inside UPLOAD_PHOTO!!
 1333617316997: my_gpinfo.isSuccess is now (should be true): true
 1333617316998: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333617317006: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
 1333617317008: Received PROC_REQUEST 10:0 (1,0)->(1,0), replying PROC_REPLY 10:0 (1,0)->(1,0)
 1333617317011: Dispatching Atom PROC_REPLY 10:0 (1,0)->(1,0)
 1333617317012: I got a CSM packet at a leader 
-
+1333617317019: I'm a leader and I SUCCEEDED in saving my client's new photo
 1333617317020: Sending UDP payload: 949
 1333617317022: Received PROC_REPLY 10:0 (1,0)->(1,0), handing to UserApp
-1333617317023: Now back in orginitator region's leader, precssing handleDSMReply
-1333617317023: Going to and from remote region took latency = 85
 1333617317023: = orig leader sent packet at 1333617316938 ~ received reply at 1333617317023
+1333617317023: Going to and from remote region took latency = 85
+1333617317023: Now back in orginitator region's leader, precssing handleDSMReply
 1333617317024: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
-1333617317030: reply packet contains the ACK for UPLOAD_PHOTO
 1333617317030: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
+1333617317030: reply packet contains the ACK for UPLOAD_PHOTO
 1333617317031: inside sendPacket(Packet p)
 1333617317033: Sending UDP payload: 602
+1333617317034: now showing in UI the new photo I just saved ... 
 1333617326735: Received UDP payload: 406
 1333617326744: heard LEADER_REQUEST from node 5001, responding LEADER_REPLY
 1333617326908: inside sendPacket(Packet p)
@@ -87,28 +85,26 @@
 1333617331129: Sending PROC_REQUEST 10:1 (1,0)->(1,0)
 1333617331131: Dispatching Atom PROC_REQUEST 10:1 (1,0)->(1,0)
 1333617331132: I got a CSM packet at a leader 
-
-1333617331192: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333617331196: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333617331220: now showing in UI the new photo I just saved ... 
 1333617331157: Sending UDP payload: 3638
 1333617331161: removed replies before id 1 from sentReplies of size 0
 1333617331164: Inside UPLOAD_PHOTO!!
 1333617331179: my_gpinfo.isSuccess is now (should be true): true
 1333617331180: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333617331192: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333617331196: I'm a leader and I SUCCEEDED in saving my client's new photo
 1333617331197: Received PROC_REQUEST 10:1 (1,0)->(1,0), replying PROC_REPLY 10:1 (1,0)->(1,0)
 1333617331199: Dispatching Atom PROC_REPLY 10:1 (1,0)->(1,0)
 1333617331200: I got a CSM packet at a leader 
-
 1333617331211: Sending UDP payload: 949
-1333617331214: Received PROC_REPLY 10:1 (1,0)->(1,0), handing to UserApp
-1333617331214: Now back in orginitator region's leader, precssing handleDSMReply
 1333617331214: Going to and from remote region took latency = 86
+1333617331214: Now back in orginitator region's leader, precssing handleDSMReply
+1333617331214: Received PROC_REPLY 10:1 (1,0)->(1,0), handing to UserApp
 1333617331215: = orig leader sent packet at 1333617331128 ~ received reply at 1333617331214
 1333617331217: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1333617331217: reply packet contains the ACK for UPLOAD_PHOTO
 1333617331218: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
 1333617331218: inside sendPacket(Packet p)
+1333617331220: now showing in UI the new photo I just saved ... 
 1333617331229: Sending UDP payload: 602
 1333617337172: broadcasting LEADER_ELECT to old (1,0)
 1333617337172: inside sendPacket(Packet p)
@@ -153,16 +149,16 @@
 1333617543433: sending LEADER_REQUEST
 1333617543434: inside sendPacket(Packet p)
 1333617543437: Sending UDP payload: 406
-1333617543740: sending LEADER_REQUEST
 1333617543740: inside sendPacket(Packet p)
+1333617543740: sending LEADER_REQUEST
 1333617543746: Sending UDP payload: 406
 1333617543920: Received UDP payload: 25269
 1333617543928: heard LEADER_REPLY from 5001
 1333617543929: DSMLayer stopped
 1333617543930: now NONLEADER (id=5012) following LEADER (id=5001) in (2,0)
 1333617544178: Received UDP payload: 25269
-1333617546427: canPressButton = TRUE
 1333617546427: areButtonsEnabled --> false
+1333617546427: canPressButton = TRUE
 1333617546428: disabling buttons ...
 1333617546439: ** Clicked take picture button **
 1333617547919: inside HandlePictureStorage onPictureTaken()
@@ -179,13 +175,13 @@
 1333617549491: Received UDP payload: 4372
 1333617549510: GOT CSM_Msg
 1333617549510: Received UDP payload: 949
-1333617549530: GOT CSM_Msg
 1333617549525: Received UDP payload: 602
+1333617549530: GOT CSM_Msg
 1333617549537: Inside mux Packet.SERVER_REPLY
 1333617549538: I have the photo requester id = 5012 about to display photo or receive upload ack
 1333617549553: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617549554: nonleader upload new photo latency = 229
 1333617549554: = nonleader upload start 1333617549324 ~ stop 1333617549553
+1333617549554: nonleader upload new photo latency = 229
 1333617549560: SUCCESS! Client now knows saving photo on its leader succeeded
 1333617552510: canPressButton = TRUE
 1333617552511: areButtonsEnabled --> false
@@ -197,11 +193,11 @@
 1333617555456: Show photo from handle my camera take
 1333617555456: client making photo packet to send to leader for it to save
 1333617555478: BYTE SIZE AFTER COMPRESSION: 3330
-1333617555480: about to send my pic
 1333617555480: I'm a nonleader sending my new photo packet to my leader
-1333617555488: end of client send picture method
+1333617555480: about to send my pic
 1333617555480: inside sendPacket(Packet p)
 1333617555482: Sending UDP payload: 3937
+1333617555488: end of client send picture method
 1333617555661: Received UDP payload: 4301
 1333617555676: GOT CSM_Msg
 1333617555738: Received UDP payload: 949
@@ -214,8 +210,8 @@
 1333617555772: = nonleader upload start 1333617555480 ~ stop 1333617555771
 1333617555774: SUCCESS! Client now knows saving photo on its leader succeeded
 1333617556874: Received UDP payload: 406
-1333617558121: canPressButton = TRUE
 1333617558121: areButtonsEnabled --> false
+1333617558121: canPressButton = TRUE
 1333617558122: disabling buttons ...
 1333617558135: ** Clicked take picture button **
 1333617559388: inside HandlePictureStorage onPictureTaken()
@@ -224,11 +220,11 @@
 1333617560774: Show photo from handle my camera take
 1333617560774: client making photo packet to send to leader for it to save
 1333617560799: BYTE SIZE AFTER COMPRESSION: 3050
-1333617560800: about to send my pic
 1333617560800: I'm a nonleader sending my new photo packet to my leader
-1333617560804: end of client send picture method
+1333617560800: about to send my pic
 1333617560801: inside sendPacket(Packet p)
 1333617560803: Sending UDP payload: 3657
+1333617560804: end of client send picture method
 1333617560894: Received UDP payload: 4021
 1333617560901: GOT CSM_Msg
 1333617560934: Received UDP payload: 949
@@ -236,12 +232,12 @@
 1333617560966: Received UDP payload: 602
 1333617560968: Inside mux Packet.SERVER_REPLY
 1333617560969: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617560970: = nonleader upload start 1333617560801 ~ stop 1333617560970
 1333617560970: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617560970: nonleader upload new photo latency = 169
-1333617560970: = nonleader upload start 1333617560801 ~ stop 1333617560970
 1333617560971: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617563428: canPressButton = TRUE
 1333617563428: areButtonsEnabled --> false
+1333617563428: canPressButton = TRUE
 1333617563429: disabling buttons ...
 1333617563432: ** Clicked take picture button **
 1333617564762: inside HandlePictureStorage onPictureTaken()
@@ -252,22 +248,22 @@
 1333617566336: BYTE SIZE AFTER COMPRESSION: 3505
 1333617566337: about to send my pic
 1333617566338: I'm a nonleader sending my new photo packet to my leader
-1333617566340: end of client send picture method
 1333617566338: inside sendPacket(Packet p)
 1333617566340: Sending UDP payload: 4112
+1333617566340: end of client send picture method
 1333617566522: Received UDP payload: 4476
 1333617566532: GOT CSM_Msg
 1333617566544: Received UDP payload: 949
 1333617566558: GOT CSM_Msg
 1333617566580: Received UDP payload: 602
-1333617566587: Inside mux Packet.SERVER_REPLY
 1333617566587: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617566587: Inside mux Packet.SERVER_REPLY
 1333617566588: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617566588: nonleader upload new photo latency = 250
 1333617566589: = nonleader upload start 1333617566338 ~ stop 1333617566588
 1333617566591: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617568183: canPressButton = TRUE
 1333617568183: areButtonsEnabled --> false
+1333617568183: canPressButton = TRUE
 1333617568183: disabling buttons ...
 1333617568193: ** Clicked take picture button **
 1333617569546: inside HandlePictureStorage onPictureTaken()
@@ -276,24 +272,24 @@
 1333617571031: Show photo from handle my camera take
 1333617571032: client making photo packet to send to leader for it to save
 1333617571052: BYTE SIZE AFTER COMPRESSION: 4105
-1333617571053: about to send my pic
 1333617571053: I'm a nonleader sending my new photo packet to my leader
-1333617571055: end of client send picture method
+1333617571053: about to send my pic
 1333617571053: inside sendPacket(Packet p)
 1333617571055: Sending UDP payload: 4712
+1333617571055: end of client send picture method
 1333617571218: Received UDP payload: 5076
 1333617571228: GOT CSM_Msg
 1333617571236: Received UDP payload: 949
 1333617571249: GOT CSM_Msg
 1333617571263: Received UDP payload: 602
-1333617571272: Inside mux Packet.SERVER_REPLY
 1333617571272: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617571272: Inside mux Packet.SERVER_REPLY
 1333617571284: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617571285: nonleader upload new photo latency = 231
 1333617571286: = nonleader upload start 1333617571053 ~ stop 1333617571284
 1333617571288: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617573508: canPressButton = TRUE
 1333617573508: areButtonsEnabled --> false
+1333617573508: canPressButton = TRUE
 1333617573509: disabling buttons ...
 1333617573522: ** Clicked take picture button **
 1333617574766: inside HandlePictureStorage onPictureTaken()
@@ -302,24 +298,24 @@
 1333617576246: Show photo from handle my camera take
 1333617576246: client making photo packet to send to leader for it to save
 1333617576267: BYTE SIZE AFTER COMPRESSION: 3452
-1333617576268: about to send my pic
 1333617576268: I'm a nonleader sending my new photo packet to my leader
-1333617576271: end of client send picture method
+1333617576268: about to send my pic
 1333617576268: inside sendPacket(Packet p)
 1333617576270: Sending UDP payload: 4059
+1333617576271: end of client send picture method
 1333617576415: Received UDP payload: 4423
 1333617576420: GOT CSM_Msg
 1333617576437: Received UDP payload: 949
 1333617576449: GOT CSM_Msg
 1333617576473: Received UDP payload: 602
-1333617576481: Inside mux Packet.SERVER_REPLY
 1333617576481: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617576481: Inside mux Packet.SERVER_REPLY
 1333617576483: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617576484: nonleader upload new photo latency = 215
 1333617576485: = nonleader upload start 1333617576268 ~ stop 1333617576483
 1333617576486: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617578083: canPressButton = TRUE
 1333617578083: areButtonsEnabled --> false
+1333617578083: canPressButton = TRUE
 1333617578084: disabling buttons ...
 1333617578096: ** Clicked take picture button **
 1333617579467: inside HandlePictureStorage onPictureTaken()
@@ -328,21 +324,21 @@
 1333617580945: Show photo from handle my camera take
 1333617580946: client making photo packet to send to leader for it to save
 1333617580966: BYTE SIZE AFTER COMPRESSION: 4488
-1333617580967: about to send my pic
 1333617580967: I'm a nonleader sending my new photo packet to my leader
-1333617580968: end of client send picture method
+1333617580967: about to send my pic
 1333617580967: inside sendPacket(Packet p)
+1333617580968: end of client send picture method
 1333617580972: Sending UDP payload: 5095
 1333617581151: Received UDP payload: 5459
 1333617581159: GOT CSM_Msg
 1333617581166: Received UDP payload: 949
 1333617581183: GOT CSM_Msg
 1333617581209: Received UDP payload: 602
-1333617581216: Inside mux Packet.SERVER_REPLY
 1333617581216: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617581216: Inside mux Packet.SERVER_REPLY
 1333617581217: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617581218: nonleader upload new photo latency = 250
 1333617581218: = nonleader upload start 1333617580967 ~ stop 1333617581217
+1333617581218: nonleader upload new photo latency = 250
 1333617581220: SUCCESS! Client now knows saving photo on its leader succeeded
 1333617583618: canPressButton = TRUE
 1333617583619: areButtonsEnabled --> false
@@ -356,9 +352,9 @@
 1333617586504: BYTE SIZE AFTER COMPRESSION: 4670
 1333617586504: about to send my pic
 1333617586505: I'm a nonleader sending my new photo packet to my leader
-1333617586509: end of client send picture method
 1333617586505: inside sendPacket(Packet p)
 1333617586507: Sending UDP payload: 5277
+1333617586509: end of client send picture method
 1333617586659: Received UDP payload: 5641
 1333617586675: GOT CSM_Msg
 1333617586686: Received UDP payload: 949
@@ -371,8 +367,8 @@
 1333617586730: = nonleader upload start 1333617586505 ~ stop 1333617586729
 1333617586735: SUCCESS! Client now knows saving photo on its leader succeeded
 1333617586989: Received UDP payload: 406
-1333617588391: canPressButton = TRUE
 1333617588391: areButtonsEnabled --> false
+1333617588391: canPressButton = TRUE
 1333617588392: disabling buttons ...
 1333617588404: ** Clicked take picture button **
 1333617589755: inside HandlePictureStorage onPictureTaken()
@@ -381,24 +377,24 @@
 1333617591276: Show photo from handle my camera take
 1333617591276: client making photo packet to send to leader for it to save
 1333617591296: BYTE SIZE AFTER COMPRESSION: 4863
-1333617591297: about to send my pic
 1333617591297: I'm a nonleader sending my new photo packet to my leader
-1333617591301: end of client send picture method
+1333617591297: about to send my pic
 1333617591297: inside sendPacket(Packet p)
 1333617591299: Sending UDP payload: 5470
+1333617591301: end of client send picture method
 1333617591485: Received UDP payload: 5834
 1333617591493: GOT CSM_Msg
 1333617591499: Received UDP payload: 949
 1333617591510: GOT CSM_Msg
 1333617591524: Received UDP payload: 602
-1333617591533: Inside mux Packet.SERVER_REPLY
 1333617591533: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617591533: Inside mux Packet.SERVER_REPLY
 1333617591534: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617591535: nonleader upload new photo latency = 237
 1333617591535: = nonleader upload start 1333617591297 ~ stop 1333617591534
+1333617591535: nonleader upload new photo latency = 237
 1333617591536: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617593969: canPressButton = TRUE
 1333617593969: areButtonsEnabled --> false
+1333617593969: canPressButton = TRUE
 1333617593969: disabling buttons ...
 1333617593985: ** Clicked take picture button **
 1333617595388: inside HandlePictureStorage onPictureTaken()
@@ -407,24 +403,24 @@
 1333617597274: Show photo from handle my camera take
 1333617597275: client making photo packet to send to leader for it to save
 1333617597300: BYTE SIZE AFTER COMPRESSION: 4082
-1333617597301: about to send my pic
 1333617597301: I'm a nonleader sending my new photo packet to my leader
-1333617597305: end of client send picture method
+1333617597301: about to send my pic
 1333617597302: inside sendPacket(Packet p)
 1333617597303: Sending UDP payload: 4689
+1333617597305: end of client send picture method
 1333617597467: Received UDP payload: 5053
 1333617597475: GOT CSM_Msg
 1333617597478: Received UDP payload: 949
 1333617597501: GOT CSM_Msg
 1333617597506: Received UDP payload: 602
-1333617597513: Inside mux Packet.SERVER_REPLY
 1333617597513: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617597513: Inside mux Packet.SERVER_REPLY
 1333617597517: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617597518: nonleader upload new photo latency = 215
 1333617597519: = nonleader upload start 1333617597302 ~ stop 1333617597517
 1333617597522: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617598562: canPressButton = TRUE
 1333617598562: areButtonsEnabled --> false
+1333617598562: canPressButton = TRUE
 1333617598563: disabling buttons ...
 1333617598575: ** Clicked take picture button **
 1333617600093: inside HandlePictureStorage onPictureTaken()
@@ -433,24 +429,24 @@
 1333617601510: Show photo from handle my camera take
 1333617601511: client making photo packet to send to leader for it to save
 1333617601531: BYTE SIZE AFTER COMPRESSION: 5081
-1333617601534: about to send my pic
 1333617601534: I'm a nonleader sending my new photo packet to my leader
-1333617601535: end of client send picture method
+1333617601534: about to send my pic
 1333617601534: inside sendPacket(Packet p)
+1333617601535: end of client send picture method
 1333617601536: Sending UDP payload: 5688
 1333617601672: Received UDP payload: 6052
 1333617601681: GOT CSM_Msg
 1333617601692: Received UDP payload: 949
 1333617601707: GOT CSM_Msg
 1333617601732: Received UDP payload: 602
-1333617601735: Inside mux Packet.SERVER_REPLY
 1333617601735: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617601735: Inside mux Packet.SERVER_REPLY
 1333617601736: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617601737: nonleader upload new photo latency = 202
 1333617601737: = nonleader upload start 1333617601534 ~ stop 1333617601736
+1333617601737: nonleader upload new photo latency = 202
 1333617601739: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617603629: canPressButton = TRUE
 1333617603629: areButtonsEnabled --> false
+1333617603629: canPressButton = TRUE
 1333617603630: disabling buttons ...
 1333617603637: ** Clicked take picture button **
 1333617604982: inside HandlePictureStorage onPictureTaken()
@@ -461,22 +457,22 @@
 1333617606480: BYTE SIZE AFTER COMPRESSION: 5440
 1333617606481: about to send my pic
 1333617606482: I'm a nonleader sending my new photo packet to my leader
-1333617606486: end of client send picture method
 1333617606482: inside sendPacket(Packet p)
 1333617606483: Sending UDP payload: 6047
+1333617606486: end of client send picture method
 1333617606682: Received UDP payload: 6411
 1333617606688: GOT CSM_Msg
 1333617606694: Received UDP payload: 949
 1333617606704: GOT CSM_Msg
 1333617606719: Received UDP payload: 602
-1333617606722: Inside mux Packet.SERVER_REPLY
 1333617606722: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617606722: Inside mux Packet.SERVER_REPLY
 1333617606728: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617606729: nonleader upload new photo latency = 246
 1333617606731: = nonleader upload start 1333617606482 ~ stop 1333617606728
 1333617606732: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617607405: canPressButton = TRUE
 1333617607405: areButtonsEnabled --> false
+1333617607405: canPressButton = TRUE
 1333617607406: disabling buttons ...
 1333617607418: ** Clicked take picture button **
 1333617608793: inside HandlePictureStorage onPictureTaken()
@@ -487,19 +483,19 @@
 1333617610414: BYTE SIZE AFTER COMPRESSION: 4607
 1333617610415: about to send my pic
 1333617610420: I'm a nonleader sending my new photo packet to my leader
-1333617610424: end of client send picture method
 1333617610420: inside sendPacket(Packet p)
 1333617610422: Sending UDP payload: 5214
+1333617610424: end of client send picture method
 1333617610618: Received UDP payload: 5578
 1333617610624: GOT CSM_Msg
 1333617610626: Received UDP payload: 949
 1333617610641: GOT CSM_Msg
 1333617610651: Received UDP payload: 602
-1333617610660: Inside mux Packet.SERVER_REPLY
 1333617610660: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617610660: Inside mux Packet.SERVER_REPLY
+1333617610665: = nonleader upload start 1333617610420 ~ stop 1333617610665
 1333617610665: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617610665: nonleader upload new photo latency = 245
-1333617610665: = nonleader upload start 1333617610420 ~ stop 1333617610665
 1333617610666: SUCCESS! Client now knows saving photo on its leader succeeded
 1333617615853: canPressButton = TRUE
 1333617615854: areButtonsEnabled --> false
@@ -512,18 +508,18 @@
 1333617618790: Show photo from handle my camera take
 1333617618790: client making photo packet to send to leader for it to save
 1333617618813: BYTE SIZE AFTER COMPRESSION: 3719
-1333617618814: about to send my pic
 1333617618814: I'm a nonleader sending my new photo packet to my leader
-1333617618818: end of client send picture method
+1333617618814: about to send my pic
 1333617618814: inside sendPacket(Packet p)
 1333617618816: Sending UDP payload: 4326
+1333617618818: end of client send picture method
 1333617619004: Received UDP payload: 4690
 1333617619011: GOT CSM_Msg
 1333617619016: Received UDP payload: 949
-1333617619055: GOT CSM_Msg
 1333617619046: Received UDP payload: 602
-1333617619072: Inside mux Packet.SERVER_REPLY
+1333617619055: GOT CSM_Msg
 1333617619072: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617619072: Inside mux Packet.SERVER_REPLY
 1333617619073: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617619073: nonleader upload new photo latency = 259
 1333617619074: = nonleader upload start 1333617618814 ~ stop 1333617619073
@@ -538,24 +534,24 @@
 1333617625683: Show photo from handle my camera take
 1333617625683: client making photo packet to send to leader for it to save
 1333617625704: BYTE SIZE AFTER COMPRESSION: 5441
-1333617625705: about to send my pic
 1333617625705: I'm a nonleader sending my new photo packet to my leader
-1333617625709: end of client send picture method
+1333617625705: about to send my pic
 1333617625705: inside sendPacket(Packet p)
 1333617625707: Sending UDP payload: 6048
+1333617625709: end of client send picture method
 1333617625885: Received UDP payload: 6412
 1333617625897: GOT CSM_Msg
 1333617625910: Received UDP payload: 949
 1333617625940: GOT CSM_Msg
 1333617625952: Received UDP payload: 602
-1333617625961: Inside mux Packet.SERVER_REPLY
 1333617625961: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617625961: Inside mux Packet.SERVER_REPLY
 1333617625969: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617625970: nonleader upload new photo latency = 264
 1333617625970: = nonleader upload start 1333617625705 ~ stop 1333617625969
+1333617625970: nonleader upload new photo latency = 264
 1333617625971: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617627027: canPressButton = TRUE
 1333617627027: areButtonsEnabled --> false
+1333617627027: canPressButton = TRUE
 1333617627028: disabling buttons ...
 1333617627037: ** Clicked take picture button **
 1333617628417: inside HandlePictureStorage onPictureTaken()
@@ -564,24 +560,24 @@
 1333617629828: Show photo from handle my camera take
 1333617629829: client making photo packet to send to leader for it to save
 1333617629848: BYTE SIZE AFTER COMPRESSION: 3233
-1333617629849: about to send my pic
 1333617629849: I'm a nonleader sending my new photo packet to my leader
-1333617629853: end of client send picture method
+1333617629849: about to send my pic
 1333617629850: inside sendPacket(Packet p)
 1333617629851: Sending UDP payload: 3840
+1333617629853: end of client send picture method
 1333617629998: Received UDP payload: 4204
 1333617630010: GOT CSM_Msg
 1333617630028: Received UDP payload: 949
 1333617630034: GOT CSM_Msg
 1333617630066: Received UDP payload: 602
-1333617630069: Inside mux Packet.SERVER_REPLY
 1333617630069: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617630069: Inside mux Packet.SERVER_REPLY
 1333617630071: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617630072: nonleader upload new photo latency = 221
 1333617630072: = nonleader upload start 1333617629850 ~ stop 1333617630071
+1333617630072: nonleader upload new photo latency = 221
 1333617630080: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617631329: canPressButton = TRUE
 1333617631329: areButtonsEnabled --> false
+1333617631329: canPressButton = TRUE
 1333617631330: disabling buttons ...
 1333617631340: ** Clicked take picture button **
 1333617632673: inside HandlePictureStorage onPictureTaken()
@@ -592,19 +588,19 @@
 1333617634388: BYTE SIZE AFTER COMPRESSION: 3639
 1333617634389: about to send my pic
 1333617634390: I'm a nonleader sending my new photo packet to my leader
-1333617634393: end of client send picture method
 1333617634390: inside sendPacket(Packet p)
 1333617634391: Sending UDP payload: 4246
+1333617634393: end of client send picture method
 1333617634564: Received UDP payload: 4610
 1333617634571: GOT CSM_Msg
 1333617634580: Received UDP payload: 949
 1333617634590: GOT CSM_Msg
 1333617634606: Received UDP payload: 602
-1333617634609: Inside mux Packet.SERVER_REPLY
 1333617634609: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617634609: Inside mux Packet.SERVER_REPLY
 1333617634610: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617634611: nonleader upload new photo latency = 220
 1333617634611: = nonleader upload start 1333617634390 ~ stop 1333617634610
+1333617634611: nonleader upload new photo latency = 220
 1333617634612: SUCCESS! Client now knows saving photo on its leader succeeded
 1333617635493: canPressButton = TRUE
 1333617635494: areButtonsEnabled --> false
@@ -616,11 +612,11 @@
 1333617638625: Show photo from handle my camera take
 1333617638626: client making photo packet to send to leader for it to save
 1333617638647: BYTE SIZE AFTER COMPRESSION: 3666
-1333617638648: about to send my pic
 1333617638648: I'm a nonleader sending my new photo packet to my leader
-1333617638651: end of client send picture method
+1333617638648: about to send my pic
 1333617638648: inside sendPacket(Packet p)
 1333617638650: Sending UDP payload: 4273
+1333617638651: end of client send picture method
 1333617638843: Received UDP payload: 4637
 1333617638848: GOT CSM_Msg
 1333617638856: Received UDP payload: 949
@@ -629,8 +625,8 @@
 1333617638891: Inside mux Packet.SERVER_REPLY
 1333617638892: I have the photo requester id = 5012 about to display photo or receive upload ack
 1333617638895: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617638896: nonleader upload new photo latency = 247
 1333617638896: = nonleader upload start 1333617638648 ~ stop 1333617638895
+1333617638896: nonleader upload new photo latency = 247
 1333617638897: SUCCESS! Client now knows saving photo on its leader succeeded
 1333617639576: canPressButton = TRUE
 1333617639577: areButtonsEnabled --> false
@@ -644,49 +640,49 @@
 1333617642661: BYTE SIZE AFTER COMPRESSION: 3674
 1333617642662: about to send my pic
 1333617642663: I'm a nonleader sending my new photo packet to my leader
-1333617642666: end of client send picture method
 1333617642663: inside sendPacket(Packet p)
 1333617642665: Sending UDP payload: 4281
+1333617642666: end of client send picture method
 1333617642826: Received UDP payload: 4645
 1333617642834: GOT CSM_Msg
 1333617642842: Received UDP payload: 949
 1333617642846: GOT CSM_Msg
 1333617642871: Received UDP payload: 602
-1333617642874: Inside mux Packet.SERVER_REPLY
 1333617642874: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617642874: Inside mux Packet.SERVER_REPLY
+1333617642876: = nonleader upload start 1333617642663 ~ stop 1333617642876
 1333617642876: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617642876: nonleader upload new photo latency = 213
-1333617642876: = nonleader upload start 1333617642663 ~ stop 1333617642876
 1333617642878: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617643831: canPressButton = TRUE
 1333617643831: areButtonsEnabled --> false
+1333617643831: canPressButton = TRUE
 1333617643831: disabling buttons ...
 1333617643841: ** Clicked take picture button **
 1333617645295: inside HandlePictureStorage onPictureTaken()
 1333617645782: Picture successfully taken, ORIG BYTE LENGTH = 2148101
+1333617646988: Received UDP payload: 406
 1333617647127: Our new height x width: 306 x 408
 1333617647128: Show photo from handle my camera take
 1333617647128: client making photo packet to send to leader for it to save
 1333617647152: BYTE SIZE AFTER COMPRESSION: 3423
-1333617647153: about to send my pic
 1333617647153: I'm a nonleader sending my new photo packet to my leader
-1333617647157: end of client send picture method
-1333617646988: Received UDP payload: 406
+1333617647153: about to send my pic
 1333617647153: inside sendPacket(Packet p)
 1333617647154: Sending UDP payload: 4030
+1333617647157: end of client send picture method
 1333617647301: Received UDP payload: 4394
 1333617647305: GOT CSM_Msg
 1333617647321: Received UDP payload: 949
 1333617647334: GOT CSM_Msg
 1333617647357: Received UDP payload: 602
-1333617647360: Inside mux Packet.SERVER_REPLY
 1333617647360: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617647360: Inside mux Packet.SERVER_REPLY
 1333617647361: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617647362: nonleader upload new photo latency = 208
 1333617647362: = nonleader upload start 1333617647153 ~ stop 1333617647361
+1333617647362: nonleader upload new photo latency = 208
 1333617647369: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617650772: canPressButton = TRUE
 1333617650772: areButtonsEnabled --> false
+1333617650772: canPressButton = TRUE
 1333617650773: disabling buttons ...
 1333617650787: ** Clicked take picture button **
 1333617652064: inside HandlePictureStorage onPictureTaken()
@@ -697,22 +693,22 @@
 1333617653826: BYTE SIZE AFTER COMPRESSION: 3507
 1333617653827: about to send my pic
 1333617653828: I'm a nonleader sending my new photo packet to my leader
-1333617653831: end of client send picture method
 1333617653828: inside sendPacket(Packet p)
 1333617653829: Sending UDP payload: 4114
+1333617653831: end of client send picture method
 1333617653991: Received UDP payload: 4478
-1333617654007: GOT CSM_Msg
 1333617654002: Received UDP payload: 949
+1333617654007: GOT CSM_Msg
 1333617654020: GOT CSM_Msg
 1333617654021: Received UDP payload: 602
-1333617654036: Inside mux Packet.SERVER_REPLY
 1333617654036: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617654036: Inside mux Packet.SERVER_REPLY
 1333617654046: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617654047: nonleader upload new photo latency = 218
 1333617654047: = nonleader upload start 1333617653828 ~ stop 1333617654046
+1333617654047: nonleader upload new photo latency = 218
 1333617654050: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617657462: canPressButton = TRUE
 1333617657462: areButtonsEnabled --> false
+1333617657462: canPressButton = TRUE
 1333617657463: disabling buttons ...
 1333617657472: ** Clicked take picture button **
 1333617658772: inside HandlePictureStorage onPictureTaken()
@@ -721,10 +717,10 @@
 1333617660360: Show photo from handle my camera take
 1333617660360: client making photo packet to send to leader for it to save
 1333617660383: BYTE SIZE AFTER COMPRESSION: 4022
-1333617660384: about to send my pic
 1333617660384: I'm a nonleader sending my new photo packet to my leader
-1333617660385: end of client send picture method
+1333617660384: about to send my pic
 1333617660384: inside sendPacket(Packet p)
+1333617660385: end of client send picture method
 1333617660388: Sending UDP payload: 4629
 1333617660562: Received UDP payload: 4993
 1333617660573: GOT CSM_Msg
@@ -749,16 +745,16 @@
 1333617665079: BYTE SIZE AFTER COMPRESSION: 4509
 1333617665080: about to send my pic
 1333617665081: I'm a nonleader sending my new photo packet to my leader
-1333617665084: end of client send picture method
 1333617665081: inside sendPacket(Packet p)
 1333617665082: Sending UDP payload: 5116
+1333617665084: end of client send picture method
 1333617665266: Received UDP payload: 5480
 1333617665277: GOT CSM_Msg
 1333617665277: Received UDP payload: 949
 1333617665290: GOT CSM_Msg
 1333617665291: Received UDP payload: 602
-1333617665294: Inside mux Packet.SERVER_REPLY
 1333617665294: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617665294: Inside mux Packet.SERVER_REPLY
 1333617665297: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617665298: nonleader upload new photo latency = 216
 1333617665299: = nonleader upload start 1333617665081 ~ stop 1333617665297
@@ -773,24 +769,24 @@
 1333617669150: Show photo from handle my camera take
 1333617669151: client making photo packet to send to leader for it to save
 1333617669171: BYTE SIZE AFTER COMPRESSION: 4718
-1333617669172: about to send my pic
 1333617669172: I'm a nonleader sending my new photo packet to my leader
-1333617669176: end of client send picture method
+1333617669172: about to send my pic
 1333617669173: inside sendPacket(Packet p)
 1333617669174: Sending UDP payload: 5325
+1333617669176: end of client send picture method
 1333617669315: Received UDP payload: 5689
 1333617669328: GOT CSM_Msg
 1333617669329: Received UDP payload: 949
 1333617669368: GOT CSM_Msg
 1333617669369: Received UDP payload: 602
-1333617669384: Inside mux Packet.SERVER_REPLY
 1333617669384: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617669384: Inside mux Packet.SERVER_REPLY
 1333617669415: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617669416: nonleader upload new photo latency = 242
 1333617669416: = nonleader upload start 1333617669173 ~ stop 1333617669415
+1333617669416: nonleader upload new photo latency = 242
 1333617669417: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617671629: canPressButton = TRUE
 1333617671629: areButtonsEnabled --> false
+1333617671629: canPressButton = TRUE
 1333617671629: disabling buttons ...
 1333617671645: ** Clicked take picture button **
 1333617672952: inside HandlePictureStorage onPictureTaken()
@@ -799,18 +795,18 @@
 1333617674506: Show photo from handle my camera take
 1333617674507: client making photo packet to send to leader for it to save
 1333617674527: BYTE SIZE AFTER COMPRESSION: 3138
-1333617674528: about to send my pic
 1333617674528: I'm a nonleader sending my new photo packet to my leader
-1333617674531: end of client send picture method
+1333617674528: about to send my pic
 1333617674528: inside sendPacket(Packet p)
 1333617674530: Sending UDP payload: 3745
+1333617674531: end of client send picture method
 1333617674682: Received UDP payload: 4109
 1333617674691: GOT CSM_Msg
 1333617674697: Received UDP payload: 949
 1333617674706: GOT CSM_Msg
 1333617674708: Received UDP payload: 602
-1333617674718: Inside mux Packet.SERVER_REPLY
 1333617674718: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617674718: Inside mux Packet.SERVER_REPLY
 1333617674721: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617674721: nonleader upload new photo latency = 193
 1333617674722: = nonleader upload start 1333617674528 ~ stop 1333617674721
@@ -820,6 +816,7 @@
 1333617675729: disabling buttons ...
 1333617675731: ** Clicked take picture button **
 1333617676995: inside HandlePictureStorage onPictureTaken()
+1333617677010: Received UDP payload: 406
 1333617677483: Picture successfully taken, ORIG BYTE LENGTH = 2118091
 1333617678632: Our new height x width: 306 x 408
 1333617678633: Show photo from handle my camera take
@@ -827,17 +824,16 @@
 1333617678657: BYTE SIZE AFTER COMPRESSION: 3139
 1333617678658: about to send my pic
 1333617678659: I'm a nonleader sending my new photo packet to my leader
-1333617678662: end of client send picture method
-1333617677010: Received UDP payload: 406
 1333617678659: inside sendPacket(Packet p)
 1333617678661: Sending UDP payload: 3746
+1333617678662: end of client send picture method
 1333617678796: Received UDP payload: 4110
 1333617678800: GOT CSM_Msg
 1333617678804: Received UDP payload: 949
 1333617678809: GOT CSM_Msg
 1333617678839: Received UDP payload: 602
-1333617678842: Inside mux Packet.SERVER_REPLY
 1333617678842: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617678842: Inside mux Packet.SERVER_REPLY
 1333617678847: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617678847: nonleader upload new photo latency = 188
 1333617678848: = nonleader upload start 1333617678659 ~ stop 1333617678847
@@ -854,19 +850,19 @@
 1333617683145: BYTE SIZE AFTER COMPRESSION: 4330
 1333617683146: about to send my pic
 1333617683147: I'm a nonleader sending my new photo packet to my leader
-1333617683150: end of client send picture method
 1333617683147: inside sendPacket(Packet p)
 1333617683148: Sending UDP payload: 4937
+1333617683150: end of client send picture method
 1333617683368: Received UDP payload: 5301
 1333617683372: GOT CSM_Msg
 1333617683384: Received UDP payload: 949
 1333617683389: GOT CSM_Msg
 1333617683392: Received UDP payload: 602
-1333617683403: Inside mux Packet.SERVER_REPLY
 1333617683403: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617683403: Inside mux Packet.SERVER_REPLY
 1333617683404: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617683405: nonleader upload new photo latency = 257
 1333617683405: = nonleader upload start 1333617683147 ~ stop 1333617683404
+1333617683405: nonleader upload new photo latency = 257
 1333617683406: SUCCESS! Client now knows saving photo on its leader succeeded
 1333617684621: canPressButton = TRUE
 1333617684622: areButtonsEnabled --> false
@@ -878,11 +874,11 @@
 1333617687892: Show photo from handle my camera take
 1333617687892: client making photo packet to send to leader for it to save
 1333617687913: BYTE SIZE AFTER COMPRESSION: 4569
-1333617687914: about to send my pic
 1333617687914: I'm a nonleader sending my new photo packet to my leader
-1333617687918: end of client send picture method
+1333617687914: about to send my pic
 1333617687914: inside sendPacket(Packet p)
 1333617687916: Sending UDP payload: 5176
+1333617687918: end of client send picture method
 1333617688049: Received UDP payload: 5540
 1333617688056: GOT CSM_Msg
 1333617688057: Received UDP payload: 949
@@ -904,24 +900,24 @@
 1333617693658: Show photo from handle my camera take
 1333617693659: client making photo packet to send to leader for it to save
 1333617693683: BYTE SIZE AFTER COMPRESSION: 3514
-1333617693684: about to send my pic
 1333617693684: I'm a nonleader sending my new photo packet to my leader
-1333617693687: end of client send picture method
+1333617693684: about to send my pic
 1333617693685: inside sendPacket(Packet p)
 1333617693686: Sending UDP payload: 4121
+1333617693687: end of client send picture method
 1333617693794: Received UDP payload: 4485
 1333617693799: GOT CSM_Msg
 1333617693802: Received UDP payload: 949
 1333617693817: GOT CSM_Msg
 1333617693818: Received UDP payload: 602
-1333617693834: Inside mux Packet.SERVER_REPLY
 1333617693834: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617693834: Inside mux Packet.SERVER_REPLY
 1333617693836: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617693837: nonleader upload new photo latency = 151
 1333617693837: = nonleader upload start 1333617693685 ~ stop 1333617693836
+1333617693837: nonleader upload new photo latency = 151
 1333617693839: SUCCESS! Client now knows saving photo on its leader succeeded
-1333617696985: canPressButton = TRUE
 1333617696985: areButtonsEnabled --> false
+1333617696985: canPressButton = TRUE
 1333617696986: disabling buttons ...
 1333617696998: ** Clicked take picture button **
 1333617698261: inside HandlePictureStorage onPictureTaken()
@@ -930,11 +926,11 @@
 1333617699893: Show photo from handle my camera take
 1333617699894: client making photo packet to send to leader for it to save
 1333617699914: BYTE SIZE AFTER COMPRESSION: 3404
-1333617699915: about to send my pic
 1333617699915: I'm a nonleader sending my new photo packet to my leader
-1333617699918: end of client send picture method
+1333617699915: about to send my pic
 1333617699916: inside sendPacket(Packet p)
 1333617699917: Sending UDP payload: 4011
+1333617699918: end of client send picture method
 1333617700053: Received UDP payload: 4375
 1333617700060: GOT CSM_Msg
 1333617700085: Received UDP payload: 949
@@ -942,9 +938,9 @@
 1333617700103: Received UDP payload: 602
 1333617700106: Inside mux Packet.SERVER_REPLY
 1333617700107: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617700108: = nonleader upload start 1333617699916 ~ stop 1333617700108
 1333617700108: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617700108: nonleader upload new photo latency = 192
-1333617700108: = nonleader upload start 1333617699916 ~ stop 1333617700108
 1333617700109: SUCCESS! Client now knows saving photo on its leader succeeded
 1333617702023: canPressButton = TRUE
 1333617702024: areButtonsEnabled --> false
@@ -956,19 +952,19 @@
 1333617704990: Show photo from handle my camera take
 1333617704991: client making photo packet to send to leader for it to save
 1333617705012: BYTE SIZE AFTER COMPRESSION: 3383
-1333617705013: about to send my pic
 1333617705013: I'm a nonleader sending my new photo packet to my leader
-1333617705021: end of client send picture method
+1333617705013: about to send my pic
 1333617705014: inside sendPacket(Packet p)
 1333617705019: Sending UDP payload: 3990
+1333617705021: end of client send picture method
 1333617705197: Received UDP payload: 4354
 1333617705202: GOT CSM_Msg
 1333617705218: Received UDP payload: 602
-1333617705221: Inside mux Packet.SERVER_REPLY
 1333617705221: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617705221: Inside mux Packet.SERVER_REPLY
 1333617705224: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
-1333617705225: nonleader upload new photo latency = 210
 1333617705225: = nonleader upload start 1333617705014 ~ stop 1333617705224
+1333617705225: nonleader upload new photo latency = 210
 1333617705229: SUCCESS! Client now knows saving photo on its leader succeeded
 1333617706994: Received UDP payload: 406
 1333617736997: Received UDP payload: 406
@@ -982,8 +978,8 @@
 1333617763208: Show photo from handle my camera take
 1333617763209: client making photo packet to send to leader for it to save
 1333617763229: BYTE SIZE AFTER COMPRESSION: 5599
-1333617763230: about to send my pic
 1333617763230: I'm a nonleader sending my new photo packet to my leader
+1333617763230: about to send my pic
 1333617763231: end of client send picture method
 1333617763231: inside sendPacket(Packet p)
 1333617763233: Sending UDP payload: 6206
@@ -992,8 +988,8 @@
 1333617763400: Received UDP payload: 949
 1333617763424: GOT CSM_Msg
 1333617763434: Received UDP payload: 602
-1333617763441: Inside mux Packet.SERVER_REPLY
 1333617763441: I have the photo requester id = 5012 about to display photo or receive upload ack
+1333617763441: Inside mux Packet.SERVER_REPLY
 1333617763456: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
 1333617763457: nonleader upload new photo latency = 224
 1333617763458: = nonleader upload start 1333617763231 ~ stop 1333617763455
@@ -1004,22 +1000,22 @@
 1333617857738: Received UDP payload: 406
 1333617889929: Received UDP payload: 406
 1333617910526: moving from region (2,0), to (1,0)
-1333617910527: sending LEADER_REQUEST
 1333617910527: inside sendPacket(Packet p)
+1333617910527: sending LEADER_REQUEST
 1333617910529: Sending UDP payload: 406
-1333617910828: sending LEADER_REQUEST
 1333617910828: inside sendPacket(Packet p)
+1333617910828: sending LEADER_REQUEST
 1333617910831: Sending UDP payload: 406
 1333617911129: sending LEADER_REQUEST
 1333617911130: inside sendPacket(Packet p)
 1333617911133: Sending UDP payload: 406
-1333617911431: sending LEADER_REQUEST
 1333617911431: inside sendPacket(Packet p)
+1333617911431: sending LEADER_REQUEST
 1333617911434: Sending UDP payload: 406
 1333617911530: LEADER_REQUEST timed out
 1333617912150: cloud accepted leadership request, returned csm bytes size 11652
-1333617912166: *** Starting CSM Layer ***
 1333617912166: *** CSM Layer starting with cache disabled ***
+1333617912166: *** Starting CSM Layer ***
 1333617912167: *** CSM Layer starting with forwarding enabled ***
 1333617912795: DSMLayer starting
 1333617912808: UserApp started.
@@ -1042,27 +1038,25 @@
 1333617930683: Sending PROC_REQUEST 10:2 (1,0)->(1,0)
 1333617930684: Dispatching Atom PROC_REQUEST 10:2 (1,0)->(1,0)
 1333617930685: I got a CSM packet at a leader 
-
-1333617930730: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333617930733: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333617930761: now showing in UI the new photo I just saved ... 
 1333617930701: Sending UDP payload: 3153
 1333617930708: removed replies before id 2 from sentReplies of size 0
 1333617930711: Inside UPLOAD_PHOTO!!
 1333617930722: my_gpinfo.isSuccess is now (should be true): true
 1333617930723: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333617930730: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333617930733: I'm a leader and I SUCCEEDED in saving my client's new photo
 1333617930747: Received PROC_REQUEST 10:2 (1,0)->(1,0), replying PROC_REPLY 10:2 (1,0)->(1,0)
 1333617930749: Dispatching Atom PROC_REPLY 10:2 (1,0)->(1,0)
 1333617930750: I got a CSM packet at a leader 
-
 1333617930754: Sending UDP payload: 949
-1333617930776: Received PROC_REPLY 10:2 (1,0)->(1,0), handing to UserApp
+1333617930761: now showing in UI the new photo I just saved ... 
 1333617930776: Now back in orginitator region's leader, precssing handleDSMReply
-1333617930777: Going to and from remote region took latency = 95
+1333617930776: Received PROC_REPLY 10:2 (1,0)->(1,0), handing to UserApp
 1333617930777: = orig leader sent packet at 1333617930681 ~ received reply at 1333617930776
+1333617930777: Going to and from remote region took latency = 95
 1333617930778: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
-1333617930779: reply packet contains the ACK for UPLOAD_PHOTO
 1333617930779: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
+1333617930779: reply packet contains the ACK for UPLOAD_PHOTO
 1333617930780: inside sendPacket(Packet p)
 1333617930782: Sending UDP payload: 602
 1333617935810: Received UDP payload: 3007
@@ -1073,27 +1067,25 @@
 1333617935824: Sending PROC_REQUEST 10:3 (1,0)->(1,0)
 1333617935839: Dispatching Atom PROC_REQUEST 10:3 (1,0)->(1,0)
 1333617935840: I got a CSM packet at a leader 
-
-1333617935873: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333617935876: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333617935894: now showing in UI the new photo I just saved ... 
 1333617935847: Sending UDP payload: 3371
 1333617935857: removed replies before id 3 from sentReplies of size 0
 1333617935860: Inside UPLOAD_PHOTO!!
-1333617935863: my_gpinfo.isSuccess is now (should be true): true
 1333617935863: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333617935863: my_gpinfo.isSuccess is now (should be true): true
+1333617935873: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333617935876: I'm a leader and I SUCCEEDED in saving my client's new photo
 1333617935883: Received PROC_REQUEST 10:3 (1,0)->(1,0), replying PROC_REPLY 10:3 (1,0)->(1,0)
 1333617935884: Dispatching Atom PROC_REPLY 10:3 (1,0)->(1,0)
 1333617935885: I got a CSM packet at a leader 
-
+1333617935894: now showing in UI the new photo I just saved ... 
 1333617935897: Sending UDP payload: 949
 1333617935906: Received PROC_REPLY 10:3 (1,0)->(1,0), handing to UserApp
 1333617935907: Now back in orginitator region's leader, precssing handleDSMReply
-1333617935908: Going to and from remote region took latency = 84
 1333617935908: = orig leader sent packet at 1333617935823 ~ received reply at 1333617935907
+1333617935908: Going to and from remote region took latency = 84
+1333617935909: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
 1333617935909: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1333617935909: reply packet contains the ACK for UPLOAD_PHOTO
-1333617935909: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
 1333617935910: inside sendPacket(Packet p)
 1333617935912: Sending UDP payload: 602
 1333617942874: leader to cloud hearbeat...

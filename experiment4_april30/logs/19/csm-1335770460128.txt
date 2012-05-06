@@ -9,15 +9,15 @@
 1335770460157: mux: Mux.java run() beginning -------------
 1335770460167: mux: Mux.java's nodeId is5019
 1335770460168: mux: starting vncDaemon ........
-1335770460188: mux: vncDaemon started
 1335770460171: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
-1335770460189: VCoreDaemon.java onStart() ....
-1335770460189: started, mId = 5019
-1335770460189: VCoreDaemon.java inside stateTransition ..........
-1335770460189: removing leaderRequestRetryR because I'm doing a stateTransition
+1335770460188: mux: vncDaemon started
 1335770460189: ..... VCoreDaemon.java out of bounds
-1335770460190: region (-1, -1) out of bounds, dormant
+1335770460189: VCoreDaemon.java inside stateTransition ..........
+1335770460189: VCoreDaemon.java onStart() ....
+1335770460189: removing leaderRequestRetryR because I'm doing a stateTransition
+1335770460189: started, mId = 5019
 1335770460190: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335770460190: region (-1, -1) out of bounds, dormant
 1335770473671: Received UDP payload: 446
 1335770473968: Received UDP payload: 446
 1335770474268: Received UDP payload: 446
@@ -37,47 +37,47 @@
 1335770508485: Received UDP payload: 446
 1335770513482: Received UDP payload: 446
 1335770518481: Received UDP payload: 446
-1335770518881: moving from region (-1,-1), to (1,0)
 1335770518881: VCoreDaemon.java inside stateTransition ..........
-1335770518882: removing leaderRequestRetryR because I'm doing a stateTransition
+1335770518881: moving from region (-1,-1), to (1,0)
 1335770518882: ..... VCoreDaemon.java targetState = JOINING
 1335770518882: posting leaderRequestRetryR because I'm joining
-1335770518883: sending LEADER_REQUEST
+1335770518882: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770518883: inside sendPacket(Packet p)
 1335770518883: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335770518883: sending LEADER_REQUEST
 1335770518888: Sending UDP payload: 446
 1335770518891: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770519183: sending LEADER_REQUEST
 1335770519184: inside sendPacket(Packet p)
 1335770519184: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335770519191: Sending UDP payload: 446
-1335770519485: sending LEADER_REQUEST
 1335770519485: inside sendPacket(Packet p)
+1335770519485: sending LEADER_REQUEST
 1335770519486: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335770519487: Sending UDP payload: 446
-1335770519786: sending LEADER_REQUEST
 1335770519786: inside sendPacket(Packet p)
 1335770519786: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335770519786: sending LEADER_REQUEST
 1335770519788: Sending UDP payload: 446
 1335770519892: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335770519893: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335770519893: VCoreDaemon.java inside stateTransition ..........
+1335770519893: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335770519893: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770519894: ..... VCoreDaemon.java targetState = LEADER
 1335770519894: trying to take leadership to the cloud
 1335770523499: Received UDP payload: 446
 1335770523983: moving from region (1,0), to (0,0)
-1335770523984: VCoreDaemon.java inside stateTransition ..........
-1335770523984: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770523984: ..... VCoreDaemon.java targetState = JOINING
+1335770523984: VCoreDaemon.java inside stateTransition ..........
 1335770523984: posting leaderRequestRetryR because I'm joining
+1335770523984: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770523985: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770528489: Received UDP payload: 446
 1335770528807: cloud accepted leadership request, returned csm bytes size 1308
-1335770528808: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
-1335770528808: *** Starting CSM Layer ***
 1335770528808: *** CSM Layer starting with cache disabled ***
 1335770528808: *** CSM Layer starting with forwarding disabled ***
+1335770528808: *** Starting CSM Layer ***
+1335770528808: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
 1335770528906: DSMLayer starting
 1335770528906: UserApp started.
 1335770528907: loaded csm data from cloud
@@ -95,36 +95,36 @@
 1335770538977: inside sendPacket(Packet p)
 1335770538989: Sending UDP payload: 446
 1335770539891: moving from region (1,0), to (0,0)
-1335770539892: change state to HANDING_OFF with parameter my previous/old region = (1,0) before helping to elect new leader in it. (btw, newRegion (0,0))
 1335770539892: VCoreDaemon.java inside stateTransition ..........
+1335770539892: change state to HANDING_OFF with parameter my previous/old region = (1,0) before helping to elect new leader in it. (btw, newRegion (0,0))
 1335770539892: removing leaderRequestRetryR because I'm doing a stateTransition
+1335770539893: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770539893: ..... VCoreDaemon.java targetState = HANDING_OFF
 1335770539893: HANDING OFF setting leaderRegion = (1,0)
 1335770539893: Trying to hand off leadership
-1335770539893: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770539894: broadcasting LEADER_ELECT to old (1,0)
 1335770539894: inside sendPacket(Packet p)
 1335770539896: Sending UDP payload: 463
 1335770540899: INSIDE ELECT CANDIDATE
 1335770540917: CANDIDATE SIZE is 0
-1335770540918: UserApp stopped.
 1335770540918: DSMLayer stopped
+1335770540918: UserApp stopped.
 1335770540919: serializing DSMLayer to JSON
 1335770542298: Received UDP payload: 446
 1335770543200: old region empty, uploaded state to cloud in 2281ms as json 1307 bytes
-1335770543211: VCoreDaemon.java inside stateTransition ..........
-1335770543211: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770543211: ..... VCoreDaemon.java targetState = JOINING
+1335770543211: VCoreDaemon.java inside stateTransition ..........
 1335770543211: posting leaderRequestRetryR because I'm joining
+1335770543211: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770543212: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335770543212: removing leaderRequestRetryR because heard Packet.Heartbeat
 1335770543212: heard HEARTBEAT from 5022, now following
+1335770543212: removing leaderRequestRetryR because heard Packet.Heartbeat
+1335770543213: ..... VCoreDaemon.java targetState = NONLEADER
 1335770543213: VCoreDaemon.java inside stateTransition ..........
 1335770543213: removing leaderRequestRetryR because I'm doing a stateTransition
-1335770543213: ..... VCoreDaemon.java targetState = NONLEADER
+1335770543214: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770543214: DSMLayer stopped
 1335770543214: now NONLEADER (id=5019) following LEADER (id=5022) in (0,0)
-1335770543214: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770547277: Received UDP payload: 446
 1335770547856: Received UDP payload: 463
 1335770547866: heard LEADER_ELECT from node 5022, responding LEADER_NOMINATE
@@ -143,12 +143,12 @@
 1335770552933: Received UDP payload: 446
 1335770555677: Received UDP payload: 3512
 1335770555680: removing leaderRequestRetryR because heard Packet.Leader_reply
-1335770555681: heard LEADER_REPLY from new leader 5016
-1335770555681: VCoreDaemon.java inside stateTransition ..........
-1335770555681: removing leaderRequestRetryR because I'm doing a stateTransition
-1335770555681: ..... VCoreDaemon.java targetState = NONLEADER
-1335770555681: now NONLEADER (id=5019) following LEADER (id=5016) in (0,0)
 1335770555681: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335770555681: ..... VCoreDaemon.java targetState = NONLEADER
+1335770555681: VCoreDaemon.java inside stateTransition ..........
+1335770555681: heard LEADER_REPLY from new leader 5016
+1335770555681: now NONLEADER (id=5019) following LEADER (id=5016) in (0,0)
+1335770555681: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770557891: Received UDP payload: 446
 1335770557961: Received UDP payload: 446
 1335770562897: Received UDP payload: 446
@@ -158,17 +158,18 @@
 1335770570468: Received UDP payload: 463
 1335770572966: Received UDP payload: 446
 1335770577967: Received UDP payload: 446
-1335770581589: canPressButton = TRUE
 1335770581589: areButtonsEnabled --> false
+1335770581589: canPressButton = TRUE
+1335770581590: areButtonsEnabled --> false
 1335770581590: disabling buttons ...
 1335770581590: took picture disableButtonsR
-1335770581590: areButtonsEnabled --> false
 1335770581669: one more takeNum: 1
-1335770581670: reg=0 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335770581670: Clicked take picture button ..
+1335770581670: reg=0 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335770582923: inside HandlePictureStorage onPictureTaken()
 1335770582923: one more takeCamGood: 1
 1335770582924: reg=0 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335770582967: Received UDP payload: 446
 1335770583213: Picture successfully taken, ORIG BYTE LENGTH = 2429547
 1335770583387: Our new height x width: 306 x 408
 1335770583387: Show photo from handle my camera take
@@ -176,41 +177,40 @@
 1335770583388: change local requestCounter to 1
 1335770583403: BYTE SIZE AFTER COMPRESSION: 6679
 1335770583412: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5019001 Client in region: 0 Client nodID: 5019
-1335770582967: Received UDP payload: 446
 1335770583443: ----------------------------
-1335770583443: inside sendRequestPacketRepeatingRunnable for requestCount = 5019001
 1335770583443: I'm a nonleader sending my requesting photos packet to my leader
-1335770583451: --- Finished one round of sending REQUEST Packet ---------
+1335770583443: inside sendRequestPacketRepeatingRunnable for requestCount = 5019001
 1335770583444: inside sendPacket(Packet p)
 1335770583448: Sending UDP payload: 7326
+1335770583451: --- Finished one round of sending REQUEST Packet ---------
 1335770583703: Received UDP payload: 7690
 1335770583710: mux: GOT CSM_Msg
 1335770583712: Received UDP payload: 446
-1335770583715: mux: Inside Packet.SERVER_REPLY
 1335770583715: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
-1335770583734: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335770583715: mux: Inside Packet.SERVER_REPLY
 1335770583721: Received UDP payload: 989
 1335770583727: mux: GOT CSM_Msg
+1335770583734: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335770583737: Received UDP payload: 642
-1335770583739: mux: Inside Packet.SERVER_REPLY
 1335770583739: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1335770583739: mux: Inside Packet.SERVER_REPLY
 1335770583752: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
 1335770583752: disabling progressdialog due to successful new photo upload
 1335770583753: Inside _enableButtons
 1335770583753: areButtonsEnabled --> true
-1335770583753: send final leg ack regardless of new or already-processed reply
 1335770583753: inside finalLegAck: change requestCounter to 2
+1335770583753: send final leg ack regardless of new or already-processed reply
 1335770583754: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019002 Client in region: (0,0) Client nodID: 5019
 1335770583754: I'm a nonleader client sending my final_leg packet to my leader
-1335770583758: new client_upload_photo_ack reply with replyCounter 501600001
-1335770583758: note down new reply by adding replyCounter=501600001 to HashMap processedReplies
-1335770583758: nonleader upload new photo latency = 308
-1335770583759: = nonleader upload start 1335770583444 ~ stop 1335770583752
-1335770583760: one more takeGoodSave: 1
-1335770583761: reg=0 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=100% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
-1335770583761: SUCCESS Client now knows saving photo on its leader succeeded
 1335770583754: inside sendPacket(Packet p)
 1335770583756: Sending UDP payload: 446
+1335770583758: new client_upload_photo_ack reply with replyCounter 501600001
+1335770583758: nonleader upload new photo latency = 308
+1335770583758: note down new reply by adding replyCounter=501600001 to HashMap processedReplies
+1335770583759: = nonleader upload start 1335770583444 ~ stop 1335770583752
+1335770583760: one more takeGoodSave: 1
+1335770583761: SUCCESS Client now knows saving photo on its leader succeeded
+1335770583761: reg=0 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=100% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335770588007: Received UDP payload: 446
 1335770592885: Received UDP payload: 463
 1335770592894: heard LEADER_ELECT from node 5016, responding LEADER_NOMINATE
@@ -219,82 +219,82 @@
 1335770592913: Received UDP payload: 446
 1335770592931: Received UDP payload: 446
 1335770592966: Received UDP payload: 446
-1335770593266: canPressButton = TRUE
 1335770593266: areButtonsEnabled --> false
+1335770593266: canPressButton = TRUE
 1335770593266: disabling buttons ...
 1335770593266: took picture disableButtonsR
 1335770593267: areButtonsEnabled --> false
 1335770593292: one more takeNum: 2
-1335770593293: reg=0 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335770593293: Clicked take picture button ..
+1335770593293: reg=0 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335770594127: Received UDP payload: 10990
-1335770594130: received LEADER_CONFIRM from 5016, replying LEADER_CONFIRM_ACK
 1335770594130: inside sendPacket(Packet p)
+1335770594130: received LEADER_CONFIRM from 5016, replying LEADER_CONFIRM_ACK
 1335770594130: waiting to give old leader time to release
 1335770594138: Sending UDP payload: 463
+1335770594569: Received UDP payload: 446
 1335770594573: inside HandlePictureStorage onPictureTaken()
 1335770594573: one more takeCamGood: 2
 1335770594574: reg=0 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335770594846: Picture successfully taken, ORIG BYTE LENGTH = 2217279
+1335770594877: Received UDP payload: 446
 1335770595026: Our new height x width: 306 x 408
-1335770595027: Show photo from handle my camera take
 1335770595027: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335770595027: Show photo from handle my camera take
 1335770595028: change local requestCounter to 3
 1335770595049: BYTE SIZE AFTER COMPRESSION: 3185
 1335770595055: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5019003 Client in region: 0 Client nodID: 5019
-1335770594569: Received UDP payload: 446
-1335770594877: Received UDP payload: 446
 1335770595097: ----------------------------
-1335770595098: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
 1335770595098: I'm a nonleader sending my requesting photos packet to my leader
-1335770595105: --- Finished one round of sending REQUEST Packet ---------
+1335770595098: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
 1335770595099: inside sendPacket(Packet p)
 1335770595104: Sending UDP payload: 3832
+1335770595105: --- Finished one round of sending REQUEST Packet ---------
 1335770595175: Received UDP payload: 446
 1335770595406: ----------------------------
-1335770595407: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
 1335770595407: I'm a nonleader sending my requesting photos packet to my leader
-1335770595411: --- Finished one round of sending REQUEST Packet ---------
 1335770595407: inside sendPacket(Packet p)
+1335770595407: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
 1335770595408: Sending UDP payload: 3832
+1335770595411: --- Finished one round of sending REQUEST Packet ---------
 1335770595475: Received UDP payload: 446
 1335770595711: ----------------------------
-1335770595713: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
 1335770595713: I'm a nonleader sending my requesting photos packet to my leader
-1335770595718: --- Finished one round of sending REQUEST Packet ---------
+1335770595713: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
 1335770595714: inside sendPacket(Packet p)
 1335770595716: Sending UDP payload: 3832
+1335770595718: --- Finished one round of sending REQUEST Packet ---------
 1335770596018: ----------------------------
-1335770596020: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
 1335770596020: I'm a nonleader sending my requesting photos packet to my leader
-1335770596026: --- Finished one round of sending REQUEST Packet ---------
 1335770596020: inside sendPacket(Packet p)
+1335770596020: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
 1335770596024: Sending UDP payload: 3832
+1335770596026: --- Finished one round of sending REQUEST Packet ---------
 1335770596112: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
 1335770596136: Received UDP payload: 3512
 1335770596140: ignoring leader_reply that's not for me
 1335770597984: Received UDP payload: 446
 1335770598134: VCoreDaemon.java inside stateTransition ..........
-1335770598135: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770598135: ..... VCoreDaemon.java targetState = LEADER
+1335770598135: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770598136: trying to take leadership to the cloud
 1335770599292: one more takeTimedout: 1
-1335770599295: reg=0 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=1 takeBad=0 takeTimedout=1 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335770599295: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
+1335770599295: reg=0 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=1 takeBad=0 takeTimedout=1 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335770599300: Inside _enableButtons
 1335770599301: areButtonsEnabled --> true
 1335770600944: cloud accepted leadership request, returned csm bytes size 1308
 1335770600957: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
-1335770600959: *** Starting CSM Layer ***
 1335770600959: *** CSM Layer starting with cache disabled ***
+1335770600959: *** Starting CSM Layer ***
 1335770600960: *** CSM Layer starting with forwarding disabled ***
 1335770601051: DSMLayer starting
 1335770601065: UserApp started.
 1335770601082: loaded csm data from old leader
 1335770601123: inside sendPacket(Packet p)
 1335770601134: Sending UDP payload: 10973
-1335770601138: now fully up as LEADER (id=5019) of (0,0)
 1335770601138: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335770601138: now fully up as LEADER (id=5019) of (0,0)
 1335770601139: inside sendPacket(Packet p)
 1335770601140: Sending UDP payload: 446
 1335770602992: Received UDP payload: 446
@@ -327,20 +327,20 @@
 1335770641151: inside sendPacket(Packet p)
 1335770641155: Sending UDP payload: 446
 1335770642976: Received UDP payload: 989
-1335770642996: mux: GOT CSM_Msg
 1335770642996: forwarding disabled, not forwarding packets
+1335770642996: mux: GOT CSM_Msg
 1335770643028: Received UDP payload: 446
 1335770643046: Received UDP payload: 989
-1335770643050: mux: GOT CSM_Msg
 1335770643050: forwarding disabled, not forwarding packets
+1335770643050: mux: GOT CSM_Msg
 1335770643375: Received UDP payload: 446
 1335770646154: inside sendPacket(Packet p)
 1335770646157: Sending UDP payload: 446
 1335770648000: Received UDP payload: 446
 1335770648382: Received UDP payload: 446
 1335770651043: Received UDP payload: 989
-1335770651055: mux: GOT CSM_Msg
 1335770651055: forwarding disabled, not forwarding packets
+1335770651055: mux: GOT CSM_Msg
 1335770651154: inside sendPacket(Packet p)
 1335770651156: Sending UDP payload: 446
 1335770651788: Received UDP payload: 989
@@ -350,20 +350,20 @@
 1335770651895: mux: GOT CSM_Msg
 1335770651896: forwarding disabled, not forwarding packets
 1335770651984: Received UDP payload: 989
-1335770651995: mux: GOT CSM_Msg
 1335770651995: forwarding disabled, not forwarding packets
+1335770651995: mux: GOT CSM_Msg
 1335770652084: Received UDP payload: 989
-1335770652092: mux: GOT CSM_Msg
 1335770652092: forwarding disabled, not forwarding packets
+1335770652092: mux: GOT CSM_Msg
 1335770652184: Received UDP payload: 989
-1335770652188: mux: GOT CSM_Msg
 1335770652188: forwarding disabled, not forwarding packets
+1335770652188: mux: GOT CSM_Msg
 1335770652288: Received UDP payload: 989
-1335770652293: mux: GOT CSM_Msg
 1335770652293: forwarding disabled, not forwarding packets
+1335770652293: mux: GOT CSM_Msg
 1335770652387: Received UDP payload: 989
-1335770652390: mux: GOT CSM_Msg
 1335770652390: forwarding disabled, not forwarding packets
+1335770652390: mux: GOT CSM_Msg
 1335770652489: Received UDP payload: 989
 1335770652493: mux: GOT CSM_Msg
 1335770652494: forwarding disabled, not forwarding packets
@@ -374,20 +374,20 @@
 1335770652701: mux: GOT CSM_Msg
 1335770652702: forwarding disabled, not forwarding packets
 1335770652800: Received UDP payload: 989
-1335770652809: mux: GOT CSM_Msg
 1335770652809: forwarding disabled, not forwarding packets
+1335770652809: mux: GOT CSM_Msg
 1335770652897: Received UDP payload: 989
-1335770652901: mux: GOT CSM_Msg
 1335770652901: forwarding disabled, not forwarding packets
+1335770652901: mux: GOT CSM_Msg
 1335770652999: Received UDP payload: 989
-1335770653003: mux: GOT CSM_Msg
 1335770653003: forwarding disabled, not forwarding packets
+1335770653003: mux: GOT CSM_Msg
 1335770653106: Received UDP payload: 989
 1335770653112: mux: GOT CSM_Msg
 1335770653113: forwarding disabled, not forwarding packets
 1335770653200: Received UDP payload: 989
-1335770653209: mux: GOT CSM_Msg
 1335770653209: forwarding disabled, not forwarding packets
+1335770653209: mux: GOT CSM_Msg
 1335770653376: Received UDP payload: 446
 1335770656155: inside sendPacket(Packet p)
 1335770656157: Sending UDP payload: 446
@@ -407,59 +407,57 @@
 1335770671162: Sending UDP payload: 446
 1335770674572: Received UDP payload: 4763
 1335770674579: mux: Inside mux Packet.CLIENT_REQUEST
-1335770674580: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335770674580: inside handleClientRequest. Originator leader of region 0
-1335770674581: got new request, requestCounter = 5017005
+1335770674580: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335770674581: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
+1335770674581: got new request, requestCounter = 5017005
 1335770674583: Sending PROC_REQUEST 10:1 (0,0)->(0,0)
 1335770674584: Dispatching Atom PROC_REQUEST 10:1 (0,0)->(0,0)
+1335770674585: Make FirstLeg Ack regardless of new or already-processed requests
+1335770674585: Note down new request by adding requestCounter=5017005 to HashMap processedRequests
+1335770674586: The leader sending a First Leg ack to originator client (which id = 5017)
+1335770674586: inside sendPacket(Packet p)
 1335770674587: mux: I got a CSM packet at a leader 
-
+1335770674636: Sending UDP payload: 5127
+1335770674646: inside handleDSMRequest. At requests's remote leader of region 0
+1335770674646: removed replies before id 1 from sentReplies of size 0
+1335770674648: Inside UPLOAD_PHOTO!!
+1335770674651: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1335770674651: my_gpinfo.isSuccess is now (should be true): true
 1335770674656: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335770674656: Received PROC_REQUEST 10:1 (0,0)->(0,0), replying PROC_REPLY 10:1 (0,0)->(0,0)
 1335770674657: I'm a leader and I successfully saved my client's new photo
 1335770674658: now showing in UI the new photo I just saved ... 
 1335770674658: the photo length: 4116
-1335770674714: end of server show photo aside %%%%%%%%%
-1335770674585: Note down new request by adding requestCounter=5017005 to HashMap processedRequests
-1335770674585: Make FirstLeg Ack regardless of new or already-processed requests
-1335770674586: The leader sending a First Leg ack to originator client (which id = 5017)
-1335770674586: inside sendPacket(Packet p)
-1335770674636: Sending UDP payload: 5127
-1335770674646: removed replies before id 1 from sentReplies of size 0
-1335770674646: inside handleDSMRequest. At requests's remote leader of region 0
-1335770674648: Inside UPLOAD_PHOTO!!
-1335770674651: my_gpinfo.isSuccess is now (should be true): true
-1335770674651: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
-1335770674656: Received PROC_REQUEST 10:1 (0,0)->(0,0), replying PROC_REPLY 10:1 (0,0)->(0,0)
 1335770674698: Dispatching Atom PROC_REPLY 10:1 (0,0)->(0,0)
-1335770674699: mux: I got a CSM packet at a leader 
-
 1335770674699: Sending UDP payload: 446
+1335770674699: mux: I got a CSM packet at a leader 
 1335770674701: Sending UDP payload: 989
+1335770674703: DSM layer: Going to and from remote region took latency = 121
 1335770674703: Received PROC_REPLY 10:1 (0,0)->(0,0), handing to UserApp
 1335770674703: inside handleDSMReply. Now back in originator leader of region 0
-1335770674703: DSM layer: Going to and from remote region took latency = 121
 1335770674704: DSM layer: orig leader sent packet at 1335770674582 ~ received reply from remote leader at 1335770674703
 1335770674704: Originator Region=0's Leader (for Client=5017) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1335770674705: change leader replyCounter to: 1
-1335770674705: reply packet contains the success info for UPLOAD_PHOTO
 1335770674705: inside sendReplies of replyCount = 501900001
-1335770674706: =======================
-1335770674706: inside sendReplyRepeatingRunnable for replyCount = 501900001
-1335770674706: Leader about to send REPLY packet, number: 501900001 type: 16 Leader in region: (0,0) to Client nodID: 5017
-1335770674706: I (the leader) was not the originator client (which id = 5017) so I use UDP to send packet back to my nonleader
-1335770674706: inside sendPacket(Packet p)
+1335770674705: reply packet contains the success info for UPLOAD_PHOTO
 1335770674706: === Finished one round of sending REPLY Packet =======
+1335770674706: =======================
+1335770674706: I (the leader) was not the originator client (which id = 5017) so I use UDP to send packet back to my nonleader
+1335770674706: Leader about to send REPLY packet, number: 501900001 type: 16 Leader in region: (0,0) to Client nodID: 5017
+1335770674706: inside sendPacket(Packet p)
+1335770674706: inside sendReplyRepeatingRunnable for replyCount = 501900001
 1335770674708: Sending UDP payload: 642
+1335770674714: end of server show photo aside %%%%%%%%%
 1335770674756: Received UDP payload: 446
 1335770674758: mux: Inside mux Packet.CLIENT_REQUEST
-1335770674759: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335770674759: inside handleClientRequest. Originator leader of region 0
-1335770674759: got new request, requestCounter = 5017006
 1335770674759: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 501900001
 1335770674759: Yay the last leg succeeded. Removing reply runnables ...
 1335770674759: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501900001
 1335770674759: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 501900001
+1335770674759: got new request, requestCounter = 5017006
+1335770674759: inside handleClientRequest. Originator leader of region 0
+1335770674759: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335770674760: do not send ack for received final_leg_ack
 1335770676158: inside sendPacket(Packet p)
 1335770676161: Sending UDP payload: 446
@@ -467,13 +465,13 @@
 1335770681165: Sending UDP payload: 446
 1335770686161: inside sendPacket(Packet p)
 1335770686164: Sending UDP payload: 446
-1335770690900: moving from region (0,0), to (5,0)
-1335770690900: change state to HANDING_OFF with parameter my previous/old region = (0,0) before helping to elect new leader in it. (btw, newRegion (5,0))
-1335770690900: VCoreDaemon.java inside stateTransition ..........
-1335770690900: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770690900: ..... VCoreDaemon.java targetState = HANDING_OFF
 1335770690900: HANDING OFF setting leaderRegion = (0,0)
 1335770690900: Trying to hand off leadership
+1335770690900: VCoreDaemon.java inside stateTransition ..........
+1335770690900: change state to HANDING_OFF with parameter my previous/old region = (0,0) before helping to elect new leader in it. (btw, newRegion (5,0))
+1335770690900: moving from region (0,0), to (5,0)
+1335770690900: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770690901: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770690901: broadcasting LEADER_ELECT to old (0,0)
 1335770690901: inside sendPacket(Packet p)
@@ -502,56 +500,56 @@
 1335770694383: VCoreDaemon.java inside stateTransition ..........
 1335770694384: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770694385: ..... VCoreDaemon.java targetState = JOINING
-1335770694386: posting leaderRequestRetryR because I'm joining
 1335770694386: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335770694388: sending LEADER_REQUEST
+1335770694386: posting leaderRequestRetryR because I'm joining
 1335770694388: inside sendPacket(Packet p)
+1335770694388: sending LEADER_REQUEST
 1335770694393: Sending UDP payload: 446
 1335770694396: posting another leaderRequestRetryR after leaderRequestRetryPeriod
-1335770694697: sending LEADER_REQUEST
 1335770694697: inside sendPacket(Packet p)
 1335770694697: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335770694697: sending LEADER_REQUEST
 1335770694699: Sending UDP payload: 446
-1335770694998: sending LEADER_REQUEST
 1335770694998: inside sendPacket(Packet p)
 1335770694998: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335770694998: sending LEADER_REQUEST
 1335770695001: Sending UDP payload: 446
-1335770695301: sending LEADER_REQUEST
 1335770695301: inside sendPacket(Packet p)
 1335770695301: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335770695301: sending LEADER_REQUEST
 1335770695305: Sending UDP payload: 446
-1335770695386: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335770695386: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335770695386: VCoreDaemon.java inside stateTransition ..........
-1335770695387: removing leaderRequestRetryR because I'm doing a stateTransition
+1335770695386: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335770695386: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335770695387: ..... VCoreDaemon.java targetState = LEADER
+1335770695387: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770695387: trying to take leadership to the cloud
 1335770695675: cloud accepted leadership request, no csm data included.
+1335770695676: *** CSM Layer starting with cache disabled ***
+1335770695676: *** Starting CSM Layer ***
+1335770695676: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
 1335770695676: ..... VCoreDaemon.java targetState = LEADER and csm is not null --> csm.stop()
 1335770695676: DSMLayer stopped
-1335770695676: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
-1335770695676: *** Starting CSM Layer ***
-1335770695676: *** CSM Layer starting with cache disabled ***
 1335770695677: *** CSM Layer starting with forwarding disabled ***
 1335770695689: DSMLayer starting
-1335770695690: UserApp started.
 1335770695690: UserApp for Camera Diploma initialized and waiting for requests.
+1335770695690: UserApp started.
 1335770695817: inside sendPacket(Packet p)
 1335770695827: Sending UDP payload: 22318
-1335770695843: now fully up as LEADER (id=5019) of (5,0)
 1335770695843: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335770695843: now fully up as LEADER (id=5019) of (5,0)
 1335770696163: inside sendPacket(Packet p)
 1335770696173: Sending UDP payload: 446
 1335770696837: Received UDP payload: 8410
 1335770696846: ignoring leader_reply that's not for me
 1335770698817: Received UDP payload: 446
 1335770700873: moving from region (5,0), to (0,0)
-1335770700874: change state to HANDING_OFF with parameter my previous/old region = (5,0) before helping to elect new leader in it. (btw, newRegion (0,0))
 1335770700874: VCoreDaemon.java inside stateTransition ..........
-1335770700875: removing leaderRequestRetryR because I'm doing a stateTransition
+1335770700874: change state to HANDING_OFF with parameter my previous/old region = (5,0) before helping to elect new leader in it. (btw, newRegion (0,0))
 1335770700875: ..... VCoreDaemon.java targetState = HANDING_OFF
 1335770700875: HANDING OFF setting leaderRegion = (5,0)
 1335770700875: Trying to hand off leadership
+1335770700875: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770700876: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770700876: broadcasting LEADER_ELECT to old (5,0)
 1335770700876: inside sendPacket(Packet p)
@@ -560,8 +558,8 @@
 1335770701180: Sending UDP payload: 446
 1335770701878: INSIDE ELECT CANDIDATE
 1335770701879: CANDIDATE SIZE is 0
-1335770701880: UserApp stopped.
 1335770701880: DSMLayer stopped
+1335770701880: UserApp stopped.
 1335770701881: serializing DSMLayer to JSON
 1335770703809: Received UDP payload: 446
 1335770703958: old region empty, uploaded state to cloud in 2077ms as json 1308 bytes
@@ -571,8 +569,8 @@
 1335770703974: posting leaderRequestRetryR because I'm joining
 1335770703975: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770703976: removing leaderRequestRetryR because heard Packet.Heartbeat
-1335770703977: heard HEARTBEAT from 5017, now following
 1335770703977: VCoreDaemon.java inside stateTransition ..........
+1335770703977: heard HEARTBEAT from 5017, now following
 1335770703978: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770703979: ..... VCoreDaemon.java targetState = NONLEADER
 1335770703979: DSMLayer stopped
@@ -585,8 +583,8 @@
 1335770707719: Received UDP payload: 446
 1335770707736: Received UDP payload: 446
 1335770708855: Received UDP payload: 8427
-1335770708859: received LEADER_CONFIRM from 5017, replying LEADER_CONFIRM_ACK
 1335770708859: inside sendPacket(Packet p)
+1335770708859: received LEADER_CONFIRM from 5017, replying LEADER_CONFIRM_ACK
 1335770708859: waiting to give old leader time to release
 1335770708860: Sending UDP payload: 463
 1335770708863: Received UDP payload: 446
@@ -602,9 +600,9 @@
 1335770712863: trying to take leadership to the cloud
 1335770713819: Received UDP payload: 446
 1335770714347: cloud accepted leadership request, returned csm bytes size 1308
-1335770714353: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
-1335770714353: *** Starting CSM Layer ***
 1335770714353: *** CSM Layer starting with cache disabled ***
+1335770714353: *** Starting CSM Layer ***
+1335770714353: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
 1335770714354: *** CSM Layer starting with forwarding disabled ***
 1335770714406: DSMLayer starting
 1335770714407: UserApp started.
@@ -624,13 +622,13 @@
 1335770723775: inside sendPacket(Packet p)
 1335770723784: Sending UDP payload: 8427
 1335770726088: moving from region (0,0), to (1,0)
-1335770726089: change state to HANDING_OFF with parameter my previous/old region = (0,0) before helping to elect new leader in it. (btw, newRegion (1,0))
-1335770726089: VCoreDaemon.java inside stateTransition ..........
-1335770726089: removing leaderRequestRetryR because I'm doing a stateTransition
+1335770726089: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770726089: ..... VCoreDaemon.java targetState = HANDING_OFF
 1335770726089: HANDING OFF setting leaderRegion = (0,0)
 1335770726089: Trying to hand off leadership
-1335770726089: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335770726089: VCoreDaemon.java inside stateTransition ..........
+1335770726089: change state to HANDING_OFF with parameter my previous/old region = (0,0) before helping to elect new leader in it. (btw, newRegion (1,0))
+1335770726089: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770726090: broadcasting LEADER_ELECT to old (0,0)
 1335770726090: inside sendPacket(Packet p)
 1335770726093: Sending UDP payload: 463
@@ -646,9 +644,9 @@
 1335770726189: inside sendPacket(Packet p)
 1335770726190: Sending UDP payload: 446
 1335770727094: INSIDE ELECT CANDIDATE
+1335770727095: DSMLayer stopped
 1335770727095: PICKING CANDIDATE
 1335770727095: UserApp stopped.
-1335770727095: DSMLayer stopped
 1335770727177: sending LEADER_CONFIRM to node 5017
 1335770727186: inside sendPacket(Packet p)
 1335770727187: Sending UDP payload: 8427
@@ -656,37 +654,37 @@
 1335770727302: inside LEADER_CONFIRM_ACK mState = 4 vnp.dstRegion = (0,0) leaderRegion = (0,0)
 1335770728445: recv LEADER_CONFIRM_ACK from 5017, released leadership to cloud in 1143ms
 1335770728452: VCoreDaemon.java inside stateTransition ..........
-1335770728453: removing leaderRequestRetryR because I'm doing a stateTransition
-1335770728453: ..... VCoreDaemon.java targetState = JOINING
-1335770728453: posting leaderRequestRetryR because I'm joining
 1335770728453: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335770728453: sending LEADER_REQUEST
+1335770728453: ..... VCoreDaemon.java targetState = JOINING
 1335770728453: inside sendPacket(Packet p)
+1335770728453: posting leaderRequestRetryR because I'm joining
+1335770728453: removing leaderRequestRetryR because I'm doing a stateTransition
+1335770728453: sending LEADER_REQUEST
 1335770728454: Sending UDP payload: 446
 1335770728455: posting another leaderRequestRetryR after leaderRequestRetryPeriod
-1335770728756: sending LEADER_REQUEST
 1335770728756: inside sendPacket(Packet p)
 1335770728756: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335770728756: sending LEADER_REQUEST
 1335770728757: Sending UDP payload: 446
 1335770729057: sending LEADER_REQUEST
 1335770729058: inside sendPacket(Packet p)
 1335770729058: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335770729061: Sending UDP payload: 446
-1335770729360: sending LEADER_REQUEST
 1335770729360: inside sendPacket(Packet p)
 1335770729360: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335770729360: sending LEADER_REQUEST
 1335770729364: Sending UDP payload: 446
 1335770729453: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335770729454: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335770729455: ..... VCoreDaemon.java targetState = LEADER
 1335770729455: VCoreDaemon.java inside stateTransition ..........
 1335770729455: removing leaderRequestRetryR because I'm doing a stateTransition
-1335770729455: ..... VCoreDaemon.java targetState = LEADER
 1335770729456: trying to take leadership to the cloud
 1335770729793: cloud accepted leadership request, returned csm bytes size 1307
 1335770729794: ..... VCoreDaemon.java targetState = LEADER and csm is not null --> csm.stop()
 1335770729805: DSMLayer stopped
-1335770729806: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
 1335770729806: *** Starting CSM Layer ***
+1335770729806: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
 1335770729807: *** CSM Layer starting with cache disabled ***
 1335770729807: *** CSM Layer starting with forwarding disabled ***
 1335770729928: DSMLayer starting
@@ -712,14 +710,14 @@
 1335770748841: Received UDP payload: 446
 1335770751195: inside sendPacket(Packet p)
 1335770751198: Sending UDP payload: 446
-1335770753117: moving from region (1,0), to (2,0)
-1335770753117: change state to HANDING_OFF with parameter my previous/old region = (1,0) before helping to elect new leader in it. (btw, newRegion (2,0))
 1335770753117: VCoreDaemon.java inside stateTransition ..........
+1335770753117: change state to HANDING_OFF with parameter my previous/old region = (1,0) before helping to elect new leader in it. (btw, newRegion (2,0))
+1335770753117: moving from region (1,0), to (2,0)
 1335770753117: removing leaderRequestRetryR because I'm doing a stateTransition
+1335770753118: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770753118: ..... VCoreDaemon.java targetState = HANDING_OFF
 1335770753118: HANDING OFF setting leaderRegion = (1,0)
 1335770753118: Trying to hand off leadership
-1335770753118: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335770753118: broadcasting LEADER_ELECT to old (1,0)
 1335770753118: inside sendPacket(Packet p)
 1335770753123: Sending UDP payload: 463
@@ -727,10 +725,10 @@
 1335770754018: Received UDP payload: 463
 1335770754040: Received UDP payload: 446
 1335770754071: Received UDP payload: 446
-1335770754119: INSIDE ELECT CANDIDATE
 1335770754119: CANDIDATE SIZE is 0
-1335770754120: UserApp stopped.
+1335770754119: INSIDE ELECT CANDIDATE
 1335770754120: DSMLayer stopped
+1335770754120: UserApp stopped.
 1335770754120: serializing DSMLayer to JSON
 1335770755171: Received UDP payload: 8427
 1335770755213: Received UDP payload: 463
@@ -746,8 +744,8 @@
 1335770759874: ..... VCoreDaemon.java targetState = JOINING
 1335770759875: posting leaderRequestRetryR because I'm joining
 1335770759876: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335770759877: removing leaderRequestRetryR because heard Packet.Leader_reply
 1335770759877: heard LEADER_REPLY from 5017
+1335770759877: removing leaderRequestRetryR because heard Packet.Leader_reply
 1335770759878: VCoreDaemon.java inside stateTransition ..........
 1335770759878: removing leaderRequestRetryR because I'm doing a stateTransition
 1335770759880: ..... VCoreDaemon.java targetState = NONLEADER
@@ -1120,8 +1118,8 @@
 1335771159089: Received UDP payload: 989
 1335771159091: mux: GOT CSM_Msg
 1335771159184: Received UDP payload: 989
-1335771159188: mux: GOT CSM_Msg
 1335771159188: Received UDP payload: 446
+1335771159188: mux: GOT CSM_Msg
 1335771159294: Received UDP payload: 989
 1335771159298: mux: GOT CSM_Msg
 1335771159388: Received UDP payload: 989
@@ -2550,46 +2548,46 @@
 1335773369938: HI I'm in ONPAUSE()
 1335773381190: Missed 3 HEARTBEATS from LEADER, going to JOINING.
 1335773381190: VCoreDaemon.java inside stateTransition ..........
-1335773381191: removing leaderRequestRetryR because I'm doing a stateTransition
 1335773381191: ..... VCoreDaemon.java targetState = JOINING
 1335773381191: posting leaderRequestRetryR because I'm joining
+1335773381191: removing leaderRequestRetryR because I'm doing a stateTransition
 1335773381192: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335773381192: sending LEADER_REQUEST
 1335773381192: inside sendPacket(Packet p)
+1335773381192: sending LEADER_REQUEST
 1335773381193: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335773381196: Sending UDP payload: 446
-1335773381494: sending LEADER_REQUEST
 1335773381494: inside sendPacket(Packet p)
 1335773381494: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335773381494: sending LEADER_REQUEST
 1335773381497: Sending UDP payload: 446
 1335773381796: sending LEADER_REQUEST
 1335773381797: inside sendPacket(Packet p)
 1335773381797: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335773381799: Sending UDP payload: 446
-1335773382098: sending LEADER_REQUEST
 1335773382098: inside sendPacket(Packet p)
 1335773382098: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335773382098: sending LEADER_REQUEST
 1335773382101: Sending UDP payload: 446
 1335773382192: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335773382193: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335773382193: VCoreDaemon.java inside stateTransition ..........
-1335773382194: removing leaderRequestRetryR because I'm doing a stateTransition
+1335773382193: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335773382194: ..... VCoreDaemon.java targetState = LEADER
+1335773382194: removing leaderRequestRetryR because I'm doing a stateTransition
 1335773382194: trying to take leadership to the cloud
 1335773395108: cloud rejected leadership request or request failed, wait to retry
 1335773514904: been in JOINING state for a while now, start over
+1335773514905: ..... VCoreDaemon.java targetState = JOINING
 1335773514905: VCoreDaemon.java inside stateTransition ..........
 1335773514905: removing leaderRequestRetryR because I'm doing a stateTransition
-1335773514905: ..... VCoreDaemon.java targetState = JOINING
-1335773514906: posting leaderRequestRetryR because I'm joining
 1335773514906: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335773514906: posting leaderRequestRetryR because I'm joining
 1335773514906: sending LEADER_REQUEST
 1335773514907: inside sendPacket(Packet p)
 1335773514907: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335773514911: Sending UDP payload: 446
-1335773515208: sending LEADER_REQUEST
 1335773515208: inside sendPacket(Packet p)
 1335773515208: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335773515208: sending LEADER_REQUEST
 1335773515210: Sending UDP payload: 446
 1335773515510: sending LEADER_REQUEST
 1335773515511: inside sendPacket(Packet p)
@@ -2600,23 +2598,23 @@
 1335773515814: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335773515818: Sending UDP payload: 446
 1335773515908: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335773515909: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335773515909: VCoreDaemon.java inside stateTransition ..........
-1335773515910: removing leaderRequestRetryR because I'm doing a stateTransition
+1335773515909: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335773515910: ..... VCoreDaemon.java targetState = LEADER
+1335773515910: removing leaderRequestRetryR because I'm doing a stateTransition
 1335773515910: trying to take leadership to the cloud
 1335773518736: cloud accepted leadership request, returned csm bytes size 1307
 1335773518745: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
-1335773518746: *** Starting CSM Layer ***
 1335773518746: *** CSM Layer starting with cache disabled ***
 1335773518746: *** CSM Layer starting with forwarding disabled ***
+1335773518746: *** Starting CSM Layer ***
 1335773518859: DSMLayer starting
 1335773518872: UserApp started.
 1335773518873: loaded csm data from cloud
 1335773518897: inside sendPacket(Packet p)
 1335773518899: Sending UDP payload: 3512
-1335773518901: now fully up as LEADER (id=5019) of (2,0)
 1335773518901: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335773518901: now fully up as LEADER (id=5019) of (2,0)
 1335773520026: inside sendPacket(Packet p)
 1335773520036: Sending UDP payload: 446
 1335773525038: inside sendPacket(Packet p)
@@ -2804,8 +2802,8 @@
 1335773979426: Sending UDP payload: 446
 1335773984425: inside sendPacket(Packet p)
 1335773984439: Sending UDP payload: 446
-1335773989426: inside sendPacket(Packet p)
 1335773989426: Sending UDP payload: 446
+1335773989426: inside sendPacket(Packet p)
 1335773994426: inside sendPacket(Packet p)
 1335773994429: Sending UDP payload: 446
 1335773999427: inside sendPacket(Packet p)
@@ -3096,8 +3094,8 @@
 1335774370511: Received UDP payload: 446
 1335774371504: Received UDP payload: 446
 1335774373859: Received UDP payload: 446
-1335774374732: inside sendPacket(Packet p)
 1335774374732: Sending UDP payload: 446
+1335774374732: inside sendPacket(Packet p)
 1335774375512: Received UDP payload: 446
 1335774376506: Received UDP payload: 446
 1335774378229: leader to cloud hearbeat...
@@ -3200,8 +3198,8 @@
 1335774505547: Received UDP payload: 446
 1335774508151: Received UDP payload: 446
 1335774508628: Received UDP payload: 446
-1335774509195: inside sendPacket(Packet p)
 1335774509195: Sending UDP payload: 446
+1335774509195: inside sendPacket(Packet p)
 1335774510552: Received UDP payload: 446
 1335774513335: Received UDP payload: 446
 1335774513801: Received UDP payload: 446
@@ -3566,8 +3564,8 @@
 1335775015132: Sending UDP payload: 446
 1335775016294: Received UDP payload: 446
 1335775018661: Received UDP payload: 446
-1335775020135: inside sendPacket(Packet p)
 1335775020135: Sending UDP payload: 446
+1335775020135: inside sendPacket(Packet p)
 1335775021290: Received UDP payload: 446
 1335775023679: Received UDP payload: 446
 1335775025135: inside sendPacket(Packet p)
@@ -4261,14 +4259,14 @@
 1335775870134: Received UDP payload: 446
 1335775871271: Received UDP payload: 446
 1335775875127: Received UDP payload: 446
-1335775876281: Received UDP payload: 446
-1335775878888: Received UDP payload: 446
-1335775880137: Received UDP payload: 446
-1335775881291: Received UDP payload: 446
 1335775875896: Received UDP payload: 446
+1335775876281: Received UDP payload: 446
 1335775877151: Received UDP payload: 446
 1335775878304: Received UDP payload: 446
+1335775878888: Received UDP payload: 446
+1335775880137: Received UDP payload: 446
 1335775880901: Received UDP payload: 446
+1335775881291: Received UDP payload: 446
 1335775882161: Received UDP payload: 446
 1335775883317: Received UDP payload: 446
 1335775885934: Received UDP payload: 446

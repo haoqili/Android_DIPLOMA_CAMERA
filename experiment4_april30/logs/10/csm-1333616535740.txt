@@ -14,8 +14,8 @@
 1333616542652: sending LEADER_REQUEST
 1333616542653: inside sendPacket(Packet p)
 1333616542683: Sending UDP payload: 406
-1333616542954: sending LEADER_REQUEST
 1333616542954: inside sendPacket(Packet p)
+1333616542954: sending LEADER_REQUEST
 1333616542965: Sending UDP payload: 406
 1333616543255: sending LEADER_REQUEST
 1333616543256: inside sendPacket(Packet p)
@@ -51,14 +51,13 @@
 1333616547045: inside sendPacket(Packet p)
 1333616547048: Sending UDP payload: 25269
 1333616551761: Received UDP payload: 2623
-1333616551773: Inside mux Packet.CLIENT_REQUEST
 1333616551773: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333616551773: Inside mux Packet.CLIENT_REQUEST
 1333616551774: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
 1333616551774: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
 1333616551776: Sending PROC_REQUEST 10:0 (1,0)->(1,0)
 1333616551777: Dispatching Atom PROC_REQUEST 10:0 (1,0)->(1,0)
 1333616551778: I got a CSM packet at a leader 
-
 1333616551865: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
 1333616551883: I'm a leader and I SUCCEEDED in saving my client's new photo
 1333616551907: now showing in UI the new photo I just saved ... 

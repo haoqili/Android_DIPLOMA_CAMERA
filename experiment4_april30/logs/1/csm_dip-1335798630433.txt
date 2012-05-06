@@ -1,8 +1,8 @@
 1335798630436: *** Opened log file for writing ***
 1335798630437: Android build: SAMSUNG-SGH-I717
 1335798630437: NET_NAME set to: eth0
-1335798630438: starting Mux with id = -1
 1335798630438: areButtonsEnabled --> true
+1335798630438: starting Mux with id = -1
 1335798630440: *** Application started ***
 1335798630440: HI I'm in ONRESUME()
 1335798630444: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
@@ -10,14 +10,14 @@
 1335798630451: mux: Mux.java run() beginning -------------
 1335798630461: mux: Mux.java's nodeId is5005
 1335798630461: mux: starting vncDaemon ........
-1335798630465: mux: vncDaemon started
 1335798630462: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1335798630465: mux: vncDaemon started
+1335798630466: VCoreDaemon.java inside stateTransition ..........
 1335798630466: VCoreDaemon.java onStart() ....
 1335798630466: started, mId = 5005
-1335798630466: VCoreDaemon.java inside stateTransition ..........
-1335798630467: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798630467: ..... VCoreDaemon.java out of bounds
 1335798630467: region (-1, -1) out of bounds, dormant
+1335798630467: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798630469: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335798631117: Received UDP payload: 989
 1335798631141: mux: GOT CSM_Msg
@@ -45,19 +45,19 @@
 1335798635916: mux: GOT CSM_Msg
 1335798636128: Received UDP payload: 989
 1335798636135: mux: GOT CSM_Msg
-1335798636909: moving from region (-1,-1), to (1,0)
 1335798636909: VCoreDaemon.java inside stateTransition ..........
+1335798636909: moving from region (-1,-1), to (1,0)
 1335798636909: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798636910: ..... VCoreDaemon.java targetState = JOINING (1,0)
-1335798636910: posting leaderRequestRetryR because I'm joining
-1335798636910: sending LEADER_REQUEST
 1335798636910: inside sendPacket(Packet p)
 1335798636910: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335798636910: posting leaderRequestRetryR because I'm joining
+1335798636910: sending LEADER_REQUEST
 1335798636916: Sending UDP payload: 446
 1335798636919: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335798637173: Received UDP payload: 446
-1335798637211: sending LEADER_REQUEST
 1335798637211: inside sendPacket(Packet p)
+1335798637211: sending LEADER_REQUEST
 1335798637212: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335798637218: Sending UDP payload: 446
 1335798637512: sending LEADER_REQUEST
@@ -69,24 +69,24 @@
 1335798637815: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335798637817: Sending UDP payload: 446
 1335798637919: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335798637920: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335798637920: VCoreDaemon.java inside stateTransition ..........
-1335798637921: removing leaderRequestRetryR because I'm doing a stateTransition
+1335798637920: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335798637921: ..... VCoreDaemon.java targetState = LEADER
+1335798637921: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798637922: trying to take leadership (1,0) to the cloud
 1335798637976: Received UDP payload: 446
 1335798639278: cloud accepted leadership request, no csm data included.
 1335798639305: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
-1335798639306: *** Starting CSM Layer ***
 1335798639306: *** CSM Layer starting with cache disabled ***
+1335798639306: *** Starting CSM Layer ***
 1335798639307: *** CSM Layer starting with forwarding disabled ***
 1335798639345: DSMLayer starting
 1335798639346: UserApp started.
 1335798639348: UserApp for Camera Diploma initialized and waiting for requests.
 1335798639627: inside sendPacket(Packet p)
 1335798639647: Sending UDP payload: 22318
-1335798639652: now fully up as LEADER (id=5005) of (1,0)
 1335798639652: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335798639652: now fully up as LEADER (id=5005) of (1,0)
 1335798639700: Received UDP payload: 5621
 1335798639708: mux: Inside mux Packet.CLIENT_REQUEST
 1335798639785: Received UDP payload: 446
@@ -95,122 +95,116 @@
 1335798640040: Received UDP payload: 5621
 1335798640046: mux: Inside mux Packet.CLIENT_REQUEST
 1335798640225: Received UDP payload: 5985
-1335798640231: mux: GOT CSM_Msg
 1335798640231: forwarding disabled, not forwarding packets
+1335798640231: mux: GOT CSM_Msg
 1335798640232: Received UDP payload: 446
-1335798640234: mux: Inside Packet.SERVER_REPLY
 1335798640234: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335798640234: mux: Inside Packet.SERVER_REPLY
 1335798640242: Received UDP payload: 989
-1335798640246: mux: GOT CSM_Msg
 1335798640246: forwarding disabled, not forwarding packets
+1335798640246: mux: GOT CSM_Msg
 1335798640251: Received UDP payload: 642
 1335798640254: mux: Inside Packet.SERVER_REPLY
 1335798640255: mux: Ignoring SERVER_REPLY since it's not for me  5005
 1335798640285: Received UDP payload: 446
-1335798640290: mux: Inside Packet.SERVER_REPLY
 1335798640290: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335798640290: mux: Inside Packet.SERVER_REPLY
 1335798640305: Received UDP payload: 446
-1335798640307: mux: Inside Packet.SERVER_REPLY
 1335798640307: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335798640307: mux: Inside Packet.SERVER_REPLY
 1335798640323: Received UDP payload: 642
-1335798640325: mux: Inside Packet.SERVER_REPLY
 1335798640325: mux: Ignoring SERVER_REPLY since it's not for me  5005
+1335798640325: mux: Inside Packet.SERVER_REPLY
 1335798640377: Received UDP payload: 446
 1335798640378: mux: Inside mux Packet.CLIENT_REQUEST
 1335798640470: inside sendPacket(Packet p)
 1335798640473: Sending UDP payload: 446
 1335798640604: Received UDP payload: 989
-1335798640607: mux: GOT CSM_Msg
 1335798640607: forwarding disabled, not forwarding packets
+1335798640607: mux: GOT CSM_Msg
 1335798640875: Received UDP payload: 989
 1335798640881: mux: GOT CSM_Msg
-1335798640882: removed replies before id 8 from sentReplies of size 0
 1335798640882: inside handleDSMRequest. At requests's remote leader of region 1
-1335798640886: INSIDE SERVER_GET_PHOTO!!!
+1335798640882: removed replies before id 8 from sentReplies of size 0
 1335798640886: I don't have any photos yet
+1335798640886: INSIDE SERVER_GET_PHOTO!!!
 1335798640888: Received PROC_REQUEST 11:8 (2,0)->(1,0), replying PROC_REPLY 11:8 (1,0)->(2,0)
 1335798640889: Dispatching Atom PROC_REPLY 11:8 (1,0)->(2,0)
 1335798640890: mux: I got a CSM packet at a leader 
-
 1335798640931: Sending UDP payload: 989
 1335798640944: forwarding disabled, not forwarding packets
 1335798640978: Received UDP payload: 7341
-1335798640987: mux: GOT CSM_Msg
 1335798640987: forwarding disabled, not forwarding packets
+1335798640987: mux: GOT CSM_Msg
 1335798641323: Received UDP payload: 989
-1335798641328: mux: GOT CSM_Msg
 1335798641328: forwarding disabled, not forwarding packets
+1335798641328: mux: GOT CSM_Msg
 1335798641423: Received UDP payload: 989
-1335798641429: mux: GOT CSM_Msg
 1335798641429: forwarding disabled, not forwarding packets
+1335798641429: mux: GOT CSM_Msg
 1335798641523: Received UDP payload: 989
-1335798641540: mux: GOT CSM_Msg
 1335798641540: forwarding disabled, not forwarding packets
+1335798641540: mux: GOT CSM_Msg
 1335798641584: Received UDP payload: 989
 1335798641588: mux: GOT CSM_Msg
 1335798641588: removed replies before id 8 from sentReplies of size 1
-1335798641589: Received DUPLICATE PROC_REQUEST 11:8 (2,0)->(1,0), replying PROC_REPLY 11:8 (1,0)->(2,0)
 1335798641589: Dispatching Atom PROC_REPLY 11:8 (1,0)->(2,0)
+1335798641589: Received DUPLICATE PROC_REQUEST 11:8 (2,0)->(1,0), replying PROC_REPLY 11:8 (1,0)->(2,0)
 1335798641590: mux: I got a CSM packet at a leader 
-
 1335798641602: Sending UDP payload: 989
 1335798641603: forwarding disabled, not forwarding packets
 1335798641702: Received UDP payload: 989
-1335798641705: mux: GOT CSM_Msg
 1335798641705: forwarding disabled, not forwarding packets
+1335798641705: mux: GOT CSM_Msg
 1335798641715: Received UDP payload: 989
 1335798641718: mux: GOT CSM_Msg
 1335798641718: removed replies before id 8 from sentReplies of size 1
-1335798641719: Received DUPLICATE PROC_REQUEST 11:8 (2,0)->(1,0), replying PROC_REPLY 11:8 (1,0)->(2,0)
 1335798641719: Dispatching Atom PROC_REPLY 11:8 (1,0)->(2,0)
+1335798641719: Received DUPLICATE PROC_REQUEST 11:8 (2,0)->(1,0), replying PROC_REPLY 11:8 (1,0)->(2,0)
 1335798641719: mux: I got a CSM packet at a leader 
-
 1335798641722: Sending UDP payload: 989
 1335798641723: forwarding disabled, not forwarding packets
 1335798641725: Received UDP payload: 989
-1335798641733: mux: GOT CSM_Msg
 1335798641733: forwarding disabled, not forwarding packets
+1335798641733: mux: GOT CSM_Msg
 1335798641784: Received UDP payload: 989
 1335798641787: mux: GOT CSM_Msg
 1335798641788: removed replies before id 8 from sentReplies of size 1
 1335798641789: Received DUPLICATE PROC_REQUEST 11:8 (2,0)->(1,0), replying PROC_REPLY 11:8 (1,0)->(2,0)
 1335798641790: Dispatching Atom PROC_REPLY 11:8 (1,0)->(2,0)
 1335798641790: mux: I got a CSM packet at a leader 
-
 1335798641793: Sending UDP payload: 989
 1335798641794: forwarding disabled, not forwarding packets
-1335798641945: HI I'm in ONPAUSE()
 1335798641944: Received UDP payload: 989
+1335798641945: HI I'm in ONPAUSE()
 1335798641957: mux: GOT CSM_Msg
 1335798641959: forwarding disabled, not forwarding packets
 1335798641960: Received UDP payload: 989
 1335798641979: mux: GOT CSM_Msg
 1335798641980: forwarding disabled, not forwarding packets
 1335798642013: Received UDP payload: 989
-1335798642037: mux: GOT CSM_Msg
 1335798642037: forwarding disabled, not forwarding packets
+1335798642037: mux: GOT CSM_Msg
 1335798642128: Received UDP payload: 989
 1335798642136: mux: GOT CSM_Msg
 1335798642136: removed replies before id 8 from sentReplies of size 1
 1335798642137: Received DUPLICATE PROC_REQUEST 11:8 (2,0)->(1,0), replying PROC_REPLY 11:8 (1,0)->(2,0)
 1335798642139: Dispatching Atom PROC_REPLY 11:8 (1,0)->(2,0)
 1335798642139: mux: I got a CSM packet at a leader 
-
 1335798642141: Sending UDP payload: 989
 1335798642146: Received UDP payload: 989
 1335798642146: forwarding disabled, not forwarding packets
-1335798642163: mux: GOT CSM_Msg
 1335798642163: forwarding disabled, not forwarding packets
+1335798642163: mux: GOT CSM_Msg
 1335798642236: Received UDP payload: 989
-1335798642239: mux: GOT CSM_Msg
 1335798642239: forwarding disabled, not forwarding packets
+1335798642239: mux: GOT CSM_Msg
 1335798642254: Received UDP payload: 989
 1335798642272: mux: GOT CSM_Msg
 1335798642272: removed replies before id 8 from sentReplies of size 1
 1335798642273: Received DUPLICATE PROC_REQUEST 11:8 (2,0)->(1,0), replying PROC_REPLY 11:8 (1,0)->(2,0)
 1335798642274: Dispatching Atom PROC_REPLY 11:8 (1,0)->(2,0)
 1335798642274: mux: I got a CSM packet at a leader 
-
 1335798642276: Sending UDP payload: 989
 1335798642276: forwarding disabled, not forwarding packets
 1335798642388: Received UDP payload: 989
@@ -219,26 +213,25 @@
 1335798642404: Received DUPLICATE PROC_REQUEST 11:8 (2,0)->(1,0), replying PROC_REPLY 11:8 (1,0)->(2,0)
 1335798642405: Dispatching Atom PROC_REPLY 11:8 (1,0)->(2,0)
 1335798642405: mux: I got a CSM packet at a leader 
-
 1335798642421: Sending UDP payload: 989
 1335798642422: forwarding disabled, not forwarding packets
 1335798642450: Received UDP payload: 989
-1335798642461: mux: GOT CSM_Msg
 1335798642461: forwarding disabled, not forwarding packets
+1335798642461: mux: GOT CSM_Msg
 1335798642595: Received UDP payload: 4990
 1335798642598: mux: Inside mux Packet.CLIENT_REQUEST
 1335798642611: Received UDP payload: 989
-1335798642614: mux: GOT CSM_Msg
 1335798642614: forwarding disabled, not forwarding packets
+1335798642614: mux: GOT CSM_Msg
 1335798642638: Received UDP payload: 989
-1335798642642: mux: GOT CSM_Msg
 1335798642642: forwarding disabled, not forwarding packets
+1335798642642: mux: GOT CSM_Msg
 1335798642755: Received UDP payload: 989
-1335798642758: mux: GOT CSM_Msg
 1335798642758: forwarding disabled, not forwarding packets
+1335798642758: mux: GOT CSM_Msg
 1335798642769: Received UDP payload: 989
-1335798642773: mux: GOT CSM_Msg
 1335798642773: Received DUPLICATE PROC_REPLY 11:13 (0,0)->(1,0)
+1335798642773: mux: GOT CSM_Msg
 1335798642784: Received UDP payload: 4990
 1335798642786: mux: Inside mux Packet.CLIENT_REQUEST
 1335798642805: inside onDestroy()

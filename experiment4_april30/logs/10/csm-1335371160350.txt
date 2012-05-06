@@ -3,21 +3,21 @@
 1335371160357: NET_NAME set to: eth0
 1335371160357: starting Mux with id = -1
 1335371160360: areButtonsEnabled --> true
+1335371160360: mux: Mux.java run() beginning -------------
 1335371160362: *** Application started ***
 1335371160362: HI I'm in ONRESUME()
-1335371160367: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
-1335371160360: mux: Mux.java run() beginning -------------
 1335371160364: mux: Mux.java's nodeId is5017
 1335371160364: mux: starting vncDaemon ........
-1335371160366: mux: vncDaemon started
 1335371160365: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
-1335371160367: VCoreDaemon.java onStart() ....
-1335371160367: started, mId = 5017
+1335371160366: mux: vncDaemon started
+1335371160367: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
 1335371160367: VCoreDaemon.java inside stateTransition ..........
+1335371160367: VCoreDaemon.java onStart() ....
 1335371160367: removing leaderRequestRetryR because I'm doing a stateTransition
+1335371160367: started, mId = 5017
 1335371160368: ..... VCoreDaemon.java out of bounds
-1335371160368: region (-1, -1) out of bounds, dormant
 1335371160368: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335371160368: region (-1, -1) out of bounds, dormant
 1335371161612: Received UDP payload: 446
 1335371163998: Received UDP payload: 446
 1335371166965: Received UDP payload: 446
@@ -47,16 +47,16 @@
 1335371202959: Received UDP payload: 446
 1335371203153: Received UDP payload: 446
 1335371203477: Received UDP payload: 446
-1335371206142: moving from region (-1,-1), to (0,0)
 1335371206142: VCoreDaemon.java inside stateTransition ..........
+1335371206142: moving from region (-1,-1), to (0,0)
 1335371206142: removing leaderRequestRetryR because I'm doing a stateTransition
 1335371206143: ..... VCoreDaemon.java targetState = JOINING
 1335371206145: posting leaderRequestRetryR because I'm joining
-1335371206147: sending LEADER_REQUEST
 1335371206147: inside sendPacket(Packet p)
 1335371206147: posting another leaderRequestRetryR after leaderRequestRetryPeriod
-1335371206157: Sending UDP payload: 446
+1335371206147: sending LEADER_REQUEST
 1335371206157: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335371206157: Sending UDP payload: 446
 1335371206448: sending LEADER_REQUEST
 1335371206449: inside sendPacket(Packet p)
 1335371206449: posting another leaderRequestRetryR after leaderRequestRetryPeriod
@@ -71,12 +71,12 @@
 1335371207051: inside sendPacket(Packet p)
 1335371207051: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335371207053: Sending UDP payload: 446
-1335371207158: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply
 1335371207158: and I'm removing leaderRequestRetryR because leader_request timed out
+1335371207158: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply
 1335371207159: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335371207160: ..... VCoreDaemon.java targetState = LEADER
 1335371207160: VCoreDaemon.java inside stateTransition ..........
 1335371207160: removing leaderRequestRetryR because I'm doing a stateTransition
-1335371207160: ..... VCoreDaemon.java targetState = LEADER
 1335371207160: trying to take leadership to the cloud
 1335371207282: Received UDP payload: 446
 1335371207692: cloud rejected leadership request or request failed, wait to retry
@@ -153,10 +153,10 @@
 1335371328608: inside sendPacket(Packet p)
 1335371328608: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335371328611: Sending UDP payload: 446
-1335371328702: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply
 1335371328702: and I'm removing leaderRequestRetryR because leader_request timed out
-1335371328703: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335371328702: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply
 1335371328703: VCoreDaemon.java inside stateTransition ..........
+1335371328703: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335371328703: removing leaderRequestRetryR because I'm doing a stateTransition
 1335371328704: ..... VCoreDaemon.java targetState = LEADER
 1335371328704: trying to take leadership to the cloud

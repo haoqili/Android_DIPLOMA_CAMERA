@@ -4,19 +4,19 @@
 1335365872435: starting Mux with id = -1
 1335365872436: areButtonsEnabled --> true
 1335365872437: *** Application started ***
-1335365872438: HI I'm in ONRESUME()
-1335365872448: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
 1335365872437: Mux.java run() beginning -------------
+1335365872438: HI I'm in ONRESUME()
 1335365872444: Mux.java's nodeId is5017
 1335365872444: mux starting vncDaemon ........
-1335365872446: vncDaemon started
 1335365872445: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
 1335365872446: VCoreDaemon.java onStart() ....
-1335365872447: started, mId = 5017
-1335365872447: VCoreDaemon.java inside stateTransition ..........
-1335365872447: removing leaderRequestRetryR because I'm doing a stateTransition
+1335365872446: vncDaemon started
 1335365872447: ..... VCoreDaemon.java out of bounds
+1335365872447: VCoreDaemon.java inside stateTransition ..........
 1335365872447: region (-1, -1) out of bounds, dormant
+1335365872447: removing leaderRequestRetryR because I'm doing a stateTransition
+1335365872447: started, mId = 5017
+1335365872448: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
 1335365872449: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335365874345: Received UDP payload: 446
 1335365874385: Received UDP payload: 446
@@ -104,8 +104,8 @@
 1335365894187: removing leaderRequestRetryR because I'm doing a stateTransition
 1335365894189: ..... VCoreDaemon.java targetState = JOINING
 1335365894189: posting leaderRequestRetryR because I'm joining
-1335365894192: sending LEADER_REQUEST
 1335365894192: inside sendPacket(Packet p)
+1335365894192: sending LEADER_REQUEST
 1335365894193: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335365894207: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335365894231: Sending UDP payload: 446
@@ -115,20 +115,20 @@
 1335365894494: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335365894495: Sending UDP payload: 446
 1335365894669: Received UDP payload: 446
-1335365894794: sending LEADER_REQUEST
 1335365894794: inside sendPacket(Packet p)
+1335365894794: sending LEADER_REQUEST
 1335365894795: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335365894798: Sending UDP payload: 446
 1335365894936: Received UDP payload: 446
-1335365895095: sending LEADER_REQUEST
 1335365895095: inside sendPacket(Packet p)
 1335365895095: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335365895095: sending LEADER_REQUEST
 1335365895099: Sending UDP payload: 446
 1335365895109: Received UDP payload: 446
 1335365895206: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply
+1335365895207: VCoreDaemon.java inside stateTransition ..........
 1335365895207: and I'm removing leaderRequestRetryR because leader_request timed out
 1335365895207: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
-1335365895207: VCoreDaemon.java inside stateTransition ..........
 1335365895207: removing leaderRequestRetryR because I'm doing a stateTransition
 1335365895208: ..... VCoreDaemon.java targetState = LEADER
 1335365895208: trying to take leadership to the cloud
@@ -142,8 +142,8 @@
 1335365896087: Received UDP payload: 446
 1335365896148: cloud accepted leadership request, returned csm bytes size 59975
 1335365896162: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
-1335365896164: *** Starting CSM Layer ***
 1335365896164: *** CSM Layer starting with cache disabled ***
+1335365896164: *** Starting CSM Layer ***
 1335365896165: *** CSM Layer starting with forwarding enabled ***
 1335365896199: Received UDP payload: 446
 1335365896364: Received UDP payload: 446
@@ -159,8 +159,8 @@
 1335365897905: now fully up as LEADER (id=5017) of (1,0)
 1335365897906: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335365897906: heard LEADER_REQUEST from node 5016, responding LEADER_REPLY
-1335365897946: inside sendPacket(Packet p)
 1335365897946: heard LEADER_REQUEST from node 5015, responding LEADER_REPLY
+1335365897946: inside sendPacket(Packet p)
 1335365897994: Sending UDP payload: 22005
 1335365898032: inside sendPacket(Packet p)
 1335365898034: Sending UDP payload: 22005
@@ -202,35 +202,34 @@
 1335365898590: Sending UDP payload: 446
 1335365898593: Dispatching Atom PROC_REPLY 11:1 (2,0)->(1,0)
 1335365898594: I got a CSM packet at a leader 
-
 1335365898598: Sending UDP payload: 989
+1335365898599: DSM layer timed out, don't log dsm layer latency stuff.
 1335365898599: Received PROC_REPLY 11:1 (2,0)->(1,0), handing to UserApp
 1335365898599: inside handleDSMReply. Now back in originator leader of region 1
-1335365898599: DSM layer timed out, don't log dsm layer latency stuff.
 1335365898607: Originator Region=1's Leader (for Client=5014) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1335365898607: change leader replyCounter to: 1
-1335365898608: reply packet contains the newest photo/success info from the remote region
 1335365898608: inside sendReplies of replyCount = 501700001
+1335365898608: reply packet contains the newest photo/success info from the remote region
 1335365898609: =======================
 1335365898611: inside sendReplyRepeatingRunnable for replyCount = 501700001
-1335365898612: Leader about to send REPLY packet, number: 501700001 type: 15 Leader in region: (1,0) to Client nodID: 5014
 1335365898612: I (the leader) was not the originator client (which id = 5014) so I use UDP to send packet back to my nonleader
+1335365898612: Leader about to send REPLY packet, number: 501700001 type: 15 Leader in region: (1,0) to Client nodID: 5014
 1335365898612: inside sendPacket(Packet p)
 1335365898613: === Finished one round of sending REPLY Packet =======
 1335365898615: Sending UDP payload: 642
 1335365898914: =======================
-1335365898914: inside sendReplyRepeatingRunnable for replyCount = 501700001
 1335365898914: Leader about to send REPLY packet, number: 501700001 type: 15 Leader in region: (1,0) to Client nodID: 5014
+1335365898914: inside sendReplyRepeatingRunnable for replyCount = 501700001
+1335365898915: === Finished one round of sending REPLY Packet =======
 1335365898915: I (the leader) was not the originator client (which id = 5014) so I use UDP to send packet back to my nonleader
 1335365898915: inside sendPacket(Packet p)
-1335365898915: === Finished one round of sending REPLY Packet =======
 1335365898917: Sending UDP payload: 642
 1335365899215: =======================
 1335365899215: inside sendReplyRepeatingRunnable for replyCount = 501700001
-1335365899216: Leader about to send REPLY packet, number: 501700001 type: 15 Leader in region: (1,0) to Client nodID: 5014
-1335365899216: I (the leader) was not the originator client (which id = 5014) so I use UDP to send packet back to my nonleader
-1335365899216: inside sendPacket(Packet p)
 1335365899216: === Finished one round of sending REPLY Packet =======
+1335365899216: I (the leader) was not the originator client (which id = 5014) so I use UDP to send packet back to my nonleader
+1335365899216: Leader about to send REPLY packet, number: 501700001 type: 15 Leader in region: (1,0) to Client nodID: 5014
+1335365899216: inside sendPacket(Packet p)
 1335365899217: Sending UDP payload: 642
 1335365899346: Received UDP payload: 446
 1335365899517: =======================
@@ -241,8 +240,8 @@
 1335365899533: Sending UDP payload: 642
 1335365899544: === Finished one round of sending REPLY Packet =======
 1335365899584: Received UDP payload: 446
-1335365899609: inside sendReplyTimeoutR
 1335365899609: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501700001
+1335365899609: inside sendReplyTimeoutR
 1335365900253: Received UDP payload: 446
 1335365900537: Received UDP payload: 446
 1335365900546: heard LEADER_REQUEST from node 5016, responding LEADER_REPLY
@@ -529,8 +528,8 @@
 1335366054900: nonce 398 heard from src region (4,0)
 1335366054954: Received UDP payload: 989
 1335366054971: GOT CSM_Msg
-1335366054972: nonce 399 heard from src region (3,0)
 1335366054972: Received UDP payload: 989
+1335366054972: nonce 399 heard from src region (3,0)
 1335366054975: GOT CSM_Msg
 1335366054975: nonce 400 heard from src region (4,0)
 1335366055057: Received UDP payload: 989

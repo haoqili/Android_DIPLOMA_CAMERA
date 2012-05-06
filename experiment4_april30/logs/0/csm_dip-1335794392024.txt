@@ -10,17 +10,17 @@
 1335794392050: mux: Mux.java run() beginning -------------
 1335794392062: mux: Mux.java's nodeId is5008
 1335794392062: mux: starting vncDaemon ........
-1335794392071: mux: vncDaemon started
 1335794392064: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1335794392071: mux: vncDaemon started
 1335794392073: VCoreDaemon.java onStart() ....
 1335794392074: started, mId = 5008
 1335794392075: VCoreDaemon.java inside stateTransition ..........
 1335794392075: removing leaderRequestRetryR because I'm doing a stateTransition
 1335794392076: ..... VCoreDaemon.java out of bounds
-1335794392077: region (-1, -1) out of bounds, dormant
 1335794392077: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335794404076: moving from region (-1,-1), to (1,0)
+1335794392077: region (-1, -1) out of bounds, dormant
 1335794404076: VCoreDaemon.java inside stateTransition ..........
+1335794404076: moving from region (-1,-1), to (1,0)
 1335794404076: removing leaderRequestRetryR because I'm doing a stateTransition
 1335794404077: ..... VCoreDaemon.java targetState = JOINING (1,0)
 1335794404077: posting leaderRequestRetryR because I'm joining
@@ -29,28 +29,28 @@
 1335794404078: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335794404116: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335794404142: Sending UDP payload: 446
-1335794404378: sending LEADER_REQUEST
 1335794404378: inside sendPacket(Packet p)
 1335794404378: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335794404378: sending LEADER_REQUEST
 1335794404383: Sending UDP payload: 446
-1335794404679: sending LEADER_REQUEST
 1335794404679: inside sendPacket(Packet p)
 1335794404679: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335794404679: sending LEADER_REQUEST
 1335794404681: Sending UDP payload: 446
-1335794404980: sending LEADER_REQUEST
 1335794404980: inside sendPacket(Packet p)
+1335794404980: sending LEADER_REQUEST
 1335794404981: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335794404984: Sending UDP payload: 446
-1335794405117: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335794405117: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335794405117: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335794405118: VCoreDaemon.java inside stateTransition ..........
 1335794405118: removing leaderRequestRetryR because I'm doing a stateTransition
 1335794405123: ..... VCoreDaemon.java targetState = LEADER
 1335794405123: trying to take leadership (1,0) to the cloud
 1335794405677: cloud accepted leadership request, no csm data included.
-1335794405685: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
-1335794405685: *** Starting CSM Layer ***
 1335794405685: *** CSM Layer starting with cache disabled ***
+1335794405685: *** Starting CSM Layer ***
+1335794405685: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
 1335794405686: *** CSM Layer starting with forwarding disabled ***
 1335794405699: DSMLayer starting
 1335794405700: UserApp started.
@@ -87,62 +87,60 @@
 1335794437175: Sending UDP payload: 446
 1335794437451: Received UDP payload: 5749
 1335794437470: mux: Inside mux Packet.CLIENT_REQUEST
-1335794437471: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794437471: inside handleClientRequest. Originator leader of region 1
-1335794437472: got new request, requestCounter = 5011002
+1335794437471: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794437472: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
+1335794437472: got new request, requestCounter = 5011002
 1335794437474: Sending PROC_REQUEST 10:0 (1,0)->(1,0)
 1335794437481: Dispatching Atom PROC_REQUEST 10:0 (1,0)->(1,0)
+1335794437482: Note down new request by adding requestCounter=5011002 to HashMap processedRequests
+1335794437483: Make FirstLeg Ack regardless of new or already-processed requests
+1335794437485: The leader sending a First Leg ack to originator client (which id = 5011)
+1335794437485: inside sendPacket(Packet p)
 1335794437486: mux: I got a CSM packet at a leader 
-
+1335794437511: Sending UDP payload: 6113
+1335794437518: removed replies before id 0 from sentReplies of size 0
+1335794437519: inside handleDSMRequest. At requests's remote leader of region 1
+1335794437521: Inside UPLOAD_PHOTO!!
+1335794437524: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1335794437524: my_gpinfo.isSuccess is now (should be true): true
+1335794437534: Received PROC_REQUEST 10:0 (1,0)->(1,0), replying PROC_REPLY 10:0 (1,0)->(1,0)
+1335794437535: Dispatching Atom PROC_REPLY 10:0 (1,0)->(1,0)
+1335794437536: Sending UDP payload: 446
+1335794437537: mux: I got a CSM packet at a leader 
+1335794437538: Sending UDP payload: 989
+1335794437545: Received PROC_REPLY 10:0 (1,0)->(1,0), handing to UserApp
+1335794437546: DSM layer: Going to and from remote region took latency = 73
+1335794437546: DSM layer: orig leader sent packet at 1335794437473 ~ received reply from remote leader at 1335794437546
+1335794437546: inside handleDSMReply. Now back in originator leader of region 1
+1335794437547: Originator Region=1's Leader (for Client=5011) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335794437547: change leader replyCounter to: 1
+1335794437547: reply packet contains the success info for UPLOAD_PHOTO
+1335794437548: =======================
+1335794437548: Leader about to send REPLY packet, number: 500800001 type: 16 Leader in region: (1,0) to Client nodID: 5011
+1335794437548: inside sendReplies of replyCount = 500800001
+1335794437548: inside sendReplyRepeatingRunnable for replyCount = 500800001
+1335794437549: === Finished one round of sending REPLY Packet =======
+1335794437549: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
+1335794437549: inside sendPacket(Packet p)
+1335794437551: Sending UDP payload: 642
 1335794437553: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
 1335794437556: I'm a leader and I successfully saved my client's new photo
 1335794437556: now showing in UI the new photo I just saved ... 
 1335794437557: the photo length: 5102
 1335794437589: end of server show photo aside %%%%%%%%%
-1335794437482: Note down new request by adding requestCounter=5011002 to HashMap processedRequests
-1335794437483: Make FirstLeg Ack regardless of new or already-processed requests
-1335794437485: The leader sending a First Leg ack to originator client (which id = 5011)
-1335794437485: inside sendPacket(Packet p)
-1335794437511: Sending UDP payload: 6113
-1335794437518: removed replies before id 0 from sentReplies of size 0
-1335794437519: inside handleDSMRequest. At requests's remote leader of region 1
-1335794437521: Inside UPLOAD_PHOTO!!
-1335794437524: my_gpinfo.isSuccess is now (should be true): true
-1335794437524: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
-1335794437534: Received PROC_REQUEST 10:0 (1,0)->(1,0), replying PROC_REPLY 10:0 (1,0)->(1,0)
-1335794437535: Dispatching Atom PROC_REPLY 10:0 (1,0)->(1,0)
-1335794437537: mux: I got a CSM packet at a leader 
-
-1335794437536: Sending UDP payload: 446
-1335794437538: Sending UDP payload: 989
-1335794437545: Received PROC_REPLY 10:0 (1,0)->(1,0), handing to UserApp
-1335794437546: inside handleDSMReply. Now back in originator leader of region 1
-1335794437546: DSM layer: Going to and from remote region took latency = 73
-1335794437546: DSM layer: orig leader sent packet at 1335794437473 ~ received reply from remote leader at 1335794437546
-1335794437547: Originator Region=1's Leader (for Client=5011) processes remote region's dsm atom reply and will send Packet reply to Originator Client
-1335794437547: change leader replyCounter to: 1
-1335794437547: reply packet contains the success info for UPLOAD_PHOTO
-1335794437548: inside sendReplies of replyCount = 500800001
-1335794437548: =======================
-1335794437548: inside sendReplyRepeatingRunnable for replyCount = 500800001
-1335794437548: Leader about to send REPLY packet, number: 500800001 type: 16 Leader in region: (1,0) to Client nodID: 5011
-1335794437549: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
-1335794437549: inside sendPacket(Packet p)
-1335794437549: === Finished one round of sending REPLY Packet =======
-1335794437551: Sending UDP payload: 642
 1335794437849: =======================
 1335794437849: inside sendReplyRepeatingRunnable for replyCount = 500800001
-1335794437850: Leader about to send REPLY packet, number: 500800001 type: 16 Leader in region: (1,0) to Client nodID: 5011
-1335794437850: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
-1335794437850: inside sendPacket(Packet p)
 1335794437850: === Finished one round of sending REPLY Packet =======
+1335794437850: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
+1335794437850: Leader about to send REPLY packet, number: 500800001 type: 16 Leader in region: (1,0) to Client nodID: 5011
+1335794437850: inside sendPacket(Packet p)
 1335794437852: Sending UDP payload: 642
 1335794437876: Received UDP payload: 446
-1335794437879: mux: Inside mux Packet.CLIENT_REQUEST
-1335794437879: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335794437879: inside handleClientRequest. Originator leader of region 1
 1335794437879: got new request, requestCounter = 5011003
+1335794437879: inside handleClientRequest. Originator leader of region 1
+1335794437879: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335794437879: mux: Inside mux Packet.CLIENT_REQUEST
 1335794437880: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 500800001
 1335794437880: Yay the last leg succeeded. Removing reply runnables ...
 1335794437880: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 500800001
@@ -155,58 +153,56 @@
 1335794449799: Received UDP payload: 6052
 1335794449811: mux: Inside mux Packet.CLIENT_REQUEST
 1335794449812: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335794449813: inside handleClientRequest. Originator leader of region 1
 1335794449813: got new request, requestCounter = 5011004
+1335794449813: inside handleClientRequest. Originator leader of region 1
 1335794449814: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
 1335794449815: Sending PROC_REQUEST 10:1 (1,0)->(1,0)
 1335794449817: Dispatching Atom PROC_REQUEST 10:1 (1,0)->(1,0)
-1335794449839: mux: I got a CSM packet at a leader 
-
-1335794449867: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1335794449871: I'm a leader and I successfully saved my client's new photo
-1335794449871: now showing in UI the new photo I just saved ... 
-1335794449872: the photo length: 5405
-1335794449913: end of server show photo aside %%%%%%%%%
-1335794449817: Note down new request by adding requestCounter=5011004 to HashMap processedRequests
 1335794449817: Make FirstLeg Ack regardless of new or already-processed requests
+1335794449817: Note down new request by adding requestCounter=5011004 to HashMap processedRequests
 1335794449818: The leader sending a First Leg ack to originator client (which id = 5011)
 1335794449818: inside sendPacket(Packet p)
+1335794449839: mux: I got a CSM packet at a leader 
 1335794449846: Sending UDP payload: 6416
 1335794449857: removed replies before id 1 from sentReplies of size 0
 1335794449858: inside handleDSMRequest. At requests's remote leader of region 1
 1335794449859: Inside UPLOAD_PHOTO!!
-1335794449861: my_gpinfo.isSuccess is now (should be true): true
 1335794449861: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
-1335794449863: Received PROC_REQUEST 10:1 (1,0)->(1,0), replying PROC_REPLY 10:1 (1,0)->(1,0)
+1335794449861: my_gpinfo.isSuccess is now (should be true): true
 1335794449863: Dispatching Atom PROC_REPLY 10:1 (1,0)->(1,0)
-1335794449869: mux: I got a CSM packet at a leader 
-
+1335794449863: Received PROC_REQUEST 10:1 (1,0)->(1,0), replying PROC_REPLY 10:1 (1,0)->(1,0)
 1335794449864: Sending UDP payload: 446
+1335794449867: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335794449869: mux: I got a CSM packet at a leader 
 1335794449870: Sending UDP payload: 989
-1335794449901: Received PROC_REPLY 10:1 (1,0)->(1,0), handing to UserApp
-1335794449901: inside handleDSMReply. Now back in originator leader of region 1
+1335794449871: I'm a leader and I successfully saved my client's new photo
+1335794449871: now showing in UI the new photo I just saved ... 
+1335794449872: the photo length: 5405
 1335794449901: DSM layer: Going to and from remote region took latency = 87
 1335794449901: DSM layer: orig leader sent packet at 1335794449814 ~ received reply from remote leader at 1335794449901
+1335794449901: Received PROC_REPLY 10:1 (1,0)->(1,0), handing to UserApp
+1335794449901: inside handleDSMReply. Now back in originator leader of region 1
 1335794449902: Originator Region=1's Leader (for Client=5011) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1335794449902: change leader replyCounter to: 2
-1335794449902: reply packet contains the success info for UPLOAD_PHOTO
 1335794449902: inside sendReplies of replyCount = 500800002
+1335794449902: reply packet contains the success info for UPLOAD_PHOTO
 1335794449903: =======================
-1335794449904: inside sendReplyRepeatingRunnable for replyCount = 500800002
-1335794449904: Leader about to send REPLY packet, number: 500800002 type: 16 Leader in region: (1,0) to Client nodID: 5011
-1335794449904: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
-1335794449904: inside sendPacket(Packet p)
 1335794449904: === Finished one round of sending REPLY Packet =======
+1335794449904: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
+1335794449904: Leader about to send REPLY packet, number: 500800002 type: 16 Leader in region: (1,0) to Client nodID: 5011
+1335794449904: inside sendPacket(Packet p)
+1335794449904: inside sendReplyRepeatingRunnable for replyCount = 500800002
 1335794449906: Sending UDP payload: 642
+1335794449913: end of server show photo aside %%%%%%%%%
 1335794450025: Received UDP payload: 446
-1335794450027: mux: Inside mux Packet.CLIENT_REQUEST
 1335794450027: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335794450028: inside handleClientRequest. Originator leader of region 1
-1335794450028: got new request, requestCounter = 5011005
+1335794450027: mux: Inside mux Packet.CLIENT_REQUEST
 1335794450028: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 500800002
 1335794450028: Yay the last leg succeeded. Removing reply runnables ...
 1335794450028: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 500800002
 1335794450028: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 500800002
+1335794450028: got new request, requestCounter = 5011005
+1335794450028: inside handleClientRequest. Originator leader of region 1
 1335794450029: do not send ack for received final_leg_ack
 1335794452190: inside sendPacket(Packet p)
 1335794452195: Sending UDP payload: 446
@@ -217,118 +213,114 @@
 1335794467192: inside sendPacket(Packet p)
 1335794467197: Sending UDP payload: 446
 1335794468008: Received UDP payload: 5789
-1335794468018: mux: Inside mux Packet.CLIENT_REQUEST
 1335794468018: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335794468019: inside handleClientRequest. Originator leader of region 1
+1335794468018: mux: Inside mux Packet.CLIENT_REQUEST
 1335794468019: got new request, requestCounter = 5011007
+1335794468019: inside handleClientRequest. Originator leader of region 1
 1335794468020: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
 1335794468022: Sending PROC_REQUEST 10:2 (1,0)->(1,0)
 1335794468023: Dispatching Atom PROC_REQUEST 10:2 (1,0)->(1,0)
-1335794468026: mux: I got a CSM packet at a leader 
-
-1335794468082: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1335794468083: I'm a leader and I successfully saved my client's new photo
-1335794468084: now showing in UI the new photo I just saved ... 
-1335794468084: the photo length: 5142
-1335794468131: end of server show photo aside %%%%%%%%%
-1335794468024: Note down new request by adding requestCounter=5011007 to HashMap processedRequests
 1335794468024: Make FirstLeg Ack regardless of new or already-processed requests
+1335794468024: Note down new request by adding requestCounter=5011007 to HashMap processedRequests
 1335794468024: The leader sending a First Leg ack to originator client (which id = 5011)
 1335794468025: inside sendPacket(Packet p)
+1335794468026: mux: I got a CSM packet at a leader 
 1335794468054: Sending UDP payload: 6153
-1335794468062: removed replies before id 2 from sentReplies of size 0
 1335794468062: inside handleDSMRequest. At requests's remote leader of region 1
+1335794468062: removed replies before id 2 from sentReplies of size 0
 1335794468063: Inside UPLOAD_PHOTO!!
-1335794468065: my_gpinfo.isSuccess is now (should be true): true
 1335794468065: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
-1335794468067: Received PROC_REQUEST 10:2 (1,0)->(1,0), replying PROC_REPLY 10:2 (1,0)->(1,0)
+1335794468065: my_gpinfo.isSuccess is now (should be true): true
 1335794468067: Dispatching Atom PROC_REPLY 10:2 (1,0)->(1,0)
-1335794468073: mux: I got a CSM packet at a leader 
-
+1335794468067: Received PROC_REQUEST 10:2 (1,0)->(1,0), replying PROC_REPLY 10:2 (1,0)->(1,0)
 1335794468068: Sending UDP payload: 446
+1335794468073: mux: I got a CSM packet at a leader 
 1335794468075: Sending UDP payload: 989
+1335794468076: DSM layer: Going to and from remote region took latency = 56
 1335794468076: Received PROC_REPLY 10:2 (1,0)->(1,0), handing to UserApp
 1335794468076: inside handleDSMReply. Now back in originator leader of region 1
-1335794468076: DSM layer: Going to and from remote region took latency = 56
 1335794468077: DSM layer: orig leader sent packet at 1335794468020 ~ received reply from remote leader at 1335794468076
 1335794468078: Originator Region=1's Leader (for Client=5011) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1335794468078: change leader replyCounter to: 3
 1335794468078: reply packet contains the success info for UPLOAD_PHOTO
-1335794468120: inside sendReplies of replyCount = 500800003
+1335794468082: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335794468083: I'm a leader and I successfully saved my client's new photo
+1335794468084: now showing in UI the new photo I just saved ... 
+1335794468084: the photo length: 5142
 1335794468120: =======================
-1335794468121: inside sendReplyRepeatingRunnable for replyCount = 500800003
-1335794468121: Leader about to send REPLY packet, number: 500800003 type: 16 Leader in region: (1,0) to Client nodID: 5011
-1335794468121: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
-1335794468121: inside sendPacket(Packet p)
+1335794468120: inside sendReplies of replyCount = 500800003
 1335794468121: === Finished one round of sending REPLY Packet =======
+1335794468121: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
+1335794468121: Leader about to send REPLY packet, number: 500800003 type: 16 Leader in region: (1,0) to Client nodID: 5011
+1335794468121: inside sendPacket(Packet p)
+1335794468121: inside sendReplyRepeatingRunnable for replyCount = 500800003
 1335794468125: Sending UDP payload: 642
+1335794468131: end of server show photo aside %%%%%%%%%
 1335794468205: Received UDP payload: 446
-1335794468207: mux: Inside mux Packet.CLIENT_REQUEST
-1335794468207: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794468207: inside handleClientRequest. Originator leader of region 1
-1335794468208: got new request, requestCounter = 5011008
+1335794468207: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335794468207: mux: Inside mux Packet.CLIENT_REQUEST
 1335794468208: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 500800003
 1335794468208: Yay the last leg succeeded. Removing reply runnables ...
 1335794468208: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 500800003
 1335794468208: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 500800003
 1335794468208: do not send ack for received final_leg_ack
+1335794468208: got new request, requestCounter = 5011008
 1335794472193: inside sendPacket(Packet p)
 1335794472195: Sending UDP payload: 446
 1335794477194: inside sendPacket(Packet p)
 1335794477213: Sending UDP payload: 446
 1335794477998: Received UDP payload: 4796
 1335794478006: mux: Inside mux Packet.CLIENT_REQUEST
-1335794478007: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794478007: inside handleClientRequest. Originator leader of region 1
-1335794478008: got new request, requestCounter = 5011009
+1335794478007: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794478008: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
+1335794478008: got new request, requestCounter = 5011009
 1335794478010: Sending PROC_REQUEST 10:3 (1,0)->(1,0)
 1335794478012: Dispatching Atom PROC_REQUEST 10:3 (1,0)->(1,0)
+1335794478012: Make FirstLeg Ack regardless of new or already-processed requests
+1335794478012: Note down new request by adding requestCounter=5011009 to HashMap processedRequests
+1335794478013: The leader sending a First Leg ack to originator client (which id = 5011)
+1335794478013: inside sendPacket(Packet p)
 1335794478014: mux: I got a CSM packet at a leader 
-
+1335794478033: Sending UDP payload: 5160
+1335794478038: removed replies before id 3 from sentReplies of size 0
+1335794478044: inside handleDSMRequest. At requests's remote leader of region 1
+1335794478047: Inside UPLOAD_PHOTO!!
+1335794478062: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1335794478062: my_gpinfo.isSuccess is now (should be true): true
+1335794478064: Dispatching Atom PROC_REPLY 10:3 (1,0)->(1,0)
+1335794478064: Received PROC_REQUEST 10:3 (1,0)->(1,0), replying PROC_REPLY 10:3 (1,0)->(1,0)
+1335794478065: Sending UDP payload: 446
+1335794478066: mux: I got a CSM packet at a leader 
+1335794478068: Sending UDP payload: 989
+1335794478074: DSM layer: Going to and from remote region took latency = 65
+1335794478074: DSM layer: orig leader sent packet at 1335794478009 ~ received reply from remote leader at 1335794478074
+1335794478074: Received PROC_REPLY 10:3 (1,0)->(1,0), handing to UserApp
+1335794478074: inside handleDSMReply. Now back in originator leader of region 1
+1335794478075: Originator Region=1's Leader (for Client=5011) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1335794478075: change leader replyCounter to: 4
+1335794478075: reply packet contains the success info for UPLOAD_PHOTO
+1335794478076: =======================
+1335794478076: Leader about to send REPLY packet, number: 500800004 type: 16 Leader in region: (1,0) to Client nodID: 5011
+1335794478076: inside sendReplies of replyCount = 500800004
+1335794478076: inside sendReplyRepeatingRunnable for replyCount = 500800004
+1335794478077: === Finished one round of sending REPLY Packet =======
+1335794478077: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
+1335794478077: inside sendPacket(Packet p)
+1335794478079: Sending UDP payload: 642
 1335794478081: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
 1335794478082: I'm a leader and I successfully saved my client's new photo
 1335794478083: now showing in UI the new photo I just saved ... 
 1335794478083: the photo length: 4149
 1335794478116: end of server show photo aside %%%%%%%%%
-1335794478012: Note down new request by adding requestCounter=5011009 to HashMap processedRequests
-1335794478012: Make FirstLeg Ack regardless of new or already-processed requests
-1335794478013: The leader sending a First Leg ack to originator client (which id = 5011)
-1335794478013: inside sendPacket(Packet p)
-1335794478033: Sending UDP payload: 5160
-1335794478038: removed replies before id 3 from sentReplies of size 0
-1335794478044: inside handleDSMRequest. At requests's remote leader of region 1
-1335794478047: Inside UPLOAD_PHOTO!!
-1335794478062: my_gpinfo.isSuccess is now (should be true): true
-1335794478062: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
-1335794478064: Received PROC_REQUEST 10:3 (1,0)->(1,0), replying PROC_REPLY 10:3 (1,0)->(1,0)
-1335794478064: Dispatching Atom PROC_REPLY 10:3 (1,0)->(1,0)
-1335794478066: mux: I got a CSM packet at a leader 
-
-1335794478065: Sending UDP payload: 446
-1335794478068: Sending UDP payload: 989
-1335794478074: Received PROC_REPLY 10:3 (1,0)->(1,0), handing to UserApp
-1335794478074: inside handleDSMReply. Now back in originator leader of region 1
-1335794478074: DSM layer: Going to and from remote region took latency = 65
-1335794478074: DSM layer: orig leader sent packet at 1335794478009 ~ received reply from remote leader at 1335794478074
-1335794478075: Originator Region=1's Leader (for Client=5011) processes remote region's dsm atom reply and will send Packet reply to Originator Client
-1335794478075: change leader replyCounter to: 4
-1335794478075: reply packet contains the success info for UPLOAD_PHOTO
-1335794478076: inside sendReplies of replyCount = 500800004
-1335794478076: =======================
-1335794478076: inside sendReplyRepeatingRunnable for replyCount = 500800004
-1335794478076: Leader about to send REPLY packet, number: 500800004 type: 16 Leader in region: (1,0) to Client nodID: 5011
-1335794478077: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
-1335794478077: inside sendPacket(Packet p)
-1335794478077: === Finished one round of sending REPLY Packet =======
-1335794478079: Sending UDP payload: 642
 1335794478166: Received UDP payload: 446
-1335794478168: mux: Inside mux Packet.CLIENT_REQUEST
-1335794478168: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335794478168: inside handleClientRequest. Originator leader of region 1
-1335794478168: got new request, requestCounter = 5011010
 1335794478168: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 500800004
 1335794478168: Yay the last leg succeeded. Removing reply runnables ...
+1335794478168: got new request, requestCounter = 5011010
+1335794478168: inside handleClientRequest. Originator leader of region 1
+1335794478168: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335794478168: mux: Inside mux Packet.CLIENT_REQUEST
 1335794478169: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 500800004
 1335794478169: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 500800004
 1335794478169: do not send ack for received final_leg_ack
@@ -336,23 +328,17 @@
 1335794482220: Sending UDP payload: 446
 1335794482667: Received UDP payload: 4967
 1335794482677: mux: Inside mux Packet.CLIENT_REQUEST
-1335794482678: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335794482678: inside handleClientRequest. Originator leader of region 1
 1335794482678: got new request, requestCounter = 5011011
+1335794482678: inside handleClientRequest. Originator leader of region 1
+1335794482678: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794482679: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
 1335794482680: Sending PROC_REQUEST 10:4 (1,0)->(1,0)
 1335794482683: Dispatching Atom PROC_REQUEST 10:4 (1,0)->(1,0)
-1335794482687: mux: I got a CSM packet at a leader 
-
-1335794482745: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1335794482746: I'm a leader and I successfully saved my client's new photo
-1335794482746: now showing in UI the new photo I just saved ... 
-1335794482747: the photo length: 4320
-1335794482787: end of server show photo aside %%%%%%%%%
-1335794482685: Note down new request by adding requestCounter=5011011 to HashMap processedRequests
 1335794482685: Make FirstLeg Ack regardless of new or already-processed requests
+1335794482685: Note down new request by adding requestCounter=5011011 to HashMap processedRequests
 1335794482686: The leader sending a First Leg ack to originator client (which id = 5011)
 1335794482686: inside sendPacket(Packet p)
+1335794482687: mux: I got a CSM packet at a leader 
 1335794482703: Sending UDP payload: 5331
 1335794482712: removed replies before id 4 from sentReplies of size 0
 1335794482713: inside handleDSMRequest. At requests's remote leader of region 1
@@ -361,30 +347,34 @@
 1335794482728: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
 1335794482739: Received PROC_REQUEST 10:4 (1,0)->(1,0), replying PROC_REPLY 10:4 (1,0)->(1,0)
 1335794482740: Dispatching Atom PROC_REPLY 10:4 (1,0)->(1,0)
-1335794482741: mux: I got a CSM packet at a leader 
-
 1335794482741: Sending UDP payload: 446
+1335794482741: mux: I got a CSM packet at a leader 
 1335794482743: Sending UDP payload: 989
+1335794482745: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335794482746: I'm a leader and I successfully saved my client's new photo
+1335794482746: now showing in UI the new photo I just saved ... 
+1335794482747: the photo length: 4320
 1335794482773: Received PROC_REPLY 10:4 (1,0)->(1,0), handing to UserApp
-1335794482774: inside handleDSMReply. Now back in originator leader of region 1
 1335794482774: DSM layer: Going to and from remote region took latency = 94
 1335794482774: DSM layer: orig leader sent packet at 1335794482679 ~ received reply from remote leader at 1335794482773
+1335794482774: inside handleDSMReply. Now back in originator leader of region 1
 1335794482775: Originator Region=1's Leader (for Client=5011) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1335794482775: change leader replyCounter to: 5
-1335794482775: reply packet contains the success info for UPLOAD_PHOTO
 1335794482775: inside sendReplies of replyCount = 500800005
-1335794482776: =======================
-1335794482776: inside sendReplyRepeatingRunnable for replyCount = 500800005
-1335794482776: Leader about to send REPLY packet, number: 500800005 type: 16 Leader in region: (1,0) to Client nodID: 5011
-1335794482776: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
-1335794482776: inside sendPacket(Packet p)
+1335794482775: reply packet contains the success info for UPLOAD_PHOTO
 1335794482776: === Finished one round of sending REPLY Packet =======
+1335794482776: =======================
+1335794482776: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
+1335794482776: Leader about to send REPLY packet, number: 500800005 type: 16 Leader in region: (1,0) to Client nodID: 5011
+1335794482776: inside sendPacket(Packet p)
+1335794482776: inside sendReplyRepeatingRunnable for replyCount = 500800005
 1335794482781: Sending UDP payload: 642
+1335794482787: end of server show photo aside %%%%%%%%%
 1335794482838: Received UDP payload: 446
-1335794482840: mux: Inside mux Packet.CLIENT_REQUEST
-1335794482840: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335794482840: inside handleClientRequest. Originator leader of region 1
 1335794482840: got new request, requestCounter = 5011012
+1335794482840: inside handleClientRequest. Originator leader of region 1
+1335794482840: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335794482840: mux: Inside mux Packet.CLIENT_REQUEST
 1335794482841: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 500800005
 1335794482841: Yay the last leg succeeded. Removing reply runnables ...
 1335794482841: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 500800005
@@ -394,70 +384,68 @@
 1335794487220: Sending UDP payload: 446
 1335794487599: Received UDP payload: 4857
 1335794487609: mux: Inside mux Packet.CLIENT_REQUEST
-1335794487610: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794487610: inside handleClientRequest. Originator leader of region 1
-1335794487611: got new request, requestCounter = 5011013
+1335794487610: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794487611: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
+1335794487611: got new request, requestCounter = 5011013
 1335794487613: Sending PROC_REQUEST 10:5 (1,0)->(1,0)
 1335794487614: Dispatching Atom PROC_REQUEST 10:5 (1,0)->(1,0)
-1335794487619: mux: I got a CSM packet at a leader 
-
-1335794487690: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1335794487692: I'm a leader and I successfully saved my client's new photo
-1335794487692: now showing in UI the new photo I just saved ... 
-1335794487693: the photo length: 4210
-1335794487724: end of server show photo aside %%%%%%%%%
 1335794487614: Note down new request by adding requestCounter=5011013 to HashMap processedRequests
 1335794487617: Make FirstLeg Ack regardless of new or already-processed requests
 1335794487618: The leader sending a First Leg ack to originator client (which id = 5011)
 1335794487618: inside sendPacket(Packet p)
+1335794487619: mux: I got a CSM packet at a leader 
 1335794487632: Sending UDP payload: 5221
 1335794487642: removed replies before id 5 from sentReplies of size 0
 1335794487643: inside handleDSMRequest. At requests's remote leader of region 1
 1335794487664: Inside UPLOAD_PHOTO!!
 1335794487668: my_gpinfo.isSuccess is now (should be true): true
 1335794487672: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
-1335794487674: Received PROC_REQUEST 10:5 (1,0)->(1,0), replying PROC_REPLY 10:5 (1,0)->(1,0)
 1335794487674: Dispatching Atom PROC_REPLY 10:5 (1,0)->(1,0)
-1335794487676: mux: I got a CSM packet at a leader 
-
+1335794487674: Received PROC_REQUEST 10:5 (1,0)->(1,0), replying PROC_REPLY 10:5 (1,0)->(1,0)
 1335794487675: Sending UDP payload: 446
+1335794487676: mux: I got a CSM packet at a leader 
 1335794487677: Sending UDP payload: 989
+1335794487683: DSM layer: Going to and from remote region took latency = 72
 1335794487683: Received PROC_REPLY 10:5 (1,0)->(1,0), handing to UserApp
 1335794487683: inside handleDSMReply. Now back in originator leader of region 1
-1335794487683: DSM layer: Going to and from remote region took latency = 72
 1335794487684: DSM layer: orig leader sent packet at 1335794487611 ~ received reply from remote leader at 1335794487683
 1335794487685: Originator Region=1's Leader (for Client=5011) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1335794487685: change leader replyCounter to: 6
-1335794487685: reply packet contains the success info for UPLOAD_PHOTO
 1335794487685: inside sendReplies of replyCount = 500800006
-1335794487686: =======================
-1335794487686: inside sendReplyRepeatingRunnable for replyCount = 500800006
-1335794487686: Leader about to send REPLY packet, number: 500800006 type: 16 Leader in region: (1,0) to Client nodID: 5011
-1335794487686: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
-1335794487686: inside sendPacket(Packet p)
+1335794487685: reply packet contains the success info for UPLOAD_PHOTO
 1335794487686: === Finished one round of sending REPLY Packet =======
+1335794487686: =======================
+1335794487686: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
+1335794487686: Leader about to send REPLY packet, number: 500800006 type: 16 Leader in region: (1,0) to Client nodID: 5011
+1335794487686: inside sendPacket(Packet p)
+1335794487686: inside sendReplyRepeatingRunnable for replyCount = 500800006
 1335794487688: Sending UDP payload: 642
+1335794487690: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335794487692: I'm a leader and I successfully saved my client's new photo
+1335794487692: now showing in UI the new photo I just saved ... 
+1335794487693: the photo length: 4210
+1335794487724: end of server show photo aside %%%%%%%%%
 1335794487917: Received UDP payload: 4857
-1335794487919: mux: Inside mux Packet.CLIENT_REQUEST
-1335794487919: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335794487919: inside handleClientRequest. Originator leader of region 1
-1335794487919: discarding repeated requestCounter=5011013, but still send an ack back
 1335794487919: Note down new request by adding requestCounter=5011013 to HashMap processedRequests
+1335794487919: discarding repeated requestCounter=5011013, but still send an ack back
+1335794487919: inside handleClientRequest. Originator leader of region 1
+1335794487919: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335794487919: mux: Inside mux Packet.CLIENT_REQUEST
 1335794487920: Make FirstLeg Ack regardless of new or already-processed requests
 1335794487920: The leader sending a First Leg ack to originator client (which id = 5011)
 1335794487920: inside sendPacket(Packet p)
 1335794487921: Sending UDP payload: 446
 1335794487925: Received UDP payload: 446
-1335794487927: mux: Inside mux Packet.CLIENT_REQUEST
-1335794487927: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794487927: inside handleClientRequest. Originator leader of region 1
-1335794487928: got new request, requestCounter = 5011014
+1335794487927: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335794487927: mux: Inside mux Packet.CLIENT_REQUEST
 1335794487928: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 500800006
 1335794487928: Yay the last leg succeeded. Removing reply runnables ...
 1335794487928: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 500800006
 1335794487928: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 500800006
 1335794487928: do not send ack for received final_leg_ack
+1335794487928: got new request, requestCounter = 5011014
 1335794492217: inside sendPacket(Packet p)
 1335794492221: Sending UDP payload: 446
 1335794497218: inside sendPacket(Packet p)
@@ -466,69 +454,67 @@
 1335794502235: Sending UDP payload: 446
 1335794503056: Received UDP payload: 4522
 1335794503064: mux: Inside mux Packet.CLIENT_REQUEST
-1335794503065: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794503065: inside handleClientRequest. Originator leader of region 1
-1335794503066: got new request, requestCounter = 5011015
+1335794503065: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335794503066: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
+1335794503066: got new request, requestCounter = 5011015
 1335794503067: Sending PROC_REQUEST 10:6 (1,0)->(1,0)
 1335794503068: Dispatching Atom PROC_REQUEST 10:6 (1,0)->(1,0)
-1335794503073: mux: I got a CSM packet at a leader 
-
-1335794503143: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1335794503144: I'm a leader and I successfully saved my client's new photo
-1335794503145: now showing in UI the new photo I just saved ... 
-1335794503145: the photo length: 3875
-1335794503183: end of server show photo aside %%%%%%%%%
 1335794503071: Note down new request by adding requestCounter=5011015 to HashMap processedRequests
 1335794503072: Make FirstLeg Ack regardless of new or already-processed requests
 1335794503072: The leader sending a First Leg ack to originator client (which id = 5011)
 1335794503072: inside sendPacket(Packet p)
+1335794503073: mux: I got a CSM packet at a leader 
 1335794503090: Sending UDP payload: 4886
-1335794503094: removed replies before id 6 from sentReplies of size 0
 1335794503094: inside handleDSMRequest. At requests's remote leader of region 1
+1335794503094: removed replies before id 6 from sentReplies of size 0
 1335794503097: Inside UPLOAD_PHOTO!!
-1335794503102: my_gpinfo.isSuccess is now (should be true): true
 1335794503102: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1335794503102: my_gpinfo.isSuccess is now (should be true): true
 1335794503121: Received PROC_REQUEST 10:6 (1,0)->(1,0), replying PROC_REPLY 10:6 (1,0)->(1,0)
 1335794503123: Dispatching Atom PROC_REPLY 10:6 (1,0)->(1,0)
-1335794503130: mux: I got a CSM packet at a leader 
-
 1335794503126: Sending UDP payload: 446
+1335794503130: mux: I got a CSM packet at a leader 
 1335794503134: Sending UDP payload: 989
-1335794503172: Received PROC_REPLY 10:6 (1,0)->(1,0), handing to UserApp
-1335794503172: inside handleDSMReply. Now back in originator leader of region 1
+1335794503143: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335794503144: I'm a leader and I successfully saved my client's new photo
+1335794503145: now showing in UI the new photo I just saved ... 
+1335794503145: the photo length: 3875
 1335794503172: DSM layer: Going to and from remote region took latency = 106
 1335794503172: DSM layer: orig leader sent packet at 1335794503066 ~ received reply from remote leader at 1335794503172
+1335794503172: Received PROC_REPLY 10:6 (1,0)->(1,0), handing to UserApp
+1335794503172: inside handleDSMReply. Now back in originator leader of region 1
 1335794503173: Originator Region=1's Leader (for Client=5011) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1335794503173: change leader replyCounter to: 7
-1335794503173: reply packet contains the success info for UPLOAD_PHOTO
 1335794503173: inside sendReplies of replyCount = 500800007
+1335794503173: reply packet contains the success info for UPLOAD_PHOTO
 1335794503174: =======================
 1335794503174: inside sendReplyRepeatingRunnable for replyCount = 500800007
-1335794503175: Leader about to send REPLY packet, number: 500800007 type: 16 Leader in region: (1,0) to Client nodID: 5011
-1335794503175: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
-1335794503175: inside sendPacket(Packet p)
 1335794503175: === Finished one round of sending REPLY Packet =======
+1335794503175: I (the leader) was not the originator client (which id = 5011) so I use UDP to send packet back to my nonleader
+1335794503175: Leader about to send REPLY packet, number: 500800007 type: 16 Leader in region: (1,0) to Client nodID: 5011
+1335794503175: inside sendPacket(Packet p)
 1335794503176: Sending UDP payload: 642
+1335794503183: end of server show photo aside %%%%%%%%%
 1335794503229: Received UDP payload: 446
-1335794503231: mux: Inside mux Packet.CLIENT_REQUEST
 1335794503231: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335794503232: inside handleClientRequest. Originator leader of region 1
-1335794503232: got new request, requestCounter = 5011016
+1335794503231: mux: Inside mux Packet.CLIENT_REQUEST
 1335794503232: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 500800007
 1335794503232: Yay the last leg succeeded. Removing reply runnables ...
 1335794503232: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 500800007
 1335794503232: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 500800007
 1335794503232: do not send ack for received final_leg_ack
+1335794503232: got new request, requestCounter = 5011016
+1335794503232: inside handleClientRequest. Originator leader of region 1
 1335794503371: Received UDP payload: 4522
-1335794503373: mux: Inside mux Packet.CLIENT_REQUEST
-1335794503373: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335794503373: inside handleClientRequest. Originator leader of region 1
-1335794503373: discarding repeated requestCounter=5011015, but still send an ack back
-1335794503373: Note down new request by adding requestCounter=5011015 to HashMap processedRequests
 1335794503373: Make FirstLeg Ack regardless of new or already-processed requests
+1335794503373: Note down new request by adding requestCounter=5011015 to HashMap processedRequests
+1335794503373: discarding repeated requestCounter=5011015, but still send an ack back
+1335794503373: inside handleClientRequest. Originator leader of region 1
+1335794503373: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335794503373: mux: Inside mux Packet.CLIENT_REQUEST
+1335794503374: Sending UDP payload: 446
 1335794503374: The leader sending a First Leg ack to originator client (which id = 5011)
 1335794503374: inside sendPacket(Packet p)
-1335794503374: Sending UDP payload: 446
 1335794505812: HI I'm in ONPAUSE()
 1335794507224: inside onDestroy()

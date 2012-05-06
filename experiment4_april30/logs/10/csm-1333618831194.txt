@@ -5,24 +5,24 @@
 1333618831245: areButtonsEnabled --> true
 1333618831247: *** Application started ***
 1333618831248: HI I'm in ONRESUME()
-1333618831253: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
 1333618831251: Started VCoreDaemon with parameters maxRx = 6 , maxRY= 1, minLongitude = -7110102 , minLatitude = 4236349, regionWidth =17
-1333618831257: ************ GPS turned OFF *************
 1333618831252: started, mId = 5012
+1333618831253: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
 1333618831253: region (-1, -1) out of bounds, dormant
+1333618831257: ************ GPS turned OFF *************
 1333618836627: Received UDP payload: 406
 1333618836921: Received UDP payload: 406
 1333618837210: Received UDP payload: 406
 1333618837520: Received UDP payload: 406
 1333618840401: moving from region (-1,-1), to (1,0)
-1333618840402: sending LEADER_REQUEST
 1333618840402: inside sendPacket(Packet p)
+1333618840402: sending LEADER_REQUEST
 1333618840420: Sending UDP payload: 406
 1333618840702: sending LEADER_REQUEST
 1333618840703: inside sendPacket(Packet p)
 1333618840707: Sending UDP payload: 406
-1333618841004: sending LEADER_REQUEST
 1333618841004: inside sendPacket(Packet p)
+1333618841004: sending LEADER_REQUEST
 1333618841009: Sending UDP payload: 406
 1333618841305: sending LEADER_REQUEST
 1333618841306: inside sendPacket(Packet p)
@@ -46,54 +46,50 @@
 1333618850784: Sending PROC_REQUEST 10:0 (1,0)->(1,0)
 1333618850786: Dispatching Atom PROC_REQUEST 10:0 (1,0)->(1,0)
 1333618850796: I got a CSM packet at a leader 
-
-1333618850863: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333618850871: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333618850881: now showing in UI the new photo I just saved ... 
 1333618850818: Sending UDP payload: 4957
 1333618850820: removed replies before id 0 from sentReplies of size 0
 1333618850839: Inside UPLOAD_PHOTO!!
-1333618850844: my_gpinfo.isSuccess is now (should be true): true
 1333618850844: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333618850844: my_gpinfo.isSuccess is now (should be true): true
 1333618850854: Received PROC_REQUEST 10:0 (1,0)->(1,0), replying PROC_REPLY 10:0 (1,0)->(1,0)
 1333618850856: Dispatching Atom PROC_REPLY 10:0 (1,0)->(1,0)
 1333618850857: I got a CSM packet at a leader 
-
 1333618850861: Sending UDP payload: 949
+1333618850863: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333618850871: I'm a leader and I SUCCEEDED in saving my client's new photo
 1333618850873: Received PROC_REPLY 10:0 (1,0)->(1,0), handing to UserApp
-1333618850874: Now back in orginitator region's leader, precssing handleDSMReply
 1333618850874: Going to and from remote region took latency = 102
+1333618850874: Now back in orginitator region's leader, precssing handleDSMReply
 1333618850875: = orig leader sent packet at 1333618850772 ~ received reply at 1333618850874
 1333618850878: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
-1333618850879: reply packet contains the ACK for UPLOAD_PHOTO
 1333618850879: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
+1333618850879: reply packet contains the ACK for UPLOAD_PHOTO
 1333618850880: inside sendPacket(Packet p)
+1333618850881: now showing in UI the new photo I just saved ... 
 1333618850889: Sending UDP payload: 602
 1333618856374: Received UDP payload: 3412
-1333618856381: Inside mux Packet.CLIENT_REQUEST
 1333618856381: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333618856381: Inside mux Packet.CLIENT_REQUEST
 1333618856382: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
 1333618856382: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
 1333618856387: Sending PROC_REQUEST 10:1 (1,0)->(1,0)
 1333618856391: Dispatching Atom PROC_REQUEST 10:1 (1,0)->(1,0)
 1333618856399: I got a CSM packet at a leader 
-
-1333618856462: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333618856465: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333618856467: now showing in UI the new photo I just saved ... 
 1333618856405: Sending UDP payload: 3776
 1333618856429: removed replies before id 1 from sentReplies of size 0
 1333618856433: Inside UPLOAD_PHOTO!!
 1333618856441: my_gpinfo.isSuccess is now (should be true): true
 1333618856443: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
 1333618856461: Received PROC_REQUEST 10:1 (1,0)->(1,0), replying PROC_REPLY 10:1 (1,0)->(1,0)
+1333618856462: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333618856465: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333618856467: now showing in UI the new photo I just saved ... 
 1333618856469: Dispatching Atom PROC_REPLY 10:1 (1,0)->(1,0)
 1333618856470: I got a CSM packet at a leader 
-
 1333618856479: Sending UDP payload: 949
 1333618856481: Received PROC_REPLY 10:1 (1,0)->(1,0), handing to UserApp
-1333618856482: Now back in orginitator region's leader, precssing handleDSMReply
 1333618856482: Going to and from remote region took latency = 100
+1333618856482: Now back in orginitator region's leader, precssing handleDSMReply
 1333618856483: = orig leader sent packet at 1333618856382 ~ received reply at 1333618856482
 1333618856485: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1333618856485: reply packet contains the ACK for UPLOAD_PHOTO
@@ -236,89 +232,83 @@
 1333619983992: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1333619983992: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
 1333619983992: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
-1333619983993: Sending PROC_REQUEST 10:2 (1,0)->(1,0)
 1333619983993: Dispatching Atom PROC_REQUEST 10:2 (1,0)->(1,0)
 1333619983993: I got a CSM packet at a leader 
-
-1333619984046: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333619984065: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333619984066: now showing in UI the new photo I just saved ... 
+1333619983993: Sending PROC_REQUEST 10:2 (1,0)->(1,0)
 1333619984005: Sending UDP payload: 4312
 1333619984007: removed replies before id 2 from sentReplies of size 0
 1333619984010: Inside UPLOAD_PHOTO!!
-1333619984045: my_gpinfo.isSuccess is now (should be true): true
 1333619984045: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333619984045: my_gpinfo.isSuccess is now (should be true): true
+1333619984046: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333619984065: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333619984066: now showing in UI the new photo I just saved ... 
 1333619984076: Received PROC_REQUEST 10:2 (1,0)->(1,0), replying PROC_REPLY 10:2 (1,0)->(1,0)
 1333619984077: Dispatching Atom PROC_REPLY 10:2 (1,0)->(1,0)
 1333619984078: I got a CSM packet at a leader 
-
 1333619984080: Sending UDP payload: 949
-1333619984107: Received PROC_REPLY 10:2 (1,0)->(1,0), handing to UserApp
 1333619984107: Now back in orginitator region's leader, precssing handleDSMReply
-1333619984108: Going to and from remote region took latency = 115
+1333619984107: Received PROC_REPLY 10:2 (1,0)->(1,0), handing to UserApp
 1333619984108: = orig leader sent packet at 1333619983992 ~ received reply at 1333619984107
+1333619984108: Going to and from remote region took latency = 115
 1333619984110: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1333619984115: reply packet contains the ACK for UPLOAD_PHOTO
 1333619984116: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
 1333619984116: inside sendPacket(Packet p)
 1333619984118: Sending UDP payload: 602
 1333619990422: Received UDP payload: 4612
-1333619990435: Inside mux Packet.CLIENT_REQUEST
 1333619990435: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333619990435: Inside mux Packet.CLIENT_REQUEST
 1333619990436: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
 1333619990436: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
 1333619990448: Sending PROC_REQUEST 10:3 (1,0)->(1,0)
 1333619990451: Dispatching Atom PROC_REQUEST 10:3 (1,0)->(1,0)
 1333619990452: I got a CSM packet at a leader 
-
-1333619990516: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333619990520: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333619990521: now showing in UI the new photo I just saved ... 
 1333619990497: Sending UDP payload: 4976
 1333619990504: removed replies before id 3 from sentReplies of size 0
 1333619990508: Inside UPLOAD_PHOTO!!
 1333619990513: my_gpinfo.isSuccess is now (should be true): true
 1333619990514: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333619990516: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333619990520: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333619990521: now showing in UI the new photo I just saved ... 
 1333619990530: Received PROC_REQUEST 10:3 (1,0)->(1,0), replying PROC_REPLY 10:3 (1,0)->(1,0)
 1333619990531: Dispatching Atom PROC_REPLY 10:3 (1,0)->(1,0)
 1333619990532: I got a CSM packet at a leader 
-
 1333619990535: Sending UDP payload: 949
-1333619990542: Received PROC_REPLY 10:3 (1,0)->(1,0), handing to UserApp
-1333619990542: Now back in orginitator region's leader, precssing handleDSMReply
 1333619990542: Going to and from remote region took latency = 106
+1333619990542: Now back in orginitator region's leader, precssing handleDSMReply
+1333619990542: Received PROC_REPLY 10:3 (1,0)->(1,0), handing to UserApp
 1333619990543: = orig leader sent packet at 1333619990436 ~ received reply at 1333619990542
 1333619990544: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
-1333619990545: reply packet contains the ACK for UPLOAD_PHOTO
 1333619990545: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
 1333619990545: inside sendPacket(Packet p)
+1333619990545: reply packet contains the ACK for UPLOAD_PHOTO
 1333619990547: Sending UDP payload: 602
 1333619995725: Received UDP payload: 2916
-1333619995728: Inside mux Packet.CLIENT_REQUEST
 1333619995728: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333619995728: Inside mux Packet.CLIENT_REQUEST
+1333619995729: Sending PROC_REQUEST 10:4 (1,0)->(1,0)
 1333619995729: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
 1333619995729: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
-1333619995729: Sending PROC_REQUEST 10:4 (1,0)->(1,0)
 1333619995730: Dispatching Atom PROC_REQUEST 10:4 (1,0)->(1,0)
 1333619995730: I got a CSM packet at a leader 
-
-1333619995762: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333619995766: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333619995767: now showing in UI the new photo I just saved ... 
 1333619995732: Sending UDP payload: 3280
 1333619995745: removed replies before id 4 from sentReplies of size 0
 1333619995747: Inside UPLOAD_PHOTO!!
-1333619995749: my_gpinfo.isSuccess is now (should be true): true
 1333619995749: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333619995749: my_gpinfo.isSuccess is now (should be true): true
 1333619995761: Received PROC_REQUEST 10:4 (1,0)->(1,0), replying PROC_REPLY 10:4 (1,0)->(1,0)
 1333619995762: Dispatching Atom PROC_REPLY 10:4 (1,0)->(1,0)
+1333619995762: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333619995766: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333619995767: now showing in UI the new photo I just saved ... 
 1333619995773: I got a CSM packet at a leader 
-
 1333619995776: Sending UDP payload: 949
 1333619995788: Received PROC_REPLY 10:4 (1,0)->(1,0), handing to UserApp
-1333619995789: Now back in orginitator region's leader, precssing handleDSMReply
-1333619995789: Going to and from remote region took latency = 60
 1333619995789: = orig leader sent packet at 1333619995729 ~ received reply at 1333619995789
+1333619995789: Going to and from remote region took latency = 60
+1333619995789: Now back in orginitator region's leader, precssing handleDSMReply
 1333619995791: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1333619995791: reply packet contains the ACK for UPLOAD_PHOTO
 1333619995792: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
@@ -346,97 +336,91 @@
 1333620076904: inside sendPacket(Packet p)
 1333620076914: Sending UDP payload: 28360
 1333620083205: Received UDP payload: 4259
-1333620083210: Inside mux Packet.CLIENT_REQUEST
 1333620083210: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333620083210: Inside mux Packet.CLIENT_REQUEST
 1333620083210: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
-1333620083211: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
 1333620083211: Sending PROC_REQUEST 10:5 (1,0)->(1,0)
+1333620083211: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
 1333620083212: Dispatching Atom PROC_REQUEST 10:5 (1,0)->(1,0)
 1333620083212: I got a CSM packet at a leader 
-
-1333620083260: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333620083264: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333620083264: now showing in UI the new photo I just saved ... 
 1333620083238: Sending UDP payload: 4623
 1333620083240: removed replies before id 5 from sentReplies of size 0
 1333620083254: Inside UPLOAD_PHOTO!!
 1333620083258: my_gpinfo.isSuccess is now (should be true): true
 1333620083259: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333620083260: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333620083264: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333620083264: now showing in UI the new photo I just saved ... 
 1333620083271: Received PROC_REQUEST 10:5 (1,0)->(1,0), replying PROC_REPLY 10:5 (1,0)->(1,0)
 1333620083272: Dispatching Atom PROC_REPLY 10:5 (1,0)->(1,0)
 1333620083272: I got a CSM packet at a leader 
-
 1333620083289: Sending UDP payload: 949
-1333620083291: Received PROC_REPLY 10:5 (1,0)->(1,0), handing to UserApp
 1333620083291: Now back in orginitator region's leader, precssing handleDSMReply
-1333620083292: Going to and from remote region took latency = 80
+1333620083291: Received PROC_REPLY 10:5 (1,0)->(1,0), handing to UserApp
 1333620083292: = orig leader sent packet at 1333620083211 ~ received reply at 1333620083291
+1333620083292: Going to and from remote region took latency = 80
+1333620083294: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
 1333620083294: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1333620083294: reply packet contains the ACK for UPLOAD_PHOTO
-1333620083294: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
 1333620083295: inside sendPacket(Packet p)
 1333620083297: Sending UDP payload: 602
 1333620088837: Received UDP payload: 4722
-1333620088840: Inside mux Packet.CLIENT_REQUEST
 1333620088840: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333620088840: Inside mux Packet.CLIENT_REQUEST
 1333620088840: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
-1333620088841: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
 1333620088841: Sending PROC_REQUEST 10:6 (1,0)->(1,0)
+1333620088841: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
 1333620088842: Dispatching Atom PROC_REQUEST 10:6 (1,0)->(1,0)
 1333620088842: I got a CSM packet at a leader 
-
-1333620088875: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333620088877: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333620088877: now showing in UI the new photo I just saved ... 
 1333620088843: Sending UDP payload: 5086
 1333620088858: removed replies before id 6 from sentReplies of size 0
 1333620088861: Inside UPLOAD_PHOTO!!
-1333620088863: my_gpinfo.isSuccess is now (should be true): true
 1333620088863: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333620088863: my_gpinfo.isSuccess is now (should be true): true
+1333620088875: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333620088877: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333620088877: now showing in UI the new photo I just saved ... 
 1333620088881: Received PROC_REQUEST 10:6 (1,0)->(1,0), replying PROC_REPLY 10:6 (1,0)->(1,0)
 1333620088882: Dispatching Atom PROC_REPLY 10:6 (1,0)->(1,0)
 1333620088889: I got a CSM packet at a leader 
-
 1333620088891: Sending UDP payload: 949
 1333620088899: Received PROC_REPLY 10:6 (1,0)->(1,0), handing to UserApp
-1333620088900: Now back in orginitator region's leader, precssing handleDSMReply
-1333620088900: Going to and from remote region took latency = 59
 1333620088900: = orig leader sent packet at 1333620088841 ~ received reply at 1333620088900
+1333620088900: Going to and from remote region took latency = 59
+1333620088900: Now back in orginitator region's leader, precssing handleDSMReply
 1333620088901: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
-1333620088902: reply packet contains the ACK for UPLOAD_PHOTO
 1333620088902: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
 1333620088902: inside sendPacket(Packet p)
+1333620088902: reply packet contains the ACK for UPLOAD_PHOTO
 1333620088904: Sending UDP payload: 602
 1333620093693: leader to cloud hearbeat...
 1333620095260: Received UDP payload: 3294
-1333620095263: Inside mux Packet.CLIENT_REQUEST
 1333620095263: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333620095263: Inside mux Packet.CLIENT_REQUEST
 1333620095263: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
 1333620095263: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
-1333620095264: Sending PROC_REQUEST 10:7 (1,0)->(1,0)
 1333620095264: Dispatching Atom PROC_REQUEST 10:7 (1,0)->(1,0)
 1333620095264: I got a CSM packet at a leader 
-
-1333620095292: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1333620095295: I'm a leader and I SUCCEEDED in saving my client's new photo
-1333620095295: now showing in UI the new photo I just saved ... 
+1333620095264: Sending PROC_REQUEST 10:7 (1,0)->(1,0)
 1333620095266: Sending UDP payload: 3658
 1333620095279: removed replies before id 7 from sentReplies of size 0
 1333620095281: Inside UPLOAD_PHOTO!!
 1333620095282: my_gpinfo.isSuccess is now (should be true): true
 1333620095283: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
 1333620095285: Received PROC_REQUEST 10:7 (1,0)->(1,0), replying PROC_REPLY 10:7 (1,0)->(1,0)
+1333620095292: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333620095295: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333620095295: now showing in UI the new photo I just saved ... 
 1333620095302: Dispatching Atom PROC_REPLY 10:7 (1,0)->(1,0)
 1333620095303: I got a CSM packet at a leader 
-
 1333620095305: Sending UDP payload: 949
-1333620095312: Received PROC_REPLY 10:7 (1,0)->(1,0), handing to UserApp
-1333620095312: Now back in orginitator region's leader, precssing handleDSMReply
 1333620095312: Going to and from remote region took latency = 49
+1333620095312: Now back in orginitator region's leader, precssing handleDSMReply
+1333620095312: Received PROC_REPLY 10:7 (1,0)->(1,0), handing to UserApp
 1333620095313: = orig leader sent packet at 1333620095263 ~ received reply at 1333620095312
+1333620095314: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
 1333620095314: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1333620095314: reply packet contains the ACK for UPLOAD_PHOTO
-1333620095314: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
 1333620095315: inside sendPacket(Packet p)
 1333620095316: Sending UDP payload: 602
 1333620100167: Received UDP payload: 406
@@ -453,8 +437,8 @@
 1333620101463: heard LEADER_REQUEST from node 5001, responding LEADER_REPLY
 1333620101476: Sending UDP payload: 28738
 1333620101636: inside sendPacket(Packet p)
-1333620101642: Sending UDP payload: 29430
 1333620101637: heard LEADER_REQUEST from node 5001, responding LEADER_REPLY
+1333620101642: Sending UDP payload: 29430
 1333620101784: inside sendPacket(Packet p)
 1333620101820: Sending UDP payload: 28738
 1333620131057: leader to cloud hearbeat...
@@ -501,8 +485,8 @@
 1333620289124: GOT CSM_Msg
 1333620289124: nonce 65 heard from src region (2,0)
 1333620289146: Received UDP payload: 602
-1333620289149: Inside mux Packet.SERVER_REPLY
 1333620289149: Ignoring SERVER_REPLY since it's not for me  5012
+1333620289149: Inside mux Packet.SERVER_REPLY
 1333620293712: Received UDP payload: 4610
 1333620293715: Inside mux Packet.CLIENT_REQUEST
 1333620293841: Received UDP payload: 4974
@@ -512,8 +496,8 @@
 1333620293919: GOT CSM_Msg
 1333620293920: nonce 67 heard from src region (2,0)
 1333620293928: Received UDP payload: 602
-1333620293931: Inside mux Packet.SERVER_REPLY
 1333620293931: Ignoring SERVER_REPLY since it's not for me  5012
+1333620293931: Inside mux Packet.SERVER_REPLY
 1333620296247: Received UDP payload: 406
 1333620298681: Received UDP payload: 3702
 1333620298684: Inside mux Packet.CLIENT_REQUEST
@@ -524,8 +508,8 @@
 1333620298766: GOT CSM_Msg
 1333620298766: nonce 69 heard from src region (2,0)
 1333620298773: Received UDP payload: 602
-1333620298775: Inside mux Packet.SERVER_REPLY
 1333620298775: Ignoring SERVER_REPLY since it's not for me  5012
+1333620298775: Inside mux Packet.SERVER_REPLY
 1333620299127: leader to cloud hearbeat...
 1333620303752: inside sendPacket(Packet p)
 1333620303768: Sending UDP payload: 406

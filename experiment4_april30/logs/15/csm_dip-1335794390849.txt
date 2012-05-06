@@ -5,20 +5,20 @@
 1335794390861: areButtonsEnabled --> true
 1335794390862: *** Application started ***
 1335794390862: HI I'm in ONRESUME()
-1335794390870: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
 1335794390865: mux: Mux.java run() beginning -------------
 1335794390868: mux: Mux.java's nodeId is5011
 1335794390868: mux: starting vncDaemon ........
-1335794390878: ************ GPS turned OFF *************
-1335794390870: mux: vncDaemon started
+1335794390870: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
 1335794390870: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
-1335794390871: VCoreDaemon.java onStart() ....
-1335794390871: started, mId = 5011
-1335794390871: VCoreDaemon.java inside stateTransition ..........
-1335794390871: removing leaderRequestRetryR because I'm doing a stateTransition
+1335794390870: mux: vncDaemon started
 1335794390871: ..... VCoreDaemon.java out of bounds
-1335794390872: region (-1, -1) out of bounds, dormant
+1335794390871: VCoreDaemon.java inside stateTransition ..........
+1335794390871: VCoreDaemon.java onStart() ....
+1335794390871: removing leaderRequestRetryR because I'm doing a stateTransition
+1335794390871: started, mId = 5011
 1335794390872: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335794390872: region (-1, -1) out of bounds, dormant
+1335794390878: ************ GPS turned OFF *************
 1335794403763: Received UDP payload: 446
 1335794403998: Received UDP payload: 446
 1335794404308: Received UDP payload: 446
@@ -28,18 +28,18 @@
 1335794406731: Received UDP payload: 446
 1335794411774: Received UDP payload: 446
 1335794416783: Received UDP payload: 446
-1335794418154: moving from region (-1,-1), to (1,0)
 1335794418154: VCoreDaemon.java inside stateTransition ..........
-1335794418155: removing leaderRequestRetryR because I'm doing a stateTransition
+1335794418154: moving from region (-1,-1), to (1,0)
 1335794418155: ..... VCoreDaemon.java targetState = JOINING (1,0)
-1335794418156: posting leaderRequestRetryR because I'm joining
-1335794418156: sending LEADER_REQUEST
+1335794418155: removing leaderRequestRetryR because I'm doing a stateTransition
 1335794418156: inside sendPacket(Packet p)
 1335794418156: posting another leaderRequestRetryR after leaderRequestRetryPeriod
-1335794418165: Sending UDP payload: 446
+1335794418156: posting leaderRequestRetryR because I'm joining
+1335794418156: sending LEADER_REQUEST
 1335794418165: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335794418457: sending LEADER_REQUEST
+1335794418165: Sending UDP payload: 446
 1335794418457: inside sendPacket(Packet p)
+1335794418457: sending LEADER_REQUEST
 1335794418458: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335794418473: Sending UDP payload: 446
 1335794418759: sending LEADER_REQUEST
@@ -55,61 +55,61 @@
 1335794419063: now NONLEADER (id=5011) following LEADER (id=5008) in (1,0)
 1335794419064: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335794421808: Received UDP payload: 446
-1335794425117: canPressButton = TRUE
 1335794425117: areButtonsEnabled --> false
+1335794425117: canPressButton = TRUE
 1335794425117: disabling buttons ...
 1335794425117: took picture disableButtonsR
 1335794425118: areButtonsEnabled --> false
 1335794425240: one more takeNum: 1
-1335794425241: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794425241: Clicked take picture button ..
+1335794425241: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794426582: inside HandlePictureStorage onPictureTaken()
 1335794426582: one more takeCamGood: 1
 1335794426584: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335794426800: Received UDP payload: 446
 1335794426872: Picture successfully taken, ORIG BYTE LENGTH = 2495320
+1335794427068: ** Client making NEWly TAKEN photo PACKET to send to leader **
 1335794427068: Our new height x width: 306 x 408
 1335794427068: Show photo from handle my camera take
-1335794427068: ** Client making NEWly TAKEN photo PACKET to send to leader **
 1335794427069: change local requestCounter to 1
 1335794427089: BYTE SIZE AFTER COMPRESSION: 4862
 1335794427097: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5011001 Client in region: 1 Client nodID: 5011
-1335794426800: Received UDP payload: 446
 1335794427142: ----------------------------
-1335794427143: inside sendRequestPacketRepeatingRunnable for requestCount = 5011001
 1335794427143: I'm a nonleader sending my requesting photos packet to my leader
-1335794427152: --- Finished one round of sending REQUEST Packet ---------
 1335794427143: inside sendPacket(Packet p)
+1335794427143: inside sendRequestPacketRepeatingRunnable for requestCount = 5011001
 1335794427149: Sending UDP payload: 5509
+1335794427152: --- Finished one round of sending REQUEST Packet ---------
 1335794427453: ----------------------------
-1335794427454: inside sendRequestPacketRepeatingRunnable for requestCount = 5011001
 1335794427454: I'm a nonleader sending my requesting photos packet to my leader
-1335794427459: --- Finished one round of sending REQUEST Packet ---------
 1335794427454: inside sendPacket(Packet p)
+1335794427454: inside sendRequestPacketRepeatingRunnable for requestCount = 5011001
 1335794427456: Sending UDP payload: 5509
+1335794427459: --- Finished one round of sending REQUEST Packet ---------
 1335794427760: ----------------------------
 1335794427760: inside sendRequestPacketRepeatingRunnable for requestCount = 5011001
 1335794427761: I'm a nonleader sending my requesting photos packet to my leader
-1335794427775: --- Finished one round of sending REQUEST Packet ---------
 1335794427761: inside sendPacket(Packet p)
 1335794427764: Sending UDP payload: 5509
+1335794427775: --- Finished one round of sending REQUEST Packet ---------
 1335794428076: ----------------------------
 1335794428076: inside sendRequestPacketRepeatingRunnable for requestCount = 5011001
 1335794428077: I'm a nonleader sending my requesting photos packet to my leader
-1335794428083: --- Finished one round of sending REQUEST Packet ---------
 1335794428077: inside sendPacket(Packet p)
 1335794428079: Sending UDP payload: 5509
+1335794428083: --- Finished one round of sending REQUEST Packet ---------
 1335794428109: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
 1335794431240: one more takeTimedout: 1
-1335794431245: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=1 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794431245: inside buttonsEnableProgressUploadTimeoutR. Timed out saving the photo you took.
+1335794431245: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=1 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794431260: Inside _enableButtons
 1335794431261: areButtonsEnabled --> true
 1335794431829: Received UDP payload: 446
-1335794434722: canPressButton = TRUE
 1335794434722: areButtonsEnabled --> false
+1335794434722: canPressButton = TRUE
 1335794434722: disabling buttons ...
-1335794434723: took picture disableButtonsR
 1335794434723: areButtonsEnabled --> false
+1335794434723: took picture disableButtonsR
 1335794434750: one more takeNum: 2
 1335794434751: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=1 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794434752: Clicked take picture button ..
@@ -118,143 +118,143 @@
 1335794436103: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=0 takeBad=0 takeTimedout=1 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794436391: Picture successfully taken, ORIG BYTE LENGTH = 2568553
 1335794436618: Our new height x width: 306 x 408
-1335794436619: Show photo from handle my camera take
 1335794436619: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335794436619: Show photo from handle my camera take
 1335794436619: change local requestCounter to 2
 1335794436634: BYTE SIZE AFTER COMPRESSION: 5102
 1335794436639: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5011002 Client in region: 1 Client nodID: 5011
 1335794436669: ----------------------------
 1335794436669: inside sendRequestPacketRepeatingRunnable for requestCount = 5011002
 1335794436670: I'm a nonleader sending my requesting photos packet to my leader
-1335794436677: --- Finished one round of sending REQUEST Packet ---------
 1335794436670: inside sendPacket(Packet p)
 1335794436675: Sending UDP payload: 5749
+1335794436677: --- Finished one round of sending REQUEST Packet ---------
 1335794436791: Received UDP payload: 446
 1335794436978: ----------------------------
-1335794436979: inside sendRequestPacketRepeatingRunnable for requestCount = 5011002
 1335794436979: I'm a nonleader sending my requesting photos packet to my leader
-1335794436983: --- Finished one round of sending REQUEST Packet ---------
 1335794436979: inside sendPacket(Packet p)
+1335794436979: inside sendRequestPacketRepeatingRunnable for requestCount = 5011002
 1335794436980: Sending UDP payload: 5749
+1335794436983: --- Finished one round of sending REQUEST Packet ---------
 1335794437245: Received UDP payload: 446
 1335794437247: mux: Inside Packet.SERVER_REPLY
 1335794437248: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
 1335794437249: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335794437468: Received UDP payload: 642
-1335794437473: mux: Inside Packet.SERVER_REPLY
 1335794437473: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
+1335794437473: mux: Inside Packet.SERVER_REPLY
 1335794437474: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
-1335794437475: disabling progressdialog due to successful new photo upload
 1335794437475: Inside _enableButtons
 1335794437475: areButtonsEnabled --> true
-1335794437476: send final leg ack regardless of new or already-processed reply
-1335794437476: inside finalLegAck: change requestCounter to 3
+1335794437475: disabling progressdialog due to successful new photo upload
 1335794437476: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5011003 Client in region: (1,0) Client nodID: 5011
+1335794437476: inside finalLegAck: change requestCounter to 3
+1335794437476: send final leg ack regardless of new or already-processed reply
 1335794437477: I'm a nonleader client sending my final_leg packet to my leader
+1335794437477: inside sendPacket(Packet p)
+1335794437479: Sending UDP payload: 446
 1335794437480: new client_upload_photo_ack reply with replyCounter 500800001
-1335794437481: note down new reply by adding replyCounter=500800001 to HashMap processedReplies
-1335794437481: nonleader upload new photo latency = 495
 1335794437481: = nonleader upload start 1335794436979 ~ stop 1335794437474
+1335794437481: nonleader upload new photo latency = 495
+1335794437481: note down new reply by adding replyCounter=500800001 to HashMap processedReplies
 1335794437482: one more takeGoodSave: 1
 1335794437483: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=1 takeBad=0 takeTimedout=1 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794437484: SUCCESS Client now knows saving photo on its leader succeeded
-1335794437477: inside sendPacket(Packet p)
-1335794437479: Sending UDP payload: 446
 1335794441801: Received UDP payload: 446
 1335794446811: Received UDP payload: 446
-1335794447320: canPressButton = TRUE
 1335794447320: areButtonsEnabled --> false
+1335794447320: canPressButton = TRUE
 1335794447320: disabling buttons ...
 1335794447329: took picture disableButtonsR
 1335794447330: areButtonsEnabled --> false
 1335794447350: one more takeNum: 3
-1335794447351: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=2 takeGoodSave=1 takeBad=0 takeTimedout=1 takePercent=33% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794447351: Clicked take picture button ..
+1335794447351: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=2 takeGoodSave=1 takeBad=0 takeTimedout=1 takePercent=33% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794448752: inside HandlePictureStorage onPictureTaken()
 1335794448752: one more takeCamGood: 3
 1335794448753: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=1 takeBad=0 takeTimedout=1 takePercent=33% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794449041: Picture successfully taken, ORIG BYTE LENGTH = 2448617
 1335794449247: Our new height x width: 306 x 408
-1335794449248: Show photo from handle my camera take
 1335794449248: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335794449248: Show photo from handle my camera take
 1335794449248: change local requestCounter to 4
 1335794449268: BYTE SIZE AFTER COMPRESSION: 5405
 1335794449275: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5011004 Client in region: 1 Client nodID: 5011
 1335794449313: ----------------------------
-1335794449314: inside sendRequestPacketRepeatingRunnable for requestCount = 5011004
 1335794449314: I'm a nonleader sending my requesting photos packet to my leader
-1335794449323: --- Finished one round of sending REQUEST Packet ---------
 1335794449314: inside sendPacket(Packet p)
+1335794449314: inside sendRequestPacketRepeatingRunnable for requestCount = 5011004
 1335794449320: Sending UDP payload: 6052
+1335794449323: --- Finished one round of sending REQUEST Packet ---------
 1335794449544: Received UDP payload: 446
 1335794449548: mux: Inside Packet.SERVER_REPLY
-1335794449549: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
 1335794449549: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335794449549: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
 1335794449553: Received UDP payload: 989
 1335794449559: mux: GOT CSM_Msg
 1335794449598: Received UDP payload: 642
-1335794449601: mux: Inside Packet.SERVER_REPLY
 1335794449601: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
+1335794449601: mux: Inside Packet.SERVER_REPLY
 1335794449603: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
 1335794449603: disabling progressdialog due to successful new photo upload
 1335794449604: Inside _enableButtons
 1335794449604: areButtonsEnabled --> true
-1335794449605: send final leg ack regardless of new or already-processed reply
 1335794449605: inside finalLegAck: change requestCounter to 5
+1335794449605: send final leg ack regardless of new or already-processed reply
 1335794449606: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5011005 Client in region: (1,0) Client nodID: 5011
 1335794449606: I'm a nonleader client sending my final_leg packet to my leader
-1335794449610: new client_upload_photo_ack reply with replyCounter 500800002
-1335794449610: note down new reply by adding replyCounter=500800002 to HashMap processedReplies
-1335794449610: nonleader upload new photo latency = 289
-1335794449611: = nonleader upload start 1335794449314 ~ stop 1335794449603
-1335794449613: one more takeGoodSave: 2
-1335794449614: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=2 takeBad=0 takeTimedout=1 takePercent=66% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
-1335794449614: SUCCESS Client now knows saving photo on its leader succeeded
 1335794449607: inside sendPacket(Packet p)
 1335794449608: Sending UDP payload: 446
+1335794449610: new client_upload_photo_ack reply with replyCounter 500800002
+1335794449610: nonleader upload new photo latency = 289
+1335794449610: note down new reply by adding replyCounter=500800002 to HashMap processedReplies
+1335794449611: = nonleader upload start 1335794449314 ~ stop 1335794449603
+1335794449613: one more takeGoodSave: 2
+1335794449614: SUCCESS Client now knows saving photo on its leader succeeded
+1335794449614: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=2 takeBad=0 takeTimedout=1 takePercent=66% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794451594: canPressButton = TRUE
+1335794451595: areButtonsEnabled --> false
 1335794451595: areButtonsEnabled --> false
 1335794451595: disabling buttons ...
 1335794451595: took picture disableButtonsR
-1335794451595: areButtonsEnabled --> false
 1335794451613: one more takeNum: 4
-1335794451614: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=3 takeGoodSave=2 takeBad=0 takeTimedout=1 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794451614: Clicked take picture button ..
+1335794451614: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=3 takeGoodSave=2 takeBad=0 takeTimedout=1 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794451810: Received UDP payload: 446
 1335794452922: inside HandlePictureStorage onPictureTaken()
 1335794452923: one more takeCamGood: 4
 1335794452923: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=4 takeGoodSave=2 takeBad=0 takeTimedout=1 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794453211: Picture successfully taken, ORIG BYTE LENGTH = 2319203
 1335794453436: Our new height x width: 306 x 408
-1335794453437: Show photo from handle my camera take
 1335794453437: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335794453437: Show photo from handle my camera take
 1335794453437: change local requestCounter to 6
 1335794453451: BYTE SIZE AFTER COMPRESSION: 5638
 1335794453457: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5011006 Client in region: 1 Client nodID: 5011
 1335794453485: ----------------------------
-1335794453486: inside sendRequestPacketRepeatingRunnable for requestCount = 5011006
 1335794453486: I'm a nonleader sending my requesting photos packet to my leader
-1335794453494: --- Finished one round of sending REQUEST Packet ---------
+1335794453486: inside sendRequestPacketRepeatingRunnable for requestCount = 5011006
 1335794453487: inside sendPacket(Packet p)
 1335794453491: Sending UDP payload: 6285
+1335794453494: --- Finished one round of sending REQUEST Packet ---------
 1335794453795: ----------------------------
-1335794453795: inside sendRequestPacketRepeatingRunnable for requestCount = 5011006
 1335794453795: I'm a nonleader sending my requesting photos packet to my leader
-1335794453801: --- Finished one round of sending REQUEST Packet ---------
 1335794453795: inside sendPacket(Packet p)
+1335794453795: inside sendRequestPacketRepeatingRunnable for requestCount = 5011006
 1335794453797: Sending UDP payload: 6285
+1335794453801: --- Finished one round of sending REQUEST Packet ---------
 1335794454102: ----------------------------
-1335794454102: inside sendRequestPacketRepeatingRunnable for requestCount = 5011006
 1335794454102: I'm a nonleader sending my requesting photos packet to my leader
-1335794454106: --- Finished one round of sending REQUEST Packet ---------
+1335794454102: inside sendRequestPacketRepeatingRunnable for requestCount = 5011006
 1335794454103: inside sendPacket(Packet p)
 1335794454104: Sending UDP payload: 6285
+1335794454106: --- Finished one round of sending REQUEST Packet ---------
 1335794454407: ----------------------------
 1335794454408: inside sendRequestPacketRepeatingRunnable for requestCount = 5011006
 1335794454409: I'm a nonleader sending my requesting photos packet to my leader
-1335794454420: --- Finished one round of sending REQUEST Packet ---------
 1335794454409: inside sendPacket(Packet p)
 1335794454415: Sending UDP payload: 6285
+1335794454420: --- Finished one round of sending REQUEST Packet ---------
 1335794454470: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
 1335794456843: Received UDP payload: 446
 1335794457614: one more takeTimedout: 2
@@ -265,15 +265,16 @@
 1335794461847: Received UDP payload: 446
 1335794465270: canPressButton = TRUE
 1335794465271: areButtonsEnabled --> false
+1335794465271: areButtonsEnabled --> false
 1335794465271: disabling buttons ...
 1335794465271: took picture disableButtonsR
-1335794465271: areButtonsEnabled --> false
 1335794465301: one more takeNum: 5
-1335794465302: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=4 takeGoodSave=2 takeBad=0 takeTimedout=2 takePercent=40% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794465302: Clicked take picture button ..
+1335794465302: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=4 takeGoodSave=2 takeBad=0 takeTimedout=2 takePercent=40% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794466661: inside HandlePictureStorage onPictureTaken()
 1335794466661: one more takeCamGood: 5
 1335794466662: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=5 takeGoodSave=2 takeBad=0 takeTimedout=2 takePercent=40% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335794466853: Received UDP payload: 446
 1335794466951: Picture successfully taken, ORIG BYTE LENGTH = 2448502
 1335794467181: Our new height x width: 306 x 408
 1335794467181: Show photo from handle my camera take
@@ -281,50 +282,49 @@
 1335794467182: change local requestCounter to 7
 1335794467196: BYTE SIZE AFTER COMPRESSION: 5142
 1335794467201: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5011007 Client in region: 1 Client nodID: 5011
-1335794466853: Received UDP payload: 446
 1335794467231: ----------------------------
-1335794467232: inside sendRequestPacketRepeatingRunnable for requestCount = 5011007
 1335794467232: I'm a nonleader sending my requesting photos packet to my leader
-1335794467240: --- Finished one round of sending REQUEST Packet ---------
+1335794467232: inside sendRequestPacketRepeatingRunnable for requestCount = 5011007
 1335794467233: inside sendPacket(Packet p)
 1335794467237: Sending UDP payload: 5789
+1335794467240: --- Finished one round of sending REQUEST Packet ---------
 1335794467545: ----------------------------
-1335794467546: inside sendRequestPacketRepeatingRunnable for requestCount = 5011007
 1335794467546: I'm a nonleader sending my requesting photos packet to my leader
-1335794467550: --- Finished one round of sending REQUEST Packet ---------
 1335794467546: inside sendPacket(Packet p)
+1335794467546: inside sendRequestPacketRepeatingRunnable for requestCount = 5011007
 1335794467547: Sending UDP payload: 5789
+1335794467550: --- Finished one round of sending REQUEST Packet ---------
 1335794467734: Received UDP payload: 6153
-1335794467745: mux: GOT CSM_Msg
 1335794467745: Received UDP payload: 446
-1335794467748: mux: Inside Packet.SERVER_REPLY
+1335794467745: mux: GOT CSM_Msg
 1335794467748: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
-1335794467762: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335794467748: mux: Inside Packet.SERVER_REPLY
 1335794467752: Received UDP payload: 989
+1335794467762: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335794467762: mux: GOT CSM_Msg
 1335794467777: Received UDP payload: 642
-1335794467786: mux: Inside Packet.SERVER_REPLY
 1335794467786: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
+1335794467786: mux: Inside Packet.SERVER_REPLY
 1335794467800: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
-1335794467801: disabling progressdialog due to successful new photo upload
 1335794467801: Inside _enableButtons
 1335794467801: areButtonsEnabled --> true
-1335794467802: send final leg ack regardless of new or already-processed reply
-1335794467802: inside finalLegAck: change requestCounter to 8
+1335794467801: disabling progressdialog due to successful new photo upload
 1335794467802: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5011008 Client in region: (1,0) Client nodID: 5011
+1335794467802: inside finalLegAck: change requestCounter to 8
+1335794467802: send final leg ack regardless of new or already-processed reply
 1335794467803: I'm a nonleader client sending my final_leg packet to my leader
+1335794467803: inside sendPacket(Packet p)
 1335794467803: new client_upload_photo_ack reply with replyCounter 500800003
-1335794467804: note down new reply by adding replyCounter=500800003 to HashMap processedReplies
 1335794467804: nonleader upload new photo latency = 254
+1335794467804: note down new reply by adding replyCounter=500800003 to HashMap processedReplies
+1335794467806: Sending UDP payload: 446
 1335794467808: = nonleader upload start 1335794467546 ~ stop 1335794467800
 1335794467809: one more takeGoodSave: 3
 1335794467810: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=5 takeGoodSave=3 takeBad=0 takeTimedout=2 takePercent=60% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794467811: SUCCESS Client now knows saving photo on its leader succeeded
-1335794467803: inside sendPacket(Packet p)
-1335794467806: Sending UDP payload: 446
 1335794471811: Received UDP payload: 446
-1335794475409: canPressButton = TRUE
 1335794475409: areButtonsEnabled --> false
+1335794475409: canPressButton = TRUE
 1335794475409: disabling buttons ...
 1335794475409: took picture disableButtonsR
 1335794475410: areButtonsEnabled --> false
@@ -334,62 +334,62 @@
 1335794476732: inside HandlePictureStorage onPictureTaken()
 1335794476732: one more takeCamGood: 6
 1335794476733: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=6 takeCamGood=6 takeGoodSave=3 takeBad=0 takeTimedout=2 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335794476828: Received UDP payload: 446
 1335794477022: Picture successfully taken, ORIG BYTE LENGTH = 2216953
 1335794477183: Our new height x width: 306 x 408
-1335794477184: Show photo from handle my camera take
 1335794477184: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335794477184: Show photo from handle my camera take
 1335794477184: change local requestCounter to 9
 1335794477198: BYTE SIZE AFTER COMPRESSION: 4149
 1335794477203: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5011009 Client in region: 1 Client nodID: 5011
-1335794476828: Received UDP payload: 446
 1335794477231: ----------------------------
-1335794477232: inside sendRequestPacketRepeatingRunnable for requestCount = 5011009
 1335794477232: I'm a nonleader sending my requesting photos packet to my leader
-1335794477238: --- Finished one round of sending REQUEST Packet ---------
 1335794477232: inside sendPacket(Packet p)
+1335794477232: inside sendRequestPacketRepeatingRunnable for requestCount = 5011009
 1335794477237: Sending UDP payload: 4796
+1335794477238: --- Finished one round of sending REQUEST Packet ---------
 1335794477540: ----------------------------
-1335794477541: inside sendRequestPacketRepeatingRunnable for requestCount = 5011009
 1335794477541: I'm a nonleader sending my requesting photos packet to my leader
-1335794477544: --- Finished one round of sending REQUEST Packet ---------
 1335794477541: inside sendPacket(Packet p)
+1335794477541: inside sendRequestPacketRepeatingRunnable for requestCount = 5011009
 1335794477543: Sending UDP payload: 4796
+1335794477544: --- Finished one round of sending REQUEST Packet ---------
 1335794477703: Received UDP payload: 5160
 1335794477715: mux: GOT CSM_Msg
 1335794477722: Received UDP payload: 446
 1335794477731: mux: Inside Packet.SERVER_REPLY
 1335794477732: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
-1335794477746: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335794477733: Received UDP payload: 989
 1335794477738: mux: GOT CSM_Msg
 1335794477742: Received UDP payload: 642
-1335794477752: mux: Inside Packet.SERVER_REPLY
+1335794477746: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335794477752: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
+1335794477752: mux: Inside Packet.SERVER_REPLY
 1335794477762: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
-1335794477762: disabling progressdialog due to successful new photo upload
 1335794477762: Inside _enableButtons
+1335794477762: disabling progressdialog due to successful new photo upload
 1335794477763: areButtonsEnabled --> true
-1335794477763: send final leg ack regardless of new or already-processed reply
 1335794477763: inside finalLegAck: change requestCounter to 10
+1335794477763: send final leg ack regardless of new or already-processed reply
 1335794477764: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5011010 Client in region: (1,0) Client nodID: 5011
 1335794477764: I'm a nonleader client sending my final_leg packet to my leader
-1335794477767: new client_upload_photo_ack reply with replyCounter 500800004
-1335794477768: note down new reply by adding replyCounter=500800004 to HashMap processedReplies
-1335794477768: nonleader upload new photo latency = 221
-1335794477768: = nonleader upload start 1335794477541 ~ stop 1335794477762
-1335794477770: one more takeGoodSave: 4
-1335794477772: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=6 takeCamGood=6 takeGoodSave=4 takeBad=0 takeTimedout=2 takePercent=66% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
-1335794477772: SUCCESS Client now knows saving photo on its leader succeeded
 1335794477764: inside sendPacket(Packet p)
 1335794477766: Sending UDP payload: 446
-1335794479887: canPressButton = TRUE
+1335794477767: new client_upload_photo_ack reply with replyCounter 500800004
+1335794477768: = nonleader upload start 1335794477541 ~ stop 1335794477762
+1335794477768: nonleader upload new photo latency = 221
+1335794477768: note down new reply by adding replyCounter=500800004 to HashMap processedReplies
+1335794477770: one more takeGoodSave: 4
+1335794477772: SUCCESS Client now knows saving photo on its leader succeeded
+1335794477772: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=6 takeCamGood=6 takeGoodSave=4 takeBad=0 takeTimedout=2 takePercent=66% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794479887: areButtonsEnabled --> false
+1335794479887: canPressButton = TRUE
+1335794479888: areButtonsEnabled --> false
 1335794479888: disabling buttons ...
 1335794479888: took picture disableButtonsR
-1335794479888: areButtonsEnabled --> false
 1335794479914: one more takeNum: 7
-1335794479915: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=7 takeCamGood=6 takeGoodSave=4 takeBad=0 takeTimedout=2 takePercent=57% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794479915: Clicked take picture button ..
+1335794479915: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=7 takeCamGood=6 takeGoodSave=4 takeBad=0 takeTimedout=2 takePercent=57% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794481246: inside HandlePictureStorage onPictureTaken()
 1335794481246: one more takeCamGood: 7
 1335794481247: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=7 takeCamGood=7 takeGoodSave=4 takeBad=0 takeTimedout=2 takePercent=57% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
@@ -400,58 +400,59 @@
 1335794481801: change local requestCounter to 11
 1335794481824: BYTE SIZE AFTER COMPRESSION: 4320
 1335794481833: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5011011 Client in region: 1 Client nodID: 5011
+1335794481835: Received UDP payload: 446
 1335794481908: ----------------------------
 1335794481908: inside sendRequestPacketRepeatingRunnable for requestCount = 5011011
 1335794481909: I'm a nonleader sending my requesting photos packet to my leader
 1335794481910: --- Finished one round of sending REQUEST Packet ---------
-1335794481835: Received UDP payload: 446
 1335794481910: inside sendPacket(Packet p)
 1335794481916: Sending UDP payload: 4967
 1335794482211: ----------------------------
 1335794482212: inside sendRequestPacketRepeatingRunnable for requestCount = 5011011
 1335794482213: I'm a nonleader sending my requesting photos packet to my leader
-1335794482214: --- Finished one round of sending REQUEST Packet ---------
 1335794482213: inside sendPacket(Packet p)
+1335794482214: --- Finished one round of sending REQUEST Packet ---------
 1335794482216: Sending UDP payload: 4967
 1335794482369: Received UDP payload: 5331
 1335794482387: mux: GOT CSM_Msg
 1335794482388: Received UDP payload: 446
 1335794482395: mux: Inside Packet.SERVER_REPLY
 1335794482396: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
-1335794482410: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335794482397: Received UDP payload: 989
 1335794482408: mux: GOT CSM_Msg
+1335794482410: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335794482411: Received UDP payload: 642
-1335794482421: mux: Inside Packet.SERVER_REPLY
 1335794482421: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
+1335794482421: mux: Inside Packet.SERVER_REPLY
 1335794482435: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
-1335794482435: disabling progressdialog due to successful new photo upload
 1335794482435: Inside _enableButtons
+1335794482435: disabling progressdialog due to successful new photo upload
 1335794482436: areButtonsEnabled --> true
-1335794482436: send final leg ack regardless of new or already-processed reply
 1335794482436: inside finalLegAck: change requestCounter to 12
+1335794482436: send final leg ack regardless of new or already-processed reply
 1335794482437: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5011012 Client in region: (1,0) Client nodID: 5011
 1335794482437: I'm a nonleader client sending my final_leg packet to my leader
+1335794482437: inside sendPacket(Packet p)
+1335794482438: Sending UDP payload: 446
 1335794482441: new client_upload_photo_ack reply with replyCounter 500800005
 1335794482441: note down new reply by adding replyCounter=500800005 to HashMap processedReplies
 1335794482442: nonleader upload new photo latency = 222
 1335794482444: = nonleader upload start 1335794482213 ~ stop 1335794482435
 1335794482446: one more takeGoodSave: 5
-1335794482447: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=7 takeCamGood=7 takeGoodSave=5 takeBad=0 takeTimedout=2 takePercent=71% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794482447: SUCCESS Client now knows saving photo on its leader succeeded
-1335794482437: inside sendPacket(Packet p)
-1335794482438: Sending UDP payload: 446
-1335794485295: canPressButton = TRUE
+1335794482447: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=7 takeCamGood=7 takeGoodSave=5 takeBad=0 takeTimedout=2 takePercent=71% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794485295: areButtonsEnabled --> false
+1335794485295: canPressButton = TRUE
 1335794485295: disabling buttons ...
 1335794485295: took picture disableButtonsR
 1335794485296: areButtonsEnabled --> false
 1335794485315: one more takeNum: 8
-1335794485316: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=8 takeCamGood=7 takeGoodSave=5 takeBad=0 takeTimedout=2 takePercent=62% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794485316: Clicked take picture button ..
+1335794485316: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=8 takeCamGood=7 takeGoodSave=5 takeBad=0 takeTimedout=2 takePercent=62% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794486592: inside HandlePictureStorage onPictureTaken()
 1335794486592: one more takeCamGood: 8
 1335794486593: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=8 takeCamGood=8 takeGoodSave=5 takeBad=0 takeTimedout=2 takePercent=62% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335794486836: Received UDP payload: 446
 1335794486882: Picture successfully taken, ORIG BYTE LENGTH = 2115091
 1335794487043: Our new height x width: 306 x 408
 1335794487044: Show photo from handle my camera take
@@ -459,109 +460,108 @@
 1335794487045: change local requestCounter to 13
 1335794487066: BYTE SIZE AFTER COMPRESSION: 4210
 1335794487073: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5011013 Client in region: 1 Client nodID: 5011
-1335794486836: Received UDP payload: 446
 1335794487111: ----------------------------
 1335794487111: inside sendRequestPacketRepeatingRunnable for requestCount = 5011013
 1335794487112: I'm a nonleader sending my requesting photos packet to my leader
-1335794487121: --- Finished one round of sending REQUEST Packet ---------
 1335794487112: inside sendPacket(Packet p)
 1335794487118: Sending UDP payload: 4857
+1335794487121: --- Finished one round of sending REQUEST Packet ---------
 1335794487310: Received UDP payload: 5221
 1335794487318: mux: GOT CSM_Msg
 1335794487421: ----------------------------
 1335794487422: inside sendRequestPacketRepeatingRunnable for requestCount = 5011013
 1335794487423: I'm a nonleader sending my requesting photos packet to my leader
-1335794487428: --- Finished one round of sending REQUEST Packet ---------
 1335794487423: inside sendPacket(Packet p)
 1335794487424: Sending UDP payload: 4857
+1335794487428: --- Finished one round of sending REQUEST Packet ---------
 1335794487439: Received UDP payload: 446
-1335794487441: mux: Inside Packet.SERVER_REPLY
 1335794487441: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
+1335794487441: mux: Inside Packet.SERVER_REPLY
 1335794487448: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335794487449: Received UDP payload: 989
 1335794487456: mux: GOT CSM_Msg
 1335794487462: Received UDP payload: 642
-1335794487465: mux: Inside Packet.SERVER_REPLY
 1335794487465: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
+1335794487465: mux: Inside Packet.SERVER_REPLY
 1335794487475: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
-1335794487476: disabling progressdialog due to successful new photo upload
 1335794487476: Inside _enableButtons
 1335794487476: areButtonsEnabled --> true
-1335794487477: send final leg ack regardless of new or already-processed reply
-1335794487477: inside finalLegAck: change requestCounter to 14
+1335794487476: disabling progressdialog due to successful new photo upload
 1335794487477: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5011014 Client in region: (1,0) Client nodID: 5011
+1335794487477: inside finalLegAck: change requestCounter to 14
+1335794487477: send final leg ack regardless of new or already-processed reply
 1335794487478: I'm a nonleader client sending my final_leg packet to my leader
+1335794487478: inside sendPacket(Packet p)
+1335794487480: Sending UDP payload: 446
 1335794487481: new client_upload_photo_ack reply with replyCounter 500800006
-1335794487482: note down new reply by adding replyCounter=500800006 to HashMap processedReplies
 1335794487482: nonleader upload new photo latency = 52
+1335794487482: note down new reply by adding replyCounter=500800006 to HashMap processedReplies
 1335794487483: = nonleader upload start 1335794487423 ~ stop 1335794487475
 1335794487484: one more takeGoodSave: 6
 1335794487485: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=8 takeCamGood=8 takeGoodSave=6 takeBad=0 takeTimedout=2 takePercent=75% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794487486: SUCCESS Client now knows saving photo on its leader succeeded
-1335794487478: inside sendPacket(Packet p)
-1335794487480: Sending UDP payload: 446
 1335794487566: Received UDP payload: 446
-1335794487568: mux: Inside Packet.SERVER_REPLY
 1335794487568: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
+1335794487568: mux: Inside Packet.SERVER_REPLY
 1335794487572: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335794491841: Received UDP payload: 446
 1335794496851: Received UDP payload: 446
 1335794500799: canPressButton = TRUE
 1335794500800: areButtonsEnabled --> false
+1335794500800: areButtonsEnabled --> false
 1335794500800: disabling buttons ...
 1335794500800: took picture disableButtonsR
-1335794500800: areButtonsEnabled --> false
 1335794500827: one more takeNum: 9
-1335794500828: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=9 takeCamGood=8 takeGoodSave=6 takeBad=0 takeTimedout=2 takePercent=66% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794500828: Clicked take picture button ..
+1335794500828: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=9 takeCamGood=8 takeGoodSave=6 takeBad=0 takeTimedout=2 takePercent=66% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794501869: Received UDP payload: 446
 1335794502062: inside HandlePictureStorage onPictureTaken()
 1335794502062: one more takeCamGood: 9
 1335794502063: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=9 takeCamGood=9 takeGoodSave=6 takeBad=0 takeTimedout=2 takePercent=66% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794502354: Picture successfully taken, ORIG BYTE LENGTH = 2129722
 1335794502555: Our new height x width: 306 x 408
-1335794502556: Show photo from handle my camera take
 1335794502556: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335794502556: Show photo from handle my camera take
 1335794502557: change local requestCounter to 15
 1335794502570: BYTE SIZE AFTER COMPRESSION: 3875
 1335794502575: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5011015 Client in region: 1 Client nodID: 5011
 1335794502604: ----------------------------
 1335794502605: inside sendRequestPacketRepeatingRunnable for requestCount = 5011015
 1335794502606: I'm a nonleader sending my requesting photos packet to my leader
-1335794502614: --- Finished one round of sending REQUEST Packet ---------
 1335794502606: inside sendPacket(Packet p)
 1335794502610: Sending UDP payload: 4522
+1335794502614: --- Finished one round of sending REQUEST Packet ---------
 1335794502754: Received UDP payload: 4886
 1335794502760: mux: GOT CSM_Msg
 1335794502817: Received UDP payload: 642
-1335794502820: mux: Inside Packet.SERVER_REPLY
 1335794502820: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
+1335794502820: mux: Inside Packet.SERVER_REPLY
 1335794502821: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
-1335794502821: disabling progressdialog due to successful new photo upload
 1335794502821: Inside _enableButtons
 1335794502821: areButtonsEnabled --> true
-1335794502822: send final leg ack regardless of new or already-processed reply
+1335794502821: disabling progressdialog due to successful new photo upload
 1335794502822: inside finalLegAck: change requestCounter to 16
+1335794502822: send final leg ack regardless of new or already-processed reply
 1335794502823: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5011016 Client in region: (1,0) Client nodID: 5011
 1335794502823: I'm a nonleader client sending my final_leg packet to my leader
-1335794502825: new client_upload_photo_ack reply with replyCounter 500800007
-1335794502826: note down new reply by adding replyCounter=500800007 to HashMap processedReplies
-1335794502826: nonleader upload new photo latency = 215
-1335794502826: = nonleader upload start 1335794502606 ~ stop 1335794502821
-1335794502828: one more takeGoodSave: 7
-1335794502829: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=9 takeCamGood=9 takeGoodSave=7 takeBad=0 takeTimedout=2 takePercent=77% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
-1335794502829: SUCCESS Client now knows saving photo on its leader succeeded
 1335794502823: inside sendPacket(Packet p)
 1335794502824: Sending UDP payload: 446
+1335794502825: new client_upload_photo_ack reply with replyCounter 500800007
+1335794502826: = nonleader upload start 1335794502606 ~ stop 1335794502821
+1335794502826: nonleader upload new photo latency = 215
+1335794502826: note down new reply by adding replyCounter=500800007 to HashMap processedReplies
+1335794502828: one more takeGoodSave: 7
+1335794502829: SUCCESS Client now knows saving photo on its leader succeeded
+1335794502829: reg=1 id=5011 state=3 regionWidth=20.0 hyst=0.0 takeNum=9 takeCamGood=9 takeGoodSave=7 takeBad=0 takeTimedout=2 takePercent=77% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335794502915: ----------------------------
-1335794502915: inside sendRequestPacketRepeatingRunnable for requestCount = 5011015
 1335794502915: I'm a nonleader sending my requesting photos packet to my leader
-1335794502919: --- Finished one round of sending REQUEST Packet ---------
+1335794502915: inside sendRequestPacketRepeatingRunnable for requestCount = 5011015
 1335794502916: inside sendPacket(Packet p)
 1335794502917: Sending UDP payload: 4522
+1335794502919: --- Finished one round of sending REQUEST Packet ---------
 1335794503031: Received UDP payload: 446
-1335794503033: mux: Inside Packet.SERVER_REPLY
 1335794503033: mux: I have the photo requester id = 5011 about to display photo or receive upload ack
+1335794503033: mux: Inside Packet.SERVER_REPLY
 1335794503034: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
 1335794506019: HI I'm in ONPAUSE()
 1335794507071: inside onDestroy()

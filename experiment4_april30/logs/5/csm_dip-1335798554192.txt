@@ -10,40 +10,23 @@
 1335798554215: mux: Mux.java run() beginning -------------
 1335798554227: mux: Mux.java's nodeId is5001
 1335798554227: mux: starting vncDaemon ........
-1335798554237: mux: vncDaemon started
 1335798554229: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1335798554237: mux: vncDaemon started
 1335798554238: VCoreDaemon.java onStart() ....
 1335798554238: started, mId = 5001
 1335798554239: VCoreDaemon.java inside stateTransition ..........
 1335798554239: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798554240: ..... VCoreDaemon.java out of bounds
-1335798554240: region (-1, -1) out of bounds, dormant
 1335798554240: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335798554240: region (-1, -1) out of bounds, dormant
 1335798554372: Received UDP payload: 5713
-1335798554379: mux: Inside Packet.SERVER_REPLY
 1335798554379: mux: I have the photo requester id = 5001 about to display photo or receive upload ack
-1335798555020: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
-1335798555022: disabling progressdialog due to successful new photo get
-1335798555022: Inside _enableButtons
-1335798555023: No progress dialog to dismiss
-1335798555023: areButtonsEnabled --> true
-1335798555023: send final leg ack regardless of new or already-processed reply
-1335798555023: inside finalLegAck: change requestCounter to 1
-1335798555024: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5001001 Client in region: (-1,-1) Client nodID: 5001
-1335798555024: new client_show_remotephoto reply with replyCounter 501600017
-1335798555024: note down new reply by adding replyCounter=501600017 to HashMap processedReplies
-1335798555025: nonleader download remote photo latency = 1335798555020
-1335798555025: = nonleader download start 0 ~ stop 1335798555020
-1335798555031: one more getGood: 1
-1335798555032: reg=-1 id=5001 state=0 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=0 getGood=1 getBad=0 getTimedout=0 getPercent=-1%
-1335798555032: successful reply for client get photo
-1335798555032: Success! Client getting photo from remote region, showing photo...
-1335798555032: Remote photo's length: 5049
+1335798554379: mux: Inside Packet.SERVER_REPLY
 1335798554381: Received UDP payload: 989
 1335798554402: mux: GOT CSM_Msg
 1335798554437: Received UDP payload: 989
-1335798554452: mux: GOT CSM_Msg
 1335798554452: Received UDP payload: 989
+1335798554452: mux: GOT CSM_Msg
 1335798554459: mux: GOT CSM_Msg
 1335798554566: Received UDP payload: 5326
 1335798554576: mux: GOT CSM_Msg
@@ -53,38 +36,55 @@
 1335798554634: Received UDP payload: 989
 1335798554643: mux: GOT CSM_Msg
 1335798554781: Received UDP payload: 642
-1335798554787: mux: Inside Packet.SERVER_REPLY
 1335798554787: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798554787: mux: Inside Packet.SERVER_REPLY
 1335798554921: Received UDP payload: 6977
 1335798554926: mux: Inside mux Packet.CLIENT_REQUEST
 1335798554939: Received UDP payload: 446
-1335798554944: mux: Inside Packet.SERVER_REPLY
 1335798554944: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798554944: mux: Inside Packet.SERVER_REPLY
 1335798554984: Received UDP payload: 5713
-1335798554991: mux: Inside Packet.SERVER_REPLY
 1335798554991: mux: I have the photo requester id = 5001 about to display photo or receive upload ack
+1335798554991: mux: Inside Packet.SERVER_REPLY
+1335798554997: Received UDP payload: 989
+1335798555020: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1335798555022: Inside _enableButtons
+1335798555022: disabling progressdialog due to successful new photo get
+1335798555023: No progress dialog to dismiss
+1335798555023: areButtonsEnabled --> true
+1335798555023: inside finalLegAck: change requestCounter to 1
+1335798555023: send final leg ack regardless of new or already-processed reply
+1335798555024: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5001001 Client in region: (-1,-1) Client nodID: 5001
+1335798555024: new client_show_remotephoto reply with replyCounter 501600017
+1335798555024: note down new reply by adding replyCounter=501600017 to HashMap processedReplies
+1335798555025: = nonleader download start 0 ~ stop 1335798555020
+1335798555025: nonleader download remote photo latency = 1335798555020
+1335798555031: one more getGood: 1
+1335798555032: Remote photo's length: 5049
+1335798555032: Success! Client getting photo from remote region, showing photo...
+1335798555032: reg=-1 id=5001 state=0 regionWidth=20.0 hyst=0.0 takeNum=0 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=-1% getNum=0 getGood=1 getBad=0 getTimedout=0 getPercent=-1%
+1335798555032: successful reply for client get photo
+1335798555100: Received UDP payload: 989
+1335798555101: mux: GOT CSM_Msg
+1335798555130: Received UDP payload: 989
+1335798555130: mux: GOT CSM_Msg
+1335798555143: Received UDP payload: 5326
+1335798555143: mux: GOT CSM_Msg
+1335798555154: Received UDP payload: 642
+1335798555154: mux: GOT CSM_Msg
+1335798555163: Received UDP payload: 989
+1335798555163: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798555163: mux: Inside Packet.SERVER_REPLY
+1335798555171: mux: GOT CSM_Msg
 1335798555195: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
-1335798555195: disabling progressdialog due to successful new photo get
 1335798555195: Inside _enableButtons
 1335798555195: No progress dialog to dismiss
+1335798555195: disabling progressdialog due to successful new photo get
 1335798555196: areButtonsEnabled --> true
-1335798555196: send final leg ack regardless of new or already-processed reply
 1335798555196: inside finalLegAck: change requestCounter to 2
+1335798555196: send final leg ack regardless of new or already-processed reply
 1335798555197: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5001002 Client in region: (-1,-1) Client nodID: 5001
 1335798555197: csn discarding repeated replyCounter=501600017, but still sent an ack back
-1335798554997: Received UDP payload: 989
-1335798555101: mux: GOT CSM_Msg
-1335798555100: Received UDP payload: 989
-1335798555130: mux: GOT CSM_Msg
-1335798555130: Received UDP payload: 989
-1335798555143: mux: GOT CSM_Msg
-1335798555143: Received UDP payload: 5326
-1335798555154: mux: GOT CSM_Msg
-1335798555154: Received UDP payload: 642
-1335798555163: mux: Inside Packet.SERVER_REPLY
-1335798555163: mux: Ignoring SERVER_REPLY since it's not for me  5001
-1335798555163: Received UDP payload: 989
-1335798555171: mux: GOT CSM_Msg
 1335798555218: Received UDP payload: 989
 1335798555223: mux: GOT CSM_Msg
 1335798555285: Received UDP payload: 989
@@ -137,8 +137,8 @@
 1335798556527: Received UDP payload: 989
 1335798556531: mux: GOT CSM_Msg
 1335798556562: Received UDP payload: 446
-1335798556565: mux: Inside Packet.SERVER_REPLY
 1335798556565: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798556565: mux: Inside Packet.SERVER_REPLY
 1335798556735: Received UDP payload: 989
 1335798556752: mux: GOT CSM_Msg
 1335798556760: Received UDP payload: 989
@@ -149,10 +149,10 @@
 1335798556809: VCoreDaemon.java inside stateTransition ..........
 1335798556810: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798556811: ..... VCoreDaemon.java targetState = JOINING (2,0)
-1335798556811: posting leaderRequestRetryR because I'm joining
-1335798556811: sending LEADER_REQUEST
 1335798556811: inside sendPacket(Packet p)
 1335798556811: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335798556811: posting leaderRequestRetryR because I'm joining
+1335798556811: sending LEADER_REQUEST
 1335798556813: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335798556828: Sending UDP payload: 446
 1335798556830: Received UDP payload: 989
@@ -175,9 +175,9 @@
 1335798557112: sending LEADER_REQUEST
 1335798557113: inside sendPacket(Packet p)
 1335798557113: posting another leaderRequestRetryR after leaderRequestRetryPeriod
-1335798557133: mux: GOT CSM_Msg
 1335798557129: Received UDP payload: 989
 1335798557130: Sending UDP payload: 446
+1335798557133: mux: GOT CSM_Msg
 1335798557136: mux: GOT CSM_Msg
 1335798557141: Received UDP payload: 989
 1335798557144: mux: GOT CSM_Msg
@@ -210,13 +210,13 @@
 1335798557616: Received UDP payload: 989
 1335798557619: mux: GOT CSM_Msg
 1335798557628: Received UDP payload: 446
-1335798557645: removing leaderRequestRetryR because heard Packet.Heartbeat
-1335798557645: heard HEARTBEAT from 5016, now following
-1335798557645: VCoreDaemon.java inside stateTransition ..........
-1335798557645: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798557645: ..... VCoreDaemon.java targetState = NONLEADER
-1335798557646: now NONLEADER (id=5001) following LEADER (id=5016) in (2,0)
+1335798557645: VCoreDaemon.java inside stateTransition ..........
+1335798557645: heard HEARTBEAT from 5016, now following
+1335798557645: removing leaderRequestRetryR because I'm doing a stateTransition
+1335798557645: removing leaderRequestRetryR because heard Packet.Heartbeat
 1335798557646: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335798557646: now NONLEADER (id=5001) following LEADER (id=5016) in (2,0)
 1335798557676: Received UDP payload: 989
 1335798557679: mux: GOT CSM_Msg
 1335798557708: Received UDP payload: 989
@@ -278,18 +278,18 @@
 1335798559661: Received UDP payload: 989
 1335798559678: mux: GOT CSM_Msg
 1335798559690: Received UDP payload: 989
-1335798559693: mux: GOT CSM_Msg
 1335798559693: Received UDP payload: 989
-1335798559701: mux: GOT CSM_Msg
+1335798559693: mux: GOT CSM_Msg
 1335798559701: Received UDP payload: 642
-1335798559710: mux: Inside Packet.SERVER_REPLY
+1335798559701: mux: GOT CSM_Msg
 1335798559710: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798559710: mux: Inside Packet.SERVER_REPLY
 1335798559711: Received UDP payload: 642
 1335798559712: mux: Inside Packet.SERVER_REPLY
 1335798559713: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798559720: Received UDP payload: 446
-1335798559722: mux: Inside Packet.SERVER_REPLY
 1335798559722: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798559722: mux: Inside Packet.SERVER_REPLY
 1335798559727: Received UDP payload: 446
 1335798559729: mux: Inside Packet.SERVER_REPLY
 1335798559730: mux: Ignoring SERVER_REPLY since it's not for me  5001
@@ -361,8 +361,8 @@
 1335798562658: Received UDP payload: 989
 1335798562673: mux: GOT CSM_Msg
 1335798562717: Received UDP payload: 642
-1335798562719: mux: Inside Packet.SERVER_REPLY
 1335798562719: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798562719: mux: Inside Packet.SERVER_REPLY
 1335798562743: Received UDP payload: 989
 1335798562746: mux: GOT CSM_Msg
 1335798562778: Received UDP payload: 989
@@ -374,11 +374,11 @@
 1335798562854: Received UDP payload: 989
 1335798562858: mux: GOT CSM_Msg
 1335798562982: Received UDP payload: 642
-1335798562984: mux: Inside Packet.SERVER_REPLY
 1335798562984: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798562984: mux: Inside Packet.SERVER_REPLY
 1335798563280: Received UDP payload: 642
-1335798563282: mux: Inside Packet.SERVER_REPLY
 1335798563282: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798563282: mux: Inside Packet.SERVER_REPLY
 1335798563284: Received UDP payload: 446
 1335798563286: mux: Inside mux Packet.CLIENT_REQUEST
 1335798563286: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -463,14 +463,14 @@
 1335798566658: Received UDP payload: 989
 1335798566668: mux: GOT CSM_Msg
 1335798566670: Received UDP payload: 989
-1335798566680: mux: GOT CSM_Msg
 1335798566680: Received UDP payload: 989
+1335798566680: mux: GOT CSM_Msg
 1335798566684: mux: GOT CSM_Msg
 1335798566693: Received UDP payload: 989
-1335798566701: mux: GOT CSM_Msg
 1335798566701: Received UDP payload: 989
-1335798566710: mux: GOT CSM_Msg
+1335798566701: mux: GOT CSM_Msg
 1335798566710: Received UDP payload: 989
+1335798566710: mux: GOT CSM_Msg
 1335798566716: mux: GOT CSM_Msg
 1335798566737: Received UDP payload: 989
 1335798566742: mux: GOT CSM_Msg
@@ -557,8 +557,8 @@
 1335798578532: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798578560: Received UDP payload: 446
 1335798578568: Received UDP payload: 4586
-1335798578587: mux: Inside Packet.SERVER_REPLY
 1335798578587: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798578587: mux: Inside Packet.SERVER_REPLY
 1335798578626: Received UDP payload: 446
 1335798578628: mux: Inside mux Packet.CLIENT_REQUEST
 1335798578628: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -588,17 +588,17 @@
 1335798580259: Received UDP payload: 4933
 1335798580261: mux: GOT CSM_Msg
 1335798580424: Received UDP payload: 5713
-1335798580426: mux: Inside Packet.SERVER_REPLY
 1335798580426: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798580426: mux: Inside Packet.SERVER_REPLY
 1335798580431: Received UDP payload: 446
-1335798580433: mux: Inside Packet.SERVER_REPLY
 1335798580433: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798580433: mux: Inside Packet.SERVER_REPLY
 1335798580511: Received UDP payload: 5713
 1335798580512: mux: Inside Packet.SERVER_REPLY
 1335798580513: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798580523: Received UDP payload: 446
-1335798580525: mux: Inside Packet.SERVER_REPLY
 1335798580525: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798580525: mux: Inside Packet.SERVER_REPLY
 1335798580637: Received UDP payload: 989
 1335798580640: mux: GOT CSM_Msg
 1335798580699: Received UDP payload: 989
@@ -646,8 +646,8 @@
 1335798582581: mux: Inside Packet.SERVER_REPLY
 1335798582582: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798582868: Received UDP payload: 642
-1335798582874: mux: Inside Packet.SERVER_REPLY
 1335798582874: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798582874: mux: Inside Packet.SERVER_REPLY
 1335798583053: Received UDP payload: 989
 1335798583063: mux: GOT CSM_Msg
 1335798583076: Received UDP payload: 989
@@ -659,12 +659,12 @@
 1335798583346: mux: Inside mux Packet.CLIENT_REQUEST
 1335798583346: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798583492: Received UDP payload: 642
-1335798583500: mux: Inside Packet.SERVER_REPLY
 1335798583500: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798583500: mux: Inside Packet.SERVER_REPLY
 1335798583800: Received UDP payload: 446
 1335798583807: mux: Inside mux Packet.CLIENT_REQUEST
-1335798583808: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798583808: Received UDP payload: 446
+1335798583808: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798583821: mux: Inside mux Packet.CLIENT_REQUEST
 1335798583822: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798583823: Received UDP payload: 446
@@ -690,14 +690,14 @@
 1335798587069: Received UDP payload: 989
 1335798587080: mux: GOT CSM_Msg
 1335798587110: Received UDP payload: 446
-1335798587117: mux: Inside Packet.SERVER_REPLY
 1335798587117: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798587117: mux: Inside Packet.SERVER_REPLY
 1335798587341: Received UDP payload: 625
 1335798587348: mux: Inside mux Packet.CLIENT_REQUEST
 1335798587348: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798587417: Received UDP payload: 446
-1335798587422: mux: Inside Packet.SERVER_REPLY
 1335798587422: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798587422: mux: Inside Packet.SERVER_REPLY
 1335798587495: Received UDP payload: 446
 1335798587820: Received UDP payload: 989
 1335798587831: mux: GOT CSM_Msg
@@ -712,29 +712,29 @@
 1335798588127: Received UDP payload: 989
 1335798588136: mux: GOT CSM_Msg
 1335798588206: Received UDP payload: 642
-1335798588210: mux: Inside Packet.SERVER_REPLY
 1335798588210: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798588210: mux: Inside Packet.SERVER_REPLY
 1335798588218: Received UDP payload: 989
 1335798588223: mux: GOT CSM_Msg
 1335798588242: Received UDP payload: 446
 1335798588244: mux: Inside Packet.SERVER_REPLY
 1335798588245: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798588253: Received UDP payload: 642
-1335798588258: mux: Inside Packet.SERVER_REPLY
 1335798588258: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798588258: mux: Inside Packet.SERVER_REPLY
 1335798588274: Received UDP payload: 446
-1335798588277: mux: Inside Packet.SERVER_REPLY
 1335798588277: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798588277: mux: Inside Packet.SERVER_REPLY
 1335798588341: Received UDP payload: 989
 1335798588347: mux: GOT CSM_Msg
 1335798588431: Received UDP payload: 642
-1335798588435: mux: Inside Packet.SERVER_REPLY
 1335798588435: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798588435: mux: Inside Packet.SERVER_REPLY
 1335798588444: Received UDP payload: 989
 1335798588452: mux: GOT CSM_Msg
 1335798588546: Received UDP payload: 642
-1335798588551: mux: Inside Packet.SERVER_REPLY
 1335798588551: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798588551: mux: Inside Packet.SERVER_REPLY
 1335798588565: Received UDP payload: 446
 1335798588585: Received UDP payload: 989
 1335798588595: mux: GOT CSM_Msg
@@ -769,8 +769,8 @@
 1335798590523: Received UDP payload: 6206
 1335798590533: mux: GOT CSM_Msg
 1335798590559: Received UDP payload: 446
-1335798590566: mux: Inside Packet.SERVER_REPLY
 1335798590566: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798590566: mux: Inside Packet.SERVER_REPLY
 1335798591066: Received UDP payload: 6060
 1335798591069: mux: GOT CSM_Msg
 1335798591590: Received UDP payload: 6060
@@ -795,8 +795,8 @@
 1335798592235: Received UDP payload: 989
 1335798592239: mux: GOT CSM_Msg
 1335798592246: Received UDP payload: 446
-1335798592250: mux: Inside Packet.SERVER_REPLY
 1335798592250: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798592250: mux: Inside Packet.SERVER_REPLY
 1335798592348: Received UDP payload: 989
 1335798592353: mux: GOT CSM_Msg
 1335798592362: Received UDP payload: 989
@@ -854,24 +854,24 @@
 1335798596090: Received UDP payload: 4357
 1335798596093: mux: GOT CSM_Msg
 1335798596119: Received UDP payload: 642
-1335798596121: mux: Inside Packet.SERVER_REPLY
 1335798596121: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798596121: mux: Inside Packet.SERVER_REPLY
 1335798596143: Received UDP payload: 642
-1335798596145: mux: Inside Packet.SERVER_REPLY
 1335798596145: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798596145: mux: Inside Packet.SERVER_REPLY
 1335798596149: Received UDP payload: 642
-1335798596151: mux: Inside Packet.SERVER_REPLY
 1335798596151: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798596151: mux: Inside Packet.SERVER_REPLY
 1335798596265: Received UDP payload: 642
-1335798596267: mux: Inside Packet.SERVER_REPLY
 1335798596267: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798596267: mux: Inside Packet.SERVER_REPLY
 1335798596365: Received UDP payload: 989
 1335798596368: mux: GOT CSM_Msg
 1335798596426: Received UDP payload: 4357
 1335798596428: mux: GOT CSM_Msg
 1335798596514: Received UDP payload: 446
-1335798596516: mux: Inside Packet.SERVER_REPLY
 1335798596516: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798596516: mux: Inside Packet.SERVER_REPLY
 1335798596546: Received UDP payload: 446
 1335798596611: Received UDP payload: 989
 1335798596615: mux: GOT CSM_Msg
@@ -889,8 +889,8 @@
 1335798597440: Received UDP payload: 989
 1335798597445: mux: GOT CSM_Msg
 1335798597455: Received UDP payload: 989
-1335798597476: mux: GOT CSM_Msg
 1335798597476: Received UDP payload: 989
+1335798597476: mux: GOT CSM_Msg
 1335798597499: mux: GOT CSM_Msg
 1335798597500: Received UDP payload: 989
 1335798597505: mux: GOT CSM_Msg
@@ -920,14 +920,14 @@
 1335798598148: mux: Inside Packet.SERVER_REPLY
 1335798598149: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798598159: Received UDP payload: 642
-1335798598166: mux: Inside Packet.SERVER_REPLY
 1335798598166: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798598166: mux: Inside Packet.SERVER_REPLY
 1335798598174: Received UDP payload: 642
 1335798598189: mux: Inside Packet.SERVER_REPLY
 1335798598190: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798598191: Received UDP payload: 642
-1335798598203: mux: Inside Packet.SERVER_REPLY
 1335798598203: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798598203: mux: Inside Packet.SERVER_REPLY
 1335798598303: Received UDP payload: 7341
 1335798598318: mux: GOT CSM_Msg
 1335798598551: Received UDP payload: 446
@@ -957,8 +957,8 @@
 1335798601832: Received UDP payload: 5953
 1335798601844: mux: GOT CSM_Msg
 1335798601857: Received UDP payload: 446
-1335798601862: mux: Inside Packet.SERVER_REPLY
 1335798601862: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798601862: mux: Inside Packet.SERVER_REPLY
 1335798601870: Received UDP payload: 446
 1335798601887: mux: Inside Packet.SERVER_REPLY
 1335798601888: mux: Ignoring SERVER_REPLY since it's not for me  5001
@@ -978,8 +978,8 @@
 1335798602695: Received UDP payload: 5953
 1335798602699: mux: GOT CSM_Msg
 1335798602748: Received UDP payload: 642
-1335798602750: mux: Inside Packet.SERVER_REPLY
 1335798602750: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798602750: mux: Inside Packet.SERVER_REPLY
 1335798602784: Received UDP payload: 5953
 1335798602786: mux: GOT CSM_Msg
 1335798602874: Received UDP payload: 642
@@ -996,39 +996,39 @@
 1335798603387: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798603484: Received UDP payload: 446
 1335798603590: Received UDP payload: 642
-1335798603593: mux: Inside Packet.SERVER_REPLY
 1335798603593: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798603593: mux: Inside Packet.SERVER_REPLY
 1335798603605: Received UDP payload: 5609
 1335798603608: mux: Inside mux Packet.CLIENT_REQUEST
 1335798603608: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798603708: Received UDP payload: 446
 1335798603732: Received UDP payload: 446
-1335798603736: mux: Inside Packet.SERVER_REPLY
 1335798603736: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798603736: mux: Inside Packet.SERVER_REPLY
 1335798603888: Received UDP payload: 5609
 1335798603890: mux: Inside mux Packet.CLIENT_REQUEST
 1335798603890: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798604033: Received UDP payload: 446
-1335798604041: mux: Inside Packet.SERVER_REPLY
 1335798604041: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798604041: mux: Inside Packet.SERVER_REPLY
 1335798604417: Received UDP payload: 5953
 1335798604433: mux: GOT CSM_Msg
 1335798604722: Received UDP payload: 5863
 1335798604732: mux: GOT CSM_Msg
 1335798604746: Received UDP payload: 446
-1335798604750: mux: Inside Packet.SERVER_REPLY
 1335798604750: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798604750: mux: Inside Packet.SERVER_REPLY
 1335798604751: Received UDP payload: 989
 1335798604767: mux: GOT CSM_Msg
 1335798604768: Received UDP payload: 642
 1335798604772: mux: Inside Packet.SERVER_REPLY
 1335798604773: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798604798: Received UDP payload: 642
-1335798604800: mux: Inside Packet.SERVER_REPLY
 1335798604800: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798604800: mux: Inside Packet.SERVER_REPLY
 1335798604802: Received UDP payload: 446
-1335798604803: mux: Inside Packet.SERVER_REPLY
 1335798604803: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798604803: mux: Inside Packet.SERVER_REPLY
 1335798604822: Received UDP payload: 463
 1335798604828: Received UDP payload: 446
 1335798604830: mux: Inside mux Packet.CLIENT_REQUEST
@@ -1041,8 +1041,8 @@
 1335798604862: mux: Inside mux Packet.CLIENT_REQUEST
 1335798604862: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798604901: Received UDP payload: 642
-1335798604902: mux: Inside Packet.SERVER_REPLY
 1335798604902: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798604902: mux: Inside Packet.SERVER_REPLY
 1335798605131: Received UDP payload: 5953
 1335798605133: mux: GOT CSM_Msg
 1335798605202: Received UDP payload: 446
@@ -1057,12 +1057,9 @@
 1335798605557: Received UDP payload: 446
 1335798605587: canPressButton = TRUE
 1335798605588: areButtonsEnabled --> false
+1335798605588: areButtonsEnabled --> false
 1335798605588: disabling buttons ...
 1335798605588: took picture disableButtonsR
-1335798605588: areButtonsEnabled --> false
-1335798605749: one more takeNum: 1
-1335798605750: reg=2 id=5001 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=1 getBad=0 getTimedout=0 getPercent=-1%
-1335798605750: Clicked take picture button ..
 1335798605594: Received UDP payload: 446
 1335798605622: Received UDP payload: 446
 1335798605623: Received UDP payload: 446
@@ -1074,6 +1071,9 @@
 1335798605736: Received UDP payload: 625
 1335798605738: mux: Inside mux Packet.CLIENT_REQUEST
 1335798605738: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335798605749: one more takeNum: 1
+1335798605750: Clicked take picture button ..
+1335798605750: reg=2 id=5001 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=1 getBad=0 getTimedout=0 getPercent=-1%
 1335798605760: Received UDP payload: 5666
 1335798605762: mux: Inside mux Packet.CLIENT_REQUEST
 1335798605762: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -1092,9 +1092,18 @@
 1335798606957: Received UDP payload: 5256
 1335798606959: mux: Inside mux Packet.CLIENT_REQUEST
 1335798606959: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335798607095: Received UDP payload: 5256
 1335798607099: inside HandlePictureStorage onPictureTaken()
+1335798607099: mux: Inside mux Packet.CLIENT_REQUEST
+1335798607099: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798607099: one more takeCamGood: 1
 1335798607100: reg=2 id=5001 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=1 getBad=0 getTimedout=0 getPercent=-1%
+1335798607179: Received UDP payload: 5256
+1335798607182: mux: Inside mux Packet.CLIENT_REQUEST
+1335798607183: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335798607269: Received UDP payload: 5524
+1335798607271: mux: Inside mux Packet.CLIENT_REQUEST
+1335798607272: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798607364: Picture successfully taken, ORIG BYTE LENGTH = 2265711
 1335798607544: Our new height x width: 306 x 408
 1335798607544: Show photo from handle my camera take
@@ -1102,40 +1111,31 @@
 1335798607545: change local requestCounter to 3
 1335798607564: BYTE SIZE AFTER COMPRESSION: 3267
 1335798607573: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5001003 Client in region: 2 Client nodID: 5001
-1335798607095: Received UDP payload: 5256
-1335798607099: mux: Inside mux Packet.CLIENT_REQUEST
-1335798607099: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
-1335798607179: Received UDP payload: 5256
-1335798607182: mux: Inside mux Packet.CLIENT_REQUEST
-1335798607183: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
-1335798607269: Received UDP payload: 5524
-1335798607271: mux: Inside mux Packet.CLIENT_REQUEST
-1335798607272: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
-1335798607618: ----------------------------
-1335798607618: inside sendRequestPacketRepeatingRunnable for requestCount = 5001003
-1335798607619: I'm a nonleader sending my requesting photos packet to my leader
-1335798607630: --- Finished one round of sending REQUEST Packet ---------
 1335798607607: Received UDP payload: 5524
 1335798607611: mux: Inside mux Packet.CLIENT_REQUEST
 1335798607612: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1335798607618: ----------------------------
+1335798607618: inside sendRequestPacketRepeatingRunnable for requestCount = 5001003
+1335798607619: I'm a nonleader sending my requesting photos packet to my leader
 1335798607619: inside sendPacket(Packet p)
 1335798607624: Sending UDP payload: 3914
+1335798607630: --- Finished one round of sending REQUEST Packet ---------
 1335798607931: ----------------------------
-1335798607931: inside sendRequestPacketRepeatingRunnable for requestCount = 5001003
 1335798607931: I'm a nonleader sending my requesting photos packet to my leader
-1335798607936: --- Finished one round of sending REQUEST Packet ---------
+1335798607931: inside sendRequestPacketRepeatingRunnable for requestCount = 5001003
 1335798607932: inside sendPacket(Packet p)
 1335798607933: Sending UDP payload: 3914
+1335798607936: --- Finished one round of sending REQUEST Packet ---------
 1335798607997: Received UDP payload: 989
 1335798608003: mux: GOT CSM_Msg
 1335798608120: Received UDP payload: 446
 1335798608197: Received UDP payload: 446
 1335798608227: Received UDP payload: 989
 1335798608237: ----------------------------
-1335798608238: inside sendRequestPacketRepeatingRunnable for requestCount = 5001003
 1335798608238: I'm a nonleader sending my requesting photos packet to my leader
-1335798608240: --- Finished one round of sending REQUEST Packet ---------
+1335798608238: inside sendRequestPacketRepeatingRunnable for requestCount = 5001003
 1335798608239: inside sendPacket(Packet p)
+1335798608240: --- Finished one round of sending REQUEST Packet ---------
 1335798608252: Sending UDP payload: 3914
 1335798608258: mux: GOT CSM_Msg
 1335798608291: Received UDP payload: 989
@@ -1146,9 +1146,9 @@
 1335798608540: ----------------------------
 1335798608540: inside sendRequestPacketRepeatingRunnable for requestCount = 5001003
 1335798608541: I'm a nonleader sending my requesting photos packet to my leader
-1335798608544: --- Finished one round of sending REQUEST Packet ---------
 1335798608541: inside sendPacket(Packet p)
 1335798608542: Sending UDP payload: 3914
+1335798608544: --- Finished one round of sending REQUEST Packet ---------
 1335798608574: inside sendRequestPacketTimeoutR, stops Client sending requestPackets
 1335798608842: Received UDP payload: 989
 1335798608844: mux: GOT CSM_Msg
@@ -1161,12 +1161,12 @@
 1335798608994: Received UDP payload: 446
 1335798609247: Missed 3 HEARTBEATS from LEADER, going to JOINING.
 1335798609247: VCoreDaemon.java inside stateTransition ..........
-1335798609248: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798609248: ..... VCoreDaemon.java targetState = JOINING (2,0)
-1335798609249: posting leaderRequestRetryR because I'm joining
+1335798609248: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798609249: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335798609252: Received UDP payload: 446
+1335798609249: posting leaderRequestRetryR because I'm joining
 1335798609249: sending LEADER_REQUEST
+1335798609252: Received UDP payload: 446
 1335798609256: inside sendPacket(Packet p)
 1335798609256: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335798609263: Sending UDP payload: 446
@@ -1176,8 +1176,8 @@
 1335798609557: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335798609565: Sending UDP payload: 446
 1335798609582: Received UDP payload: 446
-1335798609858: sending LEADER_REQUEST
 1335798609858: inside sendPacket(Packet p)
+1335798609858: sending LEADER_REQUEST
 1335798609859: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335798609866: Sending UDP payload: 446
 1335798609933: Received UDP payload: 625
@@ -1185,17 +1185,17 @@
 1335798610020: Received UDP payload: 7341
 1335798610023: mux: GOT CSM_Msg
 1335798610152: Received UDP payload: 7341
-1335798610156: mux: GOT CSM_Msg
 1335798610156: Received UDP payload: 446
-1335798610160: sending LEADER_REQUEST
+1335798610156: mux: GOT CSM_Msg
 1335798610160: inside sendPacket(Packet p)
 1335798610160: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335798610160: sending LEADER_REQUEST
 1335798610161: Sending UDP payload: 446
 1335798610249: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335798610250: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
-1335798610250: VCoreDaemon.java inside stateTransition ..........
-1335798610250: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798610250: ..... VCoreDaemon.java targetState = LEADER
+1335798610250: VCoreDaemon.java inside stateTransition ..........
+1335798610250: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335798610250: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798610250: trying to take leadership (2,0) to the cloud
 1335798610259: Received UDP payload: 625
 1335798610261: mux: Inside mux Packet.CLIENT_REQUEST
@@ -1285,12 +1285,12 @@
 1335798618141: mux: GOT CSM_Msg
 1335798618211: Received UDP payload: 446
 1335798618214: removing leaderRequestRetryR because heard Packet.Heartbeat
-1335798618215: heard HEARTBEAT from 5011, now following
-1335798618215: VCoreDaemon.java inside stateTransition ..........
-1335798618215: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798618215: ..... VCoreDaemon.java targetState = NONLEADER
-1335798618216: now NONLEADER (id=5001) following LEADER (id=5011) in (2,0)
+1335798618215: VCoreDaemon.java inside stateTransition ..........
+1335798618215: heard HEARTBEAT from 5011, now following
+1335798618215: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798618216: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335798618216: now NONLEADER (id=5001) following LEADER (id=5011) in (2,0)
 1335798618222: Received UDP payload: 989
 1335798618227: mux: GOT CSM_Msg
 1335798618253: Received UDP payload: 989
@@ -1350,8 +1350,8 @@
 1335798624779: Received UDP payload: 989
 1335798624781: mux: GOT CSM_Msg
 1335798624805: Received UDP payload: 642
-1335798624807: mux: Inside Packet.SERVER_REPLY
 1335798624807: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798624807: mux: Inside Packet.SERVER_REPLY
 1335798625284: Received UDP payload: 446
 1335798625399: Received UDP payload: 446
 1335798625522: Received UDP payload: 642
@@ -1396,8 +1396,8 @@
 1335798627374: Received UDP payload: 6106
 1335798627384: mux: GOT CSM_Msg
 1335798627402: Received UDP payload: 446
-1335798627407: mux: Inside Packet.SERVER_REPLY
 1335798627407: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798627407: mux: Inside Packet.SERVER_REPLY
 1335798627559: Received UDP payload: 446
 1335798627564: mux: Inside mux Packet.CLIENT_REQUEST
 1335798627564: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -1413,8 +1413,8 @@
 1335798628741: Received UDP payload: 989
 1335798628745: mux: GOT CSM_Msg
 1335798628749: Received UDP payload: 446
-1335798628751: mux: Inside Packet.SERVER_REPLY
 1335798628751: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798628751: mux: Inside Packet.SERVER_REPLY
 1335798628908: Received UDP payload: 4978
 1335798628911: mux: Inside mux Packet.CLIENT_REQUEST
 1335798628911: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -1422,15 +1422,15 @@
 1335798629430: mux: Inside mux Packet.CLIENT_REQUEST
 1335798629431: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798629582: Received UDP payload: 446
-1335798629584: mux: Inside Packet.SERVER_REPLY
 1335798629584: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798629584: mux: Inside Packet.SERVER_REPLY
 1335798629597: Received UDP payload: 989
 1335798629603: mux: GOT CSM_Msg
 1335798629619: Received UDP payload: 989
 1335798629623: mux: GOT CSM_Msg
 1335798629694: Received UDP payload: 642
-1335798629698: mux: Inside Packet.SERVER_REPLY
 1335798629698: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798629698: mux: Inside Packet.SERVER_REPLY
 1335798629794: Received UDP payload: 446
 1335798629797: mux: Inside mux Packet.CLIENT_REQUEST
 1335798629798: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -1613,15 +1613,15 @@
 1335798645811: Received UDP payload: 5621
 1335798645818: mux: GOT CSM_Msg
 1335798645925: Received UDP payload: 446
-1335798645927: mux: Inside Packet.SERVER_REPLY
 1335798645927: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798645927: mux: Inside Packet.SERVER_REPLY
 1335798645981: Received UDP payload: 989
 1335798645985: mux: GOT CSM_Msg
 1335798646058: Received UDP payload: 5621
 1335798646061: mux: GOT CSM_Msg
 1335798646067: Received UDP payload: 642
-1335798646070: mux: Inside Packet.SERVER_REPLY
 1335798646070: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798646070: mux: Inside Packet.SERVER_REPLY
 1335798646123: Received UDP payload: 446
 1335798646126: mux: Inside mux Packet.CLIENT_REQUEST
 1335798646126: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -1632,8 +1632,8 @@
 1335798646517: Received UDP payload: 989
 1335798646526: mux: GOT CSM_Msg
 1335798646527: Received UDP payload: 989
-1335798646540: mux: GOT CSM_Msg
 1335798646540: Received UDP payload: 989
+1335798646540: mux: GOT CSM_Msg
 1335798646542: mux: GOT CSM_Msg
 1335798646559: Received UDP payload: 989
 1335798646561: mux: GOT CSM_Msg
@@ -1646,20 +1646,20 @@
 1335798646642: Received UDP payload: 989
 1335798646644: mux: GOT CSM_Msg
 1335798646684: Received UDP payload: 446
-1335798646686: mux: Inside Packet.SERVER_REPLY
 1335798646686: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798646686: mux: Inside Packet.SERVER_REPLY
 1335798646694: Received UDP payload: 446
-1335798646696: mux: Inside Packet.SERVER_REPLY
 1335798646696: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798646696: mux: Inside Packet.SERVER_REPLY
 1335798646806: Received UDP payload: 642
-1335798646808: mux: Inside Packet.SERVER_REPLY
 1335798646808: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798646808: mux: Inside Packet.SERVER_REPLY
 1335798646812: Received UDP payload: 642
-1335798646814: mux: Inside Packet.SERVER_REPLY
 1335798646814: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798646814: mux: Inside Packet.SERVER_REPLY
 1335798646824: Received UDP payload: 642
-1335798646826: mux: Inside Packet.SERVER_REPLY
 1335798646826: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798646826: mux: Inside Packet.SERVER_REPLY
 1335798646871: Received UDP payload: 446
 1335798646873: mux: Inside mux Packet.CLIENT_REQUEST
 1335798646873: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -1713,8 +1713,8 @@
 1335798649440: Received UDP payload: 989
 1335798649449: mux: GOT CSM_Msg
 1335798649737: Received UDP payload: 446
-1335798649741: mux: Inside Packet.SERVER_REPLY
 1335798649741: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798649741: mux: Inside Packet.SERVER_REPLY
 1335798649769: Received UDP payload: 989
 1335798649778: mux: GOT CSM_Msg
 1335798649805: Received UDP payload: 642
@@ -1724,24 +1724,24 @@
 1335798649855: mux: Inside mux Packet.CLIENT_REQUEST
 1335798649855: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798649945: Received UDP payload: 446
-1335798649946: mux: Inside Packet.SERVER_REPLY
 1335798649946: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798649946: mux: Inside Packet.SERVER_REPLY
 1335798649959: Received UDP payload: 6059
 1335798649961: mux: Inside mux Packet.CLIENT_REQUEST
 1335798649961: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798650064: Received UDP payload: 642
-1335798650066: mux: Inside Packet.SERVER_REPLY
 1335798650066: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798650066: mux: Inside Packet.SERVER_REPLY
 1335798650165: Received UDP payload: 446
-1335798650166: mux: Inside Packet.SERVER_REPLY
 1335798650166: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798650166: mux: Inside Packet.SERVER_REPLY
 1335798650180: Received UDP payload: 446
 1335798650245: Received UDP payload: 6451
 1335798650247: mux: Inside mux Packet.CLIENT_REQUEST
 1335798650248: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798650277: Received UDP payload: 446
-1335798650279: mux: Inside Packet.SERVER_REPLY
 1335798650279: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798650279: mux: Inside Packet.SERVER_REPLY
 1335798650302: Received UDP payload: 642
 1335798650303: mux: Inside Packet.SERVER_REPLY
 1335798650304: mux: Ignoring SERVER_REPLY since it's not for me  5001
@@ -1785,22 +1785,22 @@
 1335798651162: Received UDP payload: 989
 1335798651173: mux: GOT CSM_Msg
 1335798651186: Received UDP payload: 989
-1335798651194: mux: GOT CSM_Msg
 1335798651194: Received UDP payload: 989
+1335798651194: mux: GOT CSM_Msg
 1335798651202: mux: GOT CSM_Msg
 1335798651208: Received UDP payload: 625
 1335798651218: mux: Inside mux Packet.CLIENT_REQUEST
 1335798651218: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798651229: Received UDP payload: 446
-1335798651231: mux: Inside Packet.SERVER_REPLY
 1335798651231: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798651231: mux: Inside Packet.SERVER_REPLY
 1335798651294: Received UDP payload: 989
 1335798651299: mux: GOT CSM_Msg
 1335798651314: Received UDP payload: 989
 1335798651319: mux: GOT CSM_Msg
 1335798651392: Received UDP payload: 446
-1335798651395: mux: Inside Packet.SERVER_REPLY
 1335798651395: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798651395: mux: Inside Packet.SERVER_REPLY
 1335798651401: Received UDP payload: 989
 1335798651406: mux: GOT CSM_Msg
 1335798651448: Received UDP payload: 989
@@ -1860,8 +1860,8 @@
 1335798653412: Received UDP payload: 989
 1335798653414: mux: GOT CSM_Msg
 1335798653437: Received UDP payload: 642
-1335798653439: mux: Inside Packet.SERVER_REPLY
 1335798653439: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798653439: mux: Inside Packet.SERVER_REPLY
 1335798653442: Received UDP payload: 625
 1335798653444: mux: Inside mux Packet.CLIENT_REQUEST
 1335798653444: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -1871,13 +1871,13 @@
 1335798653505: Received UDP payload: 989
 1335798653507: mux: GOT CSM_Msg
 1335798653539: Received UDP payload: 446
-1335798653541: mux: Inside Packet.SERVER_REPLY
 1335798653541: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798653541: mux: Inside Packet.SERVER_REPLY
 1335798653655: Received UDP payload: 6815
 1335798653657: mux: GOT CSM_Msg
 1335798653740: Received UDP payload: 6468
-1335798653741: mux: Inside Packet.SERVER_REPLY
 1335798653741: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798653741: mux: Inside Packet.SERVER_REPLY
 1335798653763: Received UDP payload: 446
 1335798653765: mux: Inside mux Packet.CLIENT_REQUEST
 1335798653765: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -1907,8 +1907,8 @@
 1335798656362: Received UDP payload: 989
 1335798656368: mux: GOT CSM_Msg
 1335798656390: Received UDP payload: 989
-1335798656399: mux: GOT CSM_Msg
 1335798656399: Received UDP payload: 6423
+1335798656399: mux: GOT CSM_Msg
 1335798656401: mux: GOT CSM_Msg
 1335798656464: Received UDP payload: 989
 1335798656466: mux: GOT CSM_Msg
@@ -1989,8 +1989,8 @@
 1335798659216: Received UDP payload: 989
 1335798659218: mux: GOT CSM_Msg
 1335798659236: Received UDP payload: 642
-1335798659238: mux: Inside Packet.SERVER_REPLY
 1335798659238: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798659238: mux: Inside Packet.SERVER_REPLY
 1335798659278: Received UDP payload: 989
 1335798659280: mux: GOT CSM_Msg
 1335798659398: Received UDP payload: 5342
@@ -1998,8 +1998,8 @@
 1335798659484: Received UDP payload: 5342
 1335798659487: mux: GOT CSM_Msg
 1335798659527: Received UDP payload: 642
-1335798659529: mux: Inside Packet.SERVER_REPLY
 1335798659529: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798659529: mux: Inside Packet.SERVER_REPLY
 1335798659553: Received UDP payload: 446
 1335798659554: mux: Inside mux Packet.CLIENT_REQUEST
 1335798659555: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -2007,8 +2007,8 @@
 1335798659603: mux: Inside mux Packet.CLIENT_REQUEST
 1335798659603: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798659613: Received UDP payload: 446
-1335798659615: mux: Inside Packet.SERVER_REPLY
 1335798659615: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798659615: mux: Inside Packet.SERVER_REPLY
 1335798659784: Received UDP payload: 989
 1335798659792: mux: GOT CSM_Msg
 1335798659859: Received UDP payload: 989
@@ -2062,8 +2062,8 @@
 1335798661249: mux: Inside mux Packet.CLIENT_REQUEST
 1335798661249: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798661261: Received UDP payload: 642
-1335798661286: mux: Inside Packet.SERVER_REPLY
 1335798661286: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798661286: mux: Inside Packet.SERVER_REPLY
 1335798661287: Received UDP payload: 5342
 1335798661295: mux: GOT CSM_Msg
 1335798661313: Received UDP payload: 446
@@ -2072,19 +2072,19 @@
 1335798661463: Received UDP payload: 5342
 1335798661469: mux: GOT CSM_Msg
 1335798661808: Received UDP payload: 446
-1335798661810: mux: Inside Packet.SERVER_REPLY
 1335798661810: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798661810: mux: Inside Packet.SERVER_REPLY
 1335798661849: Received UDP payload: 989
 1335798661851: mux: GOT CSM_Msg
 1335798661864: Received UDP payload: 642
-1335798661865: mux: Inside Packet.SERVER_REPLY
 1335798661865: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798661865: mux: Inside Packet.SERVER_REPLY
 1335798661878: Received UDP payload: 446
-1335798661879: mux: Inside Packet.SERVER_REPLY
 1335798661879: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798661879: mux: Inside Packet.SERVER_REPLY
 1335798661990: Received UDP payload: 642
-1335798661993: mux: Inside Packet.SERVER_REPLY
 1335798661993: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798661993: mux: Inside Packet.SERVER_REPLY
 1335798662002: Received UDP payload: 5342
 1335798662007: mux: GOT CSM_Msg
 1335798662035: Received UDP payload: 446
@@ -2104,13 +2104,13 @@
 1335798665865: Received UDP payload: 446
 1335798666168: Received UDP payload: 446
 1335798666611: Received UDP payload: 446
-1335798666612: mux: Inside Packet.SERVER_REPLY
 1335798666612: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798666612: mux: Inside Packet.SERVER_REPLY
 1335798666639: Received UDP payload: 989
 1335798666642: mux: GOT CSM_Msg
 1335798666660: Received UDP payload: 642
-1335798666662: mux: Inside Packet.SERVER_REPLY
 1335798666662: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798666662: mux: Inside Packet.SERVER_REPLY
 1335798666694: Received UDP payload: 446
 1335798666696: mux: Inside mux Packet.CLIENT_REQUEST
 1335798666696: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -2167,8 +2167,8 @@
 1335798670780: Received UDP payload: 989
 1335798670782: mux: GOT CSM_Msg
 1335798670788: Received UDP payload: 642
-1335798670790: mux: Inside Packet.SERVER_REPLY
 1335798670790: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798670790: mux: Inside Packet.SERVER_REPLY
 1335798670829: Received UDP payload: 446
 1335798670830: mux: Inside mux Packet.CLIENT_REQUEST
 1335798670830: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -2176,16 +2176,16 @@
 1335798671572: mux: Inside mux Packet.CLIENT_REQUEST
 1335798671572: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798671626: Received UDP payload: 446
-1335798671629: mux: Inside Packet.SERVER_REPLY
 1335798671629: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798671629: mux: Inside Packet.SERVER_REPLY
 1335798671998: Received UDP payload: 625
 1335798672003: mux: Inside mux Packet.CLIENT_REQUEST
 1335798672004: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798672014: Received UDP payload: 989
 1335798672023: mux: GOT CSM_Msg
 1335798672036: Received UDP payload: 446
-1335798672042: mux: Inside Packet.SERVER_REPLY
 1335798672042: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798672042: mux: Inside Packet.SERVER_REPLY
 1335798672312: Received UDP payload: 989
 1335798672314: mux: GOT CSM_Msg
 1335798672533: Received UDP payload: 446
@@ -2306,22 +2306,22 @@
 1335798677909: Received UDP payload: 6211
 1335798677918: mux: GOT CSM_Msg
 1335798677929: Received UDP payload: 446
-1335798677946: mux: Inside Packet.SERVER_REPLY
 1335798677946: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798677946: mux: Inside Packet.SERVER_REPLY
 1335798677947: Received UDP payload: 989
 1335798677968: mux: GOT CSM_Msg
 1335798677969: Received UDP payload: 446
 1335798677972: mux: Inside Packet.SERVER_REPLY
-1335798677973: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798677973: Received UDP payload: 642
-1335798677980: mux: Inside Packet.SERVER_REPLY
+1335798677973: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798677980: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798677980: mux: Inside Packet.SERVER_REPLY
 1335798677985: Received UDP payload: 642
-1335798678002: mux: Inside Packet.SERVER_REPLY
-1335798678002: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798678002: Received UDP payload: 642
-1335798678003: mux: Inside Packet.SERVER_REPLY
+1335798678002: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798678002: mux: Inside Packet.SERVER_REPLY
 1335798678003: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798678003: mux: Inside Packet.SERVER_REPLY
 1335798678027: Received UDP payload: 446
 1335798678029: mux: Inside mux Packet.CLIENT_REQUEST
 1335798678029: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -2337,13 +2337,13 @@
 1335798679127: mux: Inside mux Packet.CLIENT_REQUEST
 1335798679128: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798679226: Received UDP payload: 446
-1335798679230: mux: Inside Packet.SERVER_REPLY
 1335798679230: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798679230: mux: Inside Packet.SERVER_REPLY
 1335798679246: Received UDP payload: 989
 1335798679252: mux: GOT CSM_Msg
 1335798679469: Received UDP payload: 642
-1335798679473: mux: Inside Packet.SERVER_REPLY
 1335798679473: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798679473: mux: Inside Packet.SERVER_REPLY
 1335798679786: Received UDP payload: 642
 1335798679790: mux: Inside Packet.SERVER_REPLY
 1335798679791: mux: Ignoring SERVER_REPLY since it's not for me  5001
@@ -2371,8 +2371,8 @@
 1335798684278: mux: Inside mux Packet.CLIENT_REQUEST
 1335798684278: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798684390: Received UDP payload: 446
-1335798684394: mux: Inside Packet.SERVER_REPLY
 1335798684394: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798684394: mux: Inside Packet.SERVER_REPLY
 1335798684401: Received UDP payload: 989
 1335798684408: mux: GOT CSM_Msg
 1335798684414: Received UDP payload: 642
@@ -2391,8 +2391,8 @@
 1335798686352: Received UDP payload: 989
 1335798686359: mux: GOT CSM_Msg
 1335798686414: Received UDP payload: 446
-1335798686418: mux: Inside Packet.SERVER_REPLY
 1335798686418: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798686418: mux: Inside Packet.SERVER_REPLY
 1335798686653: Received UDP payload: 989
 1335798686680: mux: GOT CSM_Msg
 1335798686750: Received UDP payload: 989
@@ -2406,8 +2406,8 @@
 1335798687204: Received UDP payload: 6796
 1335798687207: mux: GOT CSM_Msg
 1335798687320: Received UDP payload: 446
-1335798687324: mux: Inside Packet.SERVER_REPLY
 1335798687324: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798687324: mux: Inside Packet.SERVER_REPLY
 1335798687358: Received UDP payload: 989
 1335798687364: mux: GOT CSM_Msg
 1335798687384: Received UDP payload: 989
@@ -2419,8 +2419,8 @@
 1335798687436: Received UDP payload: 989
 1335798687438: mux: GOT CSM_Msg
 1335798687465: Received UDP payload: 642
-1335798687466: mux: Inside Packet.SERVER_REPLY
 1335798687466: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798687466: mux: Inside Packet.SERVER_REPLY
 1335798687475: Received UDP payload: 446
 1335798687477: mux: Inside mux Packet.CLIENT_REQUEST
 1335798687477: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -2464,17 +2464,17 @@
 1335798688967: Received UDP payload: 989
 1335798688969: mux: GOT CSM_Msg
 1335798688984: Received UDP payload: 642
-1335798688986: mux: Inside Packet.SERVER_REPLY
 1335798688986: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798688986: mux: Inside Packet.SERVER_REPLY
 1335798688998: Received UDP payload: 642
-1335798688999: mux: Inside Packet.SERVER_REPLY
 1335798688999: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798688999: mux: Inside Packet.SERVER_REPLY
 1335798689020: Received UDP payload: 446
 1335798689021: mux: Inside mux Packet.CLIENT_REQUEST
 1335798689021: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798689136: Received UDP payload: 642
-1335798689137: mux: Inside Packet.SERVER_REPLY
 1335798689137: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798689137: mux: Inside Packet.SERVER_REPLY
 1335798689253: Received UDP payload: 446
 1335798689255: mux: Inside mux Packet.CLIENT_REQUEST
 1335798689255: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -2501,8 +2501,8 @@
 1335798692274: Received UDP payload: 989
 1335798692281: mux: GOT CSM_Msg
 1335798692295: Received UDP payload: 446
-1335798692299: mux: Inside Packet.SERVER_REPLY
 1335798692299: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798692299: mux: Inside Packet.SERVER_REPLY
 1335798692369: Received UDP payload: 6211
 1335798692376: mux: GOT CSM_Msg
 1335798692521: Received UDP payload: 6211
@@ -2551,11 +2551,11 @@
 1335798694436: Received UDP payload: 989
 1335798694443: mux: GOT CSM_Msg
 1335798694448: Received UDP payload: 642
-1335798694450: mux: Inside Packet.SERVER_REPLY
 1335798694450: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798694450: mux: Inside Packet.SERVER_REPLY
 1335798694713: Received UDP payload: 642
-1335798694714: mux: Inside Packet.SERVER_REPLY
 1335798694714: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798694714: mux: Inside Packet.SERVER_REPLY
 1335798694762: Received UDP payload: 446
 1335798694763: mux: Inside mux Packet.CLIENT_REQUEST
 1335798694764: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -2578,32 +2578,32 @@
 1335798696612: Received UDP payload: 989
 1335798696614: mux: GOT CSM_Msg
 1335798696674: Received UDP payload: 446
-1335798696676: mux: Inside Packet.SERVER_REPLY
 1335798696676: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798696676: mux: Inside Packet.SERVER_REPLY
 1335798696806: Received UDP payload: 6281
 1335798696807: mux: Inside mux Packet.CLIENT_REQUEST
 1335798696807: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798696871: Received UDP payload: 6211
 1335798696873: mux: GOT CSM_Msg
 1335798696878: Received UDP payload: 6449
-1335798696880: mux: Inside Packet.SERVER_REPLY
 1335798696880: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798696880: mux: Inside Packet.SERVER_REPLY
 1335798697014: Received UDP payload: 446
-1335798697016: mux: Inside Packet.SERVER_REPLY
 1335798697016: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798697016: mux: Inside Packet.SERVER_REPLY
 1335798697027: Received UDP payload: 989
 1335798697030: mux: GOT CSM_Msg
 1335798697112: Received UDP payload: 6281
+1335798697118: Received UDP payload: 989
 1335798697118: mux: Inside mux Packet.CLIENT_REQUEST
 1335798697118: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
-1335798697118: Received UDP payload: 989
 1335798697126: mux: GOT CSM_Msg
 1335798697147: Received UDP payload: 446
-1335798697153: mux: Inside Packet.SERVER_REPLY
 1335798697153: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798697153: mux: Inside Packet.SERVER_REPLY
 1335798697161: Received UDP payload: 446
-1335798697165: mux: Inside Packet.SERVER_REPLY
 1335798697165: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798697165: mux: Inside Packet.SERVER_REPLY
 1335798697215: Received UDP payload: 642
 1335798697216: mux: Inside Packet.SERVER_REPLY
 1335798697217: mux: Ignoring SERVER_REPLY since it's not for me  5001
@@ -2621,8 +2621,8 @@
 1335798698547: mux: Inside mux Packet.CLIENT_REQUEST
 1335798698547: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798698677: Received UDP payload: 446
-1335798698680: mux: Inside Packet.SERVER_REPLY
 1335798698680: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798698680: mux: Inside Packet.SERVER_REPLY
 1335798698702: Received UDP payload: 446
 1335798698706: mux: Inside Packet.SERVER_REPLY
 1335798698707: mux: Ignoring SERVER_REPLY since it's not for me  5001
@@ -2662,13 +2662,13 @@
 1335798700766: Received UDP payload: 989
 1335798700773: mux: GOT CSM_Msg
 1335798700857: Received UDP payload: 5393
-1335798700858: mux: Inside Packet.SERVER_REPLY
 1335798700858: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798700858: mux: Inside Packet.SERVER_REPLY
 1335798700896: Received UDP payload: 989
 1335798700900: mux: GOT CSM_Msg
 1335798700950: Received UDP payload: 5393
-1335798700953: mux: Inside Packet.SERVER_REPLY
 1335798700953: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798700953: mux: Inside Packet.SERVER_REPLY
 1335798700987: Received UDP payload: 989
 1335798700991: mux: GOT CSM_Msg
 1335798701010: Received UDP payload: 446
@@ -2702,25 +2702,25 @@
 1335798702617: Received UDP payload: 989
 1335798702623: mux: GOT CSM_Msg
 1335798702626: Received UDP payload: 446
-1335798702658: mux: Inside Packet.SERVER_REPLY
 1335798702658: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798702658: mux: Inside Packet.SERVER_REPLY
 1335798702717: Received UDP payload: 6211
 1335798702724: mux: GOT CSM_Msg
 1335798702793: Received UDP payload: 5864
-1335798702794: mux: Inside Packet.SERVER_REPLY
 1335798702794: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798702794: mux: Inside Packet.SERVER_REPLY
 1335798702803: Received UDP payload: 446
-1335798702804: mux: Inside Packet.SERVER_REPLY
 1335798702804: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798702804: mux: Inside Packet.SERVER_REPLY
 1335798702922: Received UDP payload: 446
-1335798702923: mux: Inside Packet.SERVER_REPLY
 1335798702923: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798702923: mux: Inside Packet.SERVER_REPLY
 1335798703090: Received UDP payload: 446
-1335798703092: mux: Inside Packet.SERVER_REPLY
 1335798703092: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798703092: mux: Inside Packet.SERVER_REPLY
 1335798703180: Received UDP payload: 5864
-1335798703182: mux: Inside Packet.SERVER_REPLY
 1335798703182: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798703182: mux: Inside Packet.SERVER_REPLY
 1335798703226: Received UDP payload: 446
 1335798703250: Received UDP payload: 446
 1335798703251: mux: Inside mux Packet.CLIENT_REQUEST
@@ -2754,8 +2754,8 @@
 1335798705984: Received UDP payload: 6211
 1335798705990: mux: GOT CSM_Msg
 1335798706125: Received UDP payload: 6211
-1335798706133: mux: GOT CSM_Msg
 1335798706133: Received UDP payload: 446
+1335798706133: mux: GOT CSM_Msg
 1335798706324: Received UDP payload: 6211
 1335798706331: mux: GOT CSM_Msg
 1335798706345: Received UDP payload: 446
@@ -2771,8 +2771,8 @@
 1335798710789: Received UDP payload: 989
 1335798710796: mux: GOT CSM_Msg
 1335798710814: Received UDP payload: 446
-1335798710818: mux: Inside Packet.SERVER_REPLY
 1335798710818: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798710818: mux: Inside Packet.SERVER_REPLY
 1335798711210: Received UDP payload: 446
 1335798711692: Received UDP payload: 6645
 1335798711699: mux: GOT CSM_Msg
@@ -2791,14 +2791,14 @@
 1335798715288: Received UDP payload: 5740
 1335798715294: mux: GOT CSM_Msg
 1335798715351: Received UDP payload: 5393
-1335798715352: mux: Inside Packet.SERVER_REPLY
 1335798715352: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798715352: mux: Inside Packet.SERVER_REPLY
 1335798715377: Received UDP payload: 446
 1335798715378: mux: Inside mux Packet.CLIENT_REQUEST
 1335798715378: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798715423: Received UDP payload: 5393
-1335798715425: mux: Inside Packet.SERVER_REPLY
 1335798715425: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798715425: mux: Inside Packet.SERVER_REPLY
 1335798715531: Received UDP payload: 446
 1335798715532: mux: Inside mux Packet.CLIENT_REQUEST
 1335798715532: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -2814,14 +2814,14 @@
 1335798717964: Received UDP payload: 989
 1335798717966: mux: GOT CSM_Msg
 1335798717978: Received UDP payload: 446
-1335798717980: mux: Inside Packet.SERVER_REPLY
 1335798717980: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798717980: mux: Inside Packet.SERVER_REPLY
 1335798718072: Received UDP payload: 5740
 1335798718075: mux: GOT CSM_Msg
 1335798718226: Received UDP payload: 446
 1335798718445: Received UDP payload: 5393
-1335798718448: mux: Inside Packet.SERVER_REPLY
 1335798718448: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798718448: mux: Inside Packet.SERVER_REPLY
 1335798718458: Received UDP payload: 446
 1335798718461: mux: Inside mux Packet.CLIENT_REQUEST
 1335798718461: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -2854,8 +2854,8 @@
 1335798726841: Received UDP payload: 989
 1335798726848: mux: GOT CSM_Msg
 1335798726854: Received UDP payload: 446
-1335798726858: mux: Inside Packet.SERVER_REPLY
 1335798726858: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798726858: mux: Inside Packet.SERVER_REPLY
 1335798726865: Received UDP payload: 989
 1335798726871: mux: GOT CSM_Msg
 1335798727013: Received UDP payload: 989
@@ -2871,8 +2871,8 @@
 1335798727489: mux: Inside mux Packet.CLIENT_REQUEST
 1335798727489: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798727611: Received UDP payload: 446
-1335798727616: mux: Inside Packet.SERVER_REPLY
 1335798727616: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798727616: mux: Inside Packet.SERVER_REPLY
 1335798727617: Received UDP payload: 446
 1335798727626: Received UDP payload: 989
 1335798727632: mux: GOT CSM_Msg
@@ -2896,12 +2896,12 @@
 1335798728340: Received UDP payload: 989
 1335798728342: mux: GOT CSM_Msg
 1335798728535: Received UDP payload: 642
-1335798728537: mux: Inside Packet.SERVER_REPLY
 1335798728537: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798728537: mux: Inside Packet.SERVER_REPLY
 1335798728557: Received UDP payload: 446
 1335798728613: Received UDP payload: 642
-1335798728614: mux: Inside Packet.SERVER_REPLY
 1335798728614: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798728614: mux: Inside Packet.SERVER_REPLY
 1335798728631: Received UDP payload: 446
 1335798728633: mux: Inside mux Packet.CLIENT_REQUEST
 1335798728633: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -2912,8 +2912,8 @@
 1335798728692: Received UDP payload: 989
 1335798728694: mux: GOT CSM_Msg
 1335798728736: Received UDP payload: 642
-1335798728737: mux: Inside Packet.SERVER_REPLY
 1335798728737: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798728737: mux: Inside Packet.SERVER_REPLY
 1335798728853: Received UDP payload: 989
 1335798728857: mux: GOT CSM_Msg
 1335798728871: Received UDP payload: 446
@@ -2934,8 +2934,8 @@
 1335798730011: Received UDP payload: 989
 1335798730012: mux: GOT CSM_Msg
 1335798730120: Received UDP payload: 446
-1335798730124: mux: Inside Packet.SERVER_REPLY
 1335798730124: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798730124: mux: Inside Packet.SERVER_REPLY
 1335798730212: Received UDP payload: 446
 1335798730258: Received UDP payload: 989
 1335798730264: mux: GOT CSM_Msg
@@ -2986,8 +2986,8 @@
 1335798735328: mux: Inside mux Packet.CLIENT_REQUEST
 1335798735328: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798735411: Received UDP payload: 642
-1335798735414: mux: Inside Packet.SERVER_REPLY
 1335798735414: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798735414: mux: Inside Packet.SERVER_REPLY
 1335798735417: Received UDP payload: 642
 1335798735419: mux: Inside Packet.SERVER_REPLY
 1335798735420: mux: Ignoring SERVER_REPLY since it's not for me  5001
@@ -2997,11 +2997,11 @@
 1335798735454: mux: Inside mux Packet.CLIENT_REQUEST
 1335798735454: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798735462: Received UDP payload: 446
-1335798735465: mux: Inside Packet.SERVER_REPLY
 1335798735465: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798735465: mux: Inside Packet.SERVER_REPLY
 1335798735478: Received UDP payload: 989
-1335798735483: mux: GOT CSM_Msg
 1335798735483: Received UDP payload: 446
+1335798735483: mux: GOT CSM_Msg
 1335798735485: mux: Inside mux Packet.CLIENT_REQUEST
 1335798735486: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798736141: Received UDP payload: 989
@@ -3026,16 +3026,16 @@
 1335798736535: Received UDP payload: 989
 1335798736537: mux: GOT CSM_Msg
 1335798736590: Received UDP payload: 642
-1335798736594: mux: Inside Packet.SERVER_REPLY
 1335798736594: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798736594: mux: Inside Packet.SERVER_REPLY
 1335798736607: Received UDP payload: 989
 1335798736611: mux: GOT CSM_Msg
 1335798736614: Received UDP payload: 642
 1335798736615: mux: Inside Packet.SERVER_REPLY
 1335798736616: mux: Ignoring SERVER_REPLY since it's not for me  5001
 1335798736636: Received UDP payload: 642
-1335798736637: mux: Inside Packet.SERVER_REPLY
 1335798736637: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798736637: mux: Inside Packet.SERVER_REPLY
 1335798736641: Received UDP payload: 446
 1335798736642: mux: Inside mux Packet.CLIENT_REQUEST
 1335798736642: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -3088,20 +3088,20 @@
 1335798738623: Received UDP payload: 989
 1335798738626: mux: GOT CSM_Msg
 1335798738642: Received UDP payload: 446
-1335798738644: mux: Inside Packet.SERVER_REPLY
 1335798738644: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798738644: mux: Inside Packet.SERVER_REPLY
 1335798738739: Received UDP payload: 446
 1335798738784: Received UDP payload: 6211
 1335798738787: mux: GOT CSM_Msg
 1335798738895: Received UDP payload: 5864
-1335798738900: mux: Inside Packet.SERVER_REPLY
 1335798738900: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798738900: mux: Inside Packet.SERVER_REPLY
 1335798738942: Received UDP payload: 446
 1335798738946: mux: Inside mux Packet.CLIENT_REQUEST
 1335798738947: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798739209: Received UDP payload: 5864
-1335798739212: mux: Inside Packet.SERVER_REPLY
 1335798739212: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798739212: mux: Inside Packet.SERVER_REPLY
 1335798739240: Received UDP payload: 446
 1335798739242: mux: Inside mux Packet.CLIENT_REQUEST
 1335798739243: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -3164,20 +3164,20 @@
 1335798747744: Received UDP payload: 989
 1335798747751: mux: GOT CSM_Msg
 1335798747847: Received UDP payload: 446
-1335798747851: mux: Inside Packet.SERVER_REPLY
 1335798747851: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798747851: mux: Inside Packet.SERVER_REPLY
 1335798747893: Received UDP payload: 989
-1335798747909: mux: GOT CSM_Msg
 1335798747909: Received UDP payload: 642
-1335798747921: mux: Inside Packet.SERVER_REPLY
+1335798747909: mux: GOT CSM_Msg
 1335798747921: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798747921: mux: Inside Packet.SERVER_REPLY
 1335798747945: Received UDP payload: 5749
 1335798747965: mux: GOT CSM_Msg
 1335798748077: Received UDP payload: 989
 1335798748079: mux: GOT CSM_Msg
 1335798748103: Received UDP payload: 642
-1335798748105: mux: Inside Packet.SERVER_REPLY
 1335798748105: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798748105: mux: Inside Packet.SERVER_REPLY
 1335798748164: Received UDP payload: 989
 1335798748166: mux: GOT CSM_Msg
 1335798748421: Received UDP payload: 989
@@ -3185,15 +3185,15 @@
 1335798748478: Received UDP payload: 989
 1335798748480: mux: GOT CSM_Msg
 1335798748488: Received UDP payload: 5402
-1335798748489: mux: Inside Packet.SERVER_REPLY
 1335798748489: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798748489: mux: Inside Packet.SERVER_REPLY
 1335798748567: Received UDP payload: 989
 1335798748571: mux: GOT CSM_Msg
 1335798748669: Received UDP payload: 989
 1335798748675: mux: GOT CSM_Msg
 1335798748735: Received UDP payload: 5749
-1335798748760: mux: GOT CSM_Msg
 1335798748760: Received UDP payload: 446
+1335798748760: mux: GOT CSM_Msg
 1335798748974: Received UDP payload: 5749
 1335798748977: mux: GOT CSM_Msg
 1335798749360: Received UDP payload: 5749
@@ -3226,13 +3226,13 @@
 1335798751004: Received UDP payload: 989
 1335798751006: mux: GOT CSM_Msg
 1335798751009: Received UDP payload: 446
-1335798751011: mux: Inside Packet.SERVER_REPLY
 1335798751011: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798751011: mux: Inside Packet.SERVER_REPLY
 1335798751018: Received UDP payload: 989
 1335798751020: mux: GOT CSM_Msg
 1335798751038: Received UDP payload: 446
-1335798751040: mux: Inside Packet.SERVER_REPLY
 1335798751040: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798751040: mux: Inside Packet.SERVER_REPLY
 1335798751072: Received UDP payload: 989
 1335798751077: mux: GOT CSM_Msg
 1335798751160: Received UDP payload: 446
@@ -3291,13 +3291,13 @@
 1335798752858: mux: Inside mux Packet.CLIENT_REQUEST
 1335798752859: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798752946: Received UDP payload: 446
-1335798752947: mux: Inside Packet.SERVER_REPLY
 1335798752947: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798752947: mux: Inside Packet.SERVER_REPLY
 1335798752961: Received UDP payload: 989
 1335798752963: mux: GOT CSM_Msg
 1335798752984: Received UDP payload: 642
-1335798752986: mux: Inside Packet.SERVER_REPLY
 1335798752986: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798752986: mux: Inside Packet.SERVER_REPLY
 1335798753012: Received UDP payload: 989
 1335798753015: mux: GOT CSM_Msg
 1335798753116: Received UDP payload: 989
@@ -3306,8 +3306,8 @@
 1335798753144: Received UDP payload: 989
 1335798753147: mux: GOT CSM_Msg
 1335798753218: Received UDP payload: 642
-1335798753220: mux: Inside Packet.SERVER_REPLY
 1335798753220: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798753220: mux: Inside Packet.SERVER_REPLY
 1335798753241: Received UDP payload: 446
 1335798753242: mux: Inside mux Packet.CLIENT_REQUEST
 1335798753242: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -3316,8 +3316,8 @@
 1335798753431: Received UDP payload: 989
 1335798753434: mux: GOT CSM_Msg
 1335798753442: Received UDP payload: 642
-1335798753444: mux: Inside Packet.SERVER_REPLY
 1335798753444: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798753444: mux: Inside Packet.SERVER_REPLY
 1335798753495: Received UDP payload: 446
 1335798753497: mux: Inside mux Packet.CLIENT_REQUEST
 1335798753497: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -3334,8 +3334,8 @@
 1335798757798: Received UDP payload: 989
 1335798757804: mux: GOT CSM_Msg
 1335798757848: Received UDP payload: 642
-1335798757852: mux: Inside Packet.SERVER_REPLY
 1335798757852: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798757852: mux: Inside Packet.SERVER_REPLY
 1335798757865: Received UDP payload: 446
 1335798757866: mux: Inside mux Packet.CLIENT_REQUEST
 1335798757866: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -3351,11 +3351,11 @@
 1335798759373: mux: Inside mux Packet.CLIENT_REQUEST
 1335798759373: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798759423: Received UDP payload: 446
-1335798759428: mux: Inside Packet.SERVER_REPLY
 1335798759428: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798759428: mux: Inside Packet.SERVER_REPLY
 1335798759851: Received UDP payload: 4379
-1335798759855: mux: Inside Packet.SERVER_REPLY
 1335798759855: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798759855: mux: Inside Packet.SERVER_REPLY
 1335798759979: Received UDP payload: 4379
 1335798759983: mux: Inside Packet.SERVER_REPLY
 1335798759984: mux: Ignoring SERVER_REPLY since it's not for me  5001
@@ -3370,22 +3370,22 @@
 1335798760362: Received UDP payload: 6194
 1335798760367: mux: GOT CSM_Msg
 1335798760381: Received UDP payload: 446
-1335798760382: mux: Inside Packet.SERVER_REPLY
 1335798760382: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798760382: mux: Inside Packet.SERVER_REPLY
 1335798760390: Received UDP payload: 989
 1335798760392: mux: GOT CSM_Msg
 1335798760443: Received UDP payload: 642
-1335798760444: mux: Inside Packet.SERVER_REPLY
 1335798760444: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798760444: mux: Inside Packet.SERVER_REPLY
 1335798760452: Received UDP payload: 642
-1335798760454: mux: Inside Packet.SERVER_REPLY
 1335798760454: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798760454: mux: Inside Packet.SERVER_REPLY
 1335798760467: Received UDP payload: 446
 1335798760468: mux: Inside mux Packet.CLIENT_REQUEST
 1335798760469: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798760484: Received UDP payload: 642
-1335798760486: mux: Inside Packet.SERVER_REPLY
 1335798760486: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798760486: mux: Inside Packet.SERVER_REPLY
 1335798760910: Received UDP payload: 4379
 1335798760914: mux: Inside Packet.SERVER_REPLY
 1335798760915: mux: Ignoring SERVER_REPLY since it's not for me  5001
@@ -3413,8 +3413,8 @@
 1335798762379: Received UDP payload: 989
 1335798762381: mux: GOT CSM_Msg
 1335798762395: Received UDP payload: 446
-1335798762397: mux: Inside Packet.SERVER_REPLY
 1335798762397: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798762397: mux: Inside Packet.SERVER_REPLY
 1335798762413: Received UDP payload: 989
 1335798762416: mux: GOT CSM_Msg
 1335798762544: Received UDP payload: 989
@@ -3468,8 +3468,8 @@
 1335798766154: Received UDP payload: 6599
 1335798766156: mux: GOT CSM_Msg
 1335798766172: Received UDP payload: 446
-1335798766174: mux: Inside Packet.SERVER_REPLY
 1335798766174: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798766174: mux: Inside Packet.SERVER_REPLY
 1335798766192: Received UDP payload: 989
 1335798766194: mux: GOT CSM_Msg
 1335798766229: Received UDP payload: 446
@@ -3481,8 +3481,8 @@
 1335798766411: Received UDP payload: 989
 1335798766418: mux: GOT CSM_Msg
 1335798766476: Received UDP payload: 446
-1335798766478: mux: Inside Packet.SERVER_REPLY
 1335798766478: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798766478: mux: Inside Packet.SERVER_REPLY
 1335798766550: Received UDP payload: 446
 1335798766593: Received UDP payload: 625
 1335798766595: mux: Inside mux Packet.CLIENT_REQUEST
@@ -3517,13 +3517,13 @@
 1335798767868: Received UDP payload: 989
 1335798767870: mux: GOT CSM_Msg
 1335798767958: Received UDP payload: 446
-1335798767960: mux: Inside Packet.SERVER_REPLY
 1335798767960: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798767960: mux: Inside Packet.SERVER_REPLY
 1335798767965: Received UDP payload: 6599
 1335798767989: mux: GOT CSM_Msg
 1335798767990: Received UDP payload: 446
-1335798767993: mux: Inside Packet.SERVER_REPLY
 1335798767993: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798767993: mux: Inside Packet.SERVER_REPLY
 1335798768005: Received UDP payload: 989
 1335798768011: mux: GOT CSM_Msg
 1335798768044: Received UDP payload: 989
@@ -3563,8 +3563,8 @@
 1335798769061: Received UDP payload: 989
 1335798769065: mux: GOT CSM_Msg
 1335798769082: Received UDP payload: 446
-1335798769084: mux: Inside Packet.SERVER_REPLY
 1335798769084: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798769084: mux: Inside Packet.SERVER_REPLY
 1335798769684: Received UDP payload: 989
 1335798769696: mux: GOT CSM_Msg
 1335798769705: Received UDP payload: 989
@@ -3572,15 +3572,15 @@
 1335798769724: Received UDP payload: 989
 1335798769731: mux: GOT CSM_Msg
 1335798769764: Received UDP payload: 642
-1335798769766: mux: Inside Packet.SERVER_REPLY
 1335798769766: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798769766: mux: Inside Packet.SERVER_REPLY
 1335798769822: Received UDP payload: 446
 1335798769845: Received UDP payload: 446
 1335798769847: mux: Inside mux Packet.CLIENT_REQUEST
 1335798769847: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335798769881: Received UDP payload: 642
-1335798769883: mux: Inside Packet.SERVER_REPLY
 1335798769883: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798769883: mux: Inside Packet.SERVER_REPLY
 1335798770221: Received UDP payload: 446
 1335798770226: mux: Inside mux Packet.CLIENT_REQUEST
 1335798770227: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -3602,8 +3602,8 @@
 1335798770598: Received UDP payload: 989
 1335798770608: mux: GOT CSM_Msg
 1335798770686: Received UDP payload: 642
-1335798770691: mux: Inside Packet.SERVER_REPLY
 1335798770691: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798770691: mux: Inside Packet.SERVER_REPLY
 1335798770721: Received UDP payload: 989
 1335798770733: mux: GOT CSM_Msg
 1335798770734: Received UDP payload: 446
@@ -3627,14 +3627,14 @@
 1335798772239: mux: GOT CSM_Msg
 1335798772325: Received UDP payload: 989
 1335798772328: mux: GOT CSM_Msg
-1335798772394: moving from region (2,0), to (1,0)
-1335798772394: VCoreDaemon.java inside stateTransition ..........
-1335798772394: removing leaderRequestRetryR because I'm doing a stateTransition
-1335798772394: ..... VCoreDaemon.java targetState = JOINING (1,0)
-1335798772394: posting leaderRequestRetryR because I'm joining
 1335798772394: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
-1335798772395: sending LEADER_REQUEST
+1335798772394: ..... VCoreDaemon.java targetState = JOINING (1,0)
+1335798772394: VCoreDaemon.java inside stateTransition ..........
+1335798772394: moving from region (2,0), to (1,0)
+1335798772394: posting leaderRequestRetryR because I'm joining
+1335798772394: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798772395: inside sendPacket(Packet p)
+1335798772395: sending LEADER_REQUEST
 1335798772396: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335798772400: Sending UDP payload: 446
 1335798772534: Received UDP payload: 989
@@ -3653,10 +3653,10 @@
 1335798772931: Received UDP payload: 989
 1335798772934: mux: GOT CSM_Msg
 1335798772996: Received UDP payload: 5452
-1335798772999: mux: GOT CSM_Msg
-1335798772999: sending LEADER_REQUEST
 1335798772999: inside sendPacket(Packet p)
+1335798772999: mux: GOT CSM_Msg
 1335798772999: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335798772999: sending LEADER_REQUEST
 1335798773001: Sending UDP payload: 446
 1335798773042: Received UDP payload: 989
 1335798773048: mux: GOT CSM_Msg
@@ -3667,34 +3667,34 @@
 1335798773252: mux: GOT CSM_Msg
 1335798773280: Received UDP payload: 989
 1335798773283: mux: GOT CSM_Msg
-1335798773300: sending LEADER_REQUEST
 1335798773300: inside sendPacket(Packet p)
 1335798773300: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335798773300: sending LEADER_REQUEST
 1335798773302: Sending UDP payload: 446
 1335798773394: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335798773395: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
-1335798773395: VCoreDaemon.java inside stateTransition ..........
-1335798773395: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798773395: ..... VCoreDaemon.java targetState = LEADER
+1335798773395: VCoreDaemon.java inside stateTransition ..........
+1335798773395: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335798773395: removing leaderRequestRetryR because I'm doing a stateTransition
 1335798773396: trying to take leadership (1,0) to the cloud
 1335798773467: Received UDP payload: 989
 1335798773471: mux: GOT CSM_Msg
 1335798773507: Received UDP payload: 642
-1335798773509: mux: Inside Packet.SERVER_REPLY
 1335798773509: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798773509: mux: Inside Packet.SERVER_REPLY
 1335798773538: Received UDP payload: 446
 1335798773539: mux: Inside mux Packet.CLIENT_REQUEST
 1335798773545: Received UDP payload: 642
-1335798773547: mux: Inside Packet.SERVER_REPLY
 1335798773547: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798773547: mux: Inside Packet.SERVER_REPLY
 1335798773601: Received UDP payload: 642
-1335798773602: mux: Inside Packet.SERVER_REPLY
 1335798773602: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798773602: mux: Inside Packet.SERVER_REPLY
 1335798773616: Received UDP payload: 446
 1335798773618: mux: Inside mux Packet.CLIENT_REQUEST
 1335798773649: Received UDP payload: 642
-1335798773650: mux: Inside Packet.SERVER_REPLY
 1335798773650: mux: Ignoring SERVER_REPLY since it's not for me  5001
+1335798773650: mux: Inside Packet.SERVER_REPLY
 1335798773653: Received UDP payload: 446
 1335798773654: mux: Inside mux Packet.CLIENT_REQUEST
 1335798773761: Received UDP payload: 446
@@ -3705,12 +3705,12 @@
 1335798774559: mux: GOT CSM_Msg
 1335798774693: cloud accepted leadership request, returned csm bytes size 89653
 1335798774721: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
-1335798774722: *** Starting CSM Layer ***
 1335798774722: *** CSM Layer starting with cache disabled ***
 1335798774722: *** CSM Layer starting with forwarding disabled ***
+1335798774722: *** Starting CSM Layer ***
 1335798775964: Received UDP payload: 625
-1335798775968: mux: Inside mux Packet.CLIENT_REQUEST
 1335798775968: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335798775968: mux: Inside mux Packet.CLIENT_REQUEST
 1335798775968: mux: vncDaemon.csm.userApp is null
 1335798775997: HI I'm in ONPAUSE()
 1335798782260: inside onDestroy()

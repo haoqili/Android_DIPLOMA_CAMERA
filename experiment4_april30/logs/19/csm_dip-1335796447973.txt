@@ -10,16 +10,16 @@
 1335796448001: mux: Mux.java run() beginning -------------
 1335796448008: mux: Mux.java's nodeId is5019
 1335796448008: mux: starting vncDaemon ........
-1335796448031: mux: vncDaemon started
 1335796448010: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
 1335796448020: Received UDP payload: 989
+1335796448031: mux: vncDaemon started
 1335796448032: VCoreDaemon.java onStart() ....
 1335796448032: started, mId = 5019
+1335796448033: ..... VCoreDaemon.java out of bounds
 1335796448033: VCoreDaemon.java inside stateTransition ..........
 1335796448033: removing leaderRequestRetryR because I'm doing a stateTransition
-1335796448033: ..... VCoreDaemon.java out of bounds
-1335796448034: region (-1, -1) out of bounds, dormant
 1335796448034: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335796448034: region (-1, -1) out of bounds, dormant
 1335796448035: mux: GOT CSM_Msg
 1335796448038: Received UDP payload: 989
 1335796448041: mux: GOT CSM_Msg
@@ -63,8 +63,8 @@
 1335796449311: Received UDP payload: 989
 1335796449316: mux: GOT CSM_Msg
 1335796449609: Received UDP payload: 642
-1335796449611: mux: Inside Packet.SERVER_REPLY
 1335796449611: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796449611: mux: Inside Packet.SERVER_REPLY
 1335796449925: Received UDP payload: 446
 1335796449936: mux: Inside mux Packet.CLIENT_REQUEST
 1335796449945: Received UDP payload: 642
@@ -82,23 +82,23 @@
 1335796450387: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335796450389: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335796450416: Sending UDP payload: 446
-1335796450688: sending LEADER_REQUEST
 1335796450688: inside sendPacket(Packet p)
+1335796450688: sending LEADER_REQUEST
 1335796450689: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335796450694: Sending UDP payload: 446
-1335796450990: sending LEADER_REQUEST
 1335796450990: inside sendPacket(Packet p)
 1335796450990: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335796450990: sending LEADER_REQUEST
 1335796450991: Sending UDP payload: 446
 1335796451290: sending LEADER_REQUEST
 1335796451291: inside sendPacket(Packet p)
 1335796451291: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335796451292: Sending UDP payload: 446
-1335796451389: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335796451389: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335796451389: VCoreDaemon.java inside stateTransition ..........
-1335796451390: removing leaderRequestRetryR because I'm doing a stateTransition
+1335796451389: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
+1335796451389: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
 1335796451390: ..... VCoreDaemon.java targetState = LEADER
+1335796451390: removing leaderRequestRetryR because I'm doing a stateTransition
 1335796451390: trying to take leadership (1,0) to the cloud
 1335796451999: cloud rejected leadership request or request failed, wait to retry
 1335796452803: Received UDP payload: 446
@@ -109,16 +109,16 @@
 1335796455453: mux: Inside Packet.SERVER_REPLY
 1335796455454: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796455471: Received UDP payload: 642
-1335796455473: mux: Inside Packet.SERVER_REPLY
 1335796455473: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796455473: mux: Inside Packet.SERVER_REPLY
 1335796455778: Received UDP payload: 446
-1335796455780: removing leaderRequestRetryR because heard Packet.Heartbeat
 1335796455780: heard HEARTBEAT from 5004, now following
-1335796455781: VCoreDaemon.java inside stateTransition ..........
-1335796455781: removing leaderRequestRetryR because I'm doing a stateTransition
-1335796455781: ..... VCoreDaemon.java targetState = NONLEADER
-1335796455781: now NONLEADER (id=5019) following LEADER (id=5004) in (1,0)
+1335796455780: removing leaderRequestRetryR because heard Packet.Heartbeat
 1335796455781: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335796455781: ..... VCoreDaemon.java targetState = NONLEADER
+1335796455781: VCoreDaemon.java inside stateTransition ..........
+1335796455781: now NONLEADER (id=5019) following LEADER (id=5004) in (1,0)
+1335796455781: removing leaderRequestRetryR because I'm doing a stateTransition
 1335796455819: Received UDP payload: 989
 1335796455822: mux: GOT CSM_Msg
 1335796455837: Received UDP payload: 989
@@ -132,8 +132,8 @@
 1335796455883: Received UDP payload: 989
 1335796455886: mux: GOT CSM_Msg
 1335796455907: Received UDP payload: 446
-1335796455909: mux: Inside Packet.SERVER_REPLY
 1335796455909: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796455909: mux: Inside Packet.SERVER_REPLY
 1335796455929: Received UDP payload: 989
 1335796455932: mux: GOT CSM_Msg
 1335796455956: Received UDP payload: 989
@@ -147,8 +147,8 @@
 1335796456014: Received UDP payload: 989
 1335796456019: mux: GOT CSM_Msg
 1335796456022: Received UDP payload: 446
-1335796456025: mux: Inside Packet.SERVER_REPLY
 1335796456025: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796456025: mux: Inside Packet.SERVER_REPLY
 1335796456032: Received UDP payload: 446
 1335796456034: mux: Inside mux Packet.CLIENT_REQUEST
 1335796456035: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -163,11 +163,11 @@
 1335796456206: Received UDP payload: 989
 1335796456209: mux: GOT CSM_Msg
 1335796456254: Received UDP payload: 446
-1335796456256: mux: Inside Packet.SERVER_REPLY
 1335796456256: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796456256: mux: Inside Packet.SERVER_REPLY
 1335796456261: Received UDP payload: 642
-1335796456264: mux: Inside Packet.SERVER_REPLY
 1335796456264: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796456264: mux: Inside Packet.SERVER_REPLY
 1335796456281: Received UDP payload: 989
 1335796456284: mux: GOT CSM_Msg
 1335796456297: Received UDP payload: 446
@@ -176,8 +176,8 @@
 1335796456307: Received UDP payload: 989
 1335796456310: mux: GOT CSM_Msg
 1335796456370: Received UDP payload: 3662
-1335796456372: mux: Inside Packet.SERVER_REPLY
 1335796456372: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796456372: mux: Inside Packet.SERVER_REPLY
 1335796456543: Received UDP payload: 446
 1335796456545: mux: Inside mux Packet.CLIENT_REQUEST
 1335796456545: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -208,8 +208,8 @@
 1335796456729: mux: Inside mux Packet.CLIENT_REQUEST
 1335796456729: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335796456734: Received UDP payload: 446
-1335796456736: mux: Inside Packet.SERVER_REPLY
 1335796456736: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796456736: mux: Inside Packet.SERVER_REPLY
 1335796456782: Received UDP payload: 625
 1335796456784: mux: Inside mux Packet.CLIENT_REQUEST
 1335796456784: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -219,28 +219,28 @@
 1335796456845: mux: Inside Packet.SERVER_REPLY
 1335796456846: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796456885: Received UDP payload: 3662
-1335796456888: mux: Inside Packet.SERVER_REPLY
 1335796456888: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796456888: mux: Inside Packet.SERVER_REPLY
 1335796456897: Received UDP payload: 446
-1335796456899: mux: Inside Packet.SERVER_REPLY
 1335796456899: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796456899: mux: Inside Packet.SERVER_REPLY
 1335796456912: Received UDP payload: 989
 1335796456916: mux: GOT CSM_Msg
 1335796456917: Received UDP payload: 446
-1335796456920: mux: Inside Packet.SERVER_REPLY
 1335796456920: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796456920: mux: Inside Packet.SERVER_REPLY
 1335796456928: Received UDP payload: 446
-1335796456930: mux: Inside Packet.SERVER_REPLY
 1335796456930: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796456930: mux: Inside Packet.SERVER_REPLY
 1335796457060: Received UDP payload: 3662
-1335796457063: mux: Inside Packet.SERVER_REPLY
 1335796457063: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796457063: mux: Inside Packet.SERVER_REPLY
 1335796457092: Received UDP payload: 625
 1335796457094: mux: Inside mux Packet.CLIENT_REQUEST
 1335796457094: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335796457134: Received UDP payload: 3662
-1335796457136: mux: Inside Packet.SERVER_REPLY
 1335796457136: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796457136: mux: Inside Packet.SERVER_REPLY
 1335796457140: Received UDP payload: 446
 1335796457146: Received UDP payload: 446
 1335796457148: mux: Inside mux Packet.CLIENT_REQUEST
@@ -269,18 +269,18 @@
 1335796457534: Received UDP payload: 989
 1335796457537: mux: GOT CSM_Msg
 1335796457542: Received UDP payload: 446
-1335796457544: mux: Inside Packet.SERVER_REPLY
 1335796457544: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796457544: mux: Inside Packet.SERVER_REPLY
 1335796457566: Received UDP payload: 989
 1335796457569: mux: GOT CSM_Msg
 1335796457577: Received UDP payload: 446
-1335796457579: mux: Inside Packet.SERVER_REPLY
 1335796457579: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796457579: mux: Inside Packet.SERVER_REPLY
 1335796457623: Received UDP payload: 989
 1335796457626: mux: GOT CSM_Msg
 1335796457653: Received UDP payload: 446
-1335796457655: mux: Inside Packet.SERVER_REPLY
 1335796457655: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796457655: mux: Inside Packet.SERVER_REPLY
 1335796457664: Received UDP payload: 989
 1335796457667: mux: GOT CSM_Msg
 1335796457710: Received UDP payload: 989
@@ -312,11 +312,11 @@
 1335796458148: Received UDP payload: 989
 1335796458152: mux: GOT CSM_Msg
 1335796458172: Received UDP payload: 642
-1335796458174: mux: Inside Packet.SERVER_REPLY
 1335796458174: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796458174: mux: Inside Packet.SERVER_REPLY
 1335796458194: Received UDP payload: 642
-1335796458196: mux: Inside Packet.SERVER_REPLY
 1335796458196: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796458196: mux: Inside Packet.SERVER_REPLY
 1335796458214: Received UDP payload: 446
 1335796458216: mux: Inside mux Packet.CLIENT_REQUEST
 1335796458216: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -355,16 +355,16 @@
 1335796459263: Received UDP payload: 989
 1335796459267: mux: GOT CSM_Msg
 1335796459285: Received UDP payload: 642
-1335796459287: mux: Inside Packet.SERVER_REPLY
 1335796459287: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796459287: mux: Inside Packet.SERVER_REPLY
 1335796459438: Received UDP payload: 6093
 1335796459444: mux: GOT CSM_Msg
 1335796459773: Received UDP payload: 625
 1335796459775: mux: Inside mux Packet.CLIENT_REQUEST
 1335796459776: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
 1335796459901: Received UDP payload: 642
-1335796459903: mux: Inside Packet.SERVER_REPLY
 1335796459903: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796459903: mux: Inside Packet.SERVER_REPLY
 1335796460070: Received UDP payload: 625
 1335796460072: mux: Inside mux Packet.CLIENT_REQUEST
 1335796460072: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -372,8 +372,8 @@
 1335796460121: mux: Inside Packet.SERVER_REPLY
 1335796460122: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796460127: Received UDP payload: 642
-1335796460130: mux: Inside Packet.SERVER_REPLY
 1335796460130: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796460130: mux: Inside Packet.SERVER_REPLY
 1335796460424: Received UDP payload: 625
 1335796460426: mux: Inside mux Packet.CLIENT_REQUEST
 1335796460426: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
@@ -416,14 +416,14 @@
 1335796463112: mux: GOT CSM_Msg
 1335796463145: Received UDP payload: 4009
 1335796463151: mux: GOT CSM_Msg
-1335796463176: moving from region (1,0), to (0,0)
 1335796463176: VCoreDaemon.java inside stateTransition ..........
-1335796463177: removing leaderRequestRetryR because I'm doing a stateTransition
+1335796463176: moving from region (1,0), to (0,0)
 1335796463177: ..... VCoreDaemon.java targetState = JOINING (0,0)
-1335796463177: posting leaderRequestRetryR because I'm joining
-1335796463177: sending LEADER_REQUEST
 1335796463177: inside sendPacket(Packet p)
 1335796463177: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335796463177: posting leaderRequestRetryR because I'm joining
+1335796463177: removing leaderRequestRetryR because I'm doing a stateTransition
+1335796463177: sending LEADER_REQUEST
 1335796463184: Sending UDP payload: 446
 1335796463185: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
 1335796463193: Received UDP payload: 4009
@@ -433,14 +433,14 @@
 1335796463308: mux: GOT CSM_Msg
 1335796463406: Received UDP payload: 4009
 1335796463409: mux: GOT CSM_Msg
-1335796463478: sending LEADER_REQUEST
 1335796463478: inside sendPacket(Packet p)
 1335796463478: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1335796463478: sending LEADER_REQUEST
 1335796463483: Sending UDP payload: 446
 1335796463555: Received UDP payload: 4009
 1335796463558: mux: GOT CSM_Msg
-1335796463779: sending LEADER_REQUEST
 1335796463779: inside sendPacket(Packet p)
+1335796463779: sending LEADER_REQUEST
 1335796463780: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335796463783: Sending UDP payload: 446
 1335796464080: sending LEADER_REQUEST
@@ -448,38 +448,38 @@
 1335796464081: posting another leaderRequestRetryR after leaderRequestRetryPeriod
 1335796464083: Sending UDP payload: 446
 1335796464185: inside leaderRequestTimeoutR beacuse I didn't hear a leader_reply and I'm removing leaderRequestRetryR because leader_request timed out
-1335796464186: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335796464186: VCoreDaemon.java inside stateTransition ..........
+1335796464186: inside leaderRequestTimeoutR and my state was JOINING, so I'll try to stateTransition to LEADER
 1335796464186: removing leaderRequestRetryR because I'm doing a stateTransition
 1335796464187: ..... VCoreDaemon.java targetState = LEADER
 1335796464188: trying to take leadership (0,0) to the cloud
 1335796464832: Received UDP payload: 446
 1335796464933: cloud accepted leadership request, no csm data included.
-1335796464941: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
 1335796464941: *** Starting CSM Layer ***
+1335796464941: ..... VCoreDaemon.java targetState = LEADER and create new DSMLayer !!!! :D:D:D:D:D
 1335796464942: *** CSM Layer starting with cache disabled ***
 1335796464942: *** CSM Layer starting with forwarding disabled ***
 1335796464963: DSMLayer starting
-1335796464964: UserApp started.
 1335796464964: UserApp for Camera Diploma initialized and waiting for requests.
+1335796464964: UserApp started.
 1335796465004: Received UDP payload: 446
-1335796465007: mux: Inside Packet.SERVER_REPLY
 1335796465007: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796465007: mux: Inside Packet.SERVER_REPLY
 1335796465019: Received UDP payload: 989
-1335796465022: mux: GOT CSM_Msg
 1335796465022: forwarding disabled, not forwarding packets
+1335796465022: mux: GOT CSM_Msg
 1335796465031: Received UDP payload: 642
-1335796465034: mux: Inside Packet.SERVER_REPLY
 1335796465034: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796465034: mux: Inside Packet.SERVER_REPLY
 1335796465065: Received UDP payload: 642
-1335796465067: mux: Inside Packet.SERVER_REPLY
 1335796465067: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796465067: mux: Inside Packet.SERVER_REPLY
 1335796465102: Received UDP payload: 446
 1335796465104: mux: Inside mux Packet.CLIENT_REQUEST
 1335796465228: inside sendPacket(Packet p)
 1335796465240: Sending UDP payload: 22318
-1335796465246: now fully up as LEADER (id=5019) of (0,0)
 1335796465246: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1335796465246: now fully up as LEADER (id=5019) of (0,0)
 1335796465700: Received UDP payload: 642
 1335796465702: mux: Inside Packet.SERVER_REPLY
 1335796465703: mux: Ignoring SERVER_REPLY since it's not for me  5019
@@ -489,15 +489,15 @@
 1335796466910: canPressButton = TRUE
 1335796466911: areButtonsEnabled --> false
 1335796466911: disabling buttons ...
-1335796466912: took picture disableButtonsR
 1335796466912: areButtonsEnabled --> false
-1335796467032: one more takeNum: 1
-1335796467037: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
-1335796467037: Clicked take picture button ..
+1335796466912: took picture disableButtonsR
 1335796467008: Received UDP payload: 642
-1335796467012: mux: Inside Packet.SERVER_REPLY
 1335796467012: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796467012: mux: Inside Packet.SERVER_REPLY
+1335796467032: one more takeNum: 1
 1335796467035: Received UDP payload: 446
+1335796467037: Clicked take picture button ..
+1335796467037: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335796467056: Received UDP payload: 446
 1335796467061: mux: Inside mux Packet.CLIENT_REQUEST
 1335796467362: Received UDP payload: 446
@@ -507,16 +507,23 @@
 1335796467709: mux: Inside mux Packet.CLIENT_REQUEST
 1335796467812: Received UDP payload: 446
 1335796468037: Received UDP payload: 3671
-1335796468039: mux: Inside mux Packet.CLIENT_REQUEST
 1335796468039: inside sendPacket(Packet p)
+1335796468039: mux: Inside mux Packet.CLIENT_REQUEST
 1335796468046: Sending UDP payload: 446
 1335796468212: Received UDP payload: 6894
-1335796468216: mux: GOT CSM_Msg
 1335796468216: forwarding disabled, not forwarding packets
+1335796468216: mux: GOT CSM_Msg
 1335796468456: Received UDP payload: 6894
 1335796468461: inside HandlePictureStorage onPictureTaken()
 1335796468462: one more takeCamGood: 1
 1335796468463: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335796468469: forwarding disabled, not forwarding packets
+1335796468469: mux: GOT CSM_Msg
+1335796468517: Received UDP payload: 40958
+1335796468557: Received UDP payload: 446
+1335796468622: Received UDP payload: 4035
+1335796468625: forwarding disabled, not forwarding packets
+1335796468625: mux: GOT CSM_Msg
 1335796468726: Picture successfully taken, ORIG BYTE LENGTH = 3022281
 1335796469161: Our new height x width: 306 x 408
 1335796469162: Show photo from handle my camera take
@@ -524,172 +531,163 @@
 1335796469163: change local requestCounter to 1
 1335796469200: BYTE SIZE AFTER COMPRESSION: 4214
 1335796469218: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5019001 Client in region: 0 Client nodID: 5019
-1335796468469: mux: GOT CSM_Msg
-1335796468469: forwarding disabled, not forwarding packets
-1335796468517: Received UDP payload: 40958
-1335796468557: Received UDP payload: 446
-1335796468622: Received UDP payload: 4035
-1335796468625: mux: GOT CSM_Msg
-1335796468625: forwarding disabled, not forwarding packets
 1335796469253: ----------------------------
-1335796469253: inside sendRequestPacketRepeatingRunnable for requestCount = 5019001
 1335796469253: I'm a leader, my requesting photos packet going to mux directly
-1335796469262: --- Finished one round of sending REQUEST Packet ---------
+1335796469253: inside sendRequestPacketRepeatingRunnable for requestCount = 5019001
 1335796469253: mux: Inside mux Packet.CLIENT_REQUEST
-1335796469254: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335796469299: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
-1335796469254: inside handleClientRequest. Originator leader of region 0
-1335796469254: got new request, requestCounter = 5019001
 1335796469254: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
 1335796469254: Sending PROC_REQUEST 10:0 (0,0)->(0,0)
+1335796469254: got new request, requestCounter = 5019001
+1335796469254: inside handleClientRequest. Originator leader of region 0
+1335796469254: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
 1335796469255: Dispatching Atom PROC_REQUEST 10:0 (0,0)->(0,0)
-1335796469255: mux: I got a CSM packet at a leader 
-
-1335796469300: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
-1335796469301: I'm a leader and I successfully saved my client's new photo
-1335796469301: now showing in UI the new photo I just saved ... 
-1335796469302: the photo length: 4214
-1335796469336: end of server show photo aside %%%%%%%%%
-1335796469255: Note down new request by adding requestCounter=5019001 to HashMap processedRequests
 1335796469255: Make FirstLeg Ack regardless of new or already-processed requests
+1335796469255: Note down new request by adding requestCounter=5019001 to HashMap processedRequests
+1335796469255: mux: I got a CSM packet at a leader 
 1335796469255: sending a First Leg ack to myself, becaues I (the leader) was also the originator client (id = 5019)
 1335796469260: Sending UDP payload: 5225
+1335796469262: --- Finished one round of sending REQUEST Packet ---------
 1335796469272: removed replies before id 0 from sentReplies of size 0
 1335796469273: inside handleDSMRequest. At requests's remote leader of region 0
 1335796469275: Inside UPLOAD_PHOTO!!
 1335796469277: my_gpinfo.isSuccess is now (should be true): true
 1335796469278: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
-1335796469280: Received PROC_REQUEST 10:0 (0,0)->(0,0), replying PROC_REPLY 10:0 (0,0)->(0,0)
 1335796469280: Dispatching Atom PROC_REPLY 10:0 (0,0)->(0,0)
+1335796469280: Received PROC_REQUEST 10:0 (0,0)->(0,0), replying PROC_REPLY 10:0 (0,0)->(0,0)
 1335796469287: mux: I got a CSM packet at a leader 
-
-1335796469338: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
-1335796469339: disabling progressdialog due to successful new photo upload
-1335796469339: Inside _enableButtons
-1335796469339: areButtonsEnabled --> true
-1335796469340: send final leg ack regardless of new or already-processed reply
-1335796469340: inside finalLegAck: change requestCounter to 2
-1335796469341: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019002 Client in region: (0,0) Client nodID: 5019
-1335796469341: I'm a leader client, my final_leg packet going to mux directly
-1335796469343: new client_upload_photo_ack reply with replyCounter 501900001
-1335796469343: note down new reply by adding replyCounter=501900001 to HashMap processedReplies
-1335796469344: leader upload new photo latency = 85
-1335796469344: = leader upload start 1335796469253 ~ stop 1335796469338
-1335796469347: one more takeGoodSave: 1
-1335796469348: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=100% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
-1335796469348: SUCCESS Client now knows saving photo on its leader succeeded
 1335796469288: Sending UDP payload: 989
-1335796469290: Received PROC_REPLY 10:0 (0,0)->(0,0), handing to UserApp
-1335796469290: inside handleDSMReply. Now back in originator leader of region 0
 1335796469290: DSM layer: Going to and from remote region took latency = 36
 1335796469290: DSM layer: orig leader sent packet at 1335796469254 ~ received reply from remote leader at 1335796469290
+1335796469290: Received PROC_REPLY 10:0 (0,0)->(0,0), handing to UserApp
+1335796469290: inside handleDSMReply. Now back in originator leader of region 0
 1335796469291: Originator Region=0's Leader (for Client=5019) processes remote region's dsm atom reply and will send Packet reply to Originator Client
-1335796469292: change leader replyCounter to: 1
-1335796469292: reply packet contains the success info for UPLOAD_PHOTO
-1335796469292: inside sendReplies of replyCount = 501900001
 1335796469292: =======================
-1335796469292: inside sendReplyRepeatingRunnable for replyCount = 501900001
 1335796469292: Leader about to send REPLY packet, number: 501900001 type: 16 Leader in region: (0,0) to Client nodID: 5019
-1335796469293: I (the leader) was also the originator client (id = 5019) so I hand the packet to my mux directly, without UDP
+1335796469292: change leader replyCounter to: 1
+1335796469292: inside sendReplies of replyCount = 501900001
+1335796469292: inside sendReplyRepeatingRunnable for replyCount = 501900001
+1335796469292: reply packet contains the success info for UPLOAD_PHOTO
 1335796469293: === Finished one round of sending REPLY Packet =======
-1335796469341: mux: Inside mux Packet.CLIENT_REQUEST
-1335796469341: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335796469293: I (the leader) was also the originator client (id = 5019) so I hand the packet to my mux directly, without UDP
+1335796469299: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335796469300: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1335796469301: I'm a leader and I successfully saved my client's new photo
+1335796469301: now showing in UI the new photo I just saved ... 
+1335796469302: the photo length: 4214
+1335796469336: end of server show photo aside %%%%%%%%%
+1335796469338: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
+1335796469339: Inside _enableButtons
+1335796469339: areButtonsEnabled --> true
+1335796469339: disabling progressdialog due to successful new photo upload
+1335796469340: inside finalLegAck: change requestCounter to 2
+1335796469340: send final leg ack regardless of new or already-processed reply
+1335796469341: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019002 Client in region: (0,0) Client nodID: 5019
+1335796469341: I'm a leader client, my final_leg packet going to mux directly
 1335796469341: inside handleClientRequest. Originator leader of region 0
-1335796469342: got new request, requestCounter = 5019002
+1335796469341: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335796469341: mux: Inside mux Packet.CLIENT_REQUEST
 1335796469342: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 501900001
 1335796469342: Yay the last leg succeeded. Removing reply runnables ...
 1335796469342: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501900001
 1335796469342: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 501900001
 1335796469342: do not send ack for received final_leg_ack
+1335796469342: got new request, requestCounter = 5019002
+1335796469343: new client_upload_photo_ack reply with replyCounter 501900001
+1335796469343: note down new reply by adding replyCounter=501900001 to HashMap processedReplies
+1335796469344: = leader upload start 1335796469253 ~ stop 1335796469338
+1335796469344: leader upload new photo latency = 85
+1335796469347: one more takeGoodSave: 1
+1335796469348: SUCCESS Client now knows saving photo on its leader succeeded
+1335796469348: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=100% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335796470423: Received UDP payload: 625
 1335796470442: mux: Inside mux Packet.CLIENT_REQUEST
 1335796470455: Received UDP payload: 625
 1335796470467: mux: Inside mux Packet.CLIENT_REQUEST
 1335796470543: Received UDP payload: 642
-1335796470545: mux: Inside Packet.SERVER_REPLY
 1335796470545: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796470545: mux: Inside Packet.SERVER_REPLY
 1335796470550: Received UDP payload: 446
 1335796470551: mux: Inside Packet.SERVER_REPLY
 1335796470552: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796470577: Received UDP payload: 642
-1335796470579: mux: Inside Packet.SERVER_REPLY
 1335796470579: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796470579: mux: Inside Packet.SERVER_REPLY
 1335796470618: Received UDP payload: 446
-1335796470619: mux: Inside Packet.SERVER_REPLY
 1335796470619: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796470619: mux: Inside Packet.SERVER_REPLY
 1335796470669: Received UDP payload: 642
-1335796470671: mux: Inside Packet.SERVER_REPLY
 1335796470671: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796470671: mux: Inside Packet.SERVER_REPLY
 1335796470681: Received UDP payload: 446
 1335796470683: mux: Inside Packet.SERVER_REPLY
 1335796470684: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796470724: Received UDP payload: 989
-1335796470728: mux: GOT CSM_Msg
 1335796470728: forwarding disabled, not forwarding packets
+1335796470728: mux: GOT CSM_Msg
 1335796470739: Received UDP payload: 989
-1335796470742: mux: GOT CSM_Msg
 1335796470742: forwarding disabled, not forwarding packets
+1335796470742: mux: GOT CSM_Msg
 1335796470749: Received UDP payload: 446
 1335796470751: mux: Inside Packet.SERVER_REPLY
 1335796470752: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796470762: Received UDP payload: 989
-1335796470764: mux: GOT CSM_Msg
 1335796470764: forwarding disabled, not forwarding packets
+1335796470764: mux: GOT CSM_Msg
 1335796470855: Received UDP payload: 446
-1335796470857: mux: Inside Packet.SERVER_REPLY
 1335796470857: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796470857: mux: Inside Packet.SERVER_REPLY
 1335796470877: Received UDP payload: 989
-1335796470880: mux: GOT CSM_Msg
 1335796470880: forwarding disabled, not forwarding packets
+1335796470880: mux: GOT CSM_Msg
 1335796470929: Received UDP payload: 989
-1335796470932: mux: GOT CSM_Msg
 1335796470932: forwarding disabled, not forwarding packets
+1335796470932: mux: GOT CSM_Msg
 1335796471055: Received UDP payload: 989
-1335796471059: mux: GOT CSM_Msg
 1335796471059: forwarding disabled, not forwarding packets
+1335796471059: mux: GOT CSM_Msg
 1335796471077: Received UDP payload: 989
-1335796471084: mux: GOT CSM_Msg
 1335796471084: forwarding disabled, not forwarding packets
+1335796471084: mux: GOT CSM_Msg
 1335796471142: Received UDP payload: 989
-1335796471147: mux: GOT CSM_Msg
 1335796471147: forwarding disabled, not forwarding packets
+1335796471147: mux: GOT CSM_Msg
 1335796471174: Received UDP payload: 989
-1335796471182: mux: GOT CSM_Msg
 1335796471182: forwarding disabled, not forwarding packets
+1335796471182: mux: GOT CSM_Msg
 1335796471194: Received UDP payload: 989
-1335796471199: mux: GOT CSM_Msg
 1335796471199: forwarding disabled, not forwarding packets
+1335796471199: mux: GOT CSM_Msg
 1335796471266: Received UDP payload: 6894
-1335796471269: mux: GOT CSM_Msg
 1335796471269: forwarding disabled, not forwarding packets
+1335796471269: mux: GOT CSM_Msg
 1335796471299: Received UDP payload: 989
-1335796471302: mux: GOT CSM_Msg
 1335796471302: forwarding disabled, not forwarding packets
+1335796471302: mux: GOT CSM_Msg
 1335796471324: Received UDP payload: 989
 1335796471327: mux: GOT CSM_Msg
 1335796471328: forwarding disabled, not forwarding packets
 1335796471411: Received UDP payload: 446
 1335796471412: mux: Inside mux Packet.CLIENT_REQUEST
 1335796471453: Received UDP payload: 989
-1335796471456: mux: GOT CSM_Msg
 1335796471456: forwarding disabled, not forwarding packets
+1335796471456: mux: GOT CSM_Msg
 1335796471489: Received UDP payload: 446
 1335796471490: mux: Inside mux Packet.CLIENT_REQUEST
 1335796471498: Received UDP payload: 989
-1335796471502: mux: GOT CSM_Msg
 1335796471502: forwarding disabled, not forwarding packets
+1335796471502: mux: GOT CSM_Msg
 1335796471530: Received UDP payload: 989
-1335796471536: mux: GOT CSM_Msg
 1335796471536: forwarding disabled, not forwarding packets
+1335796471536: mux: GOT CSM_Msg
 1335796471589: Received UDP payload: 989
-1335796471592: mux: GOT CSM_Msg
 1335796471592: forwarding disabled, not forwarding packets
+1335796471592: mux: GOT CSM_Msg
 1335796471624: Received UDP payload: 989
-1335796471628: mux: GOT CSM_Msg
 1335796471628: forwarding disabled, not forwarding packets
+1335796471628: mux: GOT CSM_Msg
 1335796471684: Received UDP payload: 989
-1335796471687: mux: GOT CSM_Msg
 1335796471687: forwarding disabled, not forwarding packets
+1335796471687: mux: GOT CSM_Msg
 1335796471702: Received UDP payload: 989
 1335796471705: mux: GOT CSM_Msg
 1335796471706: forwarding disabled, not forwarding packets
@@ -697,8 +695,8 @@
 1335796471792: mux: GOT CSM_Msg
 1335796471793: forwarding disabled, not forwarding packets
 1335796471807: Received UDP payload: 989
-1335796471810: mux: GOT CSM_Msg
 1335796471810: forwarding disabled, not forwarding packets
+1335796471810: mux: GOT CSM_Msg
 1335796471926: Received UDP payload: 989
 1335796471933: mux: GOT CSM_Msg
 1335796471934: forwarding disabled, not forwarding packets
@@ -706,14 +704,14 @@
 1335796472223: mux: GOT CSM_Msg
 1335796472224: forwarding disabled, not forwarding packets
 1335796472389: Received UDP payload: 6894
-1335796472394: mux: GOT CSM_Msg
 1335796472394: forwarding disabled, not forwarding packets
+1335796472394: mux: GOT CSM_Msg
 1335796472698: Received UDP payload: 6894
-1335796472703: mux: GOT CSM_Msg
 1335796472703: forwarding disabled, not forwarding packets
+1335796472703: mux: GOT CSM_Msg
 1335796472805: Received UDP payload: 6894
-1335796472823: mux: GOT CSM_Msg
 1335796472823: forwarding disabled, not forwarding packets
+1335796472823: mux: GOT CSM_Msg
 1335796472930: Received UDP payload: 446
 1335796472950: Received UDP payload: 6894
 1335796472955: mux: GOT CSM_Msg
@@ -723,31 +721,31 @@
 1335796473518: Received UDP payload: 625
 1335796473525: mux: Inside mux Packet.CLIENT_REQUEST
 1335796473532: Received UDP payload: 6894
-1335796473560: mux: GOT CSM_Msg
 1335796473560: forwarding disabled, not forwarding packets
+1335796473560: mux: GOT CSM_Msg
 1335796473571: Received UDP payload: 989
-1335796473591: mux: GOT CSM_Msg
 1335796473591: forwarding disabled, not forwarding packets
+1335796473591: mux: GOT CSM_Msg
 1335796473628: Received UDP payload: 625
 1335796473630: mux: Inside mux Packet.CLIENT_REQUEST
 1335796473800: Received UDP payload: 625
 1335796473804: mux: Inside mux Packet.CLIENT_REQUEST
 1335796474050: Received UDP payload: 989
-1335796474054: mux: GOT CSM_Msg
 1335796474054: forwarding disabled, not forwarding packets
+1335796474054: mux: GOT CSM_Msg
 1335796474073: Received UDP payload: 446
 1335796474102: Received UDP payload: 642
-1335796474104: mux: Inside Packet.SERVER_REPLY
 1335796474104: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796474104: mux: Inside Packet.SERVER_REPLY
 1335796474113: Received UDP payload: 642
-1335796474117: mux: Inside Packet.SERVER_REPLY
 1335796474117: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796474117: mux: Inside Packet.SERVER_REPLY
 1335796474129: Received UDP payload: 642
 1335796474134: mux: Inside Packet.SERVER_REPLY
 1335796474135: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796474141: Received UDP payload: 642
-1335796474145: mux: Inside Packet.SERVER_REPLY
 1335796474145: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796474145: mux: Inside Packet.SERVER_REPLY
 1335796474229: Received UDP payload: 446
 1335796474234: mux: Inside mux Packet.CLIENT_REQUEST
 1335796474238: Received UDP payload: 446
@@ -755,8 +753,8 @@
 1335796474997: Received UDP payload: 446
 1335796475065: Received UDP payload: 446
 1335796475530: Received UDP payload: 989
-1335796475542: mux: GOT CSM_Msg
 1335796475542: forwarding disabled, not forwarding packets
+1335796475542: mux: GOT CSM_Msg
 1335796475865: Received UDP payload: 446
 1335796475867: mux: Inside mux Packet.CLIENT_REQUEST
 1335796475873: Received UDP payload: 446
@@ -770,133 +768,131 @@
 1335796475981: Received UDP payload: 625
 1335796475984: mux: Inside mux Packet.CLIENT_REQUEST
 1335796475990: Received UDP payload: 625
-1335796475994: mux: Inside mux Packet.CLIENT_REQUEST
 1335796475994: Received UDP payload: 4656
-1335796475998: mux: GOT CSM_Msg
+1335796475994: mux: Inside mux Packet.CLIENT_REQUEST
 1335796475998: forwarding disabled, not forwarding packets
+1335796475998: mux: GOT CSM_Msg
 1335796476022: Received UDP payload: 989
 1335796476025: mux: GOT CSM_Msg
-1335796476026: removed replies before id 3 from sentReplies of size 0
 1335796476026: inside handleDSMRequest. At requests's remote leader of region 0
+1335796476026: removed replies before id 3 from sentReplies of size 0
 1335796476029: INSIDE SERVER_GET_PHOTO!!!
 1335796476034: Received UDP payload: 625
-1335796476064: mux: Inside mux Packet.CLIENT_REQUEST
 1335796476038: Received UDP payload: 446
-1335796476064: mux: Inside Packet.SERVER_REPLY
-1335796476064: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796476053: Received UDP payload: 446
 1335796476059: Received PROC_REQUEST 11:3 (2,0)->(0,0), replying PROC_REPLY 11:3 (0,0)->(2,0)
 1335796476060: Dispatching Atom PROC_REPLY 11:3 (0,0)->(2,0)
-1335796476065: mux: Inside Packet.SERVER_REPLY
-1335796476065: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796476062: Received UDP payload: 625
-1335796476065: mux: Inside mux Packet.CLIENT_REQUEST
+1335796476064: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796476064: mux: Inside Packet.SERVER_REPLY
+1335796476064: mux: Inside mux Packet.CLIENT_REQUEST
 1335796476065: mux: I got a CSM packet at a leader 
-
+1335796476065: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796476065: mux: Inside Packet.SERVER_REPLY
+1335796476065: mux: Inside mux Packet.CLIENT_REQUEST
 1335796476083: Sending UDP payload: 5225
 1335796476089: forwarding disabled, not forwarding packets
 1335796476108: Received UDP payload: 446
-1335796476111: mux: Inside Packet.SERVER_REPLY
 1335796476111: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796476111: mux: Inside Packet.SERVER_REPLY
 1335796476158: Received UDP payload: 989
 1335796476164: mux: GOT CSM_Msg
 1335796476165: forwarding disabled, not forwarding packets
 1335796476180: Received UDP payload: 446
-1335796476186: mux: Inside Packet.SERVER_REPLY
 1335796476186: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796476186: mux: Inside Packet.SERVER_REPLY
 1335796476193: Received UDP payload: 446
-1335796476195: mux: Inside Packet.SERVER_REPLY
 1335796476195: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796476195: mux: Inside Packet.SERVER_REPLY
 1335796476205: Received UDP payload: 446
-1335796476207: mux: Inside Packet.SERVER_REPLY
 1335796476207: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796476207: mux: Inside Packet.SERVER_REPLY
 1335796476320: Received UDP payload: 4656
-1335796476323: mux: GOT CSM_Msg
 1335796476323: forwarding disabled, not forwarding packets
+1335796476323: mux: GOT CSM_Msg
 1335796476351: Received UDP payload: 4878
-1335796476353: mux: Inside Packet.SERVER_REPLY
 1335796476353: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796476353: mux: Inside Packet.SERVER_REPLY
 1335796476388: Received UDP payload: 4656
-1335796476391: mux: GOT CSM_Msg
 1335796476391: forwarding disabled, not forwarding packets
+1335796476391: mux: GOT CSM_Msg
 1335796476425: Received UDP payload: 446
 1335796476427: mux: Inside mux Packet.CLIENT_REQUEST
 1335796476794: Received UDP payload: 989
-1335796476805: mux: GOT CSM_Msg
 1335796476805: forwarding disabled, not forwarding packets
+1335796476805: mux: GOT CSM_Msg
 1335796476919: Received UDP payload: 989
-1335796476929: mux: GOT CSM_Msg
 1335796476929: forwarding disabled, not forwarding packets
+1335796476929: mux: GOT CSM_Msg
 1335796477009: Received UDP payload: 989
 1335796477019: mux: GOT CSM_Msg
 1335796477020: forwarding disabled, not forwarding packets
 1335796477103: Received UDP payload: 989
-1335796477114: mux: GOT CSM_Msg
 1335796477114: forwarding disabled, not forwarding packets
+1335796477114: mux: GOT CSM_Msg
 1335796477198: Received UDP payload: 989
 1335796477209: mux: GOT CSM_Msg
 1335796477210: forwarding disabled, not forwarding packets
 1335796477302: Received UDP payload: 989
-1335796477313: mux: GOT CSM_Msg
 1335796477313: forwarding disabled, not forwarding packets
+1335796477313: mux: GOT CSM_Msg
 1335796477406: Received UDP payload: 989
 1335796477416: mux: GOT CSM_Msg
 1335796477417: forwarding disabled, not forwarding packets
 1335796477511: Received UDP payload: 989
-1335796477514: mux: GOT CSM_Msg
 1335796477514: forwarding disabled, not forwarding packets
+1335796477514: mux: GOT CSM_Msg
 1335796477598: Received UDP payload: 446
 1335796477608: Received UDP payload: 4656
-1335796477612: mux: GOT CSM_Msg
 1335796477612: forwarding disabled, not forwarding packets
+1335796477612: mux: GOT CSM_Msg
 1335796477617: Received UDP payload: 989
-1335796477620: mux: GOT CSM_Msg
 1335796477620: forwarding disabled, not forwarding packets
+1335796477620: mux: GOT CSM_Msg
 1335796477782: Received UDP payload: 4656
-1335796477786: mux: GOT CSM_Msg
 1335796477786: forwarding disabled, not forwarding packets
+1335796477786: mux: GOT CSM_Msg
 1335796477817: Received UDP payload: 989
-1335796477821: mux: GOT CSM_Msg
 1335796477821: forwarding disabled, not forwarding packets
+1335796477821: mux: GOT CSM_Msg
 1335796477825: Received UDP payload: 446
 1335796477858: Received UDP payload: 989
 1335796477861: mux: GOT CSM_Msg
 1335796477862: forwarding disabled, not forwarding packets
 1335796478023: Received UDP payload: 4656
-1335796478028: mux: GOT CSM_Msg
 1335796478028: forwarding disabled, not forwarding packets
+1335796478028: mux: GOT CSM_Msg
 1335796478041: inside sendPacket(Packet p)
 1335796478044: Sending UDP payload: 446
 1335796478144: Received UDP payload: 989
-1335796478149: mux: GOT CSM_Msg
 1335796478149: forwarding disabled, not forwarding packets
+1335796478149: mux: GOT CSM_Msg
 1335796478311: Received UDP payload: 989
-1335796478315: mux: GOT CSM_Msg
 1335796478315: forwarding disabled, not forwarding packets
+1335796478315: mux: GOT CSM_Msg
 1335796478342: Received UDP payload: 642
-1335796478345: mux: Inside Packet.SERVER_REPLY
 1335796478345: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796478345: mux: Inside Packet.SERVER_REPLY
 1335796478633: Received UDP payload: 446
 1335796478635: mux: Inside mux Packet.CLIENT_REQUEST
 1335796478700: Received UDP payload: 989
 1335796478712: mux: GOT CSM_Msg
 1335796478712: removed replies before id 4 from sentReplies of size 0
-1335796478713: inside handleDSMRequest. At requests's remote leader of region 0
 1335796478713: INSIDE SERVER_GET_PHOTO!!!
-1335796478715: Received PROC_REQUEST 11:4 (2,0)->(0,0), replying PROC_REPLY 11:4 (0,0)->(2,0)
+1335796478713: inside handleDSMRequest. At requests's remote leader of region 0
 1335796478715: Dispatching Atom PROC_REPLY 11:4 (0,0)->(2,0)
+1335796478715: Received PROC_REQUEST 11:4 (2,0)->(0,0), replying PROC_REPLY 11:4 (0,0)->(2,0)
 1335796478715: mux: I got a CSM packet at a leader 
-
 1335796478718: Sending UDP payload: 5225
 1335796478721: forwarding disabled, not forwarding packets
 1335796478918: Received UDP payload: 4656
-1335796478925: mux: GOT CSM_Msg
 1335796478925: forwarding disabled, not forwarding packets
+1335796478925: mux: GOT CSM_Msg
 1335796479482: Received UDP payload: 3638
 1335796479489: mux: Inside mux Packet.CLIENT_REQUEST
 1335796479692: Received UDP payload: 989
-1335796479703: mux: GOT CSM_Msg
 1335796479703: forwarding disabled, not forwarding packets
+1335796479703: mux: GOT CSM_Msg
 1335796479744: Received UDP payload: 4395
 1335796479754: mux: GOT CSM_Msg
 1335796479755: forwarding disabled, not forwarding packets
@@ -907,32 +903,32 @@
 1335796480169: mux: GOT CSM_Msg
 1335796480170: forwarding disabled, not forwarding packets
 1335796480273: Received UDP payload: 4656
-1335796480284: mux: GOT CSM_Msg
 1335796480284: forwarding disabled, not forwarding packets
+1335796480284: mux: GOT CSM_Msg
 1335796480439: Received UDP payload: 4002
-1335796480460: mux: GOT CSM_Msg
 1335796480460: forwarding disabled, not forwarding packets
+1335796480460: mux: GOT CSM_Msg
 1335796480471: Received UDP payload: 446
-1335796480476: mux: Inside Packet.SERVER_REPLY
 1335796480476: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796480476: mux: Inside Packet.SERVER_REPLY
 1335796480481: Received UDP payload: 989
 1335796480503: mux: GOT CSM_Msg
 1335796480504: forwarding disabled, not forwarding packets
 1335796480506: Received UDP payload: 642
-1335796480517: mux: Inside Packet.SERVER_REPLY
-1335796480517: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796480517: Received UDP payload: 642
-1335796480519: mux: Inside Packet.SERVER_REPLY
+1335796480517: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796480517: mux: Inside Packet.SERVER_REPLY
 1335796480519: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796480519: mux: Inside Packet.SERVER_REPLY
 1335796480524: Received UDP payload: 446
-1335796480525: mux: Inside Packet.SERVER_REPLY
 1335796480525: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796480525: mux: Inside Packet.SERVER_REPLY
 1335796480526: Received UDP payload: 642
 1335796480531: mux: Inside Packet.SERVER_REPLY
 1335796480532: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796480538: Received UDP payload: 642
-1335796480540: mux: Inside Packet.SERVER_REPLY
 1335796480540: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796480540: mux: Inside Packet.SERVER_REPLY
 1335796480673: Received UDP payload: 446
 1335796480674: mux: Inside mux Packet.CLIENT_REQUEST
 1335796480680: Received UDP payload: 446
@@ -944,55 +940,55 @@
 1335796480917: Received UDP payload: 625
 1335796480919: mux: Inside mux Packet.CLIENT_REQUEST
 1335796481052: Received UDP payload: 4656
-1335796481055: mux: GOT CSM_Msg
 1335796481055: forwarding disabled, not forwarding packets
+1335796481055: mux: GOT CSM_Msg
 1335796481189: Received UDP payload: 625
 1335796481191: mux: Inside mux Packet.CLIENT_REQUEST
-1335796481283: canPressButton = TRUE
 1335796481283: areButtonsEnabled --> false
+1335796481283: canPressButton = TRUE
 1335796481283: disabling buttons ...
 1335796481283: took picture disableButtonsR
 1335796481284: areButtonsEnabled --> false
-1335796481310: one more takeNum: 2
-1335796481311: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
-1335796481311: Clicked take picture button ..
 1335796481302: Received UDP payload: 4656
 1335796481304: mux: GOT CSM_Msg
 1335796481305: forwarding disabled, not forwarding packets
+1335796481310: one more takeNum: 2
+1335796481311: Clicked take picture button ..
+1335796481311: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
 1335796481367: Received UDP payload: 4656
-1335796481369: mux: GOT CSM_Msg
 1335796481369: forwarding disabled, not forwarding packets
+1335796481369: mux: GOT CSM_Msg
 1335796481491: Received UDP payload: 4656
-1335796481496: mux: GOT CSM_Msg
 1335796481496: forwarding disabled, not forwarding packets
+1335796481496: mux: GOT CSM_Msg
 1335796481518: Received UDP payload: 625
 1335796481520: mux: Inside mux Packet.CLIENT_REQUEST
 1335796481763: Received UDP payload: 4656
-1335796481766: mux: GOT CSM_Msg
 1335796481766: forwarding disabled, not forwarding packets
+1335796481766: mux: GOT CSM_Msg
 1335796481827: Received UDP payload: 625
 1335796481829: mux: Inside mux Packet.CLIENT_REQUEST
 1335796481830: Received UDP payload: 4656
 1335796481835: mux: GOT CSM_Msg
 1335796481836: forwarding disabled, not forwarding packets
 1335796482016: Received UDP payload: 4656
-1335796482019: mux: GOT CSM_Msg
 1335796482019: forwarding disabled, not forwarding packets
+1335796482019: mux: GOT CSM_Msg
 1335796482209: Received UDP payload: 4656
 1335796482212: mux: GOT CSM_Msg
 1335796482213: forwarding disabled, not forwarding packets
 1335796482290: Received UDP payload: 446
 1335796482361: Received UDP payload: 989
-1335796482364: mux: GOT CSM_Msg
 1335796482364: forwarding disabled, not forwarding packets
+1335796482364: mux: GOT CSM_Msg
 1335796482409: Received UDP payload: 4656
-1335796482413: mux: GOT CSM_Msg
 1335796482413: forwarding disabled, not forwarding packets
+1335796482413: mux: GOT CSM_Msg
 1335796482503: Received UDP payload: 446
 1335796482520: Received UDP payload: 446
 1335796482535: Received UDP payload: 989
-1335796482537: mux: GOT CSM_Msg
 1335796482537: forwarding disabled, not forwarding packets
+1335796482537: mux: GOT CSM_Msg
 1335796482549: Received UDP payload: 463
 1335796482561: Received UDP payload: 446
 1335796482569: Received UDP payload: 446
@@ -1000,19 +996,12 @@
 1335796482681: inside HandlePictureStorage onPictureTaken()
 1335796482682: one more takeCamGood: 2
 1335796482683: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
-1335796482942: Picture successfully taken, ORIG BYTE LENGTH = 2272361
-1335796483279: Our new height x width: 306 x 408
-1335796483279: Show photo from handle my camera take
-1335796483279: ** Client making NEWly TAKEN photo PACKET to send to leader **
-1335796483280: change local requestCounter to 3
-1335796483293: BYTE SIZE AFTER COMPRESSION: 3805
-1335796483296: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5019003 Client in region: 0 Client nodID: 5019
 1335796482688: Received UDP payload: 989
-1335796482696: mux: GOT CSM_Msg
 1335796482696: Received UDP payload: 989
 1335796482696: forwarding disabled, not forwarding packets
-1335796482701: mux: GOT CSM_Msg
+1335796482696: mux: GOT CSM_Msg
 1335796482701: forwarding disabled, not forwarding packets
+1335796482701: mux: GOT CSM_Msg
 1335796482719: Received UDP payload: 625
 1335796482724: mux: Inside mux Packet.CLIENT_REQUEST
 1335796482730: Received UDP payload: 625
@@ -1024,189 +1013,193 @@
 1335796482752: forwarding disabled, not forwarding packets
 1335796482826: Received UDP payload: 446
 1335796482859: Received UDP payload: 989
-1335796482868: mux: GOT CSM_Msg
 1335796482868: forwarding disabled, not forwarding packets
+1335796482868: mux: GOT CSM_Msg
+1335796482942: Picture successfully taken, ORIG BYTE LENGTH = 2272361
 1335796482990: Received UDP payload: 989
-1335796483012: mux: GOT CSM_Msg
 1335796483012: forwarding disabled, not forwarding packets
+1335796483012: mux: GOT CSM_Msg
 1335796483042: inside sendPacket(Packet p)
 1335796483061: Received UDP payload: 989
 1335796483068: Sending UDP payload: 446
 1335796483078: mux: GOT CSM_Msg
 1335796483079: forwarding disabled, not forwarding packets
 1335796483250: Received UDP payload: 989
-1335796483262: mux: GOT CSM_Msg
 1335796483262: forwarding disabled, not forwarding packets
-1335796483336: ----------------------------
-1335796483336: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
-1335796483337: I'm a leader, my requesting photos packet going to mux directly
-1335796483337: --- Finished one round of sending REQUEST Packet ---------
+1335796483262: mux: GOT CSM_Msg
+1335796483279: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1335796483279: Our new height x width: 306 x 408
+1335796483279: Show photo from handle my camera take
+1335796483280: change local requestCounter to 3
+1335796483293: BYTE SIZE AFTER COMPRESSION: 3805
 1335796483295: Received UDP payload: 989
+1335796483296: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5019003 Client in region: 0 Client nodID: 5019
 1335796483321: mux: GOT CSM_Msg
 1335796483322: forwarding disabled, not forwarding packets
-1335796483337: mux: Inside mux Packet.CLIENT_REQUEST
+1335796483336: ----------------------------
+1335796483336: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
+1335796483337: --- Finished one round of sending REQUEST Packet ---------
+1335796483337: I'm a leader, my requesting photos packet going to mux directly
 1335796483337: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335796483360: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
-1335796483338: inside handleClientRequest. Originator leader of region 0
+1335796483337: mux: Inside mux Packet.CLIENT_REQUEST
 1335796483338: got new request, requestCounter = 5019003
+1335796483338: inside handleClientRequest. Originator leader of region 0
 1335796483339: Leader received CLIENT_UPLOAD_PHOTO, so send atom packet to myself (remote region = me)
 1335796483340: Sending PROC_REQUEST 10:1 (0,0)->(0,0)
 1335796483341: Dispatching Atom PROC_REQUEST 10:1 (0,0)->(0,0)
+1335796483341: Note down new request by adding requestCounter=5019003 to HashMap processedRequests
+1335796483342: Make FirstLeg Ack regardless of new or already-processed requests
+1335796483342: sending a First Leg ack to myself, becaues I (the leader) was also the originator client (id = 5019)
 1335796483343: mux: I got a CSM packet at a leader 
-
+1335796483358: Received UDP payload: 989
+1335796483360: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335796483362: Sending UDP payload: 4816
+1335796483376: inside handleDSMRequest. At requests's remote leader of region 0
+1335796483376: removed replies before id 1 from sentReplies of size 0
+1335796483378: Inside UPLOAD_PHOTO!!
+1335796483382: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1335796483382: my_gpinfo.isSuccess is now (should be true): true
 1335796483383: %%%%%%%% aside: Leader got Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
 1335796483384: I'm a leader and I successfully saved my client's new photo
 1335796483384: now showing in UI the new photo I just saved ... 
 1335796483384: the photo length: 3805
-1335796483417: end of server show photo aside %%%%%%%%%
-1335796483341: Note down new request by adding requestCounter=5019003 to HashMap processedRequests
-1335796483342: Make FirstLeg Ack regardless of new or already-processed requests
-1335796483342: sending a First Leg ack to myself, becaues I (the leader) was also the originator client (id = 5019)
-1335796483358: Received UDP payload: 989
-1335796483362: Sending UDP payload: 4816
-1335796483376: removed replies before id 1 from sentReplies of size 0
-1335796483376: inside handleDSMRequest. At requests's remote leader of region 0
-1335796483416: mux: GOT CSM_Msg
-1335796483378: Inside UPLOAD_PHOTO!!
-1335796483382: my_gpinfo.isSuccess is now (should be true): true
-1335796483382: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
-1335796483416: Received PROC_REQUEST 10:1 (0,0)->(0,0), replying PROC_REPLY 10:1 (0,0)->(0,0)
 1335796483416: Dispatching Atom PROC_REPLY 10:1 (0,0)->(0,0)
-1335796483417: mux: I got a CSM packet at a leader 
-
-1335796483449: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
-1335796483450: disabling progressdialog due to successful new photo upload
-1335796483450: Inside _enableButtons
-1335796483451: areButtonsEnabled --> true
-1335796483451: send final leg ack regardless of new or already-processed reply
-1335796483452: inside finalLegAck: change requestCounter to 4
-1335796483452: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019004 Client in region: (0,0) Client nodID: 5019
-1335796483452: I'm a leader client, my final_leg packet going to mux directly
-1335796483453: new client_upload_photo_ack reply with replyCounter 501900002
-1335796483454: note down new reply by adding replyCounter=501900002 to HashMap processedReplies
-1335796483454: leader upload new photo latency = 112
-1335796483455: = leader upload start 1335796483337 ~ stop 1335796483449
-1335796483457: one more takeGoodSave: 2
-1335796483458: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
-1335796483459: SUCCESS Client now knows saving photo on its leader succeeded
+1335796483416: Received PROC_REQUEST 10:1 (0,0)->(0,0), replying PROC_REPLY 10:1 (0,0)->(0,0)
 1335796483416: forwarding disabled, not forwarding packets
+1335796483416: mux: GOT CSM_Msg
+1335796483417: end of server show photo aside %%%%%%%%%
+1335796483417: mux: I got a CSM packet at a leader 
 1335796483424: Sending UDP payload: 989
 1335796483427: Received PROC_REPLY 10:1 (0,0)->(0,0), handing to UserApp
-1335796483428: inside handleDSMReply. Now back in originator leader of region 0
 1335796483428: DSM layer: Going to and from remote region took latency = 89
+1335796483428: inside handleDSMReply. Now back in originator leader of region 0
 1335796483429: DSM layer: orig leader sent packet at 1335796483339 ~ received reply from remote leader at 1335796483428
+1335796483432: =======================
 1335796483432: Originator Region=0's Leader (for Client=5019) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1335796483432: change leader replyCounter to: 2
-1335796483432: reply packet contains the success info for UPLOAD_PHOTO
 1335796483432: inside sendReplies of replyCount = 501900002
-1335796483432: =======================
 1335796483432: inside sendReplyRepeatingRunnable for replyCount = 501900002
-1335796483433: Leader about to send REPLY packet, number: 501900002 type: 16 Leader in region: (0,0) to Client nodID: 5019
-1335796483433: I (the leader) was also the originator client (id = 5019) so I hand the packet to my mux directly, without UDP
+1335796483432: reply packet contains the success info for UPLOAD_PHOTO
 1335796483433: === Finished one round of sending REPLY Packet =======
-1335796483453: mux: Inside mux Packet.CLIENT_REQUEST
+1335796483433: I (the leader) was also the originator client (id = 5019) so I hand the packet to my mux directly, without UDP
+1335796483433: Leader about to send REPLY packet, number: 501900002 type: 16 Leader in region: (0,0) to Client nodID: 5019
+1335796483449: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
+1335796483450: Inside _enableButtons
+1335796483450: disabling progressdialog due to successful new photo upload
+1335796483451: areButtonsEnabled --> true
+1335796483451: send final leg ack regardless of new or already-processed reply
+1335796483452: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019004 Client in region: (0,0) Client nodID: 5019
+1335796483452: I'm a leader client, my final_leg packet going to mux directly
+1335796483452: inside finalLegAck: change requestCounter to 4
 1335796483453: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335796483454: inside handleClientRequest. Originator leader of region 0
-1335796483454: got new request, requestCounter = 5019004
+1335796483453: mux: Inside mux Packet.CLIENT_REQUEST
+1335796483453: new client_upload_photo_ack reply with replyCounter 501900002
 1335796483454: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 501900002
 1335796483454: Yay the last leg succeeded. Removing reply runnables ...
 1335796483454: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501900002
 1335796483454: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 501900002
 1335796483454: do not send ack for received final_leg_ack
+1335796483454: got new request, requestCounter = 5019004
+1335796483454: inside handleClientRequest. Originator leader of region 0
+1335796483454: leader upload new photo latency = 112
+1335796483454: note down new reply by adding replyCounter=501900002 to HashMap processedReplies
+1335796483455: = leader upload start 1335796483337 ~ stop 1335796483449
+1335796483457: one more takeGoodSave: 2
+1335796483458: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1335796483459: SUCCESS Client now knows saving photo on its leader succeeded
 1335796483468: Received UDP payload: 989
-1335796483477: mux: GOT CSM_Msg
 1335796483477: forwarding disabled, not forwarding packets
+1335796483477: mux: GOT CSM_Msg
 1335796483558: Received UDP payload: 625
 1335796483560: mux: Inside mux Packet.CLIENT_REQUEST
 1335796483658: Received UDP payload: 989
-1335796483661: mux: GOT CSM_Msg
 1335796483661: forwarding disabled, not forwarding packets
+1335796483661: mux: GOT CSM_Msg
 1335796483766: Received UDP payload: 989
-1335796483769: mux: GOT CSM_Msg
 1335796483769: forwarding disabled, not forwarding packets
+1335796483769: mux: GOT CSM_Msg
 1335796483784: Received UDP payload: 625
 1335796483790: mux: Inside mux Packet.CLIENT_REQUEST
 1335796483935: Received UDP payload: 4002
 1335796483942: mux: GOT CSM_Msg
 1335796483943: forwarding disabled, not forwarding packets
 1335796483983: Received UDP payload: 4002
-1335796483991: mux: GOT CSM_Msg
 1335796483991: forwarding disabled, not forwarding packets
+1335796483991: mux: GOT CSM_Msg
 1335796484019: Received UDP payload: 446
 1335796484082: Received UDP payload: 4002
-1335796484085: mux: GOT CSM_Msg
 1335796484085: forwarding disabled, not forwarding packets
+1335796484085: mux: GOT CSM_Msg
 1335796484140: Received UDP payload: 446
-1335796484142: mux: Inside Packet.SERVER_REPLY
 1335796484142: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796484142: mux: Inside Packet.SERVER_REPLY
 1335796484145: Received UDP payload: 446
-1335796484147: mux: Inside Packet.SERVER_REPLY
 1335796484147: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796484147: mux: Inside Packet.SERVER_REPLY
 1335796484152: Received UDP payload: 446
-1335796484154: mux: Inside Packet.SERVER_REPLY
 1335796484154: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796484154: mux: Inside Packet.SERVER_REPLY
 1335796484331: Received UDP payload: 4002
 1335796484334: mux: GOT CSM_Msg
 1335796484335: forwarding disabled, not forwarding packets
 1335796484397: Received UDP payload: 4002
-1335796484401: mux: GOT CSM_Msg
 1335796484401: forwarding disabled, not forwarding packets
+1335796484401: mux: GOT CSM_Msg
 1335796484457: Received UDP payload: 4002
-1335796484461: mux: GOT CSM_Msg
 1335796484461: forwarding disabled, not forwarding packets
+1335796484461: mux: GOT CSM_Msg
 1335796484522: Received UDP payload: 4002
 1335796484525: mux: GOT CSM_Msg
 1335796484526: forwarding disabled, not forwarding packets
 1335796484612: Received UDP payload: 4002
-1335796484616: mux: GOT CSM_Msg
 1335796484616: forwarding disabled, not forwarding packets
+1335796484616: mux: GOT CSM_Msg
 1335796484636: Received UDP payload: 989
-1335796484639: mux: GOT CSM_Msg
 1335796484639: forwarding disabled, not forwarding packets
+1335796484639: mux: GOT CSM_Msg
 1335796484656: Received UDP payload: 989
-1335796484663: mux: GOT CSM_Msg
 1335796484663: forwarding disabled, not forwarding packets
+1335796484663: mux: GOT CSM_Msg
 1335796484674: Received UDP payload: 446
-1335796484677: mux: Inside Packet.SERVER_REPLY
 1335796484677: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796484677: mux: Inside Packet.SERVER_REPLY
 1335796484737: Received UDP payload: 989
-1335796484739: mux: GOT CSM_Msg
 1335796484739: forwarding disabled, not forwarding packets
+1335796484739: mux: GOT CSM_Msg
 1335796484779: Received UDP payload: 4002
-1335796484783: mux: GOT CSM_Msg
 1335796484783: forwarding disabled, not forwarding packets
+1335796484783: mux: GOT CSM_Msg
 1335796484818: Received UDP payload: 989
 1335796484822: mux: GOT CSM_Msg
 1335796484822: removed replies before id 5 from sentReplies of size 0
-1335796484823: inside handleDSMRequest. At requests's remote leader of region 0
 1335796484823: INSIDE SERVER_GET_PHOTO!!!
-1335796484827: Received PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
+1335796484823: inside handleDSMRequest. At requests's remote leader of region 0
 1335796484827: Dispatching Atom PROC_REPLY 11:5 (0,0)->(2,0)
+1335796484827: Received PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796484827: mux: I got a CSM packet at a leader 
-
 1335796484829: Sending UDP payload: 4816
 1335796484839: forwarding disabled, not forwarding packets
 1335796484858: Received UDP payload: 446
 1335796484860: mux: Inside Packet.SERVER_REPLY
 1335796484861: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796484875: Received UDP payload: 989
-1335796484879: mux: GOT CSM_Msg
 1335796484879: forwarding disabled, not forwarding packets
+1335796484879: mux: GOT CSM_Msg
 1335796484911: Received UDP payload: 989
 1335796484914: mux: GOT CSM_Msg
 1335796484915: forwarding disabled, not forwarding packets
 1335796484922: Received UDP payload: 989
-1335796484926: mux: GOT CSM_Msg
 1335796484926: forwarding disabled, not forwarding packets
+1335796484926: mux: GOT CSM_Msg
 1335796485018: Received UDP payload: 4395
 1335796485022: mux: GOT CSM_Msg
 1335796485023: forwarding disabled, not forwarding packets
 1335796485034: Received UDP payload: 989
-1335796485039: mux: GOT CSM_Msg
 1335796485039: forwarding disabled, not forwarding packets
+1335796485039: mux: GOT CSM_Msg
 1335796485069: Received UDP payload: 989
-1335796485074: mux: GOT CSM_Msg
 1335796485074: forwarding disabled, not forwarding packets
+1335796485074: mux: GOT CSM_Msg
 1335796485078: Received UDP payload: 989
 1335796485082: mux: GOT CSM_Msg
 1335796485083: forwarding disabled, not forwarding packets
@@ -1214,89 +1207,82 @@
 1335796485124: mux: GOT CSM_Msg
 1335796485125: forwarding disabled, not forwarding packets
 1335796485175: Received UDP payload: 989
-1335796485179: mux: GOT CSM_Msg
 1335796485179: forwarding disabled, not forwarding packets
+1335796485179: mux: GOT CSM_Msg
 1335796485232: Received UDP payload: 4395
-1335796485236: mux: GOT CSM_Msg
 1335796485236: forwarding disabled, not forwarding packets
+1335796485236: mux: GOT CSM_Msg
 1335796485245: Received UDP payload: 989
-1335796485249: mux: GOT CSM_Msg
 1335796485249: forwarding disabled, not forwarding packets
+1335796485249: mux: GOT CSM_Msg
 1335796485300: Received UDP payload: 4395
-1335796485302: mux: GOT CSM_Msg
 1335796485302: forwarding disabled, not forwarding packets
+1335796485302: mux: GOT CSM_Msg
 1335796485342: Received UDP payload: 989
 1335796485345: mux: GOT CSM_Msg
 1335796485345: removed replies before id 5 from sentReplies of size 1
-1335796485346: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485346: Dispatching Atom PROC_REPLY 11:5 (0,0)->(2,0)
+1335796485346: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485346: mux: I got a CSM packet at a leader 
-
 1335796485347: Sending UDP payload: 4816
 1335796485348: forwarding disabled, not forwarding packets
 1335796485471: Received UDP payload: 989
+1335796485474: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485474: mux: GOT CSM_Msg
 1335796485474: removed replies before id 5 from sentReplies of size 1
-1335796485474: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485475: Dispatching Atom PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485475: mux: I got a CSM packet at a leader 
-
 1335796485476: Sending UDP payload: 4816
 1335796485478: forwarding disabled, not forwarding packets
 1335796485512: Received UDP payload: 989
 1335796485515: mux: GOT CSM_Msg
 1335796485515: removed replies before id 5 from sentReplies of size 1
-1335796485516: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485516: Dispatching Atom PROC_REPLY 11:5 (0,0)->(2,0)
+1335796485516: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485516: mux: I got a CSM packet at a leader 
-
+1335796485537: Received UDP payload: 989
 1335796485537: Sending UDP payload: 4816
 1335796485537: forwarding disabled, not forwarding packets
-1335796485537: Received UDP payload: 989
-1335796485542: mux: GOT CSM_Msg
 1335796485542: forwarding disabled, not forwarding packets
+1335796485542: mux: GOT CSM_Msg
 1335796485652: Received UDP payload: 989
 1335796485655: mux: GOT CSM_Msg
 1335796485655: removed replies before id 5 from sentReplies of size 1
 1335796485656: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485657: Dispatching Atom PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485657: mux: I got a CSM packet at a leader 
-
 1335796485658: Sending UDP payload: 4816
 1335796485672: forwarding disabled, not forwarding packets
 1335796485673: Received UDP payload: 642
-1335796485676: mux: Inside Packet.SERVER_REPLY
 1335796485676: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796485676: mux: Inside Packet.SERVER_REPLY
 1335796485734: Received UDP payload: 446
 1335796485736: mux: Inside mux Packet.CLIENT_REQUEST
 1335796485760: Received UDP payload: 989
 1335796485763: mux: GOT CSM_Msg
-1335796485764: removed replies before id 5 from sentReplies of size 1
 1335796485764: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
+1335796485764: removed replies before id 5 from sentReplies of size 1
 1335796485765: Dispatching Atom PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485765: mux: I got a CSM packet at a leader 
-
 1335796485766: Sending UDP payload: 4816
 1335796485768: forwarding disabled, not forwarding packets
 1335796485769: Received UDP payload: 989
 1335796485773: mux: GOT CSM_Msg
-1335796485774: removed replies before id 5 from sentReplies of size 1
-1335796485774: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485774: Dispatching Atom PROC_REPLY 11:5 (0,0)->(2,0)
+1335796485774: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
+1335796485774: removed replies before id 5 from sentReplies of size 1
 1335796485775: mux: I got a CSM packet at a leader 
-
 1335796485777: Sending UDP payload: 4816
 1335796485778: forwarding disabled, not forwarding packets
 1335796485782: Received UDP payload: 642
-1335796485785: mux: Inside Packet.SERVER_REPLY
 1335796485785: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796485785: mux: Inside Packet.SERVER_REPLY
 1335796485793: Received UDP payload: 989
 1335796485796: mux: GOT CSM_Msg
-1335796485797: removed replies before id 5 from sentReplies of size 1
-1335796485797: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796485797: Dispatching Atom PROC_REPLY 11:5 (0,0)->(2,0)
+1335796485797: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
+1335796485797: removed replies before id 5 from sentReplies of size 1
 1335796485798: mux: I got a CSM packet at a leader 
-
 1335796485799: Sending UDP payload: 4816
 1335796485801: forwarding disabled, not forwarding packets
 1335796485802: Received UDP payload: 625
@@ -1314,28 +1300,26 @@
 1335796486090: Received DUPLICATE PROC_REQUEST 11:5 (2,0)->(0,0), replying PROC_REPLY 11:5 (0,0)->(2,0)
 1335796486094: Dispatching Atom PROC_REPLY 11:5 (0,0)->(2,0)
 1335796486094: mux: I got a CSM packet at a leader 
-
 1335796486099: Sending UDP payload: 4816
 1335796486115: forwarding disabled, not forwarding packets
 1335796486161: Received UDP payload: 446
 1335796486169: mux: Inside mux Packet.CLIENT_REQUEST
 1335796486295: Received UDP payload: 989
 1335796486309: mux: GOT CSM_Msg
-1335796486310: removed replies before id 6 from sentReplies of size 0
 1335796486310: inside handleDSMRequest. At requests's remote leader of region 0
+1335796486310: removed replies before id 6 from sentReplies of size 0
 1335796486315: INSIDE SERVER_GET_PHOTO!!!
 1335796486326: Received UDP payload: 446
-1335796486347: mux: Inside Packet.SERVER_REPLY
-1335796486348: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796486345: Received PROC_REQUEST 11:6 (2,0)->(0,0), replying PROC_REPLY 11:6 (0,0)->(2,0)
 1335796486347: Dispatching Atom PROC_REPLY 11:6 (0,0)->(2,0)
+1335796486347: mux: Inside Packet.SERVER_REPLY
 1335796486348: mux: I got a CSM packet at a leader 
-
+1335796486348: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796486365: Sending UDP payload: 4816
 1335796486387: forwarding disabled, not forwarding packets
 1335796486632: Received UDP payload: 446
-1335796486634: mux: Inside Packet.SERVER_REPLY
 1335796486634: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796486634: mux: Inside Packet.SERVER_REPLY
 1335796487024: Received UDP payload: 4469
 1335796487032: mux: Inside Packet.SERVER_REPLY
 1335796487033: mux: Ignoring SERVER_REPLY since it's not for me  5019
@@ -1345,7 +1329,6 @@
 1335796487259: Received DUPLICATE PROC_REQUEST 11:6 (2,0)->(0,0), replying PROC_REPLY 11:6 (0,0)->(2,0)
 1335796487261: Dispatching Atom PROC_REPLY 11:6 (0,0)->(2,0)
 1335796487261: mux: I got a CSM packet at a leader 
-
 1335796487272: Received UDP payload: 989
 1335796487276: Sending UDP payload: 4816
 1335796487297: forwarding disabled, not forwarding packets
@@ -1354,100 +1337,97 @@
 1335796487305: Received DUPLICATE PROC_REQUEST 11:6 (2,0)->(0,0), replying PROC_REPLY 11:6 (0,0)->(2,0)
 1335796487306: Dispatching Atom PROC_REPLY 11:6 (0,0)->(2,0)
 1335796487307: mux: I got a CSM packet at a leader 
-
 1335796487324: Sending UDP payload: 4816
 1335796487329: forwarding disabled, not forwarding packets
 1335796487374: Received UDP payload: 4469
-1335796487376: mux: Inside Packet.SERVER_REPLY
 1335796487376: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796487376: mux: Inside Packet.SERVER_REPLY
 1335796487665: Received UDP payload: 4469
-1335796487667: mux: Inside Packet.SERVER_REPLY
 1335796487667: mux: Ignoring SERVER_REPLY since it's not for me  5019
-1335796487692: canPressButton = TRUE
+1335796487667: mux: Inside Packet.SERVER_REPLY
 1335796487692: areButtonsEnabled --> false 
-1335796487693: get picture disableButtonsR
+1335796487692: canPressButton = TRUE
 1335796487693: areButtonsEnabled --> false
+1335796487693: get picture disableButtonsR
+1335796487707: Received UDP payload: 446
+1335796487708: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796487708: mux: Inside Packet.SERVER_REPLY
 1335796487719: one more getNum: 1
 1335796487719: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=1 getGood=0 getBad=0 getTimedout=0 getPercent=0%
 1335796487720: ** Client of state 2 in region 0 making GET photo PACKET to send to the leader. Requesting for region: 0 **
 1335796487720: change local requestCounter to 5
 1335796487725: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019005 Client in region: 0 Client nodID: 5019
-1335796487707: Received UDP payload: 446
-1335796487708: mux: Inside Packet.SERVER_REPLY
-1335796487708: mux: Ignoring SERVER_REPLY since it's not for me  5019
 1335796487755: ----------------------------
-1335796487756: inside sendRequestPacketRepeatingRunnable for requestCount = 5019005
 1335796487756: I'm a leader, my requesting photos packet going to mux directly
-1335796487766: --- Finished one round of sending REQUEST Packet ---------
-1335796487756: mux: Inside mux Packet.CLIENT_REQUEST
-1335796487756: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335796487809: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
-1335796487756: inside handleClientRequest. Originator leader of region 0
 1335796487756: got new request, requestCounter = 5019005
+1335796487756: inside handleClientRequest. Originator leader of region 0
+1335796487756: inside sendRequestPacketRepeatingRunnable for requestCount = 5019005
+1335796487756: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335796487756: mux: Inside mux Packet.CLIENT_REQUEST
 1335796487757: Leader received CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
 1335796487757: Sending to region: 0
-1335796487758: Sending PROC_REQUEST 11:2 (0,0)->(0,0)
 1335796487758: Dispatching Atom PROC_REQUEST 11:2 (0,0)->(0,0)
-1335796487759: mux: I got a CSM packet at a leader 
-
-1335796487758: Note down new request by adding requestCounter=5019005 to HashMap processedRequests
 1335796487758: Make FirstLeg Ack regardless of new or already-processed requests
+1335796487758: Note down new request by adding requestCounter=5019005 to HashMap processedRequests
+1335796487758: Sending PROC_REQUEST 11:2 (0,0)->(0,0)
 1335796487758: sending a First Leg ack to myself, becaues I (the leader) was also the originator client (id = 5019)
+1335796487759: mux: I got a CSM packet at a leader 
 1335796487761: Sending UDP payload: 989
-1335796487762: removed replies before id 2 from sentReplies of size 0
 1335796487762: inside handleDSMRequest. At requests's remote leader of region 0
+1335796487762: removed replies before id 2 from sentReplies of size 0
+1335796487763:  1 self to self atomRequest
 1335796487763: INSIDE SERVER_GET_PHOTO!!!
 1335796487763: dst_region == src_region = 0
-1335796487763:  1 self to self atomRequest
-1335796487765: Received PROC_REQUEST 11:2 (0,0)->(0,0), replying PROC_REPLY 11:2 (0,0)->(0,0)
 1335796487765: Dispatching Atom PROC_REPLY 11:2 (0,0)->(0,0)
+1335796487765: Received PROC_REQUEST 11:2 (0,0)->(0,0), replying PROC_REPLY 11:2 (0,0)->(0,0)
+1335796487766: --- Finished one round of sending REQUEST Packet ---------
 1335796487766: mux: I got a CSM packet at a leader 
-
-1335796487813: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
-1335796487814: disabling progressdialog due to successful new photo get
-1335796487814: Inside _enableButtons
-1335796487814: areButtonsEnabled --> true
-1335796487814: send final leg ack regardless of new or already-processed reply
-1335796487815: inside finalLegAck: change requestCounter to 6
-1335796487815: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019006 Client in region: (0,0) Client nodID: 5019
-1335796487815: I'm a leader client, my final_leg packet going to mux directly
-1335796487819: new client_show_remotephoto reply with replyCounter 501900003
-1335796487820: note down new reply by adding replyCounter=501900003 to HashMap processedReplies
-1335796487820: leader download remote photo latency = 57
-1335796487820: = leader download start 1335796487756 ~ stop 1335796487813
-1335796487822: one more getGood: 1
-1335796487824: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=1 getGood=1 getBad=0 getTimedout=0 getPercent=100%
-1335796487824: successful reply for client get photo
-1335796487825: Success! Client getting photo from remote region, showing photo...
-1335796487825: Remote photo's length: 3805
 1335796487778: Sending UDP payload: 4816
-1335796487781: Received PROC_REPLY 11:2 (0,0)->(0,0), handing to UserApp
-1335796487781: inside handleDSMReply. Now back in originator leader of region 0
 1335796487781: DSM layer: Going to and from remote region took latency = 24
 1335796487781: DSM layer: orig leader sent packet at 1335796487757 ~ received reply from remote leader at 1335796487781
+1335796487781: Received PROC_REPLY 11:2 (0,0)->(0,0), handing to UserApp
+1335796487781: inside handleDSMReply. Now back in originator leader of region 0
+1335796487782: =======================
 1335796487782: Originator Region=0's Leader (for Client=5019) processes remote region's dsm atom reply and will send Packet reply to Originator Client
 1335796487782: change leader replyCounter to: 3
-1335796487782: reply packet contains the newest photo/success info from the remote region
 1335796487782: inside sendReplies of replyCount = 501900003
-1335796487782: =======================
-1335796487783: inside sendReplyRepeatingRunnable for replyCount = 501900003
-1335796487783: Leader about to send REPLY packet, number: 501900003 type: 15 Leader in region: (0,0) to Client nodID: 5019
-1335796487783: I (the leader) was also the originator client (id = 5019) so I hand the packet to my mux directly, without UDP
+1335796487782: reply packet contains the newest photo/success info from the remote region
 1335796487783: === Finished one round of sending REPLY Packet =======
-1335796487816: mux: Inside mux Packet.CLIENT_REQUEST
-1335796487816: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
-1335796487816: inside handleClientRequest. Originator leader of region 0
-1335796487816: got new request, requestCounter = 5019006
+1335796487783: I (the leader) was also the originator client (id = 5019) so I hand the packet to my mux directly, without UDP
+1335796487783: Leader about to send REPLY packet, number: 501900003 type: 15 Leader in region: (0,0) to Client nodID: 5019
+1335796487783: inside sendReplyRepeatingRunnable for replyCount = 501900003
+1335796487809: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1335796487813: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1335796487814: Inside _enableButtons
+1335796487814: areButtonsEnabled --> true
+1335796487814: disabling progressdialog due to successful new photo get
+1335796487814: send final leg ack regardless of new or already-processed reply
+1335796487815: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019006 Client in region: (0,0) Client nodID: 5019
+1335796487815: I'm a leader client, my final_leg packet going to mux directly
+1335796487815: inside finalLegAck: change requestCounter to 6
 1335796487816: Leader received CLIENT_FINAL_LEG_ACK with replyCounter of 501900003
 1335796487816: Yay the last leg succeeded. Removing reply runnables ...
 1335796487816: deleting the key's associated reply_REPEATING_RMap runnable for replyCount 501900003
+1335796487816: got new request, requestCounter = 5019006
+1335796487816: inside handleClientRequest. Originator leader of region 0
+1335796487816: mux: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1335796487816: mux: Inside mux Packet.CLIENT_REQUEST
 1335796487817: deleting the key's associated reply_TIMEOUT_RMap runnable for replyCount 501900003
 1335796487817: do not send ack for received final_leg_ack
+1335796487819: new client_show_remotephoto reply with replyCounter 501900003
+1335796487820: = leader download start 1335796487756 ~ stop 1335796487813
+1335796487820: leader download remote photo latency = 57
+1335796487820: note down new reply by adding replyCounter=501900003 to HashMap processedReplies
+1335796487822: one more getGood: 1
+1335796487824: reg=0 id=5019 state=2 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=1 getGood=1 getBad=0 getTimedout=0 getPercent=100%
+1335796487824: successful reply for client get photo
+1335796487825: Remote photo's length: 3805
+1335796487825: Success! Client getting photo from remote region, showing photo...
 1335796487871: Received UDP payload: 446
 1335796487878: Received UDP payload: 446
 1335796488013: Received UDP payload: 4469
-1335796488015: mux: Inside Packet.SERVER_REPLY
 1335796488015: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796488015: mux: Inside Packet.SERVER_REPLY
 1335796488043: inside sendPacket(Packet p)
 1335796488046: Sending UDP payload: 446
 1335796488265: Received UDP payload: 446
@@ -1466,7 +1446,6 @@
 1335796491573: Received PROC_REQUEST 11:7 (2,0)->(0,0), replying PROC_REPLY 11:7 (0,0)->(2,0)
 1335796491574: Dispatching Atom PROC_REPLY 11:7 (0,0)->(2,0)
 1335796491574: mux: I got a CSM packet at a leader 
-
 1335796491598: Sending UDP payload: 4816
 1335796491600: forwarding disabled, not forwarding packets
 1335796492565: Received UDP payload: 446
@@ -1489,17 +1468,17 @@
 1335796498043: inside sendPacket(Packet p)
 1335796498045: Sending UDP payload: 446
 1335796498632: Received UDP payload: 989
-1335796498640: mux: GOT CSM_Msg
 1335796498640: forwarding disabled, not forwarding packets
+1335796498640: mux: GOT CSM_Msg
 1335796498689: Received UDP payload: 446
-1335796498694: mux: Inside Packet.SERVER_REPLY
 1335796498694: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796498694: mux: Inside Packet.SERVER_REPLY
 1335796498814: Received UDP payload: 4002
-1335796498819: mux: GOT CSM_Msg
 1335796498819: forwarding disabled, not forwarding packets
+1335796498819: mux: GOT CSM_Msg
 1335796498895: Received UDP payload: 3655
-1335796498899: mux: Inside Packet.SERVER_REPLY
 1335796498899: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1335796498899: mux: Inside Packet.SERVER_REPLY
 1335796498910: Received UDP payload: 446
 1335796498914: mux: Inside mux Packet.CLIENT_REQUEST
 1335796500109: Received UDP payload: 446
@@ -1532,8 +1511,8 @@
 1335796523060: Sending UDP payload: 446
 1335796525217: Received UDP payload: 446
 1335796526763: Received UDP payload: 989
-1335796526773: mux: GOT CSM_Msg
 1335796526773: forwarding disabled, not forwarding packets
+1335796526773: mux: GOT CSM_Msg
 1335796527595: Received UDP payload: 446
 1335796527837: Received UDP payload: 446
 1335796528048: inside sendPacket(Packet p)
