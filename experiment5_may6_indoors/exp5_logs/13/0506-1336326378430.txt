@@ -1,0 +1,556 @@
+1336326378434: *** Opened log file for writing ***
+1336326378435: areButtonsEnabled --> true
+1336326378435: *** Application started ***
+1336326378435: HI I'm in ONRESUME()
+1336326378438: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1336326381998: canPressButton = false. Can't press button because you're not at a valid region: 0 ~ 5. You're at -1
+1336326382005: can't press camera button yet
+1336326388052: moving from region (-1,-1), to (5,0)
+1336326390982: canPressButton = TRUE
+1336326390982: areButtonsEnabled --> false
+1336326390983: disabling buttons ...
+1336326390983: new pic disableButtons XXX
+1336326390983: areButtonsEnabled --> false
+1336326391056: cloud one more takeNum: 1
+1336326391058: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeException=0 takePercent=0% getNum=0 getGood=0 getBad=0 getException=0 getPercent=-1%
+1336326391058: ** Clicked take picture button **
+1336326392410: inside HandlePictureStorage onPictureTaken()
+1336326392410: cloud one more takeCamGood: 1
+1336326392412: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeException=0 takePercent=0% getNum=0 getGood=0 getBad=0 getException=0 getPercent=-1%
+1336326392675: Picture successfully taken, ORIG BYTE LENGTH = 2469195
+1336326392871: Our new height x width: 306 x 408
+1336326392872: Show photo from handle my camera take
+1336326392872: client making photo packet to send to leader
+1336326392893: BYTE SIZE AFTER COMPRESSION: 3940
+1336326392894: sending new pic ....
+1336326392894: Server request to url: http://18.111.2.113:8213/101/5/0/
+1336326393024: Cloud server request length: 13264
+1336326393025: about to execute HTTP POST
+1336326393025: in serverRequest() about to httpclient.execute()
+1336326394546: CameraCloud Execute HTTP Upload latency: 1521ms
+1336326394546: finished executing HTTP POST, get data
+1336326394547: make input stream reader for data
+1336326394547: Cloud response length: 18
+1336326394549: Returning cloud object
+1336326394553: cloud one more takeGoodSave: 1
+1336326394554: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=0 getGood=0 getBad=0 getException=0 getPercent=-1%
+1336326394554: SUCCESS! Client now knows saving photo on cloud server succeeded
+1336326394555: RETURN STATUS: 12
+1336326394555: Inside _enableButtons
+1336326394555: areButtonsEnabled --> true
+1336326394556: end of client send picture method
+1336326577795: canPressButton = TRUE
+1336326577796: areButtonsEnabled --> false 
+1336326577796: Inside get photo disableButtons XXX
+1336326577823: cloud one more getNum: 1
+1336326577823: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=1 getGood=0 getBad=0 getException=0 getPercent=0%
+1336326577824: ** Clicked getphotos Button from region 0 **
+1336326577824: Trying to get photo from server, about to call serverRequest()
+1336326577825: Server request to url: http://18.111.2.113:8213/102/0/0/
+1336326577829: Cloud server request length: 12
+1336326577829: about to execute HTTP POST
+1336326577829: in serverRequest() about to httpclient.execute()
+1336326579908: CameraCloud Execute HTTP Download latency: 2079ms
+1336326579908: finished executing HTTP POST, get data
+1336326579909: make input stream reader for data
+1336326579909: Cloud response length: 34568
+1336326579911: Returning cloud object
+1336326580320: cloud one more getGood: 1
+1336326580321: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=1 getGood=1 getBad=0 getException=0 getPercent=100%
+1336326580322: Success! Client getting photo from cloud server, showing photo...
+1336326580322: Remote photo's length: 3696
+1336326580377: Done with Get photos button for region 0
+1336326580377: Inside _enableButtons
+1336326580378: areButtonsEnabled --> true
+1336326580926: canPressButton = TRUE
+1336326580926: areButtonsEnabled --> false 
+1336326580926: Inside get photo disableButtons XXX
+1336326580943: cloud one more getNum: 2
+1336326580944: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=2 getGood=1 getBad=0 getException=0 getPercent=50%
+1336326580944: ** Clicked getphotos Button from region 1 **
+1336326580945: Trying to get photo from server, about to call serverRequest()
+1336326580945: Server request to url: http://18.111.2.113:8213/102/1/0/
+1336326580951: Cloud server request length: 12
+1336326580952: about to execute HTTP POST
+1336326580952: in serverRequest() about to httpclient.execute()
+1336326581232: CameraCloud Execute HTTP Download latency: 280ms
+1336326581233: finished executing HTTP POST, get data
+1336326581234: make input stream reader for data
+1336326581235: Cloud response length: 33831
+1336326581236: Returning cloud object
+1336326581656: cloud one more getGood: 2
+1336326581660: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=2 getGood=2 getBad=0 getException=0 getPercent=100%
+1336326581662: Success! Client getting photo from cloud server, showing photo...
+1336326581663: Remote photo's length: 3613
+1336326581764: Done with Get photos button for region 1
+1336326581765: Inside _enableButtons
+1336326581766: areButtonsEnabled --> true
+1336326582392: canPressButton = TRUE
+1336326582392: areButtonsEnabled --> false 
+1336326582392: Inside get photo disableButtons XXX
+1336326582424: cloud one more getNum: 3
+1336326582425: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=3 getGood=2 getBad=0 getException=0 getPercent=66%
+1336326582425: ** Clicked getphotos Button from region 2 **
+1336326582425: Trying to get photo from server, about to call serverRequest()
+1336326582426: Server request to url: http://18.111.2.113:8213/102/2/0/
+1336326582430: Cloud server request length: 12
+1336326582431: about to execute HTTP POST
+1336326582431: in serverRequest() about to httpclient.execute()
+1336326582733: CameraCloud Execute HTTP Download latency: 302ms
+1336326582735: finished executing HTTP POST, get data
+1336326582736: make input stream reader for data
+1336326582737: Cloud response length: 37285
+1336326582738: Returning cloud object
+1336326583193: cloud one more getGood: 3
+1336326583197: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=3 getGood=3 getBad=0 getException=0 getPercent=100%
+1336326583198: Success! Client getting photo from cloud server, showing photo...
+1336326583198: Remote photo's length: 3980
+1336326583255: Done with Get photos button for region 2
+1336326583256: Inside _enableButtons
+1336326583256: areButtonsEnabled --> true
+1336326583735: canPressButton = TRUE
+1336326583735: areButtonsEnabled --> false 
+1336326583735: Inside get photo disableButtons XXX
+1336326583753: cloud one more getNum: 4
+1336326583754: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=4 getGood=3 getBad=0 getException=0 getPercent=75%
+1336326583755: ** Clicked getphotos Button from region 3 **
+1336326583755: Trying to get photo from server, about to call serverRequest()
+1336326583755: Server request to url: http://18.111.2.113:8213/102/3/0/
+1336326583758: Cloud server request length: 12
+1336326583758: about to execute HTTP POST
+1336326583758: in serverRequest() about to httpclient.execute()
+1336326584150: CameraCloud Execute HTTP Download latency: 392ms
+1336326584150: finished executing HTTP POST, get data
+1336326584151: make input stream reader for data
+1336326584151: Cloud response length: 40362
+1336326584152: Returning cloud object
+1336326584572: cloud one more getGood: 4
+1336326584573: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=4 getGood=4 getBad=0 getException=0 getPercent=100%
+1336326584573: Success! Client getting photo from cloud server, showing photo...
+1336326584573: Remote photo's length: 4302
+1336326584627: Done with Get photos button for region 3
+1336326584628: Inside _enableButtons
+1336326584628: areButtonsEnabled --> true
+1336326585052: canPressButton = TRUE
+1336326585052: areButtonsEnabled --> false 
+1336326585052: Inside get photo disableButtons XXX
+1336326585068: cloud one more getNum: 5
+1336326585070: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=5 getGood=4 getBad=0 getException=0 getPercent=80%
+1336326585070: ** Clicked getphotos Button from region 4 **
+1336326585070: Trying to get photo from server, about to call serverRequest()
+1336326585071: Server request to url: http://18.111.2.113:8213/102/4/0/
+1336326585073: Cloud server request length: 12
+1336326585073: about to execute HTTP POST
+1336326585073: in serverRequest() about to httpclient.execute()
+1336326585482: CameraCloud Execute HTTP Download latency: 409ms
+1336326585492: finished executing HTTP POST, get data
+1336326585493: make input stream reader for data
+1336326585504: Cloud response length: 61736
+1336326585506: Returning cloud object
+1336326586106: cloud one more getGood: 5
+1336326586108: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=5 getGood=5 getBad=0 getException=0 getPercent=100%
+1336326586109: Success! Client getting photo from cloud server, showing photo...
+1336326586110: Remote photo's length: 6494
+1336326586144: Done with Get photos button for region 4
+1336326586144: Inside _enableButtons
+1336326586145: areButtonsEnabled --> true
+1336326586540: canPressButton = TRUE
+1336326586540: areButtonsEnabled --> false 
+1336326586540: Inside get photo disableButtons XXX
+1336326586558: cloud one more getNum: 6
+1336326586559: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=6 getGood=5 getBad=0 getException=0 getPercent=83%
+1336326586559: ** Clicked getphotos Button from region 5 **
+1336326586560: Trying to get photo from server, about to call serverRequest()
+1336326586560: Server request to url: http://18.111.2.113:8213/102/5/0/
+1336326586563: Cloud server request length: 12
+1336326586564: about to execute HTTP POST
+1336326586564: in serverRequest() about to httpclient.execute()
+1336326586965: CameraCloud Execute HTTP Download latency: 401ms
+1336326586965: finished executing HTTP POST, get data
+1336326586966: make input stream reader for data
+1336326586967: Cloud response length: 35414
+1336326586967: Returning cloud object
+1336326587428: cloud one more getGood: 6
+1336326587431: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=6 getGood=6 getBad=0 getException=0 getPercent=100%
+1336326587432: Success! Client getting photo from cloud server, showing photo...
+1336326587432: Remote photo's length: 3788
+1336326587475: Done with Get photos button for region 5
+1336326587475: Inside _enableButtons
+1336326587475: areButtonsEnabled --> true
+1336326700257: canPressButton = TRUE
+1336326700258: areButtonsEnabled --> false 
+1336326700259: Inside get photo disableButtons XXX
+1336326700286: cloud one more getNum: 7
+1336326700287: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=7 getGood=6 getBad=0 getException=0 getPercent=85%
+1336326700287: ** Clicked getphotos Button from region 0 **
+1336326700288: Trying to get photo from server, about to call serverRequest()
+1336326700288: Server request to url: http://18.111.2.113:8213/102/0/0/
+1336326700290: Cloud server request length: 12
+1336326700292: about to execute HTTP POST
+1336326700292: in serverRequest() about to httpclient.execute()
+1336326702556: CameraCloud Execute HTTP Download latency: 2264ms
+1336326702557: finished executing HTTP POST, get data
+1336326702557: make input stream reader for data
+1336326702559: Cloud response length: 34568
+1336326702560: Returning cloud object
+1336326703008: cloud one more getGood: 7
+1336326703009: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=7 getGood=7 getBad=0 getException=0 getPercent=100%
+1336326703009: Success! Client getting photo from cloud server, showing photo...
+1336326703010: Remote photo's length: 3696
+1336326703056: Done with Get photos button for region 0
+1336326703057: Inside _enableButtons
+1336326703057: areButtonsEnabled --> true
+1336326703111: canPressButton = TRUE
+1336326703112: areButtonsEnabled --> false 
+1336326703112: Inside get photo disableButtons XXX
+1336326703129: cloud one more getNum: 8
+1336326703130: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=8 getGood=7 getBad=0 getException=0 getPercent=87%
+1336326703130: ** Clicked getphotos Button from region 1 **
+1336326703131: Trying to get photo from server, about to call serverRequest()
+1336326703131: Server request to url: http://18.111.2.113:8213/102/1/0/
+1336326703134: Cloud server request length: 12
+1336326703134: about to execute HTTP POST
+1336326703134: in serverRequest() about to httpclient.execute()
+1336326703359: CameraCloud Execute HTTP Download latency: 225ms
+1336326703360: finished executing HTTP POST, get data
+1336326703360: make input stream reader for data
+1336326703360: Cloud response length: 33831
+1336326703361: Returning cloud object
+1336326703693: cloud one more getGood: 8
+1336326703695: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=8 getGood=8 getBad=0 getException=0 getPercent=100%
+1336326703696: Success! Client getting photo from cloud server, showing photo...
+1336326703696: Remote photo's length: 3613
+1336326703770: Done with Get photos button for region 1
+1336326703771: Inside _enableButtons
+1336326703771: areButtonsEnabled --> true
+1336326704898: canPressButton = TRUE
+1336326704898: areButtonsEnabled --> false 
+1336326704898: Inside get photo disableButtons XXX
+1336326704914: cloud one more getNum: 9
+1336326704915: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=9 getGood=8 getBad=0 getException=0 getPercent=88%
+1336326704915: ** Clicked getphotos Button from region 2 **
+1336326704916: Trying to get photo from server, about to call serverRequest()
+1336326704916: Server request to url: http://18.111.2.113:8213/102/2/0/
+1336326704918: Cloud server request length: 12
+1336326704919: about to execute HTTP POST
+1336326704919: in serverRequest() about to httpclient.execute()
+1336326705221: CameraCloud Execute HTTP Download latency: 302ms
+1336326705223: finished executing HTTP POST, get data
+1336326705224: make input stream reader for data
+1336326705225: Cloud response length: 37285
+1336326705226: Returning cloud object
+1336326705648: cloud one more getGood: 9
+1336326705650: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=9 getGood=9 getBad=0 getException=0 getPercent=100%
+1336326705651: Success! Client getting photo from cloud server, showing photo...
+1336326705652: Remote photo's length: 3980
+1336326705705: Done with Get photos button for region 2
+1336326705706: Inside _enableButtons
+1336326705706: areButtonsEnabled --> true
+1336326710714: canPressButton = TRUE
+1336326710714: areButtonsEnabled --> false 
+1336326710715: Inside get photo disableButtons XXX
+1336326710751: cloud one more getNum: 10
+1336326710753: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=10 getGood=9 getBad=0 getException=0 getPercent=90%
+1336326710754: ** Clicked getphotos Button from region 3 **
+1336326710755: Trying to get photo from server, about to call serverRequest()
+1336326710756: Server request to url: http://18.111.2.113:8213/102/3/0/
+1336326710760: Cloud server request length: 12
+1336326710761: about to execute HTTP POST
+1336326710762: in serverRequest() about to httpclient.execute()
+1336326711831: CameraCloud Execute HTTP Download latency: 1068ms
+1336326711831: finished executing HTTP POST, get data
+1336326711831: make input stream reader for data
+1336326711831: Cloud response length: 40362
+1336326711832: Returning cloud object
+1336326712311: cloud one more getGood: 10
+1336326712313: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=10 getGood=10 getBad=0 getException=0 getPercent=100%
+1336326712313: Success! Client getting photo from cloud server, showing photo...
+1336326712314: Remote photo's length: 4302
+1336326712358: Done with Get photos button for region 3
+1336326712359: Inside _enableButtons
+1336326712359: areButtonsEnabled --> true
+1336326712448: canPressButton = TRUE
+1336326712449: areButtonsEnabled --> false 
+1336326712449: Inside get photo disableButtons XXX
+1336326712488: cloud one more getNum: 11
+1336326712490: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=11 getGood=10 getBad=0 getException=0 getPercent=90%
+1336326712491: ** Clicked getphotos Button from region 4 **
+1336326712492: Trying to get photo from server, about to call serverRequest()
+1336326712493: Server request to url: http://18.111.2.113:8213/102/4/0/
+1336326712498: Cloud server request length: 12
+1336326712498: about to execute HTTP POST
+1336326712499: in serverRequest() about to httpclient.execute()
+1336326712749: CameraCloud Execute HTTP Download latency: 250ms
+1336326712751: finished executing HTTP POST, get data
+1336326712752: make input stream reader for data
+1336326712754: Cloud response length: 61736
+1336326712755: Returning cloud object
+1336326713244: cloud one more getGood: 11
+1336326713245: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=11 getGood=11 getBad=0 getException=0 getPercent=100%
+1336326713245: Success! Client getting photo from cloud server, showing photo...
+1336326713245: Remote photo's length: 6494
+1336326713286: Done with Get photos button for region 4
+1336326713286: Inside _enableButtons
+1336326713286: areButtonsEnabled --> true
+1336326714616: canPressButton = TRUE
+1336326714617: areButtonsEnabled --> false 
+1336326714617: Inside get photo disableButtons XXX
+1336326714640: cloud one more getNum: 12
+1336326714641: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=12 getGood=11 getBad=0 getException=0 getPercent=91%
+1336326714641: ** Clicked getphotos Button from region 5 **
+1336326714641: Trying to get photo from server, about to call serverRequest()
+1336326714642: Server request to url: http://18.111.2.113:8213/102/5/0/
+1336326714646: Cloud server request length: 12
+1336326714646: about to execute HTTP POST
+1336326714646: in serverRequest() about to httpclient.execute()
+1336326714957: CameraCloud Execute HTTP Download latency: 311ms
+1336326714958: finished executing HTTP POST, get data
+1336326714959: make input stream reader for data
+1336326714960: Cloud response length: 35414
+1336326714962: Returning cloud object
+1336326715373: cloud one more getGood: 12
+1336326715374: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=12 getGood=12 getBad=0 getException=0 getPercent=100%
+1336326715374: Success! Client getting photo from cloud server, showing photo...
+1336326715374: Remote photo's length: 3788
+1336326715406: Done with Get photos button for region 5
+1336326715406: Inside _enableButtons
+1336326715407: areButtonsEnabled --> true
+1336326755249: canPressButton = TRUE
+1336326755250: areButtonsEnabled --> false 
+1336326755250: Inside get photo disableButtons XXX
+1336326755276: cloud one more getNum: 13
+1336326755277: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=13 getGood=12 getBad=0 getException=0 getPercent=92%
+1336326755277: ** Clicked getphotos Button from region 0 **
+1336326755277: Trying to get photo from server, about to call serverRequest()
+1336326755278: Server request to url: http://18.111.2.113:8213/102/0/0/
+1336326755283: Cloud server request length: 12
+1336326755283: about to execute HTTP POST
+1336326755284: in serverRequest() about to httpclient.execute()
+1336326757387: CameraCloud Execute HTTP Download latency: 2103ms
+1336326757388: finished executing HTTP POST, get data
+1336326757389: make input stream reader for data
+1336326757392: Cloud response length: 34568
+1336326757394: Returning cloud object
+1336326757810: cloud one more getGood: 13
+1336326757813: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=13 getGood=13 getBad=0 getException=0 getPercent=100%
+1336326757814: Success! Client getting photo from cloud server, showing photo...
+1336326757815: Remote photo's length: 3696
+1336326757863: Done with Get photos button for region 0
+1336326757863: Inside _enableButtons
+1336326757864: areButtonsEnabled --> true
+1336326758467: canPressButton = TRUE
+1336326758468: areButtonsEnabled --> false 
+1336326758468: Inside get photo disableButtons XXX
+1336326758486: cloud one more getNum: 14
+1336326758486: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=14 getGood=13 getBad=0 getException=0 getPercent=92%
+1336326758487: ** Clicked getphotos Button from region 1 **
+1336326758487: Trying to get photo from server, about to call serverRequest()
+1336326758487: Server request to url: http://18.111.2.113:8213/102/1/0/
+1336326758491: Cloud server request length: 12
+1336326758491: about to execute HTTP POST
+1336326758492: in serverRequest() about to httpclient.execute()
+1336326758852: CameraCloud Execute HTTP Download latency: 360ms
+1336326758853: finished executing HTTP POST, get data
+1336326758854: make input stream reader for data
+1336326758855: Cloud response length: 33831
+1336326758856: Returning cloud object
+1336326759258: cloud one more getGood: 14
+1336326759261: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=14 getGood=14 getBad=0 getException=0 getPercent=100%
+1336326759262: Success! Client getting photo from cloud server, showing photo...
+1336326759263: Remote photo's length: 3613
+1336326759302: Done with Get photos button for region 1
+1336326759303: Inside _enableButtons
+1336326759303: areButtonsEnabled --> true
+1336326760105: canPressButton = TRUE
+1336326760105: areButtonsEnabled --> false 
+1336326760105: Inside get photo disableButtons XXX
+1336326760121: cloud one more getNum: 15
+1336326760122: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=15 getGood=14 getBad=0 getException=0 getPercent=93%
+1336326760122: ** Clicked getphotos Button from region 2 **
+1336326760123: Trying to get photo from server, about to call serverRequest()
+1336326760123: Server request to url: http://18.111.2.113:8213/102/2/0/
+1336326760127: Cloud server request length: 12
+1336326760127: about to execute HTTP POST
+1336326760128: in serverRequest() about to httpclient.execute()
+1336326760554: CameraCloud Execute HTTP Download latency: 426ms
+1336326760555: finished executing HTTP POST, get data
+1336326760556: make input stream reader for data
+1336326760557: Cloud response length: 37285
+1336326760558: Returning cloud object
+1336326760957: cloud one more getGood: 15
+1336326760959: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=15 getGood=15 getBad=0 getException=0 getPercent=100%
+1336326760960: Success! Client getting photo from cloud server, showing photo...
+1336326760960: Remote photo's length: 3980
+1336326761019: Done with Get photos button for region 2
+1336326761019: Inside _enableButtons
+1336326761020: areButtonsEnabled --> true
+1336326761564: canPressButton = TRUE
+1336326761564: areButtonsEnabled --> false 
+1336326761564: Inside get photo disableButtons XXX
+1336326761582: cloud one more getNum: 16
+1336326761583: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=16 getGood=15 getBad=0 getException=0 getPercent=93%
+1336326761583: ** Clicked getphotos Button from region 3 **
+1336326761583: Trying to get photo from server, about to call serverRequest()
+1336326761583: Server request to url: http://18.111.2.113:8213/102/3/0/
+1336326761587: Cloud server request length: 12
+1336326761587: about to execute HTTP POST
+1336326761588: in serverRequest() about to httpclient.execute()
+1336326761971: CameraCloud Execute HTTP Download latency: 383ms
+1336326761971: finished executing HTTP POST, get data
+1336326761971: make input stream reader for data
+1336326761972: Cloud response length: 40362
+1336326761972: Returning cloud object
+1336326762410: cloud one more getGood: 16
+1336326762411: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=16 getGood=16 getBad=0 getException=0 getPercent=100%
+1336326762412: Success! Client getting photo from cloud server, showing photo...
+1336326762412: Remote photo's length: 4302
+1336326762452: Done with Get photos button for region 3
+1336326762452: Inside _enableButtons
+1336326762452: areButtonsEnabled --> true
+1336326763357: canPressButton = TRUE
+1336326763358: areButtonsEnabled --> false 
+1336326763358: Inside get photo disableButtons XXX
+1336326763374: cloud one more getNum: 17
+1336326763375: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=17 getGood=16 getBad=0 getException=0 getPercent=94%
+1336326763375: ** Clicked getphotos Button from region 4 **
+1336326763376: Trying to get photo from server, about to call serverRequest()
+1336326763376: Server request to url: http://18.111.2.113:8213/102/4/0/
+1336326763379: Cloud server request length: 12
+1336326763380: about to execute HTTP POST
+1336326763380: in serverRequest() about to httpclient.execute()
+1336326763815: CameraCloud Execute HTTP Download latency: 435ms
+1336326763816: finished executing HTTP POST, get data
+1336326763816: make input stream reader for data
+1336326763817: Cloud response length: 61736
+1336326763820: Returning cloud object
+1336326764360: cloud one more getGood: 17
+1336326764361: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=17 getGood=17 getBad=0 getException=0 getPercent=100%
+1336326764362: Success! Client getting photo from cloud server, showing photo...
+1336326764362: Remote photo's length: 6494
+1336326764398: Done with Get photos button for region 4
+1336326764398: Inside _enableButtons
+1336326764399: areButtonsEnabled --> true
+1336326764975: canPressButton = TRUE
+1336326764975: areButtonsEnabled --> false 
+1336326764976: Inside get photo disableButtons XXX
+1336326764989: cloud one more getNum: 18
+1336326764990: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=18 getGood=17 getBad=0 getException=0 getPercent=94%
+1336326764990: ** Clicked getphotos Button from region 5 **
+1336326764990: Trying to get photo from server, about to call serverRequest()
+1336326764990: Server request to url: http://18.111.2.113:8213/102/5/0/
+1336326764992: Cloud server request length: 12
+1336326764992: about to execute HTTP POST
+1336326764993: in serverRequest() about to httpclient.execute()
+1336326765363: CameraCloud Execute HTTP Download latency: 369ms
+1336326765363: finished executing HTTP POST, get data
+1336326765364: make input stream reader for data
+1336326765364: Cloud response length: 35414
+1336326765364: Returning cloud object
+1336326765768: cloud one more getGood: 18
+1336326765769: reg=5 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=100% getNum=18 getGood=18 getBad=0 getException=0 getPercent=100%
+1336326765769: Success! Client getting photo from cloud server, showing photo...
+1336326765770: Remote photo's length: 3788
+1336326765802: Done with Get photos button for region 5
+1336326765802: Inside _enableButtons
+1336326765803: areButtonsEnabled --> true
+1336327035773: canPressButton = TRUE
+1336327035774: areButtonsEnabled --> false
+1336327035775: disabling buttons ...
+1336327035775: new pic disableButtons XXX
+1336327035776: areButtonsEnabled --> false
+1336327035800: cloud one more takeNum: 2
+1336327035801: reg=5 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=1 takeGoodSave=1 takeBad=0 takeException=0 takePercent=50% getNum=18 getGood=18 getBad=0 getException=0 getPercent=100%
+1336327035801: ** Clicked take picture button **
+1336327036834: inside HandlePictureStorage onPictureTaken()
+1336327036834: cloud one more takeCamGood: 2
+1336327036835: reg=5 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=1 takeBad=0 takeException=0 takePercent=50% getNum=18 getGood=18 getBad=0 getException=0 getPercent=100%
+1336327037324: Picture successfully taken, ORIG BYTE LENGTH = 1107064
+1336327037467: Our new height x width: 306 x 408
+1336327037467: Show photo from handle my camera take
+1336327037468: client making photo packet to send to leader
+1336327037483: BYTE SIZE AFTER COMPRESSION: 2731
+1336327037484: sending new pic ....
+1336327037484: Server request to url: http://18.111.2.113:8213/101/5/0/
+1336327037527: Cloud server request length: 8471
+1336327037527: about to execute HTTP POST
+1336327037527: in serverRequest() about to httpclient.execute()
+1336327039889: CameraCloud Execute HTTP Upload latency: 2362ms
+1336327039890: finished executing HTTP POST, get data
+1336327039891: make input stream reader for data
+1336327039892: Cloud response length: 18
+1336327039894: Returning cloud object
+1336327039899: cloud one more takeGoodSave: 2
+1336327039902: reg=5 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeException=0 takePercent=100% getNum=18 getGood=18 getBad=0 getException=0 getPercent=100%
+1336327039902: SUCCESS! Client now knows saving photo on cloud server succeeded
+1336327039903: RETURN STATUS: 12
+1336327039904: Inside _enableButtons
+1336327039905: areButtonsEnabled --> true
+1336327039906: end of client send picture method
+1336327040545: canPressButton = TRUE
+1336327040546: areButtonsEnabled --> false
+1336327040546: disabling buttons ...
+1336327040546: new pic disableButtons XXX
+1336327040546: areButtonsEnabled --> false
+1336327040562: cloud one more takeNum: 3
+1336327040563: reg=5 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=2 takeGoodSave=2 takeBad=0 takeException=0 takePercent=66% getNum=18 getGood=18 getBad=0 getException=0 getPercent=100%
+1336327040564: ** Clicked take picture button **
+1336327041709: inside HandlePictureStorage onPictureTaken()
+1336327041709: cloud one more takeCamGood: 3
+1336327041710: reg=5 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=2 takeBad=0 takeException=0 takePercent=66% getNum=18 getGood=18 getBad=0 getException=0 getPercent=100%
+1336327042198: Picture successfully taken, ORIG BYTE LENGTH = 1103916
+1336327042376: Our new height x width: 306 x 408
+1336327042376: Show photo from handle my camera take
+1336327042376: client making photo packet to send to leader
+1336327042389: BYTE SIZE AFTER COMPRESSION: 2731
+1336327042390: sending new pic ....
+1336327042390: Server request to url: http://18.111.2.113:8213/101/5/0/
+1336327042428: Cloud server request length: 8424
+1336327042429: about to execute HTTP POST
+1336327042429: in serverRequest() about to httpclient.execute()
+1336327043039: CameraCloud Execute HTTP Upload latency: 610ms
+1336327043040: finished executing HTTP POST, get data
+1336327043040: make input stream reader for data
+1336327043041: Cloud response length: 18
+1336327043042: Returning cloud object
+1336327043046: cloud one more takeGoodSave: 3
+1336327043047: reg=5 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=3 takeBad=0 takeException=0 takePercent=100% getNum=18 getGood=18 getBad=0 getException=0 getPercent=100%
+1336327043048: SUCCESS! Client now knows saving photo on cloud server succeeded
+1336327043048: RETURN STATUS: 12
+1336327043049: Inside _enableButtons
+1336327043050: areButtonsEnabled --> true
+1336327043050: end of client send picture method
+1336327043788: canPressButton = TRUE
+1336327043788: areButtonsEnabled --> false
+1336327043788: disabling buttons ...
+1336327043789: new pic disableButtons XXX
+1336327043789: areButtonsEnabled --> false
+1336327043804: cloud one more takeNum: 4
+1336327043805: reg=5 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=3 takeGoodSave=3 takeBad=0 takeException=0 takePercent=75% getNum=18 getGood=18 getBad=0 getException=0 getPercent=100%
+1336327043805: ** Clicked take picture button **
+1336327044868: inside HandlePictureStorage onPictureTaken()
+1336327044868: cloud one more takeCamGood: 4
+1336327044869: reg=5 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=4 takeGoodSave=3 takeBad=0 takeException=0 takePercent=75% getNum=18 getGood=18 getBad=0 getException=0 getPercent=100%
+1336327045356: Picture successfully taken, ORIG BYTE LENGTH = 1097749
+1336327045498: Our new height x width: 306 x 408
+1336327045502: Show photo from handle my camera take
+1336327045502: client making photo packet to send to leader
+1336327045519: BYTE SIZE AFTER COMPRESSION: 2728
+1336327045519: sending new pic ....
+1336327045520: Server request to url: http://18.111.2.113:8213/101/5/0/
+1336327045563: Cloud server request length: 8402
+1336327045563: about to execute HTTP POST
+1336327045564: in serverRequest() about to httpclient.execute()
+1336327046089: CameraCloud Execute HTTP Upload latency: 525ms
+1336327046090: finished executing HTTP POST, get data
+1336327046091: make input stream reader for data
+1336327046094: Cloud response length: 18
+1336327046095: Returning cloud object
+1336327046101: cloud one more takeGoodSave: 4
+1336327046103: reg=5 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=4 takeGoodSave=4 takeBad=0 takeException=0 takePercent=100% getNum=18 getGood=18 getBad=0 getException=0 getPercent=100%
+1336327046104: SUCCESS! Client now knows saving photo on cloud server succeeded
+1336327046104: RETURN STATUS: 12
+1336327046105: Inside _enableButtons
+1336327046106: areButtonsEnabled --> true
+1336327046107: end of client send picture method
+1336327235587: HI I'm in ONPAUSE()
+1336327236802: inside onDestroy()

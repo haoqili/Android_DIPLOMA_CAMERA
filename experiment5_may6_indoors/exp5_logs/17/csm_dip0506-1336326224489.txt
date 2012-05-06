@@ -1,0 +1,3844 @@
+1336326224493: *** Opened log file for writing ***
+1336326224494: Android build: SAMSUNG-SGH-I717
+1336326224494: NET_NAME set to: eth0
+1336326224495: starting Mux with id = -1
+1336326224495: areButtonsEnabled --> true
+1336326224498: *** Application started ***
+1336326224499: HI I'm in ONRESUME()
+1336326224506: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1336326224495: mux: Mux.java run() beginning -------------
+1336326224499: mux: Mux.java's nodeId is5019
+1336326224499: mux: starting vncDaemon ........
+1336326224502: mux: vncDaemon started
+1336326224501: Started VCoreDaemon with parameters maxRx = 5 , maxRY= 1
+1336326224502: VCoreDaemon.java onStart() ....
+1336326224502: started, mId = 5019
+1336326224503: VCoreDaemon.java inside stateTransition ..........
+1336326224503: removing leaderRequestRetryR because I'm doing a stateTransition
+1336326224503: ..... VCoreDaemon.java out of bounds
+1336326224503: region (-1, -1) out of bounds, dormant
+1336326224504: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1336326226455: Received UDP payload: 446
+1336326226751: Received UDP payload: 446
+1336326226762: Received UDP payload: 446
+1336326227012: Received UDP payload: 446
+1336326227309: Received UDP payload: 446
+1336326228242: Received UDP payload: 22318
+1336326228254: ignoring leader_reply that's not for me
+1336326228576: Received UDP payload: 446
+1336326228934: moving from region (-1,-1), to (1,0)
+1336326228935: VCoreDaemon.java inside stateTransition ..........
+1336326228936: removing leaderRequestRetryR because I'm doing a stateTransition
+1336326228938: ..... VCoreDaemon.java targetState = JOINING (1,0)
+1336326228939: posting leaderRequestRetryR because I'm joining
+1336326228939: sending LEADER_REQUEST
+1336326228940: inside sendPacket(Packet p)
+1336326228940: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1336326228954: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1336326228981: Sending UDP payload: 446
+1336326229241: sending LEADER_REQUEST
+1336326229241: inside sendPacket(Packet p)
+1336326229242: posting another leaderRequestRetryR after leaderRequestRetryPeriod
+1336326229243: Sending UDP payload: 446
+1336326229342: Received UDP payload: 22335
+1336326229344: removing leaderRequestRetryR because heard Packet.Leader_reply
+1336326229344: heard LEADER_REPLY from 5004
+1336326229344: VCoreDaemon.java inside stateTransition ..........
+1336326229344: removing leaderRequestRetryR because I'm doing a stateTransition
+1336326229344: ..... VCoreDaemon.java targetState = NONLEADER
+1336326229345: now NONLEADER (id=5019) following LEADER (id=5004) in (1,0)
+1336326229345: ..... VCoreDaemon.java stateTransition ends xxxxxxxxxxxx
+1336326229695: Received UDP payload: 22335
+1336326229701: ignoring leader_reply that's not for me
+1336326231763: Received UDP payload: 446
+1336326233588: Received UDP payload: 446
+1336326236767: Received UDP payload: 446
+1336326238595: Received UDP payload: 446
+1336326239506: Received UDP payload: 4317
+1336326239524: mux: GOT CSM_Msg
+1336326239524: Received UDP payload: 1006
+1336326239537: mux: GOT CSM_Msg
+1336326241756: Received UDP payload: 446
+1336326243609: Received UDP payload: 446
+1336326246754: Received UDP payload: 446
+1336326248625: Received UDP payload: 446
+1336326251759: Received UDP payload: 446
+1336326253625: canPressButton = TRUE
+1336326253626: areButtonsEnabled --> false
+1336326253626: disabling buttons ...
+1336326253626: took picture disableButtonsR
+1336326253627: areButtonsEnabled --> false
+1336326253713: one more takeNum: 1
+1336326253716: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1336326253716: Clicked take picture button ..
+1336326253643: Received UDP payload: 446
+1336326255046: inside HandlePictureStorage onPictureTaken()
+1336326255046: one more takeCamGood: 1
+1336326255047: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=0 takePercent=0% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1336326255311: Picture successfully taken, ORIG BYTE LENGTH = 2614849
+1336326255618: Our new height x width: 306 x 408
+1336326255619: Show photo from handle my camera take
+1336326255619: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1336326255620: change local requestCounter to 1
+1336326255635: BYTE SIZE AFTER COMPRESSION: 3454
+1336326255641: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5019001 Client in region: 1 Client nodID: 5019
+1336326255674: ----------------------------
+1336326255675: inside sendRequestPacketRepeatingRunnable for requestCount = 5019001
+1336326255675: I'm a nonleader sending my requesting photos packet to my leader
+1336326255678: --- Finished one round of sending REQUEST Packet ---------
+1336326255675: inside sendPacket(Packet p)
+1336326255679: Sending UDP payload: 4118
+1336326255831: Received UDP payload: 4482
+1336326255837: mux: GOT CSM_Msg
+1336326255873: Received UDP payload: 446
+1336326255875: mux: Inside Packet.SERVER_REPLY
+1336326255876: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326255881: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326255885: Received UDP payload: 1006
+1336326255888: mux: GOT CSM_Msg
+1336326255890: Received UDP payload: 659
+1336326255894: mux: Inside Packet.SERVER_REPLY
+1336326255894: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326255911: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
+1336326255912: disabling progressdialog due to successful new photo upload
+1336326255914: Inside _enableButtons
+1336326255916: areButtonsEnabled --> true
+1336326255918: send final leg ack regardless of new or already-processed reply
+1336326255919: inside finalLegAck: change requestCounter to 2
+1336326255920: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019002 Client in region: (1,0) Client nodID: 5019
+1336326255920: I'm a nonleader client sending my final_leg packet to my leader
+1336326255922: new client_upload_photo_ack reply with replyCounter 501900100
+1336326255923: note down new reply by adding replyCounter=501900100 to HashMap processedReplies
+1336326255925: nonleader upload new photo latency = 236
+1336326255926: = nonleader upload start 1336326255675 ~ stop 1336326255911
+1336326255929: one more takeGoodSave: 1
+1336326255932: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=100% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1336326255933: SUCCESS Client now knows saving photo on its leader succeeded
+1336326255921: inside sendPacket(Packet p)
+1336326255922: Sending UDP payload: 446
+1336326256755: Received UDP payload: 446
+1336326258649: Received UDP payload: 446
+1336326261756: Received UDP payload: 446
+1336326262066: Received UDP payload: 4968
+1336326262074: mux: Inside mux Packet.CLIENT_REQUEST
+1336326262074: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326262379: Received UDP payload: 4968
+1336326262385: mux: Inside mux Packet.CLIENT_REQUEST
+1336326262386: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326262496: Received UDP payload: 5332
+1336326262509: mux: GOT CSM_Msg
+1336326262516: Received UDP payload: 446
+1336326262528: mux: Inside Packet.SERVER_REPLY
+1336326262528: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326262538: Received UDP payload: 1006
+1336326262552: mux: GOT CSM_Msg
+1336326262553: Received UDP payload: 659
+1336326262562: mux: Inside Packet.SERVER_REPLY
+1336326262562: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326262563: Received UDP payload: 446
+1336326262564: mux: Inside mux Packet.CLIENT_REQUEST
+1336326262564: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326263642: Received UDP payload: 446
+1336326266766: Received UDP payload: 446
+1336326268652: Received UDP payload: 446
+1336326271764: Received UDP payload: 446
+1336326272842: canPressButton = TRUE
+1336326272843: areButtonsEnabled --> false
+1336326272843: disabling buttons ...
+1336326272843: took picture disableButtonsR
+1336326272844: areButtonsEnabled --> false
+1336326272881: one more takeNum: 2
+1336326272883: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1336326272884: Clicked take picture button ..
+1336326273643: Received UDP payload: 446
+1336326274137: inside HandlePictureStorage onPictureTaken()
+1336326274138: one more takeCamGood: 2
+1336326274139: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=1 takeBad=0 takeTimedout=0 takePercent=50% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1336326274402: Picture successfully taken, ORIG BYTE LENGTH = 2423913
+1336326274739: Our new height x width: 306 x 408
+1336326274741: Show photo from handle my camera take
+1336326274741: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1336326274741: change local requestCounter to 3
+1336326274755: BYTE SIZE AFTER COMPRESSION: 3928
+1336326274762: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5019003 Client in region: 1 Client nodID: 5019
+1336326274793: ----------------------------
+1336326274794: inside sendRequestPacketRepeatingRunnable for requestCount = 5019003
+1336326274794: I'm a nonleader sending my requesting photos packet to my leader
+1336326274802: --- Finished one round of sending REQUEST Packet ---------
+1336326274795: inside sendPacket(Packet p)
+1336326274800: Sending UDP payload: 4592
+1336326274956: Received UDP payload: 4956
+1336326274965: mux: GOT CSM_Msg
+1336326274969: Received UDP payload: 446
+1336326274974: mux: Inside Packet.SERVER_REPLY
+1336326274974: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326274978: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326274974: Received UDP payload: 1006
+1336326274980: mux: GOT CSM_Msg
+1336326274981: Received UDP payload: 659
+1336326274984: mux: Inside Packet.SERVER_REPLY
+1336326274984: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326274994: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
+1336326274995: disabling progressdialog due to successful new photo upload
+1336326274995: Inside _enableButtons
+1336326274995: areButtonsEnabled --> true
+1336326274995: send final leg ack regardless of new or already-processed reply
+1336326274996: inside finalLegAck: change requestCounter to 4
+1336326274996: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019004 Client in region: (1,0) Client nodID: 5019
+1336326274997: I'm a nonleader client sending my final_leg packet to my leader
+1336326274997: new client_upload_photo_ack reply with replyCounter 501900300
+1336326274997: note down new reply by adding replyCounter=501900300 to HashMap processedReplies
+1336326274997: nonleader upload new photo latency = 199
+1336326274998: = nonleader upload start 1336326274795 ~ stop 1336326274994
+1336326274999: one more takeGoodSave: 2
+1336326275000: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=0 getGood=0 getBad=0 getTimedout=0 getPercent=-1%
+1336326275001: SUCCESS Client now knows saving photo on its leader succeeded
+1336326274997: inside sendPacket(Packet p)
+1336326274998: Sending UDP payload: 446
+1336326276376: Received UDP payload: 4966
+1336326276394: mux: GOT CSM_Msg
+1336326276405: Received UDP payload: 1006
+1336326276416: mux: GOT CSM_Msg
+1336326276756: Received UDP payload: 446
+1336326278648: Received UDP payload: 446
+1336326281773: Received UDP payload: 446
+1336326283640: Received UDP payload: 446
+1336326286775: Received UDP payload: 446
+1336326288642: Received UDP payload: 446
+1336326291768: Received UDP payload: 446
+1336326293642: Received UDP payload: 446
+1336326296762: Received UDP payload: 446
+1336326298656: Received UDP payload: 446
+1336326301765: Received UDP payload: 446
+1336326303642: Received UDP payload: 446
+1336326308112: Received UDP payload: 446
+1336326308389: Received UDP payload: 446
+1336326308645: Received UDP payload: 446
+1336326308694: Received UDP payload: 446
+1336326308834: Received UDP payload: 446
+1336326308988: Received UDP payload: 446
+1336326311817: Received UDP payload: 22318
+1336326311827: ignoring leader_reply that's not for me
+1336326311841: Received UDP payload: 446
+1336326313674: Received UDP payload: 446
+1336326313844: Received UDP payload: 446
+1336326316193: Received UDP payload: 446
+1336326316470: Received UDP payload: 446
+1336326316583: Received UDP payload: 446
+1336326316774: Received UDP payload: 446
+1336326317079: Received UDP payload: 446
+1336326318274: Received UDP payload: 22877
+1336326318289: ignoring leader_reply that's not for me
+1336326318647: Received UDP payload: 446
+1336326318856: Received UDP payload: 446
+1336326319104: Received UDP payload: 446
+1336326321584: Received UDP payload: 446
+1336326323648: Received UDP payload: 446
+1336326323901: Received UDP payload: 446
+1336326324118: Received UDP payload: 446
+1336326326583: Received UDP payload: 446
+1336326328663: Received UDP payload: 446
+1336326328845: Received UDP payload: 446
+1336326329136: Received UDP payload: 446
+1336326329680: Received UDP payload: 446
+1336326329963: Received UDP payload: 446
+1336326330128: Received UDP payload: 22950
+1336326330360: Received UDP payload: 22335
+1336326331593: Received UDP payload: 446
+1336326333653: Received UDP payload: 446
+1336326333870: Received UDP payload: 446
+1336326334149: Received UDP payload: 446
+1336326336601: Received UDP payload: 446
+1336326338649: Received UDP payload: 446
+1336326338849: Received UDP payload: 446
+1336326339157: Received UDP payload: 446
+1336326341607: Received UDP payload: 446
+1336326343659: Received UDP payload: 446
+1336326343864: Received UDP payload: 446
+1336326344162: Received UDP payload: 446
+1336326344322: Received UDP payload: 5190
+1336326344343: mux: GOT CSM_Msg
+1336326344365: Received UDP payload: 1006
+1336326344375: mux: GOT CSM_Msg
+1336326346607: Received UDP payload: 446
+1336326347685: Received UDP payload: 5774
+1336326347699: mux: GOT CSM_Msg
+1336326347710: Received UDP payload: 1006
+1336326347728: mux: GOT CSM_Msg
+1336326348851: Received UDP payload: 446
+1336326349148: Received UDP payload: 446
+1336326350173: Received UDP payload: 446
+1336326351611: Received UDP payload: 446
+1336326353850: Received UDP payload: 446
+1336326354147: Received UDP payload: 446
+1336326355182: Received UDP payload: 446
+1336326356615: Received UDP payload: 446
+1336326358910: Received UDP payload: 446
+1336326359143: Received UDP payload: 446
+1336326360179: Received UDP payload: 446
+1336326360797: Received UDP payload: 4086
+1336326360805: mux: Inside mux Packet.CLIENT_REQUEST
+1336326360806: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326360898: Received UDP payload: 4450
+1336326360910: mux: GOT CSM_Msg
+1336326360961: Received UDP payload: 446
+1336326360967: mux: Inside Packet.SERVER_REPLY
+1336326360968: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326360972: Received UDP payload: 1006
+1336326360994: mux: GOT CSM_Msg
+1336326361009: Received UDP payload: 659
+1336326361016: mux: Inside Packet.SERVER_REPLY
+1336326361017: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326361019: Received UDP payload: 446
+1336326361024: mux: Inside mux Packet.CLIENT_REQUEST
+1336326361024: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326361616: Received UDP payload: 446
+1336326363863: Received UDP payload: 446
+1336326364140: Received UDP payload: 446
+1336326365180: Received UDP payload: 446
+1336326366622: Received UDP payload: 446
+1336326368852: Received UDP payload: 446
+1336326369150: Received UDP payload: 446
+1336326370190: Received UDP payload: 446
+1336326371621: Received UDP payload: 446
+1336326372183: Received UDP payload: 446
+1336326372477: Received UDP payload: 446
+1336326372759: Received UDP payload: 446
+1336326373071: Received UDP payload: 446
+1336326373775: Received UDP payload: 446
+1336326373853: Received UDP payload: 446
+1336326374065: Received UDP payload: 446
+1336326374159: Received UDP payload: 446
+1336326374375: Received UDP payload: 446
+1336326374426: Received UDP payload: 446
+1336326374655: Received UDP payload: 22335
+1336326374889: Received UDP payload: 22950
+1336326375123: Received UDP payload: 22335
+1336326375191: Received UDP payload: 446
+1336326376624: Received UDP payload: 446
+1336326378855: Received UDP payload: 446
+1336326379143: Received UDP payload: 446
+1336326379201: Received UDP payload: 446
+1336326380185: Received UDP payload: 446
+1336326381624: Received UDP payload: 446
+1336326383866: Received UDP payload: 446
+1336326384159: Received UDP payload: 446
+1336326384230: Received UDP payload: 446
+1336326385207: Received UDP payload: 446
+1336326386625: Received UDP payload: 446
+1336326388853: Received UDP payload: 446
+1336326389157: Received UDP payload: 446
+1336326389217: Received UDP payload: 446
+1336326390197: Received UDP payload: 446
+1336326391637: Received UDP payload: 446
+1336326393861: Received UDP payload: 446
+1336326394152: Received UDP payload: 446
+1336326394225: Received UDP payload: 446
+1336326395185: Received UDP payload: 446
+1336326396630: Received UDP payload: 446
+1336326398860: Received UDP payload: 446
+1336326399147: Received UDP payload: 446
+1336326399226: Received UDP payload: 446
+1336326400185: Received UDP payload: 446
+1336326401628: Received UDP payload: 446
+1336326403873: Received UDP payload: 446
+1336326404171: Received UDP payload: 446
+1336326404235: Received UDP payload: 446
+1336326405184: Received UDP payload: 446
+1336326406665: Received UDP payload: 446
+1336326408863: Received UDP payload: 446
+1336326409152: Received UDP payload: 446
+1336326409237: Received UDP payload: 446
+1336326410197: Received UDP payload: 446
+1336326411649: Received UDP payload: 446
+1336326413869: Received UDP payload: 446
+1336326414150: Received UDP payload: 446
+1336326414229: Received UDP payload: 446
+1336326415215: Received UDP payload: 446
+1336326416635: Received UDP payload: 446
+1336326418879: Received UDP payload: 446
+1336326419161: Received UDP payload: 446
+1336326419230: Received UDP payload: 446
+1336326420187: Received UDP payload: 446
+1336326421638: Received UDP payload: 446
+1336326421899: Received UDP payload: 6377
+1336326421918: mux: GOT CSM_Msg
+1336326421931: Received UDP payload: 1006
+1336326421954: mux: GOT CSM_Msg
+1336326423868: Received UDP payload: 446
+1336326424153: Received UDP payload: 446
+1336326424259: Received UDP payload: 446
+1336326425188: Received UDP payload: 446
+1336326426651: Received UDP payload: 446
+1336326429155: Received UDP payload: 446
+1336326429239: Received UDP payload: 446
+1336326430193: Received UDP payload: 446
+1336326431000: Received UDP payload: 446
+1336326433661: Received UDP payload: 446
+1336326434168: Received UDP payload: 446
+1336326434256: Received UDP payload: 446
+1336326435213: Received UDP payload: 446
+1336326436018: Received UDP payload: 446
+1336326438667: Received UDP payload: 446
+1336326439268: Received UDP payload: 446
+1336326440215: Received UDP payload: 446
+1336326440225: Received UDP payload: 446
+1336326440974: Received UDP payload: 446
+1336326443674: Received UDP payload: 446
+1336326444271: Received UDP payload: 446
+1336326445208: Received UDP payload: 446
+1336326445231: Received UDP payload: 446
+1336326445971: Received UDP payload: 446
+1336326448136: Received UDP payload: 6193
+1336326448148: mux: Inside mux Packet.CLIENT_REQUEST
+1336326448149: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326448263: Received UDP payload: 6557
+1336326448276: mux: GOT CSM_Msg
+1336326448287: Received UDP payload: 446
+1336326448293: mux: Inside Packet.SERVER_REPLY
+1336326448294: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326448295: Received UDP payload: 1006
+1336326448324: mux: GOT CSM_Msg
+1336326448324: Received UDP payload: 659
+1336326448326: mux: Inside Packet.SERVER_REPLY
+1336326448326: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326448327: Received UDP payload: 446
+1336326448328: mux: Inside mux Packet.CLIENT_REQUEST
+1336326448328: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326448673: Received UDP payload: 446
+1336326449275: Received UDP payload: 446
+1336326450194: Received UDP payload: 446
+1336326450244: Received UDP payload: 446
+1336326450985: Received UDP payload: 446
+1336326453675: Received UDP payload: 446
+1336326454284: Received UDP payload: 446
+1336326455210: Received UDP payload: 446
+1336326455234: Received UDP payload: 446
+1336326455973: Received UDP payload: 446
+1336326456772: Received UDP payload: 446
+1336326457080: Received UDP payload: 446
+1336326457382: Received UDP payload: 446
+1336326457679: Received UDP payload: 446
+1336326458680: Received UDP payload: 446
+1336326459280: Received UDP payload: 446
+1336326460202: Received UDP payload: 446
+1336326460241: Received UDP payload: 446
+1336326460553: Received UDP payload: 22318
+1336326460560: ignoring leader_reply that's not for me
+1336326460971: Received UDP payload: 446
+1336326461020: Received UDP payload: 446
+1336326463697: Received UDP payload: 446
+1336326464315: Received UDP payload: 446
+1336326465207: Received UDP payload: 446
+1336326465249: Received UDP payload: 446
+1336326465994: Received UDP payload: 446
+1336326468689: Received UDP payload: 446
+1336326469312: Received UDP payload: 446
+1336326470237: Received UDP payload: 446
+1336326470999: Received UDP payload: 446
+1336326471010: Received UDP payload: 446
+1336326471154: Received UDP payload: 4710
+1336326471167: mux: GOT CSM_Msg
+1336326471178: Received UDP payload: 1006
+1336326471195: mux: GOT CSM_Msg
+1336326472213: Received UDP payload: 446
+1336326473679: Received UDP payload: 446
+1336326474339: Received UDP payload: 446
+1336326475299: Received UDP payload: 446
+1336326475992: Received UDP payload: 446
+1336326476064: Received UDP payload: 446
+1336326477235: Received UDP payload: 446
+1336326478682: Received UDP payload: 446
+1336326479333: Received UDP payload: 446
+1336326480242: Received UDP payload: 446
+1336326480993: Received UDP payload: 446
+1336326481014: Received UDP payload: 446
+1336326482234: Received UDP payload: 446
+1336326483689: Received UDP payload: 446
+1336326484323: Received UDP payload: 446
+1336326485264: Received UDP payload: 446
+1336326485987: Received UDP payload: 446
+1336326486013: Received UDP payload: 446
+1336326487225: Received UDP payload: 446
+1336326488681: Received UDP payload: 446
+1336326489346: Received UDP payload: 446
+1336326490250: Received UDP payload: 446
+1336326491012: Received UDP payload: 446
+1336326491032: Received UDP payload: 446
+1336326492238: Received UDP payload: 446
+1336326493681: Received UDP payload: 446
+1336326495290: Received UDP payload: 446
+1336326496011: Received UDP payload: 446
+1336326496020: Received UDP payload: 446
+1336326496262: Received UDP payload: 446
+1336326497264: Received UDP payload: 446
+1336326498692: Received UDP payload: 446
+1336326500248: Received UDP payload: 446
+1336326501002: Received UDP payload: 446
+1336326501041: Received UDP payload: 446
+1336326501272: Received UDP payload: 446
+1336326502234: Received UDP payload: 446
+1336326503688: Received UDP payload: 446
+1336326505267: Received UDP payload: 446
+1336326505993: Received UDP payload: 446
+1336326506029: Received UDP payload: 446
+1336326506268: Received UDP payload: 446
+1336326507235: Received UDP payload: 446
+1336326508699: Received UDP payload: 446
+1336326510251: Received UDP payload: 446
+1336326511003: Received UDP payload: 446
+1336326511034: Received UDP payload: 446
+1336326511269: Received UDP payload: 446
+1336326512228: Received UDP payload: 446
+1336326513685: Received UDP payload: 446
+1336326515259: Received UDP payload: 446
+1336326515996: Received UDP payload: 446
+1336326516023: Received UDP payload: 446
+1336326516278: Received UDP payload: 446
+1336326517231: Received UDP payload: 446
+1336326518693: Received UDP payload: 446
+1336326520252: Received UDP payload: 446
+1336326521006: Received UDP payload: 446
+1336326521033: Received UDP payload: 446
+1336326521292: Received UDP payload: 446
+1336326522233: Received UDP payload: 446
+1336326523690: Received UDP payload: 446
+1336326525251: Received UDP payload: 446
+1336326525999: Received UDP payload: 446
+1336326526042: Received UDP payload: 446
+1336326526308: Received UDP payload: 446
+1336326527261: Received UDP payload: 446
+1336326528695: Received UDP payload: 446
+1336326530254: Received UDP payload: 446
+1336326531005: Received UDP payload: 446
+1336326531037: Received UDP payload: 446
+1336326531293: Received UDP payload: 446
+1336326532026: Received UDP payload: 1006
+1336326532044: mux: GOT CSM_Msg
+1336326532132: Received UDP payload: 4966
+1336326532143: mux: GOT CSM_Msg
+1336326532228: Received UDP payload: 446
+1336326532949: Received UDP payload: 1006
+1336326532965: mux: GOT CSM_Msg
+1336326533001: Received UDP payload: 4956
+1336326533004: mux: GOT CSM_Msg
+1336326533696: Received UDP payload: 446
+1336326533776: Received UDP payload: 1006
+1336326533798: mux: GOT CSM_Msg
+1336326533881: Received UDP payload: 5774
+1336326533891: mux: GOT CSM_Msg
+1336326534530: Received UDP payload: 1006
+1336326534541: mux: GOT CSM_Msg
+1336326534662: Received UDP payload: 4450
+1336326534674: mux: GOT CSM_Msg
+1336326535253: Received UDP payload: 446
+1336326535354: Received UDP payload: 1006
+1336326535365: mux: GOT CSM_Msg
+1336326535506: Received UDP payload: 6557
+1336326535515: mux: GOT CSM_Msg
+1336326535999: Received UDP payload: 446
+1336326536035: Received UDP payload: 446
+1336326536176: Received UDP payload: 1006
+1336326536186: mux: GOT CSM_Msg
+1336326536298: Received UDP payload: 446
+1336326536320: Received UDP payload: 4710
+1336326536331: mux: GOT CSM_Msg
+1336326537232: Received UDP payload: 446
+1336326537343: canPressButton = TRUE
+1336326537344: areButtonsEnabled --> false 
+1336326537344: get picture disableButtonsR
+1336326537344: areButtonsEnabled --> false
+1336326537370: one more getNum: 1
+1336326537371: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=1 getGood=0 getBad=0 getTimedout=0 getPercent=0%
+1336326537371: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 0 **
+1336326537372: change local requestCounter to 5
+1336326537377: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019005 Client in region: 1 Client nodID: 5019
+1336326537408: ----------------------------
+1336326537408: inside sendRequestPacketRepeatingRunnable for requestCount = 5019005
+1336326537409: I'm a nonleader sending my requesting photos packet to my leader
+1336326537415: --- Finished one round of sending REQUEST Packet ---------
+1336326537409: inside sendPacket(Packet p)
+1336326537413: Sending UDP payload: 642
+1336326537453: Received UDP payload: 1006
+1336326537456: mux: GOT CSM_Msg
+1336326537459: Received UDP payload: 446
+1336326537461: mux: Inside Packet.SERVER_REPLY
+1336326537461: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326537470: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326537539: Received UDP payload: 4966
+1336326537541: mux: GOT CSM_Msg
+1336326537612: Received UDP payload: 4619
+1336326537614: mux: Inside Packet.SERVER_REPLY
+1336326537614: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326537616: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326537617: disabling progressdialog due to successful new photo get
+1336326537617: Inside _enableButtons
+1336326537617: areButtonsEnabled --> true
+1336326537617: send final leg ack regardless of new or already-processed reply
+1336326537618: inside finalLegAck: change requestCounter to 6
+1336326537619: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019006 Client in region: (1,0) Client nodID: 5019
+1336326537619: I'm a nonleader client sending my final_leg packet to my leader
+1336326537622: new client_show_remotephoto reply with replyCounter 501900500
+1336326537622: note down new reply by adding replyCounter=501900500 to HashMap processedReplies
+1336326537623: nonleader download remote photo latency = 207
+1336326537623: = nonleader download start 1336326537409 ~ stop 1336326537616
+1336326537625: one more getGood: 1
+1336326537626: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=1 getGood=1 getBad=0 getTimedout=0 getPercent=100%
+1336326537627: successful reply for client get photo
+1336326537629: Success! Client getting photo from remote region, showing photo...
+1336326537631: Remote photo's length: 3938
+1336326537619: inside sendPacket(Packet p)
+1336326537620: Sending UDP payload: 446
+1336326538233: canPressButton = TRUE
+1336326538234: areButtonsEnabled --> false 
+1336326538234: get picture disableButtonsR
+1336326538234: areButtonsEnabled --> false
+1336326538251: one more getNum: 2
+1336326538252: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=2 getGood=1 getBad=0 getTimedout=0 getPercent=50%
+1336326538252: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 1 **
+1336326538252: change local requestCounter to 7
+1336326538256: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019007 Client in region: 1 Client nodID: 5019
+1336326538291: ----------------------------
+1336326538292: inside sendRequestPacketRepeatingRunnable for requestCount = 5019007
+1336326538292: I'm a nonleader sending my requesting photos packet to my leader
+1336326538301: --- Finished one round of sending REQUEST Packet ---------
+1336326538292: inside sendPacket(Packet p)
+1336326538300: Sending UDP payload: 642
+1336326538363: Received UDP payload: 1006
+1336326538372: mux: GOT CSM_Msg
+1336326538388: Received UDP payload: 446
+1336326538390: mux: Inside Packet.SERVER_REPLY
+1336326538390: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326538421: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326538447: Received UDP payload: 4956
+1336326538451: mux: GOT CSM_Msg
+1336326538490: Received UDP payload: 4609
+1336326538493: mux: Inside Packet.SERVER_REPLY
+1336326538494: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326538496: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326538496: disabling progressdialog due to successful new photo get
+1336326538497: Inside _enableButtons
+1336326538497: areButtonsEnabled --> true
+1336326538498: send final leg ack regardless of new or already-processed reply
+1336326538498: inside finalLegAck: change requestCounter to 8
+1336326538498: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019008 Client in region: (1,0) Client nodID: 5019
+1336326538498: I'm a nonleader client sending my final_leg packet to my leader
+1336326538501: new client_show_remotephoto reply with replyCounter 501900700
+1336326538501: note down new reply by adding replyCounter=501900700 to HashMap processedReplies
+1336326538502: nonleader download remote photo latency = 204
+1336326538502: = nonleader download start 1336326538292 ~ stop 1336326538496
+1336326538503: one more getGood: 2
+1336326538504: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=2 getGood=2 getBad=0 getTimedout=0 getPercent=100%
+1336326538504: successful reply for client get photo
+1336326538505: Success! Client getting photo from remote region, showing photo...
+1336326538505: Remote photo's length: 3928
+1336326538499: inside sendPacket(Packet p)
+1336326538500: Sending UDP payload: 446
+1336326538695: Received UDP payload: 446
+1336326538955: canPressButton = TRUE
+1336326538955: areButtonsEnabled --> false 
+1336326538956: get picture disableButtonsR
+1336326538956: areButtonsEnabled --> false
+1336326538989: one more getNum: 3
+1336326538990: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=3 getGood=2 getBad=0 getTimedout=0 getPercent=66%
+1336326538991: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 2 **
+1336326538991: change local requestCounter to 9
+1336326538995: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019009 Client in region: 1 Client nodID: 5019
+1336326539053: ----------------------------
+1336326539054: inside sendRequestPacketRepeatingRunnable for requestCount = 5019009
+1336326539054: I'm a nonleader sending my requesting photos packet to my leader
+1336326539058: --- Finished one round of sending REQUEST Packet ---------
+1336326539055: inside sendPacket(Packet p)
+1336326539066: Sending UDP payload: 642
+1336326539123: Received UDP payload: 1006
+1336326539133: mux: GOT CSM_Msg
+1336326539133: Received UDP payload: 446
+1336326539141: mux: Inside Packet.SERVER_REPLY
+1336326539141: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326539175: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326539206: Received UDP payload: 5774
+1336326539209: mux: GOT CSM_Msg
+1336326539303: Received UDP payload: 5427
+1336326539304: mux: Inside Packet.SERVER_REPLY
+1336326539305: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326539306: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326539306: disabling progressdialog due to successful new photo get
+1336326539306: Inside _enableButtons
+1336326539307: areButtonsEnabled --> true
+1336326539307: send final leg ack regardless of new or already-processed reply
+1336326539307: inside finalLegAck: change requestCounter to 10
+1336326539308: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019010 Client in region: (1,0) Client nodID: 5019
+1336326539309: I'm a nonleader client sending my final_leg packet to my leader
+1336326539311: new client_show_remotephoto reply with replyCounter 501900900
+1336326539312: note down new reply by adding replyCounter=501900900 to HashMap processedReplies
+1336326539312: nonleader download remote photo latency = 251
+1336326539313: = nonleader download start 1336326539055 ~ stop 1336326539306
+1336326539317: one more getGood: 3
+1336326539319: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=3 getGood=3 getBad=0 getTimedout=0 getPercent=100%
+1336326539319: successful reply for client get photo
+1336326539321: Success! Client getting photo from remote region, showing photo...
+1336326539321: Remote photo's length: 4746
+1336326539309: inside sendPacket(Packet p)
+1336326539310: Sending UDP payload: 446
+1336326539627: canPressButton = TRUE
+1336326539630: areButtonsEnabled --> false 
+1336326539631: get picture disableButtonsR
+1336326539631: areButtonsEnabled --> false
+1336326539657: one more getNum: 4
+1336326539658: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=4 getGood=3 getBad=0 getTimedout=0 getPercent=75%
+1336326539659: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 3 **
+1336326539659: change local requestCounter to 11
+1336326539663: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019011 Client in region: 1 Client nodID: 5019
+1336326539696: ----------------------------
+1336326539697: inside sendRequestPacketRepeatingRunnable for requestCount = 5019011
+1336326539697: I'm a nonleader sending my requesting photos packet to my leader
+1336326539697: --- Finished one round of sending REQUEST Packet ---------
+1336326539697: inside sendPacket(Packet p)
+1336326539703: Sending UDP payload: 642
+1336326539751: Received UDP payload: 1006
+1336326539765: mux: GOT CSM_Msg
+1336326539765: Received UDP payload: 446
+1336326539767: mux: Inside Packet.SERVER_REPLY
+1336326539767: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326539789: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326539860: Received UDP payload: 4450
+1336326539865: mux: GOT CSM_Msg
+1336326539926: Received UDP payload: 4103
+1336326539928: mux: Inside Packet.SERVER_REPLY
+1336326539929: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326539929: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326539930: disabling progressdialog due to successful new photo get
+1336326539930: Inside _enableButtons
+1336326539930: areButtonsEnabled --> true
+1336326539931: send final leg ack regardless of new or already-processed reply
+1336326539931: inside finalLegAck: change requestCounter to 12
+1336326539932: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019012 Client in region: (1,0) Client nodID: 5019
+1336326539932: I'm a nonleader client sending my final_leg packet to my leader
+1336326539935: new client_show_remotephoto reply with replyCounter 501901100
+1336326539935: note down new reply by adding replyCounter=501901100 to HashMap processedReplies
+1336326539936: nonleader download remote photo latency = 232
+1336326539936: = nonleader download start 1336326539697 ~ stop 1336326539929
+1336326539938: one more getGood: 4
+1336326539939: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=4 getGood=4 getBad=0 getTimedout=0 getPercent=100%
+1336326539939: successful reply for client get photo
+1336326539939: Success! Client getting photo from remote region, showing photo...
+1336326539939: Remote photo's length: 3422
+1336326539932: inside sendPacket(Packet p)
+1336326539934: Sending UDP payload: 446
+1336326540250: Received UDP payload: 446
+1336326540511: canPressButton = TRUE
+1336326540512: areButtonsEnabled --> false 
+1336326540513: get picture disableButtonsR
+1336326540513: areButtonsEnabled --> false
+1336326540560: one more getNum: 5
+1336326540563: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=5 getGood=4 getBad=0 getTimedout=0 getPercent=80%
+1336326540564: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 4 **
+1336326540564: change local requestCounter to 13
+1336326540566: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019013 Client in region: 1 Client nodID: 5019
+1336326540636: ----------------------------
+1336326540636: inside sendRequestPacketRepeatingRunnable for requestCount = 5019013
+1336326540641: I'm a nonleader sending my requesting photos packet to my leader
+1336326540646: --- Finished one round of sending REQUEST Packet ---------
+1336326540642: inside sendPacket(Packet p)
+1336326540644: Sending UDP payload: 642
+1336326540720: Received UDP payload: 1006
+1336326540727: mux: GOT CSM_Msg
+1336326540759: Received UDP payload: 446
+1336326540768: mux: Inside Packet.SERVER_REPLY
+1336326540768: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326540781: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326540822: Received UDP payload: 6557
+1336326540827: mux: GOT CSM_Msg
+1336326540901: Received UDP payload: 6210
+1336326540903: mux: Inside Packet.SERVER_REPLY
+1336326540903: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326540905: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326540905: disabling progressdialog due to successful new photo get
+1336326540906: Inside _enableButtons
+1336326540906: areButtonsEnabled --> true
+1336326540906: send final leg ack regardless of new or already-processed reply
+1336326540906: inside finalLegAck: change requestCounter to 14
+1336326540909: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019014 Client in region: (1,0) Client nodID: 5019
+1336326540909: I'm a nonleader client sending my final_leg packet to my leader
+1336326540912: new client_show_remotephoto reply with replyCounter 501901300
+1336326540912: note down new reply by adding replyCounter=501901300 to HashMap processedReplies
+1336326540912: nonleader download remote photo latency = 263
+1336326540912: = nonleader download start 1336326540642 ~ stop 1336326540905
+1336326540913: one more getGood: 5
+1336326540914: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=5 getGood=5 getBad=0 getTimedout=0 getPercent=100%
+1336326540914: successful reply for client get photo
+1336326540915: Success! Client getting photo from remote region, showing photo...
+1336326540915: Remote photo's length: 5529
+1336326540909: inside sendPacket(Packet p)
+1336326540910: Sending UDP payload: 446
+1336326540998: Received UDP payload: 446
+1336326541023: Received UDP payload: 446
+1336326541231: canPressButton = TRUE
+1336326541231: areButtonsEnabled --> false 
+1336326541231: get picture disableButtonsR
+1336326541232: areButtonsEnabled --> false
+1336326541247: one more getNum: 6
+1336326541248: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=6 getGood=5 getBad=0 getTimedout=0 getPercent=83%
+1336326541248: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 5 **
+1336326541249: change local requestCounter to 15
+1336326541253: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019015 Client in region: 1 Client nodID: 5019
+1336326541286: ----------------------------
+1336326541287: inside sendRequestPacketRepeatingRunnable for requestCount = 5019015
+1336326541287: I'm a nonleader sending my requesting photos packet to my leader
+1336326541296: --- Finished one round of sending REQUEST Packet ---------
+1336326541287: inside sendPacket(Packet p)
+1336326541293: Received UDP payload: 446
+1336326541295: Sending UDP payload: 642
+1336326541326: Received UDP payload: 1006
+1336326541332: mux: GOT CSM_Msg
+1336326541345: Received UDP payload: 446
+1336326541347: mux: Inside Packet.SERVER_REPLY
+1336326541347: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326541395: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326541410: Received UDP payload: 4710
+1336326541412: mux: GOT CSM_Msg
+1336326541484: Received UDP payload: 4363
+1336326541486: mux: Inside Packet.SERVER_REPLY
+1336326541486: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326541487: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326541487: disabling progressdialog due to successful new photo get
+1336326541489: Inside _enableButtons
+1336326541490: areButtonsEnabled --> true
+1336326541490: send final leg ack regardless of new or already-processed reply
+1336326541490: inside finalLegAck: change requestCounter to 16
+1336326541490: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019016 Client in region: (1,0) Client nodID: 5019
+1336326541491: I'm a nonleader client sending my final_leg packet to my leader
+1336326541493: new client_show_remotephoto reply with replyCounter 501901500
+1336326541494: note down new reply by adding replyCounter=501901500 to HashMap processedReplies
+1336326541495: nonleader download remote photo latency = 200
+1336326541496: = nonleader download start 1336326541287 ~ stop 1336326541487
+1336326541497: one more getGood: 6
+1336326541499: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=6 getGood=6 getBad=0 getTimedout=0 getPercent=100%
+1336326541499: successful reply for client get photo
+1336326541499: Success! Client getting photo from remote region, showing photo...
+1336326541499: Remote photo's length: 3682
+1336326541491: inside sendPacket(Packet p)
+1336326541492: Sending UDP payload: 446
+1336326542239: Received UDP payload: 446
+1336326543714: Received UDP payload: 446
+1336326544192: Received UDP payload: 642
+1336326544202: mux: Inside mux Packet.CLIENT_REQUEST
+1336326544202: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326544267: Received UDP payload: 1006
+1336326544270: mux: GOT CSM_Msg
+1336326544274: Received UDP payload: 446
+1336326544276: mux: Inside Packet.SERVER_REPLY
+1336326544276: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326544331: Received UDP payload: 4966
+1336326544334: mux: GOT CSM_Msg
+1336326544383: Received UDP payload: 4619
+1336326544385: mux: Inside Packet.SERVER_REPLY
+1336326544385: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326544404: Received UDP payload: 446
+1336326544406: mux: Inside mux Packet.CLIENT_REQUEST
+1336326544406: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326545280: Received UDP payload: 446
+1336326546002: Received UDP payload: 446
+1336326546073: Received UDP payload: 642
+1336326546081: mux: Inside mux Packet.CLIENT_REQUEST
+1336326546082: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326546096: Received UDP payload: 446
+1336326546119: Received UDP payload: 1006
+1336326546136: mux: GOT CSM_Msg
+1336326546136: Received UDP payload: 446
+1336326546138: mux: Inside Packet.SERVER_REPLY
+1336326546138: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326546193: Received UDP payload: 4956
+1336326546196: mux: GOT CSM_Msg
+1336326546304: Received UDP payload: 446
+1336326546317: Received UDP payload: 4609
+1336326546319: mux: Inside Packet.SERVER_REPLY
+1336326546319: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326546334: Received UDP payload: 446
+1336326546336: mux: Inside mux Packet.CLIENT_REQUEST
+1336326546336: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326547234: Received UDP payload: 446
+1336326548651: Received UDP payload: 642
+1336326548657: mux: Inside mux Packet.CLIENT_REQUEST
+1336326548658: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326548704: Received UDP payload: 1006
+1336326548713: mux: GOT CSM_Msg
+1336326548713: Received UDP payload: 446
+1336326548715: mux: Inside Packet.SERVER_REPLY
+1336326548715: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326548721: Received UDP payload: 446
+1336326548809: Received UDP payload: 5774
+1336326548813: mux: GOT CSM_Msg
+1336326548882: Received UDP payload: 5427
+1336326548884: mux: Inside Packet.SERVER_REPLY
+1336326548884: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326548902: Received UDP payload: 446
+1336326548903: mux: Inside mux Packet.CLIENT_REQUEST
+1336326548904: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326550241: Received UDP payload: 642
+1336326550249: mux: Inside mux Packet.CLIENT_REQUEST
+1336326550249: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326550267: Received UDP payload: 446
+1336326550291: Received UDP payload: 1006
+1336326550302: mux: GOT CSM_Msg
+1336326550322: Received UDP payload: 446
+1336326550324: mux: Inside Packet.SERVER_REPLY
+1336326550325: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326550354: Received UDP payload: 4450
+1336326550357: mux: GOT CSM_Msg
+1336326550408: Received UDP payload: 4103
+1336326550410: mux: Inside Packet.SERVER_REPLY
+1336326550411: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326550422: Received UDP payload: 446
+1336326550424: mux: Inside mux Packet.CLIENT_REQUEST
+1336326550424: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326551041: Received UDP payload: 446
+1336326551306: Received UDP payload: 446
+1336326552234: Received UDP payload: 446
+1336326552952: Received UDP payload: 446
+1336326553231: Received UDP payload: 642
+1336326553236: mux: Inside mux Packet.CLIENT_REQUEST
+1336326553237: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326553268: Received UDP payload: 1006
+1336326553285: mux: GOT CSM_Msg
+1336326553299: Received UDP payload: 446
+1336326553306: mux: Inside Packet.SERVER_REPLY
+1336326553306: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326553355: Received UDP payload: 6557
+1336326553357: mux: GOT CSM_Msg
+1336326553441: Received UDP payload: 6210
+1336326553443: mux: Inside Packet.SERVER_REPLY
+1336326553443: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326553501: Received UDP payload: 446
+1336326553503: mux: Inside mux Packet.CLIENT_REQUEST
+1336326553503: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326554834: Received UDP payload: 642
+1336326554842: mux: Inside mux Packet.CLIENT_REQUEST
+1336326554843: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326554917: Received UDP payload: 1006
+1336326554919: mux: GOT CSM_Msg
+1336326554921: Received UDP payload: 446
+1336326554922: mux: Inside Packet.SERVER_REPLY
+1336326554923: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326554982: Received UDP payload: 4710
+1336326554987: mux: GOT CSM_Msg
+1336326555041: Received UDP payload: 4363
+1336326555045: mux: Inside Packet.SERVER_REPLY
+1336326555046: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326555064: Received UDP payload: 446
+1336326555068: mux: Inside mux Packet.CLIENT_REQUEST
+1336326555068: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326555256: Received UDP payload: 446
+1336326555743: Received UDP payload: 446
+1336326556047: Received UDP payload: 446
+1336326556349: Received UDP payload: 446
+1336326557265: Received UDP payload: 446
+1336326557964: Received UDP payload: 446
+1336326558275: Received UDP payload: 1006
+1336326558285: mux: GOT CSM_Msg
+1336326558325: Received UDP payload: 4966
+1336326558332: mux: GOT CSM_Msg
+1336326560364: Received UDP payload: 1006
+1336326560374: mux: GOT CSM_Msg
+1336326560458: Received UDP payload: 4956
+1336326560469: mux: GOT CSM_Msg
+1336326560581: Received UDP payload: 1006
+1336326560591: mux: GOT CSM_Msg
+1336326560648: Received UDP payload: 4966
+1336326560651: mux: GOT CSM_Msg
+1336326560746: Received UDP payload: 446
+1336326561055: Received UDP payload: 446
+1336326561347: Received UDP payload: 446
+1336326561999: Received UDP payload: 1006
+1336326562009: mux: GOT CSM_Msg
+1336326562106: Received UDP payload: 5774
+1336326562117: mux: GOT CSM_Msg
+1336326562234: Received UDP payload: 446
+1336326562314: Received UDP payload: 446
+1336326562955: Received UDP payload: 446
+1336326563402: Received UDP payload: 1006
+1336326563412: mux: GOT CSM_Msg
+1336326563500: Received UDP payload: 4450
+1336326563506: mux: GOT CSM_Msg
+1336326563533: Received UDP payload: 1006
+1336326563538: mux: GOT CSM_Msg
+1336326563624: Received UDP payload: 4956
+1336326563627: mux: GOT CSM_Msg
+1336326564590: Received UDP payload: 1006
+1336326564601: mux: GOT CSM_Msg
+1336326564705: Received UDP payload: 5774
+1336326564715: mux: GOT CSM_Msg
+1336326564802: Received UDP payload: 1006
+1336326564805: mux: GOT CSM_Msg
+1336326564928: Received UDP payload: 6557
+1336326564944: mux: GOT CSM_Msg
+1336326565469: Received UDP payload: 1006
+1336326565481: mux: GOT CSM_Msg
+1336326565535: Received UDP payload: 4450
+1336326565537: mux: GOT CSM_Msg
+1336326565746: Received UDP payload: 446
+1336326566058: Received UDP payload: 446
+1336326566170: Received UDP payload: 1006
+1336326566176: mux: GOT CSM_Msg
+1336326566268: Received UDP payload: 4710
+1336326566280: mux: GOT CSM_Msg
+1336326566299: Received UDP payload: 1006
+1336326566309: mux: GOT CSM_Msg
+1336326566394: Received UDP payload: 6557
+1336326566398: mux: GOT CSM_Msg
+1336326566401: Received UDP payload: 446
+1336326567093: Received UDP payload: 1006
+1336326567103: mux: GOT CSM_Msg
+1336326567214: Received UDP payload: 4710
+1336326567229: mux: GOT CSM_Msg
+1336326567236: Received UDP payload: 446
+1336326567320: Received UDP payload: 446
+1336326567954: Received UDP payload: 446
+1336326568386: Received UDP payload: 642
+1336326568392: mux: Inside mux Packet.CLIENT_REQUEST
+1336326568392: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326568444: Received UDP payload: 1006
+1336326568456: mux: GOT CSM_Msg
+1336326568468: Received UDP payload: 446
+1336326568473: mux: Inside Packet.SERVER_REPLY
+1336326568474: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326568558: Received UDP payload: 4966
+1336326568561: mux: GOT CSM_Msg
+1336326568624: Received UDP payload: 4619
+1336326568626: mux: Inside Packet.SERVER_REPLY
+1336326568626: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326568643: Received UDP payload: 446
+1336326568646: mux: Inside mux Packet.CLIENT_REQUEST
+1336326568646: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326569235: Received UDP payload: 642
+1336326569246: mux: Inside mux Packet.CLIENT_REQUEST
+1336326569246: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326569290: Received UDP payload: 1006
+1336326569302: mux: GOT CSM_Msg
+1336326569311: Received UDP payload: 446
+1336326569317: mux: Inside Packet.SERVER_REPLY
+1336326569317: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326569370: Received UDP payload: 4956
+1336326569373: mux: GOT CSM_Msg
+1336326569435: Received UDP payload: 4609
+1336326569437: mux: Inside Packet.SERVER_REPLY
+1336326569437: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326569453: Received UDP payload: 446
+1336326569455: mux: Inside mux Packet.CLIENT_REQUEST
+1336326569455: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326570137: Received UDP payload: 642
+1336326570142: mux: Inside mux Packet.CLIENT_REQUEST
+1336326570143: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326570178: Received UDP payload: 1006
+1336326570189: mux: GOT CSM_Msg
+1336326570197: Received UDP payload: 446
+1336326570203: mux: Inside Packet.SERVER_REPLY
+1336326570204: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326570271: Received UDP payload: 5774
+1336326570283: mux: GOT CSM_Msg
+1336326570345: Received UDP payload: 5427
+1336326570353: mux: Inside Packet.SERVER_REPLY
+1336326570354: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326570370: Received UDP payload: 446
+1336326570376: mux: Inside mux Packet.CLIENT_REQUEST
+1336326570376: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326570748: Received UDP payload: 446
+1336326571027: Received UDP payload: 642
+1336326571034: mux: Inside mux Packet.CLIENT_REQUEST
+1336326571034: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326571050: Received UDP payload: 1006
+1336326571071: mux: GOT CSM_Msg
+1336326571071: Received UDP payload: 446
+1336326571073: mux: Inside Packet.SERVER_REPLY
+1336326571074: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326571074: Received UDP payload: 446
+1336326571130: Received UDP payload: 4450
+1336326571133: mux: GOT CSM_Msg
+1336326571171: Received UDP payload: 4103
+1336326571173: mux: Inside Packet.SERVER_REPLY
+1336326571173: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326571185: Received UDP payload: 446
+1336326571187: mux: Inside mux Packet.CLIENT_REQUEST
+1336326571187: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326571346: Received UDP payload: 446
+1336326571884: Received UDP payload: 642
+1336326571892: mux: Inside mux Packet.CLIENT_REQUEST
+1336326571892: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326571943: Received UDP payload: 1006
+1336326571954: mux: GOT CSM_Msg
+1336326571958: Received UDP payload: 446
+1336326571963: mux: Inside Packet.SERVER_REPLY
+1336326571963: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326572098: Received UDP payload: 6557
+1336326572102: mux: GOT CSM_Msg
+1336326572170: Received UDP payload: 6210
+1336326572173: mux: Inside Packet.SERVER_REPLY
+1336326572173: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326572182: Received UDP payload: 446
+1336326572185: mux: Inside mux Packet.CLIENT_REQUEST
+1336326572185: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326572237: Received UDP payload: 446
+1336326572319: Received UDP payload: 446
+1336326572807: Received UDP payload: 642
+1336326572814: mux: Inside mux Packet.CLIENT_REQUEST
+1336326572815: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326572854: Received UDP payload: 1006
+1336326572870: mux: GOT CSM_Msg
+1336326572876: Received UDP payload: 446
+1336326572881: mux: Inside Packet.SERVER_REPLY
+1336326572881: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326572918: Received UDP payload: 4710
+1336326572938: mux: GOT CSM_Msg
+1336326572951: Received UDP payload: 446
+1336326572978: Received UDP payload: 4363
+1336326572980: mux: Inside Packet.SERVER_REPLY
+1336326572980: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326573013: Received UDP payload: 446
+1336326573015: mux: Inside mux Packet.CLIENT_REQUEST
+1336326573015: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326575749: Received UDP payload: 446
+1336326576094: Received UDP payload: 446
+1336326576349: Received UDP payload: 446
+1336326577237: Received UDP payload: 446
+1336326577325: Received UDP payload: 446
+1336326577963: Received UDP payload: 446
+1336326580752: Received UDP payload: 446
+1336326581358: Received UDP payload: 446
+1336326582238: Received UDP payload: 446
+1336326582328: Received UDP payload: 446
+1336326582424: Received UDP payload: 446
+1336326582953: Received UDP payload: 446
+1336326585754: Received UDP payload: 446
+1336326586366: Received UDP payload: 446
+1336326586700: Received UDP payload: 1006
+1336326586709: mux: GOT CSM_Msg
+1336326586806: Received UDP payload: 4966
+1336326586808: mux: GOT CSM_Msg
+1336326587270: Received UDP payload: 446
+1336326587339: Received UDP payload: 446
+1336326587481: Received UDP payload: 446
+1336326587957: Received UDP payload: 446
+1336326588090: Received UDP payload: 1006
+1336326588103: mux: GOT CSM_Msg
+1336326588196: Received UDP payload: 4956
+1336326588206: mux: GOT CSM_Msg
+1336326589220: Received UDP payload: 1006
+1336326589232: mux: GOT CSM_Msg
+1336326589275: Received UDP payload: 5774
+1336326589277: mux: GOT CSM_Msg
+1336326590402: Received UDP payload: 1006
+1336326590416: mux: GOT CSM_Msg
+1336326590536: Received UDP payload: 4450
+1336326590545: mux: GOT CSM_Msg
+1336326590753: Received UDP payload: 446
+1336326591375: Received UDP payload: 446
+1336326591547: Received UDP payload: 1006
+1336326591558: mux: GOT CSM_Msg
+1336326591671: Received UDP payload: 6557
+1336326591680: mux: GOT CSM_Msg
+1336326592338: Received UDP payload: 446
+1336326592433: Received UDP payload: 446
+1336326592915: Received UDP payload: 1006
+1336326592934: mux: GOT CSM_Msg
+1336326592957: Received UDP payload: 446
+1336326593011: Received UDP payload: 4710
+1336326593014: mux: GOT CSM_Msg
+1336326594276: Received UDP payload: 446
+1336326595757: Received UDP payload: 446
+1336326596385: Received UDP payload: 446
+1336326597330: Received UDP payload: 446
+1336326597435: Received UDP payload: 446
+1336326597988: Received UDP payload: 446
+1336326599284: Received UDP payload: 446
+1336326600800: Received UDP payload: 446
+1336326601411: Received UDP payload: 446
+1336326602362: Received UDP payload: 446
+1336326602443: Received UDP payload: 446
+1336326602956: Received UDP payload: 446
+1336326603988: Received UDP payload: 1006
+1336326603998: mux: GOT CSM_Msg
+1336326604084: Received UDP payload: 4966
+1336326604095: mux: GOT CSM_Msg
+1336326604278: Received UDP payload: 446
+1336326605090: Received UDP payload: 1006
+1336326605093: mux: GOT CSM_Msg
+1336326605207: Received UDP payload: 4956
+1336326605211: mux: GOT CSM_Msg
+1336326605757: Received UDP payload: 446
+1336326606138: Received UDP payload: 1006
+1336326606152: mux: GOT CSM_Msg
+1336326606238: Received UDP payload: 5774
+1336326606240: mux: GOT CSM_Msg
+1336326606406: Received UDP payload: 446
+1336326607029: Received UDP payload: 1006
+1336326607038: mux: GOT CSM_Msg
+1336326607131: Received UDP payload: 4450
+1336326607141: mux: GOT CSM_Msg
+1336326607332: Received UDP payload: 446
+1336326607456: Received UDP payload: 446
+1336326607962: Received UDP payload: 446
+1336326608043: Received UDP payload: 1006
+1336326608054: mux: GOT CSM_Msg
+1336326608160: Received UDP payload: 6557
+1336326608169: mux: GOT CSM_Msg
+1336326609077: Received UDP payload: 1006
+1336326609087: mux: GOT CSM_Msg
+1336326609147: Received UDP payload: 4710
+1336326609163: mux: GOT CSM_Msg
+1336326609276: Received UDP payload: 446
+1336326610763: Received UDP payload: 446
+1336326611415: Received UDP payload: 446
+1336326612336: Received UDP payload: 446
+1336326612438: Received UDP payload: 446
+1336326612965: Received UDP payload: 446
+1336326614279: Received UDP payload: 446
+1336326615764: Received UDP payload: 446
+1336326617372: Received UDP payload: 446
+1336326617476: Received UDP payload: 446
+1336326617989: Received UDP payload: 446
+1336326618340: Received UDP payload: 446
+1336326618721: Received UDP payload: 1006
+1336326618731: mux: GOT CSM_Msg
+1336326618802: Received UDP payload: 4966
+1336326618805: mux: GOT CSM_Msg
+1336326619287: Received UDP payload: 446
+1336326619932: Received UDP payload: 1006
+1336326619941: mux: GOT CSM_Msg
+1336326620050: Received UDP payload: 4956
+1336326620060: mux: GOT CSM_Msg
+1336326620762: Received UDP payload: 446
+1336326620981: Received UDP payload: 1006
+1336326620998: mux: GOT CSM_Msg
+1336326621082: Received UDP payload: 5774
+1336326621092: mux: GOT CSM_Msg
+1336326621978: Received UDP payload: 1006
+1336326621986: mux: GOT CSM_Msg
+1336326622088: Received UDP payload: 4450
+1336326622097: mux: GOT CSM_Msg
+1336326622330: Received UDP payload: 446
+1336326622445: Received UDP payload: 446
+1336326622859: Received UDP payload: 1006
+1336326622867: mux: GOT CSM_Msg
+1336326622927: Received UDP payload: 6557
+1336326622930: mux: GOT CSM_Msg
+1336326622960: Received UDP payload: 446
+1336326623341: Received UDP payload: 446
+1336326623753: Received UDP payload: 1006
+1336326623762: mux: GOT CSM_Msg
+1336326623866: Received UDP payload: 4710
+1336326623871: mux: GOT CSM_Msg
+1336326624283: Received UDP payload: 446
+1336326625401: Received UDP payload: 642
+1336326625408: mux: Inside mux Packet.CLIENT_REQUEST
+1336326625409: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326625445: Received UDP payload: 1006
+1336326625461: mux: GOT CSM_Msg
+1336326625461: Received UDP payload: 446
+1336326625463: mux: Inside Packet.SERVER_REPLY
+1336326625463: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326625574: Received UDP payload: 4966
+1336326625577: mux: GOT CSM_Msg
+1336326625646: Received UDP payload: 4619
+1336326625649: mux: Inside Packet.SERVER_REPLY
+1336326625649: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326625660: Received UDP payload: 446
+1336326625662: mux: Inside mux Packet.CLIENT_REQUEST
+1336326625662: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326625765: Received UDP payload: 446
+1336326626599: Received UDP payload: 642
+1336326626605: mux: Inside mux Packet.CLIENT_REQUEST
+1336326626605: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326626642: Received UDP payload: 1006
+1336326626651: mux: GOT CSM_Msg
+1336326626654: Received UDP payload: 446
+1336326626660: mux: Inside Packet.SERVER_REPLY
+1336326626660: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326626711: Received UDP payload: 4956
+1336326626714: mux: GOT CSM_Msg
+1336326626764: Received UDP payload: 4609
+1336326626766: mux: Inside Packet.SERVER_REPLY
+1336326626766: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326626777: Received UDP payload: 446
+1336326626779: mux: Inside mux Packet.CLIENT_REQUEST
+1336326626779: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326627331: Received UDP payload: 446
+1336326627448: Received UDP payload: 446
+1336326627640: Received UDP payload: 642
+1336326627644: mux: Inside mux Packet.CLIENT_REQUEST
+1336326627645: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326627693: Received UDP payload: 1006
+1336326627701: mux: GOT CSM_Msg
+1336326627702: Received UDP payload: 446
+1336326627703: mux: Inside Packet.SERVER_REPLY
+1336326627703: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326627787: Received UDP payload: 5774
+1336326627790: mux: GOT CSM_Msg
+1336326627852: Received UDP payload: 5427
+1336326627853: mux: Inside Packet.SERVER_REPLY
+1336326627854: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326627865: Received UDP payload: 446
+1336326627867: mux: Inside mux Packet.CLIENT_REQUEST
+1336326627867: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326627957: Received UDP payload: 446
+1336326628328: Received UDP payload: 446
+1336326629251: Received UDP payload: 642
+1336326629257: mux: Inside mux Packet.CLIENT_REQUEST
+1336326629257: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326629283: Received UDP payload: 446
+1336326629299: Received UDP payload: 1006
+1336326629315: mux: GOT CSM_Msg
+1336326629318: Received UDP payload: 446
+1336326629320: mux: Inside Packet.SERVER_REPLY
+1336326629320: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326629381: Received UDP payload: 4450
+1336326629384: mux: GOT CSM_Msg
+1336326629431: Received UDP payload: 4103
+1336326629433: mux: Inside Packet.SERVER_REPLY
+1336326629433: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326629448: Received UDP payload: 446
+1336326629449: mux: Inside mux Packet.CLIENT_REQUEST
+1336326629449: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326630171: Received UDP payload: 642
+1336326630174: mux: Inside mux Packet.CLIENT_REQUEST
+1336326630174: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326630229: Received UDP payload: 1006
+1336326630234: mux: GOT CSM_Msg
+1336326630235: Received UDP payload: 446
+1336326630241: mux: Inside Packet.SERVER_REPLY
+1336326630241: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326630306: Received UDP payload: 6557
+1336326630312: mux: GOT CSM_Msg
+1336326630374: Received UDP payload: 6210
+1336326630377: mux: Inside Packet.SERVER_REPLY
+1336326630377: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326630391: Received UDP payload: 446
+1336326630396: mux: Inside mux Packet.CLIENT_REQUEST
+1336326630397: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326630765: Received UDP payload: 446
+1336326631015: Received UDP payload: 642
+1336326631019: mux: Inside mux Packet.CLIENT_REQUEST
+1336326631020: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326631069: Received UDP payload: 1006
+1336326631076: mux: GOT CSM_Msg
+1336326631079: Received UDP payload: 446
+1336326631080: mux: Inside Packet.SERVER_REPLY
+1336326631080: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326631173: Received UDP payload: 4710
+1336326631179: mux: GOT CSM_Msg
+1336326631243: Received UDP payload: 4363
+1336326631244: mux: Inside Packet.SERVER_REPLY
+1336326631244: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326631256: Received UDP payload: 446
+1336326631258: mux: Inside mux Packet.CLIENT_REQUEST
+1336326631259: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326632333: Received UDP payload: 446
+1336326632453: Received UDP payload: 446
+1336326632978: Received UDP payload: 446
+1336326633331: Received UDP payload: 446
+1336326634287: Received UDP payload: 446
+1336326635773: Received UDP payload: 446
+1336326637339: Received UDP payload: 446
+1336326637454: Received UDP payload: 446
+1336326637972: Received UDP payload: 446
+1336326638350: Received UDP payload: 446
+1336326639286: Received UDP payload: 446
+1336326640773: Received UDP payload: 446
+1336326642337: Received UDP payload: 446
+1336326642461: Received UDP payload: 446
+1336326642967: Received UDP payload: 446
+1336326643366: Received UDP payload: 446
+1336326644336: Received UDP payload: 446
+1336326645774: Received UDP payload: 446
+1336326647384: Received UDP payload: 446
+1336326647504: Received UDP payload: 446
+1336326647966: Received UDP payload: 446
+1336326648371: Received UDP payload: 1006
+1336326648382: mux: GOT CSM_Msg
+1336326648468: Received UDP payload: 4966
+1336326648471: mux: GOT CSM_Msg
+1336326648498: Received UDP payload: 446
+1336326649293: Received UDP payload: 446
+1336326649573: Received UDP payload: 1006
+1336326649582: mux: GOT CSM_Msg
+1336326649626: Received UDP payload: 4956
+1336326649631: mux: GOT CSM_Msg
+1336326650660: Received UDP payload: 1006
+1336326650670: mux: GOT CSM_Msg
+1336326650766: Received UDP payload: 5774
+1336326650777: mux: GOT CSM_Msg
+1336326650788: Received UDP payload: 446
+1336326651783: Received UDP payload: 1006
+1336326651795: mux: GOT CSM_Msg
+1336326651879: Received UDP payload: 4450
+1336326651890: mux: GOT CSM_Msg
+1336326652335: Received UDP payload: 446
+1336326652504: Received UDP payload: 446
+1336326652881: Received UDP payload: 1006
+1336326652892: mux: GOT CSM_Msg
+1336326652974: Received UDP payload: 446
+1336326652998: Received UDP payload: 6557
+1336326653008: mux: GOT CSM_Msg
+1336326653407: Received UDP payload: 446
+1336326653842: Received UDP payload: 1006
+1336326653853: mux: GOT CSM_Msg
+1336326653941: Received UDP payload: 4710
+1336326653944: mux: GOT CSM_Msg
+1336326654290: Received UDP payload: 446
+1336326655140: canPressButton = TRUE
+1336326655140: areButtonsEnabled --> false 
+1336326655140: get picture disableButtonsR
+1336326655141: areButtonsEnabled --> false
+1336326655165: one more getNum: 7
+1336326655166: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=7 getGood=6 getBad=0 getTimedout=0 getPercent=85%
+1336326655166: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 0 **
+1336326655166: change local requestCounter to 17
+1336326655172: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019017 Client in region: 1 Client nodID: 5019
+1336326655202: ----------------------------
+1336326655202: inside sendRequestPacketRepeatingRunnable for requestCount = 5019017
+1336326655202: I'm a nonleader sending my requesting photos packet to my leader
+1336326655209: --- Finished one round of sending REQUEST Packet ---------
+1336326655203: inside sendPacket(Packet p)
+1336326655209: Sending UDP payload: 642
+1336326655261: Received UDP payload: 1006
+1336326655264: mux: GOT CSM_Msg
+1336326655270: Received UDP payload: 446
+1336326655272: mux: Inside Packet.SERVER_REPLY
+1336326655272: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326655306: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326655350: Received UDP payload: 4966
+1336326655352: mux: GOT CSM_Msg
+1336326655402: Received UDP payload: 4619
+1336326655404: mux: Inside Packet.SERVER_REPLY
+1336326655404: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326655406: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326655406: disabling progressdialog due to successful new photo get
+1336326655407: Inside _enableButtons
+1336326655407: areButtonsEnabled --> true
+1336326655409: send final leg ack regardless of new or already-processed reply
+1336326655409: inside finalLegAck: change requestCounter to 18
+1336326655409: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019018 Client in region: (1,0) Client nodID: 5019
+1336326655409: I'm a nonleader client sending my final_leg packet to my leader
+1336326655412: new client_show_remotephoto reply with replyCounter 501901700
+1336326655412: note down new reply by adding replyCounter=501901700 to HashMap processedReplies
+1336326655412: nonleader download remote photo latency = 203
+1336326655413: = nonleader download start 1336326655203 ~ stop 1336326655406
+1336326655414: one more getGood: 7
+1336326655415: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=7 getGood=7 getBad=0 getTimedout=0 getPercent=100%
+1336326655415: successful reply for client get photo
+1336326655415: Success! Client getting photo from remote region, showing photo...
+1336326655415: Remote photo's length: 3938
+1336326655410: inside sendPacket(Packet p)
+1336326655411: Sending UDP payload: 446
+1336326655771: Received UDP payload: 446
+1336326656222: canPressButton = TRUE
+1336326656222: areButtonsEnabled --> false 
+1336326656222: get picture disableButtonsR
+1336326656222: areButtonsEnabled --> false
+1336326656240: one more getNum: 8
+1336326656241: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=8 getGood=7 getBad=0 getTimedout=0 getPercent=87%
+1336326656241: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 1 **
+1336326656241: change local requestCounter to 19
+1336326656244: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019019 Client in region: 1 Client nodID: 5019
+1336326656275: ----------------------------
+1336326656276: inside sendRequestPacketRepeatingRunnable for requestCount = 5019019
+1336326656276: I'm a nonleader sending my requesting photos packet to my leader
+1336326656282: --- Finished one round of sending REQUEST Packet ---------
+1336326656276: inside sendPacket(Packet p)
+1336326656281: Sending UDP payload: 642
+1336326656347: Received UDP payload: 1006
+1336326656351: mux: GOT CSM_Msg
+1336326656360: Received UDP payload: 446
+1336326656362: mux: Inside Packet.SERVER_REPLY
+1336326656362: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326656382: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326656410: Received UDP payload: 4956
+1336326656413: mux: GOT CSM_Msg
+1336326656457: Received UDP payload: 4609
+1336326656459: mux: Inside Packet.SERVER_REPLY
+1336326656459: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326656460: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326656460: disabling progressdialog due to successful new photo get
+1336326656460: Inside _enableButtons
+1336326656460: areButtonsEnabled --> true
+1336326656461: send final leg ack regardless of new or already-processed reply
+1336326656461: inside finalLegAck: change requestCounter to 20
+1336326656461: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019020 Client in region: (1,0) Client nodID: 5019
+1336326656461: I'm a nonleader client sending my final_leg packet to my leader
+1336326656464: new client_show_remotephoto reply with replyCounter 501901900
+1336326656464: note down new reply by adding replyCounter=501901900 to HashMap processedReplies
+1336326656464: nonleader download remote photo latency = 184
+1336326656465: = nonleader download start 1336326656276 ~ stop 1336326656460
+1336326656466: one more getGood: 8
+1336326656467: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=8 getGood=8 getBad=0 getTimedout=0 getPercent=100%
+1336326656470: successful reply for client get photo
+1336326656471: Success! Client getting photo from remote region, showing photo...
+1336326656471: Remote photo's length: 3928
+1336326656461: inside sendPacket(Packet p)
+1336326656463: Sending UDP payload: 446
+1336326657244: canPressButton = TRUE
+1336326657245: areButtonsEnabled --> false 
+1336326657245: get picture disableButtonsR
+1336326657245: areButtonsEnabled --> false
+1336326657260: one more getNum: 9
+1336326657261: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=9 getGood=8 getBad=0 getTimedout=0 getPercent=88%
+1336326657262: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 2 **
+1336326657262: change local requestCounter to 21
+1336326657267: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019021 Client in region: 1 Client nodID: 5019
+1336326657297: ----------------------------
+1336326657299: inside sendRequestPacketRepeatingRunnable for requestCount = 5019021
+1336326657299: I'm a nonleader sending my requesting photos packet to my leader
+1336326657305: --- Finished one round of sending REQUEST Packet ---------
+1336326657299: inside sendPacket(Packet p)
+1336326657304: Sending UDP payload: 642
+1336326657334: Received UDP payload: 446
+1336326657372: Received UDP payload: 1006
+1336326657376: mux: GOT CSM_Msg
+1336326657392: Received UDP payload: 446
+1336326657395: mux: Inside Packet.SERVER_REPLY
+1336326657395: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326657398: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326657451: Received UDP payload: 5774
+1336326657454: mux: GOT CSM_Msg
+1336326657461: Received UDP payload: 446
+1336326657547: Received UDP payload: 5427
+1336326657549: mux: Inside Packet.SERVER_REPLY
+1336326657549: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326657551: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326657552: disabling progressdialog due to successful new photo get
+1336326657552: Inside _enableButtons
+1336326657552: areButtonsEnabled --> true
+1336326657552: send final leg ack regardless of new or already-processed reply
+1336326657553: inside finalLegAck: change requestCounter to 22
+1336326657553: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019022 Client in region: (1,0) Client nodID: 5019
+1336326657553: I'm a nonleader client sending my final_leg packet to my leader
+1336326657559: new client_show_remotephoto reply with replyCounter 501902100
+1336326657559: note down new reply by adding replyCounter=501902100 to HashMap processedReplies
+1336326657559: nonleader download remote photo latency = 252
+1336326657562: = nonleader download start 1336326657299 ~ stop 1336326657551
+1336326657564: one more getGood: 9
+1336326657565: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=9 getGood=9 getBad=0 getTimedout=0 getPercent=100%
+1336326657565: successful reply for client get photo
+1336326657565: Success! Client getting photo from remote region, showing photo...
+1336326657566: Remote photo's length: 4746
+1336326657553: inside sendPacket(Packet p)
+1336326657555: Sending UDP payload: 446
+1336326657962: Received UDP payload: 446
+1336326658230: canPressButton = TRUE
+1336326658230: areButtonsEnabled --> false 
+1336326658231: get picture disableButtonsR
+1336326658231: areButtonsEnabled --> false
+1336326658246: one more getNum: 10
+1336326658247: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=10 getGood=9 getBad=0 getTimedout=0 getPercent=90%
+1336326658247: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 3 **
+1336326658247: change local requestCounter to 23
+1336326658250: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019023 Client in region: 1 Client nodID: 5019
+1336326658281: ----------------------------
+1336326658281: inside sendRequestPacketRepeatingRunnable for requestCount = 5019023
+1336326658281: I'm a nonleader sending my requesting photos packet to my leader
+1336326658287: --- Finished one round of sending REQUEST Packet ---------
+1336326658282: inside sendPacket(Packet p)
+1336326658286: Sending UDP payload: 642
+1336326658342: Received UDP payload: 1006
+1336326658351: mux: GOT CSM_Msg
+1336326658351: Received UDP payload: 446
+1336326658353: mux: Inside Packet.SERVER_REPLY
+1336326658353: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326658389: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326658401: Received UDP payload: 446
+1336326658421: Received UDP payload: 4450
+1336326658424: mux: GOT CSM_Msg
+1336326658496: Received UDP payload: 4103
+1336326658499: mux: Inside Packet.SERVER_REPLY
+1336326658499: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326658502: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326658502: disabling progressdialog due to successful new photo get
+1336326658502: Inside _enableButtons
+1336326658503: areButtonsEnabled --> true
+1336326658503: send final leg ack regardless of new or already-processed reply
+1336326658503: inside finalLegAck: change requestCounter to 24
+1336326658504: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019024 Client in region: (1,0) Client nodID: 5019
+1336326658504: I'm a nonleader client sending my final_leg packet to my leader
+1336326658506: new client_show_remotephoto reply with replyCounter 501902300
+1336326658507: note down new reply by adding replyCounter=501902300 to HashMap processedReplies
+1336326658508: nonleader download remote photo latency = 220
+1336326658508: = nonleader download start 1336326658282 ~ stop 1336326658502
+1336326658511: one more getGood: 10
+1336326658512: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=10 getGood=10 getBad=0 getTimedout=0 getPercent=100%
+1336326658512: successful reply for client get photo
+1336326658512: Success! Client getting photo from remote region, showing photo...
+1336326658513: Remote photo's length: 3422
+1336326658504: inside sendPacket(Packet p)
+1336326658506: Sending UDP payload: 446
+1336326659216: canPressButton = TRUE
+1336326659217: areButtonsEnabled --> false 
+1336326659218: get picture disableButtonsR
+1336326659218: areButtonsEnabled --> false
+1336326659253: one more getNum: 11
+1336326659253: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=11 getGood=10 getBad=0 getTimedout=0 getPercent=90%
+1336326659254: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 4 **
+1336326659254: change local requestCounter to 25
+1336326659255: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019025 Client in region: 1 Client nodID: 5019
+1336326659285: ----------------------------
+1336326659285: inside sendRequestPacketRepeatingRunnable for requestCount = 5019025
+1336326659286: I'm a nonleader sending my requesting photos packet to my leader
+1336326659286: --- Finished one round of sending REQUEST Packet ---------
+1336326659286: inside sendPacket(Packet p)
+1336326659289: Received UDP payload: 446
+1336326659300: Sending UDP payload: 642
+1336326659339: Received UDP payload: 1006
+1336326659348: mux: GOT CSM_Msg
+1336326659349: Received UDP payload: 446
+1336326659351: mux: Inside Packet.SERVER_REPLY
+1336326659351: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326659359: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326659457: Received UDP payload: 6557
+1336326659460: mux: GOT CSM_Msg
+1336326659549: Received UDP payload: 6210
+1336326659553: mux: Inside Packet.SERVER_REPLY
+1336326659553: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326659554: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326659554: disabling progressdialog due to successful new photo get
+1336326659555: Inside _enableButtons
+1336326659555: areButtonsEnabled --> true
+1336326659555: send final leg ack regardless of new or already-processed reply
+1336326659555: inside finalLegAck: change requestCounter to 26
+1336326659555: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019026 Client in region: (1,0) Client nodID: 5019
+1336326659556: I'm a nonleader client sending my final_leg packet to my leader
+1336326659556: new client_show_remotephoto reply with replyCounter 501902500
+1336326659556: note down new reply by adding replyCounter=501902500 to HashMap processedReplies
+1336326659557: nonleader download remote photo latency = 268
+1336326659557: = nonleader download start 1336326659286 ~ stop 1336326659554
+1336326659558: one more getGood: 11
+1336326659559: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=11 getGood=11 getBad=0 getTimedout=0 getPercent=100%
+1336326659560: successful reply for client get photo
+1336326659560: Success! Client getting photo from remote region, showing photo...
+1336326659560: Remote photo's length: 5529
+1336326659556: inside sendPacket(Packet p)
+1336326659557: Sending UDP payload: 446
+1336326660205: canPressButton = TRUE
+1336326660205: areButtonsEnabled --> false 
+1336326660206: get picture disableButtonsR
+1336326660206: areButtonsEnabled --> false
+1336326660228: one more getNum: 12
+1336326660229: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=12 getGood=11 getBad=0 getTimedout=0 getPercent=91%
+1336326660229: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 5 **
+1336326660229: change local requestCounter to 27
+1336326660235: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019027 Client in region: 1 Client nodID: 5019
+1336326660266: ----------------------------
+1336326660267: inside sendRequestPacketRepeatingRunnable for requestCount = 5019027
+1336326660267: I'm a nonleader sending my requesting photos packet to my leader
+1336326660274: --- Finished one round of sending REQUEST Packet ---------
+1336326660267: inside sendPacket(Packet p)
+1336326660273: Sending UDP payload: 642
+1336326660327: Received UDP payload: 1006
+1336326660337: mux: GOT CSM_Msg
+1336326660337: Received UDP payload: 446
+1336326660340: mux: Inside Packet.SERVER_REPLY
+1336326660340: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326660359: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326660411: Received UDP payload: 4710
+1336326660416: mux: GOT CSM_Msg
+1336326660462: Received UDP payload: 4363
+1336326660464: mux: Inside Packet.SERVER_REPLY
+1336326660464: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326660468: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326660468: disabling progressdialog due to successful new photo get
+1336326660468: Inside _enableButtons
+1336326660469: areButtonsEnabled --> true
+1336326660469: send final leg ack regardless of new or already-processed reply
+1336326660469: inside finalLegAck: change requestCounter to 28
+1336326660469: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019028 Client in region: (1,0) Client nodID: 5019
+1336326660469: I'm a nonleader client sending my final_leg packet to my leader
+1336326660472: new client_show_remotephoto reply with replyCounter 501902700
+1336326660472: note down new reply by adding replyCounter=501902700 to HashMap processedReplies
+1336326660472: nonleader download remote photo latency = 201
+1336326660472: = nonleader download start 1336326660267 ~ stop 1336326660468
+1336326660474: one more getGood: 12
+1336326660475: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=12 getGood=12 getBad=0 getTimedout=0 getPercent=100%
+1336326660475: successful reply for client get photo
+1336326660475: Success! Client getting photo from remote region, showing photo...
+1336326660476: Remote photo's length: 3682
+1336326660470: inside sendPacket(Packet p)
+1336326660471: Sending UDP payload: 446
+1336326660773: Received UDP payload: 446
+1336326662337: Received UDP payload: 446
+1336326662461: Received UDP payload: 446
+1336326662964: Received UDP payload: 446
+1336326663415: Received UDP payload: 446
+1336326664295: Received UDP payload: 446
+1336326665792: Received UDP payload: 446
+1336326667339: Received UDP payload: 446
+1336326667461: Received UDP payload: 446
+1336326667966: Received UDP payload: 446
+1336326668422: Received UDP payload: 446
+1336326669292: Received UDP payload: 446
+1336326670818: Received UDP payload: 446
+1336326672340: Received UDP payload: 446
+1336326672480: Received UDP payload: 446
+1336326673449: Received UDP payload: 446
+1336326674295: Received UDP payload: 446
+1336326675043: Received UDP payload: 446
+1336326675714: Received UDP payload: 642
+1336326675724: mux: Inside mux Packet.CLIENT_REQUEST
+1336326675725: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326675749: Received UDP payload: 1006
+1336326675762: mux: GOT CSM_Msg
+1336326675767: Received UDP payload: 446
+1336326675772: mux: Inside Packet.SERVER_REPLY
+1336326675772: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326675817: Received UDP payload: 4966
+1336326675820: mux: GOT CSM_Msg
+1336326675865: Received UDP payload: 4619
+1336326675867: mux: Inside Packet.SERVER_REPLY
+1336326675867: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326675901: Received UDP payload: 446
+1336326675902: mux: Inside mux Packet.CLIENT_REQUEST
+1336326675902: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326676904: Received UDP payload: 642
+1336326676911: mux: Inside mux Packet.CLIENT_REQUEST
+1336326676911: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326676965: Received UDP payload: 1006
+1336326676975: mux: GOT CSM_Msg
+1336326676988: Received UDP payload: 446
+1336326676992: mux: Inside Packet.SERVER_REPLY
+1336326676993: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326677037: Received UDP payload: 4956
+1336326677045: mux: GOT CSM_Msg
+1336326677092: Received UDP payload: 4609
+1336326677094: mux: Inside Packet.SERVER_REPLY
+1336326677094: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326677142: Received UDP payload: 446
+1336326677144: mux: Inside mux Packet.CLIENT_REQUEST
+1336326677144: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326677373: Received UDP payload: 446
+1336326677461: Received UDP payload: 446
+1336326677877: Received UDP payload: 446
+1336326677953: Received UDP payload: 642
+1336326677961: mux: Inside mux Packet.CLIENT_REQUEST
+1336326677961: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326678020: Received UDP payload: 1006
+1336326678022: mux: GOT CSM_Msg
+1336326678024: Received UDP payload: 446
+1336326678026: mux: Inside Packet.SERVER_REPLY
+1336326678026: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326678136: Received UDP payload: 5774
+1336326678139: mux: GOT CSM_Msg
+1336326678219: Received UDP payload: 5427
+1336326678221: mux: Inside Packet.SERVER_REPLY
+1336326678221: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326678239: Received UDP payload: 446
+1336326678240: mux: Inside mux Packet.CLIENT_REQUEST
+1336326678240: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326678438: Received UDP payload: 446
+1336326679105: Received UDP payload: 642
+1336326679111: mux: Inside mux Packet.CLIENT_REQUEST
+1336326679112: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326679132: Received UDP payload: 1006
+1336326679151: mux: GOT CSM_Msg
+1336326679151: Received UDP payload: 446
+1336326679152: mux: Inside Packet.SERVER_REPLY
+1336326679153: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326679212: Received UDP payload: 4450
+1336326679214: mux: GOT CSM_Msg
+1336326679301: Received UDP payload: 446
+1336326679316: Received UDP payload: 4103
+1336326679318: mux: Inside Packet.SERVER_REPLY
+1336326679318: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326679330: Received UDP payload: 446
+1336326679332: mux: Inside mux Packet.CLIENT_REQUEST
+1336326679332: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326679934: Received UDP payload: 1006
+1336326679942: mux: GOT CSM_Msg
+1336326680012: Received UDP payload: 4966
+1336326680020: mux: GOT CSM_Msg
+1336326680045: Received UDP payload: 446
+1336326680373: Received UDP payload: 642
+1336326680379: mux: Inside mux Packet.CLIENT_REQUEST
+1336326680379: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326680394: Received UDP payload: 1006
+1336326680403: mux: GOT CSM_Msg
+1336326680408: Received UDP payload: 446
+1336326680412: mux: Inside Packet.SERVER_REPLY
+1336326680413: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326680511: Received UDP payload: 6557
+1336326680520: mux: GOT CSM_Msg
+1336326680587: Received UDP payload: 6210
+1336326680592: mux: Inside Packet.SERVER_REPLY
+1336326680593: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326680599: Received UDP payload: 446
+1336326680604: mux: Inside mux Packet.CLIENT_REQUEST
+1336326680604: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326680887: Received UDP payload: 1006
+1336326680896: mux: GOT CSM_Msg
+1336326680959: Received UDP payload: 4956
+1336326680967: mux: GOT CSM_Msg
+1336326681557: Received UDP payload: 1006
+1336326681566: mux: GOT CSM_Msg
+1336326681584: Received UDP payload: 642
+1336326681590: mux: Inside mux Packet.CLIENT_REQUEST
+1336326681590: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326681641: Received UDP payload: 1006
+1336326681643: mux: GOT CSM_Msg
+1336326681648: Received UDP payload: 446
+1336326681649: mux: Inside Packet.SERVER_REPLY
+1336326681650: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326681681: Received UDP payload: 5774
+1336326681683: mux: GOT CSM_Msg
+1336326681792: Received UDP payload: 4710
+1336326681794: mux: GOT CSM_Msg
+1336326681852: Received UDP payload: 4363
+1336326681853: mux: Inside Packet.SERVER_REPLY
+1336326681853: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326681864: Received UDP payload: 446
+1336326681866: mux: Inside mux Packet.CLIENT_REQUEST
+1336326681866: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326682334: Received UDP payload: 1006
+1336326682340: mux: GOT CSM_Msg
+1336326682404: Received UDP payload: 4450
+1336326682410: mux: GOT CSM_Msg
+1336326682497: Received UDP payload: 446
+1336326682862: Received UDP payload: 446
+1336326683446: Received UDP payload: 446
+1336326683671: Received UDP payload: 1006
+1336326683682: mux: GOT CSM_Msg
+1336326683731: Received UDP payload: 4966
+1336326683754: mux: GOT CSM_Msg
+1336326684293: Received UDP payload: 446
+1336326684519: Received UDP payload: 446
+1336326684771: Received UDP payload: 1006
+1336326684786: mux: GOT CSM_Msg
+1336326684878: Received UDP payload: 4956
+1336326684887: mux: GOT CSM_Msg
+1336326685046: Received UDP payload: 446
+1336326685641: Received UDP payload: 1006
+1336326685651: mux: GOT CSM_Msg
+1336326685741: Received UDP payload: 1006
+1336326685759: mux: GOT CSM_Msg
+1336326685788: Received UDP payload: 6557
+1336326685797: mux: GOT CSM_Msg
+1336326685840: Received UDP payload: 5774
+1336326685843: mux: GOT CSM_Msg
+1336326686599: Received UDP payload: 1006
+1336326686607: mux: GOT CSM_Msg
+1336326686635: Received UDP payload: 1006
+1336326686644: mux: GOT CSM_Msg
+1336326686739: Received UDP payload: 4710
+1336326686747: mux: GOT CSM_Msg
+1336326686770: Received UDP payload: 4450
+1336326686779: mux: GOT CSM_Msg
+1336326687469: Received UDP payload: 446
+1336326687739: Received UDP payload: 642
+1336326687744: mux: Inside mux Packet.CLIENT_REQUEST
+1336326687744: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326687785: Received UDP payload: 1006
+1336326687787: mux: GOT CSM_Msg
+1336326687798: Received UDP payload: 446
+1336326687799: mux: Inside Packet.SERVER_REPLY
+1336326687799: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326687847: Received UDP payload: 4966
+1336326687849: mux: GOT CSM_Msg
+1336326687854: Received UDP payload: 446
+1336326687914: Received UDP payload: 4619
+1336326687916: mux: Inside Packet.SERVER_REPLY
+1336326687916: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326687926: Received UDP payload: 446
+1336326687927: mux: Inside mux Packet.CLIENT_REQUEST
+1336326687928: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326688414: Received UDP payload: 1006
+1336326688422: mux: GOT CSM_Msg
+1336326688450: Received UDP payload: 446
+1336326688528: Received UDP payload: 6557
+1336326688535: mux: GOT CSM_Msg
+1336326688648: Received UDP payload: 642
+1336326688654: mux: Inside mux Packet.CLIENT_REQUEST
+1336326688654: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326688674: Received UDP payload: 1006
+1336326688682: mux: GOT CSM_Msg
+1336326688683: Received UDP payload: 446
+1336326688687: mux: Inside Packet.SERVER_REPLY
+1336326688688: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326688767: Received UDP payload: 4956
+1336326688783: mux: GOT CSM_Msg
+1336326688860: Received UDP payload: 4609
+1336326688864: mux: Inside Packet.SERVER_REPLY
+1336326688865: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326688866: Received UDP payload: 446
+1336326688870: mux: Inside mux Packet.CLIENT_REQUEST
+1336326688870: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326689297: Received UDP payload: 446
+1336326689390: Received UDP payload: 1006
+1336326689396: mux: GOT CSM_Msg
+1336326689490: Received UDP payload: 4710
+1336326689497: mux: GOT CSM_Msg
+1336326689520: Received UDP payload: 446
+1336326689626: Received UDP payload: 642
+1336326689632: mux: Inside mux Packet.CLIENT_REQUEST
+1336326689632: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326689643: Received UDP payload: 1006
+1336326689652: mux: GOT CSM_Msg
+1336326689652: Received UDP payload: 446
+1336326689655: mux: Inside Packet.SERVER_REPLY
+1336326689656: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326689704: Received UDP payload: 4966
+1336326689707: mux: GOT CSM_Msg
+1336326689766: Received UDP payload: 4619
+1336326689768: mux: Inside Packet.SERVER_REPLY
+1336326689768: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326689778: Received UDP payload: 446
+1336326689780: mux: Inside mux Packet.CLIENT_REQUEST
+1336326689780: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326690045: Received UDP payload: 446
+1336326690661: Received UDP payload: 642
+1336326690665: mux: Inside mux Packet.CLIENT_REQUEST
+1336326690666: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326690713: Received UDP payload: 1006
+1336326690722: mux: GOT CSM_Msg
+1336326690748: Received UDP payload: 446
+1336326690749: mux: Inside Packet.SERVER_REPLY
+1336326690749: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326690797: Received UDP payload: 4450
+1336326690800: mux: GOT CSM_Msg
+1336326690840: Received UDP payload: 4103
+1336326690841: mux: Inside Packet.SERVER_REPLY
+1336326690841: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326690852: Received UDP payload: 446
+1336326690853: mux: Inside mux Packet.CLIENT_REQUEST
+1336326690854: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326691546: Received UDP payload: 642
+1336326691551: mux: Inside mux Packet.CLIENT_REQUEST
+1336326691552: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326691595: Received UDP payload: 1006
+1336326691605: mux: GOT CSM_Msg
+1336326691615: Received UDP payload: 446
+1336326691619: mux: Inside Packet.SERVER_REPLY
+1336326691619: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326691710: Received UDP payload: 6557
+1336326691718: mux: GOT CSM_Msg
+1336326691788: Received UDP payload: 6210
+1336326691793: mux: Inside Packet.SERVER_REPLY
+1336326691794: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326691818: Received UDP payload: 446
+1336326691823: mux: Inside mux Packet.CLIENT_REQUEST
+1336326691823: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326692462: Received UDP payload: 642
+1336326692466: mux: Inside mux Packet.CLIENT_REQUEST
+1336326692466: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326692484: Received UDP payload: 446
+1336326692506: Received UDP payload: 1006
+1336326692513: mux: GOT CSM_Msg
+1336326692523: Received UDP payload: 446
+1336326692530: mux: Inside Packet.SERVER_REPLY
+1336326692530: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326692596: Received UDP payload: 4710
+1336326692598: mux: GOT CSM_Msg
+1336326692650: Received UDP payload: 4363
+1336326692652: mux: Inside Packet.SERVER_REPLY
+1336326692652: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326692662: Received UDP payload: 446
+1336326692664: mux: Inside mux Packet.CLIENT_REQUEST
+1336326692664: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326692855: Received UDP payload: 446
+1336326693466: Received UDP payload: 446
+1336326694296: Received UDP payload: 446
+1336326694523: Received UDP payload: 446
+1336326695049: Received UDP payload: 446
+1336326697487: Received UDP payload: 446
+1336326697870: Received UDP payload: 446
+1336326698485: Received UDP payload: 446
+1336326699299: Received UDP payload: 446
+1336326699522: Received UDP payload: 446
+1336326700052: Received UDP payload: 446
+1336326702861: Received UDP payload: 446
+1336326703506: Received UDP payload: 446
+1336326704315: Received UDP payload: 446
+1336326704516: Received UDP payload: 446
+1336326704525: Received UDP payload: 446
+1336326705054: Received UDP payload: 446
+1336326706675: Received UDP payload: 1006
+1336326706689: mux: GOT CSM_Msg
+1336326706796: Received UDP payload: 4966
+1336326706799: mux: GOT CSM_Msg
+1336326707610: Received UDP payload: 1006
+1336326707616: mux: GOT CSM_Msg
+1336326707744: Received UDP payload: 4956
+1336326707751: mux: GOT CSM_Msg
+1336326707856: Received UDP payload: 446
+1336326708514: Received UDP payload: 446
+1336326708622: Received UDP payload: 1006
+1336326708633: mux: GOT CSM_Msg
+1336326708683: Received UDP payload: 5774
+1336326708686: mux: GOT CSM_Msg
+1336326709302: Received UDP payload: 446
+1336326709534: Received UDP payload: 446
+1336326709570: Received UDP payload: 446
+1336326709702: Received UDP payload: 1006
+1336326709711: mux: GOT CSM_Msg
+1336326709787: Received UDP payload: 4450
+1336326709789: mux: GOT CSM_Msg
+1336326710075: Received UDP payload: 446
+1336326710685: Received UDP payload: 1006
+1336326710694: mux: GOT CSM_Msg
+1336326710847: Received UDP payload: 6557
+1336326710854: mux: GOT CSM_Msg
+1336326711815: Received UDP payload: 1006
+1336326711822: mux: GOT CSM_Msg
+1336326711939: Received UDP payload: 4710
+1336326711946: mux: GOT CSM_Msg
+1336326712865: Received UDP payload: 446
+1336326713521: Received UDP payload: 446
+1336326714550: Received UDP payload: 446
+1336326714566: Received UDP payload: 446
+1336326715057: Received UDP payload: 446
+1336326716420: Received UDP payload: 446
+1336326717863: Received UDP payload: 446
+1336326718527: Received UDP payload: 446
+1336326719553: Received UDP payload: 446
+1336326719562: Received UDP payload: 446
+1336326720058: Received UDP payload: 446
+1336326721402: Received UDP payload: 446
+1336326722864: Received UDP payload: 446
+1336326723522: Received UDP payload: 446
+1336326724557: Received UDP payload: 446
+1336326724580: Received UDP payload: 446
+1336326725057: Received UDP payload: 446
+1336326726401: Received UDP payload: 446
+1336326727863: Received UDP payload: 446
+1336326728522: Received UDP payload: 446
+1336326728806: Received UDP payload: 1006
+1336326728814: mux: GOT CSM_Msg
+1336326728934: Received UDP payload: 4966
+1336326728941: mux: GOT CSM_Msg
+1336326729556: Received UDP payload: 446
+1336326729594: Received UDP payload: 446
+1336326729741: Received UDP payload: 1006
+1336326729749: mux: GOT CSM_Msg
+1336326729831: Received UDP payload: 4956
+1336326729836: mux: GOT CSM_Msg
+1336326730062: Received UDP payload: 446
+1336326730539: Received UDP payload: 1006
+1336326730548: mux: GOT CSM_Msg
+1336326730555: Received UDP payload: 1006
+1336326730571: mux: GOT CSM_Msg
+1336326730677: Received UDP payload: 4966
+1336326730679: mux: GOT CSM_Msg
+1336326730690: Received UDP payload: 5774
+1336326730694: mux: GOT CSM_Msg
+1336326731402: Received UDP payload: 446
+1336326731433: Received UDP payload: 1006
+1336326731446: mux: GOT CSM_Msg
+1336326731534: Received UDP payload: 4450
+1336326731541: mux: GOT CSM_Msg
+1336326731658: Received UDP payload: 1006
+1336326731665: mux: GOT CSM_Msg
+1336326731740: Received UDP payload: 4956
+1336326731747: mux: GOT CSM_Msg
+1336326732302: Received UDP payload: 1006
+1336326732310: mux: GOT CSM_Msg
+1336326732394: Received UDP payload: 6557
+1336326732402: mux: GOT CSM_Msg
+1336326732687: Received UDP payload: 1006
+1336326732695: mux: GOT CSM_Msg
+1336326732798: Received UDP payload: 5774
+1336326732828: mux: GOT CSM_Msg
+1336326732860: Received UDP payload: 446
+1336326733393: Received UDP payload: 1006
+1336326733412: mux: GOT CSM_Msg
+1336326733524: Received UDP payload: 446
+1336326733636: Received UDP payload: 4710
+1336326733644: mux: GOT CSM_Msg
+1336326733751: Received UDP payload: 1006
+1336326733760: mux: GOT CSM_Msg
+1336326733825: Received UDP payload: 4450
+1336326733833: mux: GOT CSM_Msg
+1336326734551: Received UDP payload: 446
+1336326734594: Received UDP payload: 446
+1336326734687: Received UDP payload: 1006
+1336326734694: mux: GOT CSM_Msg
+1336326734708: Received UDP payload: 1006
+1336326734715: mux: GOT CSM_Msg
+1336326734768: Received UDP payload: 6557
+1336326734770: mux: GOT CSM_Msg
+1336326734841: Received UDP payload: 4966
+1336326734843: mux: GOT CSM_Msg
+1336326735057: Received UDP payload: 446
+1336326735746: Received UDP payload: 1006
+1336326735761: mux: GOT CSM_Msg
+1336326735823: Received UDP payload: 1006
+1336326735831: mux: GOT CSM_Msg
+1336326735882: Received UDP payload: 4710
+1336326735884: mux: GOT CSM_Msg
+1336326735946: Received UDP payload: 4956
+1336326735949: mux: GOT CSM_Msg
+1336326736403: Received UDP payload: 446
+1336326736868: Received UDP payload: 1006
+1336326736876: mux: GOT CSM_Msg
+1336326736987: Received UDP payload: 5774
+1336326736994: mux: GOT CSM_Msg
+1336326737586: Received UDP payload: 642
+1336326737592: mux: Inside mux Packet.CLIENT_REQUEST
+1336326737592: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326737656: Received UDP payload: 1006
+1336326737660: mux: GOT CSM_Msg
+1336326737668: Received UDP payload: 446
+1336326737669: mux: Inside Packet.SERVER_REPLY
+1336326737669: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326737752: Received UDP payload: 4966
+1336326737754: mux: GOT CSM_Msg
+1336326737809: Received UDP payload: 4619
+1336326737810: mux: Inside Packet.SERVER_REPLY
+1336326737811: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326737821: Received UDP payload: 446
+1336326737823: mux: Inside mux Packet.CLIENT_REQUEST
+1336326737823: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326737862: Received UDP payload: 446
+1336326737966: Received UDP payload: 1006
+1336326737968: mux: GOT CSM_Msg
+1336326738019: Received UDP payload: 4450
+1336326738022: mux: GOT CSM_Msg
+1336326738669: Received UDP payload: 642
+1336326738674: mux: Inside mux Packet.CLIENT_REQUEST
+1336326738674: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326738714: Received UDP payload: 1006
+1336326738732: mux: GOT CSM_Msg
+1336326738726: Received UDP payload: 446
+1336326738733: mux: Inside Packet.SERVER_REPLY
+1336326738733: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326738840: Received UDP payload: 4956
+1336326738842: mux: GOT CSM_Msg
+1336326738855: Received UDP payload: 1006
+1336326738857: mux: GOT CSM_Msg
+1336326739039: Received UDP payload: 6557
+1336326739042: mux: GOT CSM_Msg
+1336326739555: Received UDP payload: 446
+1336326739594: Received UDP payload: 446
+1336326739808: Received UDP payload: 1006
+1336326739814: mux: GOT CSM_Msg
+1336326739864: Received UDP payload: 4710
+1336326739872: mux: GOT CSM_Msg
+1336326740060: Received UDP payload: 446
+1336326740347: Received UDP payload: 446
+1336326740396: Received UDP payload: 4609
+1336326740400: mux: Inside Packet.SERVER_REPLY
+1336326740400: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326740413: Received UDP payload: 446
+1336326740415: mux: Inside mux Packet.CLIENT_REQUEST
+1336326740416: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326741404: Received UDP payload: 446
+1336326742871: Received UDP payload: 446
+1336326744596: Received UDP payload: 446
+1336326744604: Received UDP payload: 446
+1336326744629: Received UDP payload: 642
+1336326744634: mux: Inside mux Packet.CLIENT_REQUEST
+1336326744635: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326744645: Received UDP payload: 1006
+1336326744658: mux: GOT CSM_Msg
+1336326744653: Received UDP payload: 446
+1336326744659: mux: Inside Packet.SERVER_REPLY
+1336326744659: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326744754: Received UDP payload: 5774
+1336326744756: mux: GOT CSM_Msg
+1336326744822: Received UDP payload: 5427
+1336326744823: mux: Inside Packet.SERVER_REPLY
+1336326744824: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326744834: Received UDP payload: 446
+1336326744836: mux: Inside mux Packet.CLIENT_REQUEST
+1336326744836: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326745062: Received UDP payload: 446
+1336326745353: Received UDP payload: 446
+1336326745766: Received UDP payload: 642
+1336326745777: mux: Inside mux Packet.CLIENT_REQUEST
+1336326745778: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326745818: Received UDP payload: 1006
+1336326745826: mux: GOT CSM_Msg
+1336326745834: Received UDP payload: 446
+1336326745835: mux: Inside Packet.SERVER_REPLY
+1336326745835: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326745911: Received UDP payload: 4450
+1336326745913: mux: GOT CSM_Msg
+1336326745964: Received UDP payload: 4103
+1336326745965: mux: Inside Packet.SERVER_REPLY
+1336326745966: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326745980: Received UDP payload: 446
+1336326745981: mux: Inside mux Packet.CLIENT_REQUEST
+1336326745981: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326746401: Received UDP payload: 446
+1336326747196: Received UDP payload: 642
+1336326747203: mux: Inside mux Packet.CLIENT_REQUEST
+1336326747204: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326747246: Received UDP payload: 1006
+1336326747253: mux: GOT CSM_Msg
+1336326747261: Received UDP payload: 446
+1336326747262: mux: Inside Packet.SERVER_REPLY
+1336326747262: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326747391: Received UDP payload: 6210
+1336326747393: mux: Inside Packet.SERVER_REPLY
+1336326747393: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326747401: Received UDP payload: 446
+1336326747403: mux: Inside mux Packet.CLIENT_REQUEST
+1336326747403: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326747877: Received UDP payload: 446
+1336326748316: Received UDP payload: 642
+1336326748321: mux: Inside mux Packet.CLIENT_REQUEST
+1336326748322: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326748362: Received UDP payload: 1006
+1336326748371: mux: GOT CSM_Msg
+1336326748372: Received UDP payload: 446
+1336326748376: mux: Inside Packet.SERVER_REPLY
+1336326748376: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326748459: Received UDP payload: 4710
+1336326748466: mux: GOT CSM_Msg
+1336326748527: Received UDP payload: 4363
+1336326748532: mux: Inside Packet.SERVER_REPLY
+1336326748533: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326748544: Received UDP payload: 446
+1336326748549: mux: Inside mux Packet.CLIENT_REQUEST
+1336326748549: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326749579: Received UDP payload: 446
+1336326749609: Received UDP payload: 446
+1336326750102: Received UDP payload: 446
+1336326750376: Received UDP payload: 446
+1336326751408: Received UDP payload: 446
+1336326752917: Received UDP payload: 446
+1336326754593: Received UDP payload: 446
+1336326754646: Received UDP payload: 446
+1336326755108: Received UDP payload: 446
+1336326755372: Received UDP payload: 446
+1336326756409: Received UDP payload: 446
+1336326757881: Received UDP payload: 446
+1336326759614: Received UDP payload: 446
+1336326759644: Received UDP payload: 446
+1336326760087: Received UDP payload: 446
+1336326760375: Received UDP payload: 446
+1336326761407: Received UDP payload: 446
+1336326762880: Received UDP payload: 446
+1336326764625: Received UDP payload: 446
+1336326764653: Received UDP payload: 446
+1336326765070: Received UDP payload: 446
+1336326765405: Received UDP payload: 446
+1336326766463: Received UDP payload: 446
+1336326767898: Received UDP payload: 446
+1336326769620: Received UDP payload: 446
+1336326769665: Received UDP payload: 446
+1336326770083: Received UDP payload: 446
+1336326770402: Received UDP payload: 446
+1336326771411: Received UDP payload: 446
+1336326772884: Received UDP payload: 446
+1336326774621: Received UDP payload: 446
+1336326774680: Received UDP payload: 446
+1336326775074: Received UDP payload: 446
+1336326775414: Received UDP payload: 446
+1336326776411: Received UDP payload: 446
+1336326777883: Received UDP payload: 446
+1336326779635: Received UDP payload: 446
+1336326779730: Received UDP payload: 446
+1336326780072: Received UDP payload: 446
+1336326780415: Received UDP payload: 446
+1336326781412: Received UDP payload: 446
+1336326781965: Received UDP payload: 642
+1336326781970: mux: Inside mux Packet.CLIENT_REQUEST
+1336326781970: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326782046: Received UDP payload: 1006
+1336326782056: mux: GOT CSM_Msg
+1336326782056: Received UDP payload: 446
+1336326782070: mux: Inside Packet.SERVER_REPLY
+1336326782071: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326782139: Received UDP payload: 4966
+1336326782141: mux: GOT CSM_Msg
+1336326782200: Received UDP payload: 4619
+1336326782201: mux: Inside Packet.SERVER_REPLY
+1336326782202: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326782220: Received UDP payload: 446
+1336326782222: mux: Inside mux Packet.CLIENT_REQUEST
+1336326782222: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326782885: Received UDP payload: 446
+1336326783260: Received UDP payload: 642
+1336326783265: mux: Inside mux Packet.CLIENT_REQUEST
+1336326783266: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326783297: Received UDP payload: 1006
+1336326783304: mux: GOT CSM_Msg
+1336326783316: Received UDP payload: 446
+1336326783320: mux: Inside Packet.SERVER_REPLY
+1336326783320: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326783381: Received UDP payload: 4956
+1336326783384: mux: GOT CSM_Msg
+1336326783444: Received UDP payload: 4609
+1336326783446: mux: Inside Packet.SERVER_REPLY
+1336326783446: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326783456: Received UDP payload: 446
+1336326783458: mux: Inside mux Packet.CLIENT_REQUEST
+1336326783458: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326784532: Received UDP payload: 642
+1336326784538: mux: Inside mux Packet.CLIENT_REQUEST
+1336326784538: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326784582: Received UDP payload: 1006
+1336326784584: mux: GOT CSM_Msg
+1336326784585: Received UDP payload: 446
+1336326784587: mux: Inside Packet.SERVER_REPLY
+1336326784587: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326784646: Received UDP payload: 446
+1336326784657: Received UDP payload: 5774
+1336326784660: mux: GOT CSM_Msg
+1336326784718: Received UDP payload: 5427
+1336326784720: mux: Inside Packet.SERVER_REPLY
+1336326784720: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326784722: Received UDP payload: 446
+1336326784735: Received UDP payload: 446
+1336326784736: mux: Inside mux Packet.CLIENT_REQUEST
+1336326784736: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326785074: Received UDP payload: 446
+1336326785418: Received UDP payload: 446
+1336326785775: Received UDP payload: 642
+1336326785782: mux: Inside mux Packet.CLIENT_REQUEST
+1336326785782: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326785818: Received UDP payload: 1006
+1336326785827: mux: GOT CSM_Msg
+1336326785845: Received UDP payload: 446
+1336326785847: mux: Inside Packet.SERVER_REPLY
+1336326785847: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326785895: Received UDP payload: 4450
+1336326785897: mux: GOT CSM_Msg
+1336326785938: Received UDP payload: 4103
+1336326785940: mux: Inside Packet.SERVER_REPLY
+1336326785940: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326785954: Received UDP payload: 446
+1336326785955: mux: Inside mux Packet.CLIENT_REQUEST
+1336326785955: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326786411: Received UDP payload: 446
+1336326787063: Received UDP payload: 642
+1336326787070: mux: Inside mux Packet.CLIENT_REQUEST
+1336326787071: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326787116: Received UDP payload: 1006
+1336326787118: mux: GOT CSM_Msg
+1336326787126: Received UDP payload: 446
+1336326787127: mux: Inside Packet.SERVER_REPLY
+1336326787127: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326787208: Received UDP payload: 6557
+1336326787210: mux: GOT CSM_Msg
+1336326787287: Received UDP payload: 6210
+1336326787289: mux: Inside Packet.SERVER_REPLY
+1336326787289: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326787302: Received UDP payload: 446
+1336326787304: mux: Inside mux Packet.CLIENT_REQUEST
+1336326787304: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326787893: Received UDP payload: 446
+1336326788211: Received UDP payload: 642
+1336326788217: mux: Inside mux Packet.CLIENT_REQUEST
+1336326788217: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326788247: Received UDP payload: 1006
+1336326788257: mux: GOT CSM_Msg
+1336326788257: Received UDP payload: 446
+1336326788267: mux: Inside Packet.SERVER_REPLY
+1336326788268: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326788336: Received UDP payload: 4710
+1336326788340: mux: GOT CSM_Msg
+1336326788389: Received UDP payload: 4363
+1336326788391: mux: Inside Packet.SERVER_REPLY
+1336326788391: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326788703: Received UDP payload: 4363
+1336326788705: mux: Inside Packet.SERVER_REPLY
+1336326788705: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326788722: Received UDP payload: 446
+1336326788724: mux: Inside mux Packet.CLIENT_REQUEST
+1336326788725: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326789622: Received UDP payload: 446
+1336326789726: Received UDP payload: 446
+1336326789976: Received UDP payload: 1006
+1336326789984: mux: GOT CSM_Msg
+1336326790065: Received UDP payload: 4966
+1336326790072: mux: GOT CSM_Msg
+1336326790077: Received UDP payload: 446
+1336326790419: Received UDP payload: 446
+1336326791183: Received UDP payload: 1006
+1336326791191: mux: GOT CSM_Msg
+1336326791278: Received UDP payload: 4956
+1336326791285: mux: GOT CSM_Msg
+1336326791413: Received UDP payload: 446
+1336326792432: Received UDP payload: 1006
+1336326792440: mux: GOT CSM_Msg
+1336326792526: Received UDP payload: 5774
+1336326792535: mux: GOT CSM_Msg
+1336326792893: Received UDP payload: 446
+1336326793389: Received UDP payload: 1006
+1336326793397: mux: GOT CSM_Msg
+1336326793478: Received UDP payload: 4450
+1336326793487: mux: GOT CSM_Msg
+1336326794634: Received UDP payload: 446
+1336326794753: Received UDP payload: 446
+1336326795432: Received UDP payload: 446
+1336326795698: Received UDP payload: 1006
+1336326795704: mux: GOT CSM_Msg
+1336326795807: Received UDP payload: 6557
+1336326795809: mux: GOT CSM_Msg
+1336326796422: Received UDP payload: 446
+1336326796577: Received UDP payload: 1006
+1336326796584: mux: GOT CSM_Msg
+1336326796665: Received UDP payload: 4710
+1336326796672: mux: GOT CSM_Msg
+1336326797310: Received UDP payload: 446
+1336326799637: Received UDP payload: 446
+1336326799767: Received UDP payload: 446
+1336326800053: Received UDP payload: 446
+1336326800437: Received UDP payload: 446
+1336326801417: Received UDP payload: 446
+1336326802300: Received UDP payload: 446
+1336326804651: Received UDP payload: 446
+1336326805053: Received UDP payload: 446
+1336326805451: Received UDP payload: 446
+1336326806417: Received UDP payload: 446
+1336326806662: Received UDP payload: 446
+1336326807318: Received UDP payload: 446
+1336326808123: Received UDP payload: 642
+1336326808127: mux: Inside mux Packet.CLIENT_REQUEST
+1336326808127: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326808155: Received UDP payload: 1006
+1336326808166: mux: GOT CSM_Msg
+1336326808167: Received UDP payload: 446
+1336326808181: mux: Inside Packet.SERVER_REPLY
+1336326808181: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326808229: Received UDP payload: 4956
+1336326808232: mux: GOT CSM_Msg
+1336326808282: Received UDP payload: 4609
+1336326808284: mux: Inside Packet.SERVER_REPLY
+1336326808284: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326808299: Received UDP payload: 446
+1336326808300: mux: Inside mux Packet.CLIENT_REQUEST
+1336326808301: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326809259: Received UDP payload: 642
+1336326809264: mux: Inside mux Packet.CLIENT_REQUEST
+1336326809264: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326809292: Received UDP payload: 1006
+1336326809300: mux: GOT CSM_Msg
+1336326809309: Received UDP payload: 446
+1336326809313: mux: Inside Packet.SERVER_REPLY
+1336326809314: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326809363: Received UDP payload: 4966
+1336326809365: mux: GOT CSM_Msg
+1336326809418: Received UDP payload: 4619
+1336326809422: mux: Inside Packet.SERVER_REPLY
+1336326809422: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326809434: Received UDP payload: 446
+1336326809435: mux: Inside mux Packet.CLIENT_REQUEST
+1336326809436: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326810060: Received UDP payload: 446
+1336326810463: Received UDP payload: 446
+1336326810485: Received UDP payload: 642
+1336326810489: mux: Inside mux Packet.CLIENT_REQUEST
+1336326810490: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326810531: Received UDP payload: 1006
+1336326810533: mux: GOT CSM_Msg
+1336326810535: Received UDP payload: 446
+1336326810536: mux: Inside Packet.SERVER_REPLY
+1336326810536: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326810611: Received UDP payload: 4450
+1336326810613: mux: GOT CSM_Msg
+1336326810662: Received UDP payload: 4103
+1336326810664: mux: Inside Packet.SERVER_REPLY
+1336326810664: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326810675: Received UDP payload: 446
+1336326810676: mux: Inside mux Packet.CLIENT_REQUEST
+1336326810676: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326811425: Received UDP payload: 446
+1336326811510: Received UDP payload: 642
+1336326811513: mux: Inside mux Packet.CLIENT_REQUEST
+1336326811514: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326811546: Received UDP payload: 1006
+1336326811552: mux: GOT CSM_Msg
+1336326811555: Received UDP payload: 446
+1336326811557: mux: Inside Packet.SERVER_REPLY
+1336326811557: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326811641: Received UDP payload: 5774
+1336326811648: mux: GOT CSM_Msg
+1336326811670: Received UDP payload: 446
+1336326811714: Received UDP payload: 5427
+1336326811719: mux: Inside Packet.SERVER_REPLY
+1336326811720: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326811727: Received UDP payload: 446
+1336326811731: mux: Inside mux Packet.CLIENT_REQUEST
+1336326811731: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326812323: Received UDP payload: 446
+1336326812623: Received UDP payload: 642
+1336326812629: mux: Inside mux Packet.CLIENT_REQUEST
+1336326812630: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326812641: Received UDP payload: 1006
+1336326812655: mux: GOT CSM_Msg
+1336326812656: Received UDP payload: 446
+1336326812660: mux: Inside Packet.SERVER_REPLY
+1336326812661: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326812739: Received UDP payload: 4710
+1336326812741: mux: GOT CSM_Msg
+1336326812796: Received UDP payload: 4363
+1336326812798: mux: Inside Packet.SERVER_REPLY
+1336326812798: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326812816: Received UDP payload: 446
+1336326812817: mux: Inside mux Packet.CLIENT_REQUEST
+1336326812817: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326813698: Received UDP payload: 642
+1336326813703: mux: Inside mux Packet.CLIENT_REQUEST
+1336326813703: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326813766: Received UDP payload: 1006
+1336326813775: mux: GOT CSM_Msg
+1336326813788: Received UDP payload: 446
+1336326813792: mux: Inside Packet.SERVER_REPLY
+1336326813793: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326813871: Received UDP payload: 6557
+1336326813879: mux: GOT CSM_Msg
+1336326813961: Received UDP payload: 446
+1336326813965: mux: Inside mux Packet.CLIENT_REQUEST
+1336326813965: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326814655: Received UDP payload: 446
+1336326815059: Received UDP payload: 446
+1336326815307: Received UDP payload: 1006
+1336326815316: mux: GOT CSM_Msg
+1336326815352: Received UDP payload: 4966
+1336326815361: mux: GOT CSM_Msg
+1336326815468: Received UDP payload: 446
+1336326816430: Received UDP payload: 446
+1336326816669: Received UDP payload: 446
+1336326816722: Received UDP payload: 1006
+1336326816729: mux: GOT CSM_Msg
+1336326816807: Received UDP payload: 4956
+1336326816814: mux: GOT CSM_Msg
+1336326817319: Received UDP payload: 446
+1336326817695: Received UDP payload: 1006
+1336326817702: mux: GOT CSM_Msg
+1336326817802: Received UDP payload: 5774
+1336326817809: mux: GOT CSM_Msg
+1336326818769: Received UDP payload: 1006
+1336326818776: mux: GOT CSM_Msg
+1336326818863: Received UDP payload: 4450
+1336326818869: mux: GOT CSM_Msg
+1336326819718: Received UDP payload: 446
+1336326819804: Received UDP payload: 1006
+1336326819812: mux: GOT CSM_Msg
+1336326819919: Received UDP payload: 6557
+1336326819925: mux: GOT CSM_Msg
+1336326820058: Received UDP payload: 446
+1336326820469: Received UDP payload: 446
+1336326821237: Received UDP payload: 1006
+1336326821244: mux: GOT CSM_Msg
+1336326821341: Received UDP payload: 4710
+1336326821348: mux: GOT CSM_Msg
+1336326821451: Received UDP payload: 446
+1336326821669: Received UDP payload: 446
+1336326822338: Received UDP payload: 446
+1336326825080: Received UDP payload: 446
+1336326825489: Received UDP payload: 446
+1336326826431: Received UDP payload: 446
+1336326826597: Received UDP payload: 446
+1336326826687: Received UDP payload: 446
+1336326827374: Received UDP payload: 446
+1336326830086: Received UDP payload: 446
+1336326830504: Received UDP payload: 446
+1336326831436: Received UDP payload: 446
+1336326831599: Received UDP payload: 446
+1336326831675: Received UDP payload: 446
+1336326832370: Received UDP payload: 446
+1336326832473: canPressButton = TRUE
+1336326832473: areButtonsEnabled --> false 
+1336326832474: get picture disableButtonsR
+1336326832476: areButtonsEnabled --> false
+1336326832500: one more getNum: 13
+1336326832500: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=13 getGood=12 getBad=0 getTimedout=0 getPercent=92%
+1336326832501: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 0 **
+1336326832501: change local requestCounter to 29
+1336326832507: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019029 Client in region: 1 Client nodID: 5019
+1336326832538: ----------------------------
+1336326832539: inside sendRequestPacketRepeatingRunnable for requestCount = 5019029
+1336326832539: I'm a nonleader sending my requesting photos packet to my leader
+1336326832545: --- Finished one round of sending REQUEST Packet ---------
+1336326832539: inside sendPacket(Packet p)
+1336326832544: Sending UDP payload: 642
+1336326832630: Received UDP payload: 1006
+1336326832633: mux: GOT CSM_Msg
+1336326832641: Received UDP payload: 446
+1336326832642: mux: Inside Packet.SERVER_REPLY
+1336326832642: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326832652: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326832719: Received UDP payload: 4966
+1336326832721: mux: GOT CSM_Msg
+1336326832782: Received UDP payload: 4619
+1336326832784: mux: Inside Packet.SERVER_REPLY
+1336326832784: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326832790: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326832790: disabling progressdialog due to successful new photo get
+1336326832791: Inside _enableButtons
+1336326832791: areButtonsEnabled --> true
+1336326832791: send final leg ack regardless of new or already-processed reply
+1336326832791: inside finalLegAck: change requestCounter to 30
+1336326832791: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019030 Client in region: (1,0) Client nodID: 5019
+1336326832792: I'm a nonleader client sending my final_leg packet to my leader
+1336326832798: new client_show_remotephoto reply with replyCounter 501902900
+1336326832799: note down new reply by adding replyCounter=501902900 to HashMap processedReplies
+1336326832799: nonleader download remote photo latency = 251
+1336326832799: = nonleader download start 1336326832539 ~ stop 1336326832790
+1336326832800: one more getGood: 13
+1336326832809: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=13 getGood=13 getBad=0 getTimedout=0 getPercent=100%
+1336326832809: successful reply for client get photo
+1336326832810: Success! Client getting photo from remote region, showing photo...
+1336326832810: Remote photo's length: 3938
+1336326832792: inside sendPacket(Packet p)
+1336326832797: Sending UDP payload: 446
+1336326833688: canPressButton = TRUE
+1336326833688: areButtonsEnabled --> false 
+1336326833689: get picture disableButtonsR
+1336326833689: areButtonsEnabled --> false
+1336326833704: one more getNum: 14
+1336326833705: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=14 getGood=13 getBad=0 getTimedout=0 getPercent=92%
+1336326833705: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 1 **
+1336326833705: change local requestCounter to 31
+1336326833710: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019031 Client in region: 1 Client nodID: 5019
+1336326833746: ----------------------------
+1336326833746: inside sendRequestPacketRepeatingRunnable for requestCount = 5019031
+1336326833746: I'm a nonleader sending my requesting photos packet to my leader
+1336326833754: --- Finished one round of sending REQUEST Packet ---------
+1336326833746: inside sendPacket(Packet p)
+1336326833753: Sending UDP payload: 642
+1336326833815: Received UDP payload: 1006
+1336326833822: mux: GOT CSM_Msg
+1336326833822: Received UDP payload: 446
+1336326833823: mux: Inside Packet.SERVER_REPLY
+1336326833823: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326833841: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326833880: Received UDP payload: 4956
+1336326833882: mux: GOT CSM_Msg
+1336326833931: Received UDP payload: 4609
+1336326833932: mux: Inside Packet.SERVER_REPLY
+1336326833933: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326833933: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326833934: disabling progressdialog due to successful new photo get
+1336326833935: Inside _enableButtons
+1336326833935: areButtonsEnabled --> true
+1336326833936: send final leg ack regardless of new or already-processed reply
+1336326833937: inside finalLegAck: change requestCounter to 32
+1336326833937: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019032 Client in region: (1,0) Client nodID: 5019
+1336326833938: I'm a nonleader client sending my final_leg packet to my leader
+1336326833939: new client_show_remotephoto reply with replyCounter 501903100
+1336326833940: note down new reply by adding replyCounter=501903100 to HashMap processedReplies
+1336326833941: nonleader download remote photo latency = 187
+1336326833942: = nonleader download start 1336326833746 ~ stop 1336326833933
+1336326833946: one more getGood: 14
+1336326833948: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=14 getGood=14 getBad=0 getTimedout=0 getPercent=100%
+1336326833949: successful reply for client get photo
+1336326833949: Success! Client getting photo from remote region, showing photo...
+1336326833950: Remote photo's length: 3928
+1336326833939: inside sendPacket(Packet p)
+1336326833941: Sending UDP payload: 446
+1336326834705: canPressButton = TRUE
+1336326834705: areButtonsEnabled --> false 
+1336326834705: get picture disableButtonsR
+1336326834705: areButtonsEnabled --> false
+1336326834727: one more getNum: 15
+1336326834728: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=15 getGood=14 getBad=0 getTimedout=0 getPercent=93%
+1336326834729: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 2 **
+1336326834729: change local requestCounter to 33
+1336326834733: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019033 Client in region: 1 Client nodID: 5019
+1336326834774: ----------------------------
+1336326834774: inside sendRequestPacketRepeatingRunnable for requestCount = 5019033
+1336326834774: I'm a nonleader sending my requesting photos packet to my leader
+1336326834781: --- Finished one round of sending REQUEST Packet ---------
+1336326834775: inside sendPacket(Packet p)
+1336326834780: Sending UDP payload: 642
+1336326834851: Received UDP payload: 1006
+1336326834861: mux: GOT CSM_Msg
+1336326834861: Received UDP payload: 446
+1336326834862: mux: Inside Packet.SERVER_REPLY
+1336326834862: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326834865: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326834948: Received UDP payload: 5774
+1336326834951: mux: GOT CSM_Msg
+1336326835009: Received UDP payload: 5427
+1336326835010: mux: Inside Packet.SERVER_REPLY
+1336326835010: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326835011: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326835011: disabling progressdialog due to successful new photo get
+1336326835011: Inside _enableButtons
+1336326835011: areButtonsEnabled --> true
+1336326835012: send final leg ack regardless of new or already-processed reply
+1336326835012: inside finalLegAck: change requestCounter to 34
+1336326835012: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019034 Client in region: (1,0) Client nodID: 5019
+1336326835012: I'm a nonleader client sending my final_leg packet to my leader
+1336326835015: new client_show_remotephoto reply with replyCounter 501903300
+1336326835016: note down new reply by adding replyCounter=501903300 to HashMap processedReplies
+1336326835016: nonleader download remote photo latency = 236
+1336326835016: = nonleader download start 1336326834775 ~ stop 1336326835011
+1336326835018: one more getGood: 15
+1336326835021: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=15 getGood=15 getBad=0 getTimedout=0 getPercent=100%
+1336326835021: successful reply for client get photo
+1336326835021: Success! Client getting photo from remote region, showing photo...
+1336326835021: Remote photo's length: 4746
+1336326835013: inside sendPacket(Packet p)
+1336326835014: Sending UDP payload: 446
+1336326835087: Received UDP payload: 446
+1336326835509: Received UDP payload: 446
+1336326835694: canPressButton = TRUE
+1336326835695: areButtonsEnabled --> false 
+1336326835695: get picture disableButtonsR
+1336326835695: areButtonsEnabled --> false
+1336326835711: one more getNum: 16
+1336326835711: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=16 getGood=15 getBad=0 getTimedout=0 getPercent=93%
+1336326835712: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 3 **
+1336326835712: change local requestCounter to 35
+1336326835716: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019035 Client in region: 1 Client nodID: 5019
+1336326835752: ----------------------------
+1336326835753: inside sendRequestPacketRepeatingRunnable for requestCount = 5019035
+1336326835753: I'm a nonleader sending my requesting photos packet to my leader
+1336326835758: --- Finished one round of sending REQUEST Packet ---------
+1336326835753: inside sendPacket(Packet p)
+1336326835757: Sending UDP payload: 642
+1336326835806: Received UDP payload: 1006
+1336326835810: mux: GOT CSM_Msg
+1336326835815: Received UDP payload: 446
+1336326835816: mux: Inside Packet.SERVER_REPLY
+1336326835816: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326835847: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326835869: Received UDP payload: 4450
+1336326835873: mux: GOT CSM_Msg
+1336326835918: Received UDP payload: 4103
+1336326835920: mux: Inside Packet.SERVER_REPLY
+1336326835921: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326835952: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326835952: disabling progressdialog due to successful new photo get
+1336326835952: Inside _enableButtons
+1336326835953: areButtonsEnabled --> true
+1336326835953: send final leg ack regardless of new or already-processed reply
+1336326835954: inside finalLegAck: change requestCounter to 36
+1336326835958: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019036 Client in region: (1,0) Client nodID: 5019
+1336326835958: I'm a nonleader client sending my final_leg packet to my leader
+1336326835964: new client_show_remotephoto reply with replyCounter 501903500
+1336326835964: note down new reply by adding replyCounter=501903500 to HashMap processedReplies
+1336326835965: nonleader download remote photo latency = 199
+1336326835965: = nonleader download start 1336326835753 ~ stop 1336326835952
+1336326835967: one more getGood: 16
+1336326835969: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=16 getGood=16 getBad=0 getTimedout=0 getPercent=100%
+1336326835969: successful reply for client get photo
+1336326835969: Success! Client getting photo from remote region, showing photo...
+1336326835970: Remote photo's length: 3422
+1336326835958: inside sendPacket(Packet p)
+1336326835960: Sending UDP payload: 446
+1336326836601: Received UDP payload: 446
+1336326836659: canPressButton = TRUE
+1336326836662: areButtonsEnabled --> false 
+1336326836664: get picture disableButtonsR
+1336326836665: areButtonsEnabled --> false
+1336326836724: one more getNum: 17
+1336326836728: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=17 getGood=16 getBad=0 getTimedout=0 getPercent=94%
+1336326836729: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 4 **
+1336326836730: change local requestCounter to 37
+1336326836748: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019037 Client in region: 1 Client nodID: 5019
+1336326836673: Received UDP payload: 446
+1336326836785: ----------------------------
+1336326836785: inside sendRequestPacketRepeatingRunnable for requestCount = 5019037
+1336326836785: I'm a nonleader sending my requesting photos packet to my leader
+1336326836790: --- Finished one round of sending REQUEST Packet ---------
+1336326836786: inside sendPacket(Packet p)
+1336326836790: Sending UDP payload: 642
+1336326836851: Received UDP payload: 1006
+1336326836854: mux: GOT CSM_Msg
+1336326836857: Received UDP payload: 446
+1336326836859: mux: Inside Packet.SERVER_REPLY
+1336326836859: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326836883: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326836939: Received UDP payload: 6557
+1336326836941: mux: GOT CSM_Msg
+1336326837365: Received UDP payload: 446
+1336326838507: Received UDP payload: 446
+1336326838570: Received UDP payload: 6210
+1336326838572: mux: Inside Packet.SERVER_REPLY
+1336326838572: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326838572: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326838573: disabling progressdialog due to successful new photo get
+1336326838573: Inside _enableButtons
+1336326838573: areButtonsEnabled --> true
+1336326838573: send final leg ack regardless of new or already-processed reply
+1336326838574: inside finalLegAck: change requestCounter to 38
+1336326838574: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019038 Client in region: (1,0) Client nodID: 5019
+1336326838574: I'm a nonleader client sending my final_leg packet to my leader
+1336326838576: new client_show_remotephoto reply with replyCounter 501903700
+1336326838577: note down new reply by adding replyCounter=501903700 to HashMap processedReplies
+1336326838577: nonleader download remote photo latency = 1786
+1336326838577: = nonleader download start 1336326836786 ~ stop 1336326838572
+1336326838579: one more getGood: 17
+1336326838579: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=17 getGood=17 getBad=0 getTimedout=0 getPercent=100%
+1336326838580: successful reply for client get photo
+1336326838580: Success! Client getting photo from remote region, showing photo...
+1336326838580: Remote photo's length: 5529
+1336326838574: inside sendPacket(Packet p)
+1336326838575: Sending UDP payload: 446
+1336326839235: canPressButton = TRUE
+1336326839235: areButtonsEnabled --> false 
+1336326839236: get picture disableButtonsR
+1336326839236: areButtonsEnabled --> false
+1336326839251: one more getNum: 18
+1336326839252: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=18 getGood=17 getBad=0 getTimedout=0 getPercent=94%
+1336326839252: ** Client of state 3 in region 1 making GET photo PACKET to send to the leader. Requesting for region: 5 **
+1336326839252: change local requestCounter to 39
+1336326839253: Client about to send CLIENT_DOWNLOAD_PHOTO packet, REQUEST: 5019039 Client in region: 1 Client nodID: 5019
+1336326839284: ----------------------------
+1336326839284: inside sendRequestPacketRepeatingRunnable for requestCount = 5019039
+1336326839285: I'm a nonleader sending my requesting photos packet to my leader
+1336326839287: --- Finished one round of sending REQUEST Packet ---------
+1336326839285: inside sendPacket(Packet p)
+1336326839286: Sending UDP payload: 642
+1336326839338: Received UDP payload: 1006
+1336326839340: mux: GOT CSM_Msg
+1336326839349: Received UDP payload: 446
+1336326839351: mux: Inside Packet.SERVER_REPLY
+1336326839351: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326839371: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326839405: Received UDP payload: 4710
+1336326839408: mux: GOT CSM_Msg
+1336326839477: Received UDP payload: 4363
+1336326839479: mux: Inside Packet.SERVER_REPLY
+1336326839479: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326839480: Client received Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1336326839481: disabling progressdialog due to successful new photo get
+1336326839481: Inside _enableButtons
+1336326839481: areButtonsEnabled --> true
+1336326839482: send final leg ack regardless of new or already-processed reply
+1336326839482: inside finalLegAck: change requestCounter to 40
+1336326839484: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019040 Client in region: (1,0) Client nodID: 5019
+1336326839484: I'm a nonleader client sending my final_leg packet to my leader
+1336326839487: new client_show_remotephoto reply with replyCounter 501903900
+1336326839487: note down new reply by adding replyCounter=501903900 to HashMap processedReplies
+1336326839488: nonleader download remote photo latency = 195
+1336326839488: = nonleader download start 1336326839285 ~ stop 1336326839480
+1336326839489: one more getGood: 18
+1336326839492: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=2 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=100% getNum=18 getGood=18 getBad=0 getTimedout=0 getPercent=100%
+1336326839492: successful reply for client get photo
+1336326839493: Success! Client getting photo from remote region, showing photo...
+1336326839493: Remote photo's length: 3682
+1336326839484: inside sendPacket(Packet p)
+1336326839485: Sending UDP payload: 446
+1336326840089: Received UDP payload: 446
+1336326840511: Received UDP payload: 446
+1336326841062: Received UDP payload: 1006
+1336326841076: mux: GOT CSM_Msg
+1336326841170: Received UDP payload: 4966
+1336326841177: mux: GOT CSM_Msg
+1336326841611: Received UDP payload: 446
+1336326841709: Received UDP payload: 446
+1336326841992: Received UDP payload: 1006
+1336326842001: mux: GOT CSM_Msg
+1336326842046: Received UDP payload: 4956
+1336326842053: mux: GOT CSM_Msg
+1336326842365: Received UDP payload: 446
+1336326842826: Received UDP payload: 1006
+1336326842833: mux: GOT CSM_Msg
+1336326842920: Received UDP payload: 5774
+1336326842926: mux: GOT CSM_Msg
+1336326843466: Received UDP payload: 1006
+1336326843473: mux: GOT CSM_Msg
+1336326843508: Received UDP payload: 446
+1336326843565: Received UDP payload: 4450
+1336326843567: mux: GOT CSM_Msg
+1336326844339: Received UDP payload: 1006
+1336326844346: mux: GOT CSM_Msg
+1336326844434: Received UDP payload: 6557
+1336326844441: mux: GOT CSM_Msg
+1336326845037: Received UDP payload: 1006
+1336326845045: mux: GOT CSM_Msg
+1336326845095: Received UDP payload: 446
+1336326845128: Received UDP payload: 4710
+1336326845134: mux: GOT CSM_Msg
+1336326845518: Received UDP payload: 446
+1336326846623: Received UDP payload: 446
+1336326846686: Received UDP payload: 446
+1336326847088: Received UDP payload: 1006
+1336326847094: mux: GOT CSM_Msg
+1336326847168: Received UDP payload: 4966
+1336326847175: mux: GOT CSM_Msg
+1336326847367: Received UDP payload: 446
+1336326848240: Received UDP payload: 1006
+1336326848247: mux: GOT CSM_Msg
+1336326848338: Received UDP payload: 4956
+1336326848345: mux: GOT CSM_Msg
+1336326848511: Received UDP payload: 446
+1336326849319: Received UDP payload: 1006
+1336326849327: mux: GOT CSM_Msg
+1336326849391: Received UDP payload: 5774
+1336326849399: mux: GOT CSM_Msg
+1336326850090: Received UDP payload: 446
+1336326850514: Received UDP payload: 446
+1336326850620: Received UDP payload: 1006
+1336326850627: mux: GOT CSM_Msg
+1336326850750: Received UDP payload: 4450
+1336326850759: mux: GOT CSM_Msg
+1336326851640: Received UDP payload: 446
+1336326851701: Received UDP payload: 446
+1336326851810: Received UDP payload: 1006
+1336326851817: mux: GOT CSM_Msg
+1336326851929: Received UDP payload: 6557
+1336326851935: mux: GOT CSM_Msg
+1336326852368: Received UDP payload: 446
+1336326852877: Received UDP payload: 1006
+1336326852884: mux: GOT CSM_Msg
+1336326852994: Received UDP payload: 4710
+1336326853001: mux: GOT CSM_Msg
+1336326853513: Received UDP payload: 446
+1336326855107: Received UDP payload: 446
+1336326855516: Received UDP payload: 446
+1336326856683: Received UDP payload: 446
+1336326856719: Received UDP payload: 446
+1336326857383: Received UDP payload: 446
+1336326858521: Received UDP payload: 446
+1336326860124: Received UDP payload: 446
+1336326861648: Received UDP payload: 446
+1336326861729: Received UDP payload: 446
+1336326862396: Received UDP payload: 446
+1336326862433: Received UDP payload: 446
+1336326863522: Received UDP payload: 446
+1336326865149: Received UDP payload: 446
+1336326866659: Received UDP payload: 446
+1336326866739: Received UDP payload: 446
+1336326867428: Received UDP payload: 446
+1336326867434: Received UDP payload: 446
+1336326868523: Received UDP payload: 446
+1336326870151: Received UDP payload: 446
+1336326871663: Received UDP payload: 446
+1336326871749: Received UDP payload: 446
+1336326872424: Received UDP payload: 446
+1336326872452: Received UDP payload: 446
+1336326873531: Received UDP payload: 446
+1336326875165: Received UDP payload: 446
+1336326876665: Received UDP payload: 446
+1336326876760: Received UDP payload: 446
+1336326877438: Received UDP payload: 446
+1336326877444: Received UDP payload: 446
+1336326878558: Received UDP payload: 446
+1336326880172: Received UDP payload: 446
+1336326881668: Received UDP payload: 446
+1336326881781: Received UDP payload: 446
+1336326882449: Received UDP payload: 446
+1336326882455: Received UDP payload: 446
+1336326883469: Received UDP payload: 1006
+1336326883476: mux: GOT CSM_Msg
+1336326883571: Received UDP payload: 4966
+1336326883577: mux: GOT CSM_Msg
+1336326883612: Received UDP payload: 446
+1336326885244: Received UDP payload: 446
+1336326885357: Received UDP payload: 1006
+1336326885364: mux: GOT CSM_Msg
+1336326885457: Received UDP payload: 4956
+1336326885459: mux: GOT CSM_Msg
+1336326886323: Received UDP payload: 1006
+1336326886347: mux: GOT CSM_Msg
+1336326886425: Received UDP payload: 5774
+1336326886433: mux: GOT CSM_Msg
+1336326886689: Received UDP payload: 446
+1336326886785: Received UDP payload: 446
+1336326887455: Received UDP payload: 446
+1336326887463: Received UDP payload: 446
+1336326887475: Received UDP payload: 1006
+1336326887484: mux: GOT CSM_Msg
+1336326887561: Received UDP payload: 4450
+1336326887564: mux: GOT CSM_Msg
+1336326888557: Received UDP payload: 446
+1336326888598: Received UDP payload: 1006
+1336326888615: mux: GOT CSM_Msg
+1336326888691: Received UDP payload: 6557
+1336326888693: mux: GOT CSM_Msg
+1336326889539: Received UDP payload: 1006
+1336326889545: mux: GOT CSM_Msg
+1336326889637: Received UDP payload: 4710
+1336326889644: mux: GOT CSM_Msg
+1336326890228: Received UDP payload: 446
+1336326890966: Received UDP payload: 642
+1336326890972: mux: Inside mux Packet.CLIENT_REQUEST
+1336326890972: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326891020: Received UDP payload: 1006
+1336326891029: mux: GOT CSM_Msg
+1336326891029: Received UDP payload: 446
+1336326891040: mux: Inside Packet.SERVER_REPLY
+1336326891040: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326891112: Received UDP payload: 4966
+1336326891114: mux: GOT CSM_Msg
+1336326891166: Received UDP payload: 4619
+1336326891167: mux: Inside Packet.SERVER_REPLY
+1336326891168: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326891184: Received UDP payload: 446
+1336326891185: mux: Inside mux Packet.CLIENT_REQUEST
+1336326891185: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326891714: Received UDP payload: 446
+1336326891786: Received UDP payload: 446
+1336326892464: Received UDP payload: 446
+1336326892482: Received UDP payload: 446
+1336326892916: Received UDP payload: 642
+1336326892922: mux: Inside mux Packet.CLIENT_REQUEST
+1336326892923: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326892974: Received UDP payload: 1006
+1336326892980: mux: GOT CSM_Msg
+1336326893087: Received UDP payload: 4956
+1336326893090: mux: GOT CSM_Msg
+1336326893149: Received UDP payload: 4609
+1336326893151: mux: Inside Packet.SERVER_REPLY
+1336326893151: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326893161: Received UDP payload: 446
+1336326893162: mux: Inside mux Packet.CLIENT_REQUEST
+1336326893162: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326893555: Received UDP payload: 446
+1336326894199: Received UDP payload: 642
+1336326894203: mux: Inside mux Packet.CLIENT_REQUEST
+1336326894204: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326894255: Received UDP payload: 1006
+1336326894263: mux: GOT CSM_Msg
+1336326894264: Received UDP payload: 446
+1336326894267: mux: Inside Packet.SERVER_REPLY
+1336326894268: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326894321: Received UDP payload: 5774
+1336326894323: mux: GOT CSM_Msg
+1336326894380: Received UDP payload: 5427
+1336326894381: mux: Inside Packet.SERVER_REPLY
+1336326894382: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326894393: Received UDP payload: 446
+1336326894394: mux: Inside mux Packet.CLIENT_REQUEST
+1336326894395: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326895193: Received UDP payload: 446
+1336326895212: Received UDP payload: 642
+1336326895217: mux: Inside mux Packet.CLIENT_REQUEST
+1336326895217: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326895263: Received UDP payload: 1006
+1336326895271: mux: GOT CSM_Msg
+1336326895271: Received UDP payload: 446
+1336326895279: mux: Inside Packet.SERVER_REPLY
+1336326895280: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326895320: Received UDP payload: 4450
+1336326895322: mux: GOT CSM_Msg
+1336326895370: Received UDP payload: 4103
+1336326895371: mux: Inside Packet.SERVER_REPLY
+1336326895371: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326895435: Received UDP payload: 446
+1336326895436: mux: Inside mux Packet.CLIENT_REQUEST
+1336326895436: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326896423: Received UDP payload: 642
+1336326896428: mux: Inside mux Packet.CLIENT_REQUEST
+1336326896428: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326896484: Received UDP payload: 1006
+1336326896491: mux: GOT CSM_Msg
+1336326896499: Received UDP payload: 446
+1336326896501: mux: Inside Packet.SERVER_REPLY
+1336326896501: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326896559: Received UDP payload: 6557
+1336326896561: mux: GOT CSM_Msg
+1336326896631: Received UDP payload: 6210
+1336326896633: mux: Inside Packet.SERVER_REPLY
+1336326896633: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326896645: Received UDP payload: 446
+1336326896646: mux: Inside mux Packet.CLIENT_REQUEST
+1336326896646: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326896670: Received UDP payload: 446
+1336326896785: Received UDP payload: 446
+1336326897422: Received UDP payload: 642
+1336326897426: mux: Inside mux Packet.CLIENT_REQUEST
+1336326897426: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326897465: Received UDP payload: 1006
+1336326897473: mux: GOT CSM_Msg
+1336326897473: Received UDP payload: 446
+1336326897474: mux: Inside Packet.SERVER_REPLY
+1336326897475: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326897486: Received UDP payload: 446
+1336326897539: Received UDP payload: 446
+1336326897601: Received UDP payload: 4710
+1336326897604: mux: GOT CSM_Msg
+1336326897674: Received UDP payload: 4363
+1336326897677: mux: Inside Packet.SERVER_REPLY
+1336326897677: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326897691: Received UDP payload: 446
+1336326897693: mux: Inside mux Packet.CLIENT_REQUEST
+1336326897693: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326898560: Received UDP payload: 446
+1336326900201: Received UDP payload: 446
+1336326901680: Received UDP payload: 446
+1336326901799: Received UDP payload: 446
+1336326902476: Received UDP payload: 446
+1336326902503: Received UDP payload: 446
+1336326903565: Received UDP payload: 446
+1336326905217: Received UDP payload: 446
+1336326906698: Received UDP payload: 446
+1336326906798: Received UDP payload: 446
+1336326907480: Received UDP payload: 446
+1336326907512: Received UDP payload: 446
+1336326908566: Received UDP payload: 446
+1336326910210: Received UDP payload: 446
+1336326911714: Received UDP payload: 446
+1336326911800: Received UDP payload: 446
+1336326912485: Received UDP payload: 446
+1336326912533: Received UDP payload: 446
+1336326913574: Received UDP payload: 446
+1336326915247: Received UDP payload: 446
+1336326916724: Received UDP payload: 446
+1336326916854: Received UDP payload: 446
+1336326917583: Received UDP payload: 446
+1336326918571: Received UDP payload: 446
+1336326919465: Received UDP payload: 446
+1336326921706: Received UDP payload: 446
+1336326921821: Received UDP payload: 446
+1336326922162: Received UDP payload: 446
+1336326922543: Received UDP payload: 446
+1336326923574: Received UDP payload: 446
+1336326924454: Received UDP payload: 446
+1336326926716: Received UDP payload: 446
+1336326927166: Received UDP payload: 446
+1336326927537: Received UDP payload: 446
+1336326928574: Received UDP payload: 446
+1336326928721: Received UDP payload: 446
+1336326929465: Received UDP payload: 446
+1336326931725: Received UDP payload: 446
+1336326932182: Received UDP payload: 446
+1336326932543: Received UDP payload: 446
+1336326933583: Received UDP payload: 446
+1336326933722: Received UDP payload: 446
+1336326934473: Received UDP payload: 446
+1336326936722: Received UDP payload: 446
+1336326937186: Received UDP payload: 446
+1336326937544: Received UDP payload: 446
+1336326938578: Received UDP payload: 446
+1336326938725: Received UDP payload: 446
+1336326939482: Received UDP payload: 446
+1336326941725: Received UDP payload: 446
+1336326942201: Received UDP payload: 446
+1336326942539: Received UDP payload: 446
+1336326943606: Received UDP payload: 446
+1336326943767: Received UDP payload: 446
+1336326944539: Received UDP payload: 446
+1336326947199: Received UDP payload: 446
+1336326947566: Received UDP payload: 446
+1336326948579: Received UDP payload: 446
+1336326948731: Received UDP payload: 446
+1336326948947: Received UDP payload: 446
+1336326949505: Received UDP payload: 446
+1336326952204: Received UDP payload: 446
+1336326953578: Received UDP payload: 446
+1336326953745: Received UDP payload: 446
+1336326953938: Received UDP payload: 446
+1336326954509: Received UDP payload: 446
+1336326957209: Received UDP payload: 446
+1336326957551: Received UDP payload: 446
+1336326958760: Received UDP payload: 446
+1336326958943: Received UDP payload: 446
+1336326959517: Received UDP payload: 446
+1336326960538: Received UDP payload: 446
+1336326962207: Received UDP payload: 446
+1336326962544: Received UDP payload: 446
+1336326963776: Received UDP payload: 446
+1336326963948: Received UDP payload: 446
+1336326964537: Received UDP payload: 446
+1336326965540: Received UDP payload: 446
+1336326967223: Received UDP payload: 446
+1336326967545: Received UDP payload: 446
+1336326968791: Received UDP payload: 446
+1336326968953: Received UDP payload: 446
+1336326969536: Received UDP payload: 446
+1336326970547: Received UDP payload: 446
+1336326972210: Received UDP payload: 446
+1336326972552: Received UDP payload: 446
+1336326973827: Received UDP payload: 446
+1336326973949: Received UDP payload: 446
+1336326974556: Received UDP payload: 446
+1336326975565: Received UDP payload: 446
+1336326977229: Received UDP payload: 446
+1336326977562: Received UDP payload: 446
+1336326978812: Received UDP payload: 446
+1336326978945: Received UDP payload: 446
+1336326979565: Received UDP payload: 446
+1336326980550: Received UDP payload: 446
+1336326980618: Received UDP payload: 3497
+1336326980624: mux: Inside mux Packet.CLIENT_REQUEST
+1336326980625: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326980701: Received UDP payload: 3861
+1336326980703: mux: GOT CSM_Msg
+1336326980753: Received UDP payload: 446
+1336326980755: mux: Inside Packet.SERVER_REPLY
+1336326980755: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326980764: Received UDP payload: 1006
+1336326980767: mux: GOT CSM_Msg
+1336326980775: Received UDP payload: 659
+1336326980776: mux: Inside Packet.SERVER_REPLY
+1336326980777: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326980797: Received UDP payload: 446
+1336326980799: mux: Inside mux Packet.CLIENT_REQUEST
+1336326980799: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326982222: Received UDP payload: 446
+1336326983826: Received UDP payload: 446
+1336326983958: Received UDP payload: 446
+1336326984499: Received UDP payload: 446
+1336326984578: Received UDP payload: 446
+1336326984603: Received UDP payload: 3895
+1336326984611: mux: GOT CSM_Msg
+1336326984624: Received UDP payload: 1006
+1336326984639: mux: GOT CSM_Msg
+1336326985553: Received UDP payload: 446
+1336326985965: Received UDP payload: 3487
+1336326985970: mux: Inside mux Packet.CLIENT_REQUEST
+1336326985970: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326986044: Received UDP payload: 3851
+1336326986051: mux: GOT CSM_Msg
+1336326986058: Received UDP payload: 446
+1336326986063: mux: Inside Packet.SERVER_REPLY
+1336326986063: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326986064: Received UDP payload: 1006
+1336326986081: mux: GOT CSM_Msg
+1336326986081: Received UDP payload: 659
+1336326986085: mux: Inside Packet.SERVER_REPLY
+1336326986086: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326986091: Received UDP payload: 446
+1336326986103: mux: Inside mux Packet.CLIENT_REQUEST
+1336326986104: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326987227: Received UDP payload: 446
+1336326987653: Received UDP payload: 3893
+1336326987662: mux: GOT CSM_Msg
+1336326987672: Received UDP payload: 1006
+1336326987690: mux: GOT CSM_Msg
+1336326988840: Received UDP payload: 446
+1336326988975: Received UDP payload: 446
+1336326989510: Received UDP payload: 446
+1336326989577: Received UDP payload: 446
+1336326989800: Received UDP payload: 3490
+1336326989807: mux: Inside mux Packet.CLIENT_REQUEST
+1336326989807: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326989867: Received UDP payload: 3854
+1336326989870: mux: GOT CSM_Msg
+1336326989873: Received UDP payload: 446
+1336326989874: mux: Inside Packet.SERVER_REPLY
+1336326989874: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326989890: Received UDP payload: 1006
+1336326989892: mux: GOT CSM_Msg
+1336326989900: Received UDP payload: 659
+1336326989902: mux: Inside Packet.SERVER_REPLY
+1336326989902: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336326989913: Received UDP payload: 446
+1336326989914: mux: Inside mux Packet.CLIENT_REQUEST
+1336326989914: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336326990534: Received UDP payload: 3893
+1336326990542: mux: GOT CSM_Msg
+1336326990543: Received UDP payload: 1006
+1336326990559: mux: GOT CSM_Msg
+1336326990560: Received UDP payload: 446
+1336326991167: canPressButton = TRUE
+1336326991168: areButtonsEnabled --> false
+1336326991168: disabling buttons ...
+1336326991168: took picture disableButtonsR
+1336326991168: areButtonsEnabled --> false
+1336326991194: one more takeNum: 3
+1336326991195: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=2 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=66% getNum=18 getGood=18 getBad=0 getTimedout=0 getPercent=100%
+1336326991195: Clicked take picture button ..
+1336326992131: inside HandlePictureStorage onPictureTaken()
+1336326992131: one more takeCamGood: 3
+1336326992132: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=2 takeBad=0 takeTimedout=0 takePercent=66% getNum=18 getGood=18 getBad=0 getTimedout=0 getPercent=100%
+1336326992621: Picture successfully taken, ORIG BYTE LENGTH = 373293
+1336326992713: Our new height x width: 306 x 408
+1336326992716: Show photo from handle my camera take
+1336326992716: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1336326992716: change local requestCounter to 41
+1336326992730: BYTE SIZE AFTER COMPRESSION: 2706
+1336326992735: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5019041 Client in region: 1 Client nodID: 5019
+1336326992229: Received UDP payload: 446
+1336326992766: ----------------------------
+1336326992767: inside sendRequestPacketRepeatingRunnable for requestCount = 5019041
+1336326992767: I'm a nonleader sending my requesting photos packet to my leader
+1336326992774: --- Finished one round of sending REQUEST Packet ---------
+1336326992767: inside sendPacket(Packet p)
+1336326992773: Sending UDP payload: 3370
+1336326992901: Received UDP payload: 3734
+1336326992906: mux: GOT CSM_Msg
+1336326992911: Received UDP payload: 446
+1336326992912: mux: Inside Packet.SERVER_REPLY
+1336326992912: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326992929: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326992922: Received UDP payload: 1006
+1336326992925: mux: GOT CSM_Msg
+1336326992932: Received UDP payload: 659
+1336326992934: mux: Inside Packet.SERVER_REPLY
+1336326992934: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326992954: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
+1336326992955: disabling progressdialog due to successful new photo upload
+1336326992955: Inside _enableButtons
+1336326992956: areButtonsEnabled --> true
+1336326992956: send final leg ack regardless of new or already-processed reply
+1336326992957: inside finalLegAck: change requestCounter to 42
+1336326992958: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019042 Client in region: (1,0) Client nodID: 5019
+1336326992958: I'm a nonleader client sending my final_leg packet to my leader
+1336326992961: new client_upload_photo_ack reply with replyCounter 501904100
+1336326992962: note down new reply by adding replyCounter=501904100 to HashMap processedReplies
+1336326992962: nonleader upload new photo latency = 187
+1336326992963: = nonleader upload start 1336326992767 ~ stop 1336326992954
+1336326992964: one more takeGoodSave: 3
+1336326992966: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=3 takeCamGood=3 takeGoodSave=3 takeBad=0 takeTimedout=0 takePercent=100% getNum=18 getGood=18 getBad=0 getTimedout=0 getPercent=100%
+1336326992966: SUCCESS Client now knows saving photo on its leader succeeded
+1336326992959: inside sendPacket(Packet p)
+1336326992962: Sending UDP payload: 446
+1336326993718: canPressButton = TRUE
+1336326993718: areButtonsEnabled --> false
+1336326993719: disabling buttons ...
+1336326993719: took picture disableButtonsR
+1336326993720: areButtonsEnabled --> false
+1336326993739: one more takeNum: 4
+1336326993740: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=3 takeGoodSave=3 takeBad=0 takeTimedout=0 takePercent=75% getNum=18 getGood=18 getBad=0 getTimedout=0 getPercent=100%
+1336326993740: Clicked take picture button ..
+1336326993849: Received UDP payload: 446
+1336326993976: Received UDP payload: 446
+1336326994521: Received UDP payload: 446
+1336326994573: Received UDP payload: 446
+1336326994689: inside HandlePictureStorage onPictureTaken()
+1336326994689: one more takeCamGood: 4
+1336326994690: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=4 takeGoodSave=3 takeBad=0 takeTimedout=0 takePercent=75% getNum=18 getGood=18 getBad=0 getTimedout=0 getPercent=100%
+1336326995179: Picture successfully taken, ORIG BYTE LENGTH = 373795
+1336326995323: Our new height x width: 306 x 408
+1336326995324: Show photo from handle my camera take
+1336326995324: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1336326995325: change local requestCounter to 43
+1336326995338: BYTE SIZE AFTER COMPRESSION: 2706
+1336326995339: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5019043 Client in region: 1 Client nodID: 5019
+1336326994704: Received UDP payload: 3775
+1336326994706: mux: GOT CSM_Msg
+1336326994715: Received UDP payload: 1006
+1336326994717: mux: GOT CSM_Msg
+1336326995366: ----------------------------
+1336326995367: inside sendRequestPacketRepeatingRunnable for requestCount = 5019043
+1336326995367: I'm a nonleader sending my requesting photos packet to my leader
+1336326995370: --- Finished one round of sending REQUEST Packet ---------
+1336326995367: inside sendPacket(Packet p)
+1336326995368: Sending UDP payload: 3370
+1336326995472: Received UDP payload: 3734
+1336326995474: mux: GOT CSM_Msg
+1336326995478: Received UDP payload: 446
+1336326995479: mux: Inside Packet.SERVER_REPLY
+1336326995479: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326995489: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326995492: Received UDP payload: 1006
+1336326995494: mux: GOT CSM_Msg
+1336326995537: Received UDP payload: 659
+1336326995539: mux: Inside Packet.SERVER_REPLY
+1336326995539: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326995540: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
+1336326995540: disabling progressdialog due to successful new photo upload
+1336326995540: Inside _enableButtons
+1336326995540: areButtonsEnabled --> true
+1336326995541: send final leg ack regardless of new or already-processed reply
+1336326995541: inside finalLegAck: change requestCounter to 44
+1336326995541: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019044 Client in region: (1,0) Client nodID: 5019
+1336326995541: I'm a nonleader client sending my final_leg packet to my leader
+1336326995543: new client_upload_photo_ack reply with replyCounter 501904300
+1336326995544: note down new reply by adding replyCounter=501904300 to HashMap processedReplies
+1336326995544: nonleader upload new photo latency = 173
+1336326995544: = nonleader upload start 1336326995367 ~ stop 1336326995540
+1336326995545: one more takeGoodSave: 4
+1336326995546: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=4 takeCamGood=4 takeGoodSave=4 takeBad=0 takeTimedout=0 takePercent=100% getNum=18 getGood=18 getBad=0 getTimedout=0 getPercent=100%
+1336326995546: SUCCESS Client now knows saving photo on its leader succeeded
+1336326995541: inside sendPacket(Packet p)
+1336326995542: Sending UDP payload: 446
+1336326995559: Received UDP payload: 446
+1336326996207: canPressButton = TRUE
+1336326996208: areButtonsEnabled --> false
+1336326996208: disabling buttons ...
+1336326996208: took picture disableButtonsR
+1336326996208: areButtonsEnabled --> false
+1336326996224: one more takeNum: 5
+1336326996225: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=4 takeGoodSave=4 takeBad=0 takeTimedout=0 takePercent=80% getNum=18 getGood=18 getBad=0 getTimedout=0 getPercent=100%
+1336326996225: Clicked take picture button ..
+1336326997140: inside HandlePictureStorage onPictureTaken()
+1336326997141: one more takeCamGood: 5
+1336326997143: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=5 takeGoodSave=4 takeBad=0 takeTimedout=0 takePercent=80% getNum=18 getGood=18 getBad=0 getTimedout=0 getPercent=100%
+1336326997631: Picture successfully taken, ORIG BYTE LENGTH = 376166
+1336326997797: Our new height x width: 306 x 408
+1336326997798: Show photo from handle my camera take
+1336326997799: ** Client making NEWly TAKEN photo PACKET to send to leader **
+1336326997799: change local requestCounter to 45
+1336326997817: BYTE SIZE AFTER COMPRESSION: 2706
+1336326997818: Client about to send CLIENT_UPLOAD_PHOTO packet, REQUEST: 5019045 Client in region: 1 Client nodID: 5019
+1336326997258: Received UDP payload: 446
+1336326997866: ----------------------------
+1336326997867: inside sendRequestPacketRepeatingRunnable for requestCount = 5019045
+1336326997867: I'm a nonleader sending my requesting photos packet to my leader
+1336326997871: --- Finished one round of sending REQUEST Packet ---------
+1336326997867: inside sendPacket(Packet p)
+1336326997869: Sending UDP payload: 3370
+1336326997988: Received UDP payload: 3734
+1336326997991: mux: GOT CSM_Msg
+1336326998018: Received UDP payload: 446
+1336326998020: mux: Inside Packet.SERVER_REPLY
+1336326998020: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326998020: Client received Packet.SERVER_FIRST_LEG_ACK. Yay the first leg succeeded, removing all request runnables
+1336326998027: Received UDP payload: 1006
+1336326998030: mux: GOT CSM_Msg
+1336326998036: Received UDP payload: 659
+1336326998038: mux: Inside Packet.SERVER_REPLY
+1336326998038: mux: I have the photo requester id = 5019 about to display photo or receive upload ack
+1336326998040: Client received Packet.CLIENT_UPLOAD_PHOTO_ACK
+1336326998041: disabling progressdialog due to successful new photo upload
+1336326998041: Inside _enableButtons
+1336326998042: areButtonsEnabled --> true
+1336326998042: send final leg ack regardless of new or already-processed reply
+1336326998042: inside finalLegAck: change requestCounter to 46
+1336326998042: Client about to send CLIENT_FINAL_LEG_ACK packet, REQUEST: 5019046 Client in region: (1,0) Client nodID: 5019
+1336326998043: I'm a nonleader client sending my final_leg packet to my leader
+1336326998046: new client_upload_photo_ack reply with replyCounter 501904500
+1336326998047: note down new reply by adding replyCounter=501904500 to HashMap processedReplies
+1336326998047: nonleader upload new photo latency = 173
+1336326998047: = nonleader upload start 1336326997867 ~ stop 1336326998040
+1336326998048: one more takeGoodSave: 5
+1336326998049: reg=1 id=5019 state=3 regionWidth=20.0 hyst=0.0 takeNum=5 takeCamGood=5 takeGoodSave=5 takeBad=0 takeTimedout=0 takePercent=100% getNum=18 getGood=18 getBad=0 getTimedout=0 getPercent=100%
+1336326998050: SUCCESS Client now knows saving photo on its leader succeeded
+1336326998043: inside sendPacket(Packet p)
+1336326998045: Sending UDP payload: 446
+1336326998161: Received UDP payload: 3775
+1336326998164: mux: GOT CSM_Msg
+1336326998173: Received UDP payload: 1006
+1336326998176: mux: GOT CSM_Msg
+1336326998867: Received UDP payload: 446
+1336326999022: Received UDP payload: 446
+1336326999525: Received UDP payload: 446
+1336326999577: Received UDP payload: 446
+1336327000562: Received UDP payload: 446
+1336327002076: Received UDP payload: 3776
+1336327002084: mux: GOT CSM_Msg
+1336327002098: Received UDP payload: 1006
+1336327002104: mux: GOT CSM_Msg
+1336327002229: Received UDP payload: 446
+1336327003855: Received UDP payload: 446
+1336327003989: Received UDP payload: 446
+1336327004525: Received UDP payload: 446
+1336327004584: Received UDP payload: 446
+1336327005579: Received UDP payload: 446
+1336327007240: Received UDP payload: 446
+1336327008858: Received UDP payload: 446
+1336327009003: Received UDP payload: 446
+1336327009563: Received UDP payload: 446
+1336327009630: Received UDP payload: 446
+1336327010566: Received UDP payload: 446
+1336327012239: Received UDP payload: 446
+1336327013856: Received UDP payload: 446
+1336327014020: Received UDP payload: 446
+1336327014541: Received UDP payload: 446
+1336327014596: Received UDP payload: 446
+1336327015501: Received UDP payload: 3776
+1336327015508: mux: GOT CSM_Msg
+1336327015518: Received UDP payload: 1006
+1336327015525: mux: GOT CSM_Msg
+1336327015564: Received UDP payload: 446
+1336327015913: Received UDP payload: 3884
+1336327015915: mux: GOT CSM_Msg
+1336327015921: Received UDP payload: 1006
+1336327015923: mux: GOT CSM_Msg
+1336327018680: Received UDP payload: 3889
+1336327018687: mux: GOT CSM_Msg
+1336327018701: Received UDP payload: 1006
+1336327018708: mux: GOT CSM_Msg
+1336327018866: Received UDP payload: 446
+1336327019018: Received UDP payload: 446
+1336327019537: Received UDP payload: 446
+1336327019612: Received UDP payload: 446
+1336327020576: Received UDP payload: 446
+1336327021768: Received UDP payload: 3888
+1336327021777: mux: GOT CSM_Msg
+1336327021798: Received UDP payload: 1006
+1336327021804: mux: GOT CSM_Msg
+1336327022247: Received UDP payload: 446
+1336327022289: Received UDP payload: 3767
+1336327022295: mux: GOT CSM_Msg
+1336327022301: Received UDP payload: 1006
+1336327022320: mux: GOT CSM_Msg
+1336327023874: Received UDP payload: 446
+1336327024061: Received UDP payload: 446
+1336327024311: Received UDP payload: 3567
+1336327024315: mux: Inside mux Packet.CLIENT_REQUEST
+1336327024315: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327024377: Received UDP payload: 3931
+1336327024379: mux: GOT CSM_Msg
+1336327024439: Received UDP payload: 446
+1336327024440: mux: Inside Packet.SERVER_REPLY
+1336327024440: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327024449: Received UDP payload: 1006
+1336327024451: mux: GOT CSM_Msg
+1336327024473: Received UDP payload: 659
+1336327024475: mux: Inside Packet.SERVER_REPLY
+1336327024475: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327024486: Received UDP payload: 446
+1336327024487: mux: Inside mux Packet.CLIENT_REQUEST
+1336327024487: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327024537: Received UDP payload: 446
+1336327024598: Received UDP payload: 446
+1336327025589: Received UDP payload: 446
+1336327027257: Received UDP payload: 3571
+1336327027262: mux: Inside mux Packet.CLIENT_REQUEST
+1336327027262: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327027283: Received UDP payload: 446
+1336327027360: Received UDP payload: 3935
+1336327027364: mux: GOT CSM_Msg
+1336327027365: Received UDP payload: 446
+1336327027367: mux: Inside Packet.SERVER_REPLY
+1336327027368: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327027374: Received UDP payload: 1006
+1336327027378: mux: GOT CSM_Msg
+1336327027384: Received UDP payload: 659
+1336327027387: mux: Inside Packet.SERVER_REPLY
+1336327027387: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327027409: Received UDP payload: 446
+1336327027411: mux: Inside mux Packet.CLIENT_REQUEST
+1336327027411: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327028893: Received UDP payload: 446
+1336327029039: Received UDP payload: 446
+1336327029539: Received UDP payload: 446
+1336327029620: Received UDP payload: 446
+1336327030096: Received UDP payload: 3776
+1336327030103: mux: GOT CSM_Msg
+1336327030121: Received UDP payload: 1006
+1336327030130: mux: GOT CSM_Msg
+1336327030234: Received UDP payload: 3587
+1336327030236: mux: Inside mux Packet.CLIENT_REQUEST
+1336327030236: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327030280: Received UDP payload: 3951
+1336327030283: mux: GOT CSM_Msg
+1336327030287: Received UDP payload: 446
+1336327030289: mux: Inside Packet.SERVER_REPLY
+1336327030289: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327030298: Received UDP payload: 1006
+1336327030301: mux: GOT CSM_Msg
+1336327030312: Received UDP payload: 659
+1336327030314: mux: Inside Packet.SERVER_REPLY
+1336327030314: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327030335: Received UDP payload: 446
+1336327030336: mux: Inside mux Packet.CLIENT_REQUEST
+1336327030336: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327030589: Received UDP payload: 446
+1336327032258: Received UDP payload: 446
+1336327033925: Received UDP payload: 446
+1336327034060: Received UDP payload: 446
+1336327034555: Received UDP payload: 446
+1336327034650: Received UDP payload: 446
+1336327035597: Received UDP payload: 446
+1336327037269: Received UDP payload: 446
+1336327038859: Received UDP payload: 446
+1336327039077: Received UDP payload: 446
+1336327039205: Received UDP payload: 3975
+1336327039214: mux: GOT CSM_Msg
+1336327039229: Received UDP payload: 1006
+1336327039251: mux: GOT CSM_Msg
+1336327039545: Received UDP payload: 446
+1336327040605: Received UDP payload: 446
+1336327041781: Received UDP payload: 446
+1336327042673: Received UDP payload: 3388
+1336327042681: mux: Inside mux Packet.CLIENT_REQUEST
+1336327042682: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327042748: Received UDP payload: 446
+1336327042749: mux: Inside Packet.SERVER_REPLY
+1336327042749: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327042845: Received UDP payload: 1006
+1336327042849: mux: GOT CSM_Msg
+1336327042850: Received UDP payload: 659
+1336327042852: mux: Inside Packet.SERVER_REPLY
+1336327042852: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327042871: Received UDP payload: 446
+1336327042873: mux: Inside mux Packet.CLIENT_REQUEST
+1336327042873: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327043861: Received UDP payload: 446
+1336327044095: Received UDP payload: 446
+1336327044255: Received UDP payload: 446
+1336327044539: Received UDP payload: 446
+1336327045618: Received UDP payload: 446
+1336327046609: Received UDP payload: 3985
+1336327046624: mux: GOT CSM_Msg
+1336327046637: Received UDP payload: 1006
+1336327046660: mux: GOT CSM_Msg
+1336327046787: Received UDP payload: 446
+1336327049109: Received UDP payload: 446
+1336327049250: Received UDP payload: 446
+1336327049543: Received UDP payload: 446
+1336327049625: Received UDP payload: 3396
+1336327049630: mux: Inside mux Packet.CLIENT_REQUEST
+1336327049630: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327049689: Received UDP payload: 3760
+1336327049696: mux: GOT CSM_Msg
+1336327049709: Received UDP payload: 446
+1336327049715: mux: Inside Packet.SERVER_REPLY
+1336327049715: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327049716: Received UDP payload: 1006
+1336327049730: mux: GOT CSM_Msg
+1336327049731: Received UDP payload: 659
+1336327049736: mux: Inside Packet.SERVER_REPLY
+1336327049737: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327049738: Received UDP payload: 446
+1336327049741: mux: Inside mux Packet.CLIENT_REQUEST
+1336327049742: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327050627: Received UDP payload: 446
+1336327050839: Received UDP payload: 446
+1336327051785: Received UDP payload: 446
+1336327053109: Received UDP payload: 3986
+1336327053116: mux: GOT CSM_Msg
+1336327053126: Received UDP payload: 1006
+1336327053139: mux: GOT CSM_Msg
+1336327054120: Received UDP payload: 446
+1336327054251: Received UDP payload: 446
+1336327054545: Received UDP payload: 446
+1336327055640: Received UDP payload: 446
+1336327055841: Received UDP payload: 446
+1336327056494: Received UDP payload: 3394
+1336327056499: mux: Inside mux Packet.CLIENT_REQUEST
+1336327056499: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327056573: Received UDP payload: 3758
+1336327056581: mux: GOT CSM_Msg
+1336327056582: Received UDP payload: 446
+1336327056585: mux: Inside Packet.SERVER_REPLY
+1336327056585: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327056596: Received UDP payload: 1006
+1336327056602: mux: GOT CSM_Msg
+1336327056636: Received UDP payload: 659
+1336327056637: mux: Inside Packet.SERVER_REPLY
+1336327056637: mux: Ignoring SERVER_REPLY since it's not for me  5019
+1336327056653: Received UDP payload: 446
+1336327056654: mux: Inside mux Packet.CLIENT_REQUEST
+1336327056655: mux: Nonleader does nothing for Packet.CLIENT_REQUEST
+1336327056782: Received UDP payload: 446
+1336327059155: Received UDP payload: 446
+1336327059255: Received UDP payload: 446
+1336327059543: Received UDP payload: 446
+1336327060656: Received UDP payload: 446
+1336327060858: Received UDP payload: 446
+1336327061607: Received UDP payload: 3734
+1336327061615: mux: GOT CSM_Msg
+1336327061628: Received UDP payload: 1006
+1336327061635: mux: GOT CSM_Msg
+1336327061785: Received UDP payload: 446
+1336327064135: Received UDP payload: 446
+1336327064202: Received UDP payload: 3736
+1336327064210: mux: GOT CSM_Msg
+1336327064221: Received UDP payload: 1006
+1336327064239: mux: GOT CSM_Msg
+1336327064266: Received UDP payload: 446
+1336327064572: Received UDP payload: 446
+1336327065669: Received UDP payload: 446
+1336327065860: Received UDP payload: 446
+1336327066791: Received UDP payload: 446
+1336327066894: Received UDP payload: 3735
+1336327066905: mux: GOT CSM_Msg
+1336327066905: Received UDP payload: 1006
+1336327066912: mux: GOT CSM_Msg
+1336327069253: Received UDP payload: 446
+1336327069546: Received UDP payload: 446
+1336327070671: Received UDP payload: 446
+1336327070852: Received UDP payload: 446
+1336327071103: Received UDP payload: 446
+1336327071788: Received UDP payload: 446
+1336327074255: Received UDP payload: 446
+1336327074548: Received UDP payload: 446
+1336327075676: Received UDP payload: 446
+1336327075858: Received UDP payload: 446
+1336327076106: Received UDP payload: 446
+1336327076803: Received UDP payload: 446
+1336327079283: Received UDP payload: 446
+1336327079574: Received UDP payload: 446
+1336327080892: Received UDP payload: 446
+1336327081106: Received UDP payload: 446
+1336327081795: Received UDP payload: 446
+1336327082580: Received UDP payload: 446
+1336327084259: Received UDP payload: 446
+1336327084548: Received UDP payload: 446
+1336327085869: Received UDP payload: 446
+1336327086111: Received UDP payload: 446
+1336327086791: Received UDP payload: 446
+1336327087579: Received UDP payload: 446
+1336327089269: Received UDP payload: 446
+1336327089550: Received UDP payload: 446
+1336327091116: Received UDP payload: 446
+1336327091790: Received UDP payload: 446
+1336327092583: Received UDP payload: 446
+1336327094272: Received UDP payload: 446
+1336327094549: Received UDP payload: 446
+1336327095894: Received UDP payload: 446
+1336327096171: Received UDP payload: 446
+1336327096811: Received UDP payload: 446
+1336327097585: Received UDP payload: 446
+1336327099276: Received UDP payload: 446
+1336327099550: Received UDP payload: 446
+1336327100861: Received UDP payload: 446
+1336327101147: Received UDP payload: 446
+1336327101795: Received UDP payload: 446
+1336327102629: Received UDP payload: 446
+1336327104277: Received UDP payload: 446
+1336327105861: Received UDP payload: 446
+1336327106165: Received UDP payload: 446
+1336327106610: Received UDP payload: 446
+1336327106795: Received UDP payload: 446
+1336327107607: Received UDP payload: 446
+1336327109278: Received UDP payload: 446
+1336327110861: Received UDP payload: 446
+1336327111171: Received UDP payload: 446
+1336327111612: Received UDP payload: 446
+1336327111799: Received UDP payload: 446
+1336327112608: Received UDP payload: 446
+1336327114284: Received UDP payload: 446
+1336327115863: Received UDP payload: 446
+1336327116171: Received UDP payload: 446
+1336327116627: Received UDP payload: 446
+1336327116798: Received UDP payload: 446
+1336327117609: Received UDP payload: 446
+1336327119282: Received UDP payload: 446
+1336327120872: Received UDP payload: 446
+1336327121179: Received UDP payload: 446
+1336327121619: Received UDP payload: 446
+1336327121797: Received UDP payload: 446
+1336327122616: Received UDP payload: 446
+1336327124291: Received UDP payload: 446
+1336327125870: Received UDP payload: 446
+1336327126210: Received UDP payload: 446
+1336327126631: Received UDP payload: 446
+1336327126809: Received UDP payload: 446
+1336327127642: Received UDP payload: 446
+1336327129296: Received UDP payload: 446
+1336327130872: Received UDP payload: 446
+1336327131179: Received UDP payload: 446
+1336327131626: Received UDP payload: 446
+1336327131809: Received UDP payload: 446
+1336327132614: Received UDP payload: 446
+1336327134295: Received UDP payload: 446
+1336327135868: Received UDP payload: 446
+1336327136187: Received UDP payload: 446
+1336327136622: Received UDP payload: 446
+1336327136810: Received UDP payload: 446
+1336327137626: Received UDP payload: 446
+1336327139309: Received UDP payload: 446
+1336327140867: Received UDP payload: 446
+1336327141190: Received UDP payload: 446
+1336327141630: Received UDP payload: 446
+1336327141804: Received UDP payload: 446
+1336327142618: Received UDP payload: 446
+1336327144299: Received UDP payload: 446
+1336327145871: Received UDP payload: 446
+1336327146204: Received UDP payload: 446
+1336327146632: Received UDP payload: 446
+1336327146807: Received UDP payload: 446
+1336327147619: Received UDP payload: 446
+1336327149320: Received UDP payload: 446
+1336327150900: Received UDP payload: 446
+1336327151215: Received UDP payload: 446
+1336327151624: Received UDP payload: 446
+1336327151806: Received UDP payload: 446
+1336327152619: Received UDP payload: 446
+1336327154302: Received UDP payload: 446
+1336327155916: Received UDP payload: 446
+1336327156242: Received UDP payload: 446
+1336327156625: Received UDP payload: 446
+1336327156810: Received UDP payload: 446
+1336327157619: Received UDP payload: 446
+1336327159401: Received UDP payload: 446
+1336327160876: Received UDP payload: 446
+1336327161235: Received UDP payload: 446
+1336327161626: Received UDP payload: 446
+1336327162677: Received UDP payload: 446
+1336327164008: Received UDP payload: 446
+1336327165943: Received UDP payload: 446
+1336327166240: Received UDP payload: 446
+1336327166646: Received UDP payload: 446
+1336327166654: Received UDP payload: 446
+1336327167627: Received UDP payload: 446
+1336327169006: Received UDP payload: 446
+1336327171251: Received UDP payload: 446
+1336327171640: Received UDP payload: 446
+1336327171646: Received UDP payload: 446
+1336327172642: Received UDP payload: 446
+1336327173280: Received UDP payload: 446
+1336327174008: Received UDP payload: 446
+1336327176257: Received UDP payload: 446
+1336327176630: Received UDP payload: 446
+1336327176645: Received UDP payload: 446
+1336327177645: Received UDP payload: 446
+1336327178282: Received UDP payload: 446
+1336327179012: Received UDP payload: 446
+1336327181255: Received UDP payload: 446
+1336327181636: Received UDP payload: 446
+1336327181655: Received UDP payload: 446
+1336327182659: Received UDP payload: 446
+1336327183286: Received UDP payload: 446
+1336327184032: Received UDP payload: 446
+1336327186284: Received UDP payload: 446
+1336327186646: Received UDP payload: 446
+1336327186654: Received UDP payload: 446
+1336327187669: Received UDP payload: 446
+1336327188341: Received UDP payload: 446
+1336327189007: Received UDP payload: 446
+1336327191632: Received UDP payload: 446
+1336327191656: Received UDP payload: 446
+1336327192670: Received UDP payload: 446
+1336327193237: Received UDP payload: 446
+1336327193292: Received UDP payload: 446
+1336327194007: Received UDP payload: 446
+1336327196636: Received UDP payload: 446
+1336327196655: Received UDP payload: 446
+1336327197679: Received UDP payload: 446
+1336327198242: Received UDP payload: 446
+1336327198299: Received UDP payload: 446
+1336327199009: Received UDP payload: 446
+1336327201636: Received UDP payload: 446
+1336327201664: Received UDP payload: 446
+1336327203259: Received UDP payload: 446
+1336327203293: Received UDP payload: 446
+1336327204022: Received UDP payload: 446
+1336327204719: Received UDP payload: 446
+1336327206647: Received UDP payload: 446
+1336327206661: Received UDP payload: 446
+1336327208269: Received UDP payload: 446
+1336327208287: Received UDP payload: 446
+1336327209021: Received UDP payload: 446
+1336327209721: Received UDP payload: 446
+1336327211649: Received UDP payload: 446
+1336327211669: Received UDP payload: 446
+1336327213272: Received UDP payload: 446
+1336327213290: Received UDP payload: 446
+1336327214017: Received UDP payload: 446
+1336327214754: Received UDP payload: 446
+1336327216661: Received UDP payload: 446
+1336327216726: Received UDP payload: 446
+1336327218273: Received UDP payload: 446
+1336327218312: Received UDP payload: 446
+1336327219017: Received UDP payload: 446
+1336327219720: Received UDP payload: 446
+1336327221669: Received UDP payload: 446
+1336327221675: Received UDP payload: 446
+1336327223279: Received UDP payload: 446
+1336327223294: Received UDP payload: 446
+1336327224024: Received UDP payload: 446
+1336327224721: Received UDP payload: 446
+1336327226672: Received UDP payload: 446
+1336327228279: Received UDP payload: 446
+1336327228301: Received UDP payload: 446
+1336327228777: Received UDP payload: 446
+1336327229014: Received UDP payload: 446
+1336327229722: Received UDP payload: 446
+1336327231669: Received UDP payload: 446
+1336327233296: Received UDP payload: 446
+1336327233319: Received UDP payload: 446
+1336327233781: Received UDP payload: 446
+1336327234016: Received UDP payload: 446
+1336327234729: Received UDP payload: 446
+1336327236675: Received UDP payload: 446
+1336327238310: Received UDP payload: 446
+1336327238836: Received UDP payload: 446
+1336327239019: Received UDP payload: 446
+1336327239725: Received UDP payload: 446
+1336327241689: Received UDP payload: 446
+1336327243298: Received UDP payload: 446
+1336327243819: Received UDP payload: 446
+1336327244017: Received UDP payload: 446
+1336327244769: Received UDP payload: 446
+1336327246706: Received UDP payload: 446
+1336327248316: Received UDP payload: 446
+1336327248783: Received UDP payload: 446
+1336327249733: Received UDP payload: 446
+1336327251692: Received UDP payload: 446
+1336327253307: Received UDP payload: 446
+1336327253787: Received UDP payload: 446
+1336327254725: Received UDP payload: 446
+1336327256717: Received UDP payload: 446
+1336327258297: Received UDP payload: 446
+1336327258797: Received UDP payload: 446
+1336327259730: Received UDP payload: 446
+1336327261702: Received UDP payload: 446
+1336327263789: Received UDP payload: 446
+1336327264736: Received UDP payload: 446
+1336327266697: Received UDP payload: 446
+1336327268799: Received UDP payload: 446
+1336327269732: Received UDP payload: 446
+1336327271713: Received UDP payload: 446
+1336327273627: HI I'm in ONPAUSE()
+1336327273788: Received UDP payload: 446
+1336327274746: Received UDP payload: 446
+1336327274826: inside onDestroy()
