@@ -10,13 +10,13 @@ RUNTIMES = [1336323068975,
             1336326169221,
             1336327226416]
 
-# the ith element is about run i (the ith time diploma server restarts)
+# the ith element is about run i (the ith time cloud server restarts)
 
-diploma_take_latency = [[], [], [], [], []]
-diploma_takeNum = [0, 0, 0, 0, 0]
-diploma_takeGood = [0, 0, 0, 0, 0]
-diploma_takeGood_nonleader = [0, 0, 0, 0, 0]
-diploma_takeBad = [0, 0, 0, 0, 0] 
+cloud_take_latency = [[], [], [], [], []]
+cloud_takeNum = [0, 0, 0, 0, 0]
+cloud_takeGood = [0, 0, 0, 0, 0]
+cloud_takeGood_nonleader = [0, 0, 0, 0, 0]
+cloud_takeBad = [0, 0, 0, 0, 0] 
 
 timeoutPeriod = 6000
 
@@ -43,23 +43,23 @@ def tail(f):
 
 def dirWalk(dirname):
 
-    global diploma_take_latency
-    global diploma_takeNum 
-    global diploma_takeGood
-    global diploma_takeGood_nonleader
-    global diploma_takeBad
+    global cloud_take_latency
+    global cloud_takeNum 
+    global cloud_takeGood
+    global cloud_takeGood_nonleader
+    global cloud_takeBad
 
-    diploma_take_latency = [[], [], [], [], []]
-    diploma_takeNum = [0, 0, 0, 0, 0]
-    diploma_takeGood = [0, 0, 0, 0, 0]
-    diploma_takeGood_nonleader = [0, 0, 0, 0, 0] 
-    diploma_takeBad = [0, 0, 0, 0, 0] 
+    cloud_take_latency = [[], [], [], [], []]
+    cloud_takeNum = [0, 0, 0, 0, 0]
+    cloud_takeGood = [0, 0, 0, 0, 0]
+    cloud_takeGood_nonleader = [0, 0, 0, 0, 0] 
+    cloud_takeBad = [0, 0, 0, 0, 0] 
 
     counter = 0
     for (path, dirs, files) in os.walk(dirname):
         for filename in files:
-            # MUST skip cloud files, they share some same lines
-            if filename.startswith("0506-"):
+            # skip diploma files
+            if filename.startswith("csm_dip0506-"):
                 continue
             
             # get the first line of file
@@ -91,7 +91,7 @@ def dirWalk(dirname):
                 # get the number of times clicked
                 take_search = re.search("Clicked take picture button", line)
                 if take_search is not None:
-                    diploma_takeNum[runNumber] += 1
+                    cloud_takeNum[runNumber] += 1
 
                 # Photo latencies are recorded before we know if there was a success
                 # so save the latencies temporarily in tmp_latency and 
@@ -99,14 +99,16 @@ def dirWalk(dirname):
                 
                 # TODO: add leader/nonleader analysis
                 # Retrieve latency info
-                g = re.search("(.*)leader upload new photo latency = (.*)", line)
+                g = re.search("CameraCloud Execute HTTP Upload latency: (.*)ms", line)
                 if g is not None:
                     # reset flags
                     isLatencyOk = False
                     hasResultBad = False
 
-                    tmp_latency = int(g.group(2))
+                    tmp_latency = int(g.group(1))
                     # there are times when strangely the start latency didn't get set
+                    # For example, see 0/csm_dip-1335799100129.txt
+                    # so it records latency as just the epoch time e.g. "1335799117233"
                     if tmp_latency < 1000000:
                         isLatencyOk = True
 
@@ -120,12 +122,12 @@ def dirWalk(dirname):
                         sbad = re.search("one more takeBad", line)
                         if sbad is not None:
                             hasResultBad = True
-                            diploma_takeBad[runNumber] += 1
+                            cloud_takeBad[runNumber] += 1
 
                     sgood = re.search("one more takeGoodSave", line)
                     if sgood is not None:
-                        diploma_takeGood[runNumber] += 1
-                        diploma_take_latency[runNumber].append(tmp_latency)
+                        cloud_takeGood[runNumber] += 1
+                        cloud_take_latency[runNumber].append(tmp_latency)
 
 def stdvCalc(list):
     cumu = 0
@@ -164,17 +166,17 @@ def latencyPrints(latency_list):
 def printResults():
     for iRun in range(len(RUNTIMES)-1):
         print
-        print "======= TAKEs for run %d ========" % iRun
-        print "takes clicked:\t%d" % diploma_takeNum[iRun]
+        print "======= Takes for run %d ========" % iRun
+        print "takes clicked:\t%d" % cloud_takeNum[iRun]
 
-        if diploma_takeNum[iRun] > 0:
-            print "successes:\t%d\t%d %%" % (diploma_takeGood[iRun], (diploma_takeGood[iRun]*100/diploma_takeNum[iRun]))
-            print "fails:\t\t%d" % diploma_takeBad[iRun]
-            print "~timed outs:\t%d\tcalculated indirectly by number-successes-fails" % (diploma_takeNum[iRun]-diploma_takeGood[iRun]-diploma_takeBad[iRun])
+        if cloud_takeNum[iRun] > 0:
+            print "successes:\t%d\t%d %%" % (cloud_takeGood[iRun], (cloud_takeGood[iRun]*100/cloud_takeNum[iRun]))
+            print "fails:\t\t%d" % cloud_takeBad[iRun]
+            print "~timed outs:\t%d\tcalculated indirectly by number-successes-fails" % (cloud_takeNum[iRun]-cloud_takeGood[iRun]-cloud_takeBad[iRun])
 
             # only do latency when there are replies
-            if (diploma_takeGood[iRun] + diploma_takeBad[iRun]) > 0:
-                latencyPrints(diploma_take_latency[iRun])
+            if (cloud_takeGood[iRun] + cloud_takeBad[iRun]) > 0:
+                latencyPrints(cloud_take_latency[iRun])
             else:
                 print "no latency calculations since no there are no replies"
         else: 
@@ -183,9 +185,9 @@ def printResults():
 if __name__ == "__main__":
     dirname = "exp5_logs"
     dirWalk(dirname)
-    print "about 10 seconds to run"
+    print "about 3 seconds to run"
     print
     print "#############################################"
-    print "###### Diploma Takes based on run number ####"
+    print "###### Cloud Takes based on run number ######"
     print "#############################################"
     printResults()

@@ -12,11 +12,11 @@ RUNTIMES = [1336323068975,
 
 # the ith element is about run i (the ith time diploma server restarts)
 
-diploma_take_latency = [[], [], [], [], []]
-diploma_takeNum = [0, 0, 0, 0, 0]
-diploma_takeGood = [0, 0, 0, 0, 0]
-diploma_takeGood_nonleader = [0, 0, 0, 0, 0]
-diploma_takeBad = [0, 0, 0, 0, 0] 
+diploma_get_latency = [[], [], [], [], []]
+diploma_getNum = [0, 0, 0, 0, 0]
+diploma_getGood = [0, 0, 0, 0, 0]
+diploma_getGood_nonleader = [0, 0, 0, 0, 0]
+diploma_getBad = [0, 0, 0, 0, 0] 
 
 timeoutPeriod = 6000
 
@@ -43,17 +43,17 @@ def tail(f):
 
 def dirWalk(dirname):
 
-    global diploma_take_latency
-    global diploma_takeNum 
-    global diploma_takeGood
-    global diploma_takeGood_nonleader
-    global diploma_takeBad
+    global diploma_get_latency
+    global diploma_getNum 
+    global diploma_getGood
+    global diploma_getGood_nonleader
+    global diploma_getBad
 
-    diploma_take_latency = [[], [], [], [], []]
-    diploma_takeNum = [0, 0, 0, 0, 0]
-    diploma_takeGood = [0, 0, 0, 0, 0]
-    diploma_takeGood_nonleader = [0, 0, 0, 0, 0] 
-    diploma_takeBad = [0, 0, 0, 0, 0] 
+    diploma_get_latency = [[], [], [], [], []]
+    diploma_getNum = [0, 0, 0, 0, 0]
+    diploma_getGood = [0, 0, 0, 0, 0]
+    diploma_getGood_nonleader = [0, 0, 0, 0, 0] 
+    diploma_getBad = [0, 0, 0, 0, 0] 
 
     counter = 0
     for (path, dirs, files) in os.walk(dirname):
@@ -89,9 +89,9 @@ def dirWalk(dirname):
             hasResultBad = False
             for line in open(os.path.join(path, filename)):
                 # get the number of times clicked
-                take_search = re.search("Clicked take picture button", line)
-                if take_search is not None:
-                    diploma_takeNum[runNumber] += 1
+                get_search = re.search("making GET photo PACKET to send to the leader. Requesting for region", line)
+                if get_search is not None:
+                    diploma_getNum[runNumber] += 1
 
                 # Photo latencies are recorded before we know if there was a success
                 # so save the latencies temporarily in tmp_latency and 
@@ -99,7 +99,7 @@ def dirWalk(dirname):
                 
                 # TODO: add leader/nonleader analysis
                 # Retrieve latency info
-                g = re.search("(.*)leader upload new photo latency = (.*)", line)
+                g = re.search("(.*)leader download remote photo latency = (.*)", line)
                 if g is not None:
                     # reset flags
                     isLatencyOk = False
@@ -107,6 +107,8 @@ def dirWalk(dirname):
 
                     tmp_latency = int(g.group(2))
                     # there are times when strangely the start latency didn't get set
+                    # For example, see 0/csm_dip-1335799100129.txt
+                    # so it records latency as just the epoch time e.g. "1335799117233"
                     if tmp_latency < 1000000:
                         isLatencyOk = True
 
@@ -117,15 +119,15 @@ def dirWalk(dirname):
                         # only search a bad when there has been no bad replies
                         # so that we don't double count bad replies from a single request
                         # see extra_notes/analysis_take_regions_diploma_1.txt for more info
-                        sbad = re.search("one more takeBad", line)
+                        sbad = re.search("one more getBad", line)
                         if sbad is not None:
                             hasResultBad = True
-                            diploma_takeBad[runNumber] += 1
+                            diploma_getBad[runNumber] += 1
 
-                    sgood = re.search("one more takeGoodSave", line)
+                    sgood = re.search("one more getGood", line)
                     if sgood is not None:
-                        diploma_takeGood[runNumber] += 1
-                        diploma_take_latency[runNumber].append(tmp_latency)
+                        diploma_getGood[runNumber] += 1
+                        diploma_get_latency[runNumber].append(tmp_latency)
 
 def stdvCalc(list):
     cumu = 0
@@ -164,17 +166,17 @@ def latencyPrints(latency_list):
 def printResults():
     for iRun in range(len(RUNTIMES)-1):
         print
-        print "======= TAKEs for run %d ========" % iRun
-        print "takes clicked:\t%d" % diploma_takeNum[iRun]
+        print "======= GETs for run %d ========" % iRun
+        print "gets clicked:\t%d" % diploma_getNum[iRun]
 
-        if diploma_takeNum[iRun] > 0:
-            print "successes:\t%d\t%d %%" % (diploma_takeGood[iRun], (diploma_takeGood[iRun]*100/diploma_takeNum[iRun]))
-            print "fails:\t\t%d" % diploma_takeBad[iRun]
-            print "~timed outs:\t%d\tcalculated indirectly by number-successes-fails" % (diploma_takeNum[iRun]-diploma_takeGood[iRun]-diploma_takeBad[iRun])
+        if diploma_getNum[iRun] > 0:
+            print "successes:\t%d\t%d %%\tincluding existing regions without a photo" % (diploma_getGood[iRun], (diploma_getGood[iRun]*100/diploma_getNum[iRun]))
+            print "fails:\t\t%d\tdue to null region, but still with reply" % diploma_getBad[iRun]
+            print "~timed outs:\t%d\tcalculated indirectly by number-successes-fails" % (diploma_getNum[iRun]-diploma_getGood[iRun]-diploma_getBad[iRun])
 
             # only do latency when there are replies
-            if (diploma_takeGood[iRun] + diploma_takeBad[iRun]) > 0:
-                latencyPrints(diploma_take_latency[iRun])
+            if (diploma_getGood[iRun] + diploma_getBad[iRun]) > 0:
+                latencyPrints(diploma_get_latency[iRun])
             else:
                 print "no latency calculations since no there are no replies"
         else: 
@@ -186,6 +188,6 @@ if __name__ == "__main__":
     print "about 10 seconds to run"
     print
     print "#############################################"
-    print "###### Diploma Takes based on run number ####"
+    print "###### Diploma Gets based on run number ####"
     print "#############################################"
     printResults()

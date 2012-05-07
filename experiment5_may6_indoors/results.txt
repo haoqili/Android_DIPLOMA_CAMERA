@@ -1,11 +1,14 @@
+run 0 was LTE
+run 1 was 4G/3G
+
 #############################################
 ###### Diploma Takes based on run number ####
 #############################################
 
 ======= TAKEs for run 0 ========
 takes clicked:  55
-successes:      55      100 %   including existing regions without a photo
-fails:          0       due to null region, but still with reply
+successes:      55      100 %   
+fails:          0       
 ~timed outs:    0       calculated indirectly by number-successes-fails
 -- Latency associated with successes --
 number:         55      excluding 0 requests that have replies > timeout
@@ -16,8 +19,8 @@ range:          67 ms ~ 277 ms
 
 ======= TAKEs for run 1 ========
 takes clicked:  41
-successes:      41      100 %   including existing regions without a photo
-fails:          0       due to null region, but still with reply
+successes:      41      100 % 
+fails:          0       
 ~timed outs:    0       calculated indirectly by number-successes-fails
 -- Latency associated with successes --
 number:         41      excluding 0 requests that have replies > timeout
@@ -25,3 +28,88 @@ mean:           132 ms
 stdv:           61 ms
 median:         104 ms
 range:          74 ms ~ 289 ms
+
+#############################################
+###### Cloud Takes based on run number ######
+#############################################
+
+======= Takes for run 0 ========
+takes clicked:  48
+successes:      48      100 %
+fails:          0      
+~timed outs:    0       calculated indirectly by number-successes-fails
+-- Latency associated with successes --
+number:         48      excluding 0 requests that have replies > timeout
+mean:           515 ms
+stdv:           85 ms
+median:         525 ms
+range:          220 ms ~ 731 ms
+
+======= Takes for run 1 ========
+takes clicked:  36
+successes:      36      100 % 
+fails:          0 
+~timed outs:    0       calculated indirectly by number-successes-fails
+-- Latency associated with successes --
+number:         36      excluding 0 requests that have replies > timeout
+mean:           1960 ms
+stdv:           793 ms
+median:         2362 ms
+range:          483 ms ~ 3161 ms
+
+#############################################
+###### Diploma Gets based on run number ####
+#############################################
+
+======= GETs for run 0 ========
+gets clicked:   409
+successes:      404     98 %    including existing regions without a photo
+fails:          0       due to null region, but still with reply
+~timed outs:    5       calculated indirectly by number-successes-fails
+-- Latency associated with successes --
+number:         404     excluding 0 requests that have replies > timeout
+mean:           180 ms
+stdv:           165 ms
+median:         146 ms
+range:          39 ms ~ 1616 ms
+
+======= GETs for run 1 ========
+gets clicked:   180
+successes:      180     100 %   including existing regions without a photo
+fails:          0       due to null region, but still with reply
+~timed outs:    0       calculated indirectly by number-successes-fails
+-- Latency associated with successes --
+number:         180     excluding 0 requests that have replies > timeout
+mean:           208 ms
+stdv:           260 ms
+median:         161 ms
+range:          50 ms ~ 2218 ms
+
+
+#############################################
+###### Cloud Gets based on run number #######
+#############################################
+
+======= GETs for run 0 ========
+gets clicked:   378
+successes:      378     100 %   including existing regions without a photo
+fails:          0       due to null region, but still with reply
+~timed outs:    0       calculated indirectly by number-successes-fails
+-- Latency associated with successes --
+number:         378     excluding 0 requests that have replies > timeout
+mean:           267 ms
+stdv:           142 ms
+median:         215 ms
+range:          146 ms ~ 1579 ms
+
+======= GETs for run 1 ========
+gets clicked:   171
+successes:      171     100 %   including existing regions without a photo
+fails:          0       due to null region, but still with reply
+~timed outs:    0       calculated indirectly by number-successes-fails
+-- Latency associated with successes --
+number:         171     excluding 0 requests that have replies > timeout
+mean:           717 ms
+stdv:           727 ms
+median:         398 ms
+range:          216 ms ~ 4132 ms
