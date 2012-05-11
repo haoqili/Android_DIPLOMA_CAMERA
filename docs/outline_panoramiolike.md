@@ -7,8 +7,8 @@ Motivation/background
         * Expected improvements over traditional cloud-Panoramio-like app
 
 Panoramio-like app UI/functionality 
-(identical to DIPLOMA app and CLOUD app)
 --------------------
+(identical to DIPLOMA app and CLOUD app)
 
     * Regions
     * Take picture
