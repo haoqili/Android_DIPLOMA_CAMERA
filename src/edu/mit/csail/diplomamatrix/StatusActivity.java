@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.io.OptionalDataException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 import android.app.Activity;
@@ -60,6 +61,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	TextView hystTv;
 	TextView gpsTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
+	TextView takelatencyTv, getlatencyTv;
 	EditText widthText;
 	ListView msgList;
 	ArrayAdapter<String> receivedMessages;
@@ -132,6 +134,10 @@ public class StatusActivity extends Activity implements LocationListener {
 	// latency stuff
 	long client_upload_start = 0;
 	long client_download_start = 0;
+	private ArrayList<Long> takelatencies = null;
+	private ArrayList<Long> getlatencies = null;
+
+
 
 	/** Handle messages from various components */
 	private final Handler myHandler = new Handler() {
@@ -273,8 +279,9 @@ public class StatusActivity extends Activity implements LocationListener {
 						isGetSuccess = true;
 						getGood += 1;
 						logMsg("one more getGood: "+getGood);
-						logCounts(); // logCounts has to be called to refresh the UI anyway.	
-						logMsg("successful reply for client get photo");
+						logCounts(); // logCounts has to be called to refresh the UI anyway.
+						logMsg("adding get latency: " + download_latency);
+						logGetLatency(download_latency);
 						if (my_gpinfo3.photoBytes == null) {
 							logMsg("PHOTO DATA is NULL, because region doesn't have a photo yet");
 							CharSequence text = "PHOTO DATA is NULL, because region doesn't have a photo yet";
@@ -390,6 +397,8 @@ public class StatusActivity extends Activity implements LocationListener {
 						takeGoodSave += 1; // add here in case things screw up later
 						logMsg("one more takeGoodSave: "+takeGoodSave);
 						logCounts();
+						logMsg("adding take latency: " + upload_latency);
+						logTakeLatency(upload_latency);
 						
 						logMsg("SUCCESS Client now knows saving photo on its leader succeeded");
 						//CharSequence text = "SUCCESS! Saving photo on its leader succeeded";
@@ -435,6 +444,40 @@ public class StatusActivity extends Activity implements LocationListener {
 			myLogWriter.println(msg);
 			myLogWriter.flush();
 		}
+	}
+	
+	
+	private void logTakeLatency(long latency){
+		takelatencies.add(latency);
+		Collections.sort(takelatencies);
+		
+		int len = takelatencies.size();
+		long median = takelatencies.get(len/2);
+		
+		// mean
+		long sum = 0;
+		for (int i=0; i < len; i++){
+			sum += takelatencies.get(i);
+		}
+		long mean = sum/len;
+		
+		takelatencyTv.setText("tmn: "+mean+ ", tmd: "+median+ " tn: "+latency);
+	}
+	private void logGetLatency(long latency){
+		getlatencies.add(latency);
+		Collections.sort(getlatencies);
+		
+		int len = getlatencies.size();
+		long median = getlatencies.get(len/2);
+		
+		// mean
+		long sum = 0;
+		for (int i=0; i < len; i++){
+			sum += getlatencies.get(i);
+		}
+		long mean = sum/len;
+		
+		getlatencyTv.setText("gmn: "+mean+ ", gmd: "+median+ " gn: "+latency);
 	}
 
 	private void logCounts(){
@@ -688,6 +731,9 @@ public class StatusActivity extends Activity implements LocationListener {
 		// Text views
 		takeTv = (TextView) findViewById(R.id.take_tv);
 		getTv = (TextView) findViewById(R.id.get_tv);
+	
+		takelatencyTv = (TextView) findViewById(R.id.take_latency);
+		getlatencyTv = (TextView) findViewById(R.id.get_latency);
 		
 		widthTv = (TextView) findViewById(R.id.width_tv);
 		hystTv = (TextView) findViewById(R.id.hyst_tv);
@@ -733,7 +779,7 @@ public class StatusActivity extends Activity implements LocationListener {
 
 		if (mExternalStorageAvailable && mExternalStorageWriteable) {
 			myLogFile = new File(Environment.getExternalStorageDirectory(),
-					String.format("csm_dip0506-%d.txt", System.currentTimeMillis()));
+					String.format("csm_dip0512-%d.txt", System.currentTimeMillis()));
 			try {
 				myLogWriter = new PrintWriter(myLogFile);
 				logMsg("*** Opened log file for writing ***");
@@ -775,8 +821,10 @@ public class StatusActivity extends Activity implements LocationListener {
 		areButtonsEnabled = true;
 		logMsg("areButtonsEnabled --> true");
 		
-		// Initialize ProcessReplies
+		// Initialize ArrayLists
 		processedReplies = new ArrayList<Integer>();
+		takelatencies = new ArrayList<Long>();
+		getlatencies = new ArrayList<Long>();
 		
 		// Watch out for low battery conditions
 		BroadcastReceiver receiver = new BroadcastReceiver() {

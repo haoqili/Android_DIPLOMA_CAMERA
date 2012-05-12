@@ -22,11 +22,12 @@ public final class R {
         public static final int CameraLaunch2=0x7f070013;
         public static final int CameraPreview=0x7f070001;
         public static final int CountInfoLayout=0x7f070023;
+        public static final int LatencyStuff=0x7f070029;
         public static final int PhotoDisplay=0x7f070002;
         public static final int RegionSet=0x7f070018;
         public static final int RegionSet2=0x7f07001a;
         public static final int RegionSet3=0x7f07001e;
-        public static final int SetParameters=0x7f070029;
+        public static final int SetParameters=0x7f07002c;
         public static final int StatusHeadingLayout=0x7f070004;
         public static final int StatusInfoLayout=0x7f070009;
         public static final int TextView01=0x7f070007;
@@ -41,11 +42,12 @@ public final class R {
         public static final int get3_button=0x7f070011;
         public static final int get4_button=0x7f070017;
         public static final int get5_button=0x7f070012;
+        public static final int get_latency=0x7f07002b;
         public static final int get_tv=0x7f070025;
         public static final int gps_tv=0x7f070028;
-        public static final int hyst_button=0x7f07002d;
+        public static final int hyst_button=0x7f070030;
         public static final int hyst_tv=0x7f070027;
-        public static final int hysteresis_spinner=0x7f07002c;
+        public static final int hysteresis_spinner=0x7f07002f;
         public static final int id_tv=0x7f07000c;
         public static final int leader_tv=0x7f07000d;
         public static final int msgList=0x7f070022;
@@ -59,9 +61,10 @@ public final class R {
         public static final int regg=0x7f070019;
         public static final int region_tv=0x7f07000b;
         public static final int state_tv=0x7f07000a;
+        public static final int take_latency=0x7f07002a;
         public static final int take_tv=0x7f070024;
-        public static final int width_button=0x7f07002b;
-        public static final int width_text=0x7f07002a;
+        public static final int width_button=0x7f07002e;
+        public static final int width_text=0x7f07002d;
         public static final int width_tv=0x7f070026;
     }
     public static final class layout {
