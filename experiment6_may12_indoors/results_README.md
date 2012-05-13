@@ -36,6 +36,8 @@ Run 3
         * Take black pics, and get all pictures
         * Take black pics, and get all pictures
 
+    * Anirudh had some bad gets, but when he tried again, they worked. Maybe that phone was going through a barnacle app breakup, or the wifi was not good.
+
 Run 4
     
     * 4G
