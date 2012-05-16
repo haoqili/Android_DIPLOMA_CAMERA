@@ -376,11 +376,29 @@ DIPLOMA
 bad = (isSuccess == false): some or all of this is due to DIPLOMA Level time out
 timedOut = timed out after 6 seconds. If request comes back after 6 seconds, it is counted into getGood or getBad
 
+Code Set Up
+==============================
+
+- The IP addresses of the phones should only differ in their last number. Their identical first 3 numbers should also be set for the first 3 numbers of Globals.BROADCAST_ADDRESS. During my project. the phones had IP addresses of 192.168.5.[number], so the Globals.BROADCAST_ADDRESS was set to "192.168.5.255" 
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/c96695f6d4246bedc1395cffac9e184e807ba53e#L1R16
+
+- 
+
+Experiment Set Up
+==============================
+- Run DIPLOMA and Cloud servers and make sure their IP addresses are set on Globals.CSM_SERVER_NAME and Globals.CLOUD_SERVER_NAME respectively.
+- Start Barnacle on DIPLOMA phones
+
+Pre Trial Issues
+==============================
 
 Trials
 ==============================
 
-Prior to the first experiment. We conducted a 3-phone test to get the Wifi range of the phones. In this test, the phones were facing each other all the time and there were no obstructions in the path of transmission. We would later find out that the range from this test would be too large for multi-user, randomized direction, randomized obstruction data-collecting experiments.
+Prior to the first experiment. We conducted two mini experiments to see the app was working and to test the wifi range of the phones.
+
+Mini expe
+conducted a 3-phone test to get the Wifi range of the phones. In this test, the phones were facing each other all the time and there were no obstructions in the path of transmission. We would later find out that the range from this test would be too large for multi-user, randomized direction, randomized obstruction data-collecting experiments.
 
 We performed a total of 6 data-collection experiments in a span of almost 2 months. Throuh time, the apps had fewer bugs and more measures to insure successes. However, it was impossible to fix the most critical issue -- the Wifi range and consistency of the phones. The interference of 20 phones carried by 10 people moving simultaneously and randomly made collecting meaninful data imfeasible with the current Wifi abilities of the phones. In the final 2 experiments, we resorted to a controlled indoors experiment with minimal Wifi interferance and obtained more expected results.
 
@@ -476,3 +494,15 @@ Regions: 6
 
 Figured out why latency was strange. Expected results, finally
 Though for one, we were 3% short of 100%
+
+======================================
+- link to github commits of the bugs
+- link to raw data
+- description of methodology
+- emails ...
+- conclusions
+    - bug fixes
+    - low level system issue
+    - how to reproduce the issues/repeatable
+
+- how things got to where they are

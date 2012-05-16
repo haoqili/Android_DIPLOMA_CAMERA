@@ -28,6 +28,8 @@ diploma_getGood = [0, 0, 0, 0]
 diploma_getGood_nonleader = [0, 0, 0, 0]
 diploma_getBad = [0, 0, 0, 0] 
 
+diploma_cloudreq = [0, 0, 0, 0] 
+
 timeoutPeriod = 6000
 
 # different algorithm than experiment 5
@@ -65,6 +67,8 @@ def dirWalk(dirname):
     global diploma_getGood_nonleader
     global diploma_getBad
 
+    global diploma_cloudreq
+
     diploma_take_latency = [[], [], [], []]
     diploma_takeNum = [0, 0, 0, 0]
     diploma_takeGood = [0, 0, 0, 0]
@@ -76,6 +80,8 @@ def dirWalk(dirname):
     diploma_getGood = [0, 0, 0, 0]
     diploma_getGood_nonleader = [0, 0, 0, 0]
     diploma_getBad = [0, 0, 0, 0] 
+
+    diploma_cloudreq = [0, 0, 0, 0] 
 
     for (path, dirs, files) in os.walk(dirname):
         for filename in files:
@@ -99,11 +105,37 @@ def dirWalk(dirname):
             # get latency from the middle of the files
             tmp_latency = 0
             for line in open(os.path.join(path, filename)):
+                # get cloud access counts
+                # takeLeadership, releaseLeadership, uploadState
+                #
+                # takeLeadership 
+                clouds0 = re.search("leader to cloud hearbeat", line)
+                if clouds0 is not None:
+                    diploma_cloudreq[runNumber] += 1
+                clouds1 = re.search("trying to take leadership ", line)
+                if clouds1 is not None:
+                    diploma_cloudreq[runNumber] += 1
+                # releaseLeadership
+                clouds2 = re.search("released leadership to cloud in ", line)
+                if clouds2 is not None:
+                    diploma_cloudreq[runNumber] += 1
+                # both releaseLeadership and uploadState
+                clouds3 = re.search("no LEADER_CONFIRM_ACK, uploaded state to cloud in", line)
+                if clouds3 is not None:
+                    diploma_cloudreq[runNumber] += 2
+                clouds4 = re.search("onStop released leadership to cloud", line)
+                if clouds4 is not None:
+                    diploma_cloudreq[runNumber] += 2
+                clouds5 = re.search("old region empty, uploaded state to cloud ", line)
+                if clouds5 is not None:
+                    diploma_cloudreq[runNumber] += 2
+                # end of cloud access counts
+
                 # Number of takes clicked
                 take_search = re.search("Clicked take picture button", line)
                 if take_search is not None:
                     diploma_takeNum[runNumber] += 1
-                # Number of times clicked
+                # Number of gets clicked
                 get_search = re.search("making GET photo PACKET to send to the leader. Requesting for region", line)
                 if get_search is not None:
                     diploma_getNum[runNumber] += 1
@@ -184,7 +216,7 @@ def printResults():
             latencyPrints(diploma_take_latency[iRun])
 
         print
-        print "======= GETs for run %d ========" % (iRun+1)
+        print "------- GETs for run %d --------" % (iRun+1)
         print "clicked:\t%d" % diploma_getNum[iRun]
         print "successes:\t%d\t%d %%\tincluding existing regions without a photo" % (diploma_getGood[iRun], (diploma_getGood[iRun]*100/diploma_getNum[iRun]))
         print "fails:\t\t%d\tdue to null region, but still with reply" % diploma_getBad[iRun]
@@ -192,6 +224,10 @@ def printResults():
         # only do latency when there are replies
         if (diploma_getGood[iRun] + diploma_getBad[iRun]) > 0:
             latencyPrints(diploma_get_latency[iRun])
+    
+        print
+        print "----- Cloud accesses for run %d ----" % (iRun+1)
+        print "cloudreq:\t%d\t" % diploma_cloudreq[iRun]
         print
 
 if __name__ == "__main__":
