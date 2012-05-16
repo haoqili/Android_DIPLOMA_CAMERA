@@ -173,8 +173,7 @@ public class UserApp implements DSMUser {
 		// For SERVER_UPLOAD_PHOTO: successfulness of the upload
 		reply_packet.getphotoinfo_bytes = reply.data;
 
-
-		//TODO: marker
+		
 		// put the reply with the counter in HashMap 
 		// it's like a global, so the reply_packet can be sent repeatedly
 		replyPacketMap.put(reply_packet.replyCounter, reply_packet);
@@ -209,7 +208,6 @@ public class UserApp implements DSMUser {
 		mux.vncDaemon.myHandler.postDelayed(sendReplyTimeoutR, sendingRepliesTimeoutPeriod);
 	}
 	
-	// TODO: marker
 	// Called when 
 	//    1. inside handleClientRequest when heard Final Leg Ack from client 
 	// OR 2. inside sendReplyTimeoutR when sendingRepliesTimeoutPeriod reached
@@ -228,6 +226,8 @@ public class UserApp implements DSMUser {
 		
 	}
 	
+	// workaround for runnables unable to accept parameters
+	// see: http://stackoverflow.com/a/10238196
 	private Runnable createReplyTimeoutR(final int replyCount_){
 		Runnable sendReplyTimeoutR = new Runnable(){
 			public void run(){
@@ -483,7 +483,6 @@ public class UserApp implements DSMUser {
 		logMsg("Note down new request by adding requestCounter=" + packet.requestCounter + " to HashMap processedRequests");
 		processedRequests.add(packet.requestCounter);
 		
-		// TODO: marker
 		logMsg("Make FirstLeg Ack regardless of new or already-processed requests");
 		// send ack ONCE to client to let it know that this First Leg is complete
 		// so that the client can resend if it doesn't hear this ack
