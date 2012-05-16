@@ -227,7 +227,9 @@ def printResults():
     
         print
         print "----- Cloud accesses for run %d ----" % (iRun+1)
-        print "cloudreq:\t%d\t" % diploma_cloudreq[iRun]
+        print "cloudreq:\t%d. These are from heartbeats and the few take leaderships (at beginning of run) only! Since the phones were not mobile" % diploma_cloudreq[iRun]
+        print "totalreq:\t%d\t sum of TAKEs and GETs" % (diploma_takeNum[iRun]+diploma_getNum[iRun])
+        print "ratio:\t\t1 : %f\t ratio of cloudreq : totalreq. Note that cloud requests are NOT counted in the total requests" % ((diploma_takeNum[iRun]+diploma_getNum[iRun])/(1.0*diploma_cloudreq[iRun]))
         print
 
 if __name__ == "__main__":
