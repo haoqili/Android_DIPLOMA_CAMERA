@@ -376,6 +376,10 @@ DIPLOMA
 bad = (isSuccess == false): some or all of this is due to DIPLOMA Level time out
 timedOut = timed out after 6 seconds. If request comes back after 6 seconds, it is counted into getGood or getBad
 
+################
+################
+################
+
 Code Set Up
 ==============================
 
@@ -389,8 +393,22 @@ Experiment Set Up
 - Run DIPLOMA and Cloud servers and make sure their IP addresses are set on Globals.CSM_SERVER_NAME and Globals.CLOUD_SERVER_NAME respectively.
 - Start Barnacle on DIPLOMA phones
 
+
 Pre Trial Issues
 ==============================
+- Before I used my own Camera Surface View, I used the built-in camera ACTION_IMAGE_CAPTURE intent to get the picture: https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/e61381eda31d567bb31c69c21f54d3adb9c9f044/src/edu/mit/csail/diplomamatrix/StatusActivity.java#L382. Initially there was a problem that the simple way of retrieving images only provided a *tiny thumbnail of the image, not the full image*: see https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/a1398a4723c0e6710a43dddb8681081c910875ff/src/edu/mit/csail/diplomamatrix/StatusActivity.java#L364
+    The problem is also described here: http://stackoverflow.com/questions/1910608/android-action-image-capture-intent
+More specifically, the onActivityResult() of intent image capture can only provide a low-resolution thumbnail because there probably isn't enough storage space all the time to save all the image data. So that's why http://developer.android.com/reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE says that EXTRA_OUTPUT should be used to save the image.
+To fix this problem (ultimately I changed into Camera Surface View though and don't use the camera intent at all), I save the new photo on the SD card and onACtivityResult() uses _getAndResizeBitmap() to retreive the photo and resize it. https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/e61381eda31d567bb31c69c21f54d3adb9c9f044#L4R384
+
+- 
+
+
+ I used a direct camera interface for DIPLOMA, It was actually not a bug. The onActivityResult of intent image capture can only provide a low-resolution thumbnail because there probably isn't enough storage space all the time to save all the image data. So that's why http://developer.android.com/reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE says that EXTRA_OUTPUT should be used to save the image.
+
+Extra notes
+==============================
+- Socket-already-in-use problem when loading new code is fixed by always killing (using back arrow) the app before loading new code. (The "home" button only pauses the app, not destroying it.)
 
 Trials
 ==============================
