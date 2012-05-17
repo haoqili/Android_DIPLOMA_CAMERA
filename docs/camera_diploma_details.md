@@ -540,9 +540,9 @@ The git commits between this experiment and the next fixed the following:
     https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/eeda40d5f628aa609a5111e02ea1995666b9e451#L1R350
 
     HANDING_OFF introduced bug fixes:
-    - Make HANDING_OFF able to receive leader nominates and send leader confirmation ack, i.e. making electing new leader possibles
+    - Make HANDING_OFF able to receive leader nominates and send leader confirmation ack, i.e. making electing new leader possible
         https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/4bdab778fcbc0cd00187eb4bf679946abaa6bec6#L0R333
-    - Change the HANDING_OFF state transition to the correct region
+    - Change the HANDING_OFF state transition to the correct region (important fix)
         https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/4bdab778fcbc0cd00187eb4bf679946abaa6bec6#L0R695
 
 - Decreased cloud heartbeat, because the old period was too long, which was okay with caching (Jason's old app), but this app doesn't have caching
@@ -578,7 +578,9 @@ The git commits between this experiment and the next fixed the following:
 - UI improvement: Added counts for success and failures
     https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/92ccb731dbb4d140001c831602aa7ac570766bd0
 
-- 
+- Increased oldLeaderReleasePeriod, because we observed new leader requesting to be leader before the old leader released leadership 
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/1912ef8f3ed2dbd9c887af3038a975681637b42a
+- Decreased heartbeatPeriod: https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/b8a64242d4e6974c74d1c86abdfbb277b5e25f60
 
 
 Experiment 2
