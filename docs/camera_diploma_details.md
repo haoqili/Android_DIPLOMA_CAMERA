@@ -480,12 +480,11 @@ Phones: 20 Nexus S
 People: 10 People, 1 Cloud, 1 DIPLOMA/person
 Regions: 6
 Setup: Linear
-Width: 
 Files: https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/master/camera_diploma_exp1_data, 
        https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/camera_diploma_exp1_data/diploma_notes.md
        https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/camera_diploma_exp1_data/cloud_notes.md
 
-No usable data from this experiment because this this experiment was filled with problems due to insufficient and inadequate stress testing beforehand. There were frequent crashes due to the Camera Surface interface running out of memory, and the users double pressing the buttons. The regions were XX meters wide each, which caused great trouble in phones communicating with each other even in the same region. A smaller bug forced the users to walk to region 0 whenever the apps crashed. The region assignment based on GPS was observed to be robust.
+No usable data from this experiment because this this experiment was filled with problems due to insufficient and inadequate stress testing beforehand. There were frequent crashes due to the Camera Surface interface running out of memory, and the users double pressing the buttons. The regions were too large (a lot more than 20 meters) which caused great trouble in phones communicating with each other even in the same region. A smaller bug forced the users to walk to region 0 whenever the apps crashed. The region assignment based on GPS was observed to be robust.
 
 The git commits between this experiment and the next fixed the following:
 - Added leader to cloud heartbeat, i.e. fixed the bug where leaders were not sending heartbeats to the cloud
@@ -545,6 +544,15 @@ The git commits between this experiment and the next fixed the following:
     - Change the HANDING_OFF state transition to the correct region (important fix)
         https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/4bdab778fcbc0cd00187eb4bf679946abaa6bec6#L0R695
 
+    - Critical fixes in HANDING_OFF so now HANDING_OFF can
+        - send heartbeats to nonleaders of the region
+            https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/24c58c77e7b762b1a6dfa12689661e1e82846598#L2L143
+        - release leadership to the cloud after moving out of old region so that the cloud can accept new leader requests to the old region before the time out of 100 seconds:
+            https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/24c58c77e7b762b1a6dfa12689661e1e82846598#L2R246
+            https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/24c58c77e7b762b1a6dfa12689661e1e82846598/server_script/diploma_camera_server.py#L84
+            - this is one of the causes of *JOINING hanging* because old leaders never could release their leadership to the cloud and allow new leaders to take over. So the only leader transitions occured due to cloud timeouts, after 100 seconds
+
+
 - Decreased cloud heartbeat, because the old period was too long, which was okay with caching (Jason's old app), but this app doesn't have caching
     https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/6b3533e98b47b981ed0ba0594f10d4e119caaa92#L4R54
 
@@ -587,32 +595,312 @@ Experiment 2
 ------------
 Location: 436 Massachusetts Avenue
 Date: April 6
+Weather: Sunny and cold
 Phones: 20 Nexus S, 20 Galaxy Notes
 People: 10 People, 1 Cloud, 1 DIPLOMA/person
 Regions: 6
 Setup: Linear
-Width: 
+Files: https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/master/experiment2_april_6 containing logs, scripts for analysis and power, email conversations
 
-People complained about phones being out-of-range and waiting for a long time to JOIN a region. Initially the cloud server was unresponsive, but after restarting, it was better. We had to restart the server multiple times.  The experimental successes were much higher when there were stationary region leaders. 
-TODO: XX Provide actual results
+The server was started in Stata on hermes5.csail.mit.edu (which we'll discover later that sometimes this drops due to security reasons).
 
-- Added acks for first and final legs
-- Moved code order on leaders to more accurately record successes and fails
+Run 1:
+We handed 2 Nexus S phones to each of the 10 people, 1 Nexus and 1 Galaxy note. We went through the directions, letting people know that they cannot press "Okay", but press "Wait" instead, if the phone prompts the phone to quit during a request hang. We instructed the people to walk along one side of Mass Ave. The people should press GET/TAKE buttons in the same sequence on both DIPLOMA and Cloud phones.
+Observations: When people started to press buttons, the Cloud phone requst made the phone hung for over 2-3 minutes or some phones never stopped hanging.  
+
+We decided to restart the servers. We brought a laptop and tried to connect to a free wifi (which sometimes drops). But we were able te restart the server for run 2.
+
+Run 2:
+We had the same phone setup but with Galaxy Notes phones instead of Nexus S phones.
+The cloud requests completed within 2-3 minutes, so that was good.
+People complained about phones waiting for a long time to JOIN a region. 
+People moved around a lot, sometimes forming occasional pairs or triples (to chat with each other). Most of the time half of the regions were unpopulated, which would cause multi-hop problems in DIPLOMA (in additional to bad Wifi range).
+We had to restart the server several times.  
+
+Run 3:
+Noticing that people were taking a very long time joining a new region, as if each time the server has to time out a region leader to let a new leader in, we decided to have stationary leaders. First we positioned individual people in the different regions and observed that they became leaders of their regions. After all the leaders are set up, we had about 2 non-leader phones as well as all the leaders pressing buttons. The 2 non-leaders could walk around. The pressing buttons period lasted about 5 minutes.
+
+The experimental successes were much higher in Run 3, when there were stationary region leaders. 
+
+
+Problems:
+    - Terrible available Wifi. We observed that pinging sometimes fails even between two phones within an arm's distance. This is probably due to many wifi hotspots interfering with the signals
+    - Regions are too big, outside of phone Wifi range, so phones within a region can't hear each other (nonleader can't hear leaders), leaders in adjacent regions can't hear each other either.
+    - People held the phones on their palms, horizontally. We found later that this configuration reduced the Wifi range of the phones greatly
+    - People were facing different directions. Wifi range is reduced greatly behind a person's back. (During pre-experiments, we pointed the phones at each other, we no obstructions in between.)
+    - Many regions were unpopulated in Run 2
+    - There were still bugs in the code making leader election after the old leader changes region difficult
+    - The server was on the Stata hermes server which sometimes times out
+    - The server was controlled by a laptop connecting to a spotty Wifi
+
+RRRRRRRRRRRRRResults
+RRRRRRRRRRRRRR
+RRRRRRRRRRRRRR
+
+We modified scripts a bit to make it more robust. Currently 3G logs
+have been somewhat cleaned up, 4G logs are still a little noisy. In
+any case, here are the results after more robust scripts :
+
+4G
+Type           Total  Success
+diplo-take         80      54
+diplo-get          74      15
+cloud-take        225     202
+cloud-get         345     314
+
+3G
+
+diplo-take         74      73
+diplo-get         128      39
+cloud-take         70      62
+cloud-get         106      95
+
+Note that 3G results have been cleaned up a bit by throwing away
+spurious phone logs that weren't part of the experiment.
+
+Latency  in ms :
+
+Notes on Wifi :
+
+mean      558
+median    205
+std-dev   991
+
+This is after discarding > 6000 ms samples (due to time out).
+Conclusion : there are some requests that finish very very late ie in
+4 seconds or so. Maybe the phone is overloaded ?
+
+Nexus on Wifi :
+
+mean      263
+median    205
+std-dev   276
+
+Nexus on 3G :
+
+mean    22546
+median  15557
+std-dev 20284
+
+Notes on 4G :
+
+mean      837
+median    479
+std-dev   769
+
+Bandwidth reduction :
+
+For the 3G experiment (Would be good if someone double checked, these
+are from the manually-filtered last experiment 3G logs, so they should
+be accurate) :
+
+Total count of all bytes corresponding to string "json" in the files
+is 158983 bytes. These "json" requests spanned only 5 lines in total,
+meaning leader elections were rare. This was the case with the second
+experiment There are a total of 74+128, take and get results for
+DIPLOMA. The average 3G byte cost per transaction is :
+(158983/(74+128)) which is 788 bytes.
+
+On 3G, for each transaction, get or take, there is a request and a
+response. The number of bytes in cloud-requests is 976346 in total.
+For cloud responses this is a huge 7142626. There are  70 cloud takes
+and 106 gets in all. The average 3-G usage per transaction (take or
+get ) is  46130 bytes.
+
+Now that the method is clear,here are the 4G results on bandwidth
+reduction .I am lapsing in and out of sleep, so will do 4G in the
+morning.
+
+===========
+
+4G bandwidth reduction (uncleaned log) :
+
+DIPLOMA :
+
+Total json bytes : 1502405
+
+Cloud : 3819148 + 13375630 (requests + responses) = 17194778
+
+Number of get+take DIPLOMA requests :  Copying from above (80+74) = 154
+
+Number of get+ take Cloud requests :       225+345=570
+
+> diplo-take         80      54
+> diplo-get          74      15
+> cloud-take        225     202
+> cloud-get         345     314
+
+Therefore, 4G bytes per transaction of DIPLOMA is 1502405/154=9755
+(considerably larger than 700 for the 3G stuff reported above, because
+there people weren't moving)
+Similarly, 4G bytes per transaction of CameraCloud is 30166 bytes
+(somewhat lower than the 3g value).
+
+===========
+
+First to fill in Niket on this, we prototyped a simple food spotting
+application on DIPLOMA over 4G phones (The new Galaxy Notes). Jason
+built some power models using the Monsoon power meter and we got some
+power measurements on our trace data using that. Here's the summary.
+It's a little detailed but it hopefully is clear.
+
+In our 4G experiments, we had people moving around too frequently and
+presumably the non leaders could not hear the leaders of the region.
+This meant they would not hear 3 consecutive leader heart beats, time
+out, go and ask the cloud to see if they could now become leader. But
+the cloud still keeps getting hearbeats from the actual leader of the
+region. So the cloud rejects all these requests. To enable faster
+re-election in case a leader failed (app crashed), we increased the
+frequency at which a non-leader contacts the cloud _if_ he can't hear
+from the leader. This basically lead to a flood of messages up to the
+cloud and back from it rejecting the leader request because as far as
+the cloud knows, it's still hearing hearbeats from the real leader.
+
+In terms of actual numbers, there were about ~ 600 request-reject
+cycles in the DIPLOMA app. That's 600 odd cloud accesses. The Camera
+Cloud version had only about 390 such request-response cycles to the
+Cloud. So DIPLOMA actually ended up contacting the cloud way more
+often than Camera Cloud. Now, we probably still _may_ (not really
+sure) win in terms of number of bytes transferred because DIPLOMA's
+request reject cycles were smaller packets while Camera Cloud's
+transactions were larger ones with the photo itself.
+
+But, and this is the critical thing, even without calculating, we do
+MUCH worse power wise. This is because , from Jason's measurements,
+the 4G power profile has a large intercept and small slope. In other
+words, the mere fact that you are transmitting a packet consumes more
+energy which dwarfs the effect of the packet size. So, to a first
+order, packet size is irrelevant. So, DIPLOMA incurs Cloud
+request-reject cycles and Camera Cloud incurs only 390. So Camera
+Cloud is already doing better. But, this is without including
+DIPLOMA's wifi power consumption. If we throw that in, the numbers get
+much worse.
+
+We also looked at the second experiment's logs where the 3G nexus
+phones were stationary. The number of leader request-reject cycles was
+much lower ie 49. So, there I guess we still win, though we don't have
+numbers yet. The overall summary is that the 4G results are kind of
+unusable due to a combination of mobility and bad wifi. We can run it
+again in a better region if you think it will add to the overall story
+of the paper.
+
+=====================
+
+Jason and I ran some power measurements on the 3G devices to estimate
+power numbers for our 3-g experiment. This is the one in which we
+positioned people in regions a priori. We define an access as a
+complete HTTP transaction (ie request and response). Here's what we
+observed.
+
+For DIPLOMA, 3g accesses are dominated by the leader to cloud heart
+beats (every 40 seconds) and non-leaders asking the cloud for
+leadership and getting rejected (because there was already a leader).
+The second one is a Wifi range issue, just like we observed earlier.
+For CameraCloud, each user request for a photo or to upload a photo is
+a cloud access.
+
+For DIPLOMA, the average packet size across all 3g accesses is 710
+bytes. This has a high standard deviation because all packets are
+either very small (signaling for leadership,hearbeat etc) or very
+large (photo data). The number of accesses in total is 242.
+For CameraCloud, avg. packet size is 12919 bytes and there are 176
+such accesses (since there are 176 user requests).
+
+We estimated power consumption for a 710 byte packet and a 12919 byte
+packet by sending a stream of 100 packets of each type in two separate
+experiments. We got power numbers for both  downloading(methodA) and
+uploading packets(methodB) of this size. They turn out to be larger
+for the 12919 byte packet but overall, the increase in energy
+consumption is dominated by the cost to transmit in the first place.
+
+After all this, we got the average energy per request to be between
+1.50(methodA) and 1.72(methodB) Joules for DIPLOMA and between
+1.77(methodB) and 2.06(methodA) for CameraCloud. This is w/o Wifi idle
+power. So, we do better, but with a disclaimer.
+
+The reason we don't do much better is that our leader hearbeat time is
+40 seconds which is pretty aggressive. In total there were 179 such
+hearbeats across 202 user requests.
+
+RRRRRRRRRRRRRR
+RRRRRRRRRRRRRR
+RRRRRRRRRRRRRR
+
+Fixes:
+
+- During the first run, we thought about adding a timeout for the http request on the Cloud App. Then we decided to not do that because we want to show the cloud is slow: 
+    https://github.com/haoqili/Android_CLOUD_CAMERA/commit/3b884d8daf67d2bba0980d2bf1c9e6a58810e1af#L0R940
+
+- *N.B.* For Camera Cloud: Before when the server was broken for Run 1, there was an exception in the http request, even though I caught the exception, I didn't re-enable the buttons until there was a response (which was never, after the server failed). This commit catches more exceptions and re-enables buttons inside each of the exceptions:
+    https://github.com/haoqili/Android_CLOUD_CAMERA/commit/3b884d8daf67d2bba0980d2bf1c9e6a58810e1af#L0R1008
+
+- Critical HANDING_OFF bug fixes (search for commit 24c58c)
+
+- Decrease region size to 20 meters, the range on side walks outdoor.
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/24c58c77e7b762b1a6dfa12689661e1e82846598#L0R21
+    The three of us walked around in different places outdoors with the Galaxy Notes to test ranges. We observed:
+        - 20 meters linearly outside of 77 mass ave
+        - 25+ meters linearly on Killian court
+        - A curved path, like curved behind a tree causes a lot of decrease in range
+    At this time, we failed to realize the region size should be small enough so that 2 phones anywhere inside 2 adjacent regions could hear each other, not 1 region. Since the leaders must be able to talk to adjancent leaders
+
+- Increase the heart beat period to the cloud from 30 seconds to 2 minutes
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/24c58c77e7b762b1a6dfa12689661e1e82846598#L2L35
+
+- Increase the cloud leader retry time. Anirudh: "Increase the retry time out if a non-leader looking to be leader is rejected from the cloud. This prevents a non-leader from being rejected too often by the cloud (which adds to 3-g overhead)."
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/24c58c77e7b762b1a6dfa12689661e1e82846598#L2L37
+
+- Increase the time that the old leader waits to hear back candidate leadership responses. We made this change after discovering, from 4 tests, that in 1 test the leader just barely missed a response.
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/24c58c77e7b762b1a6dfa12689661e1e82846598#L2L39
+
+- Added acks for first and final legs. So that there are 4 chances to make the first leg or final leg succeed. We found that this did not improve results drastically because the 4 sends occur within 1 second, and if the Wifi is down, it's probably not going to get back up within any given second.
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/28a9157f93f3d511a91885c8c9f717a8aca50781
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/c12d180dff17819377c8aa215f5621ddc16be8ee
+    
 - UI: show number of successes
-- Fix HANDING_OFF bugs so now HANDING_OFF can
-    - send heartbeats
-    - let non-leaders of region elect new leader
-    - release leadership to cloud!  <-- cause of hanging in JOINING because old leaders never cloud release their leadership to the cloud and allow new leaders to take over. So the only leader transitions occured due to cloud timeouts, which was XX about 2 minutes.
-- Added editable width and hysteresis
-- Improve performance: if JOINING hears a heartbeat from the region, it tries to become become NONLEADER right away
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/7c4752ad5dd5b73a38b7b314a55ac44f499a145c
 
+- Make DIPLOMA time-out detection possible by letting DIPLOMA know about the original client's ID (for its IP address). Before this change, leaders cannot handle the case of timedOut to tell nonclient that I (the leader) failed to reach the remote region so it (the nonclient) doesn't have to wait until its timeout ends. This is because the leader (without its reply.data that contains GetPhotoInfo) cannot distinguish among its nonleaders.
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/3d3438d5c9dd23acc43aa1fcd0870777ba581eee#L0R465
+
+- BTW, we conducted a mini experiment with 6 phones on April 23rd. We ran the server on the laptop we carried, which was connected to the Wifi. The following 6 points were raised:
+1. Server code freezes on state upload.
+    We couldn't find anything wrong with the server. The most likely case was because the Wifi that the laptop connected to was spotty.
+
+2. Get rid of hysterisis. With hysterisis, there were a few meters around the boundaries of the regions that did not allow the phones to change into a new region. The reason for this was because we were worried that the GPS would be very inprecise and casue phone standing near region boundaries to flicker between 2 regions.  
+    However, the downside of hysterisis, compounded with the fact that phones have internal offsets, made everything confusing when the region sizes are now only 20 meters in length. So for a large percentage of a region area, phones next to each other had different regions.
+    This caused me to add a hysetrisis selector that defaults to 0, i.e. no hysterisis.
+        https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/ae6b6d04f2dde49e2455dfeb72de1037190d9059#L7R614
+        https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/89219a4ad3e65f52fd500e6b89b3578cb9831ca7
+
+3. Region size must be same for ccloud and diplo. (because I forgot to update the cloud regions before the mini experiment)
+
+4. Loop back take pictures on the leader must always complete.
+    - *N.B.* Moved code order on leaders to have better completion rates for TAKEs. Before, the buttons are enabled after the leader do all the packet processing, during which time the timeout period could have been reached and counted the completed request as a timedout. Now, enabling the buttons is the first thing the phone does after it receives a packet.
+        "It was at the very last step because I thought the photo processing should be done first. But I guess the photo processing stuff is either fast enough or it doesn't really conflict with pressing buttons, because I have not seen a failure after" this change
+        https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/6164e1ce1699b87bf5a21c724130af9a6d807a19
+
+5. Don't run server on hermes.
+6. Associate phones over ad hoc before starting. 
+
+- For testing: added region buttons, so that now we don't have to enter in the region we want to change to inside a textfield
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/06ccef2d0aca89d78715509c167dfc4df964f72e
+    This would make us find some bugs in the future becasue now we can change regions very quickly
+
+- Improve performance: if a phone in the JOINING state hears a heartbeat from the region, it tries to become become NONLEADER right away
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/2bc09f5c671413d216fc605a8d3d15b275911e67#L2R295
+
+==============================
 Experiment 3
 ------------
 Location: 77 Massachusetts Avenue
 Date: April 25
+Weather: Sunny
 Phones: 20 Nexus S, 20 Galaxy Notes
 People: 10 People, 1 Cloud, 1 DIPLOMA/person
 Regions: 6 or 4
+Setup: Linear
+Files:
 
 In order to have a stable server, we used a ethernet-connected laptop and observed no server crashes. The range was still bad at 20 meters. However at 10 meters it would be too small for the DIPLOMA hops to make sense since the GPS locations varied a lot. *TODO Expand/explain*
 
@@ -705,11 +993,24 @@ have changed much
 
 Q:
 What are the circumstances that would cause a phone to be in a WAITING state?
-
 A:
-Leader not reachable and unable to take leadership from cloud. Both of those have to be true.
+J: Leader not reachable and unable to take leadership from cloud. Both of those have to be true.
 
---
+Q:
+Should we use caching?
+A:
+A: This actually ends up hurting performance because of the flood of traffic.
+
+Q:
+Can I have a handler in UserApp (to have runnables)?
+A:
+J: Handlers only work in a separate thread, "UserApp is not it's own thread. You can probably use the handler from another component in the same thread, e.g. vncDaemon.myHandler, which is what DSMLayer does when it needs to post Runnables."
+
+Q:
+Could there be multiple threads of UserApp running on a leader?  I.e. if I have global variables (such as a replyCounter) in UserApp, do I need to worry about concurrency issues?
+A:
+J: No, only one or zero User app is running on a phone.
+
 
 Open Concerns
 =============
@@ -727,3 +1028,14 @@ Open Concerns
         or 2. Independent timeout for camera
 
 - OutOfMemoryError (Search above)
+
+- Never tried:
+    Jason: 
+    FYI, I just found that we can flash a different radio binary to the
+    Galaxy Notes to enable selecting 3G (HSPA+) or 4G (LTE) mode on the
+    Galaxy Notes, which would mean we could run both our 3G and 4G
+    experiments on the same phones. This would mean we can just use the
+    AT&T SIMs and not refill the T-Mobile ones for the Nexus S's.
+
+    For DIPLOMA, though, perhaps we should continue using the Nexus S's
+    since that's what was used in the previous experiments, too.
