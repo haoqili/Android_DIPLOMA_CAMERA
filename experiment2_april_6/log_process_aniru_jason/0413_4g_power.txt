@@ -1,0 +1,76 @@
+Anirudh:
+
+First to fill in Niket on this, we prototyped a simple food spotting
+application on DIPLOMA over 4G phones (The new Galaxy Notes). Jason
+built some power models using the Monsoon power meter and we got some
+power measurements on our trace data using that. Here's the summary.
+It's a little detailed but it hopefully is clear.
+
+In our 4G experiments, we had people moving around too frequently and
+presumably the non leaders could not hear the leaders of the region.
+This meant they would not hear 3 consecutive leader heart beats, time
+out, go and ask the cloud to see if they could now become leader. But
+the cloud still keeps getting hearbeats from the actual leader of the
+region. So the cloud rejects all these requests. To enable faster
+re-election in case a leader failed (app crashed), we increased the
+frequency at which a non-leader contacts the cloud _if_ he can't hear
+from the leader. This basically lead to a flood of messages up to the
+cloud and back from it rejecting the leader request because as far as
+the cloud knows, it's still hearing hearbeats from the real leader.
+
+In terms of actual numbers, there were about ~ 600 request-reject
+cycles in the DIPLOMA app. That's 600 odd cloud accesses. The Camera
+Cloud version had only about 390 such request-response cycles to the
+Cloud. So DIPLOMA actually ended up contacting the cloud way more
+often than Camera Cloud. Now, we probably still _may_ (not really
+sure) win in terms of number of bytes transferred because DIPLOMA's
+request reject cycles were smaller packets while Camera Cloud's
+transactions were larger ones with the photo itself.
+
+But, and this is the critical thing, even without calculating, we do
+MUCH worse power wise. This is because , from Jason's measurements,
+the 4G power profile has a large intercept and small slope. In other
+words, the mere fact that you are transmitting a packet consumes more
+energy which dwarfs the effect of the packet size. So, to a first
+order, packet size is irrelevant. So, DIPLOMA incurs Cloud
+request-reject cycles and Camera Cloud incurs only 390. So Camera
+Cloud is already doing better. But, this is without including
+DIPLOMA's wifi power consumption. If we throw that in, the numbers get
+much worse.
+
+We also looked at the second experiment's logs where the 3G nexus
+phones were stationary. The number of leader request-reject cycles was
+much lower ie 49. So, there I guess we still win, though we don't have
+numbers yet. The overall summary is that the 4G results are kind of
+unusable due to a combination of mobility and bad wifi. We can run it
+again in a better region if you think it will add to the overall story
+of the paper.
+
+==========
+
+Li Shiuan:
+
+If the 3G foodspotter power numbers are ok, we can use just 3G for this paper. N we just need a short subsection w summary of results, even just text is ok since we are so tight on space. The earlier 3G synthetic benchmark will stay as the main results.
+
+If not, let's redo the deployment w smaller regions, in a diff area w less wifi interference.
+
+============
+
+Niket:
+
+Interesting. The 3 missed heartbeat timeout is really adhoc. Ideally, the non-leaders should exponentially back-off and increase their tolerance to dropped heartbeats when they find out from the cloud server that the leader is alive, but the network is spotty. 
+
+Agree that we should present only the 3G experiments if we are crunched for space. 
+
+
+============
+
+Anirudh:
+
+I think this was a systematic problem with the ad hoc in that area
+over fairly longish time scales. At one point, we tried pinging
+between two phones that were 2 metres apart with nothing else in the
+vicinity. It still didn't work. So exp backoff is likely to work if
+this is a random noise issue but I think it was a more systematic one.
+
+

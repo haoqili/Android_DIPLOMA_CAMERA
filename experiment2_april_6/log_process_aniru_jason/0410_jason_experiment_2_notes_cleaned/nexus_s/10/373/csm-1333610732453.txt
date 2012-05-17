@@ -1,0 +1,73 @@
+1333610732456: *** Opened log file for writing ***
+1333610732457: Android build: Nexus S
+1333610732458: NET_NAME set to: wlan0
+1333610732458: starting Mux with id = -1
+1333610732460: areButtonsEnabled --> true
+1333610732462: *** Application started ***
+1333610732463: HI I'm in ONRESUME()
+1333610732467: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333610732473: ************ GPS turned OFF *************
+1333610732493: Started VCoreDaemon with parameters maxRx = 6 , maxRY= 1, minLongitude = -7110102 , minLatitude = 4236349, regionWidth =17
+1333610732502: started, mId = 5001
+1333610732504: region (-1, -1) out of bounds, dormant
+1333610738784: moving from region (-1,-1), to (4,0)
+1333610738785: sending LEADER_REQUEST
+1333610738785: inside sendPacket(Packet p)
+1333610738808: Sending UDP payload: 406
+1333610739089: sending LEADER_REQUEST
+1333610739091: inside sendPacket(Packet p)
+1333610739111: Sending UDP payload: 406
+1333610739392: sending LEADER_REQUEST
+1333610739393: inside sendPacket(Packet p)
+1333610739440: Sending UDP payload: 406
+1333610739694: sending LEADER_REQUEST
+1333610739696: inside sendPacket(Packet p)
+1333610739716: Sending UDP payload: 406
+1333610739805: LEADER_REQUEST timed out
+1333610742085: cloud accepted leadership request, no csm data included.
+1333610742092: *** Starting CSM Layer ***
+1333610742095: *** CSM Layer starting with cache disabled ***
+1333610742096: *** CSM Layer starting with forwarding enabled ***
+1333610742146: DSMLayer starting
+1333610742155: UserApp started.
+1333610742157: UserApp for Camera Diploma initialized and waiting for requests.
+1333610742396: inside sendPacket(Packet p)
+1333610742404: Sending UDP payload: 25252
+1333610742410: now fully up as LEADER (id=5001) of (4,0)
+1333610744638: canPressButton = TRUE
+1333610744638: areButtonsEnabled --> false
+1333610744639: disabling buttons ...
+1333610744648: ** Clicked take picture button **
+1333610745327: inside HandlePictureStorage onPictureTaken()
+1333610745806: Picture successfully taken, ORIG BYTE LENGTH = 948329
+1333610746905: Our new height x width: 240 x 320
+1333610746906: Show photo from handle my camera take
+1333610746906: client making photo packet to send to leader for it to save
+1333610746919: BYTE SIZE AFTER COMPRESSION: 3240
+1333610746935: about to send my pic
+1333610746935: I'm a leader, upload/save new photo packet going to mux directly
+1333610746944: end of client send picture method
+1333610746936: Inside mux Packet.CLIENT_REQUEST
+1333610746936: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333610746936: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333610746936: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333610746937: Sending PROC_REQUEST 10:0 (4,0)->(4,0)
+1333610746938: Dispatching Atom PROC_REQUEST 10:0 (4,0)->(4,0)
+1333610746938: I got a CSM packet at a leader 
+
+1333610747004: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333610747009: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333610747041: now showing in UI the new photo I just saved ... 
+1333610746943: Sending UDP payload: 4211
+1333610746947: removed replies before id 0 from sentReplies of size 0
+1333610746955: Inside UPLOAD_PHOTO!!
+1333610746977: my_gpinfo.isSuccess is now (should be true): true
+1333610746977: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333610746983: Received PROC_REQUEST 10:0 (4,0)->(4,0), replying PROC_REPLY 10:0 (4,0)->(4,0)
+1333610746984: Dispatching Atom PROC_REPLY 10:0 (4,0)->(4,0)
+1333610746986: I got a CSM packet at a leader 
+
+1333610747055: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
+1333610747055: leader upload new photo latency = 119
+1333610747056: = leader upload start 1333610746936 ~ stop 1333610747055
+1333610747082: SUCCESS! Client now knows saving photo on its leader succeeded

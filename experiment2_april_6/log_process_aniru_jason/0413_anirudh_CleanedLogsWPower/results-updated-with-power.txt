@@ -1,0 +1,145 @@
+## all experiments aggregated
+
+# 4G
+
+diplo-take	  137	   97
+diplo-get	  142	   33
+cloud-take	  222	  183
+cloud-get	  327	  275 
+
+
+# 3G
+
+diplo-take	  114	  107
+diplo-get	  157	   54
+cloud-take	  122	  114
+cloud-get	  142	  129
+
+
+
+
+## last experiments only
+
+# 4G - all mobile
+
+diplo-take	  104	   76
+diplo-get	  115	   24
+cloud-take	  185	  178
+cloud-get	  297	  274
+
+
+# 3G - leaders stationary
+
+diplo-take	   74	   73
+diplo-get	  128	   39
+cloud-take	   70	   62
+cloud-get	  106	   95
+
+
+
+
+### Latencies
+
+Note that 3G results have been cleaned up a bit by throwing away spurious phone logs that weren't part of the experiment.
+
+Latency  in ms :
+
+4G Notes on Wifi          4G
+
+mean      558             837
+median    205             479
+std-dev   991             769
+
+
+This is after discarding > 6000 ms samples (due to time out).
+Conclusion : there are some requests that finish very very late ie in
+4 seconds or so. Maybe the phone is overloaded ?
+
+3G Nexus on Wifi / 3G : 
+
+mean      263   22546
+median    205   15557
+std-dev   276   20284
+
+
+#Bandwidth reduction :
+## Nexus S
+
+Total count of all bytes corresponding to string "json" in the files
+is 158983 bytes. These "json" requests spanned only 5 lines in total,
+meaning leader elections were rare. This was the case with the second
+experiment There are a total of 74+128, take and get results for
+DIPLOMA. The average 3G byte cost per transaction is :
+(158983/(74+128)) which is 788 bytes.
+
+On 3G, for each transaction, get or take, there is a request and a
+response. The number of bytes in cloud-requests is 976346 in total.
+For cloud responses this is a huge 7142626. There are  70 cloud takes
+and 106 gets in all. The average 3-G usage per transaction (take or
+get ) is  46130 bytes.
+
+DIPLOMA : 788
+CameraCloud : 46130 
+
+
+##Galaxy Notes :
+
+Tx Cellular CCloud    3307054
+Tx Cellular Diploma   866046
+Rx Cellular CCloud   13305621
+Tx Cellular CCloud   3307054
+Tx Cellular Diploma   866046
+Rx Cellular CCloud   13305621
+DIPLOMA total bytes 866046
+CCloud total bytes 16612675
+
+Number of transactions  from results-updated.txt
+
+diplo-take	  104	   76
+diplo-get	  115	   24
+cloud-take	  185	  178
+cloud-get	  297	  274
+
+Bytes of Cellular per transaction : DIPLOMA : 866046/219 = 3954 bytes per transaction 
+CCloud : 16612675/482 = 34466 bytes per transaction  
+
+##############TOTAL POWER ##############################
+
+Tx Wifi milli Joules  252.40773242100000000000
+Rx Wifi milli Joules  127.03802964144000000000
+Tx Cellular CCloud  milli Joules  138.97661965696800000000
+Tx Cellular Diploma milli Joules  7.68455546823200000000
+Rx Cellular CCloud milli Joules  170.17841783250000000000
+Tx Cellular CCloud milli Joules  1271.49243675200000000000
+Tx Cellular Diploma milli Joules  67.07439604800000000000
+Rx Cellular CCloud milli Joules  1191.16424267640000000000
+Without tail 
+DIPLOMA total energy 387.13031753067200000000
+CCloud total energy 309.15503748946800000000
+With tail
+DIPLOMA total energy 446.52015811044000000000
+CCloud total energy 2462.65667942840000000000
+
+
+##Power per transaction :
+
+Number of transactions  copied from above 
+
+diplo-take	  104	   76
+diplo-get	  115	   24
+cloud-take	  185	  178
+cloud-get	  297	  274
+
+DIPLOMA : 104+115=219
+CCloud : 185+297=482
+
+W/o tail
+
+DIPLOMA 387 mJ/219 = 1.767 mJ/request 
+CCloud 309 mj/482 = 0.641 mJ/request
+
+W tail 
+
+DIPLOMA 446/219 = 2.0365 mJ/request
+Cloud 2462/482 = 5.108  mJ/request
+

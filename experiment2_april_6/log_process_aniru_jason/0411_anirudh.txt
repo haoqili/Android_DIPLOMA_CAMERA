@@ -1,0 +1,76 @@
+We modified scripts a bit to make it more robust. Currently 3G logs
+have been somewhat cleaned up, 4G logs are still a little noisy. In
+any case, here are the results after more robust scripts :
+
+4G
+Type           Total  Success
+diplo-take         80      54
+diplo-get          74      15
+cloud-take        225     202
+cloud-get         345     314
+
+3G
+
+diplo-take         74      73
+diplo-get         128      39
+cloud-take         70      62
+cloud-get         106      95
+
+Note that 3G results have been cleaned up a bit by throwing away
+spurious phone logs that weren't part of the experiment.
+
+Latency  in ms :
+
+Notes on Wifi :
+
+mean      558
+median    205
+std-dev   991
+
+This is after discarding > 6000 ms samples (due to time out).
+Conclusion : there are some requests that finish very very late ie in
+4 seconds or so. Maybe the phone is overloaded ?
+
+Nexus on Wifi :
+
+mean      263
+median    205
+std-dev   276
+
+Nexus on 3G :
+
+mean    22546
+median  15557
+std-dev 20284
+
+Notes on 4G :
+
+mean      837
+median    479
+std-dev   769
+
+Bandwidth reduction :
+
+For the 3G experiment (Would be good if someone double checked, these
+are from the manually-filtered last experiment 3G logs, so they should
+be accurate) :
+
+Total count of all bytes corresponding to string "json" in the files
+is 158983 bytes. These "json" requests spanned only 5 lines in total,
+meaning leader elections were rare. This was the case with the second
+experiment There are a total of 74+128, take and get results for
+DIPLOMA. The average 3G byte cost per transaction is :
+(158983/(74+128)) which is 788 bytes.
+
+On 3G, for each transaction, get or take, there is a request and a
+response. The number of bytes in cloud-requests is 976346 in total.
+For cloud responses this is a huge 7142626. There are  70 cloud takes
+and 106 gets in all. The average 3-G usage per transaction (take or
+get ) is  46130 bytes.
+
+Now that the method is clear,here are the 4G results on bandwidth
+reduction .I am lapsing in and out of sleep, so will do 4G in the
+morning.
+
+Anirudh
+PS : If it's non sense. I apologize. I am in zombie land.

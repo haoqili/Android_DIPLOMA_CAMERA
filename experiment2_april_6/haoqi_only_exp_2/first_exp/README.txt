@@ -1,0 +1,29 @@
+cp ../../../experiment_2/nexus_s/
+
+csm-1333721428822.txt   cloud   1/303
+csm-1333721483803.txt   diploma 1/363
+csm-1333721411410.txt   cloud   2/373
+csm-1333721458033.txt   diploma 2/393
+csm-1333721402719.txt   cloud   3/303
+csm-1333721457974.txt   diploma 3/393
+csm-1333722892592.txt   cloud   3/393
+csm-1333723096847.txt   diploma 3/393
+csm-1333721437686.txt   cloud   4/303
+csm-1333722570863.txt   cloud   4/303
+csm-1333722834163.txt   diploma 4/303
+csm-1333723084488.txt   diploma 4/303
+csm-1333721447298.txt   diploma 4/313
+csm-1333721420657.txt   cloud   5/323
+csm-1333721420870.txt   cloud   5/383
+csm-1333721437457.txt   cloud   6/323
+csm-1333721402040.txt   cloud   6/393
+csm-1333721473259.txt   diploma 7/353
+csm-1333722875601.txt   diploma 7/353
+csm-1333721464759.txt   diploma 7/363
+csm-1333721411004.txt   cloud   8/303
+csm-1333721448007.txt   diploma 8/3033
+csm-1333721483851.txt   diploma 9/373
+csm-1333721429650.txt   cloud   9/393
+csm-1333721464593.txt   diploma 10/363
+csm-1333722773688.txt   diploma 10/363
+csm-1333721473565.txt   diploma 10/373

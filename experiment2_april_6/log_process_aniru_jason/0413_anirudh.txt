@@ -1,0 +1,37 @@
+I ran some scripts to estimate power numbers and I am not sure what to
+make of it.
+
+1. I haven't factored in Wifi idle power of ~250 mw because we don't
+know exactly how long the phones were on. Maybe we can look at the
+logs for that. I am not sure how to fit that in and should we ?
+
+2, The Wifi Rx numbers were negative because of the negative
+intercept. I guess we can safely assume that the intercept is zero for
+Wifi Rx ? I am not sure how else to make physical sense out of it. I
+have set it to zero for now.
+
+3. W/o idle power  and assuming none of the 4g packets incur a tail
+cost : DIPLOMA does 3x worse than CCloud
+
+4. W/o idle power and assuming the tail is incurred for every packet
+of 4G: DIPLOMA does 2x BETTER than CCloud.  Reality is somewhere
+between 3 and 4 and depends on how you apportion the tail among other
+4G apps in the system. If this is the only app and requests are more
+than 10 seconds apart there is a tail energy on each access. I am not
+sure quantitatively where a realistic evaluation should be (closer to
+the all tails or closer to the no tails ?)
+
+5. The 4g regressions are pretty bad, but for lack of a better
+intuitive model, I fit a straight line to them anyway. On an unrelated
+note, I am guessing the expts were done to make sure tails from one
+run didn't interfere with the next.
+
+Scripts and new results enclosed (at the end of
+resultsUpdatedWithPower.txt ). There are two scripts one for byte
+counting and one for power. The Power script will take 4 minutes to
+run thanks to doing shell script calculations. If we can review the
+results first between ourselves I can then mail them out to Li
+Shiuan.There is also a png file with a screenshot of all regressions.
+
+Btw, I have recomputed the numbers for the total amount of cloud bytes
+consumed given that we have fresh 4G logs.

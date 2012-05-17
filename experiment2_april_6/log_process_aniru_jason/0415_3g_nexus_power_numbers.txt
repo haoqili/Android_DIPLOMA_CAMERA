@@ -1,0 +1,55 @@
+Anirudh:
+
+Jason and I ran some power measurements on the 3G devices to estimate
+power numbers for our 3-g experiment. This is the one in which we
+positioned people in regions a priori. We define an access as a
+complete HTTP transaction (ie request and response). Here's what we
+observed.
+
+For DIPLOMA, 3g accesses are dominated by the leader to cloud heart
+beats (every 40 seconds) and non-leaders asking the cloud for
+leadership and getting rejected (because there was already a leader).
+The second one is a Wifi range issue, just like we observed earlier.
+For CameraCloud, each user request for a photo or to upload a photo is
+a cloud access.
+
+For DIPLOMA, the average packet size across all 3g accesses is 710
+bytes. This has a high standard deviation because all packets are
+either very small (signaling for leadership,hearbeat etc) or very
+large (photo data). The number of accesses in total is 242.
+For CameraCloud, avg. packet size is 12919 bytes and there are 176
+such accesses (since there are 176 user requests).
+
+We estimated power consumption for a 710 byte packet and a 12919 byte
+packet by sending a stream of 100 packets of each type in two separate
+experiments. We got power numbers for both  downloading(methodA) and
+uploading packets(methodB) of this size. They turn out to be larger
+for the 12919 byte packet but overall, the increase in energy
+consumption is dominated by the cost to transmit in the first place.
+
+After all this, we got the average energy per request to be between
+1.50(methodA) and 1.72(methodB) Joules for DIPLOMA and between
+1.77(methodB) and 2.06(methodA) for CameraCloud. This is w/o Wifi idle
+power. So, we do better, but with a disclaimer.
+
+The reason we don't do much better is that our leader hearbeat time is
+40 seconds which is pretty aggressive. In total there were 179 such
+hearbeats across 202 user requests.
+
+============
+
+Li Shiuan:
+
+ Frankly, it looks like we need to run another deployment, cos with the current numbers, this Foodspotter subsection may hurt more than it helps :(.
+
+  Let's do another deployment of 10 phones:
+
+1. In an area that has less WiFi interference (Mass Ave?)
+2. Smaller regions so WiFi range is not a problem
+3. Lower heartbeat time
+4. With caching if possible, not a big deal if u can't.
+5. 3G and 4G phones if possible, at least 3G numbers.
+
+   I'll be traveling this week, so if u all can grab 10 people, pls go ahead and run it without me.
+
+

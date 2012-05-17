@@ -1,0 +1,290 @@
+1333612491944: *** Opened log file for writing ***
+1333612491944: Android build: Nexus S
+1333612491946: NET_NAME set to: wlan0
+1333612491946: starting Mux with id = -1
+1333612491949: areButtonsEnabled --> true
+1333612491959: *** Application started ***
+1333612491959: HI I'm in ONRESUME()
+1333612491965: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333612491972: ************ GPS turned OFF *************
+1333612491982: Started VCoreDaemon with parameters maxRx = 6 , maxRY= 1, minLongitude = -7110102 , minLatitude = 4236349, regionWidth =17
+1333612491992: started, mId = 5001
+1333612491993: region (-1, -1) out of bounds, dormant
+1333612496658: moving from region (-1,-1), to (3,0)
+1333612496660: sending LEADER_REQUEST
+1333612496661: inside sendPacket(Packet p)
+1333612496700: Sending UDP payload: 406
+1333612496962: sending LEADER_REQUEST
+1333612496963: inside sendPacket(Packet p)
+1333612496981: Sending UDP payload: 406
+1333612497272: sending LEADER_REQUEST
+1333612497279: inside sendPacket(Packet p)
+1333612497289: Sending UDP payload: 406
+1333612497580: sending LEADER_REQUEST
+1333612497580: inside sendPacket(Packet p)
+1333612497581: Sending UDP payload: 406
+1333612497679: LEADER_REQUEST timed out
+1333612499983: cloud accepted leadership request, no csm data included.
+1333612499986: *** Starting CSM Layer ***
+1333612499988: *** CSM Layer starting with cache disabled ***
+1333612499991: *** CSM Layer starting with forwarding enabled ***
+1333612500075: DSMLayer starting
+1333612500076: UserApp started.
+1333612500076: UserApp for Camera Diploma initialized and waiting for requests.
+1333612500372: inside sendPacket(Packet p)
+1333612500377: Sending UDP payload: 25252
+1333612500383: now fully up as LEADER (id=5001) of (3,0)
+1333612502962: Received UDP payload: 406
+1333612503208: Received UDP payload: 406
+1333612503505: Received UDP payload: 406
+1333612503803: Received UDP payload: 406
+1333612515023: Received UDP payload: 6356
+1333612515127: GOT CSM_Msg
+1333612515127: nonce 0 heard from src region (4,0)
+1333612515130: Received UDP payload: 949
+1333612515138: GOT CSM_Msg
+1333612515138: nonce 1 heard from src region (4,0)
+1333612521731: canPressButton = TRUE
+1333612521732: areButtonsEnabled --> false
+1333612521733: disabling buttons ...
+1333612521746: ** Clicked take picture button **
+1333612521994: inside sendPacket(Packet p)
+1333612521996: Sending UDP payload: 406
+1333612522383: inside HandlePictureStorage onPictureTaken()
+1333612522755: Picture successfully taken, ORIG BYTE LENGTH = 891708
+1333612523792: Our new height x width: 240 x 320
+1333612523793: Show photo from handle my camera take
+1333612523794: client making photo packet to send to leader for it to save
+1333612523815: BYTE SIZE AFTER COMPRESSION: 2326
+1333612523822: about to send my pic
+1333612523822: I'm a leader, upload/save new photo packet going to mux directly
+1333612523831: end of client send picture method
+1333612523823: Inside mux Packet.CLIENT_REQUEST
+1333612523823: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333612523823: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333612523823: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333612523825: Sending PROC_REQUEST 10:0 (3,0)->(3,0)
+1333612523825: Dispatching Atom PROC_REQUEST 10:0 (3,0)->(3,0)
+1333612523825: I got a CSM packet at a leader 
+
+1333612523913: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333612523915: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333612523924: now showing in UI the new photo I just saved ... 
+1333612523831: Sending UDP payload: 3297
+1333612523833: removed replies before id 0 from sentReplies of size 0
+1333612523851: Inside UPLOAD_PHOTO!!
+1333612523856: my_gpinfo.isSuccess is now (should be true): true
+1333612523856: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333612523859: Received PROC_REQUEST 10:0 (3,0)->(3,0), replying PROC_REPLY 10:0 (3,0)->(3,0)
+1333612523862: Dispatching Atom PROC_REPLY 10:0 (3,0)->(3,0)
+1333612523864: I got a CSM packet at a leader 
+
+1333612523925: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
+1333612523926: leader upload new photo latency = 102
+1333612523927: = leader upload start 1333612523823 ~ stop 1333612523925
+1333612523928: SUCCESS! Client now knows saving photo on its leader succeeded
+1333612523870: Sending UDP payload: 949
+1333612523882: Received PROC_REPLY 10:0 (3,0)->(3,0), handing to UserApp
+1333612523882: Now back in orginitator region's leader, precssing handleDSMReply
+1333612523883: Going to and from remote region took latency = 58
+1333612523883: = orig leader sent packet at 1333612523824 ~ received reply at 1333612523882
+1333612523887: Originator Region=3 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333612523887: reply packet contains the ACK for UPLOAD_PHOTO
+1333612523888: I (the leader) was also the originator client (id = 5001) so I hand the packet to my mux directly, without UDP
+1333612528372: Received UDP payload: 406
+1333612530383: leader to cloud hearbeat...
+1333612551995: inside sendPacket(Packet p)
+1333612552012: Sending UDP payload: 406
+1333612558375: Received UDP payload: 406
+1333612562535: leader to cloud hearbeat...
+1333612577468: canPressButton = TRUE
+1333612577469: areButtonsEnabled --> false 
+1333612577470: ** Clicked getphotos Button from region 4 **
+1333612577489: I'm the Client, and I'm in region: 3 nodID = 5001
+1333612577493: I'm a leader, my requesting photos packet going to mux directly
+1333612577493: StatusActivity sent request to get photos for region 4
+1333612577528: Inside mux Packet.CLIENT_REQUEST
+1333612577528: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333612577528: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333612577529: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1333612577530: Sending to region: 4
+1333612577532: Sending PROC_REQUEST 11:0 (3,0)->(4,0)
+1333612577533: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(4,0)
+1333612577599: I got a CSM packet at a leader 
+
+1333612577605: Sending UDP payload: 949
+1333612577607: nonce 2 heard from src region (3,0)
+1333612577748: Received UDP payload: 6356
+1333612577765: GOT CSM_Msg
+1333612577800: inside Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1333612577801: leader download remote photo latency = 283
+1333612577802: = leader download start 1333612577493 ~ stop 1333612577776
+1333612577890: Success! Client getting photo from remote region, showing photo...
+1333612577765: Received PROC_REPLY 11:0 (4,0)->(3,0), handing to UserApp
+1333612577765: Now back in orginitator region's leader, precssing handleDSMReply
+1333612577766: Going to and from remote region took latency = 233
+1333612577766: = orig leader sent packet at 1333612577532 ~ received reply at 1333612577765
+1333612577767: Originator Region=3 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333612577767: reply packet contains the newest photo from the remote region
+1333612577767: I (the leader) was also the originator client (id = 5001) so I hand the packet to my mux directly, without UDP
+1333612580684: canPressButton = TRUE
+1333612580686: areButtonsEnabled --> false 
+1333612580693: ** Clicked getphotos Button from region 6 **
+1333612580704: I'm the Client, and I'm in region: 3 nodID = 5001
+1333612580715: I'm a leader, my requesting photos packet going to mux directly
+1333612580718: StatusActivity sent request to get photos for region 6
+1333612580740: Inside mux Packet.CLIENT_REQUEST
+1333612580741: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333612580741: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333612580751: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1333612580755: Sending to region: 6
+1333612580756: Sending PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612580798: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612580834: I got a CSM packet at a leader 
+
+1333612580835: Sending UDP payload: 949
+1333612580837: nonce 3 heard from src region (3,0)
+1333612580882: Received UDP payload: 949
+1333612580895: GOT CSM_Msg
+1333612580896: nonce 3 heard from src region (3,0)
+1333612581480: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581481: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581487: I got a CSM packet at a leader 
+
+1333612581491: Sending UDP payload: 949
+1333612581518: nonce 4 heard from src region (3,0)
+1333612581579: Received UDP payload: 949
+1333612581590: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581590: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581592: I got a CSM packet at a leader 
+
+1333612581604: GOT CSM_Msg
+1333612581602: Sending UDP payload: 949
+1333612581604: nonce 5 heard from src region (3,0)
+1333612581605: nonce 4 heard from src region (3,0)
+1333612581638: Received UDP payload: 949
+1333612581657: GOT CSM_Msg
+1333612581657: nonce 5 heard from src region (3,0)
+1333612581692: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581692: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581693: I got a CSM packet at a leader 
+
+1333612581694: Sending UDP payload: 949
+1333612581698: nonce 6 heard from src region (3,0)
+1333612581724: Received UDP payload: 949
+1333612581728: GOT CSM_Msg
+1333612581729: nonce 6 heard from src region (3,0)
+1333612581794: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581794: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581797: I got a CSM packet at a leader 
+
+1333612581799: Sending UDP payload: 949
+1333612581801: nonce 7 heard from src region (3,0)
+1333612581849: Received UDP payload: 949
+1333612581861: GOT CSM_Msg
+1333612581861: nonce 7 heard from src region (3,0)
+1333612581896: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581896: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581898: I got a CSM packet at a leader 
+
+1333612581900: Sending UDP payload: 949
+1333612581903: nonce 8 heard from src region (3,0)
+1333612581935: Received UDP payload: 949
+1333612581953: GOT CSM_Msg
+1333612581954: nonce 8 heard from src region (3,0)
+1333612581995: inside sendPacket(Packet p)
+1333612581997: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612581997: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582004: I got a CSM packet at a leader 
+
+1333612582000: Sending UDP payload: 406
+1333612582019: Sending UDP payload: 949
+1333612582023: nonce 9 heard from src region (3,0)
+1333612582066: Received UDP payload: 949
+1333612582089: GOT CSM_Msg
+1333612582089: nonce 9 heard from src region (3,0)
+1333612582099: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582100: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582101: I got a CSM packet at a leader 
+
+1333612582103: Sending UDP payload: 949
+1333612582106: nonce 10 heard from src region (3,0)
+1333612582144: Received UDP payload: 949
+1333612582160: GOT CSM_Msg
+1333612582160: nonce 10 heard from src region (3,0)
+1333612582201: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582201: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582203: I got a CSM packet at a leader 
+
+1333612582207: Sending UDP payload: 949
+1333612582234: nonce 11 heard from src region (3,0)
+1333612582273: Received UDP payload: 949
+1333612582292: GOT CSM_Msg
+1333612582292: nonce 11 heard from src region (3,0)
+1333612582302: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582303: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582304: I got a CSM packet at a leader 
+
+1333612582306: Sending UDP payload: 949
+1333612582321: nonce 12 heard from src region (3,0)
+1333612582353: Received UDP payload: 949
+1333612582362: GOT CSM_Msg
+1333612582362: nonce 12 heard from src region (3,0)
+1333612582404: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582405: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582405: I got a CSM packet at a leader 
+
+1333612582420: Sending UDP payload: 949
+1333612582424: nonce 13 heard from src region (3,0)
+1333612582495: Received UDP payload: 949
+1333612582500: GOT CSM_Msg
+1333612582501: nonce 13 heard from src region (3,0)
+1333612582521: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582521: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582522: I got a CSM packet at a leader 
+
+1333612582527: Sending UDP payload: 949
+1333612582528: nonce 14 heard from src region (3,0)
+1333612582619: Received UDP payload: 949
+1333612582623: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582623: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582629: I got a CSM packet at a leader 
+
+1333612582637: Sending UDP payload: 949
+1333612582638: nonce 15 heard from src region (3,0)
+1333612582639: GOT CSM_Msg
+1333612582640: nonce 14 heard from src region (3,0)
+1333612582671: Received UDP payload: 949
+1333612582689: GOT CSM_Msg
+1333612582692: nonce 15 heard from src region (3,0)
+1333612582724: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582725: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582726: I got a CSM packet at a leader 
+
+1333612582728: Sending UDP payload: 949
+1333612582730: nonce 16 heard from src region (3,0)
+1333612582767: Received UDP payload: 949
+1333612582785: GOT CSM_Msg
+1333612582785: nonce 16 heard from src region (3,0)
+1333612582827: Retrying PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582827: Dispatching Atom PROC_REQUEST 11:0 (3,0)->(6,0)
+1333612582828: I got a CSM packet at a leader 
+
+1333612582831: Sending UDP payload: 949
+1333612582833: nonce 17 heard from src region (3,0)
+1333612582871: Received UDP payload: 949
+1333612582892: GOT CSM_Msg
+1333612582892: nonce 17 heard from src region (3,0)
+1333612582928: Request timed out, send failure PROC_REPLY 11:0 (6,0)->(3,0)
+1333612582929: Dispatching Atom PROC_REPLY 11:0 (6,0)->(3,0)
+1333612582929: I got a CSM packet at a leader 
+
+1333612582932: Sending UDP payload: 770
+1333612582936: Received PROC_REPLY 11:0 (6,0)->(3,0), handing to UserApp
+1333612582972: Received UDP payload: 770
+1333612582991: GOT CSM_Msg
+1333612582991: Received DUPLICATE PROC_REPLY 11:0 (6,0)->(3,0)
+1333612588376: Received UDP payload: 406
+1333612594796: leader to cloud hearbeat...
+1333612609170: HI I'm in ONPAUSE()
+1333612609870: inside onDestroy()

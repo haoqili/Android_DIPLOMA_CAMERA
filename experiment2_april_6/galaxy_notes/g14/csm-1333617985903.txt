@@ -1,0 +1,205 @@
+1333617985910: *** Opened log file for writing ***
+1333617985912: Android build: SAMSUNG-SGH-I717
+1333617985913: NET_NAME set to: eth0
+1333617985914: starting Mux with id = -1
+1333617985915: areButtonsEnabled --> true
+1333617985917: *** Application started ***
+1333617985918: HI I'm in ONRESUME()
+1333617985923: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333617985930: ************ GPS turned OFF *************
+1333617985945: Started VCoreDaemon with parameters maxRx = 6 , maxRY= 1, minLongitude = -7110102 , minLatitude = 4236349, regionWidth =17
+1333617985947: started, mId = 5012
+1333617985948: region (-1, -1) out of bounds, dormant
+1333617998058: moving from region (-1,-1), to (1,0)
+1333617998059: sending LEADER_REQUEST
+1333617998060: inside sendPacket(Packet p)
+1333617998079: Sending UDP payload: 406
+1333617998360: sending LEADER_REQUEST
+1333617998361: inside sendPacket(Packet p)
+1333617998370: Sending UDP payload: 406
+1333617998662: sending LEADER_REQUEST
+1333617998663: inside sendPacket(Packet p)
+1333617998667: Sending UDP payload: 406
+1333617998963: sending LEADER_REQUEST
+1333617998964: inside sendPacket(Packet p)
+1333617998968: Sending UDP payload: 406
+1333617999072: LEADER_REQUEST timed out
+1333617999779: cloud accepted leadership request, no csm data included.
+1333617999782: *** Starting CSM Layer ***
+1333617999783: *** CSM Layer starting with cache disabled ***
+1333617999784: *** CSM Layer starting with forwarding enabled ***
+1333617999859: DSMLayer starting
+1333617999869: UserApp started.
+1333617999874: UserApp for Camera Diploma initialized and waiting for requests.
+1333618000074: inside sendPacket(Packet p)
+1333618000078: now fully up as LEADER (id=5012) of (1,0)
+1333618000088: Sending UDP payload: 25252
+1333618002737: Received UDP payload: 406
+1333618002754: heard LEADER_REQUEST from node 5001, responding LEADER_REPLY
+1333618002943: inside sendPacket(Packet p)
+1333618002946: Sending UDP payload: 25269
+1333618003057: Received UDP payload: 406
+1333618003063: heard LEADER_REQUEST from node 5001, responding LEADER_REPLY
+1333618003211: inside sendPacket(Packet p)
+1333618003216: Sending UDP payload: 25269
+1333618008478: Received UDP payload: 4061
+1333618008490: Inside mux Packet.CLIENT_REQUEST
+1333618008490: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333618008491: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333618008491: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333618008502: Sending PROC_REQUEST 10:0 (1,0)->(1,0)
+1333618008507: Dispatching Atom PROC_REQUEST 10:0 (1,0)->(1,0)
+1333618008509: I got a CSM packet at a leader 
+
+1333618008577: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333618008588: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333618008593: now showing in UI the new photo I just saved ... 
+1333618008534: Sending UDP payload: 4425
+1333618008546: removed replies before id 0 from sentReplies of size 0
+1333618008553: Inside UPLOAD_PHOTO!!
+1333618008565: my_gpinfo.isSuccess is now (should be true): true
+1333618008566: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333618008581: Received PROC_REQUEST 10:0 (1,0)->(1,0), replying PROC_REPLY 10:0 (1,0)->(1,0)
+1333618008583: Dispatching Atom PROC_REPLY 10:0 (1,0)->(1,0)
+1333618008584: I got a CSM packet at a leader 
+
+1333618008596: Sending UDP payload: 949
+1333618008599: Received PROC_REPLY 10:0 (1,0)->(1,0), handing to UserApp
+1333618008599: Now back in orginitator region's leader, precssing handleDSMReply
+1333618008599: Going to and from remote region took latency = 108
+1333618008600: = orig leader sent packet at 1333618008491 ~ received reply at 1333618008599
+1333618008602: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333618008602: reply packet contains the ACK for UPLOAD_PHOTO
+1333618008603: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
+1333618008603: inside sendPacket(Packet p)
+1333618008613: Sending UDP payload: 602
+1333618014739: Received UDP payload: 3992
+1333618014746: Inside mux Packet.CLIENT_REQUEST
+1333618014746: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333618014747: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333618014747: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333618014749: Sending PROC_REQUEST 10:1 (1,0)->(1,0)
+1333618014750: Dispatching Atom PROC_REQUEST 10:1 (1,0)->(1,0)
+1333618014751: I got a CSM packet at a leader 
+
+1333618014850: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333618014855: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333618014881: now showing in UI the new photo I just saved ... 
+1333618014799: Sending UDP payload: 4356
+1333618014804: removed replies before id 1 from sentReplies of size 0
+1333618014809: Inside UPLOAD_PHOTO!!
+1333618014829: my_gpinfo.isSuccess is now (should be true): true
+1333618014847: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333618014859: Received PROC_REQUEST 10:1 (1,0)->(1,0), replying PROC_REPLY 10:1 (1,0)->(1,0)
+1333618014861: Dispatching Atom PROC_REPLY 10:1 (1,0)->(1,0)
+1333618014862: I got a CSM packet at a leader 
+
+1333618014869: Received UDP payload: 406
+1333618014877: Sending UDP payload: 949
+1333618014885: Received PROC_REPLY 10:1 (1,0)->(1,0), handing to UserApp
+1333618014891: Now back in orginitator region's leader, precssing handleDSMReply
+1333618014891: Going to and from remote region took latency = 143
+1333618014892: = orig leader sent packet at 1333618014747 ~ received reply at 1333618014890
+1333618014893: Originator Region=1 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333618014894: reply packet contains the ACK for UPLOAD_PHOTO
+1333618014899: I (the leader) was not the originator client (which id = 5001) so I use UDP to send packet back to my nonleader
+1333618014900: inside sendPacket(Packet p)
+1333618014901: heard LEADER_REQUEST from node 5001, responding LEADER_REPLY
+1333618014918: Sending UDP payload: 602
+1333618015080: inside sendPacket(Packet p)
+1333618015092: Sending UDP payload: 29436
+1333618015155: Received UDP payload: 406
+1333618015161: heard LEADER_REQUEST from node 5001, responding LEADER_REPLY
+1333618015319: inside sendPacket(Packet p)
+1333618015356: Sending UDP payload: 29436
+1333618015498: Received UDP payload: 406
+1333618015508: heard LEADER_REQUEST from node 5001, responding LEADER_REPLY
+1333618015658: inside sendPacket(Packet p)
+1333618015667: Sending UDP payload: 29436
+1333618015949: inside sendPacket(Packet p)
+1333618015960: Sending UDP payload: 406
+1333618025483: broadcasting LEADER_ELECT to old (1,0)
+1333618025484: inside sendPacket(Packet p)
+1333618025485: Sending UDP payload: 406
+1333618025567: Received UDP payload: 406
+1333618025571: received LEADER_NOMINATE from 5001, saving as candidate
+1333618030078: leader to cloud hearbeat...
+1333618045962: inside sendPacket(Packet p)
+1333618046002: Sending UDP payload: 406
+1333618060755: leader to cloud hearbeat...
+1333618075962: inside sendPacket(Packet p)
+1333618076005: Sending UDP payload: 406
+1333618091355: leader to cloud hearbeat...
+1333618105963: inside sendPacket(Packet p)
+1333618105966: Sending UDP payload: 406
+1333618121873: leader to cloud hearbeat...
+1333618135964: inside sendPacket(Packet p)
+1333618135967: Sending UDP payload: 406
+1333618152445: leader to cloud hearbeat...
+1333618165965: inside sendPacket(Packet p)
+1333618166025: Sending UDP payload: 406
+1333618183032: leader to cloud hearbeat...
+1333618195967: inside sendPacket(Packet p)
+1333618195970: Sending UDP payload: 406
+1333618213603: leader to cloud hearbeat...
+1333618225972: inside sendPacket(Packet p)
+1333618225975: Sending UDP payload: 406
+1333618244173: leader to cloud hearbeat...
+1333618255972: inside sendPacket(Packet p)
+1333618256013: Sending UDP payload: 406
+1333618275219: leader to cloud hearbeat...
+1333618285972: inside sendPacket(Packet p)
+1333618286006: Sending UDP payload: 406
+1333618306163: leader to cloud hearbeat...
+1333618315973: inside sendPacket(Packet p)
+1333618315976: Sending UDP payload: 406
+1333618337082: leader to cloud hearbeat...
+1333618345974: inside sendPacket(Packet p)
+1333618345977: Sending UDP payload: 406
+1333618368554: leader to cloud hearbeat...
+1333618375976: inside sendPacket(Packet p)
+1333618376024: Sending UDP payload: 406
+1333618399758: leader to cloud hearbeat...
+1333618405984: inside sendPacket(Packet p)
+1333618406014: Sending UDP payload: 406
+1333618431065: leader to cloud hearbeat...
+1333618435985: inside sendPacket(Packet p)
+1333618435989: Sending UDP payload: 406
+1333618461963: leader to cloud hearbeat...
+1333618465986: inside sendPacket(Packet p)
+1333618466024: Sending UDP payload: 406
+1333618492779: leader to cloud hearbeat...
+1333618495987: inside sendPacket(Packet p)
+1333618496011: Sending UDP payload: 406
+1333618523458: leader to cloud hearbeat...
+1333618525988: inside sendPacket(Packet p)
+1333618525991: Sending UDP payload: 406
+1333618554768: leader to cloud hearbeat...
+1333618555993: inside sendPacket(Packet p)
+1333618556008: Sending UDP payload: 406
+1333618585644: leader to cloud hearbeat...
+1333618586535: inside sendPacket(Packet p)
+1333618586574: Sending UDP payload: 406
+1333618616535: leader to cloud hearbeat...
+1333618617478: inside sendPacket(Packet p)
+1333618617517: Sending UDP payload: 406
+1333618647478: leader to cloud hearbeat...
+1333618648130: inside sendPacket(Packet p)
+1333618648142: Sending UDP payload: 406
+1333618678130: leader to cloud hearbeat...
+1333618679005: inside sendPacket(Packet p)
+1333618679050: Sending UDP payload: 406
+1333618709005: leader to cloud hearbeat...
+1333618709752: inside sendPacket(Packet p)
+1333618709788: Sending UDP payload: 406
+1333618739753: leader to cloud hearbeat...
+1333618740398: inside sendPacket(Packet p)
+1333618740409: Sending UDP payload: 406
+1333618770398: leader to cloud hearbeat...
+1333618771217: inside sendPacket(Packet p)
+1333618771256: Sending UDP payload: 406
+1333618801217: leader to cloud hearbeat...
+1333618801927: inside sendPacket(Packet p)
+1333618801948: Sending UDP payload: 406
+1333618812707: HI I'm in ONPAUSE()
+1333618814142: inside onDestroy()

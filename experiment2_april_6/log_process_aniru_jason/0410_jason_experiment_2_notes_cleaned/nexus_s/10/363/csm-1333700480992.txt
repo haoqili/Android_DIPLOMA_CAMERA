@@ -1,0 +1,1323 @@
+1333700480995: *** Opened log file for writing ***
+1333700480996: Android build: Nexus S
+1333700480997: NET_NAME set to: wlan0
+1333700480997: starting Mux with id = -1
+1333700481003: areButtonsEnabled --> true
+1333700481040: *** Application started ***
+1333700481041: HI I'm in ONRESUME()
+1333700481047: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333700481016: Started VCoreDaemon with parameters maxRx = 6 , maxRY= 1, minLongitude = -7110102 , minLatitude = 4236349, regionWidth =17
+1333700481021: started, mId = 5005
+1333700481022: region (-1, -1) out of bounds, dormant
+1333700505751: Received UDP payload: 406
+1333700506049: Received UDP payload: 406
+1333700506241: Received UDP payload: 406
+1333700506353: Received UDP payload: 406
+1333700506539: Received UDP payload: 406
+1333700506672: Received UDP payload: 406
+1333700506802: Received UDP payload: 406
+1333700506856: Received UDP payload: 406
+1333700507081: Received UDP payload: 406
+1333700507144: Received UDP payload: 406
+1333700507383: Received UDP payload: 406
+1333700507723: Received UDP payload: 406
+1333700507862: Received UDP payload: 25346
+1333700508206: moving from region (-1,-1), to (2,0)
+1333700508206: sending LEADER_REQUEST
+1333700508206: inside sendPacket(Packet p)
+1333700508215: Sending UDP payload: 406
+1333700508507: sending LEADER_REQUEST
+1333700508507: inside sendPacket(Packet p)
+1333700508512: Sending UDP payload: 406
+1333700508565: Received UDP payload: 25252
+1333700508770: Received UDP payload: 406
+1333700508873: Received UDP payload: 406
+1333700508913: Received UDP payload: 25252
+1333700512406: Received UDP payload: 406
+1333700515697: Received UDP payload: 406
+1333700518218: been in JOINING state for a while now, start over
+1333700518224: sending LEADER_REQUEST
+1333700518225: inside sendPacket(Packet p)
+1333700518231: Sending UDP payload: 406
+1333700518526: sending LEADER_REQUEST
+1333700518527: inside sendPacket(Packet p)
+1333700518534: Sending UDP payload: 406
+1333700518828: sending LEADER_REQUEST
+1333700518829: inside sendPacket(Packet p)
+1333700518845: Sending UDP payload: 406
+1333700518892: Received UDP payload: 406
+1333700519138: sending LEADER_REQUEST
+1333700519139: inside sendPacket(Packet p)
+1333700519157: Sending UDP payload: 406
+1333700519223: LEADER_REQUEST timed out
+1333700519224: *** Starting CSM Layer ***
+1333700519224: *** CSM Layer starting with cache disabled ***
+1333700519224: *** CSM Layer starting with forwarding enabled ***
+1333700519236: Received UDP payload: 406
+1333700519279: DSMLayer starting
+1333700519282: UserApp started.
+1333700519286: UserApp for Camera Diploma initialized and waiting for requests.
+1333700519514: Received UDP payload: 406
+1333700519574: inside sendPacket(Packet p)
+1333700519583: now fully up as LEADER (id=5005) of (2,0)
+1333700519585: Sending UDP payload: 25252
+1333700519838: Received UDP payload: 406
+1333700528895: Received UDP payload: 406
+1333700529204: Received UDP payload: 406
+1333700529496: Received UDP payload: 406
+1333700529793: Received UDP payload: 406
+1333700530131: canPressButton = TRUE
+1333700530134: areButtonsEnabled --> false
+1333700530135: disabling buttons ...
+1333700530145: takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 getNum=0 getGood=0 getBad=0 getTimedout=0
+1333700530146: ** Clicked take picture button **
+1333700530478: Received UDP payload: 25252
+1333700530866: inside HandlePictureStorage onPictureTaken()
+1333700530867: takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=0 getNum=0 getGood=0 getBad=0 getTimedout=0
+1333700531274: Picture successfully taken, ORIG BYTE LENGTH = 839027
+1333700531526: Our new height x width: 240 x 320
+1333700531527: Show photo from handle my camera take
+1333700531528: client making photo packet to send to leader for it to save
+1333700531545: BYTE SIZE AFTER COMPRESSION: 2200
+1333700531550: about to send my pic
+1333700531551: I'm a leader, upload/save new photo packet going to mux directly
+1333700531558: end of client send picture method
+1333700531552: Inside mux Packet.CLIENT_REQUEST
+1333700531552: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333700531552: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333700531552: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333700531552: Sending PROC_REQUEST 10:0 (2,0)->(2,0)
+1333700531553: Dispatching Atom PROC_REQUEST 10:0 (2,0)->(2,0)
+1333700531553: I got a CSM packet at a leader 
+
+1333700531618: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333700531619: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333700531619: now showing in UI the new photo I just saved ... 
+1333700531620: the photo length: 2200
+1333700531557: Sending UDP payload: 3171
+1333700531559: removed replies before id 0 from sentReplies of size 0
+1333700531578: Inside UPLOAD_PHOTO!!
+1333700531584: my_gpinfo.isSuccess is now (should be true): true
+1333700531584: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333700531591: Received PROC_REQUEST 10:0 (2,0)->(2,0), replying PROC_REPLY 10:0 (2,0)->(2,0)
+1333700531591: Dispatching Atom PROC_REPLY 10:0 (2,0)->(2,0)
+1333700531592: I got a CSM packet at a leader 
+
+1333700531672: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
+1333700531673: leader upload new photo latency = 121
+1333700531673: = leader upload start 1333700531551 ~ stop 1333700531672
+1333700531674: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 getNum=0 getGood=0 getBad=0 getTimedout=0
+1333700531674: SUCCESS! Client now knows saving photo on its leader succeeded
+1333700531594: Sending UDP payload: 949
+1333700531599: Received PROC_REPLY 10:0 (2,0)->(2,0), handing to UserApp
+1333700531599: Now back in orginitator region's leader, precssing handleDSMReply
+1333700531599: Going to and from remote region took latency = 47
+1333700531600: = orig leader sent packet at 1333700531552 ~ received reply at 1333700531599
+1333700531601: Originator Region=2 Leader (for Client=5005) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333700531601: reply packet contains the ACK for UPLOAD_PHOTO
+1333700531601: I (the leader) was also the originator client (id = 5005) so I hand the packet to my mux directly, without UDP
+1333700535060: Received UDP payload: 4619
+1333700535119: GOT CSM_Msg
+1333700535121: nonce 0 heard from src region (3,0)
+1333700535149: Received UDP payload: 949
+1333700535175: GOT CSM_Msg
+1333700535175: nonce 1 heard from src region (3,0)
+1333700537901: Received UDP payload: 949
+1333700537953: GOT CSM_Msg
+1333700537957: nonce 0 heard from src region (4,0)
+1333700537957: Forwarding Atom because it's closer.
+1333700537976: I got a CSM packet at a leader 
+
+1333700537979: Sending UDP payload: 949
+1333700537980: Received UDP payload: 949
+1333700537981: nonce 0 heard from src region (4,0)
+1333700537981: Received Atom already forwarded, ignoring...
+1333700537989: GOT CSM_Msg
+1333700537990: nonce 0 heard from src region (4,0)
+1333700537990: Received Atom already forwarded, ignoring...
+1333700538010: Received UDP payload: 949
+1333700538015: GOT CSM_Msg
+1333700538015: nonce 0 heard from src region (4,0)
+1333700538015: Received Atom already forwarded, ignoring...
+1333700538661: Received UDP payload: 949
+1333700538711: GOT CSM_Msg
+1333700538718: nonce 0 heard from src region (5,0)
+1333700538718: Forwarding Atom because it's closer.
+1333700538718: I got a CSM packet at a leader 
+
+1333700538721: Sending UDP payload: 949
+1333700538721: nonce 0 heard from src region (5,0)
+1333700538721: Received Atom already forwarded, ignoring...
+1333700538726: Received UDP payload: 949
+1333700538735: GOT CSM_Msg
+1333700538736: nonce 0 heard from src region (5,0)
+1333700538736: Received Atom already forwarded, ignoring...
+1333700538739: Received UDP payload: 949
+1333700538754: GOT CSM_Msg
+1333700538755: nonce 0 heard from src region (1,0)
+1333700538755: Forwarding Atom because it's closer.
+1333700538755: I got a CSM packet at a leader 
+
+1333700538757: Sending UDP payload: 949
+1333700538758: nonce 0 heard from src region (1,0)
+1333700538758: Received Atom already forwarded, ignoring...
+1333700538760: Received UDP payload: 949
+1333700538768: GOT CSM_Msg
+1333700538768: nonce 0 heard from src region (5,0)
+1333700538768: Received Atom already forwarded, ignoring...
+1333700538770: Received UDP payload: 949
+1333700538782: GOT CSM_Msg
+1333700538782: nonce 1 heard from src region (4,0)
+1333700538783: Forwarding Atom because it's closer.
+1333700538783: I got a CSM packet at a leader 
+
+1333700538784: Sending UDP payload: 949
+1333700538786: nonce 1 heard from src region (4,0)
+1333700538786: Received Atom already forwarded, ignoring...
+1333700538787: Received UDP payload: 406
+1333700538789: Received UDP payload: 949
+1333700538798: GOT CSM_Msg
+1333700538798: nonce 0 heard from src region (1,0)
+1333700538798: Received Atom already forwarded, ignoring...
+1333700538799: Received UDP payload: 949
+1333700538813: GOT CSM_Msg
+1333700538813: nonce 1 heard from src region (1,0)
+1333700538813: Forwarding Atom because it's closer.
+1333700538814: I got a CSM packet at a leader 
+
+1333700538815: Sending UDP payload: 949
+1333700538818: nonce 1 heard from src region (1,0)
+1333700538819: Received Atom already forwarded, ignoring...
+1333700538822: Received UDP payload: 949
+1333700538833: GOT CSM_Msg
+1333700538833: Received UDP payload: 949
+1333700538834: nonce 1 heard from src region (1,0)
+1333700538834: Received Atom already forwarded, ignoring...
+1333700538841: GOT CSM_Msg
+1333700538842: nonce 2 heard from src region (1,0)
+1333700538842: Forwarding Atom because it's closer.
+1333700538842: I got a CSM packet at a leader 
+
+1333700538844: Sending UDP payload: 949
+1333700538846: nonce 2 heard from src region (1,0)
+1333700538846: Received Atom already forwarded, ignoring...
+1333700538848: Received UDP payload: 949
+1333700538856: GOT CSM_Msg
+1333700538857: Received UDP payload: 949
+1333700538858: nonce 0 heard from src region (1,0)
+1333700538858: Received Atom already forwarded, ignoring...
+1333700538875: GOT CSM_Msg
+1333700538876: nonce 1 heard from src region (4,0)
+1333700538876: Received Atom already forwarded, ignoring...
+1333700538886: Received UDP payload: 949
+1333700538899: GOT CSM_Msg
+1333700538900: nonce 3 heard from src region (1,0)
+1333700538900: Forwarding Atom because it's closer.
+1333700538900: I got a CSM packet at a leader 
+
+1333700538902: Sending UDP payload: 949
+1333700538904: nonce 3 heard from src region (1,0)
+1333700538904: Received Atom already forwarded, ignoring...
+1333700538905: Received UDP payload: 949
+1333700538918: GOT CSM_Msg
+1333700538918: nonce 2 heard from src region (4,0)
+1333700538918: Forwarding Atom because it's closer.
+1333700538919: I got a CSM packet at a leader 
+
+1333700538921: Sending UDP payload: 949
+1333700538923: nonce 2 heard from src region (4,0)
+1333700538932: Received Atom already forwarded, ignoring...
+1333700538934: Received UDP payload: 949
+1333700538947: GOT CSM_Msg
+1333700538947: nonce 1 heard from src region (4,0)
+1333700538947: Received Atom already forwarded, ignoring...
+1333700538955: Received UDP payload: 949
+1333700538959: GOT CSM_Msg
+1333700538960: nonce 1 heard from src region (1,0)
+1333700538960: Received Atom already forwarded, ignoring...
+1333700538960: Received UDP payload: 949
+1333700538979: GOT CSM_Msg
+1333700538979: nonce 2 heard from src region (1,0)
+1333700538979: Received Atom already forwarded, ignoring...
+1333700538982: Received UDP payload: 949
+1333700539001: GOT CSM_Msg
+1333700539002: nonce 3 heard from src region (1,0)
+1333700539002: Received Atom already forwarded, ignoring...
+1333700539002: Received UDP payload: 949
+1333700539014: GOT CSM_Msg
+1333700539014: nonce 3 heard from src region (4,0)
+1333700539014: Forwarding Atom because it's closer.
+1333700539015: I got a CSM packet at a leader 
+
+1333700539017: Sending UDP payload: 949
+1333700539018: nonce 3 heard from src region (4,0)
+1333700539018: Received Atom already forwarded, ignoring...
+1333700539018: Received UDP payload: 949
+1333700539026: GOT CSM_Msg
+1333700539026: nonce 2 heard from src region (1,0)
+1333700539026: Received Atom already forwarded, ignoring...
+1333700539028: Received UDP payload: 949
+1333700539036: GOT CSM_Msg
+1333700539037: nonce 2 heard from src region (4,0)
+1333700539037: Received Atom already forwarded, ignoring...
+1333700539038: Received UDP payload: 949
+1333700539054: GOT CSM_Msg
+1333700539055: nonce 3 heard from src region (1,0)
+1333700539055: Received Atom already forwarded, ignoring...
+1333700539057: Received UDP payload: 949
+1333700539066: GOT CSM_Msg
+1333700539066: nonce 2 heard from src region (4,0)
+1333700539066: Received Atom already forwarded, ignoring...
+1333700539067: Received UDP payload: 949
+1333700539073: GOT CSM_Msg
+1333700539074: nonce 4 heard from src region (4,0)
+1333700539074: Forwarding Atom because it's closer.
+1333700539074: I got a CSM packet at a leader 
+
+1333700539076: Sending UDP payload: 949
+1333700539077: nonce 4 heard from src region (4,0)
+1333700539078: Received Atom already forwarded, ignoring...
+1333700539078: Received UDP payload: 949
+1333700539090: GOT CSM_Msg
+1333700539090: nonce 3 heard from src region (4,0)
+1333700539091: Received Atom already forwarded, ignoring...
+1333700539109: Received UDP payload: 949
+1333700539120: GOT CSM_Msg
+1333700539120: nonce 3 heard from src region (4,0)
+1333700539120: Received Atom already forwarded, ignoring...
+1333700539162: Received UDP payload: 949
+1333700539178: GOT CSM_Msg
+1333700539178: nonce 4 heard from src region (4,0)
+1333700539178: Received Atom already forwarded, ignoring...
+1333700539179: Received UDP payload: 949
+1333700539188: GOT CSM_Msg
+1333700539189: nonce 5 heard from src region (4,0)
+1333700539189: Forwarding Atom because it's closer.
+1333700539189: I got a CSM packet at a leader 
+
+1333700539190: Sending UDP payload: 949
+1333700539192: nonce 5 heard from src region (4,0)
+1333700539192: Received Atom already forwarded, ignoring...
+1333700539193: Received UDP payload: 949
+1333700539202: GOT CSM_Msg
+1333700539202: nonce 4 heard from src region (4,0)
+1333700539202: Received Atom already forwarded, ignoring...
+1333700539203: Received UDP payload: 949
+1333700539211: GOT CSM_Msg
+1333700539211: nonce 5 heard from src region (4,0)
+1333700539211: Received Atom already forwarded, ignoring...
+1333700539246: Received UDP payload: 949
+1333700539252: GOT CSM_Msg
+1333700539252: nonce 5 heard from src region (4,0)
+1333700539252: Received Atom already forwarded, ignoring...
+1333700539256: Received UDP payload: 949
+1333700539276: GOT CSM_Msg
+1333700539276: nonce 6 heard from src region (4,0)
+1333700539276: Forwarding Atom because it's closer.
+1333700539276: I got a CSM packet at a leader 
+
+1333700539278: Sending UDP payload: 949
+1333700539279: nonce 6 heard from src region (4,0)
+1333700539279: Received Atom already forwarded, ignoring...
+1333700539284: Received UDP payload: 949
+1333700539303: GOT CSM_Msg
+1333700539303: nonce 6 heard from src region (4,0)
+1333700539303: Received Atom already forwarded, ignoring...
+1333700539307: Received UDP payload: 949
+1333700539333: GOT CSM_Msg
+1333700539333: nonce 6 heard from src region (4,0)
+1333700539334: Received Atom already forwarded, ignoring...
+1333700539342: Received UDP payload: 949
+1333700539357: GOT CSM_Msg
+1333700539358: nonce 7 heard from src region (4,0)
+1333700539358: Forwarding Atom because it's closer.
+1333700539358: I got a CSM packet at a leader 
+
+1333700539360: Sending UDP payload: 949
+1333700539362: nonce 7 heard from src region (4,0)
+1333700539362: Received Atom already forwarded, ignoring...
+1333700539364: Received UDP payload: 949
+1333700539382: GOT CSM_Msg
+1333700539383: nonce 1 heard from src region (5,0)
+1333700539383: Received UDP payload: 949
+1333700539392: GOT CSM_Msg
+1333700539392: nonce 7 heard from src region (4,0)
+1333700539392: Received Atom already forwarded, ignoring...
+1333700539393: Received UDP payload: 949
+1333700539400: GOT CSM_Msg
+1333700539401: nonce 8 heard from src region (4,0)
+1333700539443: Received UDP payload: 949
+1333700539448: GOT CSM_Msg
+1333700539448: nonce 9 heard from src region (4,0)
+1333700539448: Forwarding Atom because it's closer.
+1333700539448: I got a CSM packet at a leader 
+
+1333700539451: Sending UDP payload: 949
+1333700539452: nonce 9 heard from src region (4,0)
+1333700539452: Received Atom already forwarded, ignoring...
+1333700539460: Received UDP payload: 949
+1333700539464: GOT CSM_Msg
+1333700539464: nonce 9 heard from src region (4,0)
+1333700539464: Received Atom already forwarded, ignoring...
+1333700539475: Received UDP payload: 949
+1333700539483: GOT CSM_Msg
+1333700539483: nonce 9 heard from src region (4,0)
+1333700539483: Received Atom already forwarded, ignoring...
+1333700539546: Received UDP payload: 949
+1333700539551: GOT CSM_Msg
+1333700539551: nonce 10 heard from src region (4,0)
+1333700539551: Forwarding Atom because it's closer.
+1333700539551: I got a CSM packet at a leader 
+
+1333700539553: Sending UDP payload: 949
+1333700539555: nonce 10 heard from src region (4,0)
+1333700539555: Received Atom already forwarded, ignoring...
+1333700539562: Received UDP payload: 949
+1333700539566: GOT CSM_Msg
+1333700539567: nonce 10 heard from src region (4,0)
+1333700539567: Received Atom already forwarded, ignoring...
+1333700539655: Received UDP payload: 949
+1333700539672: GOT CSM_Msg
+1333700539673: nonce 11 heard from src region (4,0)
+1333700539673: Forwarding Atom because it's closer.
+1333700539673: I got a CSM packet at a leader 
+
+1333700539683: Sending UDP payload: 949
+1333700539684: Received UDP payload: 949
+1333700539686: nonce 11 heard from src region (4,0)
+1333700539686: Received Atom already forwarded, ignoring...
+1333700539700: GOT CSM_Msg
+1333700539700: nonce 11 heard from src region (4,0)
+1333700539701: Received Atom already forwarded, ignoring...
+1333700539701: Received UDP payload: 949
+1333700539720: GOT CSM_Msg
+1333700539721: nonce 11 heard from src region (4,0)
+1333700539721: Received Atom already forwarded, ignoring...
+1333700539723: Received UDP payload: 949
+1333700539726: GOT CSM_Msg
+1333700539727: removed replies before id 0 from sentReplies of size 0
+1333700539728: INSIDE SERVER_GET_PHOTO!!!
+1333700539730: Received PROC_REQUEST 11:0 (5,0)->(2,0), replying PROC_REPLY 11:0 (2,0)->(5,0)
+1333700539730: Dispatching Atom PROC_REPLY 11:0 (2,0)->(5,0)
+1333700539730: I got a CSM packet at a leader 
+
+1333700539733: Sending UDP payload: 3171
+1333700539736: nonce 2 heard from src region (2,0)
+1333700539739: Received UDP payload: 949
+1333700539749: GOT CSM_Msg
+1333700539749: removed replies before id 0 from sentReplies of size 1
+1333700539750: Received DUPLICATE PROC_REQUEST 11:0 (5,0)->(2,0), replying PROC_REPLY 11:0 (2,0)->(5,0)
+1333700539750: Dispatching Atom PROC_REPLY 11:0 (2,0)->(5,0)
+1333700539751: I got a CSM packet at a leader 
+
+1333700539753: Sending UDP payload: 3171
+1333700539755: nonce 3 heard from src region (2,0)
+1333700539755: Received UDP payload: 949
+1333700539784: GOT CSM_Msg
+1333700539784: removed replies before id 0 from sentReplies of size 1
+1333700539785: Received DUPLICATE PROC_REQUEST 11:0 (5,0)->(2,0), replying PROC_REPLY 11:0 (2,0)->(5,0)
+1333700539787: Dispatching Atom PROC_REPLY 11:0 (2,0)->(5,0)
+1333700539788: I got a CSM packet at a leader 
+
+1333700539789: Sending UDP payload: 3171
+1333700539798: Received UDP payload: 949
+1333700539802: nonce 4 heard from src region (2,0)
+1333700539803: GOT CSM_Msg
+1333700539804: removed replies before id 0 from sentReplies of size 1
+1333700539805: Received DUPLICATE PROC_REQUEST 11:0 (5,0)->(2,0), replying PROC_REPLY 11:0 (2,0)->(5,0)
+1333700539805: Dispatching Atom PROC_REPLY 11:0 (2,0)->(5,0)
+1333700539805: I got a CSM packet at a leader 
+
+1333700539807: Sending UDP payload: 3171
+1333700539813: Received UDP payload: 949
+1333700539817: nonce 5 heard from src region (2,0)
+1333700539825: GOT CSM_Msg
+1333700539826: nonce 12 heard from src region (4,0)
+1333700539826: Forwarding Atom because it's closer.
+1333700539826: I got a CSM packet at a leader 
+
+1333700539838: Sending UDP payload: 949
+1333700539838: Received UDP payload: 949
+1333700539839: nonce 12 heard from src region (4,0)
+1333700539841: Received Atom already forwarded, ignoring...
+1333700539858: GOT CSM_Msg
+1333700539859: nonce 12 heard from src region (4,0)
+1333700539859: Received Atom already forwarded, ignoring...
+1333700539865: Received UDP payload: 949
+1333700539874: GOT CSM_Msg
+1333700539875: nonce 12 heard from src region (4,0)
+1333700539875: Received Atom already forwarded, ignoring...
+1333700539966: Received UDP payload: 949
+1333700539971: GOT CSM_Msg
+1333700539972: nonce 13 heard from src region (4,0)
+1333700539972: Forwarding Atom because it's closer.
+1333700539972: I got a CSM packet at a leader 
+
+1333700539975: Sending UDP payload: 949
+1333700539976: nonce 13 heard from src region (4,0)
+1333700539976: Received Atom already forwarded, ignoring...
+1333700540000: Received UDP payload: 3171
+1333700540004: GOT CSM_Msg
+1333700540006: nonce 4 heard from src region (2,0)
+1333700540030: Received UDP payload: 3171
+1333700540036: GOT CSM_Msg
+1333700540036: nonce 5 heard from src region (2,0)
+1333700540051: Received UDP payload: 949
+1333700540056: GOT CSM_Msg
+1333700540057: nonce 13 heard from src region (4,0)
+1333700540057: Received Atom already forwarded, ignoring...
+1333700540062: Received UDP payload: 3171
+1333700540067: GOT CSM_Msg
+1333700540067: nonce 4 heard from src region (2,0)
+1333700540092: Received UDP payload: 3171
+1333700540100: GOT CSM_Msg
+1333700540100: nonce 5 heard from src region (2,0)
+1333700540101: Received UDP payload: 770
+1333700540109: GOT CSM_Msg
+1333700540110: nonce 14 heard from src region (0,0)
+1333700540110: Forwarding Atom because it's closer.
+1333700540110: I got a CSM packet at a leader 
+
+1333700540112: Sending UDP payload: 770
+1333700540113: nonce 14 heard from src region (0,0)
+1333700540113: Received Atom already forwarded, ignoring...
+1333700540127: Received UDP payload: 770
+1333700540142: GOT CSM_Msg
+1333700540142: nonce 14 heard from src region (0,0)
+1333700540142: Received Atom already forwarded, ignoring...
+1333700540143: Received UDP payload: 770
+1333700540150: GOT CSM_Msg
+1333700540151: nonce 14 heard from src region (0,0)
+1333700540151: Received Atom already forwarded, ignoring...
+1333700540152: Received UDP payload: 770
+1333700540159: GOT CSM_Msg
+1333700540159: nonce 14 heard from src region (0,0)
+1333700540159: Received Atom already forwarded, ignoring...
+1333700540912: canPressButton = TRUE
+1333700540940: areButtonsEnabled --> false 
+1333700540954: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 getNum=1 getGood=0 getBad=0 getTimedout=0
+1333700540963: ** Clicked getphotos Button from region 3 **
+1333700540963: I'm the Client, and I'm in region: 2 nodID = 5005
+1333700540964: I'm a leader, my requesting photos packet going to mux directly
+1333700540965: StatusActivity sent request to get photos for region 3
+1333700541002: Inside mux Packet.CLIENT_REQUEST
+1333700541002: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333700541002: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333700541002: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1333700541003: Sending to region: 3
+1333700541004: Sending PROC_REQUEST 11:0 (2,0)->(3,0)
+1333700541009: Dispatching Atom PROC_REQUEST 11:0 (2,0)->(3,0)
+1333700541063: I got a CSM packet at a leader 
+
+1333700541028: inside sendPacket(Packet p)
+1333700541067: Sending UDP payload: 949
+1333700541071: nonce 6 heard from src region (2,0)
+1333700541074: Sending UDP payload: 406
+1333700541232: Received UDP payload: 4619
+1333700541237: GOT CSM_Msg
+1333700541267: inside Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1333700541301: leader download remote photo latency = 302
+1333700541301: = leader download start 1333700540965 ~ stop 1333700541267
+1333700541309: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 getNum=1 getGood=1 getBad=0 getTimedout=0
+1333700541310: Success! Client getting photo from remote region, showing photo...
+1333700541311: Remote photo's length: 3648
+1333700541237: Received PROC_REPLY 11:0 (3,0)->(2,0), handing to UserApp
+1333700541238: Now back in orginitator region's leader, precssing handleDSMReply
+1333700541238: Going to and from remote region took latency = 235
+1333700541238: = orig leader sent packet at 1333700541003 ~ received reply at 1333700541238
+1333700541245: Originator Region=2 Leader (for Client=5005) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333700541245: reply packet contains the newest photo from the remote region
+1333700541245: I (the leader) was also the originator client (id = 5005) so I hand the packet to my mux directly, without UDP
+1333700542410: Received UDP payload: 406
+1333700545363: Received UDP payload: 406
+1333700545706: Received UDP payload: 406
+1333700549583: leader to cloud hearbeat...
+1333700564319: Received UDP payload: 949
+1333700564370: GOT CSM_Msg
+1333700564374: nonce 3 heard from src region (5,0)
+1333700564375: Forwarding Atom because it's closer.
+1333700564376: I got a CSM packet at a leader 
+
+1333700564406: Received UDP payload: 949
+1333700564407: Sending UDP payload: 949
+1333700564409: nonce 3 heard from src region (5,0)
+1333700564409: Received Atom already forwarded, ignoring...
+1333700564414: GOT CSM_Msg
+1333700564414: nonce 3 heard from src region (5,0)
+1333700564414: Received Atom already forwarded, ignoring...
+1333700564430: Received UDP payload: 4619
+1333700564433: GOT CSM_Msg
+1333700564434: nonce 3 heard from src region (3,0)
+1333700564470: Received UDP payload: 949
+1333700564473: GOT CSM_Msg
+1333700564473: nonce 15 heard from src region (4,0)
+1333700564486: Received UDP payload: 4619
+1333700564490: GOT CSM_Msg
+1333700564490: nonce 4 heard from src region (3,0)
+1333700564571: Received UDP payload: 949
+1333700564612: GOT CSM_Msg
+1333700564612: nonce 4 heard from src region (5,0)
+1333700564615: Received UDP payload: 4619
+1333700564634: GOT CSM_Msg
+1333700564635: nonce 3 heard from src region (3,0)
+1333700564637: Received UDP payload: 4619
+1333700564646: GOT CSM_Msg
+1333700564646: nonce 5 heard from src region (3,0)
+1333700564646: Received UDP payload: 4619
+1333700564654: GOT CSM_Msg
+1333700564655: nonce 4 heard from src region (3,0)
+1333700564680: Received UDP payload: 4619
+1333700564693: GOT CSM_Msg
+1333700564693: nonce 5 heard from src region (3,0)
+1333700565228: Received UDP payload: 949
+1333700565278: GOT CSM_Msg
+1333700565279: nonce 16 heard from src region (4,0)
+1333700565285: Received UDP payload: 770
+1333700565306: GOT CSM_Msg
+1333700565306: nonce 17 heard from src region (0,0)
+1333700565306: Forwarding Atom because it's closer.
+1333700565307: I got a CSM packet at a leader 
+
+1333700565308: Sending UDP payload: 770
+1333700565309: nonce 17 heard from src region (0,0)
+1333700565309: Received Atom already forwarded, ignoring...
+1333700565310: Received UDP payload: 770
+1333700565315: GOT CSM_Msg
+1333700565315: nonce 17 heard from src region (0,0)
+1333700565315: Received Atom already forwarded, ignoring...
+1333700565319: Received UDP payload: 770
+1333700565327: GOT CSM_Msg
+1333700565327: nonce 17 heard from src region (0,0)
+1333700565328: Received Atom already forwarded, ignoring...
+1333700565328: Received UDP payload: 770
+1333700565332: GOT CSM_Msg
+1333700565332: nonce 17 heard from src region (0,0)
+1333700565332: Received Atom already forwarded, ignoring...
+1333700565906: Received UDP payload: 949
+1333700565936: GOT CSM_Msg
+1333700565937: nonce 18 heard from src region (4,0)
+1333700565944: Received UDP payload: 770
+1333700565960: GOT CSM_Msg
+1333700565961: nonce 19 heard from src region (0,0)
+1333700565961: Forwarding Atom because it's closer.
+1333700565961: I got a CSM packet at a leader 
+
+1333700565963: Sending UDP payload: 770
+1333700565964: nonce 19 heard from src region (0,0)
+1333700565965: Received Atom already forwarded, ignoring...
+1333700565965: Received UDP payload: 770
+1333700565972: GOT CSM_Msg
+1333700565972: nonce 19 heard from src region (0,0)
+1333700565972: Received Atom already forwarded, ignoring...
+1333700565975: Received UDP payload: 770
+1333700565980: GOT CSM_Msg
+1333700565981: nonce 19 heard from src region (0,0)
+1333700565981: Received Atom already forwarded, ignoring...
+1333700565988: Received UDP payload: 770
+1333700565991: GOT CSM_Msg
+1333700565991: nonce 19 heard from src region (0,0)
+1333700565991: Received Atom already forwarded, ignoring...
+1333700566010: Received UDP payload: 949
+1333700566024: GOT CSM_Msg
+1333700566024: nonce 20 heard from src region (4,0)
+1333700566025: Received UDP payload: 770
+1333700566032: GOT CSM_Msg
+1333700566032: nonce 21 heard from src region (0,0)
+1333700566033: Forwarding Atom because it's closer.
+1333700566033: I got a CSM packet at a leader 
+
+1333700566035: Sending UDP payload: 770
+1333700566036: nonce 21 heard from src region (0,0)
+1333700566036: Received Atom already forwarded, ignoring...
+1333700566037: Received UDP payload: 770
+1333700566039: GOT CSM_Msg
+1333700566040: nonce 21 heard from src region (0,0)
+1333700566040: Received Atom already forwarded, ignoring...
+1333700566050: Received UDP payload: 770
+1333700566054: GOT CSM_Msg
+1333700566054: nonce 21 heard from src region (0,0)
+1333700566054: Received Atom already forwarded, ignoring...
+1333700566060: Received UDP payload: 770
+1333700566063: GOT CSM_Msg
+1333700566064: nonce 21 heard from src region (0,0)
+1333700566064: Received Atom already forwarded, ignoring...
+1333700566109: Received UDP payload: 949
+1333700566113: GOT CSM_Msg
+1333700566113: nonce 22 heard from src region (4,0)
+1333700566116: Received UDP payload: 770
+1333700566122: GOT CSM_Msg
+1333700566123: nonce 23 heard from src region (0,0)
+1333700566123: Forwarding Atom because it's closer.
+1333700566123: I got a CSM packet at a leader 
+
+1333700566125: Sending UDP payload: 770
+1333700566142: nonce 23 heard from src region (0,0)
+1333700566142: Received Atom already forwarded, ignoring...
+1333700566147: Received UDP payload: 770
+1333700566157: GOT CSM_Msg
+1333700566158: nonce 23 heard from src region (0,0)
+1333700566158: Received Atom already forwarded, ignoring...
+1333700566161: Received UDP payload: 770
+1333700566170: GOT CSM_Msg
+1333700566170: nonce 23 heard from src region (0,0)
+1333700566170: Received Atom already forwarded, ignoring...
+1333700566183: Received UDP payload: 770
+1333700566206: GOT CSM_Msg
+1333700566206: nonce 23 heard from src region (0,0)
+1333700566206: Received Atom already forwarded, ignoring...
+1333700566221: Received UDP payload: 949
+1333700566231: GOT CSM_Msg
+1333700566231: nonce 24 heard from src region (4,0)
+1333700566233: Received UDP payload: 770
+1333700566241: GOT CSM_Msg
+1333700566241: nonce 25 heard from src region (0,0)
+1333700566241: Forwarding Atom because it's closer.
+1333700566241: I got a CSM packet at a leader 
+
+1333700566245: Sending UDP payload: 770
+1333700566246: nonce 25 heard from src region (0,0)
+1333700566246: Received Atom already forwarded, ignoring...
+1333700566249: Received UDP payload: 770
+1333700566262: GOT CSM_Msg
+1333700566262: nonce 25 heard from src region (0,0)
+1333700566262: Received Atom already forwarded, ignoring...
+1333700566266: Received UDP payload: 770
+1333700566273: GOT CSM_Msg
+1333700566273: nonce 25 heard from src region (0,0)
+1333700566273: Received Atom already forwarded, ignoring...
+1333700566316: Received UDP payload: 949
+1333700566327: GOT CSM_Msg
+1333700566327: nonce 26 heard from src region (4,0)
+1333700566328: Received UDP payload: 770
+1333700566332: GOT CSM_Msg
+1333700566332: nonce 27 heard from src region (0,0)
+1333700566332: Forwarding Atom because it's closer.
+1333700566332: I got a CSM packet at a leader 
+
+1333700566334: Sending UDP payload: 770
+1333700566335: nonce 27 heard from src region (0,0)
+1333700566336: Received Atom already forwarded, ignoring...
+1333700566341: Received UDP payload: 770
+1333700566347: GOT CSM_Msg
+1333700566347: nonce 27 heard from src region (0,0)
+1333700566347: Received Atom already forwarded, ignoring...
+1333700566352: Received UDP payload: 770
+1333700566355: GOT CSM_Msg
+1333700566355: nonce 27 heard from src region (0,0)
+1333700566355: Received Atom already forwarded, ignoring...
+1333700566387: Received UDP payload: 770
+1333700566391: GOT CSM_Msg
+1333700566392: nonce 27 heard from src region (0,0)
+1333700566392: Received Atom already forwarded, ignoring...
+1333700566419: Received UDP payload: 949
+1333700566422: GOT CSM_Msg
+1333700566422: nonce 28 heard from src region (4,0)
+1333700566428: Received UDP payload: 770
+1333700566441: GOT CSM_Msg
+1333700566442: nonce 29 heard from src region (0,0)
+1333700566442: Forwarding Atom because it's closer.
+1333700566442: I got a CSM packet at a leader 
+
+1333700566444: Sending UDP payload: 770
+1333700566445: nonce 29 heard from src region (0,0)
+1333700566445: Received Atom already forwarded, ignoring...
+1333700566446: Received UDP payload: 770
+1333700566449: GOT CSM_Msg
+1333700566450: nonce 29 heard from src region (0,0)
+1333700566450: Received Atom already forwarded, ignoring...
+1333700566460: Received UDP payload: 770
+1333700566464: GOT CSM_Msg
+1333700566464: nonce 29 heard from src region (0,0)
+1333700566464: Received Atom already forwarded, ignoring...
+1333700566521: Received UDP payload: 949
+1333700566524: GOT CSM_Msg
+1333700566525: nonce 30 heard from src region (4,0)
+1333700566528: Received UDP payload: 770
+1333700566531: GOT CSM_Msg
+1333700566532: nonce 31 heard from src region (0,0)
+1333700566532: Forwarding Atom because it's closer.
+1333700566532: I got a CSM packet at a leader 
+
+1333700566534: Sending UDP payload: 770
+1333700566535: nonce 31 heard from src region (0,0)
+1333700566535: Received Atom already forwarded, ignoring...
+1333700566542: Received UDP payload: 770
+1333700566546: GOT CSM_Msg
+1333700566546: nonce 31 heard from src region (0,0)
+1333700566547: Received Atom already forwarded, ignoring...
+1333700566556: Received UDP payload: 770
+1333700566584: GOT CSM_Msg
+1333700566584: nonce 31 heard from src region (0,0)
+1333700566584: Received Atom already forwarded, ignoring...
+1333700566586: Received UDP payload: 770
+1333700566604: GOT CSM_Msg
+1333700566604: nonce 31 heard from src region (0,0)
+1333700566604: Received Atom already forwarded, ignoring...
+1333700566624: Received UDP payload: 949
+1333700566628: GOT CSM_Msg
+1333700566628: nonce 32 heard from src region (4,0)
+1333700566629: Received UDP payload: 770
+1333700566652: GOT CSM_Msg
+1333700566653: nonce 33 heard from src region (0,0)
+1333700566653: Forwarding Atom because it's closer.
+1333700566653: I got a CSM packet at a leader 
+
+1333700566655: Sending UDP payload: 770
+1333700566655: nonce 33 heard from src region (0,0)
+1333700566655: Received Atom already forwarded, ignoring...
+1333700566656: Received UDP payload: 770
+1333700566669: GOT CSM_Msg
+1333700566670: nonce 33 heard from src region (0,0)
+1333700566670: Received Atom already forwarded, ignoring...
+1333700566671: Received UDP payload: 770
+1333700566700: GOT CSM_Msg
+1333700566697: Received UDP payload: 770
+1333700566700: nonce 33 heard from src region (0,0)
+1333700566700: Received Atom already forwarded, ignoring...
+1333700566704: GOT CSM_Msg
+1333700566705: nonce 33 heard from src region (0,0)
+1333700566705: Received Atom already forwarded, ignoring...
+1333700566723: Received UDP payload: 949
+1333700566726: GOT CSM_Msg
+1333700566727: nonce 34 heard from src region (4,0)
+1333700566730: Received UDP payload: 770
+1333700566748: GOT CSM_Msg
+1333700566749: nonce 35 heard from src region (0,0)
+1333700566749: Forwarding Atom because it's closer.
+1333700566749: I got a CSM packet at a leader 
+
+1333700566751: Sending UDP payload: 770
+1333700566751: nonce 35 heard from src region (0,0)
+1333700566751: Received Atom already forwarded, ignoring...
+1333700566752: Received UDP payload: 770
+1333700566758: GOT CSM_Msg
+1333700566758: nonce 35 heard from src region (0,0)
+1333700566758: Received Atom already forwarded, ignoring...
+1333700566760: Received UDP payload: 770
+1333700566767: GOT CSM_Msg
+1333700566767: nonce 35 heard from src region (0,0)
+1333700566767: Received Atom already forwarded, ignoring...
+1333700566825: Received UDP payload: 949
+1333700566828: GOT CSM_Msg
+1333700566829: nonce 36 heard from src region (4,0)
+1333700566832: Received UDP payload: 770
+1333700566835: GOT CSM_Msg
+1333700566836: nonce 37 heard from src region (0,0)
+1333700566836: Forwarding Atom because it's closer.
+1333700566836: I got a CSM packet at a leader 
+
+1333700566839: Sending UDP payload: 770
+1333700566840: nonce 37 heard from src region (0,0)
+1333700566840: Received Atom already forwarded, ignoring...
+1333700566854: Received UDP payload: 770
+1333700566870: GOT CSM_Msg
+1333700566871: nonce 37 heard from src region (0,0)
+1333700566871: Received Atom already forwarded, ignoring...
+1333700566871: Received UDP payload: 770
+1333700566882: GOT CSM_Msg
+1333700566882: nonce 37 heard from src region (0,0)
+1333700566882: Received Atom already forwarded, ignoring...
+1333700566883: Received UDP payload: 770
+1333700566891: GOT CSM_Msg
+1333700566891: nonce 37 heard from src region (0,0)
+1333700566892: Received Atom already forwarded, ignoring...
+1333700566928: Received UDP payload: 949
+1333700566934: GOT CSM_Msg
+1333700566934: nonce 38 heard from src region (4,0)
+1333700566935: Received UDP payload: 770
+1333700566943: GOT CSM_Msg
+1333700566943: nonce 39 heard from src region (0,0)
+1333700566943: Forwarding Atom because it's closer.
+1333700566943: I got a CSM packet at a leader 
+
+1333700566944: Sending UDP payload: 770
+1333700566945: nonce 39 heard from src region (0,0)
+1333700566946: Received Atom already forwarded, ignoring...
+1333700566960: Received UDP payload: 770
+1333700566964: GOT CSM_Msg
+1333700566965: nonce 39 heard from src region (0,0)
+1333700566965: Received Atom already forwarded, ignoring...
+1333700566970: Received UDP payload: 770
+1333700566973: GOT CSM_Msg
+1333700566974: nonce 39 heard from src region (0,0)
+1333700566974: Received Atom already forwarded, ignoring...
+1333700566985: Received UDP payload: 770
+1333700566990: GOT CSM_Msg
+1333700566990: nonce 39 heard from src region (0,0)
+1333700566991: Received Atom already forwarded, ignoring...
+1333700567028: Received UDP payload: 949
+1333700567049: GOT CSM_Msg
+1333700567050: nonce 40 heard from src region (4,0)
+1333700567052: Received UDP payload: 770
+1333700567068: GOT CSM_Msg
+1333700567068: nonce 41 heard from src region (0,0)
+1333700567069: Forwarding Atom because it's closer.
+1333700567069: I got a CSM packet at a leader 
+
+1333700567071: Sending UDP payload: 770
+1333700567072: nonce 41 heard from src region (0,0)
+1333700567072: Received Atom already forwarded, ignoring...
+1333700567073: Received UDP payload: 770
+1333700567087: GOT CSM_Msg
+1333700567087: nonce 41 heard from src region (0,0)
+1333700567087: Received Atom already forwarded, ignoring...
+1333700567088: Received UDP payload: 770
+1333700567106: GOT CSM_Msg
+1333700567106: nonce 41 heard from src region (0,0)
+1333700567106: Received Atom already forwarded, ignoring...
+1333700567117: Received UDP payload: 770
+1333700567124: GOT CSM_Msg
+1333700567125: nonce 41 heard from src region (0,0)
+1333700567125: Received Atom already forwarded, ignoring...
+1333700567130: Received UDP payload: 949
+1333700567134: GOT CSM_Msg
+1333700567134: nonce 42 heard from src region (4,0)
+1333700567143: Received UDP payload: 770
+1333700567147: GOT CSM_Msg
+1333700567147: nonce 43 heard from src region (0,0)
+1333700567147: Forwarding Atom because it's closer.
+1333700567148: I got a CSM packet at a leader 
+
+1333700567149: Sending UDP payload: 770
+1333700567152: nonce 43 heard from src region (0,0)
+1333700567152: Received Atom already forwarded, ignoring...
+1333700567153: Received UDP payload: 770
+1333700567169: GOT CSM_Msg
+1333700567169: nonce 43 heard from src region (0,0)
+1333700567169: Received Atom already forwarded, ignoring...
+1333700567181: Received UDP payload: 770
+1333700567185: GOT CSM_Msg
+1333700567186: nonce 43 heard from src region (0,0)
+1333700567186: Received Atom already forwarded, ignoring...
+1333700567231: Received UDP payload: 949
+1333700567235: GOT CSM_Msg
+1333700567235: nonce 44 heard from src region (4,0)
+1333700567239: Received UDP payload: 770
+1333700567243: GOT CSM_Msg
+1333700567243: nonce 45 heard from src region (0,0)
+1333700567243: Forwarding Atom because it's closer.
+1333700567244: I got a CSM packet at a leader 
+
+1333700567245: Sending UDP payload: 770
+1333700567247: nonce 45 heard from src region (0,0)
+1333700567247: Received Atom already forwarded, ignoring...
+1333700567248: Received UDP payload: 770
+1333700567251: GOT CSM_Msg
+1333700567251: nonce 43 heard from src region (0,0)
+1333700567251: Received Atom already forwarded, ignoring...
+1333700567256: Received UDP payload: 770
+1333700567268: GOT CSM_Msg
+1333700567268: nonce 45 heard from src region (0,0)
+1333700567268: Received Atom already forwarded, ignoring...
+1333700567268: Received UDP payload: 770
+1333700567272: GOT CSM_Msg
+1333700567272: nonce 45 heard from src region (0,0)
+1333700567272: Received Atom already forwarded, ignoring...
+1333700567286: Received UDP payload: 770
+1333700567292: GOT CSM_Msg
+1333700567293: nonce 45 heard from src region (0,0)
+1333700567293: Received Atom already forwarded, ignoring...
+1333700567331: Received UDP payload: 770
+1333700567335: GOT CSM_Msg
+1333700567335: nonce 46 heard from src region (4,0)
+1333700567448: Received UDP payload: 3677
+1333700567452: GOT CSM_Msg
+1333700567452: nonce 6 heard from src region (3,0)
+1333700567467: Received UDP payload: 949
+1333700567474: GOT CSM_Msg
+1333700567475: nonce 7 heard from src region (3,0)
+1333700568712: Received UDP payload: 949
+1333700568765: GOT CSM_Msg
+1333700568765: nonce 4 heard from src region (1,0)
+1333700568765: Forwarding Atom because it's closer.
+1333700568765: I got a CSM packet at a leader 
+
+1333700568767: Sending UDP payload: 949
+1333700568768: nonce 4 heard from src region (1,0)
+1333700568768: Received Atom already forwarded, ignoring...
+1333700568774: Received UDP payload: 949
+1333700568780: GOT CSM_Msg
+1333700568781: nonce 4 heard from src region (1,0)
+1333700568781: Received Atom already forwarded, ignoring...
+1333700568781: Received UDP payload: 406
+1333700568895: Received UDP payload: 3677
+1333700568958: GOT CSM_Msg
+1333700568958: nonce 9 heard from src region (3,0)
+1333700568958: Forwarding Atom because it's closer.
+1333700568959: I got a CSM packet at a leader 
+
+1333700568963: Sending UDP payload: 3677
+1333700568975: nonce 9 heard from src region (3,0)
+1333700568978: Received Atom already forwarded, ignoring...
+1333700568979: Received UDP payload: 3677
+1333700568985: GOT CSM_Msg
+1333700568985: nonce 9 heard from src region (3,0)
+1333700568985: Received Atom already forwarded, ignoring...
+1333700568993: Received UDP payload: 3677
+1333700569002: GOT CSM_Msg
+1333700569002: nonce 10 heard from src region (3,0)
+1333700569002: Forwarding Atom because it's closer.
+1333700569003: I got a CSM packet at a leader 
+
+1333700569004: Sending UDP payload: 3677
+1333700569007: nonce 10 heard from src region (3,0)
+1333700569007: Received Atom already forwarded, ignoring...
+1333700569283: canPressButton = TRUE
+1333700569284: areButtonsEnabled --> false 
+1333700569291: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 getNum=2 getGood=1 getBad=0 getTimedout=0
+1333700569291: ** Clicked getphotos Button from region 5 **
+1333700569292: I'm the Client, and I'm in region: 2 nodID = 5005
+1333700569292: I'm a leader, my requesting photos packet going to mux directly
+1333700569293: StatusActivity sent request to get photos for region 5
+1333700569311: Inside mux Packet.CLIENT_REQUEST
+1333700569311: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333700569312: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333700569312: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1333700569313: Sending to region: 5
+1333700569318: Sending PROC_REQUEST 11:0 (2,0)->(5,0)
+1333700569319: Dispatching Atom PROC_REQUEST 11:0 (2,0)->(5,0)
+1333700569340: I got a CSM packet at a leader 
+
+1333700569345: Sending UDP payload: 949
+1333700569349: nonce 7 heard from src region (2,0)
+1333700569375: Received UDP payload: 949
+1333700569433: GOT CSM_Msg
+1333700569411: Received UDP payload: 949
+1333700569434: GOT CSM_Msg
+1333700569420: Received UDP payload: 949
+1333700569434: nonce 7 heard from src region (2,0)
+1333700569437: GOT CSM_Msg
+1333700569591: inside Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1333700569592: leader download remote photo latency = 298
+1333700569592: = leader download start 1333700569293 ~ stop 1333700569591
+1333700569593: FAIL! Client failed to get photo from remote region
+1333700569645: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 getNum=2 getGood=1 getBad=1 getTimedout=0
+1333700569646: getBad++
+1333700569434: nonce 7 heard from src region (2,0)
+1333700569438: Received UDP payload: 949
+1333700569445: Received PROC_REPLY 11:0 (5,0)->(2,0), handing to UserApp
+1333700569445: Now back in orginitator region's leader, precssing handleDSMReply
+1333700569445: Going to and from remote region took latency = 132
+1333700569446: = orig leader sent packet at 1333700569313 ~ received reply at 1333700569445
+1333700569448: Originator Region=2 Leader (for Client=5005) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333700569464: reply packet contains the newest photo from the remote region
+1333700569464: I (the leader) was also the originator client (id = 5005) so I hand the packet to my mux directly, without UDP
+1333700569472: GOT CSM_Msg
+1333700569471: Received UDP payload: 949
+1333700569472: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700569479: GOT CSM_Msg
+1333700569480: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700569481: Received UDP payload: 949
+1333700569489: GOT CSM_Msg
+1333700569490: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700569496: Received UDP payload: 949
+1333700569505: GOT CSM_Msg
+1333700569506: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700569508: Received UDP payload: 949
+1333700569538: GOT CSM_Msg
+1333700569538: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700569539: Received UDP payload: 949
+1333700569546: GOT CSM_Msg
+1333700569547: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700569549: Received UDP payload: 949
+1333700569557: GOT CSM_Msg
+1333700569557: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700569559: Received UDP payload: 949
+1333700569585: GOT CSM_Msg
+1333700569585: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700569587: Received UDP payload: 949
+1333700569598: GOT CSM_Msg
+1333700569599: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700569601: Received UDP payload: 949
+1333700569607: GOT CSM_Msg
+1333700569608: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700569610: Received UDP payload: 949
+1333700569684: GOT CSM_Msg
+1333700569685: Received DUPLICATE PROC_REPLY 11:0 (5,0)->(2,0)
+1333700570918: Received UDP payload: 949
+1333700570946: GOT CSM_Msg
+1333700570947: nonce 11 heard from src region (3,0)
+1333700570948: Forwarding Atom because it's closer.
+1333700570955: I got a CSM packet at a leader 
+
+1333700570970: Received UDP payload: 949
+1333700570971: Sending UDP payload: 949
+1333700570973: nonce 11 heard from src region (3,0)
+1333700570973: Received Atom already forwarded, ignoring...
+1333700570978: GOT CSM_Msg
+1333700570979: nonce 11 heard from src region (3,0)
+1333700570979: Received Atom already forwarded, ignoring...
+1333700571028: inside sendPacket(Packet p)
+1333700571029: Sending UDP payload: 406
+1333700571612: Received UDP payload: 949
+1333700571659: GOT CSM_Msg
+1333700571660: nonce 8 heard from src region (5,0)
+1333700571660: Forwarding Atom because it's closer.
+1333700571660: I got a CSM packet at a leader 
+
+1333700571666: Sending UDP payload: 949
+1333700571667: nonce 8 heard from src region (5,0)
+1333700571667: Received Atom already forwarded, ignoring...
+1333700571669: Received UDP payload: 949
+1333700571677: GOT CSM_Msg
+1333700571677: nonce 8 heard from src region (5,0)
+1333700571678: Received Atom already forwarded, ignoring...
+1333700571702: Received UDP payload: 3677
+1333700571706: GOT CSM_Msg
+1333700571706: nonce 12 heard from src region (3,0)
+1333700571713: Received UDP payload: 949
+1333700571717: GOT CSM_Msg
+1333700571718: nonce 13 heard from src region (3,0)
+1333700571718: Forwarding Atom because it's closer.
+1333700571718: I got a CSM packet at a leader 
+
+1333700571720: Sending UDP payload: 949
+1333700571721: nonce 13 heard from src region (3,0)
+1333700571721: Received Atom already forwarded, ignoring...
+1333700571755: Received UDP payload: 3677
+1333700571760: GOT CSM_Msg
+1333700571760: nonce 14 heard from src region (3,0)
+1333700571804: Received UDP payload: 949
+1333700571816: GOT CSM_Msg
+1333700571816: nonce 13 heard from src region (3,0)
+1333700571816: Received Atom already forwarded, ignoring...
+1333700571817: Received UDP payload: 3677
+1333700571826: GOT CSM_Msg
+1333700571826: nonce 12 heard from src region (3,0)
+1333700571834: Received UDP payload: 3677
+1333700571839: GOT CSM_Msg
+1333700571839: nonce 15 heard from src region (3,0)
+1333700571855: Received UDP payload: 949
+1333700571860: GOT CSM_Msg
+1333700571861: nonce 16 heard from src region (3,0)
+1333700571861: Forwarding Atom because it's closer.
+1333700571861: I got a CSM packet at a leader 
+
+1333700571874: Sending UDP payload: 949
+1333700571875: nonce 16 heard from src region (3,0)
+1333700571875: Received Atom already forwarded, ignoring...
+1333700571876: Received UDP payload: 3677
+1333700571885: GOT CSM_Msg
+1333700571886: nonce 14 heard from src region (3,0)
+1333700571886: Received UDP payload: 949
+1333700571893: GOT CSM_Msg
+1333700571894: nonce 16 heard from src region (3,0)
+1333700571894: Received Atom already forwarded, ignoring...
+1333700571905: Received UDP payload: 949
+1333700571908: GOT CSM_Msg
+1333700571908: nonce 17 heard from src region (3,0)
+1333700571909: Forwarding Atom because it's closer.
+1333700571909: I got a CSM packet at a leader 
+
+1333700571910: Sending UDP payload: 949
+1333700571915: nonce 17 heard from src region (3,0)
+1333700571915: Received Atom already forwarded, ignoring...
+1333700571974: Received UDP payload: 949
+1333700571979: GOT CSM_Msg
+1333700571979: nonce 18 heard from src region (3,0)
+1333700571980: Forwarding Atom because it's closer.
+1333700571980: I got a CSM packet at a leader 
+
+1333700571981: Sending UDP payload: 949
+1333700571992: nonce 18 heard from src region (3,0)
+1333700571992: Received Atom already forwarded, ignoring...
+1333700572000: Received UDP payload: 949
+1333700572003: GOT CSM_Msg
+1333700572003: nonce 18 heard from src region (3,0)
+1333700572003: Received Atom already forwarded, ignoring...
+1333700572064: Received UDP payload: 949
+1333700572069: GOT CSM_Msg
+1333700572069: nonce 19 heard from src region (3,0)
+1333700572069: Forwarding Atom because it's closer.
+1333700572069: I got a CSM packet at a leader 
+
+1333700572072: Sending UDP payload: 949
+1333700572073: nonce 19 heard from src region (3,0)
+1333700572073: Received Atom already forwarded, ignoring...
+1333700572081: Received UDP payload: 949
+1333700572085: GOT CSM_Msg
+1333700572085: nonce 19 heard from src region (3,0)
+1333700572086: Received Atom already forwarded, ignoring...
+1333700572165: Received UDP payload: 949
+1333700572178: GOT CSM_Msg
+1333700572178: nonce 20 heard from src region (3,0)
+1333700572178: Forwarding Atom because it's closer.
+1333700572179: I got a CSM packet at a leader 
+
+1333700572183: Sending UDP payload: 949
+1333700572185: nonce 20 heard from src region (3,0)
+1333700572186: Received Atom already forwarded, ignoring...
+1333700572187: Received UDP payload: 949
+1333700572206: GOT CSM_Msg
+1333700572207: nonce 20 heard from src region (3,0)
+1333700572207: Received Atom already forwarded, ignoring...
+1333700572267: Received UDP payload: 949
+1333700572270: GOT CSM_Msg
+1333700572271: nonce 21 heard from src region (3,0)
+1333700572271: Forwarding Atom because it's closer.
+1333700572271: I got a CSM packet at a leader 
+
+1333700572273: Sending UDP payload: 949
+1333700572274: nonce 21 heard from src region (3,0)
+1333700572274: Received Atom already forwarded, ignoring...
+1333700572301: Received UDP payload: 949
+1333700572307: GOT CSM_Msg
+1333700572307: nonce 21 heard from src region (3,0)
+1333700572307: Received Atom already forwarded, ignoring...
+1333700572370: Received UDP payload: 949
+1333700572377: GOT CSM_Msg
+1333700572377: nonce 22 heard from src region (3,0)
+1333700572377: Forwarding Atom because it's closer.
+1333700572377: I got a CSM packet at a leader 
+
+1333700572379: Sending UDP payload: 949
+1333700572381: nonce 22 heard from src region (3,0)
+1333700572381: Received Atom already forwarded, ignoring...
+1333700572386: Received UDP payload: 949
+1333700572392: GOT CSM_Msg
+1333700572392: nonce 22 heard from src region (3,0)
+1333700572393: Received Atom already forwarded, ignoring...
+1333700572416: Received UDP payload: 406
+1333700572468: Received UDP payload: 949
+1333700572478: GOT CSM_Msg
+1333700572479: nonce 23 heard from src region (3,0)
+1333700572479: Forwarding Atom because it's closer.
+1333700572479: I got a CSM packet at a leader 
+
+1333700572482: Sending UDP payload: 949
+1333700572482: nonce 23 heard from src region (3,0)
+1333700572482: Received Atom already forwarded, ignoring...
+1333700572486: Received UDP payload: 949
+1333700572489: GOT CSM_Msg
+1333700572489: nonce 23 heard from src region (3,0)
+1333700572490: Received Atom already forwarded, ignoring...
+1333700572570: Received UDP payload: 949
+1333700572574: GOT CSM_Msg
+1333700572575: nonce 24 heard from src region (3,0)
+1333700572575: Forwarding Atom because it's closer.
+1333700572575: I got a CSM packet at a leader 
+
+1333700572577: Sending UDP payload: 949
+1333700572578: nonce 24 heard from src region (3,0)
+1333700572578: Received Atom already forwarded, ignoring...
+1333700572587: Received UDP payload: 949
+1333700572615: GOT CSM_Msg
+1333700572616: nonce 24 heard from src region (3,0)
+1333700572616: Received Atom already forwarded, ignoring...
+1333700572671: Received UDP payload: 949
+1333700572676: GOT CSM_Msg
+1333700572676: nonce 25 heard from src region (3,0)
+1333700572676: Forwarding Atom because it's closer.
+1333700572677: I got a CSM packet at a leader 
+
+1333700572679: Sending UDP payload: 949
+1333700572680: nonce 25 heard from src region (3,0)
+1333700572681: Received Atom already forwarded, ignoring...
+1333700572699: Received UDP payload: 949
+1333700572704: GOT CSM_Msg
+1333700572704: nonce 25 heard from src region (3,0)
+1333700572704: Received Atom already forwarded, ignoring...
+1333700572772: Received UDP payload: 949
+1333700572781: GOT CSM_Msg
+1333700572781: nonce 26 heard from src region (3,0)
+1333700572781: Forwarding Atom because it's closer.
+1333700572782: I got a CSM packet at a leader 
+
+1333700572785: Sending UDP payload: 949
+1333700572786: nonce 26 heard from src region (3,0)
+1333700572786: Received Atom already forwarded, ignoring...
+1333700572789: Received UDP payload: 949
+1333700572793: GOT CSM_Msg
+1333700572794: nonce 26 heard from src region (3,0)
+1333700572794: Received Atom already forwarded, ignoring...
+1333700572873: Received UDP payload: 949
+1333700572878: GOT CSM_Msg
+1333700572878: nonce 27 heard from src region (3,0)
+1333700572878: Forwarding Atom because it's closer.
+1333700572879: I got a CSM packet at a leader 
+
+1333700572881: Sending UDP payload: 949
+1333700572882: nonce 27 heard from src region (3,0)
+1333700572882: Received Atom already forwarded, ignoring...
+1333700572899: Received UDP payload: 949
+1333700572905: GOT CSM_Msg
+1333700572905: nonce 27 heard from src region (3,0)
+1333700572905: Received Atom already forwarded, ignoring...
+1333700572976: Received UDP payload: 949
+1333700572981: GOT CSM_Msg
+1333700572982: nonce 28 heard from src region (3,0)
+1333700572982: Forwarding Atom because it's closer.
+1333700572982: I got a CSM packet at a leader 
+
+1333700572984: Sending UDP payload: 949
+1333700572986: nonce 28 heard from src region (3,0)
+1333700572986: Received Atom already forwarded, ignoring...
+1333700572993: Received UDP payload: 949
+1333700572997: GOT CSM_Msg
+1333700572997: nonce 28 heard from src region (3,0)
+1333700572997: Received Atom already forwarded, ignoring...
+1333700573075: Received UDP payload: 770
+1333700573079: GOT CSM_Msg
+1333700573079: nonce 29 heard from src region (0,0)
+1333700573080: Received Atom already forwarded, ignoring...
+1333700573103: Received UDP payload: 770
+1333700573109: GOT CSM_Msg
+1333700573109: nonce 29 heard from src region (0,0)
+1333700573109: Received Atom already forwarded, ignoring...
+1333700575352: Received UDP payload: 406
+1333700575705: Received UDP payload: 406
+1333700579584: leader to cloud hearbeat...
+1333700579887: Received UDP payload: 949
+1333700579939: GOT CSM_Msg
+1333700579940: removed replies before id 1 from sentReplies of size 0
+1333700579968: INSIDE SERVER_GET_PHOTO!!!
+1333700579970: Received UDP payload: 949
+1333700579978: Received PROC_REQUEST 11:1 (5,0)->(2,0), replying PROC_REPLY 11:1 (2,0)->(5,0)
+1333700579978: Dispatching Atom PROC_REPLY 11:1 (2,0)->(5,0)
+1333700579978: I got a CSM packet at a leader 
+
+1333700580027: GOT CSM_Msg
+1333700579979: Received UDP payload: 949
+1333700579988: Sending UDP payload: 3171
+1333700580017: nonce 8 heard from src region (2,0)
+1333700580028: removed replies before id 1 from sentReplies of size 1
+1333700580029: Received DUPLICATE PROC_REQUEST 11:1 (5,0)->(2,0), replying PROC_REPLY 11:1 (2,0)->(5,0)
+1333700580029: Dispatching Atom PROC_REPLY 11:1 (2,0)->(5,0)
+1333700580029: I got a CSM packet at a leader 
+
+1333700580048: GOT CSM_Msg
+1333700580031: Received UDP payload: 949
+1333700580032: Sending UDP payload: 3171
+1333700580049: GOT CSM_Msg
+1333700580048: nonce 9 heard from src region (2,0)
+1333700580048: removed replies before id 1 from sentReplies of size 1
+1333700580049: Received DUPLICATE PROC_REQUEST 11:1 (5,0)->(2,0), replying PROC_REPLY 11:1 (2,0)->(5,0)
+1333700580049: Dispatching Atom PROC_REPLY 11:1 (2,0)->(5,0)
+1333700580077: I got a CSM packet at a leader 
+
+1333700580049: removed replies before id 1 from sentReplies of size 1
+1333700580077: Received DUPLICATE PROC_REQUEST 11:1 (5,0)->(2,0), replying PROC_REPLY 11:1 (2,0)->(5,0)
+1333700580077: Dispatching Atom PROC_REPLY 11:1 (2,0)->(5,0)
+1333700580085: I got a CSM packet at a leader 
+
+1333700580083: Sending UDP payload: 3171
+1333700580085: nonce 11 heard from src region (2,0)
+1333700580107: Received UDP payload: 3171
+1333700580107: Sending UDP payload: 3171
+1333700580110: nonce 11 heard from src region (2,0)
+1333700580112: GOT CSM_Msg
+1333700580112: nonce 8 heard from src region (2,0)
+1333700580160: Received UDP payload: 3171
+1333700580164: GOT CSM_Msg
+1333700580164: nonce 8 heard from src region (2,0)
+1333700580226: Received UDP payload: 3171
+1333700580231: GOT CSM_Msg
+1333700580231: nonce 9 heard from src region (2,0)
+1333700580241: Received UDP payload: 3171
+1333700580246: GOT CSM_Msg
+1333700580247: nonce 9 heard from src region (2,0)
+1333700580269: Received UDP payload: 3171
+1333700580274: GOT CSM_Msg
+1333700580274: nonce 11 heard from src region (2,0)
+1333700591973: HI I'm in ONPAUSE()
+1333700592700: inside onDestroy()

@@ -1,0 +1,92 @@
+Completion rate : 
+
+4G-Notes
+Type           Total  Success   %
+diplo-take         80      54   67.5
+diplo-get          74      15   20 %
+cloud-take        225     202   89.7 %
+cloud-get         345     314   91 %
+
+
+Completion rate :
+
+3G-Nexus
+
+diplo-take         74      73   99 %
+diplo-get         128      39   30.4 %
+cloud-take         70      62   88.5 % 
+cloud-get         106      95   89.6 %
+
+Note that 3G results have been cleaned up a bit by throwing away spurious phone logs that weren't part of the experiment. We haven't cleaned up for 4G yet. 
+
+Latency  in ms :
+
+4G Notes on Wifi          4G
+
+mean      558             837
+median    205             479
+std-dev   991             769
+
+
+This is after discarding > 6000 ms samples (due to time out).
+Conclusion : there are some requests that finish very very late ie in
+4 seconds or so. Maybe the phone is overloaded ?
+
+3G Nexus on Wifi / 3G : 
+
+mean      263   22546
+median    205   15557
+std-dev   276   20284
+
+
+Bandwidth reduction :
+
+
+Total count of all bytes corresponding to string "json" in the files
+is 158983 bytes. These "json" requests spanned only 5 lines in total,
+meaning leader elections were rare. This was the case with the second
+experiment There are a total of 74+128, take and get results for
+DIPLOMA. The average 3G byte cost per transaction is :
+(158983/(74+128)) which is 788 bytes.
+
+On 3G, for each transaction, get or take, there is a request and a
+response. The number of bytes in cloud-requests is 976346 in total.
+For cloud responses this is a huge 7142626. There are  70 cloud takes
+and 106 gets in all. The average 3-G usage per transaction (take or
+get ) is  46130 bytes.
+
+DIPLOMA : 788
+CameraCloud : 46130 
+
+4G bandwidth reduction (uncleaned log) :
+
+DIPLOMA :
+
+Total json bytes : 1502405
+
+Cloud : 3819148 + 13375630 (requests + responses) = 17194778
+
+Number of get+take DIPLOMA requests :  Copying from above (80+74) = 154
+
+Number of get+ take Cloud requests :       225+345=570
+
+Therefore, 4G bytes per transaction of DIPLOMA is 1502405/154=9755
+(considerably larger than 700 for the 3G stuff reported above, because
+there people weren't moving)
+Similarly, 4G bytes per transaction of CameraCloud is 30166 bytes
+(somewhat lower than the 3g value).
+
+DIPLOMA : 9755
+CameraCloud : 30166
+
+
+Conclusions :
+
+Completion rate improves if stationary
+Cloud accesses improve if stationary
+Latencies should be reported as median and not mean, cause are mean is skewed by some outliers
+4G latencies are comparable to Wifi
+3G latencies are still much worse
+Completion rates are bad compared to Cloud only
+Completion rates are better for takes than gets
+

@@ -1,0 +1,22 @@
+4G bandwidth reduction (uncleaned log) :
+
+DIPLOMA :
+
+Total json bytes : 1502405
+
+Cloud : 3819148 + 13375630 (requests + responses) = 17194778
+
+Number of get+take DIPLOMA requests :  Copying from above (80+74) = 154
+
+Number of get+ take Cloud requests :       225+345=570
+
+> diplo-take         80      54
+> diplo-get          74      15
+> cloud-take        225     202
+> cloud-get         345     314
+
+Therefore, 4G bytes per transaction of DIPLOMA is 1502405/154=9755
+(considerably larger than 700 for the 3G stuff reported above, because
+there people weren't moving)
+Similarly, 4G bytes per transaction of CameraCloud is 30166 bytes
+(somewhat lower than the 3g value).

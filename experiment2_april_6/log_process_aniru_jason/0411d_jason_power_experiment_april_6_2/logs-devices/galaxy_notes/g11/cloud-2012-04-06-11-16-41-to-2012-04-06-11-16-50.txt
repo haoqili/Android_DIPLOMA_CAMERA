@@ -1,0 +1,45 @@
+1333725401856: *** Opened log file for writing ***
+1333725401857: areButtonsEnabled --> true
+1333725401857: *** Application started ***
+1333725401857: HI I'm in ONRESUME()
+1333725401861: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333725402607: .......... GPS onLocationChanged ...... 
+1333725402609: Loc = Location[mProvider=gps,mTime=1333725403000,mLatitude=42.36375342,mLongitude=-71.10083355,mHasAltitude=true,mAltitude=-3.200000047683716,mHasSpeed=true,mSpeed=0.0,mHasBearing=false,mBearing=0.0,mHasAccuracy=true,mAccuracy=24.0,mExtras=Bundle[mParcelledData.dataSize=4]] Previous Region = (-1,-1)
+1333725402611: GPS x/long:-71.10083355, GPS y/lat: 42.36375342. Region width in x: 51.96152422706632
+1333725402614: location PINPOINTS to region = 1.0, previous -1
+1333725402615: location CHANGED TO NEW region = (1,0) from region = (-1,-1)
+1333725402618: moving from region (-1,-1), to (1,0)
+1333725403420: canPressButton = TRUE
+1333725403421: areButtonsEnabled --> false
+1333725403422: disabling buttons ...
+1333725403422: new pic disableButtons XXX
+1333725403422: areButtonsEnabled --> false
+1333725403531: takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 getNum=0 getGood=0 getBad=0
+1333725403532: ** Clicked take picture button **
+1333725405000: inside HandlePictureStorage onPictureTaken()
+1333725405001: takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 getNum=0 getGood=0 getBad=0
+1333725405260: Picture successfully taken, ORIG BYTE LENGTH = 3569615
+1333725405613: Our new height x width: 306 x 408
+1333725405613: Show photo from handle my camera take
+1333725405614: client making photo packet to send to leader
+1333725405633: BYTE SIZE AFTER COMPRESSION: 8621
+1333725405633: sending new pic ....
+1333725405634: Server request to url: http://hermes5.csail.mit.edu:8213/101/1/0/
+1333725405836: Cloud server request length: 30392
+1333725405837: about to execute HTTP POST
+1333725405837: in serverRequest() about to httpclient.execute()
+1333725406578: CameraCloud Execute HTTP latency: 740ms
+1333725406579: finished executing HTTP POST, get data
+1333725406584: make input stream reader for data
+1333725406585: Cloud response length: 18
+1333725406586: Returning cloud object
+1333725406599: CameraCloud upload new photo latency = 966
+1333725406600: CameraCloud upload start 1333725405633 ~ stop 1333725406599
+1333725406601: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 getNum=0 getGood=0 getBad=0
+1333725406602: SUCCESS! Client now knows saving photo on cloud server succeeded
+1333725406602: RETURN STATUS: 12
+1333725406603: Inside _enableButtons
+1333725406605: areButtonsEnabled --> true
+1333725406606: end of client send picture method
+1333725410296: HI I'm in ONPAUSE()
+1333725410720: inside onDestroy()

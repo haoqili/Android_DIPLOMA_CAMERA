@@ -1,0 +1,162 @@
+1331841447052: *** Opened log file for writing ***
+1331841447055: *** Application started ***
+1331841447056: HI I'm in ONRESUME()
+1331841447058: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1331841447086: Started VCoreDaemon with parameters maxRx = 10 , maxRY= 1, minLongitude = -7110170 , minLatitude = 4236349, regionWidth =17
+1331841447090: started, mId = 5001
+1331841447091: region (-1, -1) out of bounds, dormant
+1331841462715: moving from region (-1,-1), to (1,0)
+1331841462716: sending LEADER_REQUEST
+1331841462755: Sending UDP payload: 426
+1331841463017: sending LEADER_REQUEST
+1331841463026: Sending UDP payload: 426
+1331841463318: sending LEADER_REQUEST
+1331841463326: Sending UDP payload: 426
+1331841463620: sending LEADER_REQUEST
+1331841463637: Sending UDP payload: 426
+1331841463746: LEADER_REQUEST timed out
+1331841463748: *** Starting CSM Layer ***
+1331841463748: *** CSM Layer starting with cache disabled ***
+1331841463748: *** CSM Layer starting with forwarding enabled ***
+1331841463793: DSMLayer starting
+1331841463794: UserApp started.
+1331841463798: UserApp - MatMult initialized and waiting for requests.
+1331841464138: Sending UDP payload: 37168
+1331841464143: now fully up as LEADER (id=5001) of (1,0)
+1331841466185: Received UDP payload: 426
+1331841466244: heard LEADER_REQUEST from node 5002, responding LEADER_REPLY
+1331841466448: Sending UDP payload: 37185
+1331841466521: Received UDP payload: 426
+1331841466558: heard LEADER_REQUEST from node 5002, responding LEADER_REPLY
+1331841466600: Received UDP payload: 426
+1331841466785: Sending UDP payload: 37185
+1331841466821: Received UDP payload: 426
+1331841466827: heard LEADER_REQUEST from node 5002, responding LEADER_REPLY
+1331841466965: Received UDP payload: 426
+1331841467058: Sending UDP payload: 37185
+1331841467191: Received UDP payload: 426
+1331841467532: Received UDP payload: 426
+1331841468312: Received UDP payload: 37168
+1331841472177: Received UDP payload: 426
+1331841474371: Received UDP payload: 426
+1331841474650: Received UDP payload: 426
+1331841474958: Received UDP payload: 426
+1331841475029: Received UDP payload: 37185
+1331841475412: Received UDP payload: 37185
+1331841475801: Received UDP payload: 37185
+1331841476420: Picture successfully taken, ORIG BYTE LENGTH = 1040908
+1331841477349: Our new height x width: 240 x 320
+1331841477350: Show photo from handle my camera take
+1331841477351: client making photo packet to send to leader
+1331841477372: BYTE SIZE AFTER COMPRESSION: 2826
+1331841477098: Sending UDP payload: 426
+1331841477373: Inside mux Packet.CLIENT_REQUEST
+1331841477373: Inside CLIENT_NEW_PHOTO!!
+1331841477374: Sending PROC_REQUEST 10:0 (1,0)->(1,0)
+1331841477375: Dispatching Atom PROC_REQUEST 10:0 (1,0)->(1,0)
+1331841477375: I got a CSM packet at a leader 
+
+1331841477445: Show photo from server_show_newphoto
+1331841477379: Sending UDP payload: 3638
+1331841477381: removed replies before id 0 from sentReplies of size 0
+1331841477381: Inside UPLOAD_PHOTO!!
+1331841477387: Upload Photo succeeded
+1331841477388: Update in leader UI through StatusActivity:
+1331841477409: Received PROC_REQUEST 10:0 (1,0)->(1,0), replying PROC_REPLY 10:0 (1,0)->(1,0)
+1331841477411: Dispatching Atom PROC_REPLY 10:0 (1,0)->(1,0)
+1331841477412: I got a CSM packet at a leader 
+
+1331841477413: Sending UDP payload: 790
+1331841477419: Received PROC_REPLY 10:0 (1,0)->(1,0), handing to UserApp
+1331841481321: Received UDP payload: 956
+1331841481381: GOT CSM_Msg
+1331841481382: removed replies before id 0 from sentReplies of size 0
+1331841481382: INSIDE SERVER_GET_PHOTO!!!
+1331841481403: Received PROC_REQUEST 11:0 (2,0)->(1,0), replying PROC_REPLY 11:0 (1,0)->(2,0)
+1331841481403: Dispatching Atom PROC_REPLY 11:0 (1,0)->(2,0)
+1331841481403: I got a CSM packet at a leader 
+
+1331841481405: Sending UDP payload: 3804
+1331841481411: nonce 2 heard from src region (1,0)
+1331841487301: Received UDP payload: 2566
+1331841487346: Inside mux Packet.CLIENT_REQUEST
+1331841487401: Received UDP payload: 2930
+1331841487405: GOT CSM_Msg
+1331841487406: nonce 1 heard from src region (2,0)
+1331841487453: Received UDP payload: 790
+1331841487458: GOT CSM_Msg
+1331841487459: nonce 2 heard from src region (2,0)
+1331841488986: Received UDP payload: 592
+1331841489000: Inside mux Packet.CLIENT_REQUEST
+1331841489001: Inside CLIENT_DOWNLOAD_PHOTO, figure out where to forward packet
+1331841489042: Sending to region: 2
+1331841489049: Sending PROC_REQUEST 11:0 (1,0)->(2,0)
+1331841489058: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(2,0)
+1331841489064: I got a CSM packet at a leader 
+
+1331841489066: Sending UDP payload: 956
+1331841489076: nonce 3 heard from src region (1,0)
+1331841489121: Received UDP payload: 3096
+1331841489126: GOT CSM_Msg
+1331841489126: Received PROC_REPLY 11:0 (2,0)->(1,0), handing to UserApp
+1331841489126: got photo from remote region, returning to requesting client
+1331841489136: send photo packet to original CLIENT:
+1331841489137: Client is in region: 1 nodID = 5002
+1331841489137: I'm a leader, but I was not the photo requester, sending photo back to original requester id = 5002
+1331841489138: Sending UDP payload: 2583
+1331841497776: Received UDP payload: 443
+1331841497827: Received UDP payload: 426
+1331841498843: Received UDP payload: 42348
+1331841498897: Received UDP payload: 443
+1331841498959: Received UDP payload: 426
+1331841499272: Received UDP payload: 426
+1331841499532: Received UDP payload: 426
+1331841499862: Received UDP payload: 426
+1331841500540: Received UDP payload: 37168
+1331841501985: Received UDP payload: 42331
+1331841502057: Received UDP payload: 426
+1331841502176: Received UDP payload: 426
+1331841506213: I'm the Client, and I'm in region: 1 nodID = 5001
+1331841506237: Inside mux Packet.CLIENT_REQUEST
+1331841506237: Inside CLIENT_DOWNLOAD_PHOTO, figure out where to forward packet
+1331841506240: Sending to region: 1
+1331841506241: Sending PROC_REQUEST 11:1 (1,0)->(1,0)
+1331841506257: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(1,0)
+1331841506257: I got a CSM packet at a leader 
+
+1331841506269: Sending UDP payload: 956
+1331841506275: removed replies before id 1 from sentReplies of size 0
+1331841506314: INSIDE SERVER_GET_PHOTO!!!
+1331841506329: dst_region == src_region = 1
+1331841506329:  1 self to self atomRequest
+1331841506336: Received PROC_REQUEST 11:1 (1,0)->(1,0), replying PROC_REPLY 11:1 (1,0)->(1,0)
+1331841506337: Dispatching Atom PROC_REPLY 11:1 (1,0)->(1,0)
+1331841506337: I got a CSM packet at a leader 
+
+1331841506391: Show photo from client_show_newphotos
+1331841506339: Sending UDP payload: 3804
+1331841506352: Received PROC_REPLY 11:1 (1,0)->(1,0), handing to UserApp
+1331841506352: got photo from remote region, returning to requesting client
+1331841506353: send photo packet to original CLIENT:
+1331841506353: Client is in region: 1 nodID = 5001
+1331841506354: I'm a leader and I was the photo requester (id = 5001) about to display photo
+1331841507095: Sending UDP payload: 426
+1331841508191: I'm the Client, and I'm in region: 1 nodID = 5001
+1331841508193: Inside mux Packet.CLIENT_REQUEST
+1331841508194: Inside CLIENT_DOWNLOAD_PHOTO, figure out where to forward packet
+1331841508196: Sending to region: 2
+1331841508197: Sending PROC_REQUEST 11:1 (1,0)->(2,0)
+1331841508199: Dispatching Atom PROC_REQUEST 11:1 (1,0)->(2,0)
+1331841508200: I got a CSM packet at a leader 
+
+1331841508206: Sending UDP payload: 956
+1331841508224: nonce 6 heard from src region (1,0)
+1331841508339: Received UDP payload: 3096
+1331841508350: GOT CSM_Msg
+1331841508402: Show photo from client_show_newphotos
+1331841508351: Received PROC_REPLY 11:1 (2,0)->(1,0), handing to UserApp
+1331841508351: got photo from remote region, returning to requesting client
+1331841508354: send photo packet to original CLIENT:
+1331841508354: Client is in region: 1 nodID = 5001
+1331841508354: I'm a leader and I was the photo requester (id = 5001) about to display photo
+1331841511581: HI I'm in ONPAUSE()

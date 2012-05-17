@@ -1,0 +1,1329 @@
+1333413248328: *** Opened log file for writing ***
+1333413248328: starting Mux with id = -1
+1333413248329: areButtonsEnabled --> true
+1333413248331: *** Application started ***
+1333413248331: HI I'm in ONRESUME()
+1333413248335: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333413248344: ************ GPS turned OFF *************
+1333413248354: Started VCoreDaemon with parameters maxRx = 6 , maxRY= 1, minLongitude = -7110102 , minLatitude = 4236349, regionWidth =17
+1333413248367: started, mId = 5018
+1333413248368: region (-1, -1) out of bounds, dormant
+1333413255527: canPressButton = false. Can't press button because you're not at a valid region: 0 ~ 5. You're at -1
+1333413255536: can't press region 1 yet
+1333413256176: canPressButton = false. Can't press button because you're not at a valid region: 0 ~ 5. You're at -1
+1333413256181: can't press region 4 yet
+1333413256632: canPressButton = false. Can't press button because you're not at a valid region: 0 ~ 5. You're at -1
+1333413256638: can't press region 5 yet
+1333413256927: canPressButton = false. Can't press button because you're not at a valid region: 0 ~ 5. You're at -1
+1333413256930: can't press region 5 yet
+1333413257401: canPressButton = false. Can't press button because you're not at a valid region: 0 ~ 5. You're at -1
+1333413257405: can't press region 6 yet
+1333413257956: canPressButton = false. Can't press button because you're not at a valid region: 0 ~ 5. You're at -1
+1333413257961: can't press camera button yet
+1333413262275: moving from region (-1,-1), to (1,0)
+1333413262275: sending LEADER_REQUEST
+1333413262275: inside sendPacket(Packet p)
+1333413262284: Sending UDP payload: 406
+1333413262576: sending LEADER_REQUEST
+1333413262576: inside sendPacket(Packet p)
+1333413262579: Sending UDP payload: 406
+1333413262877: sending LEADER_REQUEST
+1333413262878: inside sendPacket(Packet p)
+1333413262882: Sending UDP payload: 406
+1333413263179: sending LEADER_REQUEST
+1333413263180: inside sendPacket(Packet p)
+1333413263184: Sending UDP payload: 406
+1333413263290: LEADER_REQUEST timed out
+1333413263948: cloud accepted leadership request, no csm data included.
+1333413263959: *** Starting CSM Layer ***
+1333413263959: *** CSM Layer starting with cache disabled ***
+1333413263959: *** CSM Layer starting with forwarding enabled ***
+1333413264006: DSMLayer starting
+1333413264018: UserApp started.
+1333413264019: UserApp for Camera Diploma initialized and waiting for requests.
+1333413264240: inside sendPacket(Packet p)
+1333413264249: now fully up as LEADER (id=5018) of (1,0)
+1333413264260: Sending UDP payload: 25252
+1333413266187: canPressButton = TRUE
+1333413266188: areButtonsEnabled --> false
+1333413266188: ** Clicked take picture button **
+1333413267558: inside HandlePictureStorage onPictureTaken()
+1333413267558: disabling buttons ...
+1333413268047: Picture successfully taken, ORIG BYTE LENGTH = 2719595
+1333413269098: Our new height x width: 306 x 408
+1333413269099: Show photo from handle my camera take
+1333413269101: client making photo packet to send to leader for it to save
+1333413269140: BYTE SIZE AFTER COMPRESSION: 3869
+1333413269148: about to send my pic
+1333413269149: I'm a leader, upload/save new photo packet going to mux directly
+1333413269149: Inside mux Packet.CLIENT_REQUEST
+1333413269149: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333413269149: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333413269150: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333413269150: Sending PROC_REQUEST 10:0 (1,0)->(1,0)
+1333413269151: Dispatching Atom PROC_REQUEST 10:0 (1,0)->(1,0)
+1333413269151: I got a CSM packet at a leader 
+
+1333413269207: canPressButton = FALSE because areButtonsEnabled = false
+1333413269211: can't press region 4 yet
+1333413269211: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333413269213: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333413269222: now showing in UI the new photo I just saved ... 
+1333413269159: Sending UDP payload: 4840
+1333413269161: removed replies before id 0 from sentReplies of size 0
+1333413269171: Inside UPLOAD_PHOTO!!
+1333413269174: my_gpinfo.isSuccess is now (should be true): true
+1333413269175: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333413269177: Received PROC_REQUEST 10:0 (1,0)->(1,0), replying PROC_REPLY 10:0 (1,0)->(1,0)
+1333413269179: Dispatching Atom PROC_REPLY 10:0 (1,0)->(1,0)
+1333413269186: I got a CSM packet at a leader 
+
+1333413269224: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
+1333413269225: leader upload new photo latency = 75
+1333413269226: = leader upload start 1333413269149 ~ stop 1333413269224
+1333413269227: SUCCESS! Client now knows saving photo on its leader succeeded
+1333413269189: Sending UDP payload: 949
+1333413269191: Received PROC_REPLY 10:0 (1,0)->(1,0), handing to UserApp
+1333413269192: Now back in orginitator region's leader, precssing handleDSMReply
+1333413269192: Going to and from remote region took latency = 42
+1333413269192: = orig leader sent packet at 1333413269150 ~ received reply at 1333413269192
+1333413269193: Originator Region=1 Leader (for Client=5018) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333413269194: reply packet contains the ACK for UPLOAD_PHOTO
+1333413269194: I (the leader) was also the originator client (id = 5018) so I hand the packet to my mux directly, without UDP
+1333413270681: canPressButton = TRUE
+1333413270681: areButtonsEnabled --> false 
+1333413270682: ** Clicked getphotos Button from region 6 **
+1333413270697: I'm the Client, and I'm in region: 1 nodID = 5018
+1333413270698: I'm a leader, my requesting photos packet going to mux directly
+1333413270698: StatusActivity sent request to get photos for region 6
+1333413270728: Inside mux Packet.CLIENT_REQUEST
+1333413270730: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333413270730: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333413270730: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1333413270731: Sending to region: 6
+1333413270737: Sending PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413270743: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413270776: I got a CSM packet at a leader 
+
+1333413270779: Sending UDP payload: 949
+1333413270781: nonce 2 heard from src region (1,0)
+1333413271521: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413271522: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413271547: I got a CSM packet at a leader 
+
+1333413271552: Sending UDP payload: 949
+1333413271555: nonce 3 heard from src region (1,0)
+1333413271632: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413271634: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413271634: I got a CSM packet at a leader 
+
+1333413271645: Sending UDP payload: 949
+1333413271648: nonce 4 heard from src region (1,0)
+1333413271735: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413271736: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413271738: I got a CSM packet at a leader 
+
+1333413271741: Sending UDP payload: 949
+1333413271743: nonce 5 heard from src region (1,0)
+1333413271837: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413271838: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413271839: I got a CSM packet at a leader 
+
+1333413271844: Sending UDP payload: 949
+1333413271846: nonce 6 heard from src region (1,0)
+1333413271939: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413271939: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413271940: I got a CSM packet at a leader 
+
+1333413271942: Sending UDP payload: 949
+1333413271942: nonce 7 heard from src region (1,0)
+1333413272041: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272042: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272042: I got a CSM packet at a leader 
+
+1333413272049: Sending UDP payload: 949
+1333413272051: nonce 8 heard from src region (1,0)
+1333413272143: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272145: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272146: I got a CSM packet at a leader 
+
+1333413272155: Sending UDP payload: 949
+1333413272157: nonce 9 heard from src region (1,0)
+1333413272246: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272249: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272249: I got a CSM packet at a leader 
+
+1333413272256: Sending UDP payload: 949
+1333413272258: nonce 10 heard from src region (1,0)
+1333413272351: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272351: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272352: I got a CSM packet at a leader 
+
+1333413272359: Sending UDP payload: 949
+1333413272363: nonce 11 heard from src region (1,0)
+1333413272454: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272455: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272456: I got a CSM packet at a leader 
+
+1333413272459: Sending UDP payload: 949
+1333413272460: nonce 12 heard from src region (1,0)
+1333413272558: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272558: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272560: I got a CSM packet at a leader 
+
+1333413272565: Sending UDP payload: 949
+1333413272566: nonce 13 heard from src region (1,0)
+1333413272661: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272662: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272665: I got a CSM packet at a leader 
+
+1333413272675: Sending UDP payload: 949
+1333413272679: nonce 14 heard from src region (1,0)
+1333413272765: Retrying PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272766: Dispatching Atom PROC_REQUEST 11:0 (1,0)->(6,0)
+1333413272768: I got a CSM packet at a leader 
+
+1333413272770: Sending UDP payload: 949
+1333413272771: nonce 15 heard from src region (1,0)
+1333413272869: Request timed out, send failure PROC_REPLY 11:0 (6,0)->(1,0)
+1333413272871: Dispatching Atom PROC_REPLY 11:0 (6,0)->(1,0)
+1333413272872: I got a CSM packet at a leader 
+
+1333413272879: Sending UDP payload: 770
+1333413272882: Received PROC_REPLY 11:0 (6,0)->(1,0), handing to UserApp
+1333413278368: inside sendPacket(Packet p)
+1333413278372: Sending UDP payload: 406
+1333413292972: Received UDP payload: 406
+1333413292987: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413293219: inside sendPacket(Packet p)
+1333413293227: Sending UDP payload: 29781
+1333413293232: Received UDP payload: 406
+1333413293237: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413293383: inside sendPacket(Packet p)
+1333413293386: Sending UDP payload: 29781
+1333413294251: leader to cloud hearbeat...
+1333413297475: canPressButton = TRUE
+1333413297476: areButtonsEnabled --> false
+1333413297477: ** Clicked take picture button **
+1333413298761: inside HandlePictureStorage onPictureTaken()
+1333413298761: disabling buttons ...
+1333413299255: Picture successfully taken, ORIG BYTE LENGTH = 2499454
+1333413300397: Our new height x width: 306 x 408
+1333413300398: Show photo from handle my camera take
+1333413300398: client making photo packet to send to leader for it to save
+1333413300423: BYTE SIZE AFTER COMPRESSION: 3667
+1333413300428: about to send my pic
+1333413300428: I'm a leader, upload/save new photo packet going to mux directly
+1333413298783: Received UDP payload: 5277
+1333413298811: Inside mux Packet.CLIENT_REQUEST
+1333413298811: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333413298811: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333413298812: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333413298812: Sending PROC_REQUEST 10:1 (1,0)->(1,0)
+1333413298813: Dispatching Atom PROC_REQUEST 10:1 (1,0)->(1,0)
+1333413298852: I got a CSM packet at a leader 
+
+1333413300462: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333413300465: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333413300482: now showing in UI the new photo I just saved ... 
+1333413298870: Sending UDP payload: 5641
+1333413298879: removed replies before id 1 from sentReplies of size 0
+1333413298882: Inside UPLOAD_PHOTO!!
+1333413298885: my_gpinfo.isSuccess is now (should be true): true
+1333413298886: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333413298887: Received PROC_REQUEST 10:1 (1,0)->(1,0), replying PROC_REPLY 10:1 (1,0)->(1,0)
+1333413298890: Dispatching Atom PROC_REPLY 10:1 (1,0)->(1,0)
+1333413298905: I got a CSM packet at a leader 
+
+1333413298907: Sending UDP payload: 949
+1333413298908: Received PROC_REPLY 10:1 (1,0)->(1,0), handing to UserApp
+1333413298908: Now back in orginitator region's leader, precssing handleDSMReply
+1333413298908: Going to and from remote region took latency = 96
+1333413298908: = orig leader sent packet at 1333413298812 ~ received reply at 1333413298908
+1333413298910: Originator Region=1 Leader (for Client=5010) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333413298910: reply packet contains the ACK for UPLOAD_PHOTO
+1333413298910: I (the leader) was not the originator client (which id = 5010) so I use UDP to send packet back to my nonleader
+1333413298910: inside sendPacket(Packet p)
+1333413298912: Sending UDP payload: 602
+1333413300428: Inside mux Packet.CLIENT_REQUEST
+1333413300429: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333413300429: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333413300429: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333413300429: Sending PROC_REQUEST 10:2 (1,0)->(1,0)
+1333413300430: Dispatching Atom PROC_REQUEST 10:2 (1,0)->(1,0)
+1333413300430: I got a CSM packet at a leader 
+
+1333413300490: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333413300491: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333413300500: now showing in UI the new photo I just saved ... 
+1333413300432: Sending UDP payload: 4638
+1333413300433: removed replies before id 2 from sentReplies of size 0
+1333413300435: Inside UPLOAD_PHOTO!!
+1333413300437: my_gpinfo.isSuccess is now (should be true): true
+1333413300438: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333413300441: Received PROC_REQUEST 10:2 (1,0)->(1,0), replying PROC_REPLY 10:2 (1,0)->(1,0)
+1333413300441: Dispatching Atom PROC_REPLY 10:2 (1,0)->(1,0)
+1333413300442: I got a CSM packet at a leader 
+
+1333413300502: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
+1333413300503: leader upload new photo latency = 74
+1333413300503: = leader upload start 1333413300428 ~ stop 1333413300502
+1333413300504: SUCCESS! Client now knows saving photo on its leader succeeded
+1333413300444: Sending UDP payload: 949
+1333413300445: Received PROC_REPLY 10:2 (1,0)->(1,0), handing to UserApp
+1333413300445: Now back in orginitator region's leader, precssing handleDSMReply
+1333413300446: Going to and from remote region took latency = 16
+1333413300446: = orig leader sent packet at 1333413300429 ~ received reply at 1333413300445
+1333413300447: Originator Region=1 Leader (for Client=5018) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333413300447: reply packet contains the ACK for UPLOAD_PHOTO
+1333413300447: I (the leader) was also the originator client (id = 5018) so I hand the packet to my mux directly, without UDP
+1333413305532: Received UDP payload: 5614
+1333413305556: Inside mux Packet.CLIENT_REQUEST
+1333413305557: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333413305558: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333413305558: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333413305560: Sending PROC_REQUEST 10:3 (1,0)->(1,0)
+1333413305561: Dispatching Atom PROC_REQUEST 10:3 (1,0)->(1,0)
+1333413305572: I got a CSM packet at a leader 
+
+1333413305634: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333413305636: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333413305653: now showing in UI the new photo I just saved ... 
+1333413305577: Sending UDP payload: 5978
+1333413305593: removed replies before id 3 from sentReplies of size 0
+1333413305597: Inside UPLOAD_PHOTO!!
+1333413305600: my_gpinfo.isSuccess is now (should be true): true
+1333413305600: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333413305620: Received PROC_REQUEST 10:3 (1,0)->(1,0), replying PROC_REPLY 10:3 (1,0)->(1,0)
+1333413305621: Dispatching Atom PROC_REPLY 10:3 (1,0)->(1,0)
+1333413305622: I got a CSM packet at a leader 
+
+1333413305626: Sending UDP payload: 949
+1333413305629: Received PROC_REPLY 10:3 (1,0)->(1,0), handing to UserApp
+1333413305629: Now back in orginitator region's leader, precssing handleDSMReply
+1333413305629: Going to and from remote region took latency = 71
+1333413305630: = orig leader sent packet at 1333413305558 ~ received reply at 1333413305629
+1333413305639: Originator Region=1 Leader (for Client=5010) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333413305640: reply packet contains the ACK for UPLOAD_PHOTO
+1333413305640: I (the leader) was not the originator client (which id = 5010) so I use UDP to send packet back to my nonleader
+1333413305641: inside sendPacket(Packet p)
+1333413305643: Sending UDP payload: 602
+1333413308375: inside sendPacket(Packet p)
+1333413308378: Sending UDP payload: 406
+1333413312073: Received UDP payload: 5820
+1333413312083: Inside mux Packet.CLIENT_REQUEST
+1333413312084: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333413312084: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333413312085: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333413312086: Sending PROC_REQUEST 10:4 (1,0)->(1,0)
+1333413312088: Dispatching Atom PROC_REQUEST 10:4 (1,0)->(1,0)
+1333413312088: I got a CSM packet at a leader 
+
+1333413312113: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333413312117: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333413312142: now showing in UI the new photo I just saved ... 
+1333413312094: Sending UDP payload: 6184
+1333413312099: removed replies before id 4 from sentReplies of size 0
+1333413312104: Inside UPLOAD_PHOTO!!
+1333413312109: my_gpinfo.isSuccess is now (should be true): true
+1333413312109: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333413312119: Received PROC_REQUEST 10:4 (1,0)->(1,0), replying PROC_REPLY 10:4 (1,0)->(1,0)
+1333413312121: Dispatching Atom PROC_REPLY 10:4 (1,0)->(1,0)
+1333413312123: I got a CSM packet at a leader 
+
+1333413312128: Sending UDP payload: 949
+1333413312130: Received PROC_REPLY 10:4 (1,0)->(1,0), handing to UserApp
+1333413312130: Now back in orginitator region's leader, precssing handleDSMReply
+1333413312130: Going to and from remote region took latency = 45
+1333413312131: = orig leader sent packet at 1333413312085 ~ received reply at 1333413312130
+1333413312132: Originator Region=1 Leader (for Client=5010) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333413312132: reply packet contains the ACK for UPLOAD_PHOTO
+1333413312132: I (the leader) was not the originator client (which id = 5010) so I use UDP to send packet back to my nonleader
+1333413312132: inside sendPacket(Packet p)
+1333413312134: Sending UDP payload: 602
+1333413324633: leader to cloud hearbeat...
+1333413338381: inside sendPacket(Packet p)
+1333413338385: Sending UDP payload: 406
+1333413354966: leader to cloud hearbeat...
+1333413368382: inside sendPacket(Packet p)
+1333413368413: Sending UDP payload: 406
+1333413385483: leader to cloud hearbeat...
+1333413398388: inside sendPacket(Packet p)
+1333413398391: Sending UDP payload: 406
+1333413415851: leader to cloud hearbeat...
+1333413428393: inside sendPacket(Packet p)
+1333413428397: Sending UDP payload: 406
+1333413446176: leader to cloud hearbeat...
+1333413458394: inside sendPacket(Packet p)
+1333413458399: Sending UDP payload: 406
+1333413462839: Received UDP payload: 406
+1333413462853: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413463043: inside sendPacket(Packet p)
+1333413463053: Sending UDP payload: 31300
+1333413463145: Received UDP payload: 406
+1333413463148: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413463329: inside sendPacket(Packet p)
+1333413463343: Sending UDP payload: 31915
+1333413463466: Received UDP payload: 406
+1333413463472: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413463592: inside sendPacket(Packet p)
+1333413463604: Sending UDP payload: 31300
+1333413463767: Received UDP payload: 406
+1333413463770: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413463974: inside sendPacket(Packet p)
+1333413463986: Sending UDP payload: 31300
+1333413474440: Received UDP payload: 406
+1333413474449: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413474637: inside sendPacket(Packet p)
+1333413474646: Sending UDP payload: 31300
+1333413474748: Received UDP payload: 406
+1333413474751: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413474852: inside sendPacket(Packet p)
+1333413474862: Sending UDP payload: 31300
+1333413475056: Received UDP payload: 406
+1333413475060: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413475254: inside sendPacket(Packet p)
+1333413475269: Sending UDP payload: 31300
+1333413476530: leader to cloud hearbeat...
+1333413485626: Received UDP payload: 406
+1333413485635: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413485806: inside sendPacket(Packet p)
+1333413485815: Sending UDP payload: 31300
+1333413485929: Received UDP payload: 406
+1333413485934: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413486189: inside sendPacket(Packet p)
+1333413486206: Sending UDP payload: 31992
+1333413486219: Received UDP payload: 406
+1333413486232: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413486463: inside sendPacket(Packet p)
+1333413486476: Sending UDP payload: 31300
+1333413486541: Received UDP payload: 406
+1333413486545: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413486688: inside sendPacket(Packet p)
+1333413486689: Sending UDP payload: 31300
+1333413488395: inside sendPacket(Packet p)
+1333413488426: Sending UDP payload: 406
+1333413496954: Received UDP payload: 406
+1333413496968: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413497193: inside sendPacket(Packet p)
+1333413497203: Sending UDP payload: 31300
+1333413497263: Received UDP payload: 406
+1333413497268: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413497376: inside sendPacket(Packet p)
+1333413497385: Sending UDP payload: 31300
+1333413497557: Received UDP payload: 406
+1333413497562: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413497693: inside sendPacket(Packet p)
+1333413497726: Sending UDP payload: 31300
+1333413497874: Received UDP payload: 406
+1333413497877: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413497999: inside sendPacket(Packet p)
+1333413498009: Sending UDP payload: 31300
+1333413506873: leader to cloud hearbeat...
+1333413508315: Received UDP payload: 406
+1333413508329: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413508484: inside sendPacket(Packet p)
+1333413508517: Sending UDP payload: 31300
+1333413508701: Received UDP payload: 406
+1333413508706: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413508833: inside sendPacket(Packet p)
+1333413508867: Sending UDP payload: 31300
+1333413508925: Received UDP payload: 406
+1333413508930: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413509063: inside sendPacket(Packet p)
+1333413509095: Sending UDP payload: 31300
+1333413509232: Received UDP payload: 406
+1333413509240: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413509384: inside sendPacket(Packet p)
+1333413509418: Sending UDP payload: 31300
+1333413518402: inside sendPacket(Packet p)
+1333413518437: Sending UDP payload: 406
+1333413519707: Received UDP payload: 406
+1333413519721: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413519915: inside sendPacket(Packet p)
+1333413519956: Sending UDP payload: 31300
+1333413520004: Received UDP payload: 406
+1333413520007: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413520111: inside sendPacket(Packet p)
+1333413520121: Sending UDP payload: 31300
+1333413520292: Received UDP payload: 406
+1333413520296: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413520500: inside sendPacket(Packet p)
+1333413520514: Sending UDP payload: 31992
+1333413520599: Received UDP payload: 406
+1333413520606: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413520842: inside sendPacket(Packet p)
+1333413520868: Sending UDP payload: 31995
+1333413531041: Received UDP payload: 406
+1333413531062: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413531247: inside sendPacket(Packet p)
+1333413531260: Sending UDP payload: 31300
+1333413531358: Received UDP payload: 406
+1333413531363: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413531485: inside sendPacket(Packet p)
+1333413531509: Sending UDP payload: 31300
+1333413531661: Received UDP payload: 406
+1333413531665: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413531791: inside sendPacket(Packet p)
+1333413531812: Sending UDP payload: 31300
+1333413531926: Received UDP payload: 406
+1333413531929: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413532046: inside sendPacket(Packet p)
+1333413532049: Sending UDP payload: 31300
+1333413537313: leader to cloud hearbeat...
+1333413542357: Received UDP payload: 406
+1333413542372: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413542544: inside sendPacket(Packet p)
+1333413542574: Sending UDP payload: 31300
+1333413542667: Received UDP payload: 406
+1333413542671: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413542794: inside sendPacket(Packet p)
+1333413542827: Sending UDP payload: 31300
+1333413542958: Received UDP payload: 406
+1333413542960: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413543068: inside sendPacket(Packet p)
+1333413543077: Sending UDP payload: 31300
+1333413543267: Received UDP payload: 406
+1333413543269: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413543455: inside sendPacket(Packet p)
+1333413543472: Sending UDP payload: 31992
+1333413548427: inside sendPacket(Packet p)
+1333413548435: Sending UDP payload: 406
+1333413553695: Received UDP payload: 406
+1333413553710: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413553983: Received UDP payload: 406
+1333413553990: inside sendPacket(Packet p)
+1333413554002: Sending UDP payload: 32008
+1333413554008: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413554172: inside sendPacket(Packet p)
+1333413554182: Sending UDP payload: 31300
+1333413554290: Received UDP payload: 406
+1333413554293: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413554473: inside sendPacket(Packet p)
+1333413554497: Sending UDP payload: 31915
+1333413554613: Received UDP payload: 406
+1333413554617: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413554800: inside sendPacket(Packet p)
+1333413554812: Sending UDP payload: 31992
+1333413565056: Received UDP payload: 406
+1333413565067: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413565302: inside sendPacket(Packet p)
+1333413565310: Sending UDP payload: 31300
+1333413565357: Received UDP payload: 406
+1333413565359: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413565477: inside sendPacket(Packet p)
+1333413565503: Sending UDP payload: 31300
+1333413565686: Received UDP payload: 406
+1333413565689: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413565813: inside sendPacket(Packet p)
+1333413565828: Sending UDP payload: 31300
+1333413565980: Received UDP payload: 406
+1333413565987: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413566142: inside sendPacket(Packet p)
+1333413566151: Sending UDP payload: 31300
+1333413567782: leader to cloud hearbeat...
+1333413576389: Received UDP payload: 406
+1333413576403: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413576639: inside sendPacket(Packet p)
+1333413576655: Sending UDP payload: 31300
+1333413576691: Received UDP payload: 406
+1333413576694: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413576813: inside sendPacket(Packet p)
+1333413576818: Sending UDP payload: 31300
+1333413577001: Received UDP payload: 406
+1333413577005: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413577143: inside sendPacket(Packet p)
+1333413577165: Sending UDP payload: 31300
+1333413577293: Received UDP payload: 406
+1333413577299: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413577435: inside sendPacket(Packet p)
+1333413577438: Sending UDP payload: 31300
+1333413578429: inside sendPacket(Packet p)
+1333413578431: Sending UDP payload: 406
+1333413587716: Received UDP payload: 406
+1333413587724: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413587879: inside sendPacket(Packet p)
+1333413587887: Sending UDP payload: 31300
+1333413588037: Received UDP payload: 406
+1333413588042: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413588253: inside sendPacket(Packet p)
+1333413588279: Sending UDP payload: 31992
+1333413588327: Received UDP payload: 406
+1333413588337: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413588494: inside sendPacket(Packet p)
+1333413588521: Sending UDP payload: 31300
+1333413588611: Received UDP payload: 406
+1333413588614: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413588752: inside sendPacket(Packet p)
+1333413588762: Sending UDP payload: 31300
+1333413598232: leader to cloud hearbeat...
+1333413599068: Received UDP payload: 406
+1333413599098: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413599322: inside sendPacket(Packet p)
+1333413599335: Sending UDP payload: 31300
+1333413599361: Received UDP payload: 406
+1333413599363: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413599564: inside sendPacket(Packet p)
+1333413599580: Sending UDP payload: 31705
+1333413599672: Received UDP payload: 406
+1333413599676: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413599845: inside sendPacket(Packet p)
+1333413599850: Sending UDP payload: 31992
+1333413599968: Received UDP payload: 406
+1333413599978: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413600202: inside sendPacket(Packet p)
+1333413600206: Sending UDP payload: 31300
+1333413608431: inside sendPacket(Packet p)
+1333413608434: Sending UDP payload: 406
+1333413610390: Received UDP payload: 406
+1333413610397: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413610647: inside sendPacket(Packet p)
+1333413610659: Sending UDP payload: 31300
+1333413610701: Received UDP payload: 406
+1333413610704: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413610816: inside sendPacket(Packet p)
+1333413610826: Sending UDP payload: 31300
+1333413610994: Received UDP payload: 406
+1333413610999: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413611124: inside sendPacket(Packet p)
+1333413611135: Sending UDP payload: 31300
+1333413611328: Received UDP payload: 406
+1333413611334: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413611509: inside sendPacket(Packet p)
+1333413611544: Sending UDP payload: 31300
+1333413621708: Received UDP payload: 406
+1333413621719: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413621878: inside sendPacket(Packet p)
+1333413621887: Sending UDP payload: 31300
+1333413622033: Received UDP payload: 406
+1333413622060: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413622309: inside sendPacket(Packet p)
+1333413622321: Received UDP payload: 406
+1333413622327: Sending UDP payload: 32008
+1333413622349: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413622593: inside sendPacket(Packet p)
+1333413622606: Sending UDP payload: 32008
+1333413628580: leader to cloud hearbeat...
+1333413633079: Received UDP payload: 406
+1333413633094: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413633258: inside sendPacket(Packet p)
+1333413633267: Sending UDP payload: 31300
+1333413633381: Received UDP payload: 406
+1333413633385: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413633623: inside sendPacket(Packet p)
+1333413633636: Sending UDP payload: 31992
+1333413633688: Received UDP payload: 406
+1333413633693: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413633925: inside sendPacket(Packet p)
+1333413633942: Sending UDP payload: 31928
+1333413633993: Received UDP payload: 406
+1333413633999: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413634199: inside sendPacket(Packet p)
+1333413634210: Sending UDP payload: 31300
+1333413638436: inside sendPacket(Packet p)
+1333413638439: Sending UDP payload: 406
+1333413644458: Received UDP payload: 406
+1333413644465: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413644703: inside sendPacket(Packet p)
+1333413644718: Received UDP payload: 406
+1333413644719: Sending UDP payload: 31992
+1333413644727: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413644913: inside sendPacket(Packet p)
+1333413644927: Sending UDP payload: 31928
+1333413645029: Received UDP payload: 406
+1333413645034: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413645222: inside sendPacket(Packet p)
+1333413645236: Sending UDP payload: 31992
+1333413645360: Received UDP payload: 406
+1333413645364: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413645543: inside sendPacket(Packet p)
+1333413645553: Sending UDP payload: 31300
+1333413655779: Received UDP payload: 406
+1333413655786: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413656043: inside sendPacket(Packet p)
+1333413656044: Sending UDP payload: 31300
+1333413656088: Received UDP payload: 406
+1333413656091: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413656251: inside sendPacket(Packet p)
+1333413656270: Sending UDP payload: 31300
+1333413656385: Received UDP payload: 406
+1333413656395: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413656653: inside sendPacket(Packet p)
+1333413656681: Received UDP payload: 406
+1333413656689: Sending UDP payload: 31300
+1333413656696: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413656827: inside sendPacket(Packet p)
+1333413656835: Sending UDP payload: 31300
+1333413659040: leader to cloud hearbeat...
+1333413667104: Received UDP payload: 406
+1333413667112: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413667292: inside sendPacket(Packet p)
+1333413667301: Sending UDP payload: 31300
+1333413667416: Received UDP payload: 406
+1333413667431: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413667710: Received UDP payload: 406
+1333413667731: inside sendPacket(Packet p)
+1333413667750: Sending UDP payload: 31992
+1333413667752: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413668009: inside sendPacket(Packet p)
+1333413668021: Sending UDP payload: 31992
+1333413668437: inside sendPacket(Packet p)
+1333413668440: Sending UDP payload: 406
+1333413678458: Received UDP payload: 406
+1333413678467: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413678677: inside sendPacket(Packet p)
+1333413678690: Sending UDP payload: 31928
+1333413678764: Received UDP payload: 406
+1333413678768: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413678903: inside sendPacket(Packet p)
+1333413678907: Sending UDP payload: 31300
+1333413679059: Received UDP payload: 406
+1333413679061: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413679173: inside sendPacket(Packet p)
+1333413679204: Sending UDP payload: 31300
+1333413679374: Received UDP payload: 406
+1333413679382: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413679556: inside sendPacket(Packet p)
+1333413679565: Sending UDP payload: 31300
+1333413689442: leader to cloud hearbeat...
+1333413689785: Received UDP payload: 406
+1333413689819: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413690026: inside sendPacket(Packet p)
+1333413690040: Sending UDP payload: 31300
+1333413690086: Received UDP payload: 406
+1333413690088: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413690175: inside sendPacket(Packet p)
+1333413690230: Sending UDP payload: 31300
+1333413690383: Received UDP payload: 406
+1333413690386: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413690494: inside sendPacket(Packet p)
+1333413690496: Sending UDP payload: 31300
+1333413690699: Received UDP payload: 406
+1333413690702: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413690892: inside sendPacket(Packet p)
+1333413690897: Sending UDP payload: 31300
+1333413698438: inside sendPacket(Packet p)
+1333413698441: Sending UDP payload: 406
+1333413701098: Received UDP payload: 406
+1333413701104: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413701331: inside sendPacket(Packet p)
+1333413701332: Sending UDP payload: 31300
+1333413701406: Received UDP payload: 406
+1333413701410: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413701537: inside sendPacket(Packet p)
+1333413701540: Sending UDP payload: 31300
+1333413701702: Received UDP payload: 406
+1333413701706: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413701996: inside sendPacket(Packet p)
+1333413702001: Received UDP payload: 406
+1333413702045: Sending UDP payload: 31300
+1333413702047: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413702362: inside sendPacket(Packet p)
+1333413702398: Sending UDP payload: 31394
+1333413712459: Received UDP payload: 406
+1333413712473: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413712636: inside sendPacket(Packet p)
+1333413712646: Sending UDP payload: 31300
+1333413712773: Received UDP payload: 406
+1333413712775: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413712878: inside sendPacket(Packet p)
+1333413712887: Sending UDP payload: 31300
+1333413713088: Received UDP payload: 406
+1333413713092: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413713283: inside sendPacket(Packet p)
+1333413713295: Sending UDP payload: 31300
+1333413713370: Received UDP payload: 406
+1333413713375: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413713556: inside sendPacket(Packet p)
+1333413713567: Sending UDP payload: 31300
+1333413719820: leader to cloud hearbeat...
+1333413723770: Received UDP payload: 406
+1333413723785: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413724053: inside sendPacket(Packet p)
+1333413724069: Sending UDP payload: 31992
+1333413724074: Received UDP payload: 406
+1333413724078: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413724262: inside sendPacket(Packet p)
+1333413724274: Sending UDP payload: 31992
+1333413724433: Received UDP payload: 406
+1333413724441: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413724651: inside sendPacket(Packet p)
+1333413724661: Sending UDP payload: 31992
+1333413724698: Received UDP payload: 406
+1333413724721: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413724911: inside sendPacket(Packet p)
+1333413724916: Sending UDP payload: 31300
+1333413728445: inside sendPacket(Packet p)
+1333413728449: Sending UDP payload: 406
+1333413735091: Received UDP payload: 406
+1333413735107: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413735346: inside sendPacket(Packet p)
+1333413735356: Sending UDP payload: 31300
+1333413735404: Received UDP payload: 406
+1333413735407: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413735646: inside sendPacket(Packet p)
+1333413735668: Sending UDP payload: 31915
+1333413735740: Received UDP payload: 406
+1333413735745: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413735916: inside sendPacket(Packet p)
+1333413735917: Sending UDP payload: 31300
+1333413736000: Received UDP payload: 406
+1333413736006: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413736208: inside sendPacket(Packet p)
+1333413736217: Sending UDP payload: 31300
+1333413746459: Received UDP payload: 406
+1333413746475: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413746668: inside sendPacket(Packet p)
+1333413746713: Sending UDP payload: 31300
+1333413746746: Received UDP payload: 406
+1333413746749: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413746853: inside sendPacket(Packet p)
+1333413746862: Sending UDP payload: 31300
+1333413747022: Received UDP payload: 406
+1333413747025: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413747216: inside sendPacket(Packet p)
+1333413747232: Sending UDP payload: 31992
+1333413747351: Received UDP payload: 406
+1333413747356: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413747551: inside sendPacket(Packet p)
+1333413747559: Sending UDP payload: 31300
+1333413750174: leader to cloud hearbeat...
+1333413757738: Received UDP payload: 406
+1333413757750: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413757934: inside sendPacket(Packet p)
+1333413757946: Sending UDP payload: 31300
+1333413758076: Received UDP payload: 406
+1333413758079: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413758186: inside sendPacket(Packet p)
+1333413758196: Sending UDP payload: 31300
+1333413758431: Received UDP payload: 406
+1333413758434: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413758642: Received UDP payload: 406
+1333413758675: inside sendPacket(Packet p)
+1333413758689: Sending UDP payload: 31300
+1333413758695: inside sendPacket(Packet p)
+1333413758698: Sending UDP payload: 406
+1333413758696: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413758886: inside sendPacket(Packet p)
+1333413758888: Sending UDP payload: 31300
+1333413769079: Received UDP payload: 406
+1333413769086: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413769255: inside sendPacket(Packet p)
+1333413769265: Sending UDP payload: 31300
+1333413769370: Received UDP payload: 406
+1333413769372: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413769491: inside sendPacket(Packet p)
+1333413769493: Sending UDP payload: 31300
+1333413769670: Received UDP payload: 406
+1333413769672: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413769822: inside sendPacket(Packet p)
+1333413769839: Sending UDP payload: 31300
+1333413770020: Received UDP payload: 406
+1333413770033: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413770194: inside sendPacket(Packet p)
+1333413770212: Sending UDP payload: 31300
+1333413780483: Received UDP payload: 406
+1333413780494: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413780697: inside sendPacket(Packet p)
+1333413780713: leader to cloud hearbeat...
+1333413780737: Received UDP payload: 406
+1333413780755: Sending UDP payload: 31300
+1333413781023: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413781043: Received UDP payload: 406
+1333413781206: inside sendPacket(Packet p)
+1333413781224: Sending UDP payload: 31992
+1333413781229: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413781352: Received UDP payload: 406
+1333413781444: inside sendPacket(Packet p)
+1333413781461: Sending UDP payload: 31915
+1333413781461: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413781596: inside sendPacket(Packet p)
+1333413781612: Sending UDP payload: 31300
+1333413788697: inside sendPacket(Packet p)
+1333413788720: Sending UDP payload: 406
+1333413791759: Received UDP payload: 406
+1333413791784: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413792012: inside sendPacket(Packet p)
+1333413792026: Sending UDP payload: 31300
+1333413792058: Received UDP payload: 406
+1333413792060: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413792167: inside sendPacket(Packet p)
+1333413792175: Sending UDP payload: 31300
+1333413792349: Received UDP payload: 406
+1333413792352: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413792572: inside sendPacket(Packet p)
+1333413792573: Sending UDP payload: 31300
+1333413792668: Received UDP payload: 406
+1333413792671: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413792801: inside sendPacket(Packet p)
+1333413792845: Sending UDP payload: 31300
+1333413803036: Received UDP payload: 406
+1333413803042: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413803209: inside sendPacket(Packet p)
+1333413803218: Sending UDP payload: 31300
+1333413803322: Received UDP payload: 406
+1333413803327: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413803611: Received UDP payload: 406
+1333413803638: inside sendPacket(Packet p)
+1333413803651: Sending UDP payload: 31300
+1333413803659: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413803834: inside sendPacket(Packet p)
+1333413803863: Sending UDP payload: 31300
+1333413803945: Received UDP payload: 406
+1333413803956: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413804175: inside sendPacket(Packet p)
+1333413804187: Sending UDP payload: 31915
+1333413811024: leader to cloud hearbeat...
+1333413814449: Received UDP payload: 406
+1333413814461: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413814621: inside sendPacket(Packet p)
+1333413814648: Sending UDP payload: 31300
+1333413814709: Received UDP payload: 406
+1333413814713: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413814841: inside sendPacket(Packet p)
+1333413814867: Sending UDP payload: 31300
+1333413815039: Received UDP payload: 406
+1333413815044: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413815171: inside sendPacket(Packet p)
+1333413815192: Sending UDP payload: 31300
+1333413815322: Received UDP payload: 406
+1333413815340: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413815495: inside sendPacket(Packet p)
+1333413815504: Sending UDP payload: 31300
+1333413818709: inside sendPacket(Packet p)
+1333413818711: Sending UDP payload: 406
+1333413825731: Received UDP payload: 406
+1333413825761: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413825982: inside sendPacket(Packet p)
+1333413825995: Sending UDP payload: 31992
+1333413826042: Received UDP payload: 406
+1333413826056: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413826209: inside sendPacket(Packet p)
+1333413826221: Sending UDP payload: 32008
+1333413826338: Received UDP payload: 406
+1333413826341: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413826507: inside sendPacket(Packet p)
+1333413826520: Sending UDP payload: 31300
+1333413826676: Received UDP payload: 406
+1333413826679: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413826860: inside sendPacket(Packet p)
+1333413826880: Sending UDP payload: 31915
+1333413837020: Received UDP payload: 406
+1333413837035: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413837263: inside sendPacket(Packet p)
+1333413837275: Sending UDP payload: 31915
+1333413837345: Received UDP payload: 406
+1333413837350: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413837513: inside sendPacket(Packet p)
+1333413837522: Sending UDP payload: 31300
+1333413837641: Received UDP payload: 406
+1333413837644: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413837746: inside sendPacket(Packet p)
+1333413837754: Sending UDP payload: 31300
+1333413837933: Received UDP payload: 406
+1333413837936: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413838053: inside sendPacket(Packet p)
+1333413838063: Sending UDP payload: 31300
+1333413841414: leader to cloud hearbeat...
+1333413848463: Received UDP payload: 406
+1333413848477: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413848656: inside sendPacket(Packet p)
+1333413848676: Sending UDP payload: 31300
+1333413848714: inside sendPacket(Packet p)
+1333413848715: Sending UDP payload: 406
+1333413848979: Received UDP payload: 406
+1333413848981: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413849029: Received UDP payload: 406
+1333413849081: inside sendPacket(Packet p)
+1333413849082: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413849084: Sending UDP payload: 31300
+1333413849289: inside sendPacket(Packet p)
+1333413849304: Sending UDP payload: 31915
+1333413849336: Received UDP payload: 406
+1333413849345: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413849526: inside sendPacket(Packet p)
+1333413849549: Sending UDP payload: 31300
+1333413859786: Received UDP payload: 406
+1333413859795: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413859942: inside sendPacket(Packet p)
+1333413859951: Sending UDP payload: 31300
+1333413860128: Received UDP payload: 406
+1333413860133: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413860251: inside sendPacket(Packet p)
+1333413860278: Sending UDP payload: 31300
+1333413860392: Received UDP payload: 406
+1333413860394: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413860511: inside sendPacket(Packet p)
+1333413860522: Sending UDP payload: 31300
+1333413860756: Received UDP payload: 406
+1333413860760: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413860960: inside sendPacket(Packet p)
+1333413860983: Sending UDP payload: 31992
+1333413871129: Received UDP payload: 406
+1333413871139: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413871366: inside sendPacket(Packet p)
+1333413871371: Sending UDP payload: 31300
+1333413871428: Received UDP payload: 406
+1333413871431: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413871586: inside sendPacket(Packet p)
+1333413871591: Sending UDP payload: 31300
+1333413871735: Received UDP payload: 406
+1333413871740: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413871958: inside sendPacket(Packet p)
+1333413871961: Sending UDP payload: 31300
+1333413871983: leader to cloud hearbeat...
+1333413872032: Received UDP payload: 406
+1333413872390: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413872636: inside sendPacket(Packet p)
+1333413872649: Sending UDP payload: 31992
+1333413878715: inside sendPacket(Packet p)
+1333413878717: Sending UDP payload: 406
+1333413882439: Received UDP payload: 406
+1333413882450: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413882691: inside sendPacket(Packet p)
+1333413882699: Sending UDP payload: 31300
+1333413882748: Received UDP payload: 406
+1333413882755: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413882887: inside sendPacket(Packet p)
+1333413882909: Sending UDP payload: 31300
+1333413883050: Received UDP payload: 406
+1333413883065: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413883334: inside sendPacket(Packet p)
+1333413883339: Sending UDP payload: 31300
+1333413883362: Received UDP payload: 406
+1333413883365: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413883507: inside sendPacket(Packet p)
+1333413883516: Sending UDP payload: 31300
+1333413893769: Received UDP payload: 406
+1333413893777: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413893998: inside sendPacket(Packet p)
+1333413894008: Sending UDP payload: 31300
+1333413894372: Received UDP payload: 406
+1333413894379: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413894689: Received UDP payload: 406
+1333413894749: inside sendPacket(Packet p)
+1333413894759: Sending UDP payload: 31300
+1333413894764: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413894883: inside sendPacket(Packet p)
+1333413894893: Sending UDP payload: 31300
+1333413902390: leader to cloud hearbeat...
+1333413905068: Received UDP payload: 406
+1333413905075: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413905320: inside sendPacket(Packet p)
+1333413905335: Sending UDP payload: 31915
+1333413905381: Received UDP payload: 406
+1333413905385: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413905510: inside sendPacket(Packet p)
+1333413905511: Sending UDP payload: 31300
+1333413905677: Received UDP payload: 406
+1333413905681: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413905805: inside sendPacket(Packet p)
+1333413905829: Sending UDP payload: 31300
+1333413905992: Received UDP payload: 406
+1333413905997: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413906117: inside sendPacket(Packet p)
+1333413906152: Sending UDP payload: 31300
+1333413908715: inside sendPacket(Packet p)
+1333413908741: Sending UDP payload: 406
+1333413916486: Received UDP payload: 406
+1333413916497: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413916688: inside sendPacket(Packet p)
+1333413916711: Sending UDP payload: 31300
+1333413916865: Received UDP payload: 406
+1333413916870: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413916992: inside sendPacket(Packet p)
+1333413917017: Sending UDP payload: 31300
+1333413917053: Received UDP payload: 406
+1333413917055: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413917227: inside sendPacket(Packet p)
+1333413917231: Sending UDP payload: 31859
+1333413917350: Received UDP payload: 406
+1333413917358: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413917587: inside sendPacket(Packet p)
+1333413917620: Sending UDP payload: 31300
+1333413927786: Received UDP payload: 406
+1333413927796: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413928008: inside sendPacket(Packet p)
+1333413928047: Sending UDP payload: 31300
+1333413928111: Received UDP payload: 406
+1333413928115: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413928239: inside sendPacket(Packet p)
+1333413928268: Sending UDP payload: 31300
+1333413928397: Received UDP payload: 406
+1333413928400: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413928507: inside sendPacket(Packet p)
+1333413928515: Sending UDP payload: 31300
+1333413928935: Received UDP payload: 406
+1333413928938: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413929171: inside sendPacket(Packet p)
+1333413929183: Sending UDP payload: 31992
+1333413932735: leader to cloud hearbeat...
+1333413938716: inside sendPacket(Packet p)
+1333413938719: Sending UDP payload: 406
+1333413939114: Received UDP payload: 406
+1333413939128: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413939285: inside sendPacket(Packet p)
+1333413939294: Sending UDP payload: 31300
+1333413939420: Received UDP payload: 406
+1333413939423: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413939629: inside sendPacket(Packet p)
+1333413939644: Sending UDP payload: 31992
+1333413939744: Received UDP payload: 406
+1333413939753: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413939968: inside sendPacket(Packet p)
+1333413939980: Sending UDP payload: 31915
+1333413940024: Received UDP payload: 406
+1333413940029: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413940204: inside sendPacket(Packet p)
+1333413940216: Sending UDP payload: 31915
+1333413950556: Received UDP payload: 406
+1333413950566: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413950829: Received UDP payload: 406
+1333413950834: inside sendPacket(Packet p)
+1333413950848: Sending UDP payload: 31992
+1333413950854: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413951013: inside sendPacket(Packet p)
+1333413951025: Sending UDP payload: 31992
+1333413951131: Received UDP payload: 406
+1333413951135: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413951296: inside sendPacket(Packet p)
+1333413951308: Sending UDP payload: 31300
+1333413951449: Received UDP payload: 406
+1333413951452: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413951563: inside sendPacket(Packet p)
+1333413951573: Sending UDP payload: 31300
+1333413961859: Received UDP payload: 406
+1333413961865: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413962016: inside sendPacket(Packet p)
+1333413962025: Sending UDP payload: 31300
+1333413962183: Received UDP payload: 406
+1333413962187: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413962412: inside sendPacket(Packet p)
+1333413962425: Sending UDP payload: 31992
+1333413962476: Received UDP payload: 406
+1333413962480: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413962701: inside sendPacket(Packet p)
+1333413962717: Sending UDP payload: 31992
+1333413963045: Received UDP payload: 406
+1333413963059: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413963415: inside sendPacket(Packet p)
+1333413963429: Sending UDP payload: 31300
+1333413963435: leader to cloud hearbeat...
+1333413968724: inside sendPacket(Packet p)
+1333413968727: Sending UDP payload: 406
+1333413973221: Received UDP payload: 406
+1333413973229: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413973396: inside sendPacket(Packet p)
+1333413973405: Sending UDP payload: 31300
+1333413973538: Received UDP payload: 406
+1333413973541: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413973657: inside sendPacket(Packet p)
+1333413973658: Sending UDP payload: 31300
+1333413973802: Received UDP payload: 406
+1333413973807: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413974008: inside sendPacket(Packet p)
+1333413974011: Sending UDP payload: 31300
+1333413974116: Received UDP payload: 406
+1333413974128: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413974315: inside sendPacket(Packet p)
+1333413974343: Sending UDP payload: 31995
+1333413984643: Received UDP payload: 406
+1333413984655: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413984846: inside sendPacket(Packet p)
+1333413984891: Sending UDP payload: 31300
+1333413984924: Received UDP payload: 406
+1333413984928: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413985044: inside sendPacket(Packet p)
+1333413985074: Sending UDP payload: 31300
+1333413985220: Received UDP payload: 406
+1333413985223: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413985330: inside sendPacket(Packet p)
+1333413985338: Sending UDP payload: 31300
+1333413985560: Received UDP payload: 406
+1333413985562: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413985723: inside sendPacket(Packet p)
+1333413985733: Sending UDP payload: 31300
+1333413993832: leader to cloud hearbeat...
+1333413996009: Received UDP payload: 406
+1333413996022: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413996211: inside sendPacket(Packet p)
+1333413996227: Sending UDP payload: 31300
+1333413996317: Received UDP payload: 406
+1333413996321: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413996434: inside sendPacket(Packet p)
+1333413996461: Sending UDP payload: 31300
+1333413996616: Received UDP payload: 406
+1333413996620: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333413996735: inside sendPacket(Packet p)
+1333413996762: Sending UDP payload: 31300
+1333413998730: inside sendPacket(Packet p)
+1333413998733: Sending UDP payload: 406
+1333414007330: Received UDP payload: 406
+1333414007337: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414007508: inside sendPacket(Packet p)
+1333414007517: Sending UDP payload: 31300
+1333414007632: Received UDP payload: 406
+1333414007635: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414007839: inside sendPacket(Packet p)
+1333414007850: Sending UDP payload: 31300
+1333414007951: Received UDP payload: 406
+1333414007954: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414008166: inside sendPacket(Packet p)
+1333414008175: Sending UDP payload: 31300
+1333414008232: Received UDP payload: 406
+1333414008238: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414008389: inside sendPacket(Packet p)
+1333414008403: Sending UDP payload: 31300
+1333414018778: Received UDP payload: 406
+1333414018783: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414018929: inside sendPacket(Packet p)
+1333414018938: Sending UDP payload: 31300
+1333414019112: Received UDP payload: 406
+1333414019138: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414019346: inside sendPacket(Packet p)
+1333414019359: Sending UDP payload: 31992
+1333414019391: Received UDP payload: 406
+1333414019394: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414019568: inside sendPacket(Packet p)
+1333414019577: Sending UDP payload: 31300
+1333414024192: leader to cloud hearbeat...
+1333414028736: inside sendPacket(Packet p)
+1333414028760: Sending UDP payload: 406
+1333414030202: Received UDP payload: 406
+1333414030213: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414030379: inside sendPacket(Packet p)
+1333414030400: Sending UDP payload: 31300
+1333414030538: Received UDP payload: 406
+1333414030540: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414030698: inside sendPacket(Packet p)
+1333414030700: Sending UDP payload: 31300
+1333414031025: Received UDP payload: 406
+1333414031030: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414031096: Received UDP payload: 406
+1333414031362: inside sendPacket(Packet p)
+1333414031373: Sending UDP payload: 31300
+1333414031380: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414031511: inside sendPacket(Packet p)
+1333414031521: Sending UDP payload: 31300
+1333414041639: Received UDP payload: 406
+1333414041651: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414041858: Received UDP payload: 406
+1333414041860: inside sendPacket(Packet p)
+1333414041905: Sending UDP payload: 31300
+1333414041909: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414042012: inside sendPacket(Packet p)
+1333414042021: Sending UDP payload: 31300
+1333414042187: Received UDP payload: 406
+1333414042189: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414042357: inside sendPacket(Packet p)
+1333414042365: Sending UDP payload: 31300
+1333414042463: Received UDP payload: 406
+1333414042466: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414042667: inside sendPacket(Packet p)
+1333414042682: Sending UDP payload: 31300
+1333414052965: Received UDP payload: 406
+1333414052972: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414053157: inside sendPacket(Packet p)
+1333414053166: Sending UDP payload: 31300
+1333414053540: Received UDP payload: 406
+1333414053545: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414053667: inside sendPacket(Packet p)
+1333414053713: Sending UDP payload: 31300
+1333414053867: Received UDP payload: 406
+1333414053872: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414054079: inside sendPacket(Packet p)
+1333414054090: Sending UDP payload: 31300
+1333414054516: leader to cloud hearbeat...
+1333414058737: inside sendPacket(Packet p)
+1333414058740: Sending UDP payload: 406
+1333414064264: Received UDP payload: 406
+1333414064272: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414064406: inside sendPacket(Packet p)
+1333414064414: Sending UDP payload: 31300
+1333414064569: Received UDP payload: 406
+1333414064572: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414064815: inside sendPacket(Packet p)
+1333414064831: Sending UDP payload: 31928
+1333414064864: Received UDP payload: 406
+1333414064869: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414065103: inside sendPacket(Packet p)
+1333414065122: Sending UDP payload: 31992
+1333414065193: Received UDP payload: 406
+1333414065219: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414065448: inside sendPacket(Packet p)
+1333414065463: Sending UDP payload: 32008
+1333414075675: Received UDP payload: 406
+1333414075687: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414075862: inside sendPacket(Packet p)
+1333414075891: Sending UDP payload: 31300
+1333414076033: Received UDP payload: 406
+1333414076035: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414076135: inside sendPacket(Packet p)
+1333414076147: Sending UDP payload: 31300
+1333414076242: Received UDP payload: 406
+1333414076244: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414076408: inside sendPacket(Packet p)
+1333414076419: Sending UDP payload: 31300
+1333414076559: Received UDP payload: 406
+1333414076562: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414076694: inside sendPacket(Packet p)
+1333414076707: Sending UDP payload: 31300
+1333414084955: leader to cloud hearbeat...
+1333414086951: Received UDP payload: 406
+1333414086958: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414087190: inside sendPacket(Packet p)
+1333414087210: Sending UDP payload: 31915
+1333414087243: Received UDP payload: 406
+1333414087249: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414087397: inside sendPacket(Packet p)
+1333414087409: Sending UDP payload: 31300
+1333414087543: Received UDP payload: 406
+1333414087547: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414087662: inside sendPacket(Packet p)
+1333414087683: Sending UDP payload: 31300
+1333414087854: Received UDP payload: 406
+1333414087860: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414088021: inside sendPacket(Packet p)
+1333414088027: Sending UDP payload: 31300
+1333414088739: inside sendPacket(Packet p)
+1333414088741: Sending UDP payload: 406
+1333414098369: Received UDP payload: 406
+1333414098399: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414098606: inside sendPacket(Packet p)
+1333414098617: Sending UDP payload: 31928
+1333414098680: Received UDP payload: 406
+1333414098684: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414098882: inside sendPacket(Packet p)
+1333414098893: Sending UDP payload: 31300
+1333414098987: Received UDP payload: 406
+1333414098990: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414099191: inside sendPacket(Packet p)
+1333414099208: Sending UDP payload: 31915
+1333414099279: Received UDP payload: 406
+1333414099283: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414099447: inside sendPacket(Packet p)
+1333414099485: Sending UDP payload: 31300
+1333414109780: Received UDP payload: 406
+1333414109796: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414109977: inside sendPacket(Packet p)
+1333414110019: Sending UDP payload: 31300
+1333414110095: Received UDP payload: 406
+1333414110099: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414110204: inside sendPacket(Packet p)
+1333414110212: Sending UDP payload: 31300
+1333414110681: Received UDP payload: 406
+1333414110685: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414110977: inside sendPacket(Packet p)
+1333414111000: Sending UDP payload: 31992
+1333414115293: leader to cloud hearbeat...
+1333414118744: inside sendPacket(Packet p)
+1333414118779: Sending UDP payload: 406
+1333414121131: Received UDP payload: 406
+1333414121144: heard LEADER_REQUEST from node 5010, responding LEADER_REPLY
+1333414121317: inside sendPacket(Packet p)
+1333414121326: Sending UDP payload: 31300
+1333414145655: leader to cloud hearbeat...
+1333414148746: inside sendPacket(Packet p)
+1333414148769: Sending UDP payload: 406
+1333414165695: HI I'm in ONPAUSE()
+1333414167559: inside onDestroy()

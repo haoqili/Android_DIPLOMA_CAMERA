@@ -1,0 +1,1 @@
+These are some of the selected logs I got on Friday. I thought it didn't contain any useful logcats, but I did not look careful enough. We can compare these with the rest of the saved logcats to see how much logcats are cutoff from Friday until the time the logcats are saved properly (Sunday).

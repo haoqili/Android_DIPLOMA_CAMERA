@@ -1,0 +1,433 @@
+1333695602932: *** Opened log file for writing ***
+1333695602933: Android build: Nexus S
+1333695602934: NET_NAME set to: wlan0
+1333695602936: starting Mux with id = -1
+1333695602938: areButtonsEnabled --> true
+1333695602941: *** Application started ***
+1333695602941: HI I'm in ONRESUME()
+1333695602944: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333695602971: Started VCoreDaemon with parameters maxRx = 6 , maxRY= 1, minLongitude = -7110102 , minLatitude = 4236349, regionWidth =17
+1333695602977: started, mId = 5015
+1333695602979: region (-1, -1) out of bounds, dormant
+1333695618026: Received UDP payload: 406
+1333695618312: Received UDP payload: 406
+1333695618626: Received UDP payload: 406
+1333695618913: Received UDP payload: 406
+1333695619752: Received UDP payload: 406
+1333695620022: Received UDP payload: 406
+1333695620285: Received UDP payload: 25811
+1333695620326: Received UDP payload: 406
+1333695620344: Received UDP payload: 406
+1333695620421: Received UDP payload: 406
+1333695620691: Received UDP payload: 406
+1333695620993: Received UDP payload: 406
+1333695621130: Received UDP payload: 406
+1333695621288: Received UDP payload: 406
+1333695621414: Received UDP payload: 406
+1333695621730: Received UDP payload: 406
+1333695622033: Received UDP payload: 406
+1333695622219: moving from region (-1,-1), to (0,0)
+1333695622221: sending LEADER_REQUEST
+1333695622222: inside sendPacket(Packet p)
+1333695622247: Sending UDP payload: 406
+1333695622389: Received UDP payload: 3838
+1333695622698: Received UDP payload: 25252
+1333695623352: Received UDP payload: 406
+1333695629727: Received UDP payload: 406
+1333695630026: Received UDP payload: 406
+1333695630336: Received UDP payload: 406
+1333695630642: Received UDP payload: 406
+1333695631901: Received UDP payload: 25252
+1333695632231: been in JOINING state for a while now, start over
+1333695632233: sending LEADER_REQUEST
+1333695632233: inside sendPacket(Packet p)
+1333695632268: Sending UDP payload: 406
+1333695632534: sending LEADER_REQUEST
+1333695632535: inside sendPacket(Packet p)
+1333695632554: Sending UDP payload: 406
+1333695632838: sending LEADER_REQUEST
+1333695632840: inside sendPacket(Packet p)
+1333695632858: Sending UDP payload: 406
+1333695633149: sending LEADER_REQUEST
+1333695633150: inside sendPacket(Packet p)
+1333695633170: Sending UDP payload: 406
+1333695633233: LEADER_REQUEST timed out
+1333695633234: *** Starting CSM Layer ***
+1333695633234: *** CSM Layer starting with cache disabled ***
+1333695633234: *** CSM Layer starting with forwarding enabled ***
+1333695633268: DSMLayer starting
+1333695633271: UserApp started.
+1333695633272: UserApp for Camera Diploma initialized and waiting for requests.
+1333695633519: inside sendPacket(Packet p)
+1333695633530: Sending UDP payload: 25252
+1333695633544: now fully up as LEADER (id=5015) of (0,0)
+1333695640003: canPressButton = TRUE
+1333695640004: areButtonsEnabled --> false
+1333695640005: disabling buttons ...
+1333695640014: takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 takeTimedout=0 getNum=0 getGood=0 getBad=0 getTimedout=0
+1333695640015: ** Clicked take picture button **
+1333695640802: inside HandlePictureStorage onPictureTaken()
+1333695640802: takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 takeTimedout=0 getNum=0 getGood=0 getBad=0 getTimedout=0
+1333695641328: Picture successfully taken, ORIG BYTE LENGTH = 936943
+1333695641585: Our new height x width: 240 x 320
+1333695641586: Show photo from handle my camera take
+1333695641587: client making photo packet to send to leader for it to save
+1333695641618: BYTE SIZE AFTER COMPRESSION: 2936
+1333695641624: about to send my pic
+1333695641624: I'm a leader, upload/save new photo packet going to mux directly
+1333695641633: end of client send picture method
+1333695641193: Received UDP payload: 406
+1333695641625: Inside mux Packet.CLIENT_REQUEST
+1333695641625: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333695641625: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333695641625: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333695641626: Sending PROC_REQUEST 10:0 (0,0)->(0,0)
+1333695641627: Dispatching Atom PROC_REQUEST 10:0 (0,0)->(0,0)
+1333695641627: I got a CSM packet at a leader 
+
+1333695641702: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333695641718: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333695641719: now showing in UI the new photo I just saved ... 
+1333695641719: the photo length: 2936
+1333695641633: Sending UDP payload: 3907
+1333695641636: removed replies before id 0 from sentReplies of size 0
+1333695641655: Inside UPLOAD_PHOTO!!
+1333695641661: my_gpinfo.isSuccess is now (should be true): true
+1333695641662: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333695641666: Received PROC_REQUEST 10:0 (0,0)->(0,0), replying PROC_REPLY 10:0 (0,0)->(0,0)
+1333695641668: Dispatching Atom PROC_REPLY 10:0 (0,0)->(0,0)
+1333695641670: I got a CSM packet at a leader 
+
+1333695641755: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
+1333695641756: leader upload new photo latency = 130
+1333695641757: = leader upload start 1333695641625 ~ stop 1333695641755
+1333695641758: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 getNum=0 getGood=0 getBad=0 getTimedout=0
+1333695641759: SUCCESS! Client now knows saving photo on its leader succeeded
+1333695641673: Sending UDP payload: 949
+1333695641677: Received PROC_REPLY 10:0 (0,0)->(0,0), handing to UserApp
+1333695641678: Now back in orginitator region's leader, precssing handleDSMReply
+1333695641679: Going to and from remote region took latency = 53
+1333695641679: = orig leader sent packet at 1333695641625 ~ received reply at 1333695641678
+1333695641685: Originator Region=0 Leader (for Client=5015) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333695641685: reply packet contains the ACK for UPLOAD_PHOTO
+1333695641686: I (the leader) was also the originator client (id = 5015) so I hand the packet to my mux directly, without UDP
+1333695649541: Received UDP payload: 406
+1333695650777: Received UDP payload: 406
+1333695652527: Received UDP payload: 406
+1333695656629: canPressButton = TRUE
+1333695656651: areButtonsEnabled --> false 
+1333695656658: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 getNum=1 getGood=0 getBad=0 getTimedout=0
+1333695656659: ** Clicked getphotos Button from region 4 **
+1333695656660: I'm the Client, and I'm in region: 0 nodID = 5015
+1333695656662: I'm a leader, my requesting photos packet going to mux directly
+1333695656672: StatusActivity sent request to get photos for region 4
+1333695656694: Inside mux Packet.CLIENT_REQUEST
+1333695656695: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333695656695: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333695656696: request is CLIENT_DOWNLOAD_PHOTO, figure out where (remote region) to forward packet
+1333695656700: Sending to region: 4
+1333695656701: Sending PROC_REQUEST 11:0 (0,0)->(4,0)
+1333695656702: Dispatching Atom PROC_REQUEST 11:0 (0,0)->(4,0)
+1333695656716: I got a CSM packet at a leader 
+
+1333695656720: Sending UDP payload: 949
+1333695656721: nonce 2 heard from src region (0,0)
+1333695656792: Received UDP payload: 949
+1333695656806: GOT CSM_Msg
+1333695656806: Received UDP payload: 949
+1333695656807: nonce 2 heard from src region (0,0)
+1333695656822: GOT CSM_Msg
+1333695656822: nonce 2 heard from src region (0,0)
+1333695656823: Received UDP payload: 949
+1333695656837: GOT CSM_Msg
+1333695656882: inside Packet.CLIENT_SHOW_REMOTEPHOTOS. Client requested for a photo in a remote region and this is the reply
+1333695656883: leader download remote photo latency = 210
+1333695656890: = leader download start 1333695656672 ~ stop 1333695656882
+1333695656891: FAIL! Client failed to get photo from remote region
+1333695656929: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 takeTimedout=0 getNum=1 getGood=0 getBad=1 getTimedout=0
+1333695656929: getBad++
+1333695656837: Received PROC_REPLY 11:0 (4,0)->(0,0), handing to UserApp
+1333695656838: Now back in orginitator region's leader, precssing handleDSMReply
+1333695656838: Going to and from remote region took latency = 137
+1333695656838: = orig leader sent packet at 1333695656701 ~ received reply at 1333695656838
+1333695656839: Originator Region=0 Leader (for Client=5015) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333695656839: reply packet contains the newest photo from the remote region
+1333695656839: I (the leader) was also the originator client (id = 5015) so I hand the packet to my mux directly, without UDP
+1333695656841: Received UDP payload: 949
+1333695656863: GOT CSM_Msg
+1333695656863: nonce 2 heard from src region (0,0)
+1333695656866: Received UDP payload: 949
+1333695656893: GOT CSM_Msg
+1333695656894: Received DUPLICATE PROC_REPLY 11:0 (4,0)->(0,0)
+1333695656896: Received UDP payload: 949
+1333695656933: GOT CSM_Msg
+1333695656933: Received DUPLICATE PROC_REPLY 11:0 (4,0)->(0,0)
+1333695656934: Received UDP payload: 949
+1333695656948: GOT CSM_Msg
+1333695656948: Received DUPLICATE PROC_REPLY 11:0 (4,0)->(0,0)
+1333695656950: Received UDP payload: 949
+1333695656964: GOT CSM_Msg
+1333695656964: Received DUPLICATE PROC_REPLY 11:0 (4,0)->(0,0)
+1333695656981: Received UDP payload: 949
+1333695656988: GOT CSM_Msg
+1333695656989: Received DUPLICATE PROC_REPLY 11:0 (4,0)->(0,0)
+1333695656994: Received UDP payload: 949
+1333695657005: GOT CSM_Msg
+1333695657006: Received DUPLICATE PROC_REPLY 11:0 (4,0)->(0,0)
+1333695657007: Received UDP payload: 949
+1333695657053: GOT CSM_Msg
+1333695657054: Received DUPLICATE PROC_REPLY 11:0 (4,0)->(0,0)
+1333695657056: Received UDP payload: 949
+1333695657075: GOT CSM_Msg
+1333695657075: Received DUPLICATE PROC_REPLY 11:0 (4,0)->(0,0)
+1333695657076: Received UDP payload: 949
+1333695657128: GOT CSM_Msg
+1333695657129: Received DUPLICATE PROC_REPLY 11:0 (4,0)->(0,0)
+1333695662152: inside sendPacket(Packet p)
+1333695662154: Sending UDP payload: 406
+1333695662716: leader to cloud hearbeat...
+1333695671187: Received UDP payload: 406
+1333695679986: Received UDP payload: 406
+1333695680792: Received UDP payload: 406
+1333695682334: Received UDP payload: 949
+1333695682381: GOT CSM_Msg
+1333695682381: removed replies before id 0 from sentReplies of size 0
+1333695682382: INSIDE SERVER_GET_PHOTO!!!
+1333695682383: Received PROC_REQUEST 11:0 (1,0)->(0,0), replying PROC_REPLY 11:0 (0,0)->(1,0)
+1333695682389: Dispatching Atom PROC_REPLY 11:0 (0,0)->(1,0)
+1333695682390: I got a CSM packet at a leader 
+
+1333695682397: Sending UDP payload: 3907
+1333695682399: nonce 3 heard from src region (0,0)
+1333695682529: Received UDP payload: 406
+1333695692152: inside sendPacket(Packet p)
+1333695692166: Sending UDP payload: 406
+1333695692717: leader to cloud hearbeat...
+1333695694174: Received UDP payload: 949
+1333695694178: GOT CSM_Msg
+1333695694180: removed replies before id 1 from sentReplies of size 0
+1333695694181: INSIDE SERVER_GET_PHOTO!!!
+1333695694185: Received PROC_REQUEST 11:1 (1,0)->(0,0), replying PROC_REPLY 11:1 (0,0)->(1,0)
+1333695694191: Dispatching Atom PROC_REPLY 11:1 (0,0)->(1,0)
+1333695694191: I got a CSM packet at a leader 
+
+1333695694195: Sending UDP payload: 3907
+1333695694198: nonce 4 heard from src region (0,0)
+1333695701238: Received UDP payload: 406
+1333695710524: Received UDP payload: 406
+1333695710845: Received UDP payload: 406
+1333695712686: Received UDP payload: 406
+1333695715086: Received UDP payload: 3133
+1333695715146: GOT CSM_Msg
+1333695715146: nonce 2 heard from src region (1,0)
+1333695715166: Received UDP payload: 949
+1333695715180: GOT CSM_Msg
+1333695715180: nonce 3 heard from src region (1,0)
+1333695719471: Received UDP payload: 5461
+1333695719523: GOT CSM_Msg
+1333695719524: nonce 0 heard from src region (2,0)
+1333695719534: Received UDP payload: 949
+1333695719543: GOT CSM_Msg
+1333695719543: nonce 1 heard from src region (2,0)
+1333695722214: inside sendPacket(Packet p)
+1333695722259: Sending UDP payload: 406
+1333695722779: leader to cloud hearbeat...
+1333695723789: Received UDP payload: 5190
+1333695723822: GOT CSM_Msg
+1333695723822: nonce 0 heard from src region (3,0)
+1333695723829: Received UDP payload: 949
+1333695723847: GOT CSM_Msg
+1333695723848: nonce 1 heard from src region (3,0)
+1333695728345: Received UDP payload: 4169
+1333695728399: GOT CSM_Msg
+1333695728401: nonce 4 heard from src region (4,0)
+1333695728417: Received UDP payload: 949
+1333695728443: GOT CSM_Msg
+1333695728443: nonce 5 heard from src region (4,0)
+1333695731243: Received UDP payload: 406
+1333695740835: Received UDP payload: 406
+1333695740930: Received UDP payload: 406
+1333695743042: Received UDP payload: 406
+1333695752215: inside sendPacket(Packet p)
+1333695752221: Sending UDP payload: 406
+1333695752793: leader to cloud hearbeat...
+1333695761248: Received UDP payload: 406
+1333695770821: Received UDP payload: 406
+1333695771266: Received UDP payload: 406
+1333695773331: Received UDP payload: 406
+1333695777648: Received UDP payload: 4999
+1333695777709: GOT CSM_Msg
+1333695777711: nonce 6 heard from src region (4,0)
+1333695777723: Received UDP payload: 949
+1333695777757: GOT CSM_Msg
+1333695777757: nonce 7 heard from src region (4,0)
+1333695782218: inside sendPacket(Packet p)
+1333695782235: Sending UDP payload: 406
+1333695782796: leader to cloud hearbeat...
+1333695791259: Received UDP payload: 406
+1333695795227: Received UDP payload: 949
+1333695795274: GOT CSM_Msg
+1333695795276: nonce 8 heard from src region (4,0)
+1333695795340: Received UDP payload: 5190
+1333695795356: GOT CSM_Msg
+1333695795356: nonce 2 heard from src region (3,0)
+1333695800821: Received UDP payload: 406
+1333695801555: Received UDP payload: 406
+1333695803598: Received UDP payload: 406
+1333695812219: inside sendPacket(Packet p)
+1333695812220: Sending UDP payload: 406
+1333695812797: leader to cloud hearbeat...
+1333695814982: Received UDP payload: 949
+1333695815036: GOT CSM_Msg
+1333695815036: nonce 9 heard from src region (4,0)
+1333695815104: Received UDP payload: 5190
+1333695815109: GOT CSM_Msg
+1333695815110: nonce 3 heard from src region (3,0)
+1333695821260: Received UDP payload: 406
+1333695827741: Received UDP payload: 949
+1333695827835: GOT CSM_Msg
+1333695827836: nonce 10 heard from src region (4,0)
+1333695828441: Received UDP payload: 949
+1333695828495: GOT CSM_Msg
+1333695828497: nonce 11 heard from src region (4,0)
+1333695828522: Received UDP payload: 949
+1333695828536: GOT CSM_Msg
+1333695828536: nonce 12 heard from src region (4,0)
+1333695828623: Received UDP payload: 949
+1333695828637: GOT CSM_Msg
+1333695828638: nonce 13 heard from src region (4,0)
+1333695828725: Received UDP payload: 949
+1333695828737: GOT CSM_Msg
+1333695828737: nonce 14 heard from src region (4,0)
+1333695828826: Received UDP payload: 949
+1333695828836: GOT CSM_Msg
+1333695828837: nonce 15 heard from src region (4,0)
+1333695828928: Received UDP payload: 949
+1333695828941: GOT CSM_Msg
+1333695828942: nonce 16 heard from src region (4,0)
+1333695829032: Received UDP payload: 949
+1333695829050: GOT CSM_Msg
+1333695829051: nonce 17 heard from src region (4,0)
+1333695829135: Received UDP payload: 949
+1333695829161: GOT CSM_Msg
+1333695829162: nonce 18 heard from src region (4,0)
+1333695829234: Received UDP payload: 949
+1333695829245: GOT CSM_Msg
+1333695829246: nonce 19 heard from src region (4,0)
+1333695829335: Received UDP payload: 949
+1333695829356: GOT CSM_Msg
+1333695829357: nonce 20 heard from src region (4,0)
+1333695829437: Received UDP payload: 949
+1333695829488: GOT CSM_Msg
+1333695829489: nonce 21 heard from src region (4,0)
+1333695829553: Received UDP payload: 949
+1333695829558: GOT CSM_Msg
+1333695829559: nonce 22 heard from src region (4,0)
+1333695829644: Received UDP payload: 949
+1333695829687: GOT CSM_Msg
+1333695829688: nonce 23 heard from src region (4,0)
+1333695829742: Received UDP payload: 949
+1333695829747: GOT CSM_Msg
+1333695829747: nonce 24 heard from src region (4,0)
+1333695829844: Received UDP payload: 770
+1333695829874: GOT CSM_Msg
+1333695829874: nonce 25 heard from src region (3,0)
+1333695831847: Received UDP payload: 406
+1333695833923: Received UDP payload: 406
+1333695842219: inside sendPacket(Packet p)
+1333695842233: Sending UDP payload: 406
+1333695842797: leader to cloud hearbeat...
+1333695851269: Received UDP payload: 406
+1333695864198: Received UDP payload: 406
+1333695872221: inside sendPacket(Packet p)
+1333695872236: Sending UDP payload: 406
+1333695872799: leader to cloud hearbeat...
+1333695881257: Received UDP payload: 406
+1333695894268: Received UDP payload: 406
+1333695902223: inside sendPacket(Packet p)
+1333695902245: Sending UDP payload: 406
+1333695902804: leader to cloud hearbeat...
+1333695911269: Received UDP payload: 406
+1333695924597: Received UDP payload: 406
+1333695932224: inside sendPacket(Packet p)
+1333695932254: Sending UDP payload: 406
+1333695932807: leader to cloud hearbeat...
+1333695941257: Received UDP payload: 406
+1333695954884: Received UDP payload: 406
+1333695962226: inside sendPacket(Packet p)
+1333695962238: Sending UDP payload: 406
+1333695962808: leader to cloud hearbeat...
+1333695971254: Received UDP payload: 406
+1333695985263: Received UDP payload: 406
+1333695992228: inside sendPacket(Packet p)
+1333695992243: Sending UDP payload: 406
+1333695992809: leader to cloud hearbeat...
+1333696001267: Received UDP payload: 406
+1333696015593: Received UDP payload: 406
+1333696022242: inside sendPacket(Packet p)
+1333696022259: Sending UDP payload: 406
+1333696022811: leader to cloud hearbeat...
+1333696031266: Received UDP payload: 406
+1333696041620: Received UDP payload: 406
+1333696041911: Received UDP payload: 406
+1333696042085: Received UDP payload: 28249
+1333696042353: Received UDP payload: 28249
+1333696045749: Received UDP payload: 3313
+1333696045766: Inside mux Packet.CLIENT_REQUEST
+1333696045861: Received UDP payload: 3677
+1333696045866: GOT CSM_Msg
+1333696045866: nonce 4 heard from src region (1,0)
+1333696045870: Received UDP payload: 949
+1333696045892: GOT CSM_Msg
+1333696045893: nonce 5 heard from src region (1,0)
+1333696045898: Received UDP payload: 602
+1333696045917: Inside mux Packet.SERVER_REPLY
+1333696045918: Ignoring SERVER_REPLY since it's not for me  5015
+1333696045931: Received UDP payload: 406
+1333696052243: inside sendPacket(Packet p)
+1333696052257: Sending UDP payload: 406
+1333696052813: leader to cloud hearbeat...
+1333696056134: Received UDP payload: 3313
+1333696056166: Inside mux Packet.CLIENT_REQUEST
+1333696056245: Received UDP payload: 3677
+1333696056250: GOT CSM_Msg
+1333696056250: nonce 6 heard from src region (1,0)
+1333696056255: Received UDP payload: 949
+1333696056260: GOT CSM_Msg
+1333696056260: nonce 7 heard from src region (1,0)
+1333696056261: Received UDP payload: 602
+1333696056263: Inside mux Packet.SERVER_REPLY
+1333696056264: Ignoring SERVER_REPLY since it's not for me  5015
+1333696061270: Received UDP payload: 406
+1333696076316: Received UDP payload: 406
+1333696082245: inside sendPacket(Packet p)
+1333696082261: Sending UDP payload: 406
+1333696082814: leader to cloud hearbeat...
+1333696091273: Received UDP payload: 406
+1333696106720: Received UDP payload: 406
+1333696112245: inside sendPacket(Packet p)
+1333696112262: Sending UDP payload: 406
+1333696112817: leader to cloud hearbeat...
+1333696121262: Received UDP payload: 406
+1333696137127: Received UDP payload: 406
+1333696142249: inside sendPacket(Packet p)
+1333696142264: Sending UDP payload: 406
+1333696142817: leader to cloud hearbeat...
+1333696151281: Received UDP payload: 406
+1333696167477: Received UDP payload: 406
+1333696172253: inside sendPacket(Packet p)
+1333696172271: Sending UDP payload: 406
+1333696172819: leader to cloud hearbeat...
+1333696181283: Received UDP payload: 406
+1333696197849: Received UDP payload: 406
+1333696202254: inside sendPacket(Packet p)
+1333696202271: Sending UDP payload: 406
+1333696202820: leader to cloud hearbeat...
+1333696211282: Received UDP payload: 406
+1333696228290: Received UDP payload: 406
+1333696232256: inside sendPacket(Packet p)
+1333696232267: Sending UDP payload: 406
+1333696232823: leader to cloud hearbeat...
+1333696241297: Received UDP payload: 406
+1333696249346: HI I'm in ONPAUSE()
+1333696250016: inside onDestroy()

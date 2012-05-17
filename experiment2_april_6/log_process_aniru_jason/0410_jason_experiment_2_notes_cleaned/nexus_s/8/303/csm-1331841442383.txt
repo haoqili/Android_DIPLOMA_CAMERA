@@ -1,0 +1,151 @@
+1331841442388: *** Opened log file for writing ***
+1331841442392: *** Application started ***
+1331841442392: HI I'm in ONRESUME()
+1331841442394: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1331841442417: Started VCoreDaemon with parameters maxRx = 10 , maxRY= 1, minLongitude = -7110170 , minLatitude = 4236349, regionWidth =17
+1331841442422: started, mId = 5003
+1331841442423: region (-1, -1) out of bounds, dormant
+1331841463034: Received UDP payload: 426
+1331841463316: Received UDP payload: 426
+1331841463608: Received UDP payload: 426
+1331841463936: Received UDP payload: 426
+1331841464768: Received UDP payload: 37168
+1331841466454: Received UDP payload: 426
+1331841466794: Received UDP payload: 426
+1331841466832: moving from region (-1,-1), to (2,0)
+1331841466833: sending LEADER_REQUEST
+1331841466845: Sending UDP payload: 426
+1331841467094: Received UDP payload: 426
+1331841467133: sending LEADER_REQUEST
+1331841467165: Received UDP payload: 37185
+1331841467211: Sending UDP payload: 426
+1331841467443: sending LEADER_REQUEST
+1331841467444: Sending UDP payload: 426
+1331841467497: Received UDP payload: 37185
+1331841467743: sending LEADER_REQUEST
+1331841467769: Sending UDP payload: 426
+1331841467840: LEADER_REQUEST timed out
+1331841467841: *** Starting CSM Layer ***
+1331841467841: *** CSM Layer starting with cache disabled ***
+1331841467841: *** CSM Layer starting with forwarding enabled ***
+1331841467867: Received UDP payload: 37185
+1331841467930: DSMLayer starting
+1331841467938: UserApp started.
+1331841467939: UserApp - MatMult initialized and waiting for requests.
+1331841468217: Sending UDP payload: 37168
+1331841468227: now fully up as LEADER (id=5003) of (2,0)
+1331841472433: Sending UDP payload: 426
+1331841474644: Received UDP payload: 426
+1331841474686: heard LEADER_REQUEST from node 5004, responding LEADER_REPLY
+1331841474900: Sending UDP payload: 37185
+1331841474921: Received UDP payload: 426
+1331841474924: heard LEADER_REQUEST from node 5004, responding LEADER_REPLY
+1331841475126: Sending UDP payload: 37185
+1331841475228: Received UDP payload: 426
+1331841475236: heard LEADER_REQUEST from node 5004, responding LEADER_REPLY
+1331841475457: Sending UDP payload: 37185
+1331841477376: Received UDP payload: 426
+1331841477687: Received UDP payload: 3638
+1331841477744: GOT CSM_Msg
+1331841477744: nonce 0 heard from src region (1,0)
+1331841477751: Received UDP payload: 790
+1331841477762: GOT CSM_Msg
+1331841477762: nonce 1 heard from src region (1,0)
+1331841481562: I'm the Client, and I'm in region: 2 nodID = 5003
+1331841481568: Inside mux Packet.CLIENT_REQUEST
+1331841481568: Inside CLIENT_DOWNLOAD_PHOTO, figure out where to forward packet
+1331841481570: Sending to region: 1
+1331841481570: Sending PROC_REQUEST 11:0 (2,0)->(1,0)
+1331841481572: Dispatching Atom PROC_REQUEST 11:0 (2,0)->(1,0)
+1331841481572: I got a CSM packet at a leader 
+
+1331841481580: Sending UDP payload: 956
+1331841481583: nonce 0 heard from src region (2,0)
+1331841481716: Received UDP payload: 3804
+1331841481759: GOT CSM_Msg
+1331841481800: Show photo from client_show_newphotos
+1331841481759: Received PROC_REPLY 11:0 (1,0)->(2,0), handing to UserApp
+1331841481759: got photo from remote region, returning to requesting client
+1331841481760: send photo packet to original CLIENT:
+1331841481761: Client is in region: 2 nodID = 5003
+1331841481761: I'm a leader and I was the photo requester (id = 5003) about to display photo
+1331841487572: Received UDP payload: 2566
+1331841487605: Inside mux Packet.CLIENT_REQUEST
+1331841487607: Inside CLIENT_NEW_PHOTO!!
+1331841487616: Sending PROC_REQUEST 10:0 (2,0)->(2,0)
+1331841487633: Dispatching Atom PROC_REQUEST 10:0 (2,0)->(2,0)
+1331841487633: I got a CSM packet at a leader 
+
+1331841487709: Show photo from server_show_newphoto
+1331841487637: Sending UDP payload: 2930
+1331841487642: removed replies before id 0 from sentReplies of size 0
+1331841487642: Inside UPLOAD_PHOTO!!
+1331841487645: Upload Photo succeeded
+1331841487645: Update in leader UI through StatusActivity:
+1331841487646: Received PROC_REQUEST 10:0 (2,0)->(2,0), replying PROC_REPLY 10:0 (2,0)->(2,0)
+1331841487708: Dispatching Atom PROC_REPLY 10:0 (2,0)->(2,0)
+1331841487710: I got a CSM packet at a leader 
+
+1331841487712: Sending UDP payload: 790
+1331841487717: Received PROC_REPLY 10:0 (2,0)->(2,0), handing to UserApp
+1331841489257: Received UDP payload: 592
+1331841489289: Inside mux Packet.CLIENT_REQUEST
+1331841489347: Received UDP payload: 956
+1331841489351: GOT CSM_Msg
+1331841489351: removed replies before id 0 from sentReplies of size 0
+1331841489352: INSIDE SERVER_GET_PHOTO!!!
+1331841489355: Received PROC_REQUEST 11:0 (1,0)->(2,0), replying PROC_REPLY 11:0 (2,0)->(1,0)
+1331841489357: Dispatching Atom PROC_REPLY 11:0 (2,0)->(1,0)
+1331841489358: I got a CSM packet at a leader 
+
+1331841489361: Sending UDP payload: 3096
+1331841489363: nonce 3 heard from src region (2,0)
+1331841489448: Received UDP payload: 2583
+1331841489452: Inside mux Packet.SERVER_REPLY
+1331841489452: Ignoring SERVER_REPLY since it's not for me  5003
+1331841498041: moving from region (2,0), to (3,0)
+1331841498041: broadcasting LEADER_ELECT to old (2,0)
+1331841498042: Sending UDP payload: 443
+1331841498098: Received UDP payload: 426
+1331841498101: received LEADER_NOMINATE from 5004, saving as candidate
+1331841498444: UserApp stopped.
+1331841498445: DSMLayer stopped
+1331841498684: sending LEADER_CONFIRM to node 5004
+1331841498693: Sending UDP payload: 42348
+1331841499169: Received UDP payload: 443
+1331841499188: recv LEADER_CONFIRM_ACK from 5004, released leadership to cloud in 0ms
+1331841499189: sending LEADER_REQUEST
+1331841499199: Sending UDP payload: 426
+1331841499491: sending LEADER_REQUEST
+1331841499502: Sending UDP payload: 426
+1331841499797: sending LEADER_REQUEST
+1331841499798: Sending UDP payload: 426
+1331841500102: sending LEADER_REQUEST
+1331841500112: Sending UDP payload: 426
+1331841500189: LEADER_REQUEST timed out
+1331841500189: DSMLayer stopped
+1331841500190: *** Starting CSM Layer ***
+1331841500190: *** CSM Layer starting with cache disabled ***
+1331841500190: *** CSM Layer starting with forwarding enabled ***
+1331841500220: DSMLayer starting
+1331841500221: UserApp started.
+1331841500222: UserApp - MatMult initialized and waiting for requests.
+1331841500429: Sending UDP payload: 37168
+1331841500434: now fully up as LEADER (id=5003) of (3,0)
+1331841502257: Received UDP payload: 42331
+1331841502326: Received UDP payload: 426
+1331841502426: Sending UDP payload: 426
+1331841506557: Received UDP payload: 956
+1331841506614: GOT CSM_Msg
+1331841506615: nonce 4 heard from src region (1,0)
+1331841506647: Received UDP payload: 3804
+1331841506652: GOT CSM_Msg
+1331841506652: nonce 5 heard from src region (1,0)
+1331841507375: Received UDP payload: 426
+1331841508507: Received UDP payload: 956
+1331841508547: GOT CSM_Msg
+1331841508549: nonce 6 heard from src region (1,0)
+1331841508610: Received UDP payload: 3096
+1331841508626: GOT CSM_Msg
+1331841508626: nonce 4 heard from src region (2,0)
+1331841514691: HI I'm in ONPAUSE()

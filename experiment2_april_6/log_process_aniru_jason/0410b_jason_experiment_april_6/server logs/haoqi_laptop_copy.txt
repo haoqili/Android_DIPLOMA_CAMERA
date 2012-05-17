@@ -1,0 +1,341 @@
+Last login: Fri Apr  6 08:13:28 on ttys006
+-bash: __git_ps1: command not found
+haoqili@HaoQis-MacBook-Pro:11:01:59:)~$ ssh anirudh@hermes5.csail.mit.edu
+Password: 
+Last login: Fri Apr  6 10:57:57 2012 from mobile-198-228-204-076.mycingular.net
+Linux hermes5 2.6.32-5-amd64 #1 SMP Mon Jan 16 16:22:28 UTC 2012 x86_64
+                       Welcome to CSAIL Debian
+
+Please sign up for the workstations-announce mailing list.  See
+https://lists.csail.mit.edu/mailman/listinfo/workstations-announce for
+more info.  This low-traffic mailing list will be used for important
+announcements by the administrators of this machine.
+
+Some documentation can be found at 
+http://tig.csail.mit.edu/twiki/bin/view/TIG/CSAILDebian
+
+Also consider joining the wkst-discuss mailing list if you're
+interested in helping develop the CSAIL workstation environment.
+anirudh@hermes5:~$ cd haoqi
+anirudh@hermes5:~/haoqi$ ls
+cloud_camera_server.py    experiment1_cloud_server.py
+diploma_camera_server.py
+anirudh@hermes5:~/haoqi$ ps -e | grep python
+ 1911 pts/8    00:00:00 python
+ 1912 pts/8    00:00:00 python
+anirudh@hermes5:~/haoqi$ screen -ls
+There is a screen on:
+        1871.pts-1.hermes5      (04/06/2012 11:00:23 AM)        (Attached)
+1 Socket in /var/run/screen/S-anirudh.
+
+anirudh@hermes5:~/haoqi$ 
+anirudh@hermes5:~/haoqi$ 
+anirudh@hermes5:~/haoqi$ 
+anirudh@hermes5:~/haoqi$ 
+anirudh@hermes5:~/haoqi$ screen -r 1871
+There is a screen on:
+ 
+        1871.pts-1.hermes5      (04/06/2012 11:00:23 AM)        (Attached)
+There is no screen to be resumed matching 1871.
+anirudh@hermes5:~/haoqi$ screen -r 1871.pts-1.hermes5
+There is a screen on:
+        1871.pts-1.hermes5      (04/06/2012 11:00:23 AM)        (Attached)
+There is no screen to be resumed matching 1871.pts-1.hermes5.
+anirudh@hermes5:~/haoqi$ kill all python
+-bash: kill: all: arguments must be process or job IDs
+-bash: kill: python: arguments must be process or job IDs
+anirudh@hermes5:~/haoqi$ killall python
+anirudh@hermes5:~/haoqi$ ps -e | grep python
+ 
+anirudh@hermes5:~/haoqi$ screen -d -m python diploma_camera_server.py 
+anirudh@hermes5:~/haoqi$ ls
+ 
+cloud_camera_server.py    experiment1_cloud_server.py
+diploma_camera_server.py
+
+anirudh@hermes5:~/haoqi$ screen -d -m python cloud_camera_server.py 
+anirudh@hermes5:~/haoqi$ ps -e | grep python
+
+ 1945 pts/10   00:00:00 python
+ 1946 pts/10   00:00:00 python
+ 1954 pts/11   00:00:00 python
+ 1955 pts/11   00:00:00 python
+anirudh@hermes5:~/haoqi$ screen -r 1945
+There is no screen to be resumed matching 1945.
+anirudh@hermes5:~/haoqi$ screen -r 1946
+There is no screen to be resumed matching 1946.
+anirudh@hermes5:~/haoqi$ screen -ls
+There are screens on:
+        1953..hermes5   (04/06/2012 11:04:57 AM)        (Detached)
+        1944..hermes5   (04/06/2012 11:04:00 AM)        (Detached)
+        1871.pts-1.hermes5      (04/06/2012 11:00:24 AM)        (Attached)
+3 Sockets in /var/run/screen/S-anirudh.
+
+anirudh@hermes5:~/haoqi$ screen -r 1953
+[detached from 1953..hermes5]
+anirudh@hermes5:~/haoqi$ ddådd
+-bash: ddådd: command not found
+anirudh@hermes5:~/haoqi$ 
+anirudh@hermes5:~/haoqi$ screen -ls
+There are screens on:
+        1953..hermes5   (04/06/2012 11:04:56 AM)        (Detached)
+        1944..hermes5   (04/06/2012 11:03:59 AM)        (Detached)
+        1871.pts-1.hermes5      (04/06/2012 11:00:23 AM)        (Attached)
+3 Sockets in /var/run/screen/S-anirudh.
+
+anirudh@hermes5:~/haoqi$ screen -r 1953
+[detached from 1953..hermes5]
+anirudh@hermes5:~/haoqi$ ls
+anirudh@hermes5:~/haoqi$ screen -r 1953
+[detached from 1953..hermes5]
+anirudh@hermes5:~/haoqi$ screen -r 1944
+[detached from 1944..hermes5]
+anirudh@hermes5:~/haoqi$ screen -r 1944
+[detached from 1944..hermes5]
+anirudh@hermes5:~/haoqi$ ls
+cloud_camera_server.py    experiment1_cloud_server.py
+diploma_camera_server.py
+anirudh@hermes5:~/haoqi$ ps aux | grep server
+anirudh   1944  0.0  0.0 130084  1568 ?        Ss   11:03   0:00 SCREEN -d -m python diploma_camera_server.py
+anirudh   1945  0.0  0.0 152548 13556 pts/10   Ss+  11:03   0:00 python diploma_camera_server.py
+anirudh   1946  0.4  0.0 229860 15416 pts/10   Sl+  11:03   0:02 /usr/bin/python diploma_camera_server.py
+anirudh   1953  0.0  0.0 130084  1572 ?        Ss   11:04   0:00 SCREEN -d -m python cloud_camera_server.py
+anirudh   1954  0.0  0.0 147704 13328 pts/11   Ss+  11:04   0:00 python cloud_camera_server.py
+anirudh   1955  0.4  0.0 224800 15536 pts/11   Sl+  11:04   0:02 /usr/bin/python cloud_camera_server.py
+anirudh   2004  0.0  0.0 112312   876 pts/9    S+   11:12   0:00 grep server
+root      2235  0.0  0.0      0     0 ?        S    Mar01   0:03 [afs_checkserver]
+anirudh@hermes5:~/haoqi$ killall python
+anirudh@hermes5:~/haoqi$ ps aux | grep server
+anirudh   2011  0.0  0.0 112312   876 pts/9    S+   11:12   0:00 grep server
+root      2235  0.0  0.0      0     0 ?        S    Mar01   0:03 [afs_checkserver]
+anirudh@hermes5:~/haoqi$ ls
+cloud_camera_server.py    experiment1_cloud_server.py
+diploma_camera_server.py
+anirudh@hermes5:~/haoqi$ screen
+[screen is terminating]
+anirudh@hermes5:~/haoqi$ logout
+Connection to hermes5.csail.mit.edu closed.
+haoqili@HaoQis-MacBook-Pro:11:12:47:)~$ ssh anirudh@hermes5.csail.mit.edu
+Password: 
+Last login: Fri Apr  6 11:02:25 2012 from 64.134.41.147
+Linux hermes5 2.6.32-5-amd64 #1 SMP Mon Jan 16 16:22:28 UTC 2012 x86_64
+                       Welcome to CSAIL Debian
+
+Please sign up for the workstations-announce mailing list.  See
+https://lists.csail.mit.edu/mailman/listinfo/workstations-announce for
+more info.  This low-traffic mailing list will be used for important
+announcements by the administrators of this machine.
+
+Some documentation can be found at 
+http://tig.csail.mit.edu/twiki/bin/view/TIG/CSAILDebian
+
+Also consider joining the wkst-discuss mailing list if you're
+interested in helping develop the CSAIL workstation environment.
+anirudh@hermes5:~$ ls
+15March2012Expt
+AddDropChange.pdf
+android-emulator-20110829
+apache-ant-1.8.2
+apache-ant-1.8.2-bin.zip
+asplos_2012.pdf
+ASPLOSWork
+avd0.log
+bin
+CodeSourcery
+DataFiles
+DB
+DelphiDSRCData
+DOC_20101218195700-20101218-1858.PDF
+emulationParameters.txt
+etherpuppet
+ExtractionTools
+Flask-0.7.2
+Flask-0.7.2.tar.gz
+foobar
+fulltext.pdf
+GEM5
+haoqi
+HCC-SPAA2008.pdf
+headerspace.pdf
+include
+init.goldfish.backup
+ISCA
+libs
+__MACOSX
+main-lazy-synch.pdf
+main.pdf
+MSProposal.pdf
+MultiMachineUserSpaceSliceTime
+MultiMachineUserSpaceSliceTimeWithMobility.zip
+Needs-based_research.pdf
+NewImages
+ns-3.7-slicetime
+ns-allinone-3.11
+ns-allinone-3.11.tar.bz2
+op.txt
+OSDIWork
+TOIntegrate.txt
+packetCounts.txt
+PacketsReceivedFromNode1.txt
+public
+PacketsReceivedFromNode2.txt
+PacketsSentFromNode1.txt
+PacketsSentFromNode2.txt
+PACTStuff
+podc11_mutex.pdf
+public
+public_html
+python-app-csm
+python-app-csm.zip
+R
+ReceivedTimeStampsFromNode1.txt
+ReceivedTimeStampsFromNode2.txt
+ReceivedTimeStamps.txt
+rev47.dump
+RTServer
+Scratch
+SentTimeStampsFromNode1.txt
+SentTimeStampsFromNode2.txt
+SentTimeStamps.txt
+server.logs
+sfma-final2.pdf
+signup.pdf
+Sourcery_CodeBench_Lite_for_ARM_GNU_Linux
+SyncServer
+testScript.sh
+ToDo.txt
+TOIntegrate.txt
+trac
+tracWeb
+url?sa=t
+varun
+VN-sharing
+xuyan
+anirudh@hermes5:~$ screen
+[detached from 2028.pts-9.hermes5]
+anirudh@hermes5:~$ screen
+[detached from 2042.pts-9.hermes5]
+anirudh@hermes5:~$ ls -al
+total 99252
+drwxr-xr-x 59 anirudh  anirudh     8192 Apr  2 20:12 .
+drwxr-xr-x  2 root     root       20480 Apr  3 17:56 ..
+drwxrwxr-x  2 anirudh  anirudh     2048 Mar 15 13:07 15March2012Expt
+-rw-r--r--  1 anirudh  anirudh    79543 Mar  1 15:35 AddDropChange.pdf
+drwxrwxr-x  4 anirudh  anirudh     2048 Dec 18  2010 .adobe
+-rw-r--r--  1 anirudh  anirudh        0 Aug 18  2011 .__afs596F
+drwxrwxr-x  3 anirudh  anirudh     2048 Jul 18  2011 .android
+drwxr-xr-x  3 anirudh  anirudh     2048 Sep 12  2011 android-emulator-20110829
+drwxr-xr-x  6 anirudh  anirudh     2048 Aug  9  2011 apache-ant-1.8.2
+-rw-rw-r--  1 anirudh  anirudh 10920710 Dec 20  2010 apache-ant-1.8.2-bin.zip
+drwx------  2 anirudh  anirudh     2048 Mar 19 08:36 .aptitude
+-rw-rw-r--  1 anirudh  anirudh   493889 Jan  6 14:15 asplos_2012.pdf
+drwxrwxr-x 13 anirudh  anirudh     2048 Jan  2 18:27 ASPLOSWork
+-rw-r--r--  1 anirudh  root       40795 Jul 18  2011 avd0.log
+-rw-------  1 anirudh  anirudh    12897 Apr  6 11:12 .bash_history
+-rw-rw-r--  1 anirudh  anirudh      979 Jan 13 12:02 .bashrc
+drwxrwxr-x  2 anirudh  anirudh     2048 Jan 16 19:04 bin
+drwxrwxr-x  3 anirudh  anirudh     2048 Feb 25 15:12 CodeSourcery
+-rwxrwxrwx  1 anirudh  anirudh     8317 Feb 25 15:15 .com.zerog.registry.xml
+drwxrwxr-x  7 anirudh  anirudh     2048 Aug 11  2011 DataFiles
+drwxrwxr-x  2 anirudh  anirudh     2048 Aug  3  2011 DB
+drwx------  3 anirudh  anirudh     2048 Dec  2 22:39 .dbus
+drwxrwxr-x  2 anirudh  anirudh     2048 Mar 19 08:36 .debtags
+dr--r--r--  4 anirudh  anirudh     2048 Dec  2 22:41 DelphiDSRCData
+-rwxrwxrwx  1 anirudh  anirudh 56305525 Jul 13  2011 DOC_20101218195700-20101218-1858.PDF
+-rw-rw-r--  1 anirudh  anirudh      662 Jul 19  2011 emulationParameters.txt
+-rwxr-xr-x  1 anirudh  anirudh    23915 Aug  2  2011 etherpuppet
+drwxr-xr-x  4 anirudh  anirudh     2048 Jul 19  2011 ExtractionTools
+drwxr-xr-x  8 anirudh  anirudh     2048 Jul 16  2011 Flask-0.7.2
+-rw-rw-r--  1 anirudh  anirudh   469996 Jul  6  2011 Flask-0.7.2.tar.gz
+drwxrwxr-x  2 anirudh  anirudh     2048 Jul 15  2011 .fontconfig
+drwxr-xr-x  2 anirudh  anirudh     2048 Feb  8 12:24 foobar
+-rw-r--r--  1 anirudh  anirudh   982941 Jan 27 15:57 fulltext.pdf
+drwx------  3 anirudh  anirudh     2048 Dec  2 22:41 .gconf
+drwx------  2 anirudh  anirudh     2048 Dec  2 22:42 .gconfd
+drwxrwxr-x  3 anirudh  anirudh     2048 Feb 25 15:24 GEM5
+-rw-rw-r--  1 anirudh  anirudh       19 Apr  6  2011 .gitconfig
+drwx------  4 anirudh  anirudh     2048 Dec  2 22:39 .gnome2
+drwx------  2 anirudh  anirudh     2048 Jul  9  2011 .gnome2_private
+-rw-rw-r--  1 anirudh  anirudh      770 Aug 11  2011 .gnuplot_history
+drwxrwxr-x  2 anirudh  anirudh     2048 Apr  2 20:12 haoqi
+-rw-rw-r--  1 anirudh  anirudh   353142 May  8  2008 HCC-SPAA2008.pdf
+-rw-rw-r--  1 anirudh  anirudh  1446549 Feb  2 12:57 headerspace.pdf
+drwxr-xr-x  3 anirudh  root        2048 Jan 16 19:04 include
+-rwxrwxr-x  1 anirudh  anirudh     1200 Jan 29 14:21 init.goldfish.backup
+drwxrwxr-x  2 anirudh  anirudh     2048 Feb 25 15:11 .InstallAnywhere
+drwxr-xr-x  4 anirudh  anirudh     2048 Nov  7 17:50 ISCA
+drwxrwxr-x  3 anirudh  anirudh     2048 Aug 17  2011 .ivy2
+drwxr-xr-x  3 anirudh  anirudh     2048 Sep  7  2010 .kde
+-rw-------  1 anirudh  anirudh      185 Mar 31 14:42 .lesshst
+drwxr-xr-x  2 anirudh  root        2048 Jan 16 19:04 libs
+drwxrwxr-x  3 anirudh  anirudh     2048 Nov 10 15:12 __MACOSX
+-rw-rw-r--  1 anirudh  anirudh   160293 Sep 26  2011 main-lazy-synch.pdf
+-rw-r--r--  1 anirudh  anirudh  1599729 Nov 15 16:01 main.pdf
+-rw-r--r--  1 anirudh  anirudh   135649 Feb 13 09:21 MSProposal.pdf
+drwxr--r-- 21 anirudh  anirudh     8192 Jan 29 20:20 MultiMachineUserSpaceSliceTime
+-rw-rw-r--  1 anirudh  anirudh      194 Jul  8  2011 MultiMachineUserSpaceSliceTimeWithMobility.zip
+-rw-r--r--  1 anirudh  anirudh   139811 Jan 15 18:06 Needs-based_research.pdf
+drwxrwxr-x  2 anirudh  anirudh     6144 Jul 19  2011 NewImages
+drwxr-xr-x 15 anirudh  anirudh     2048 Aug  2  2011 ns-3.7-slicetime
+drwxrwxr-x  5 anirudh  anirudh     2048 Aug  3  2011 ns-allinone-3.11
+-rw-rw-r--  1 anirudh  anirudh 19374555 May 25  2011 ns-allinone-3.11.tar.bz2
+-rw-r--r--  1 anirudh  anirudh        0 Aug 18  2011 op.txt
+drwxrwxr-x  4 anirudh  anirudh     2048 Jan 29 13:15 OSDIWork
+-rw-rw-r--  1 anirudh  anirudh      144 Aug 11  2011 packetCounts.txt
+-rw-rw-r--  1 anirudh  anirudh        0 Aug 11  2011 PacketsReceivedFromNode1.txt
+-rw-rw-r--  1 anirudh  anirudh        0 Aug 11  2011 PacketsReceivedFromNode2.txt
+-rw-rw-r--  1 anirudh  anirudh        0 Aug 11  2011 PacketsSentFromNode1.txt
+-rw-rw-r--  1 anirudh  anirudh        0 Aug 11  2011 PacketsSentFromNode2.txt
+drwxrwxr-x  2 anirudh  anirudh     2048 Jul  6  2011 PACTStuff
+-rw-rw-r--  1 anirudh  anirudh   168220 Apr 11  2011 podc11_mutex.pdf
+-rw-------  1 anirudh  anirudh     6237 Aug  4  2011 .psql_history
+drwxr-xr-x  2 33554756 root        2048 Sep  7  2010 public
+drwxr-xr-x  3 33554756 root        2048 Jan 27 15:44 public_html
+drwxr-xr-x  2 anirudh  anirudh     2048 Jul  6  2011 .pulse
+drwxr-xr-x  5 anirudh  anirudh     2048 Sep 14  2011 python-app-csm
+-rw-r--r--  1 anirudh  anirudh  8451636 Nov 10 15:20 python-app-csm.zip
+drwxrwxr-x  3 anirudh  anirudh     2048 Jul 18  2011 .python-eggs
+drwxrwxr-x  3 anirudh  anirudh     2048 Mar 16 14:19 R
+-rw-rw-r--  1 anirudh  anirudh    38308 Mar 19 11:39 .RData
+-rw-rw-r--  1 anirudh  anirudh        0 Aug 11  2011 ReceivedTimeStampsFromNode1.txt
+-rw-rw-r--  1 anirudh  anirudh        0 Aug 11  2011 ReceivedTimeStampsFromNode2.txt
+-rw-rw-r--  1 anirudh  anirudh        0 Aug 11  2011 ReceivedTimeStamps.txt
+-rw-rw-r--  1 anirudh  anirudh     2261 Dec  2 22:41 .recently-used.xbel
+drwxrwxr-x  3 anirudh  anirudh     2048 Apr  6  2011 .repoconfig
+-rw-rw-r--  1 anirudh  anirudh       31 Apr  6  2011 .repopickle_.gitconfig
+-rw-rw-r--  1 anirudh  anirudh     2009 Jan 28 11:19 rev47.dump
+-rw-------  1 anirudh  anirudh    12409 Mar 19 11:39 .Rhistory
+drwxrwxr-x  2 anirudh  anirudh     4096 Aug 11  2011 RTServer
+drwxr-xr-x  4 anirudh  anirudh     2048 Jul 13  2011 Scratch
+-rw-rw-r--  1 anirudh  anirudh      110 Jul 22  2011 .screenrc
+-rw-rw-r--  1 anirudh  anirudh        0 Aug 11  2011 SentTimeStampsFromNode1.txt
+-rw-rw-r--  1 anirudh  anirudh        0 Aug 11  2011 SentTimeStampsFromNode2.txt
+-rw-rw-r--  1 anirudh  anirudh        0 Aug 11  2011 SentTimeStamps.txt
+-rw-rw-r--  1 anirudh  anirudh        0 Aug  2  2011 server.logs
+drwxrwxr-x  3 anirudh  anirudh     2048 Mar 17 16:42 .sfCluster
+-rw-rw-r--  1 anirudh  anirudh   159318 Jun 19  2011 sfma-final2.pdf
+-rw-r--r--  1 anirudh  anirudh    35141 Feb  8 13:03 signup.pdf
+drwxr-xr-x 59 anirudh  anirudh     8192 Apr  2 20:12 .snapshot
+-rw-r--r--  1 33554756 root         512 Sep  7  2010 .snapshot.README
+drwxrwxr-x  2 anirudh  anirudh     2048 Feb 25 15:15 Sourcery_CodeBench_Lite_for_ARM_GNU_Linux
+drwxr-xr-x  3 anirudh  anirudh     2048 Aug 17  2011 .ssh
+drwxrwxr-x  3 anirudh  anirudh     2048 Jun 27  2011 .subversion
+drwxr-xr-x  2 anirudh  anirudh     4096 Jan 29 19:01 SyncServer
+-rwxrwxr-x  1 anirudh  anirudh       55 Aug 18  2011 testScript.sh
+-rw-rw-r--  1 anirudh  anirudh       19 Jul 21  2011 ToDo.txt
+-rw-rw-r--  1 anirudh  anirudh      309 Jul 16  2011 TOIntegrate.txt
+drwxrwxr-x  8    18554 schwa       2048 Mar  2 12:32 trac
+drwxrwxr-x  6 anirudh  anirudh     2048 Jan 28 14:44 tracWeb
+-rw-rw-r--  1 anirudh  anirudh     1223 Jan  9 18:55 url?sa=t
+drwxrwxrwx  3 anirudh  anirudh     2048 Mar 16 15:48 varun
+-rw-rw-r--  1 anirudh  anirudh     9351 Apr  2 20:12 .viminfo
+-rw-------  1 anirudh  anirudh        0 Jul 18  2011 .viminfo.tmp
+-rw-rw-r--  1 anirudh  anirudh        8 Jun 24  2011 .vimrc
+drwxr-xr-x  2 anirudh  anirudh     2048 Jul 10  2011 .vnc
+drwxr-xr--  2 anirudh  anirudh     2048 Jul 21  2011 VN-sharing
+-rw-------  1 anirudh  anirudh       53 Jan  8 08:35 .Xauthority
+drwxrwxr-x  2 anirudh  anirudh     2048 Mar 12 14:44 xuyan
+anirudh@hermes5:~$ ps aux | grep server
+Read from remote host hermes5.csail.mit.edu: Operation timed out
+Connection to hermes5.csail.mit.edu closed.
+haoqili@HaoQis-MacBook-Pro:11:49:52:(~$ 

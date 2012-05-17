@@ -1,0 +1,107 @@
+1333610519391: *** Opened log file for writing ***
+1333610519392: Android build: Nexus S
+1333610519393: NET_NAME set to: wlan0
+1333610519393: starting Mux with id = -1
+1333610519394: areButtonsEnabled --> true
+1333610519396: *** Application started ***
+1333610519396: HI I'm in ONRESUME()
+1333610519399: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333610519409: ************ GPS turned OFF *************
+1333610519430: Started VCoreDaemon with parameters maxRx = 6 , maxRY= 1, minLongitude = -7110102 , minLatitude = 4236349, regionWidth =17
+1333610519439: started, mId = 5001
+1333610519441: region (-1, -1) out of bounds, dormant
+1333610522700: canPressButton = false. Can't press button because you're not at a valid region: 0 ~ 5. You're at -1
+1333610522725: can't press camera button yet
+1333610525528: moving from region (-1,-1), to (2,0)
+1333610525532: sending LEADER_REQUEST
+1333610525534: inside sendPacket(Packet p)
+1333610525594: Sending UDP payload: 406
+1333610525835: sending LEADER_REQUEST
+1333610525838: inside sendPacket(Packet p)
+1333610525852: Sending UDP payload: 406
+1333610526140: sending LEADER_REQUEST
+1333610526142: inside sendPacket(Packet p)
+1333610526159: Sending UDP payload: 406
+1333610526443: sending LEADER_REQUEST
+1333610526444: inside sendPacket(Packet p)
+1333610526474: Sending UDP payload: 406
+1333610526542: LEADER_REQUEST timed out
+1333610528794: cloud accepted leadership request, no csm data included.
+1333610528813: *** Starting CSM Layer ***
+1333610528816: *** CSM Layer starting with cache disabled ***
+1333610528817: *** CSM Layer starting with forwarding enabled ***
+1333610528856: DSMLayer starting
+1333610528873: UserApp started.
+1333610528877: UserApp for Camera Diploma initialized and waiting for requests.
+1333610529113: inside sendPacket(Packet p)
+1333610529123: Sending UDP payload: 25252
+1333610529128: now fully up as LEADER (id=5001) of (2,0)
+1333610530244: canPressButton = TRUE
+1333610530244: areButtonsEnabled --> false
+1333610530245: disabling buttons ...
+1333610530261: ** Clicked take picture button **
+1333610531028: inside HandlePictureStorage onPictureTaken()
+1333610531423: Picture successfully taken, ORIG BYTE LENGTH = 870461
+1333610532268: Our new height x width: 240 x 320
+1333610532268: Show photo from handle my camera take
+1333610532269: client making photo packet to send to leader for it to save
+1333610532296: BYTE SIZE AFTER COMPRESSION: 2671
+1333610532302: about to send my pic
+1333610532302: I'm a leader, upload/save new photo packet going to mux directly
+1333610532310: end of client send picture method
+1333610532303: Inside mux Packet.CLIENT_REQUEST
+1333610532303: I'm the leader of requesting client, about to process Packet.CLIENT_REQUEST in userApp
+1333610532303: UserApp handling MY region's client request, will send atom packet to REMOTE region's handleDSMRequest
+1333610532303: request is CLIENT_NEW_PHOTO, so send atom packet to myself (remote region = me)
+1333610532304: Sending PROC_REQUEST 10:0 (2,0)->(2,0)
+1333610532304: Dispatching Atom PROC_REQUEST 10:0 (2,0)->(2,0)
+1333610532305: I got a CSM packet at a leader 
+
+1333610532361: inside Packet.SERVER_SHOW_NEWPHOTO. I'm a leader showing my nonleader/myself client's new photo
+1333610532363: I'm a leader and I SUCCEEDED in saving my client's new photo
+1333610532370: now showing in UI the new photo I just saved ... 
+1333610532310: Sending UDP payload: 3642
+1333610532313: removed replies before id 0 from sentReplies of size 0
+1333610532321: Inside UPLOAD_PHOTO!!
+1333610532327: my_gpinfo.isSuccess is now (should be true): true
+1333610532328: Region leader successfully uploaded a new photo taken by a client in region. Region leader now display the new photo on its screen (through StatusActivity)
+1333610532332: Received PROC_REQUEST 10:0 (2,0)->(2,0), replying PROC_REPLY 10:0 (2,0)->(2,0)
+1333610532333: Dispatching Atom PROC_REPLY 10:0 (2,0)->(2,0)
+1333610532334: I got a CSM packet at a leader 
+
+1333610532372: inside Packet.CLIENT_UPLOAD_PHOTO_ACK
+1333610532372: leader upload new photo latency = 69
+1333610532373: = leader upload start 1333610532303 ~ stop 1333610532372
+1333610532375: SUCCESS! Client now knows saving photo on its leader succeeded
+1333610532348: Sending UDP payload: 949
+1333610532351: Received PROC_REPLY 10:0 (2,0)->(2,0), handing to UserApp
+1333610532351: Now back in orginitator region's leader, precssing handleDSMReply
+1333610532352: Going to and from remote region took latency = 48
+1333610532352: = orig leader sent packet at 1333610532303 ~ received reply at 1333610532351
+1333610532355: Originator Region=2 Leader (for Client=5001) processes remote region's dsm atom reply and will send Packet reply to Originator Client
+1333610532356: reply packet contains the ACK for UPLOAD_PHOTO
+1333610532357: I (the leader) was also the originator client (id = 5001) so I hand the packet to my mux directly, without UDP
+1333610549442: inside sendPacket(Packet p)
+1333610549453: Sending UDP payload: 406
+1333610559129: leader to cloud hearbeat...
+1333610579453: inside sendPacket(Packet p)
+1333610579467: Sending UDP payload: 406
+1333610583710: Received UDP payload: 406
+1333610584013: Received UDP payload: 406
+1333610584303: Received UDP payload: 406
+1333610584606: Received UDP payload: 406
+1333610590919: Received UDP payload: 25252
+1333610591353: leader to cloud hearbeat...
+1333610592506: Received UDP payload: 406
+1333610596458: Received UDP payload: 5506
+1333610596531: GOT CSM_Msg
+1333610596531: nonce 0 heard from src region (3,0)
+1333610596538: Received UDP payload: 949
+1333610596545: GOT CSM_Msg
+1333610596546: nonce 1 heard from src region (3,0)
+1333610609455: inside sendPacket(Packet p)
+1333610609470: Sending UDP payload: 406
+1333610611985: Received UDP payload: 406
+1333610623484: leader to cloud hearbeat...
+1333610634760: HI I'm in ONPAUSE()
+1333610635869: inside onDestroy()

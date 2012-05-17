@@ -1,0 +1,89 @@
+1333700805780: *** Opened log file for writing ***
+1333700805781: areButtonsEnabled --> true
+1333700805781: *** Application started ***
+1333700805781: HI I'm in ONRESUME()
+1333700805788: SAMPLING_DISTANCE : 1, SAMPLING_DURATION : 1000
+1333700924483: canPressButton = false. Can't press button because you're not at a valid region: 0 ~ 5. You're at -1
+1333700924523: can't press camera button yet
+1333700928479: please input a region
+1333700945984: moving from region (-1,-1), to (5,0)
+1333700957013: canPressButton = TRUE
+1333700957014: areButtonsEnabled --> false
+1333700957016: disabling buttons ...
+1333700957017: new pic disableButtons XXX
+1333700957018: areButtonsEnabled --> false
+1333700957107: takeNum=1 takeCamGood=0 takeGoodSave=0 takeBad=0 getNum=0 getGood=0 getBad=0
+1333700957107: ** Clicked take picture button **
+1333700958548: inside HandlePictureStorage onPictureTaken()
+1333700958549: takeNum=1 takeCamGood=1 takeGoodSave=0 takeBad=0 getNum=0 getGood=0 getBad=0
+1333700958838: Picture successfully taken, ORIG BYTE LENGTH = 2383609
+1333700959201: Our new height x width: 306 x 408
+1333700959201: Show photo from handle my camera take
+1333700959202: client making photo packet to send to leader
+1333700959227: BYTE SIZE AFTER COMPRESSION: 4577
+1333700959229: sending new pic ....
+1333700959230: Server request to url: http://hermes5.csail.mit.edu:8213/101/5/0/
+1333700959515: Cloud server request length: 15799
+1333700959517: about to execute HTTP POST
+1333700959517: in serverRequest() about to httpclient.execute()
+1333700960170: Execute HTTP latency: 653ms
+1333700960171: finished executing HTTP POST, get data
+1333700960172: make input stream reader for data
+1333700960174: Cloud response length: 18
+1333700960175: Returning cloud object
+1333700960184: CameraCloud upload new photo latency = 955
+1333700960186: CameraCloud upload start 1333700959229 ~ stop 1333700960184
+1333700960186: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 getNum=0 getGood=0 getBad=0
+1333700960187: SUCCESS! Client now knows saving photo on cloud server succeeded
+1333700960188: RETURN STATUS: 12
+1333700960189: Inside _enableButtons
+1333700960190: areButtonsEnabled --> true
+1333700960190: end of client send picture method
+1333700990089: canPressButton = TRUE
+1333700990090: areButtonsEnabled --> false 
+1333700990091: Inside get photo disableButtons XXX
+1333700990119: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 getNum=1 getGood=0 getBad=0
+1333700990119: ** Clicked getphotos Button from region 5 **
+1333700990119: Trying to get photo from server, about to call serverRequest()
+1333700990120: Server request to url: http://hermes5.csail.mit.edu:8213/102/5/0/
+1333700990125: Cloud server request length: 12
+1333700990126: about to execute HTTP POST
+1333700990126: in serverRequest() about to httpclient.execute()
+1333700990486: Execute HTTP latency: 359ms
+1333700990487: finished executing HTTP POST, get data
+1333700990488: make input stream reader for data
+1333700990490: Cloud response length: 43257
+1333700990491: Returning cloud object
+1333700990719: CameraCloud download photo latency = 599
+1333700990719: CameraCloud download start 1333700990120 ~ stop 1333700990719
+1333700990720: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 getNum=1 getGood=1 getBad=0
+1333700990720: Success! Client getting photo from cloud server, showing photo...
+1333700990720: Remote photo's length: 4577
+1333700990772: Done with Get photos button for region 5
+1333700990773: Inside _enableButtons
+1333700990773: areButtonsEnabled --> true
+1333700993224: canPressButton = TRUE
+1333700993225: areButtonsEnabled --> false 
+1333700993227: Inside get photo disableButtons XXX
+1333700993252: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 getNum=2 getGood=1 getBad=0
+1333700993252: ** Clicked getphotos Button from region 2 **
+1333700993252: Trying to get photo from server, about to call serverRequest()
+1333700993253: Server request to url: http://hermes5.csail.mit.edu:8213/102/2/0/
+1333700993265: Cloud server request length: 12
+1333700993265: about to execute HTTP POST
+1333700993266: in serverRequest() about to httpclient.execute()
+1333700993372: Execute HTTP latency: 106ms
+1333700993373: finished executing HTTP POST, get data
+1333700993373: make input stream reader for data
+1333700993374: Cloud response length: 28536
+1333700993378: Returning cloud object
+1333700993522: CameraCloud download photo latency = 269
+1333700993523: CameraCloud download start 1333700993253 ~ stop 1333700993522
+1333700993524: takeNum=1 takeCamGood=1 takeGoodSave=1 takeBad=0 getNum=2 getGood=2 getBad=0
+1333700993524: Success! Client getting photo from cloud server, showing photo...
+1333700993525: Remote photo's length: 3018
+1333700993556: Done with Get photos button for region 2
+1333700993557: Inside _enableButtons
+1333700993557: areButtonsEnabled --> true
+1333701417006: HI I'm in ONPAUSE()
+1333701417785: inside onDestroy()
