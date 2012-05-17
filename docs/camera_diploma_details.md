@@ -1,14 +1,9 @@
-TODO:
-- DIPLOMA overview (introduces region leader relaying/hopping, consistent shared memory among region, heartbeats/talking to cloud detailed enough for the trials section, or write it along with the trials section)
-- UI with explaination of the app screen shots
-- Camera_CLOUD
-- Trials
-
 Order:
 X1. Camera_DIPLOMA take
 X2. Camera_CLOUD
 3. Trials + heartbeat/talking section of DIPLOMA overview
 4. screen shot DDSM / UI writing
+5. DIPLOMA overview (introduces region leader relaying/hopping, consistent shared memory among region, heartbeats/talking to cloud detailed enough for the trials section, or write it along with the trials section)
 
 Camera_DIPLOMA app details
 --------------------------
@@ -368,7 +363,6 @@ Scenario 2. Cloud Get Region 5
                 HttpPost data:
                 - CLIENT_DOWNLOAD_PHOTO
                 - Region number 
-                
 
 -------
 
@@ -376,7 +370,6 @@ DIPLOMA
 bad = (isSuccess == false): some or all of this is due to DIPLOMA Level time out
 timedOut = timed out after 6 seconds. If request comes back after 6 seconds, it is counted into getGood or getBad
 
-################
 ################
 ################
 
@@ -392,58 +385,201 @@ Experiment Set Up
 ==============================
 - Run DIPLOMA and Cloud servers and make sure their IP addresses are set on Globals.CSM_SERVER_NAME and Globals.CLOUD_SERVER_NAME respectively.
 - Start Barnacle on DIPLOMA phones
+- The first time Barnacle starts it'll ask for WPA Supplicant. Keep choosing "Yes" and it will create the WPA supplicant.
+- On March 10th, we observed Barnacle printing an error saying : "Cannot put eth0 in ad-hoc mode" on the AT&T phone but it still continues to work fine. We do not observe this error later on.
+1. SMCloud server running ?
+2. DIPLOMA server running ?
+3. Ensure Items 1 and 2 above do not run on the same port on the same machine.
+4. The code on the phone must point to the right server in both cases
+1 and 2 above.
+5. Is the code  resilient to phone being switched off at random. ?
+6. UI does not freeze at any time except for when processing is going on.
+7. Clear log files from sdcard of all phones.
+8. Make sure logs are flushed on to the sdcard immediately so that we
+don't end up with empty logs at the end of an experiment.
+
+- If the request is taking too long, you might see: "xxx is not responding. Would you like to close it? 'Wait' 'Okay'". If people press 'Okay'. the app crashes. If people press 'Wait' the app continues normally. Don't press anything else
 
 
-Pre Trial Issues
+Notes in chronological order
 ==============================
+- Whenever after the phone connects to USB, you have to turn on the development mode again.
+
+- Socket-already-in-use problem when loading new code is fixed by always killing (using back arrow) the app before loading new code. (The "home" button only pauses the app, not destroying it.)
+    Jason: The socket in use is probably due to the NetworkThread not exiting cleanly or at all when you load new code onto it. When you load new code directly from your laptop without first closing the running app by hitting the back button, ADB kills the StatusActivity without letting it close the NetworkThread first.
+
 - Before I used my own Camera Surface View, I used the built-in camera ACTION_IMAGE_CAPTURE intent to get the picture: https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/e61381eda31d567bb31c69c21f54d3adb9c9f044/src/edu/mit/csail/diplomamatrix/StatusActivity.java#L382. Initially there was a problem that the simple way of retrieving images only provided a *tiny thumbnail of the image, not the full image*: see https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/a1398a4723c0e6710a43dddb8681081c910875ff/src/edu/mit/csail/diplomamatrix/StatusActivity.java#L364
     The problem is also described here: http://stackoverflow.com/questions/1910608/android-action-image-capture-intent
 More specifically, the onActivityResult() of intent image capture can only provide a low-resolution thumbnail because there probably isn't enough storage space all the time to save all the image data. So that's why http://developer.android.com/reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE says that EXTRA_OUTPUT should be used to save the image.
 To fix this problem (ultimately I changed into Camera Surface View though and don't use the camera intent at all), I save the new photo on the SD card and onACtivityResult() uses _getAndResizeBitmap() to retreive the photo and resize it. https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/e61381eda31d567bb31c69c21f54d3adb9c9f044#L4R384
 
-- 
+- GPS is accurate within 3-5 meters. Each phone has a different consistent offset, e.g. a phone could always be 2 meters more south than the other phones.
+- Sometimes the GPS will have a glitch and jump suddenly to a ridiculous location, but this happens so rarely and we don't need to do anything about it
+
+- On March 10th, Anirudh and HaoQi went to check out the stretch of Mass Ave outside of McDonalds and Cafe Luna to get measurements for the 1st experiment. Since that stretch of Mass ave was very straight and we were not yet aware of the limitations of the Wifi range, we thought we could just use the x coordinates of the phones (already rotated so that the axes correspond to east-west and north-south directions) with region 1 starting at the right (south eastern) most region of the road and the regions increase westwards (northwestward of the road).  The regions shapes are not rectangles, but parralelograms (which we'll change to rectangles later so that region width can increase).
+
+    GPS Results from our micro-measurements (NOT USEFUL, but for a record. Later on we discovered there are too many Wifi hotspots causing too much interferance in this stretch of the road)
+        A picture from the measurement, you can also see the UI at that time: https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/6c7252d3d9f66a57e3ed84d0135ab021846a1e10/docs/2012_03_10_diploma.JPG
+        Google Maps puts the distance between Bank Of America (BOA) and Desi Dhabha on Mass Ave at 0.3 miles which is 540 m
+        From Google Maps
+            42.363404,-71.100214 Desi Dhaba
+            42.366067,-71.104761 BOA 
+            Assuming coordinates are planar : distance is 528 m, 10^(-5) degrees is 1 m.
+        From phones :
+            BOA
+                Nexus S :
+                42.366300,-71.104936
+                Galaxy Note :
+                42.365944,-71.104888
+                Not instantaneous, they were not taken at the exact same location or time, we moved in about a 5 m radius :
+                GPS error between phones ~ sqrt(36^2+5^2)  ~ 37 m  which is kind of ok given that we may have moved quite a bit.
+            Desi Dhabha :
+                Nexus S:
+                -71.100005,42.363466
+                Galaxy Note :
+                -71.100005,42.363492
+                exact same location
+                Difference is ~ 3 m That's really accurate between two phones
+        Summary of Distances.
+            Distance acc to GMaps: 528 m
+            Distance acc to Nexus S : 568 m
+            Distance acc to Galaxy Note : 546 m
+
+- (very minor ui) `photoResultNull.setVisibility(View.VISIBLE);` of https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/8de606e548b4854807ea91a4822b7638a250843c didn't work so I stopped using it.
+
+- **Important!** https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/333ea188283ab9b67b03c5343ecdc35c01e9fda8#L8R208
+    This commit is when I switched from using camera intent to retrieve the picture and saving the pic on the SD card to using the CameraSurfaceView class http://code.google.com/p/openmobster/wiki/CameraTutorial.
+    The reason for this change was because the *intent/sd card solution only works on Nexus S phones, not Galaxy Notes* phones. In Galaxy Notes, the Mux is killed and restarted before and after the camera intent (because StatusActivity is paused), causing a "Cannot open socketAddress already in use" error: https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/8de606e548b4854807ea91a4822b7638a250843c/logcats/galaxy_note_camera_crash.txt#L470
+    CameraSurfaceView fixes this problem because StatusActivity never has to be paused when taking a photo. Since it works on both types of phones, we used this solution for both.
+
+- ! Much better GPS to region logic, with help from lfei. https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/460a917a4a73594ddd3b48c4109a36935c23c3d1 This takes into account that longitude distances varies greatly from the poles (0) to equator (longest). So the regions can be assigned more accurately. The regions are square. The road is defined by 2 points. (So the road must be straight.)  The final implementation of this in the latest code can be tweaked more easily.
 
 
- I used a direct camera interface for DIPLOMA, It was actually not a bug. The onActivityResult of intent image capture can only provide a low-resolution thumbnail because there probably isn't enough storage space all the time to save all the image data. So that's why http://developer.android.com/reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE says that EXTRA_OUTPUT should be used to save the image.
-
-Extra notes
+Experiments
 ==============================
-- Socket-already-in-use problem when loading new code is fixed by always killing (using back arrow) the app before loading new code. (The "home" button only pauses the app, not destroying it.)
-    Jason: The socket in use is probably due to the NetworkThread not exiting cleanly or at all when you load new code onto it. When you load new code directly from your laptop without first closing the running app by hitting the back button, ADB kills the StatusActivity without letting it close the NetworkThread first.
-- Whenever after the phone connects to USB, you have to turn on the development mode again.
 
-Trials
-==============================
+We conducted two pre-experiments to see the app was working and to test the wifi range of the phones.
 
-Prior to the first experiment. We conducted two mini experiments to see the app was working and to test the wifi range of the phones.
+Pre-experiment 1: 3-phone test to check DIPLOMA relay and Wifi range
+    There were 3 people, each holding a phone. One phone stood at a corner of a building while the other phones each stood about 20 meters along a different wall. The middle phone is in range of the other two phones, but the other two phones are not in range with each other, in Wifi and sight. The phones were held vertically, the outer phones faced the middle phone. There were no obstructions in the path of transmission. We would later find out that the range from this test would be too optimistic for multi-user experiments where users moved around and obstructed each other all the time.
+    Let the outer phones be A and C, and the inner phone be B. Phone A would take a picture and let phone B know (by using gestures) that B can tell C to request A's picture. If A successfully gets B's photo, then DIPLOMA multi-hop works because the only way for A to succeed is for B to help pass along the picture from C to A in DIPLOMA.  
+    When we stood 20 meters apart, the "get" worked about 2 out of 4 times.
 
-Mini expe
-conducted a 3-phone test to get the Wifi range of the phones. In this test, the phones were facing each other all the time and there were no obstructions in the path of transmission. We would later find out that the range from this test would be too large for multi-user, randomized direction, randomized obstruction data-collecting experiments.
+Pre-experiment 2: Testing that phones can hear each other across Mass Ave.
+    Even though all of the outdoor experiments were conducted on one side of the rode, we tested that Wifi signal could potentially work between phones across the road.  Two of us stood at opposite sidewalks taking and getting each other's picture. We did not observe anything abnormal in the 5 mintue experiment. 
 
-We performed a total of 6 data-collection experiments in a span of almost 2 months. Throuh time, the apps had fewer bugs and more measures to insure successes. However, it was impossible to fix the most critical issue -- the Wifi range and consistency of the phones. The interference of 20 phones carried by 10 people moving simultaneously and randomly made collecting meaninful data imfeasible with the current Wifi abilities of the phones. In the final 2 experiments, we resorted to a controlled indoors experiment with minimal Wifi interferance and obtained more expected results.
+
+i   We performed a total of 6 data-collection experiments in a span of almost 2 months. Throuh time, the apps had fewer bugs and more measures to insure successes. However, it was impossible to fix the most critical issue -- the Wifi range and consistency of the phones. The interference of 20 phones carried by 10 people moving simultaneously and randomly made collecting meaninful data imfeasible with the current Wifi abilities of the phones. In the final 2 experiments, we resorted to a controlled indoors experiment with minimal Wifi interferance and obtained more expected results.
 
 Experiment 1
 ------------
 Location: 77 Massachusetts Avenue
 Date: March 15
+Weather: Drizzling and cold
 Phones: 20 Nexus S
 People: 10 People, 1 Cloud, 1 DIPLOMA/person
 Regions: 6
 Setup: Linear
 Width: 
+Files: https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/master/camera_diploma_exp1_data, 
+       https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/camera_diploma_exp1_data/diploma_notes.md
+       https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/camera_diploma_exp1_data/cloud_notes.md
 
-In this experiment was filled with problems with the apps due to insufficient and inadequate testing beforehand. There were frequent crashes due to the Camera Surface interface running out of memory, and the users double pressing the buttons. The regions were XX meters wide each, which caused great trouble in phones communicating with each other even in the same region. A smaller bug forced the users to walk to region 0 whenever the apps crashed. The region assignment based on GPS was observed to be robust.
+No usable data from this experiment because this this experiment was filled with problems due to insufficient and inadequate stress testing beforehand. There were frequent crashes due to the Camera Surface interface running out of memory, and the users double pressing the buttons. The regions were XX meters wide each, which caused great trouble in phones communicating with each other even in the same region. A smaller bug forced the users to walk to region 0 whenever the apps crashed. The region assignment based on GPS was observed to be robust.
 
-- Fixed region 0 problem
-- Decreased cloud heartbeat
-- Added "take photo" ack
+The git commits between this experiment and the next fixed the following:
+- Added leader to cloud heartbeat, i.e. fixed the bug where leaders were not sending heartbeats to the cloud
+- Fixed region 0 problem, so that after phone crash, the user can restart at any region, not just region 0.
+- Added "take photo" ack, i.e. the 4th leg for take photos
 - Added latency measurements
+- Improved UI by providing toast messages to show errors to users
+- Flush the log evertime there is a new write, instead of when the app closes, so that we have logs even when the app crashed. https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/6c95044a8662de19f2d1b6b8d1043e033da5741c#L30R262
+- Automatic detection for net name, 
+
 - Fixed double click problem by using ProgressDialog to freeze the UI as well as a boolean to flag whenever a button is clicked.
-- Improved UI by providing toast messages to show errors to users, filling up entire Galaxy Note screen,
+  The Double Click Problem: 
+    Before we tried using the boolean flag, we tried to make the camera surface view better by closing the camera and force closing the app 
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/5827245dd39eddd7d6097caa2ff10b5949a73448#L7R35
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/5827245dd39eddd7d6097caa2ff10b5949a73448#L7R72
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/017939513daeb33cd9682c717752c89957acc18e#L29R483
+    Force closing added to be extra sure nothing bad happens, because we learned that the camera crash problem is caused by camera not being killed even though DIPLOMA has forced stopped and destroyed.
+    http://stackoverflow.com/questions/2092951/how-to-close-android-application/5036668#5036668
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/6c95044a8662de19f2d1b6b8d1043e033da5741c#L30R524
+
+    We didn't stress-test these changes independently, but instead tested with the boolean flag that disables all other button presses when a press is made: 
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/5827245dd39eddd7d6097caa2ff10b5949a73448#L11R424 
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/017939513daeb33cd9682c717752c89957acc18e#L29R345
+    
+    No camera crashes were discovered after these changes
+
+- Progress Dialogs do not stop the popup of "xxx is not responding. Would you like to close it? 'Wait' 'Okay'". If people press 'Okay'. the app crashes. If people press 'Wait' the app continues normally.
+  For the Cloud App GETs: ProgressDialog does not show the rotating sphere/darkened screen, but instead just freezes the UI. No harmful effects were observed.
+    IRC says: "that dialog shows because your app is not responsive, that is, it won't respond to *system* signals as well"
+    It seems true, because the popup only shows if the ProgressDialog's wheel has stopped spinning for a while. This happens if the connection is ultra crappy (indoors).
+    Despite being unresponsive for a long time, I haven't seen crashes unless I press 'Okay'.
+
 - Fixed leader hand-off bug by adding a new state "HANDING_OFF"
-- Fixed the bug where leaders were not sending heartbeats to cloud
-- Automatic detection for net name
+  Handing_OFF
+    We added a HANDING_OFF state, when a leader of one region hands off its leadership.  Here are the diffs we made to VCoreDaemon 
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/eeda40d5f628aa609a5111e02ea1995666b9e451#diff-3
+
+    Here is suvinay's crash logs:
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/5a26e47024fa7630fa3bc86b2107980ddc24482d/logcats/0330_1251/whitephone/suvinay_crash.txt
+
+    The reason we did this was because we (Suvinay/Owen) discovered a consistent problem where before the leader handoff is done, the old leader thinks it's the new region's leader before it even joins the new region. E.g. if the leader of region 3 moves to region 2, this is the sequence of state and region the phone shows:
+
+    Leader (3,0) --> Leader (2, 0) --> JOINING (2, 0) --> Leader (2, 0)
+
+    The second stage (The first "Leader (2,0)") is very short, but if a "Reg # Get" is pressed during this time, the phone freezes because the phone is actually NOT a leader of region 2 yet.
+
+    So we edit it so that it's like
+
+    Leader (3,0) --> HANDING_OFF --> JOINING (2, 0) --> Leader (2, 0)
+
+    Now, we make sure that users can press buttons ONLY if the state of the phone is a Leader or Nonleader:
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/eeda40d5f628aa609a5111e02ea1995666b9e451#L1R350
+
+    HANDING_OFF introduced bug fixes:
+    - Make HANDING_OFF able to receive leader nominates and send leader confirmation ack, i.e. making electing new leader possibles
+        https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/4bdab778fcbc0cd00187eb4bf679946abaa6bec6#L0R333
+    - Change the HANDING_OFF state transition to the correct region
+        https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/4bdab778fcbc0cd00187eb4bf679946abaa6bec6#L0R695
+
+- Decreased cloud heartbeat, because the old period was too long, which was okay with caching (Jason's old app), but this app doesn't have caching
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/6b3533e98b47b981ed0ba0594f10d4e119caaa92#L4R54
+
+- Improve UI of Galaxy Note by filling up the screen space from about 60% to 100%
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/4ca30c50f7b504a7ac6c5b6cc7cec1eced896860#L0R5
+
+- *N.B.* Galaxy Notes and Nexus S phones require different net names. Galaxy Note needs "eth0" while Nexus S needs "wlan0". Before this commit, I would change the string manually, but this commit allows for automatic detection of the type of phone:
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/4ca30c50f7b504a7ac6c5b6cc7cec1eced896860#L2R486
+
+- OutOfMemoryError
+    Another reason that could have contributed to the crash, on the Nexus S phones, was taking too many pictures in a row causing the VM heap to run out of memory at BitmapFactory.decodeByteArray(): 
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/e3e9e5ab069b4f57e6214fd8e6e0300f5d5305cc#L8R325
+    http://stackoverflow.com/questions/477572/android-strange-out-of-memory-issue-while-loading-an-image-to-a-bitmap-object
+    http://stackoverflow.com/questions/6402858/android-outofmemoryerror-bitmap-size-exceeds-vm-budget
+    We observed the memory inside Eclipse's DDMS - Heap profile. 
+        The following instructions are from memory, so might not be all correct, consult Google
+        Open Eclipse's DDMS
+        Left hand side, click on Devices, then click on the icon that dumps HPROF file
+        Right hand side click on the Heap tab, and click "Cause GC"
+    To reproduce the problem, quickly press back-to-back TAKEs on a Nexus S phone (leader or nonleader)  and there could be a crash on the 3~6th TAKE, after all previous TAKEs are successful
+    We observed the free memory fluctuation real time. But we didn't notice a consistent drop in free memory, or consistent decrease of free memory for new TAKE pictures. 
+    At first trying catching the exception and putting in  bitmap.recycle() didn't work. 
+    Here are the two workarounds that did work
+        1. Set the inSampleSize for jpegs to be a big number, so more pixels are skipped and thus it would cause a blurrier and smaller picture:
+            https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/dbc267a51799ed40e40751122425e9543e0bd5e8#L1R749
+        2. Add garbage collect in many places associated with taking pictures and the memory-intensive resizing the pictures
+            https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/dbc267a51799ed40e40751122425e9543e0bd5e8#L1R144
+    After these two workarounds were coded, we tested the phone by continuously pressing the TAKEs over 100 times, multiple times, and did not observe any crashes.
+
+
+- UI improvement: Added counts for success and failures
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/92ccb731dbb4d140001c831602aa7ac570766bd0
+
 - 
+
 
 Experiment 2
 ------------
@@ -526,3 +662,66 @@ Though for one, we were 3% short of 100%
     - how to reproduce the issues/repeatable
 
 - how things got to where they are
+
+Closed Questions
+=============
+
+Waiting Period
+-----------
+Q: 
+Hi Jason, In VCoreDaemon, what's the purpose of rejoining a region every 10 seconds (stateRequestedTimeoutPeriod = 10000ms) with "Runnable stateRequestedTimeoutR" when we already have "Runnable heartbeatR" to make sure that the leader is alive every 3*heartbeatPeriod time?  
+
+A:
+That's in case you're in a "WAITING" state, which is a rest period of
+10 seconds or so to make sure we're not just constantly doing leader
+request and cloud take leadership cycles too fast.
+
+We can make it shorter though, perhaps.
+
+e.g.
+
+sent leader_req
+sent leader_req
+sent leader_req
+sent leader_req
+leader_req timeout
+trying to take leadership in cloud
+take leadership failed
+waiting 10 seconds to cool off / for conditions outside of our control
+to change (e.g. mobile data available, out of range, etc.)
+
+v.s.
+sent leader_req
+sent leader_req
+sent leader_req
+sent leader_req
+leader_req timeout
+trying to take leadership in cloud
+take leadership failed
+redo all the steps above immediately, even though conditions might not
+have changed much
+
+Q:
+What are the circumstances that would cause a phone to be in a WAITING state?
+
+A:
+Leader not reachable and unable to take leadership from cloud. Both of those have to be true.
+
+--
+
+Open Concerns
+=============
+- ad hoc wifi continues running on the AT&T phones even after we turn off the Barnacle app (assuming we did turn it on once at least to get wifi working in the first place.). ie turning off the barnacle app has no effect on ad hoc wifi on the AT&T phone. Do you know why this is happening ?
+
+- Extremely unlikely race condition (not fixed, we didn't encounter this, though this could happen)
+    Chronological order:
+    1. The phone makes Request 1 and ProgressDialog is activated to freeze the UI
+    2. Request 1 times out so ProgressDialog is disabled and the UI is unfrozen
+    3. Right after, the phone makes Request 2 a TAKE, and the ProgressDialog is activated again so UI is frozen again for this request
+    4. Request 1's reply comes back and disables any ProgressDialog, which in this case is actually the ProgressDialog to make sure Request 2's TAKE's camera does not have the double click (quickly activating the camera twice crashes the camera, see "Double Click Problem" above) problem.
+    5. *Immediately* after the ProgressDialog is disabled, the user clicks on another TAKE, and *could encounter the Doble Click Problem*
+    Fixes:
+        1. Save latest request id in StatusActivity (in a queue or variable) and only if the request id from the received packet matches the latest request id can the ProgressDialog be dismissed.
+        or 2. Independent timeout for camera
+
+- OutOfMemoryError (Search above)
