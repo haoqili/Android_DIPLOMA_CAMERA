@@ -409,6 +409,8 @@ To fix this problem (ultimately I changed into Camera Surface View though and do
 Extra notes
 ==============================
 - Socket-already-in-use problem when loading new code is fixed by always killing (using back arrow) the app before loading new code. (The "home" button only pauses the app, not destroying it.)
+    Jason: The socket in use is probably due to the NetworkThread not exiting cleanly or at all when you load new code onto it. When you load new code directly from your laptop without first closing the running app by hitting the back button, ADB kills the StatusActivity without letting it close the NetworkThread first.
+- Whenever after the phone connects to USB, you have to turn on the development mode again.
 
 Trials
 ==============================
