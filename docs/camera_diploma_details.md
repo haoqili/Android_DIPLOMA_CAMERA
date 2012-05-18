@@ -400,6 +400,7 @@ don't end up with empty logs at the end of an experiment.
 
 - If the request is taking too long, you might see: "xxx is not responding. Would you like to close it? 'Wait' 'Okay'". If people press 'Okay'. the app crashes. If people press 'Wait' the app continues normally. Don't press anything else
 
+- the logs are saved on the sd card, look for csm*
 
 Notes in chronological order
 ==============================
@@ -602,7 +603,7 @@ Regions: 6
 Setup: Linear
 Files: https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/master/experiment2_april_6 containing logs, scripts for analysis and power, email conversations
 
-The server was started in Stata on hermes5.csail.mit.edu (which we'll discover later that sometimes this drops due to security reasons).
+The server was started in Stata on hermes5.csail.mit.edu (which we'll discover later that sometimes this drops due to security reasons). The experiment was conducted on the eastern sidewalk of 436 Mass Ave to 2 blocks northwestwards. This stretch of road is very busy, filled with resturants and small businesses, which possibly caused a lot of Wifi interferance with the large number of Wifi hotspots.
 
 Run 1:
 We handed 2 Nexus S phones to each of the 10 people, 1 Nexus and 1 Galaxy note. We went through the directions, letting people know that they cannot press "Okay", but press "Wait" instead, if the phone prompts the phone to quit during a request hang. We instructed the people to walk along one side of Mass Ave. The people should press GET/TAKE buttons in the same sequence on both DIPLOMA and Cloud phones.
@@ -842,7 +843,10 @@ Fixes:
         - 20 meters linearly outside of 77 mass ave
         - 25+ meters linearly on Killian court
         - A curved path, like curved behind a tree causes a lot of decrease in range
-    At this time, we failed to realize the region size should be small enough so that 2 phones anywhere inside 2 adjacent regions could hear each other, not 1 region. Since the leaders must be able to talk to adjancent leaders
+    At this time, we failed to realize the region size should be small enough so that 2 phones anywhere inside 2 adjacent regions could hear each other, not 1 region. Since the leaders must be able to talk to adjancent leaders. If the region widths are set as the limiting range of the phones (20 meters in our case), the only way a DIPLOMA multi-hop would work is if the leaders are exactly 20 meters from each other. If one leaders just moves a little bit, it will fall out of range of the farther neighboring leader and thus breaking DIPLOMA multi-hops.
+    Even though technically the region width should be half of the phone range, with the GPS inaccuracy of the phones, setting the region width to 10 meters is not ideal. If the regions are too small, and the phone's inate GPS inaccuracies varies a lot, we could end up with insensible region allocations. In the worst case, region monotonicity may be broken, e.g. a phone could be erroneously assigned to region 2, between a region 3 and region 4 phone. Without region monotonicity, DIPLOMA multi-hop would not be concrete.
+    When we realized this, we made it possible to *change the region's width* from the UI. The default is still 20 meters.
+        https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/ae6b6d04f2dde49e2455dfeb72de1037190d9059#L6L831
 
 - Increase the heart beat period to the cloud from 30 seconds to 2 minutes
     https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/24c58c77e7b762b1a6dfa12689661e1e82846598#L2L35
@@ -857,7 +861,7 @@ Fixes:
     https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/28a9157f93f3d511a91885c8c9f717a8aca50781
     https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/c12d180dff17819377c8aa215f5621ddc16be8ee
     
-- UI: show number of successes
+- UI: show number of successes and number of clicks on the UI so that real-time monitoring can be made.
     https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/7c4752ad5dd5b73a38b7b314a55ac44f499a145c
 
 - Make DIPLOMA time-out detection possible by letting DIPLOMA know about the original client's ID (for its IP address). Before this change, leaders cannot handle the case of timedOut to tell nonclient that I (the leader) failed to reach the remote region so it (the nonclient) doesn't have to wait until its timeout ends. This is because the leader (without its reply.data that contains GetPhotoInfo) cannot distinguish among its nonleaders.
@@ -890,7 +894,6 @@ Fixes:
 - Improve performance: if a phone in the JOINING state hears a heartbeat from the region, it tries to become become NONLEADER right away
     https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/2bc09f5c671413d216fc605a8d3d15b275911e67#L2R295
 
-==============================
 Experiment 3
 ------------
 Location: 77 Massachusetts Avenue
@@ -898,60 +901,156 @@ Date: April 25
 Weather: Sunny
 Phones: 20 Nexus S, 20 Galaxy Notes
 People: 10 People, 1 Cloud, 1 DIPLOMA/person
-Regions: 6 or 4
+Regions: 6 or 2
 Setup: Linear
-Files:
+Files: 
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/master/experiment3_april_25_2011
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/experiment3_april_25_2011/results.txt results
 
-In order to have a stable server, we used a ethernet-connected laptop and observed no server crashes. The range was still bad at 20 meters. However at 10 meters it would be too small for the DIPLOMA hops to make sense since the GPS locations varied a lot. *TODO Expand/explain*
+The experiment was conducted strictly on the eastern sidewalk of 77 Mass Ave. Region 0, the first region, starts around the intersection of Amherst St and Mass Ave. Region 5, the last region, ends around 77 Mass Ave. The location is chosen due to its much smaller number of Wifi hotspots compared to busy location last time.
 
+In order to have a more stable server, we used an ethernet-connected laptop and observed no server crashes throughout the experiment. One of us (HaoQi) sat in a classroom overlooking part of the experiment through the window (nothing was seen because during the 1.5 hours of the experiment, a film class was held inside the classroom, with the projector blocking the entire window). Google chat was used for communication. 
+The server logs were first logged using tee: `python cloud_camera_server.py | tee cloud1.txt` and `python diploma_camera_server.py | tee dip1.txt`, but the tee separated the server messages and the http messages, and once in every 5-10 minutes dumped all the tee messages at once. Most unfortunately, cloud1.txt and dip1.txt were empty. After this discovery was made, the servers were just ran normally, without the piped tee.
+
+Earlier run: 6 regions 
+Later run: 2 regions
+
+    At least one run used Nexus S. At least another run used Galaxy notes.
+    At the beginning of each run the server was restarted.
+    
+    Hysteresis of 0 is used for the entire experiment.
+    During a Nexus S run, the regions were switched to 10 meters from 20 meters, but the success rate did not improve (23%).
+
+    Once, there was a case where there were 2 leaders of region 0 (see experiment3_serverlogs/gchat.txt)
+
+    At another point, the cloud seemed frozen so it had to be reset.
+
+    DIPLOMA phones tried to ask to take leadership a lot of the times (most likely due to a code bug).
+
+Results --
+We analyzed the data from all runs all at once.
+
+Anirudh:
+    At first glance, it doesn't seem to have improved too much. We added a real time counter to the phones to monitor the completion rate on the fly and from inspection, the numbers don't look too good (<40 %) . The latency is really good when it does complete, but any requests across more than one region usually seem to fail.
+
+    Anirudh on results: The only weird aspect is diploma get latency is pretty high ie 1800 ms. It should be comparable to diploma take latency
+
+Found:
+- Nexus S: 45% success rate for DIPLOMA, 97% success for Cloud
+- Galaxy Notes: 24% success rate for DIPLOMA, 65% success for Cloud
+- Nexus S: DIPLOMA get success from own region: 86%, from neighboring region: 7%, for two hops: 6%, for three+ hops: 0%
+- Galaxy Notes: DIPLOMA get success from own region: 65%, from neighboring region: 7%, for two+ hops: 0%
+
+Conclusion:
+    - Wifi is still bad outside, try experiment indoors next time
+
+Fixes:
+    - Disable multi-hop forwarding: 
+        https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/a7de3966414044eba905fcc584a77f53c0245789#L4R369
 
 Experiment 4
 -----------
 Location: Inside Stata, in the lounge closest to the Vassar/Main St intersection    
 Date: April 30
-Phones: 20 Nexus S, 20 Galaxy Notes
+Weather: Sunny
+Phones: 20 Galaxy Notes ONLY
 People: 10 People, 1 Cloud, 1 DIPLOMA/person
 Regions: 6 or 4
+Setup: 2x3 or 2x2
+Files:
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/master/experiment4_april30
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/experiment4_april30/results.txt results    
 
-No GPS, hystersis, DIPLOMA, or multihop. Users simulated regions by pressing buttons according to area on floor. Observed 3G better than 4G. Also during the 3G trial, people started to hold their phones more vertically. 
-Observed a bug where sometimes an entire region cannot get/take pictures successfully.
+    No GPS, hystersis, DIPLOMA, or multihop. Users simulated regions by pressing buttons according to area on floor. 
+    5 runs (run 0 - run 4)
+    Jason put on a 3G/4G switch app on the Galaxy Notes, so we only used those phones. During run 2 we used 3G. Otherwise it was all 4G.
+    Also during the 3G trial, people started to hold their phones more vertically. 
+    
+    Observed a bug where sometimes an entire region cannot get/take pictures successfully.
 
-- Fixed the bug where the entire region cannot get/take pictures. This was due to an error in the ack counter. The reply of a request counter should be derived from the request counter. ** Should I explain why I made this mistake ?? TODO ASK: XXX **
+    Run 2, the 3G trial had the best get results of 68% successes, but run 3 had the best get latency of under 800 ms.
+
+Anirudh:
+    Run 0 : 4G/ 6 regions : 38 %
+    Run 1 : 4G/ 4 regions : 47 %
+    Run 2 : 3G/ 4 regions : 68 %
+    Run 3 : 4G/ 4 regions : 36 %
+    Run 4 : 4G/ 4 regions : 39 %
+
+    Overall, for no good reason, DIPLOMA seems to have higher completion rates when using 3G to get to the cloud as opposed to 4G. There is a  marked improvement when going from 6 regions to 4 regions though. We haven't processed takes yet, but they should be similar. Can we omit 4G altogether in the paper ? Or should we try rerunning 4 regions, indoor with 4G ?
+
+Anirudh:
+    Low completion rates are predominantly due to NULL regions (a DIPLOMA timeout) rather than a timeout (a UserApp timeout). The problem is I am not sure how to distinguish between an unpopulated region and a failed DIPLOMA request. Can we ? (see Q&A below)
+
+Fixes:
+- Fixed the bug where the entire region cannot get/take pictures. This was due to an error in the ack counter. The reply of a request counter should be derived from the request counter. 
+  I made this mistake because it did not occur to me that UserApp does not last from region to region. So if a leader moves and becomes the leader of another region, its UserApp is restarted and the queue that contains all the received replyCounters is reinitialized.
+  The standard way of implementing reply counters is to use the request counter, or make a modification based on that. The change is simply one line:
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/aeb358fc5a8f887c4193d7612538f1f1f46ee90c#L3R147
+    
 
 Experiment 5
 -----------
 Location: Inside Stata, in the lounge closest to the Vassar/Main St intersection    
 Date: May 6
-Phones: 20 Nexus S, 20 Galaxy Notes
+Phones: 19 Galaxy Notes
 People: 2, controlled experiment
-Regions: 6 o
+Regions: 6
+Setup: 
+    On the ground supported with car phone stands.
 
-Observed that latency was somewhat strange.
+    Region 0            Region 2*           Region 4
+    2 DIPLOMA           2 DIPLOMA           1 DIPLOMA    
+    2 Cloud             2 Cloud             1 Cloud
 
-- Added latency UI
+    Region 1            Region 3*           Region 5
+    2 DIPLOMA           2 DIPLOMA           1 DIPLOMA
+    2 Cloud             1 Cloud             1 Cloud
+    * I don't remember which hand just 1 phone in region 2 or 3, check the logs yourself
+Files:
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/master/experiment5_may6_indoors
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/experiment5_may6_indoors/results.txt
+
+2 Runs
+    run 0 was 4G
+    run 1 was 3G
+
+Observed that latency was somewhat strange. (See explaination in experiment 6)
+Anirudh:
+    I am only concerned about the CameraCloud latencies over 3G being too good. I remember seeing a much more perceptible lag. Besides, the TAKES seem to show this as their latency is ~ 1900 ms. Not sure why the GETs are so good for 3G (which is bad for us). Can we re-analyse this log once again before going forward with another deployment ? Surprisingly some of the 3G CameraCloud runs do have good latencies. Maybe it's the effect of caching ? 
+Jason: Maybe you pressed buttons too close together, when it was still in active state? Not sure...
+
+Fix:
+- Added latency UI so that we can observe the strangeness of latency real time:
+    https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/7df1600531f730d03cc824984ecb21bb60eabd63
 
 Experiment 6
 -----------
 Location: Inside Stata, in the lounge closest to the Vassar/Main St intersection    
 Date: May 12
-Phones: 20 Nexus S, 20 Galaxy Notes
+Phones: 20 Galaxy Notes
 People: 2, controlled experiment
 Regions: 6 
+Setup:
+    On 6 chairs
 
-Figured out why latency was strange. Expected results, finally
-Though for one, we were 3% short of 100%
+    Region 0            Region 2            Region 4
+    2 DIPLOMA           1 DIPLOMA           2 DIPLOMA    
+    2 Cloud             1 Cloud             2 Cloud
 
-======================================
-- link to github commits of the bugs
-- link to raw data
-- description of methodology
-- emails ...
-- conclusions
-    - bug fixes
-    - low level system issue
-    - how to reproduce the issues/repeatable
+    Region 1            Region 3            Region 5
+    2 DIPLOMA           1 DIPLOMA           2 DIPLOMA
+    2 Cloud             1 Cloud             2 Cloud
 
-- how things got to where they are
+4 Runs
+    Run 2 is trashed because we forgot to turn off the GPS and one leader became dormant during the run.
+    We confirmed the warm-up effect in 2.
+    So focus on Run 3 and Run 4, where they don't have the "warm-up" effect.
+
+
+Figured out why latency was strange. Expected results, finally!!
+
+Though for one, DIPLOMA was 3% short of 100%, maybe Wifi was spotty or there was some hard-to-find bug
 
 Closed Questions
 =============
@@ -1039,3 +1138,36 @@ Open Concerns
 
     For DIPLOMA, though, perhaps we should continue using the Nexus S's
     since that's what was used in the previous experiments, too.
+
+- USB hub that stopped working consistently. If it had worked we could have used this script to run adb on all connected phones:
+    Jason:
+        #!/bin/bash
+        # Script adb+
+        # Usage
+        # You can run any command adb provide on all your current devices
+        # ./adb+ <command> is the equivalent of ./adb -s <serial number> <command>
+        #
+        # Examples
+        # ./adb+ version
+        # ./adb+ install apidemo.apk
+        # ./adb+ uninstall com.example.android.apis
+
+        adb devices | while read line
+        do
+           if [ ! "$line" = "" ] && [ `echo $line | awk '{print $2}'` = "device" ]
+           then
+               device=`echo $line | awk '{print $1}'`
+               echo "$device $@ ..."
+               adb -s $device $@
+           fi
+        done
+
+Q:
+I am not sure how to distinguish between an unpopulated region and a failed DIPLOMA request. Can we ?
+A:
+We can't
+
+Q:
+We don't distinguish no camera data / null region for Cloud ? If we do this the CCloud completion rates will probably go up from 97 %
+A:
+We don't want to distinguish them.
