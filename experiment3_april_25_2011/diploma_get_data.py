@@ -153,7 +153,7 @@ def printResults():
     print "--------- GETs ---------------"
     print "number:\t\t%d" % diploma_getNum
     print "successes:\t%d\t%d %%\tincluding existing regions without a photo" % (diploma_getGood, (diploma_getGood*100/diploma_getNum))
-    print "fails:\t\t%d due to null region" % diploma_getBad
+    print "fails:\t\t%d DIPLOMA failed, i.e. leaders couldn't talk to remote leader possibly due to null region" % diploma_getBad
     print "timed outs:\t%d requests that take longer than 6 seconds, some don't ever have responses" % diploma_getTimedout
     latencyPrints(diploma_get_latency)
 

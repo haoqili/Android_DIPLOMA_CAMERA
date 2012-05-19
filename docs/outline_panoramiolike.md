@@ -1,8 +1,5 @@
 The Design and Implementation of a Distributed Photo Sharing Android Application Over Ad-Hoc Wireless
 
-The Design and Implementation of a photo
-sharing application over ad-hoc wireless
-
 Motivation/background
 --------------------
 

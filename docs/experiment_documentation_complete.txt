@@ -469,10 +469,10 @@ Pre-experiment 1: 3-phone test to check DIPLOMA relay and Wifi range
     When we stood 20 meters apart, the "get" worked about 2 out of 4 times.
 
 Pre-experiment 2: Testing that phones can hear each other across Mass Ave.
-    Even though all of the outdoor experiments were conducted on one side of the rode, we tested that Wifi signal could potentially work between phones across the road.  Two of us stood at opposite sidewalks taking and getting each other's picture. We did not observe anything abnormal in the 5 mintue experiment. 
+    Even though all of the outdoor experiments were conducted on one side of the rode, we tested that Wifi signal could potentially work between phones across the road.  Two of us stood at opposite sidewalks taking and getting each other's picture. We did not observe anything abnormal in the 5 minute experiment. 
 
 
-i   We performed a total of 6 data-collection experiments in a span of almost 2 months. Throuh time, the apps had fewer bugs and more measures to insure successes. However, it was impossible to fix the most critical issue -- the Wifi range and consistency of the phones. The interference of 20 phones carried by 10 people moving simultaneously and randomly made collecting meaninful data imfeasible with the current Wifi abilities of the phones. In the final 2 experiments, we resorted to a controlled indoors experiment with minimal Wifi interferance and obtained more expected results.
+   We performed a total of 6 data-collection experiments in a span of almost 2 months. Through time, the apps had fewer bugs and more measures to insure successes. However, it was impossible to fix the most critical issue -- the Wifi range and consistency of the phones. The interference of 20 phones carried by 10 people moving simultaneously and randomly made collecting meaningful data infeasible with the current Wifi abilities of the phones. In the final 2 experiments, we resorted to a controlled indoors experiment with minimal Wifi interference and obtained more expected results.
 
 Experiment 1
 ------------
@@ -495,7 +495,7 @@ The git commits between this experiment and the next fixed the following:
 - Added "take photo" ack, i.e. the 4th leg for take photos
 - Added latency measurements
 - Improved UI by providing toast messages to show errors to users
-- Flush the log evertime there is a new write, instead of when the app closes, so that we have logs even when the app crashed. https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/6c95044a8662de19f2d1b6b8d1043e033da5741c#L30R262
+- Flush the log everytime there is a new write, instead of when the app closes, so that we have logs even when the app crashed. https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/6c95044a8662de19f2d1b6b8d1043e033da5741c#L30R262
 - Automatic detection for net name, 
 
 - Fixed double click problem by using ProgressDialog to freeze the UI as well as a boolean to flag whenever a button is clicked.
@@ -604,6 +604,7 @@ People: 10 People, 1 Cloud, 1 DIPLOMA/person
 Regions: 6
 Setup: Linear
 Files: https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/master/experiment2_april_6 containing logs, scripts for analysis and power, email conversations
+results: https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/experiment2_april_6/log_process_aniru_jason/0411c_meeting.txt
 
 The server was started in Stata on hermes5.csail.mit.edu (which we'll discover later that sometimes this drops due to security reasons). The experiment was conducted on the eastern sidewalk of 436 Mass Ave to 2 blocks northwestwards. This stretch of road is very busy, filled with resturants and small businesses, which possibly caused a lot of Wifi interferance with the large number of Wifi hotspots.
 
@@ -611,7 +612,7 @@ Run 1:
 We handed 2 Nexus S phones to each of the 10 people, 1 Nexus and 1 Galaxy note. We went through the directions, letting people know that they cannot press "Okay", but press "Wait" instead, if the phone prompts the phone to quit during a request hang. We instructed the people to walk along one side of Mass Ave. The people should press GET/TAKE buttons in the same sequence on both DIPLOMA and Cloud phones.
 Observations: When people started to press buttons, the Cloud phone requst made the phone hung for over 2-3 minutes or some phones never stopped hanging.  
 
-We decided to restart the servers. We brought a laptop and tried to connect to a free wifi (which sometimes drops). But we were able te restart the server for run 2.
+We decided to restart the servers. We brought a laptop and tried to connect to a free wifi (which sometimes drops). But we were able to restart the server for run 2.
 
 Run 2:
 We had the same phone setup but with Galaxy Notes phones instead of Nexus S phones.
@@ -873,7 +874,7 @@ Fixes:
 1. Server code freezes on state upload.
     We couldn't find anything wrong with the server. The most likely case was because the Wifi that the laptop connected to was spotty.
 
-2. Get rid of hysterisis. With hysterisis, there were a few meters around the boundaries of the regions that did not allow the phones to change into a new region. The reason for this was because we were worried that the GPS would be very inprecise and casue phone standing near region boundaries to flicker between 2 regions.  
+2. Get rid of hysteresis. With hysteresis, there were a few meters around the boundaries of the regions that did not allow the phones to change into a new region. The reason for this was because we were worried that the GPS would be very imprecise and cause phone standing near region boundaries to flicker between 2 regions.  
     However, the downside of hysterisis, compounded with the fact that phones have internal offsets, made everything confusing when the region sizes are now only 20 meters in length. So for a large percentage of a region area, phones next to each other had different regions.
     This caused me to add a hysetrisis selector that defaults to 0, i.e. no hysterisis.
         https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/ae6b6d04f2dde49e2455dfeb72de1037190d9059#L7R614
