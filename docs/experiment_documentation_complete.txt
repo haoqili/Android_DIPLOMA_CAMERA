@@ -394,11 +394,6 @@ Experiment Set Up
 3. Ensure Items 1 and 2 above do not run on the same port on the same machine.
 4. The code on the phone must point to the right server in both cases
 1 and 2 above.
-5. Is the code  resilient to phone being switched off at random. ?
-6. UI does not freeze at any time except for when processing is going on.
-7. Clear log files from sdcard of all phones.
-8. Make sure logs are flushed on to the sdcard immediately so that we
-don't end up with empty logs at the end of an experiment.
 
 - If the request is taking too long, you might see: "xxx is not responding. Would you like to close it? 'Wait' 'Okay'". If people press 'Okay'. the app crashes. If people press 'Wait' the app continues normally. Don't press anything else
 
@@ -411,7 +406,7 @@ Notes in chronological order
 - Socket-already-in-use problem when loading new code is fixed by always killing (using back arrow) the app before loading new code. (The "home" button only pauses the app, not destroying it.)
     Jason: The socket in use is probably due to the NetworkThread not exiting cleanly or at all when you load new code onto it. When you load new code directly from your laptop without first closing the running app by hitting the back button, ADB kills the StatusActivity without letting it close the NetworkThread first.
 
-- Before I used my own Camera Surface View, I used the built-in camera ACTION_IMAGE_CAPTURE intent to get the picture: https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/e61381eda31d567bb31c69c21f54d3adb9c9f044/src/edu/mit/csail/diplomamatrix/StatusActivity.java#L382. Initially there was a problem that the simple way of retrieving images only provided a *tiny thumbnail of the image, not the full image*: see https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/a1398a4723c0e6710a43dddb8681081c910875ff/src/edu/mit/csail/diplomamatrix/StatusActivity.java#L364
+- Before I used my own CameraSurfaceView, I used the built-in camera ACTION_IMAGE_CAPTURE intent to get the picture: https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/e61381eda31d567bb31c69c21f54d3adb9c9f044/src/edu/mit/csail/diplomamatrix/StatusActivity.java#L382. Initially there was a problem that the simple way of retrieving images only provided a *tiny thumbnail of the image, not the full image*: see https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/a1398a4723c0e6710a43dddb8681081c910875ff/src/edu/mit/csail/diplomamatrix/StatusActivity.java#L364
     The problem is also described here: http://stackoverflow.com/questions/1910608/android-action-image-capture-intent
 More specifically, the onActivityResult() of intent image capture can only provide a low-resolution thumbnail because there probably isn't enough storage space all the time to save all the image data. So that's why http://developer.android.com/reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE says that EXTRA_OUTPUT should be used to save the image.
 To fix this problem (ultimately I changed into Camera Surface View though and don't use the camera intent at all), I save the new photo on the SD card and onACtivityResult() uses _getAndResizeBitmap() to retreive the photo and resize it. https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/e61381eda31d567bb31c69c21f54d3adb9c9f044#L4R384
@@ -451,7 +446,7 @@ To fix this problem (ultimately I changed into Camera Surface View though and do
 - (very minor ui) `photoResultNull.setVisibility(View.VISIBLE);` of https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/8de606e548b4854807ea91a4822b7638a250843c didn't work so I stopped using it.
 
 - **Important!** https://github.com/haoqili/Android_DIPLOMA_CAMERA/commit/333ea188283ab9b67b03c5343ecdc35c01e9fda8#L8R208
-    This commit is when I switched from using camera intent to retrieve the picture and saving the pic on the SD card to using the CameraSurfaceView class http://code.google.com/p/openmobster/wiki/CameraTutorial.
+    This commit is when I switched from using camera intent to retrieve the picture and saving the pic on the SD card --to--> using the CameraSurfaceView class http://code.google.com/p/openmobster/wiki/CameraTutorial.
     The reason for this change was because the *intent/sd card solution only works on Nexus S phones, not Galaxy Notes* phones. In Galaxy Notes, the Mux is killed and restarted before and after the camera intent (because StatusActivity is paused), causing a "Cannot open socketAddress already in use" error: https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/8de606e548b4854807ea91a4822b7638a250843c/logcats/galaxy_note_camera_crash.txt#L470
     CameraSurfaceView fixes this problem because StatusActivity never has to be paused when taking a photo. Since it works on both types of phones, we used this solution for both.
 
@@ -1014,6 +1009,8 @@ Files:
     https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/master/experiment5_may6_indoors
     https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/experiment5_may6_indoors/results.txt
 
+We did move the phones around. 
+
 2 Runs
     run 0 was 4G
     run 1 was 3G
@@ -1034,6 +1031,14 @@ Date: May 12
 Phones: 20 Galaxy Notes
 People: 2, controlled experiment
 Regions: 6 
+Files: 
+Code: https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/7df1600531f730d03cc824984ecb21bb60eabd63
+Logs and scripts: https://github.com/haoqili/Android_DIPLOMA_CAMERA/tree/master/experiment6_may12_indoors
+Results: 
+https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/experiment6_may12_indoors/results_README.md
+https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/experiment6_may12_indoors/results_diploma.txt
+https://github.com/haoqili/Android_DIPLOMA_CAMERA/blob/master/experiment6_may12_indoors/results_cloud.txt
+
 Setup:
     On 6 chairs
 
@@ -1114,6 +1119,18 @@ A:
 J: No, only one or zero User app is running on a phone.
 
 
+Q:
+I am not sure how to distinguish between an unpopulated region and a failed DIPLOMA request. Can we ?
+A:
+We can't
+
+Q:
+We don't distinguish no camera data / null region for Cloud ? If we do this the CCloud completion rates will probably go up from 97 %
+A:
+We don't want to distinguish them.
+
+
+
 Open Concerns
 =============
 - ad hoc wifi continues running on the AT&T phones even after we turn off the Barnacle app (assuming we did turn it on once at least to get wifi working in the first place.). ie turning off the barnacle app has no effect on ad hoc wifi on the AT&T phone. Do you know why this is happening ?
@@ -1166,11 +1183,4 @@ Open Concerns
         done
 
 Q:
-I am not sure how to distinguish between an unpopulated region and a failed DIPLOMA request. Can we ?
-A:
-We can't
-
-Q:
-We don't distinguish no camera data / null region for Cloud ? If we do this the CCloud completion rates will probably go up from 97 %
-A:
-We don't want to distinguish them.
+Why does DIPLOMA do better in 3G than 4G?
