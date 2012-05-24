@@ -366,6 +366,10 @@ Scenario 2. Cloud Get Region 5
                 - CLIENT_DOWNLOAD_PHOTO
                 - Region number 
 
+Cloud can't distinguish between a region without any phones and a region with phones but haven't uploaded any pictures yet. Both of these cases would result in a failure when trying to get from this region. This is because the cloud only knows the existence of a region (by creating an entry in its dictionary) when the first picture of a region is uploaded.  Unlike in CameraDIPLOMA where leaders inform the cloud when they're being created or are leaving.
+
+Similarly, since phones on CameraCloud don't inform the cloud that they're going out of a region, as soon as the first picture of a region is uploaded, it will be possible to get photos from that region even if the phone leaves that region.
+
 -------
 
 DIPLOMA
@@ -1182,5 +1186,6 @@ Open Concerns
            fi
         done
 
-Q:
-Why does DIPLOMA do better in 3G than 4G?
+- Why does DIPLOMA do better in 3G than 4G?
+
+- Double leaders occur occasionally
